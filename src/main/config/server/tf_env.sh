@@ -5,7 +5,7 @@
 
 export SERVER_URL="${server.url.base}"
 export LOCAL_PORT="${server.port}"
-export PROJECT_HOME="${project.home}"
+export PROJECT_HOME="${app.location.linux}"
 export AMQ_PORT="${amq.port}"
 export AMQ_STOMP_PORT="${amq.stomp.port}"
 export SMTP_HOST="${smtp.host}"

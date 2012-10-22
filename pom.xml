@@ -9,12 +9,15 @@
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>1.5.2</version>
   </parent>
   <properties>
     <!-- Used in build -->
-    <redbox.version>1.5.2-SNAPSHOT</redbox.version>
+    <redbox.version>1.5.2</redbox.version>
+    <package.finalname>${project.build.finalName}</package.finalname>
     <!-- Runtime values, will replace placeholders in config and control scripts -->
+    <app.location.windows>${project.home}</app.location.windows>
+    <app.location.linux>${project.home}</app.location.linux>
     <server.port>9000</server.port>
     <amq.port>9101</amq.port>
     <amq.stomp.port>9102</amq.stomp.port>
@@ -70,18 +73,14 @@
       <artifactId>plugin-transformer-local</artifactId>
       <version>${redbox.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.googlecode.the-fascinator</groupId>
-      <artifactId>fascinator-portal</artifactId>
-      <type>warpath</type>
-      <version>1.1.1</version>
-    </dependency>
   </dependencies>
   <profiles>
     <profile>
       <id>build-package</id>
       <properties>
         <server.url.base>http://localhost:${server.port}/redbox/</server.url.base>
+        <app.location.windows>c:/tf2/redbox</app.location.windows>
+    	<app.location.linux>/opt/redbox</app.location.linux>
       </properties>
       <!-- Used for creating an install - omits local build system settings -->
       <build>
@@ -97,6 +96,8 @@
                   <goal>single</goal>
                 </goals>
                 <configuration>
+                <classifier>${classifier.value}</classifier>
+                <finalName>${package.finalname}</finalName>
                   <descriptors>
                     <descriptor>package.xml</descriptor>
                   </descriptors>
@@ -385,4 +386,16 @@
     <url>https://github.com/redbox-mint/redbox-build-dev-local</url>
     <developerConnection>scm:git:https://github.com/redbox-mint/redbox-build-dev-local.git</developerConnection>
   </scm>
+  <distributionManagement>
+		<snapshotRepository>
+			<id>redbox-nexus-snapshots</id>
+			<name>Redbox Nexus Snapshots</name>
+			<url>http://dev.redboxresearchdata.com.au/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>redbox-nexus-releases</id>
+			<name>Redbox Nexus Releases</name>
+			<url>http://dev.redboxresearchdata.com.au/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
