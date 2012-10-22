@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.redbox-mint</groupId>
   <artifactId>redbox-local-curation-demo</artifactId>
-  <version>1.5.2-SNAPSHOT</version>
+  <version>1.5.2</version>
   <packaging>${packaging}</packaging>
   <name>ReDBox - Local Curation Demo</name>
   <parent>
@@ -385,6 +385,7 @@
   <scm>
     <url>https://github.com/redbox-mint/redbox-build-dev-local</url>
     <developerConnection>scm:git:https://github.com/redbox-mint/redbox-build-dev-local.git</developerConnection>
+    <tag>redbox-local-curation-demo-1.5.2</tag>
   </scm>
   <distributionManagement>
 		<snapshotRepository>
