@@ -9,11 +9,11 @@
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.5.2.2</version>
+    <version>1.5.2.3-SNAPSHOT</version>
   </parent>
   <properties>
     <!-- Used in build -->
-    <redbox.version>1.5.2.2</redbox.version>
+    <redbox.version>1.5.2.3-SNAPSHOT</redbox.version>
     <package.finalname>${project.build.finalName}</package.finalname>
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <app.location.windows>${project.home}</app.location.windows>
