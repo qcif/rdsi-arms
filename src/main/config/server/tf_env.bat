@@ -2,7 +2,7 @@
 
 set SERVER_URL=${server.url.base}
 set LOCAL_PORT=${server.port}
-set PROJECT_HOME=${app.location.window}
+set PROJECT_HOME=${app.location.windows}
 set AMQ_PORT=${amq.port}
 set AMQ_STOMP_PORT=${amq.stomp.port}
 set SMTP_HOST=${smtp.host}
