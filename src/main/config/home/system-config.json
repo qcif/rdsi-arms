@@ -331,6 +331,10 @@
             "dataset": {
                 "jsonconfig": "dataset.json",
                 "packages-in-package": false
+            },
+            "dmpt": {
+                "jsonconfig": "dmpt.json",
+                "packages-in-package": false
             }
         },
         "harvestFiles": "${fascinator.home}/harvest",

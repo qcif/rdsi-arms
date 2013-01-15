@@ -24,7 +24,7 @@ export REDBOX_VERSION="${redbox.version}"
 export CLASSPATH="plugins/*:lib/*"
 
 # jvm memory settings
-JVM_OPTS="-XX:MaxPermSize=512m -Xmx512m"
+JVM_OPTS="-XX:MaxPermSize=512m -Xmx512m -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n"
 
 # logging directories
 export SOLR_LOGS=$TF_HOME/logs/solr
