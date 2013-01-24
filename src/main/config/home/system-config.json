@@ -336,6 +336,10 @@
                 "jsonconfig": "dmpt.json",
                 "packages-in-package": false
             }
+            "simple": {
+                "jsonconfig": "simple.json",
+                "packages-in-package": false
+            }
         },
         "harvestFiles": "${fascinator.home}/harvest",
         "houseKeeping": {
