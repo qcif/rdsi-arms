@@ -218,7 +218,13 @@
             "uri": "http://localhost:${jetty.port}/solr/anotar",
             "coreName": "anotar",
             "autocommit": true
-        }
+        },
+        "eventLog": {
+            "uri": "http://localhost:${jetty.port}/solr/eventlog",
+            "coreName": "eventlog",
+            "autocommit": false,
+            "embedded": false
+        },
     },
     "transformerDefaults": {
         "local": {
