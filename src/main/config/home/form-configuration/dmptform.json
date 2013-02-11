@@ -28,8 +28,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "state-name":"Welcome",
-                            "transition-name":"Next"
+                            "transition-names":["Next"]
                         }
                     ]
                 },
@@ -83,9 +82,14 @@
                             "label":"Funding source"
                         },
                         {
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"Grant number(s)"
+                        },
+                        {
                             "component-type":"repeatable-text",
-                            "field-name":"projectgrantnumber",
-                            "label":"Grant number(s)"
+                            "field-name":"project_grantnumber",
+                            "label":""
                         },
                         {
                             "component-type":"data-source-dropdown",
@@ -123,7 +127,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Next"
+                            "transition-names":["Next"]
                         }
                     ]
                 },
@@ -141,13 +145,17 @@
                             "content":"Principal investigator*"
                         },
                         {
-                        	"component-type":"people",
+                        	"component-type":"person",
                         	"lookup-name":"project.pi"
                         },
                         {
                             "component-type":"text-input",
                             "field-name":"project.pi.email",
                             "label":"Email address"
+                        },
+                        {
+                            "component-type":"native-html",
+                            "content":"<hr>"
                         },
                         {
                             "component-type":"text-block",
@@ -164,6 +172,10 @@
                             "label":"Email address"
                         },
                         {
+                            "component-type":"native-html",
+                            "content":"<hr>"
+                        },
+                        {
                             "component-type":"text-block",
                             "type":"h3",
                             "content":"Collaborators"
@@ -176,6 +188,10 @@
 												{"jaffaText":{"label": "Email address","class-list":"jaffa-field","suffix": "email"}}
 												]
 											}	
+                        },
+                        {
+                            "component-type":"native-html",
+                            "content":"<hr>"
                         },
                         {
                             "component-type":"text-block",
@@ -192,6 +208,10 @@
                             				}
                         },
                         {
+                            "component-type":"native-html",
+                            "content":"<hr>"
+                        },
+                        {
                             "component-type":"text-block",
                             "type":"h3",
                             "content":"Supervisor"
@@ -203,15 +223,12 @@
                         {
                             "component-type":"text-input",
                             "field-name":"project.supervisor.email",
-                            "label":"Email address"
+                            "label":"Email address",
+                            "additional-classes":""
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+                            "transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -246,17 +263,13 @@
                         },
                         {
                             "component-type":"data-source-dropdown",
-                            "field-name":"dataCollection.fileFormat",
+                            "fieldName":"dataCollection.fileFormat",
                             "label":"Predominant file format",
                             "sourceUrl":"dmpt/data/fileFormat.json"
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -282,11 +295,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -385,11 +394,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -420,9 +425,14 @@
                             ]
                         },
                         {
-                            "component-type":"input-text",
+                            "component-type":"text-input",
                             "field-name":"dataLicensingAccess.manager",
-                            "label":"The data manager is recorded as: "
+                            "label":"The data manager is recorded as: ",
+                            "additional-classes":""
+                        },
+                        {
+                            "component-type":"native-html",
+                            "content":"<hr>"
                         },
                         {
                             "component-type":"text-block",
@@ -431,7 +441,7 @@
                         },
                         {
                             "component-type":"data-source-dropdown",
-                            "field-name":"dataLicensingAccess.type",
+                            "fieldName":"dataLicensingAccess.type",
                             "label":"License type",
                             "sourceUrl":"workflows/forms/data/licences.json",
                             "idKey":"id",
@@ -463,14 +473,18 @@
                             ]
                         },
                         {
-                            "component-type":"input-text",
+                            "component-type":"text-input",
                             "field-name":"dataLicensingAccess.other",
                             "label":"Other: "
                         },
                         {
-                            "component-type":"input-text",
+                            "component-type":"text-input",
                             "field-name":"dataLicensingAccess.otherURL",
                             "label":"URL: "
+                        },
+                        {
+                            "component-type":"native-html",
+                            "content":"<hr>"
                         },
                         {
                             "component-type":"text-block",
@@ -491,11 +505,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -577,11 +587,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -615,10 +621,11 @@
                             "content":"Sensitivities"
                         },
                         {
-                            "component-type":"radio-button",
+                            "component-type":"checkbox",
                             "field-name":"dataSensitivity.type",
-                            "button-for":"Type of sensitivity",
-                            "buttons":[
+                            "box-for":"Type of sensitivity:",
+                            "multiline":true,
+                            "boxes":[
                                 {
                                     "label":"Commercially sensitive"
                                 },
@@ -641,11 +648,7 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
@@ -702,16 +705,12 @@
                         },
                         {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
-                        },
-                        {
-                            "component-type":"transition-control",
-                            "transition-name":"Next"
+							"transition-names":["Back","Next"]
                         }
                     ]
                 },
                 {
-                    "heading":"Final",
+                    "heading":"furtherinfo",
                     "fields":[
                         {
                             "component-type":"text-block",
@@ -727,6 +726,10 @@
                             "component-type":"repeatable-text",
                             "field-name":"finalKeywords",
                             "label":"keyword"
+                        },
+                        {
+                            "component-type":"native-html",
+                            "content":"<hr>"
                         },
                         {
                             "component-type":"text-block",
@@ -753,6 +756,10 @@
                             ]
                         },
                         {
+                            "component-type":"native-html",
+                            "content":"<hr>"
+                        },
+                        {
                             "component-type":"text-block",
                             "type":"h3",
                             "content":"Temporal (time) information"
@@ -770,10 +777,6 @@
                             "additional-classes":"dateYMD"
                         },
                         {
-                            "component-type":"native-html",
-                            "content":"<div id='mapholder' class='mapholder'></div><script>var latlon = '-34.961372,138.639221';var img_url = 'http://maps.googleapis.com/maps/api/staticmap?center='+latlon+'&zoom=10&size=400x300&sensor=false';document.getElementById('mapholder').innerHTML='<img src='+img_url+'>';</script>"
-                        },
-                        {
                             "component-type":"text-input",
                             "field-name":"finalCollection.tiemPeriod",
                             "label":"Time period:"
@@ -784,8 +787,12 @@
                             "content":"Geographic/spatial information"
                         },
                         {
+                            "component-type":"native-html",
+                            "content":"<div id='mapholder' class='mapholder'></div><script>var latlon = '-34.961372,138.639221';var img_url = 'http://maps.googleapis.com/maps/api/staticmap?center='+latlon+'&zoom=10&size=400x300&sensor=false';document.getElementById('mapholder').innerHTML='<img src='+img_url+'>';</script>"
+                        },
+                        {
                             "component-type":"transition-control",
-                            "transition-name":"Back"
+                            "transition-names":["Back"]
                         }
                     ]
                 },

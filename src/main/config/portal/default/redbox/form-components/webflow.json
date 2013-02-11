@@ -31,12 +31,14 @@
             "Next": "EthicsSensitivities"
         },
         "EthicsSensitivities": {
-            "Next": "Final"
+        	"Back": "Retention",
+            "Next": "Ownership"
         },
         "Ownership": {
-            "Next": "Final"
+        	"Back": "EthicsSensitivities",
+            "Next": "furtherinfo"
         },
-        "Final": {
+        "furtherinfo": {
             "Back": "Ownership"
         }
     }
