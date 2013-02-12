@@ -105,8 +105,8 @@
         ]
     },
     "andsDoi": {
-        "apiKey": "1234",
-        "apiBaseUrl": "https://test.ands.org.au/home/dois/",
+        "apiKey": "TESTd652186962d02890e3a6f0caa3b19e177dd29ccc",
+        "apiBaseUrl": "https://services.ands.org.au/doi/1.1/",
         "doiProperty": "andsDoi",
         "security": {
             "users": [],
@@ -418,5 +418,14 @@
             "failOnMissing": false
         },
         "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
-    }
+    },
+    "services": [
+    	{
+    		"id":"reportManager",
+    		"className":"com.googlecode.fascinator.portal.report.service.ReportManager",
+    		"config": {
+    			"home":"${fascinator.home}/reports/saved-reports"
+    		}	
+    	}
+    ]    
 }
