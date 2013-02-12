@@ -218,7 +218,13 @@
             "uri": "http://localhost:${jetty.port}/solr/anotar",
             "coreName": "anotar",
             "autocommit": true
-        }
+        },
+        "eventLog": {
+            "uri": "http://localhost:${jetty.port}/solr/eventlog",
+            "coreName": "eventlog",
+            "autocommit": false,
+            "embedded": false
+        },
     },
     "transformerDefaults": {
         "local": {
@@ -331,6 +337,14 @@
             "dataset": {
                 "jsonconfig": "dataset.json",
                 "packages-in-package": false
+            },
+            "dmpt": {
+                "jsonconfig": "dmpt.json",
+                "packages-in-package": false
+            }
+            "simple": {
+                "jsonconfig": "simple.json",
+                "packages-in-package": false
             }
         },
         "harvestFiles": "${fascinator.home}/harvest",
@@ -389,7 +403,8 @@
         "Parties_People": "${mint.proxy.url}/Parties_People/opensearch/lookup",
         "Services": "${mint.proxy.url}/Services/opensearch/lookup",
         "Geonames": "${mint.proxy.server}/geonames/search",
-        "NLA_SRU": "${mint.proxy.url}/default/search/nlaLookup"
+        "NLA_SRU": "${mint.proxy.url}/default/search/nlaLookup",
+        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type"
     },
     "alerts": {
         "path": "${fascinator.home}/alerts",
@@ -427,5 +442,11 @@
     			"home":"${fascinator.home}/reports/saved-reports"
     		}	
     	}
-    ]    
+    ],
+    "charts": {
+    		"records-by-stage-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler"}
+    		"records-by-stage-2": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler"},
+    		"records-by-month-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler"},
+    		"records-by-month-2": { "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler"}
+    }
 }
