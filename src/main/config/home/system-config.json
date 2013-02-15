@@ -235,6 +235,11 @@
             "id": "jsonVelocity",
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates"
+        },
+        "jsonVelocityPDF": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/pdf-templates"
         }
     },
     "uploader": {
@@ -265,7 +270,7 @@
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
-            "order": [ "local", "redbox" ]
+            "order": [ "local", "dashboard", "redbox" ]
         },
         "caching": {
             "caches": {
