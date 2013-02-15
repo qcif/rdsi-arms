@@ -105,8 +105,8 @@
         ]
     },
     "andsDoi": {
-        "apiKey": "1234",
-        "apiBaseUrl": "https://test.ands.org.au/home/dois/",
+        "apiKey": "TESTd652186962d02890e3a6f0caa3b19e177dd29ccc",
+        "apiBaseUrl": "https://services.ands.org.au/doi/1.1/",
         "doiProperty": "andsDoi",
         "security": {
             "users": [],
@@ -439,10 +439,19 @@
         },
         "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
     },
-     "charts": {
+    "services": [
+    	{
+    		"id":"reportManager",
+    		"className":"com.googlecode.fascinator.portal.report.service.ReportManager",
+    		"config": {
+    			"home":"${fascinator.home}/reports/saved-reports"
+    		}	
+    	}
+    ],
+    "charts": {
     		"records-by-stage-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler"}
     		"records-by-stage-2": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler"},
     		"records-by-month-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler"},
     		"records-by-month-2": { "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler"}
-    	}
+    }
 }
