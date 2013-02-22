@@ -114,6 +114,45 @@
         <packaging>jar</packaging>
         <project.home>../</project.home>
       </properties>
+      <build>
+      	<resources>
+      		<resource>
+                  <directory>src/main/config/home</directory>
+                  <filtering>false</filtering>
+                </resource>
+                <resource>
+                   <directory>src/main/config/home</directory>
+					<includes>
+						<include>system-config.json</include>
+					</includes>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>src/main/config/portal</directory>
+                  <filtering>false</filtering>
+                </resource>
+                 <resource>
+                  <directory>src/main/config/server</directory>
+                  <filtering>false</filtering>
+                  <excludes>
+                    <exclude>**/*.bat</exclude>
+                    <exclude>**/*.sh</exclude>
+                  </excludes>
+                </resource>
+                <resource>
+                  <directory>src/main/config/server</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>**/*.bat</include>
+                    <include>**/*.sh</include>
+                  </includes>
+                </resource>
+                <resource>
+                  <directory>src/main/config/solr</directory>
+                  <filtering>true</filtering>
+                </resource>
+      	</resources>
+      </build>
     </profile>
   </profiles>
   <!-- The standard build/deploy process for making a server -->
