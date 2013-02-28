@@ -13,17 +13,25 @@
     "sso": {
         "plugins": [],
         "urlExclusions": {
-            "startsWith": ["css/", "feed/", "images/", "js/", "flowplayer/"],
-            "endsWith": [".ico"],
-            "equals": ["css"]
+            "startsWith": [
+                "css/",
+                "feed/",
+                "images/",
+                "js/",
+                "flowplayer/"
+            ],
+            "endsWith": [
+                ".ico"
+            ],
+            "equals": [
+                "css"
+            ]
         },
-        "trustTokens": {
-        }
-    },	
+        "trustTokens": {}
+    },
     "accesscontrol": {
         "type": "derby",
-        "derby": {
-        }
+        "derby": {}
     },
     "authentication": {
         "type": "internal",
@@ -72,7 +80,9 @@
                 "priority": "7",
                 "config": {
                     "name": "subscriber",
-                    "subscribers": ["solr-event-log"]
+                    "subscribers": [
+                        "solr-event-log"
+                    ]
                 }
             },
             {
@@ -111,7 +121,9 @@
         "doiProperty": "andsDoi",
         "security": {
             "users": [],
-            "roles": ["admin"]
+            "roles": [
+                "admin"
+            ]
         }
     },
     "curation": {
@@ -120,64 +132,113 @@
         "pidProperty": "localPid",
         "pidType": "local",
         "mintBroker": "${mint.amq.broker}",
-
         "relations": {
             "dc:relation.vivo:Dataset.0.dc:identifier": {
-                "path": ["dc:relation", "vivo:Dataset"],
-                "identifier": ["dc:identifier"],
-                "relationship": ["vivo:Relationship", "rdf:PlainLiteral"],
+                "path": [
+                    "dc:relation",
+                    "vivo:Dataset"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
+                "relationship": [
+                    "vivo:Relationship",
+                    "rdf:PlainLiteral"
+                ],
                 "excludeCondition": {
-                    "path": ["redbox:publish"],
+                    "path": [
+                        "redbox:publish"
+                    ],
                     "value": ""
                 },
                 "system": "redbox",
                 "optional": true
             },
             "dc:relation.vivo:Service.0.dc:identifier": {
-                "path": ["dc:relation", "vivo:Service"],
-                "identifier": ["dc:identifier"],
-                "relationship": ["vivo:Relationship", "rdf:PlainLiteral"]
+                "path": [
+                    "dc:relation",
+                    "vivo:Service"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
+                "relationship": [
+                    "vivo:Relationship",
+                    "rdf:PlainLiteral"
+                ]
             },
             "dc:creator.foaf:Person.0.dc:identifier": {
-                "path": ["dc:creator", "foaf:Person"],
-                "identifier": ["dc:identifier"],
+                "path": [
+                    "dc:creator",
+                    "foaf:Person"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
                 "excludeCondition": {
-                    "path": ["dc:identifier"],
+                    "path": [
+                        "dc:identifier"
+                    ],
                     "startsWith": "http://nla.gov.au/nla.party-"
                 },
                 "relationship": "hasCollector"
             },
             "locrel:prc.foaf:Person.dc:identifier": {
-                "path": ["locrel:prc", "foaf:Person"],
-                "identifier": ["dc:identifier"],
+                "path": [
+                    "locrel:prc",
+                    "foaf:Person"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
                 "excludeCondition": {
-                    "path": ["dc:identifier"],
+                    "path": [
+                        "dc:identifier"
+                    ],
                     "startsWith": "http://nla.gov.au/nla.party-"
                 },
                 "relationship": "hasAssociationWith",
                 "description": "Primary Contact"
             },
             "swrc:supervisor.foaf:Person.0.dc:identifier": {
-                "path": ["swrc:supervisor", "foaf:Person"],
-                "identifier": ["dc:identifier"],
+                "path": [
+                    "swrc:supervisor",
+                    "foaf:Person"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
                 "excludeCondition": {
-                    "path": ["dc:identifier"],
+                    "path": [
+                        "dc:identifier"
+                    ],
                     "startsWith": "http://nla.gov.au/nla.party-"
                 },
                 "relationship": "hasAssociationWith",
                 "description": "Supervisor"
             },
             "foaf:Organization.dc:identifier": {
-                "path": ["foaf:Organization"],
-                "identifier": ["dc:identifier"],
+                "path": [
+                    "foaf:Organization"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
                 "relationship": "isManagedBy"
             },
             "foaf:fundedBy.vivo:Grant.0.dc:identifier": {
-                "path": ["foaf:fundedBy", "vivo:Grant"],
-                "identifier": ["dc:identifier"],
+                "path": [
+                    "foaf:fundedBy",
+                    "vivo:Grant"
+                ],
+                "identifier": [
+                    "dc:identifier"
+                ],
                 "relationship": "isOutputOf",
                 "excludeCondition": {
-                    "path": ["redbox:internalGrant"],
+                    "path": [
+                        "redbox:internalGrant"
+                    ],
                     "value": "on"
                 }
             }
@@ -225,7 +286,7 @@
             "coreName": "eventlog",
             "autocommit": false,
             "embedded": false
-        },
+        }
     },
     "transformerDefaults": {
         "local": {
@@ -244,15 +305,24 @@
         }
     },
     "uploader": {
-        "attachment-upload":{
+        "attachment-upload": {
             "screen-label": "Attachment Upload",
-            "security": ["librarian", "reviewer", "admin"],
+            "security": [
+                "librarian",
+                "reviewer",
+                "admin"
+            ],
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment.json"
         },
         "notify": {
             "screen-label": "Notify us about a dataset",
-            "security": ["guest", "metadata", "editor", "admin"],
+            "security": [
+                "guest",
+                "metadata",
+                "editor",
+                "admin"
+            ],
             "upload-path": "${fascinator.home}/uploads/submissions",
             "json-config": "${fascinator.home}/harvest/workflows/dataset.json",
             "upload-template": "workflows/submission"
@@ -271,7 +341,11 @@
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
-            "order": [ "local", "dashboard", "redbox" ]
+            "order": [
+                "local",
+                "dashboard",
+                "redbox"
+            ]
         },
         "caching": {
             "caches": {
@@ -347,7 +421,7 @@
             "dmpt": {
                 "jsonconfig": "dmpt.json",
                 "packages-in-package": false
-            }
+            },
             "simple": {
                 "jsonconfig": "simple.json",
                 "packages-in-package": false
@@ -374,25 +448,33 @@
             "metadataFormats": {
                 "oai_dc": {
                     "enabledInAllViews": false,
-                    "enabledViews": ["published"],
+                    "enabledViews": [
+                        "published"
+                    ],
                     "schema": "http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
                     "metadataNamespace": "http://www.openarchives.org/OAI/2.0/oai_dc/"
                 },
                 "eac_cpf": {
                     "enabledInAllViews": false,
-                    "enabledViews": ["published"],
+                    "enabledViews": [
+                        "published"
+                    ],
                     "schema": "urn:isbn:1-931666-33-4 http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd",
                     "metadataNamespace": "urn:isbn:1-931666-33-4"
                 },
                 "rif": {
                     "enabledInAllViews": false,
-                    "enabledViews": ["published"],
+                    "enabledViews": [
+                        "published"
+                    ],
                     "schema": "http://ands.org.au/standards/rif-cs/registryObjects http://services.ands.org.au/home/orca/schemata/registryObjects.xsd",
                     "metadataNamespace": "http://ands.org.au/standards/rif-cs/registryObjects"
                 },
                 "marc": {
                     "enabledInAllViews": false,
-                    "enabledViews": ["published"],
+                    "enabledViews": [
+                        "published"
+                    ],
                     "schema": "http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd",
                     "metadataNamespace": "http://www.loc.gov/MARC21/slim"
                 }
@@ -441,18 +523,50 @@
         "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
     },
     "services": [
-    	{
-    		"id":"reportManager",
-    		"className":"com.googlecode.fascinator.portal.report.service.ReportManager",
-    		"config": {
-    			"home":"${fascinator.home}/reports/saved-reports"
-    		}	
-    	}
-    ],
+       {
+           "id": "reportManager",
+           "className": "com.googlecode.fascinator.portal.report.service.ReportManager",
+           "config": {
+               "home": "${fascinator.home}/reports/saved-reports"
+           }
+       },
+       {
+           "id": "languageService",
+           "className": "com.googlecode.fascinator.portal.services.impl.JavaPropertiesLanguageService",
+           "config": {
+               "propertiesDir": "${fascinator.home}/language-files/"
+           }
+       }
+   ],
     "charts": {
-    		"records-by-stage-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler"}
-    		"records-by-stage-2": { "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler"},
-    		"records-by-month-1": { "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler"},
-    		"records-by-month-2": { "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler"}
-    }
+        "records-by-stage-1": {
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler"
+        },
+        "records-by-stage-2": {
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler"
+        },
+        "records-by-month-1": {
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler"
+        },
+        "records-by-month-2": {
+            "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler"
+        }
+    },
+    "redbox-reports":{
+    					"enabled":"true",
+    				 	"csv-output-fields": [
+     					{   "field-name": "dc_title"
+            				"label": "Title"
+       	 				},
+       	 				{   "field-name": "dc:type.skos:prefLabel"
+            				"label": "Type"
+       	 				},
+       	 				{   "field-name": "workflow_step_label"
+            				"label": "Workflow Step"
+       	 				},
+       	 				{   "field-name": "creatorfullname"
+            				"label": "Creators"
+       	 				}
+       	 				
+    				]}
 }
