@@ -1,7 +1,0 @@
-#foreach( $its-name in $transition-names )
-#if ($type == 'button') 
-	<button transition-name="$its-name" onclick="transition_click(this)">$its-name</button>
-	 #else 
-	<a href="#" transition-name="$its-name" onclick="transition_click(this)">$its-name</a>
-	#end
-#end
