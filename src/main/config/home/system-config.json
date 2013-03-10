@@ -635,17 +635,58 @@
     ],
     "charts": {
         "records-by-stage-1": {
-            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler"
-        },
-        "records-by-stage-2": {
-            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler"
-        },
-        "records-by-month-1": {
-            "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler"
-        },
-        "records-by-month-2": {
-            "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler"
-        }
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler",
+            "csv-field-label":{
+              "inbox":"Inbox",
+              "investigation":"Investigation",
+              "metadata-review":"Metadata",
+              "final-review":"Final Review",
+              "live":"Live",
+              "retired":"Retired"
+            },
+          }
+          "records-by-stage-2": {
+              "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler",
+              "csv-field-label":{
+                "inbox":"Inbox",
+                "investigation":"Investigation",
+                "metadata-review":"Metadata",
+                "final-review":"Final Review",
+                "live":"Live",
+                "retired":"Retired",
+                "catalogueOrIndex":"Catalogue/Index",
+                "repository":"Repository",
+                "dataset":"Dataset",
+                "collection":"Collection",
+                "registry":"Registry"
+              }
+          },
+          "records-by-month-1": {
+              "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler",
+               "csv-field-label":{
+                "0":"Jan",
+                "1":"Feb",
+                "2":"Mar",
+                "3":"Apr",
+                "4":"May",
+                "5":"Jun",
+                "6":"Jul",
+                "7":"Aug",
+                "8":"Sep",
+                "9":"Oct",
+                "10":"Nov",
+                "11":"Dec",
+              }
+          },
+          "records-by-month-2": {
+              "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler",
+              "csv-field-label":{
+                "party":"Party",
+                "collection":"Collection",
+                "activity":"Activity",
+                "service":"Service"
+              },
+          }           
     },
     "redbox-reports":{
     					"enabled":"true",
