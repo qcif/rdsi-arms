@@ -301,7 +301,12 @@
         "jsonVelocityPDF": {
             "id": "jsonVelocityPDF",
             "sourcePayload": ".tfpackage",
-            "templatesPath": "${fascinator.home}/pdf-templates"
+            "templatesPath": "${fascinator.home}/pdf-templates",
+            "checkForTFMETAProperty": "true",
+            "TFMETAPropertyName": "generatePDF",
+            "TFMETAPropertyValue": "true",
+            "clearPropertyOnTransform": "true",
+            "versioning": "true"
         }
     },
     "uploader": {
