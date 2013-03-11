@@ -558,7 +558,7 @@
                   },
                   { 
                     "name":"rb-collection",                
-                    "label":"Records in ReDBox   - COLLECTION (type)",
+                    "label":"Records in Redbox (by Collection type)",
                     "solr_field":"workflow_id",
                     "solr_field_value":"dataset"                
                   },
@@ -623,6 +623,42 @@
                     "solr_field_value":"retired"                
                   }
                 ]                         
+              }, 
+              {
+                "name":"mint-all",
+                "url":"http://localhost:9001/mint/default/api/query.script?callType=mint-stats&",
+                "fields":[
+                  {
+                    "name":"mint-total",                  
+                    "label":"Records in Mint",
+                    "solr_field":"total",
+                    "solr_field_value":""                                                
+                  },
+                  {
+                    "name":"parties_people",                  
+                    "label":"Records in Mint - (Party type) Person",
+                    "solr_field":"parties_people",
+                    "solr_field_value":""                                                
+                  },
+                  {
+                    "name":"parties_groups",                  
+                    "label":"Records in Mint - (Party type) Party Group",
+                    "solr_field":"parties_groups",
+                    "solr_field_value":""                                                
+                  },
+                  {
+                    "name":"activities:",
+                    "label":"Records in Mint - ACTIVITY (type)",
+                    "solr_field":"activities:",
+                    "solr_field_value":"Records in Mint - (Activity type)"
+                  },
+                  {
+                    "name":"services:",
+                    "label":"Records in Mint - SERVICE (type)",
+                    "solr_field":"services:",
+                    "solr_field_value":"Records in Mint - (Service type)"
+                  }
+                ]
               }
             ]
           }         
