@@ -631,7 +631,7 @@
               }, 
               {
                 "name":"mint-all",
-                "url":"http://localhost:9001/mint/default/api/query.script?callType=mint-stats&",
+                "url":"${mint.proxy.url}/default/api/query.script?callType=mint-stats&",
                 "fields":[
                   {
                     "name":"mint-total",                  
