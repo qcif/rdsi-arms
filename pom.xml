@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.redbox-mint</groupId>
   <artifactId>redbox-local-curation-demo</artifactId>
-  <version>1.6-RC01-SNAPSHOT</version>
+  <version>1.6-RC01</version>
   <packaging>${packaging}</packaging>
   <name>ReDBox - Local Curation Demo</name>
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.6-RC01-SNAPSHOT</version>
+    <version>1.6-RC01</version>
   </parent>
   <properties>
     <!-- Used in build -->
@@ -44,34 +44,34 @@
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-project</artifactId>
       <type>pom</type>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox</artifactId>
       <type>pom</type>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-config</artifactId>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-secure-api</artifactId>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transaction-curation-redbox</artifactId>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
     <!-- Local Curation Plugin (from Mint) -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transformer-local</artifactId>
-      <version>${redbox.version}</version>
+      <version>1.6-RC01</version>
     </dependency>
   </dependencies>
   <profiles>
@@ -415,7 +415,7 @@
                 		</goals>
                 	</pluginExecutionFilter>
                 	<action>
-                		<ignore></ignore>
+                		<ignore />
                 	</action>
                 </pluginExecution>
               </pluginExecutions>
@@ -444,7 +444,7 @@
   <scm>
     <url>https://github.com/redbox-mint/redbox-build-dev-local</url>
     <developerConnection>scm:git:https://github.com/redbox-mint/redbox-build-dev-local.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>redbox-local-curation-demo-1.6-RC01</tag>
   </scm>
   <distributionManagement>
 		<snapshotRepository>
