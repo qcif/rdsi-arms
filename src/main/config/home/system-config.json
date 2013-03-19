@@ -679,8 +679,8 @@
               "final-review":"Final Review",
               "live":"Live",
               "retired":"Retired"
-            },
-          }
+            }
+          },
           "records-by-stage-2": {
               "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler",
               "csv-field-label":{
@@ -711,7 +711,7 @@
                 "8":"Sep",
                 "9":"Oct",
                 "10":"Nov",
-                "11":"Dec",
+                "11":"Dec"
               }
           },
           "records-by-month-2": {
@@ -721,7 +721,7 @@
                 "collection":"Collection",
                 "activity":"Activity",
                 "service":"Service"
-              },
+              }
           }           
     },
     "redbox-reports":{
