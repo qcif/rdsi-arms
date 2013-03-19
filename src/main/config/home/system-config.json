@@ -745,43 +745,43 @@
        	 				{   "field-name": "dc:language",
             				"label": "Language"
        	 				},
-       	 				{   "field-name": "dc:coverage.vivo:DateTimeInterval",
+       	 				{   "field-name": "reporting_dc:coverage.vivo:DateTimeInterval",
             				"label": "Date Coverage"
        	 				},
        	 				{   "field-name": "dc:coverage.redbox:timePeriod",
             				"label": "Time Period"
        	 				},       	 				
-       	 				{   "field-name": "dc:coverage.vivo:GeographicLocation.rdf:PlainLiteral",
+       	 				{   "field-name": "reporting_dc:coverage.vivo:GeographicLocation.rdf:PlainLiteral",
             				"label": "Geospatial Location"
        	 				},
        	 				{   "field-name": "dc:description",
             				"label": "Description"
        	 				},
-       	 				{   "field-name": "dc:relation.swrc:Publication.dc:title",
+       	 				{   "field-name": "reporting_dc:relation.swrc:Publication.dc:title",
             				"label": "Related Publication"
        	 				},
-       	 				{   "field-name": "dc:relation.bibo:Website.dc:title",
+       	 				{   "field-name": "reporting_dc:relation.bibo:Website.dc:title",
             				"label": "Related Website"
        	 				},
-       	 				{   "field-name": "dc:relation.vivo:Dataset.dc:title",
+       	 				{   "field-name": "reporting_dc:relation.vivo:Dataset.dc:title",
             				"label": "Related Data"
        	 				},
-       	 				{   "field-name": "dc:creator.foaf:Person",
+       	 				{   "field-name": "reporting_dc:creator.foaf:Person",
             				"label": "Creators"
        	 				},
-                {   "field-name": "locrel:prc.foaf:Person",
+                {   "field-name": "reporting_locrel:prc.foaf:Person",
             				"label": "Primary Contact"
        	 				},
-                {   "field-name": "swrc:supervisor.foaf:Person",
+                {   "field-name": "reporting_swrc:supervisor.foaf:Person",
             				"label": "Supervisor"
        	 				},
-                {   "field-name": "dc:contributor.locrel:clb.foaf:Agent",
+                {   "field-name": "reporting_dc:contributor.locrel:clb.foaf:Agent",
             				"label": "Collaborators"
        	 				},
-                {   "field-name": "dc:subject.anzsrc:for.skos:prefLabel",
+                {   "field-name": "reporting_dc:subject.anzsrc:for.skos:prefLabel",
             				"label": "Fields of Research"
        	 				},
-                {   "field-name": "dc:subject.anzsrc:seo.skos:prefLabel",
+                {   "field-name": "reporting_dc:subject.anzsrc:seo.skos:prefLabel",
             				"label": "Socio-Economic Objective"
        	 				},
                 {   "field-name": "keywords",
@@ -790,13 +790,13 @@
                 {   "field-name": "dc:subject.anzsrc:toa.skos:prefLabel",
             				"label": "Type of Research Activity"
        	 				},
-                {   "field-name": "dc:accessRights",
+                {   "field-name": "dc:accessRights.skos:prefLabel",
             				"label": "Access Rights"
        	 				},
-                {   "field-name": "dc_licenser",
+                {   "field-name": "dc:license.skos:prefLabel",
             				"label": "Licence"
        	 				},
-                {   "field-name": "bibo:Website.dc:identifier",
+                {   "field-name": "reporting_bibo:Website.dc:identifier",
             				"label": "Location (URL)"
        	 				},
                 {   "field-name": "vivo:Location.vivo:GeographicLocation.gn:name",
@@ -811,7 +811,7 @@
                 {   "field-name": "redbox:disposalDate",
             				"label": "Disposal Date"
        	 				},
-                {   "field-name": "locrel:own.foaf:Agent.foaf:name",
+                {   "field-name": "reporting_locrel:own.foaf:Agent.foaf:name",
             				"label": "Data Owner (IP)"
        	 				},
                 {   "field-name": "locrel:dtm.foaf:Agent.foaf:name",
@@ -820,10 +820,10 @@
                 {   "field-name": "foaf:Organization.skos:prefLabel",
             				"label": "Data Affiliation"
        	 				},
-                {   "field-name": "foaf:fundedBy.foaf:Agent.skos:prefLabel",
+                {   "field-name": "reporting_foaf:fundedBy.foaf:Agent.skos:prefLabel",
             				"label": "Funding Body/s"
        	 				},
-                {   "field-name": "foaf:fundedBy.vivo:Grant.redbox:grantNumber",
+                {   "field-name": "reporting_foaf:fundedBy.vivo:Grant.redbox:grantNumber",
             				"label": "Grant Numbers"
        	 				},
                 {   "field-name": "swrc:ResearchProject.dc:title",
@@ -841,7 +841,7 @@
                 {   "field-name": "redbox:ManagementPlan.skos:note",
             				"label": "Data Management Plan"
        	 				},
-                {   "field-name": "skos:note.dc:description",
+                {   "field-name": "reporting_skos:note.dc:description",
             				"label": "Notes"
        	 				}
        	 				
