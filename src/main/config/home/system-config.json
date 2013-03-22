@@ -616,6 +616,12 @@
                     "solr_field_value":"metadata-review"                
                   },
                   {                  
+                    "name":"rb-workflow-inbox",
+                    "label":"Records in ReDBox - (workflow) Inbox",
+                    "solr_field":"workflow_step",
+                    "solr_field_value":"inbox"                
+                  },
+                  {                  
                     "name":"rb-workflow-investigation",
                     "label":"Records in ReDBox - (workflow) Investigation",
                     "solr_field":"workflow_step",
