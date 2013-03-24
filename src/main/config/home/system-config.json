@@ -733,7 +733,10 @@
     "redbox-reports":{
     					"enabled":"true",
     				 	"csv-output-fields": [
-     					  {   "field-name": "dc_title",
+						{   "field-name": "id",
+							"label": "ReDBox ID"
+						},
+     					{   "field-name": "dc_title",
             				"label": "Title"
        	 				},
        	 				{   "field-name": "dc_type",
