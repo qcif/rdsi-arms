@@ -561,12 +561,6 @@
                     "solr_field":"numFound",
                     "solr_field_value":""                                                
                   },
-                  { 
-                    "name":"rb-collection",                
-                    "label":"Records in Redbox (by Collection type)",
-                    "solr_field":"workflow_id",
-                    "solr_field_value":"dataset"                
-                  },
                   {                 
                     "name":"rb-collection-dataset",
                     "label":"Records in ReDBox - (Collection type) Dataset",
@@ -599,25 +593,25 @@
                   },
                   {                  
                     "name":"rb-workflow-published",
-                    "label":"Records in ReDBox - (workflow) Published",
+                    "label":"Records in ReDBox - (Workflow) Published",
                     "solr_field":"workflow_step",
                     "solr_field_value":"live"                
                   },
                   {                  
                     "name":"rb-workflow-final",
-                    "label":"Records in ReDBox - (workflow) Final Review",
+                    "label":"Records in ReDBox - (Workflow) Final Review",
                     "solr_field":"workflow_step",
                     "solr_field_value":"final-review"                
                   },
                   {                  
                     "name":"rb-workflow-metadata",
-                    "label":"Records in ReDBox - (workflow) Metadata Review",
+                    "label":"Records in ReDBox - (Workflow) Metadata Review",
                     "solr_field":"workflow_step",
                     "solr_field_value":"metadata-review"                
                   },
                   {                  
                     "name":"rb-workflow-inbox",
-                    "label":"Records in ReDBox - (workflow) Inbox",
+                    "label":"Records in ReDBox - (Workflow) Inbox",
                     "solr_field":"workflow_step",
                     "solr_field_value":"inbox"                
                   },
@@ -629,7 +623,7 @@
                   },
                   {                  
                     "name":"rb-workflow-retired",
-                    "label":"Records in ReDBox - (workflow) Retired",
+                    "label":"Records in ReDBox - (Workflow) Retired",
                     "solr_field":"workflow_step",
                     "solr_field_value":"retired"                
                   }
