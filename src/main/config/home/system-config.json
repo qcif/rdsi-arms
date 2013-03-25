@@ -7,6 +7,17 @@
         "RIF-CS Group": "The University of Examples, Australia",
         "internalGrantString": "urn:uoe:internal"
     },
+    "transitionWorkflow": {
+        "transitions":[
+            {
+              "name":"Researcher Record",
+              "from-workflow-id":"simple",
+              "from-workflow-step":"investigation",
+              "to-workflow-id":"dataset",
+              "to-workflow-step":"final-review"
+            }
+        ]
+    },
     "configured": true,
     "urlBase": "${server.url.base}",
     "email": "DO_NOT_CHANGE",
