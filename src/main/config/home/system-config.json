@@ -508,7 +508,8 @@
         "Services": "${mint.proxy.url}/Services/opensearch/lookup",
         "Geonames": "${mint.proxy.server}/geonames/search",
         "NLA_SRU": "${mint.proxy.url}/default/search/nlaLookup",
-        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type"
+        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type",
+        "Countries": "${mint.proxy.url}/default/api/query.script?callType=countries"
     },
     "alerts": {
         "path": "${fascinator.home}/alerts",
