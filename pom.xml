@@ -3,17 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.redbox-mint</groupId>
   <artifactId>redbox-local-curation-demo</artifactId>
-  <version>1.6-RC02-SNAPSHOT</version>
+  <version>1.6-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
   <name>ReDBox - Local Curation Demo</name>
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.6-RC02-SNAPSHOT</version>
+    <version>1.6</version>
   </parent>
   <properties>
     <!-- Used in build -->
-    <redbox.version>1.6-RC02-SNAPSHOT</redbox.version>
+    <redbox.version>1.6</redbox.version>
     <package.finalname>${project.build.finalName}</package.finalname>
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <app.location.windows>${project.home}</app.location.windows>
@@ -44,34 +44,34 @@
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-project</artifactId>
       <type>pom</type>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox</artifactId>
       <type>pom</type>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-config</artifactId>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-secure-api</artifactId>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transaction-curation-redbox</artifactId>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
     <!-- Local Curation Plugin (from Mint) -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transformer-local</artifactId>
-      <version>1.6-RC02-SNAPSHOT</version>
+      <version>1.6</version>
     </dependency>
   </dependencies>
   <profiles>
