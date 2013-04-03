@@ -12,7 +12,9 @@
         <li>
             #if($page.authentication.is_logged_in())
             <a id="new-record" href="#">Add a new dataset</a>
+            <!-- Hidden to confine access to researcher dashboard view 
             <a id="new-dmpt-record" href="#">Add a new DMP Record</a>
+            -->
             <!-- Hide from user for 1.6 release
             <a id="new-simple-record" href="#">Add a new Researcher Record</a>
             -->
