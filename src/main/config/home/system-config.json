@@ -8,13 +8,20 @@
         "internalGrantString": "urn:uoe:internal"
     },
     "transitionWorkflow": {
-        "transitions":[
+        "transitions": [
             {
-              "name":"Researcher Record",
-              "from-workflow-id":"simple",
-              "from-workflow-step":"investigation",
-              "to-workflow-id":"dataset",
-              "to-workflow-step":"final-review"
+                "name": "Researcher Record",
+                "from-workflow-id": "self-submission",
+                "from-workflow-step": "self-submission-submitted",
+                "to-workflow-id": "dataset",
+                "to-workflow-step": "metadata-review"
+            },
+            {
+                "name": "Researcher Record",
+                "from-workflow-id": "simple",
+                "from-workflow-step": "investigation",
+                "to-workflow-id": "dataset",
+                "to-workflow-step": "final-review"
             }
         ]
     },
@@ -318,6 +325,16 @@
             "TFMETAPropertyValue": "true",
             "clearPropertyOnTransform": "true",
             "versioning": "true"
+        },
+        "dmpToSelfSub": {
+            "id": "jsonVelocity",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/selfSub.vm",
+            "checkForTFMETAProperty": "true",
+            "TFMETAPropertyName": "copyTFPackage",
+            "TFMETAPropertyValue": "dmpToSelfSub",
+            "clearPropertyOnTransform": "true",
+            "transformSource": "true"
         }
     },
     "uploader": {
@@ -438,6 +455,10 @@
                 "jsonconfig": "dmpt.json",
                 "packages-in-package": false
             },
+            "self-submission": {
+                "jsonconfig": "self-submission.json",
+                "packages-in-package": false
+            },
             "simple": {
                 "jsonconfig": "simple.json",
                 "packages-in-package": false
@@ -541,325 +562,367 @@
         "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
     },
     "services": [
-    	{
-    		"id":"reportManager",
-    		"className":"com.googlecode.fascinator.portal.report.service.ReportManager",
-    		"config": {
-    			"home":"${fascinator.home}/reports/saved-reports"
-    		}	
-    	},
-      {
-         "id": "languageService",
-         "className": "com.googlecode.fascinator.portal.services.impl.JavaPropertiesLanguageService",
-         "config": {
-             "propertiesDir": "${fascinator.home}/language-files/"
-         }
-      },
-      {
-    		"id":"reportStats",
-    		"className":"com.googlecode.fascinator.portal.report.service.ReportStats",
-    		"config": {
-            "stats":[
-              {
-                "name":"redbox-all",
-                "query":"*:*",
-                "params": {
-                  "fq":["item_type:\"object\""],
-                  "rows":"100"
-                },
-                "fields":[
-                  {
-                    "name":"rb-total",                  
-                    "label":"Records in ReDBox",
-                    "solr_field":"numFound",
-                    "solr_field_value":""                                                
-                  },
-                  {                 
-                    "name":"rb-collection-dataset",
-                    "label":"Records in ReDBox - (Collection type) Dataset",
-                    "solr_field":"dc_type",
-                    "solr_field_value":"dataset"                
-                  },
-                  { 
-                    "name":"rb-collection-collection",                 
-                    "label":"Records in ReDBox - (Collection type) Collection",
-                    "solr_field":"dc_type",
-                    "solr_field_value":"collection"                
-                  },
-                  {
-                    "name":"rb-collection-index",
-                    "label":"Records in ReDBox - (Collection type) Catalogue or Index",
-                    "solr_field":"dc_type",
-                    "solr_field_value":"catalogueOrIndex"                
-                  },
-                  {                  
-                    "name":"rb-collection-registry",
-                    "label":"Records in ReDBox - (Collection type) Registry",
-                    "solr_field":"dc_type",
-                    "solr_field_value":"registry"                
-                  },
-                  {
-                    "name":"rb-collection-repository",
-                    "label":"Records in ReDBox - (Collection type) Repository",
-                    "solr_field":"dc_type",
-                    "solr_field_value":"repository"                
-                  },
-                  {                  
-                    "name":"rb-workflow-published",
-                    "label":"Records in ReDBox - (Workflow) Published",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"live"                
-                  },
-                  {                  
-                    "name":"rb-workflow-final",
-                    "label":"Records in ReDBox - (Workflow) Final Review",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"final-review"                
-                  },
-                  {                  
-                    "name":"rb-workflow-metadata",
-                    "label":"Records in ReDBox - (Workflow) Metadata Review",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"metadata-review"                
-                  },
-                  {                  
-                    "name":"rb-workflow-inbox",
-                    "label":"Records in ReDBox - (Workflow) Inbox",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"inbox"                
-                  },
-                  {                  
-                    "name":"rb-workflow-investigation",
-                    "label":"Records in ReDBox - (Workflow) Investigation",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"investigation"                
-                  },
-                  {                  
-                    "name":"rb-workflow-retired",
-                    "label":"Records in ReDBox - (Workflow) Retired",
-                    "solr_field":"workflow_step",
-                    "solr_field_value":"retired"                
-                  }
-                ]                         
-              }, 
-              {
-                "name":"mint-all",
-                "url":"${mint.proxy.url}/default/api/query.script?callType=mint-stats&",
-                "fields":[
-                  {
-                    "name":"mint-total",                  
-                    "label":"Records in Mint",
-                    "solr_field":"total",
-                    "solr_field_value":""                                                
-                  },
-                  {
-                    "name":"parties_people",                  
-                    "label":"Records in Mint - (Party type) Person",
-                    "solr_field":"parties_people",
-                    "solr_field_value":""                                                
-                  },
-                  {
-                    "name":"parties_groups",                  
-                    "label":"Records in Mint - (Party type) Party Group",
-                    "solr_field":"parties_groups",
-                    "solr_field_value":""                                                
-                  },
-                  {
-                    "name":"activities:",
-                    "label":"Records in Mint - ACTIVITY (type)",
-                    "solr_field":"activities:",
-                    "solr_field_value":"Records in Mint - (Activity type)"
-                  },
-                  {
-                    "name":"services:",
-                    "label":"Records in Mint - SERVICE (type)",
-                    "solr_field":"services:",
-                    "solr_field_value":"Records in Mint - (Service type)"
-                  }
+        {
+            "id": "reportManager",
+            "className": "com.googlecode.fascinator.portal.report.service.ReportManager",
+            "config": {
+                "home": "${fascinator.home}/reports/saved-reports"
+            }
+        },
+        {
+            "id": "languageService",
+            "className": "com.googlecode.fascinator.portal.services.impl.JavaPropertiesLanguageService",
+            "config": {
+                "propertiesDir": "${fascinator.home}/language-files/"
+            }
+        },
+        {
+            "id": "reportStats",
+            "className": "com.googlecode.fascinator.portal.report.service.ReportStats",
+            "config": {
+                "stats": [
+                    {
+                        "name": "redbox-all",
+                        "query": "*:*",
+                        "params": {
+                            "fq": [
+                                "item_type:\"object\""
+                            ],
+                            "rows": "100"
+                        },
+                        "fields": [
+                            {
+                                "name": "rb-total",
+                                "label": "Records in ReDBox",
+                                "solr_field": "numFound",
+                                "solr_field_value": ""
+                            },
+                            {
+                                "name": "rb-collection-dataset",
+                                "label": "Records in ReDBox - (Collection type) Dataset",
+                                "solr_field": "dc_type",
+                                "solr_field_value": "dataset"
+                            },
+                            {
+                                "name": "rb-collection-collection",
+                                "label": "Records in ReDBox - (Collection type) Collection",
+                                "solr_field": "dc_type",
+                                "solr_field_value": "collection"
+                            },
+                            {
+                                "name": "rb-collection-index",
+                                "label": "Records in ReDBox - (Collection type) Catalogue or Index",
+                                "solr_field": "dc_type",
+                                "solr_field_value": "catalogueOrIndex"
+                            },
+                            {
+                                "name": "rb-collection-registry",
+                                "label": "Records in ReDBox - (Collection type) Registry",
+                                "solr_field": "dc_type",
+                                "solr_field_value": "registry"
+                            },
+                            {
+                                "name": "rb-collection-repository",
+                                "label": "Records in ReDBox - (Collection type) Repository",
+                                "solr_field": "dc_type",
+                                "solr_field_value": "repository"
+                            },
+                            {
+                                "name": "rb-workflow-published",
+                                "label": "Records in ReDBox - (Workflow) Published",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "live"
+                            },
+                            {
+                                "name": "rb-workflow-final",
+                                "label": "Records in ReDBox - (Workflow) Final Review",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "final-review"
+                            },
+                            {
+                                "name": "rb-workflow-metadata",
+                                "label": "Records in ReDBox - (Workflow) Metadata Review",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "metadata-review"
+                            },
+                            {
+                                "name": "rb-workflow-inbox",
+                                "label": "Records in ReDBox - (Workflow) Inbox",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "inbox"
+                            },
+                            {
+                                "name": "rb-workflow-investigation",
+                                "label": "Records in ReDBox - (Workflow) Investigation",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "investigation"
+                            },
+                            {
+                                "name": "rb-workflow-retired",
+                                "label": "Records in ReDBox - (Workflow) Retired",
+                                "solr_field": "workflow_step",
+                                "solr_field_value": "retired"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "mint-all",
+                        "url": "${mint.proxy.url}/default/api/query.script?callType=mint-stats&",
+                        "fields": [
+                            {
+                                "name": "mint-total",
+                                "label": "Records in Mint",
+                                "solr_field": "total",
+                                "solr_field_value": ""
+                            },
+                            {
+                                "name": "parties_people",
+                                "label": "Records in Mint - (Party type) Person",
+                                "solr_field": "parties_people",
+                                "solr_field_value": ""
+                            },
+                            {
+                                "name": "parties_groups",
+                                "label": "Records in Mint - (Party type) Party Group",
+                                "solr_field": "parties_groups",
+                                "solr_field_value": ""
+                            },
+                            {
+                                "name": "activities:",
+                                "label": "Records in Mint - ACTIVITY (type)",
+                                "solr_field": "activities:",
+                                "solr_field_value": "Records in Mint - (Activity type)"
+                            },
+                            {
+                                "name": "services:",
+                                "label": "Records in Mint - SERVICE (type)",
+                                "solr_field": "services:",
+                                "solr_field_value": "Records in Mint - (Service type)"
+                            }
+                        ]
+                    }
                 ]
-              }
-            ]
-          }         
+            }
         }
     ],
     "charts": {
         "records-by-stage-1": {
             "className": "com.googlecode.fascinator.portal.report.type.RecordsByStageChartHandler",
-            "csv-field-label":{
-              "inbox":"Inbox",
-              "investigation":"Investigation",
-              "metadata-review":"Metadata",
-              "final-review":"Final Review",
-              "live":"Live",
-              "retired":"Retired"
+            "csv-field-label": {
+                "inbox": "Inbox",
+                "investigation": "Investigation",
+                "metadata-review": "Metadata",
+                "final-review": "Final Review",
+                "live": "Live",
+                "retired": "Retired"
             }
-          },
-          "records-by-stage-2": {
-              "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler",
-              "csv-field-label":{
-                "inbox":"Inbox",
-                "investigation":"Investigation",
-                "metadata-review":"Metadata",
-                "final-review":"Final Review",
-                "live":"Live",
-                "retired":"Retired",
-                "catalogueOrIndex":"Catalogue/Index",
-                "repository":"Repository",
-                "dataset":"Dataset",
-                "collection":"Collection",
-                "registry":"Registry"
-              }
-          },
-          "records-by-month-1": {
-              "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler",
-               "csv-field-label":{
-                "0":"Jan",
-                "1":"Feb",
-                "2":"Mar",
-                "3":"Apr",
-                "4":"May",
-                "5":"Jun",
-                "6":"Jul",
-                "7":"Aug",
-                "8":"Sep",
-                "9":"Oct",
-                "10":"Nov",
-                "11":"Dec"
-              }
-          },
-          "records-by-month-2": {
-              "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler",
-              "csv-field-label":{
-                "party":"Party",
-                "collection":"Collection",
-                "activity":"Activity",
-                "service":"Service"
-              }
-          }           
+        },
+        "records-by-stage-2": {
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsByStage2ChartHandler",
+            "csv-field-label": {
+                "inbox": "Inbox",
+                "investigation": "Investigation",
+                "metadata-review": "Metadata",
+                "final-review": "Final Review",
+                "live": "Live",
+                "retired": "Retired",
+                "catalogueOrIndex": "Catalogue/Index",
+                "repository": "Repository",
+                "dataset": "Dataset",
+                "collection": "Collection",
+                "registry": "Registry"
+            }
+        },
+        "records-by-month-1": {
+            "className": "com.googlecode.fascinator.portal.report.type.RecordsPublishedByMonthChartHandler",
+            "csv-field-label": {
+                "0": "Jan",
+                "1": "Feb",
+                "2": "Mar",
+                "3": "Apr",
+                "4": "May",
+                "5": "Jun",
+                "6": "Jul",
+                "7": "Aug",
+                "8": "Sep",
+                "9": "Oct",
+                "10": "Nov",
+                "11": "Dec"
+            }
+        },
+        "records-by-month-2": {
+            "className": "com.googlecode.fascinator.portal.report.type.PublishedRecordsByTypeChartHandler",
+            "csv-field-label": {
+                "party": "Party",
+                "collection": "Collection",
+                "activity": "Activity",
+                "service": "Service"
+            }
+        }
     },
-    "redbox-reports":{
-    					"enabled":"true",
-    				 	"csv-output-fields": [
-						{   "field-name": "id",
-							"label": "ReDBox ID"
-						},
-     					{   "field-name": "dc_title",
-            				"label": "Title"
-       	 				},
-       	 				{   "field-name": "dc_type",
-            				"label": "Record/Collection Type"
-       	 				},
-       	 				{   "field-name": "workflow_step_label",
-            				"label": "Workflow Step"
-       	 				}, 
-       	 				{   "field-name": "dc:created",
-            				"label": "Date Record Created"
-       	 				},
-       	 				{   "field-name": "dc:modified",
-            				"label": "Date Record Modified"
-       	 				},
-       	 				{   "field-name": "dc:language",
-            				"label": "Language"
-       	 				},
-       	 				{   "field-name": "reporting_dc:coverage.vivo:DateTimeInterval",
-            				"label": "Date Coverage"
-       	 				},
-       	 				{   "field-name": "dc:coverage.redbox:timePeriod",
-            				"label": "Time Period"
-       	 				},       	 				
-       	 				{   "field-name": "reporting_dc:coverage.vivo:GeographicLocation.rdf:PlainLiteral",
-            				"label": "Geospatial Location"
-       	 				},
-       	 				{   "field-name": "dc:description",
-            				"label": "Description"
-       	 				},
-       	 				{   "field-name": "reporting_dc:relation.swrc:Publication.dc:title",
-            				"label": "Related Publication"
-       	 				},
-       	 				{   "field-name": "reporting_dc:relation.bibo:Website.dc:title",
-            				"label": "Related Website"
-       	 				},
-       	 				{   "field-name": "reporting_dc:relation.vivo:Dataset.dc:title",
-            				"label": "Related Data"
-       	 				},
-       	 				{   "field-name": "reporting_dc:creator.foaf:Person",
-            				"label": "Creators"
-       	 				},
-                {   "field-name": "reporting_locrel:prc.foaf:Person",
-            				"label": "Primary Contact"
-       	 				},
-                {   "field-name": "reporting_swrc:supervisor.foaf:Person",
-            				"label": "Supervisor"
-       	 				},
-                {   "field-name": "reporting_dc:contributor.locrel:clb.foaf:Agent",
-            				"label": "Collaborators"
-       	 				},
-                {   "field-name": "reporting_dc:subject.anzsrc:for.skos:prefLabel",
-            				"label": "Fields of Research"
-       	 				},
-                {   "field-name": "reporting_dc:subject.anzsrc:seo.skos:prefLabel",
-            				"label": "Socio-Economic Objective"
-       	 				},
-                {   "field-name": "keywords",
-            				"label": "Keywords"
-       	 				},
-                {   "field-name": "dc:subject.anzsrc:toa.skos:prefLabel",
-            				"label": "Type of Research Activity"
-       	 				},
-                {   "field-name": "dc:accessRights.skos:prefLabel",
-            				"label": "Access Rights"
-       	 				},
-                {   "field-name": "dc:license.skos:prefLabel",
-            				"label": "Licence"
-       	 				},
-                {   "field-name": "reporting_bibo:Website.dc:identifier",
-            				"label": "Location (URL)"
-       	 				},
-                {   "field-name": "vivo:Location.vivo:GeographicLocation.gn:name",
-            				"label": "Location"
-       	 				},
-                {   "field-name": "redbox:retentionPeriod",
-            				"label": "Retention Period"
-       	 				},
-                {   "field-name": "dc:extent",
-            				"label": "Extent or Quantity"
-       	 				},
-                {   "field-name": "redbox:disposalDate",
-            				"label": "Disposal Date"
-       	 				},
-                {   "field-name": "reporting_locrel:own.foaf:Agent.foaf:name",
-            				"label": "Data Owner (IP)"
-       	 				},
-                {   "field-name": "locrel:dtm.foaf:Agent.foaf:name",
-            				"label": "Data Custodian"
-       	 				},
-                {   "field-name": "foaf:Organization.skos:prefLabel",
-            				"label": "Data Affiliation"
-       	 				},
-                {   "field-name": "reporting_foaf:fundedBy.foaf:Agent.skos:prefLabel",
-            				"label": "Funding Body/s"
-       	 				},
-                {   "field-name": "reporting_foaf:fundedBy.vivo:Grant.redbox:grantNumber",
-            				"label": "Grant Numbers"
-       	 				},
-                {   "field-name": "swrc:ResearchProject.dc:title",
-            				"label": "Project Title"
-       	 				},
-                {   "field-name": "locrel:dpt.foaf:Person.foaf:name",
-            				"label": "Depositor"
-       	 				},
-                {   "field-name": "dc:SizeOrDuration",
-            				"label": "Data size"
-       	 				},
-                {   "field-name": "dc:Policy",
-            				"label": "Institutional Data Management Policy"
-       	 				},
-                {   "field-name": "redbox:ManagementPlan.skos:note",
-            				"label": "Data Management Plan"
-       	 				},
-                {   "field-name": "reporting_skos:note.dc:description",
-            				"label": "Notes"
-       	 				}
-       	 				
-    				]}
+    "redbox-reports": {
+        "enabled": "true",
+        "csv-output-fields": [
+            {
+                "field-name": "id",
+                "label": "ReDBox ID"
+            },
+            {
+                "field-name": "dc_title",
+                "label": "Title"
+            },
+            {
+                "field-name": "dc_type",
+                "label": "Record/Collection Type"
+            },
+            {
+                "field-name": "workflow_step_label",
+                "label": "Workflow Step"
+            },
+            {
+                "field-name": "dc:created",
+                "label": "Date Record Created"
+            },
+            {
+                "field-name": "dc:modified",
+                "label": "Date Record Modified"
+            },
+            {
+                "field-name": "dc:language",
+                "label": "Language"
+            },
+            {
+                "field-name": "reporting_dc:coverage.vivo:DateTimeInterval",
+                "label": "Date Coverage"
+            },
+            {
+                "field-name": "dc:coverage.redbox:timePeriod",
+                "label": "Time Period"
+            },
+            {
+                "field-name": "reporting_dc:coverage.vivo:GeographicLocation.rdf:PlainLiteral",
+                "label": "Geospatial Location"
+            },
+            {
+                "field-name": "dc:description",
+                "label": "Description"
+            },
+            {
+                "field-name": "reporting_dc:relation.swrc:Publication.dc:title",
+                "label": "Related Publication"
+            },
+            {
+                "field-name": "reporting_dc:relation.bibo:Website.dc:title",
+                "label": "Related Website"
+            },
+            {
+                "field-name": "reporting_dc:relation.vivo:Dataset.dc:title",
+                "label": "Related Data"
+            },
+            {
+                "field-name": "reporting_dc:creator.foaf:Person",
+                "label": "Creators"
+            },
+            {
+                "field-name": "reporting_locrel:prc.foaf:Person",
+                "label": "Primary Contact"
+            },
+            {
+                "field-name": "reporting_swrc:supervisor.foaf:Person",
+                "label": "Supervisor"
+            },
+            {
+                "field-name": "reporting_dc:contributor.locrel:clb.foaf:Agent",
+                "label": "Collaborators"
+            },
+            {
+                "field-name": "reporting_dc:subject.anzsrc:for.skos:prefLabel",
+                "label": "Fields of Research"
+            },
+            {
+                "field-name": "reporting_dc:subject.anzsrc:seo.skos:prefLabel",
+                "label": "Socio-Economic Objective"
+            },
+            {
+                "field-name": "keywords",
+                "label": "Keywords"
+            },
+            {
+                "field-name": "dc:subject.anzsrc:toa.skos:prefLabel",
+                "label": "Type of Research Activity"
+            },
+            {
+                "field-name": "dc:accessRights.skos:prefLabel",
+                "label": "Access Rights"
+            },
+            {
+                "field-name": "dc:license.skos:prefLabel",
+                "label": "Licence"
+            },
+            {
+                "field-name": "reporting_bibo:Website.dc:identifier",
+                "label": "Location (URL)"
+            },
+            {
+                "field-name": "vivo:Location.vivo:GeographicLocation.gn:name",
+                "label": "Location"
+            },
+            {
+                "field-name": "redbox:retentionPeriod",
+                "label": "Retention Period"
+            },
+            {
+                "field-name": "dc:extent",
+                "label": "Extent or Quantity"
+            },
+            {
+                "field-name": "redbox:disposalDate",
+                "label": "Disposal Date"
+            },
+            {
+                "field-name": "reporting_locrel:own.foaf:Agent.foaf:name",
+                "label": "Data Owner (IP)"
+            },
+            {
+                "field-name": "locrel:dtm.foaf:Agent.foaf:name",
+                "label": "Data Custodian"
+            },
+            {
+                "field-name": "foaf:Organization.skos:prefLabel",
+                "label": "Data Affiliation"
+            },
+            {
+                "field-name": "reporting_foaf:fundedBy.foaf:Agent.skos:prefLabel",
+                "label": "Funding Body/s"
+            },
+            {
+                "field-name": "reporting_foaf:fundedBy.vivo:Grant.redbox:grantNumber",
+                "label": "Grant Numbers"
+            },
+            {
+                "field-name": "swrc:ResearchProject.dc:title",
+                "label": "Project Title"
+            },
+            {
+                "field-name": "locrel:dpt.foaf:Person.foaf:name",
+                "label": "Depositor"
+            },
+            {
+                "field-name": "dc:SizeOrDuration",
+                "label": "Data size"
+            },
+            {
+                "field-name": "dc:Policy",
+                "label": "Institutional Data Management Policy"
+            },
+            {
+                "field-name": "redbox:ManagementPlan.skos:note",
+                "label": "Data Management Plan"
+            },
+            {
+                "field-name": "reporting_skos:note.dc:description",
+                "label": "Notes"
+            }
+        ]
+    }
 }
