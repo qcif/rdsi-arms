@@ -22,7 +22,7 @@
     <amq.port>9101</amq.port>
     <amq.stomp.port>9102</amq.stomp.port>
     <server.url.base>http://${ip.address}:${server.port}/redbox/</server.url.base>
-    <mint.proxy.server>http://demo.redboxresearchdata.com.au:9001</mint.proxy.server>
+    <mint.proxy.server>http://localhost:9001</mint.proxy.server>
     <mint.amq.broker>tcp://localhost:9201</mint.amq.broker>
     <dir.home>${project.home}/home</dir.home>
     <dir.portal>${project.home}/portal</dir.portal>
