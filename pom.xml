@@ -82,9 +82,45 @@
         <app.location.windows>c:/tf2/redbox</app.location.windows>
     	<app.location.linux>/opt/redbox</app.location.linux>
       </properties>
-      <!-- Used for creating an install - omits local build system settings -->
+      <!-- clean up the deploy directory first -->
       <build>
         <plugins>
+            <plugin>                
+                <artifactId>maven-clean-plugin</artifactId>              
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>../home</directory>                            
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>../portal</directory>                            
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>../server</directory>                            
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>../solr</directory>                            
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>        
+      <!-- Used for creating an install - omits local build system settings -->              
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
