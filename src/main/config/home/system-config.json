@@ -329,7 +329,7 @@
         "dmpToSelfSub": {
             "id": "jsonVelocity",
             "sourcePayload": ".tfpackage",
-            "templatesPath": "${fascinator.home}/templates/selfSub.vm",
+            "templatesPath": "${fascinator.home}/templates/self-submission/selfSub.vm",
             "checkForTFMETAProperty": "true",
             "TFMETAPropertyName": "copyTFPackage",
             "TFMETAPropertyValue": "dmpToSelfSub",
@@ -476,8 +476,14 @@
                         "type": "external",
                         "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/alerts.script",
                         "timing": "0 0/15 * * * ?"
-                    }
-                ]
+                    },
+					{
+					  "name": "transitionWorkflow",
+					  "type": "external",
+					  "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/transitionWorkflow.ajax",
+					  "timing": "0 0/15 * * * ?"
+					  }                
+				 ]
             }
         },
         "oai-pmh": {
