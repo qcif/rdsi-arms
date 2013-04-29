@@ -482,7 +482,13 @@
 					  "type": "external",
 					  "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/transitionWorkflow.ajax",
 					  "timing": "0 0/15 * * * ?"
-					  }                
+					},
+                    {
+                        "name": "process-set-notifyNewRecords",
+                        "type": "external",
+                        "url": "http://localhost:${jetty.port}/redbox/default/process/launch.script?processingSet=notifyNewRecords",
+                        "timing": "0 0/15 * * * ?"
+                    }                
 				 ]
             }
         },
