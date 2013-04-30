@@ -12,12 +12,6 @@
         <li>
             #if($page.authentication.is_logged_in())
             <a id="new-record" href="#">Add a new dataset</a>
-            <!-- Hidden to confine access to researcher dashboard view 
-            <a id="new-dmpt-record" href="#">Add a new DMP Record</a>
-            -->
-            ##<!-- Hide from user for 1.6 release
-            <a id="new-simple-record" href="#">Add a new Researcher Record</a>
-            ##-->
 			#else
             <a id="notify-record" href="$portalPath/workflows/submission">Notify us about a dataset</a>
             #end
@@ -98,40 +92,7 @@ $(function() {
         });
         return false;
     });
-    jQ("#new-simple-record").click(function() {
-        if (processing) return;
-        processing = true;
-        jQ("#new-simple-record").append('<img class="right" src="$portalPath/images/icons/loading.gif" />');
-        jQ.ajax({
-            type: "POST",
-            url: "$portalPath/actions/packaging.ajax",
-            data: {
-                ajax: 1,
-                func: "create-new",
-                packageType: "simple",
-                metaList: ["title", "dc:description", "redbox:newForm", "redbox:formVersion"],
-                title: "[Untitled]",
-                description: "",
-                "redbox:newForm": "true",
-                "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
-            },
-            success: function(data) {
-                if (data.status == "ok") {
-                    function redirect() {
-                        window.location.href = data.url;
-                    }
-                    setTimeout(redirect, 1500);
-                } else {
-                    alert("Failed to create record!");
-                }
-            },
-            error: function(xhr, status, e) {
-                alert("Failed to create record!");
-            },
-            dataType: "json"
-        });
-        return false;
-    });
+    
 });
 </script>
 #end
