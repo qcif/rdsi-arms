@@ -13,7 +13,7 @@
 
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity"]
+        "metadata": ["jsonVelocity","selfSubtoDataset"]
     },
     "curation": {
         "neverPublish": false,

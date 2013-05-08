@@ -12,17 +12,12 @@
             {
                 "name": "Researcher Record",
                 "from-workflow-id": "self-submission",
-                "from-workflow-step": "self-submission-submitted",
+                "from-workflow-stage": "self-submission-submitted",
                 "to-workflow-id": "dataset",
-                "to-workflow-step": "metadata-review"
-            },
-            {
-                "name": "Researcher Record",
-                "from-workflow-id": "simple",
-                "from-workflow-step": "investigation",
-                "to-workflow-id": "dataset",
-                "to-workflow-step": "final-review"
-            }
+                "to-workflow-stage": "metadata-review",
+                "to-workflow-page-title": "Metadata Record",
+         		"to-workflow-label": "Metadata Review"
+            }           
         ]
     },
     "configured": true,
@@ -333,6 +328,16 @@
             "checkForTFMETAProperty": "true",
             "TFMETAPropertyName": "copyTFPackage",
             "TFMETAPropertyValue": "dmpToSelfSub",
+            "clearPropertyOnTransform": "true",
+            "transformSource": "true"
+        },
+        "selfSubtoDataset": {
+            "id": "jsonVelocity",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/selfsub-dataset/selfSubToDataset.vm",
+            "checkForTFMETAProperty": "true",
+            "TFMETAPropertyName": "workflowTransitioned",
+            "TFMETAPropertyValue": "true",
             "clearPropertyOnTransform": "true",
             "transformSource": "true"
         }
