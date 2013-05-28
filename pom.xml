@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.googlecode.redbox-mint</groupId>
-  <artifactId>redbox-local-curation-demo</artifactId>
-  <version>1.6.1-SNAPSHOT</version>
+  <groupId>au.edu.qcif</groupId>
+  <artifactId>redbox-rdsi-demo</artifactId>
+  <version>0.1</version>
   <packaging>${packaging}</packaging>
-  <name>ReDBox - Local Curation Demo</name>
+  <name>ReDBox - RDSI Demo</name>
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.6.1-SNAPSHOT</version>
+    <version>1.6.1</version>
   </parent>
   <properties>
     <!-- Used in build -->
-    <redbox.version>1.6.1-SNAPSHOT</redbox.version>
+    <redbox.version>1.6.1</redbox.version>
     <package.finalname>${project.build.finalName}</package.finalname>
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <app.location.windows>${project.home}</app.location.windows>
@@ -44,34 +44,34 @@
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-project</artifactId>
       <type>pom</type>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox</artifactId>
       <type>pom</type>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-config</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-secure-api</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transaction-curation-redbox</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
     <!-- Local Curation Plugin (from Mint) -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transformer-local</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>1.6.1</version>
     </dependency>
   </dependencies>
   <profiles>
@@ -220,7 +220,8 @@
               <goal>unpack</goal>
             </goals>
             <configuration>
-              <includes>home/**,portal/**,server/**,solr/**</includes>
+              <includes>home/**,portal/default/**,portal/portal-library.vm,server/**,solr/**</includes>
+              <excludes>portal/default/usq/**</excludes>
               <outputDirectory>${project.home}</outputDirectory>
               <artifactItems>
                 <artifactItem>

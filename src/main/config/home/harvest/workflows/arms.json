@@ -1,0 +1,79 @@
+{
+    "presentation-settings": {
+       
+     },
+    "harvester": {
+        "type": "workflow-harvester",
+        "workflow-harvester": {
+            "force-storage": "true"
+        }
+    },
+    "workflow-id":"arms",
+    "page-title": "RDSI ARMS Request",
+    "default-owner":"admin",
+    "transformer": {
+        "curation": ["local"],
+        "metadata": []
+    },
+    "curation": {
+        "neverPublish": true,
+        "alreadyCurated": true
+    },
+	"display-type":"package-arms",
+    "transformerOverrides": {
+        "local": {
+            "template": "${server.url.base}published/detail/[[OID]]"
+        }
+    },
+    "indexer": {
+        "script": {
+            "type": "python",
+            "rules": "simpleworkflow-rules.py"
+        },
+        "params": {
+            "repository.name": "ReDBox",
+            "repository.type": "Data Management Portal"
+        }
+    },
+	"form-configuration": "form-configuration/armsform.json",
+    "stages": [
+        {
+            "name": "arms-draft",
+            "label": "Draft",
+            "description": "Draft request - yet to be submitted",
+            "owner_edit_allowed": "true",
+            "security": ["admin"],
+            "visibility": ["admin"],
+            "actions" :[ { "action-name" : "next",
+                           "target-step" : "arms-submitted" }]
+        },
+        {
+            "name": "arms-submitted",
+            "label": "Submitted",
+            "description": "Records under investigation.",
+            "owner_edit_allowed": "false",
+            "security": [ "admin"],
+            "visibility": ["admin"],
+            "actions" :[ { "action-name" : "next",
+                "target-step" : "arms-approved" }]
+        },
+        {
+            "name": "arms-approved",
+            "label": "Approved",
+            "description": "Records approved for provisioning",
+            "owner_edit_allowed": "false",
+            "security": [ "admin"],
+            "visibility": ["admin"],
+            "actions" :[ { "action-name" : "next",
+                "target-step" : "arms-retired" }]
+        },
+        {
+            "name": "arms-retired",
+            "label": "Retired",
+            "description": "Archived records.",
+            "owner_edit_allowed": "false",
+            "security": [ "admin"],
+            "visibility": ["admin"]
+        }
+    ]
+}
