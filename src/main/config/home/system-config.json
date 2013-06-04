@@ -154,16 +154,6 @@
             "id": "jsonVelocity",
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates"
-        },
-        "jsonVelocityPDF": {
-            "id": "jsonVelocityPDF",
-            "sourcePayload": ".tfpackage",
-            "templatesPath": "${fascinator.home}/pdf-templates",
-            "checkForTFMETAProperty": "true",
-            "TFMETAPropertyName": "generatePDF",
-            "TFMETAPropertyValue": "true",
-            "clearPropertyOnTransform": "true",
-            "versioning": "true"
         }
     },
     "uploader": {
@@ -199,14 +189,13 @@
     "portal": {
         "home": "${portal.home}",
         "contentDir": "${fascinator.home}/content",
-        "defaultView": "rdsi",
+        "defaultView": "default",
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
             "order": [
                 "local",
-                "rdsi",
-                "redbox"
+                "rdsi"
             ]
         },
         "caching": {
