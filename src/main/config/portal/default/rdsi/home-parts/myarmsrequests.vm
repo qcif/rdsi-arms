@@ -1,0 +1,6 @@
+#set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+<p>will add more, reference dashboard home/myplans
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
