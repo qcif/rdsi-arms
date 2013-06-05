@@ -17,7 +17,7 @@
     },
     "curation": {
         "neverPublish": true,
-        "alreadyCurated": true
+        "alreadyCurated": false
     },
 	"display-type":"package-arms",
     "transformerOverrides": {
