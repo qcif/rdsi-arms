@@ -15,8 +15,8 @@ class HomeData:
         self.velocityContext = context
         self.vc("sessionState").remove("fq")
 
+        self.__myArms = None
         self.__stages = JsonSimple(FascinatorHome.getPathFile("harvest/workflows/arms.json")).getArray("stages")
-     
         self.__search()
 
     # Get from velocity context
@@ -26,7 +26,12 @@ class HomeData:
         else:
             self.velocityContext["log"].error("ERROR: Requested context entry '{}' doesn't exist", index)
             return None
-
+        
+    def formatDate(self, date):    
+        dfSource = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        dfTarget = SimpleDateFormat("dd/MM/yyyy")
+        return dfTarget.format(dfSource.parse(date))
+    
     # if isAdmin, no security_query is needed
     def _searchSets(self, indexer, searchType, isAdmin=True, security_query=''):
         req = SearchRequest("packageType:"+searchType)
@@ -47,23 +52,19 @@ class HomeData:
 
         isAdmin = self.vc("page").authentication.is_admin()
         if isAdmin:
-            self.__myDrafts = self._searchSets(indexer, "self-submission")
-            self.__myDatasets = self._searchSets(indexer, "dataset")
-            self.__myPlans = self._searchSets(indexer, "dmpt")
+            self.__myArms = self._searchSets(indexer, "arms")
         else:
             # Security prep work
             current_user = self.vc("page").authentication.get_username()
             security_roles = self.vc("page").authentication.get_roles_list()
             security_exceptions = 'security_exception:"' + current_user + '"'
             owner_query = 'owner:"' + current_user + '"'
-            self.__myPlans = self._searchSets(indexer, "dmpt", isAdmin, owner_query)
-            self.__sharedPlans = self._searchSets(indexer, "dmpt", isAdmin, security_exceptions + " -"+owner_query)
-    
-            security_query = "(" + security_exceptions + ") OR (" + owner_query + ")"
-            self.__myDrafts = self._searchSets(indexer, "self-submission", isAdmin, security_query)
-            self.__myDatasets = self._searchSets(indexer, "dataset", isAdmin,  security_query + " AND " +owner_query)
+            self.__myArms = self._searchSets(indexer, "arms", isAdmin, owner_query)
     
     def getUser(self):
         current_user = self.vc("page").authentication.get_username()
         return current_user
     
+    def getMyArms(self):
+        return self.__myArms.getResults()
+

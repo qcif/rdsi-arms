@@ -1,76 +1,86 @@
 {
-	"stages": {
-		"arms-draft": [
-		                 "divs" [
-									"heading": "Contact details",
-									"fields": [
-									    {
-									        "component-type": "text-block",
-									        "type": "h1",
-									        "content": "arms.heading.contactdetails"
-									    },
-									    {
-				                            "component-type": "text-block",
-				                            "type": "label",
-				                            "content": "arms.field.label.dataprovider",
-				                            "help": "arms.field.help.dataprovider"
-				                        },
-				                        
-				                        {
-				                            "component-type": "text-block",
-				                            "type": "label",
-				                            "content": "arms.field.label.requester",
-				                            "help": "arms.field.help.requester"
-				                        },
-				                        {
-				                            "component-type": "checkbox",
-				                            "field-name": "dmpt.field.label.authoritycheck"
-				                            "box-for": "",
-				                            "boxes": [
-				                                {
-				                                    "label": "dmpt.field.label.authoritycheck.yes",
-				                                    "value": "Yes"
-				                                }
-				                            ]
-				                        },
-									 ],
-									 "heading": "Data collection details",
-									"fields": [
-										{
-										    "component-type": "text-block",
-										    "type": "h1",
-										    "content": "arms.heading.datacollection"
-										},
-										{
-				                            "component-type": "text-input",
-				                            "label": "arms.field.label.type",
-				                            "help": "arms.field.help.type",
-				                            "field-name": "type"
-				                        },   
-				                        {
-				                            "component-type": "textarea",
-				                            "field-name": "description",
-				                            "label": "arms.field.label.description",
-				                            "help": "arms.field.help.description",
-				                            "content": ""
-				                        },
-				                        {
-				                            "component-type": "textarea",
-				                            "field-name": "description",
-				                            "label": "arms.field.label.description-merit",
-				                            "help": "arms.field.help.description-merit",
-				                            "content": ""
-				                        }
-									],
-									"heading": "Research data merit support",
-									"fields": [
-										{
-										    "component-type": "text-block",
-										    "type": "h1",
-										    "content": "arms.heading.datacollection"
-										},
-									]
-		                         ]
-		                 ]
-	}
+    "stages":{
+        "arms-request":{
+            "divs":[
+                {
+                    "heading": "ContactDetails",
+                    "fields":[
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.contactdetails"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dataprovider",
+                            "help": "arms.field.help.dataprovider"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.requester",
+                            "help": "arms.field.help.requester"
+                        },
+                        {
+                            "component-type": "checkbox",
+                            "field-name": "dmpt.field.label.authoritycheck",
+                            "box-for": "",
+                            "boxes":[
+                                {
+                                    "label": "dmpt.field.label.authoritycheck.yes",
+                                    "value": "Yes"
+                                }
+                            ]
+                        }   
+                    ]
+                },
+                {
+                    "heading": "DataCollectionDetails",
+                    "fields":[
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.datacollection"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "label": "arms.field.label.type",
+                            "help": "arms.field.help.type",
+                            "field-name": "type"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "description",
+                            "label": "arms.field.label.description",
+                            "help": "arms.field.help.description",
+                            "content": ""
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "description",
+                            "label": "arms.field.label.description-merit",
+                            "help": "arms.field.help.description-merit",
+                            "content": ""
+                        }
+                    ]
+                },
+                {
+                    "heading": "ResearchDataMeritSupport",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.datacollection"
+                        }
+                    ]
+                }
+            ],
+            "buttons": [],
+            "form-footer": "armsform-footer",
+            "validation": {
+                "required": "title"
+            }
+        }
+    }
 }

@@ -1,0 +1,14 @@
+{
+    "steps": {
+        "ContactDetails": {
+            "Next": "DataCollectionDetails"
+        },
+        "DataCollectionDetails": {
+            "Next": "ResearchDataMeritSupport",
+            "Back": "ContactDetails"
+        },
+        "ResearchDataMeritSupport": {
+        	"Back": "DataCollectionDetails",
+        }
+    }
+}
