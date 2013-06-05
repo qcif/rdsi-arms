@@ -38,7 +38,7 @@
 	"form-configuration": "form-configuration/armsform.json",
     "stages": [
         {
-            "name": "arms-draft",
+            "name": "arms-request",
             "label": "Draft",
             "description": "Draft request - yet to be submitted",
             "owner_edit_allowed": "true",
@@ -55,7 +55,8 @@
             "security": [ "admin"],
             "visibility": ["admin"],
             "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-approved" }]
+                "target-step" : "arms-approved" }],
+            "template": "workflows/simpleworkflow"
         },
         {
             "name": "arms-approved",
@@ -65,7 +66,8 @@
             "security": [ "admin"],
             "visibility": ["admin"],
             "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-retired" }]
+                "target-step" : "arms-retired" }],
+            "template": "workflows/simpleworkflow"
         },
         {
             "name": "arms-retired",
@@ -73,7 +75,8 @@
             "description": "Archived records.",
             "owner_edit_allowed": "false",
             "security": [ "admin"],
-            "visibility": ["admin"]
+            "visibility": ["admin"],
+            "template": "workflows/simpleworkflow"
         }
     ]
 }
