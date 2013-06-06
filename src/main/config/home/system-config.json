@@ -189,11 +189,11 @@
     "portal": {
         "home": "${portal.home}",
         "contentDir": "${fascinator.home}/content",
-        "defaultView": "default",
+        "defaultView": "rdsi",
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
-            "order": [ "local", "rdsi" ]
+            "order": [ "local", "rdsi", "redbox" ]
         },
         "caching": {
             "caches": {

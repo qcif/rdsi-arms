@@ -1,0 +1,9 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		var hidden_elements = document.getElementsByClassName('HiddenWidget');
+   		for( var i = 0; i < hidden_elements.length; i++) {
+   			hidden_elements[i].style.display = 'none';
+   		}
+		prepareHelps();
+   	})
+</script>

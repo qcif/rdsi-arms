@@ -1,0 +1,98 @@
+<div class="grid_4">
+    #set($menuTitle = "Options")
+    #parseTemplate("wrapping/main-menu-open.vm")
+    <ul class="menu">
+        <li><a href="$portalPath/search">Browse records</a></li>
+        #if($page.authentication.is_admin())
+        <li><a id="reharvest-view" href="#" rel="$portalId">Reharvest view...</a></li>
+        #if($portalId != $defaultPortal)
+        <li><a id="delete-view" href="#" rel="$portalId">Delete view...</a></li>
+        #end
+        #end
+        <li>
+            #if($page.authentication.is_logged_in())
+            <a id="new-record" href="#">Add a new dataset</a>
+			#else
+            <a id="notify-record" href="$portalPath/workflows/submission">Notify us about a dataset</a>
+            #end
+        </li>
+    </ul>
+    #parseTemplate("wrapping/main-menu-close.vm")
+</div>
+#if($page.authentication.is_logged_in())
+<script type="text/javascript">
+$(function() {
+    var jQ = $;
+    var processing = false;
+    jQ("#new-record").click(function() {
+        if (processing) return;
+        processing = true;
+        jQ("#new-record").append('<img class="right" src="$portalPath/images/icons/loading.gif" />');
+        jQ.ajax({
+            type: "POST",
+            url: "$portalPath/actions/packaging.ajax",
+            data: {
+                ajax: 1,
+                func: "create-new",
+                packageType: "dataset",
+                metaList: ["title", "description", "redbox:newForm", "redbox:formVersion"],
+                title: "[Untitled]",
+                description: "",
+                "redbox:newForm": "true",
+                "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
+            },
+            success: function(data) {
+                if (data.status == "ok") {
+                    function redirect() {
+                        window.location.href = data.url;
+                    }
+                    setTimeout(redirect, 1500);
+                } else {
+                    alert("Failed to create record!");
+                }
+            },
+            error: function(xhr, status, e) {
+                alert("Failed to create record!");
+            },
+            dataType: "json"
+        });
+        return false;
+    });
+    jQ("#new-dmpt-record").click(function() {
+        if (processing) return;
+        processing = true;
+        jQ("#new-dmpt-record").append('<img class="right" src="$portalPath/images/icons/loading.gif" />');
+        jQ.ajax({
+            type: "POST",
+            url: "$portalPath/actions/packaging.ajax",
+            data: {
+                ajax: 1,
+                func: "create-new",
+                packageType: "dmpt",
+                metaList: ["title", "dc:description", "redbox:newForm", "redbox:formVersion"],
+                title: "[Untitled]",
+                description: "",
+                "redbox:newForm": "true",
+                "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
+            },
+            success: function(data) {
+                if (data.status == "ok") {
+                    function redirect() {
+                        window.location.href = data.url;
+                    }
+                    setTimeout(redirect, 1500);
+                } else {
+                    alert("Failed to create record!");
+                }
+            },
+            error: function(xhr, status, e) {
+                alert("Failed to create record!");
+            },
+            dataType: "json"
+        });
+        return false;
+    });
+    
+});
+</script>
+#end
