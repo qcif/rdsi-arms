@@ -3,7 +3,7 @@
         "arms-request":{
             "divs":[
                 {
-                    "heading": "ContactDetails",
+                    "heading": "",
                     "fields":[
                         {
                             "component-type": "text-block",
@@ -12,23 +12,121 @@
                         },
                         {
                             "component-type": "text-block",
-                            "type": "label",
+                            "type": "h4",
                             "content": "arms.field.label.dataprovider",
                             "help": "arms.field.help.dataprovider"
                         },
                         {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:title",
+                            "label":"arms.field.label.foaf-title",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf-givenName",
+                            "label":"arms.field.label.foaf-givenName",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:familyName",
+                            "label":"arms.field.label.foaf-familyName",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:email",
+                            "label":"arms.field.label.foaf-email",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:phone",
+                            "label":"arms.field.label.foaf-phone",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:role",
+                            "label":"arms.field.label.foaf-role",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dataprovider:foaf:organization",
+                            "label":"arms.field.label.foaf-organization",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"data-source-dropdown",
+                            "field-name":"dataprovider:foaf:state",
+                            "label":"arms.field.label.foaf-state",
+                            "field-name-label":"dataprovider:foaf:state:prefLabel",
+                            "sourceUrl":"form-components/states.json"
+                        },
+						{
                             "component-type": "text-block",
-                            "type": "label",
+                            "type": "h4",
                             "content": "arms.field.label.requester",
                             "help": "arms.field.help.requester"
                         },
                         {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:title",
+                            "label":"arms.field.label.foaf-title",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf-givenName",
+                            "label":"arms.field.label.foaf-givenName",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:familyName",
+                            "label":"arms.field.label.foaf-familyName",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:email",
+                            "label":"arms.field.label.foaf-email",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:phone",
+                            "label":"arms.field.label.foaf-phone",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:role",
+                            "label":"arms.field.label.foaf-role",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"requester:foaf:organization",
+                            "label":"arms.field.label.foaf-organization",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"data-source-dropdown",
+                            "field-name":"requester:foaf:state",
+                            "label":"arms.field.label.foaf-state",
+                            "field-name-label":"requester:foaf:state:prefLabel",
+                            "sourceUrl":"form-components/states.json"
+                        },
+                        {
                             "component-type": "checkbox",
-                            "field-name": "dmpt.field.label.authoritycheck",
+                            "field-name": "arms.field.label.authoritycheck",
                             "box-for": "",
                             "boxes":[
                                 {
-                                    "label": "dmpt.field.label.authoritycheck.yes",
+                                    "label": "arms.field.label.authoritycheck.yes",
                                     "value": "Yes"
                                 }
                             ]
@@ -44,10 +142,16 @@
                             "content": "arms.heading.datacollection"
                         },
                         {
-                            "component-type": "text-input",
-                            "label": "arms.field.label.type",
-                            "help": "arms.field.help.type",
-                            "field-name": "type"
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.dc-title",
+                            "help": "arms.field.help.dc-title"
+                        },
+                        {
+                            "component-type":"text-input",
+                            "field-name":"dc:title",
+                            "label":"",
+                            "additional-classes":"",
                         },
                         {
                             "component-type": "textarea",
@@ -57,11 +161,31 @@
                             "content": ""
                         },
                         {
-                            "component-type": "textarea",
-                            "field-name": "description",
-                            "label": "arms.field.label.description-merit",
-                            "help": "arms.field.help.description-merit",
-                            "content": ""
+                            "component-type":"text-input",
+                            "field-name":"relation:metadata",
+                            "label":"arms.field.label.relation-metadata",
+                            "help":"arms.field.help.relation-metadata",
+                            "additional-classes":"",
+                        },
+                        {
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.dc-subject.anzsrc-for",
+                            "help":"arms.field.help.dc-subject.anzsrc-for"
+                        },
+                        {
+                            "component-type":"repeatable-anzsrc-selection",
+                            "label":"FoR code(s)",
+                            "fieldName":"dc:subject.anzsrc:for",
+                            "fieldNameLabel":"dc:subject.anzsrc:for.0.skos:prefLabel",
+                            "sourceUrl":"proxyGet.script?ns=ANZSRC_FOR&qs=count%3D999%26level%3D",
+                            "dataLevel":"top",
+                            "mandatory":"false",
+                            "idKey":"rdf:about",
+                            "labelKey":"skos:prefLabel",
+                            "listKey":"results",
+                            "defaultValue":"skos:narrower",
+                            "anzsrcType":"for"
                         }
                     ]
                 },
@@ -71,7 +195,57 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.heading.datacollection"
+                            "content": "arms.heading.researchdatameritsupport"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "merit-description",
+                            "label": "arms.field.label.description-merit",
+                            "help": "arms.field.help.description-merit",
+                            "content": ""
+                        }
+                    ]
+                },
+                {
+                    "heading": "ResearchDataRe-use",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.researchdatare-use"
+                        },
+                        {
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.dc-accessRights",
+                            "help":"arms.field.help.dc-accessRights"
+                        },
+						{
+							"component-type": "checkbox",
+							"field-name": "dc:accessRights",
+							"box-for": "",
+							"multiline": true,
+							"boxes": [
+								{
+									"label": "Unrestricted access - Research data is made freely available to all users",
+									"value": "Unrestricted access"
+								},
+								{
+									"label": "Restricted access - Research data is made freely available to selected users",
+									"value": "Restricted access"
+								},
+								{
+									"label": "Embargo access - Research data is made freely available following an appropriate delay",
+									"value": "Embargo access"
+								}
+							]
+						},
+                        {
+                            "component-type": "textarea",
+                            "field-name": "dc:rights.skos:note",
+                            "label": "arms.field.label.dc-rights.skos-note",
+                            "help": "arms.field.help.dc-rights.skos-note",
+                            "content": ""
                         }
                     ]
                 }
