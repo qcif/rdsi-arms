@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "default",
+    "name" : "rdsi",
     "description" : "RDSI-ARMS",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",
