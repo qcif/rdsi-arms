@@ -5,6 +5,7 @@
         #parseTemplate("layout/html-head.vm")
         <style>
         .component-wrapper > label { diplay:inline; /* to allow help content next to it */} 
+        .tab-heading { display:none} /* hide tab headings */ 
         </style>
     </head>
     <body>
