@@ -35,7 +35,7 @@ jQuery(document).ready(function prepareHelps() {
 
 #parseTemplate("menus/home-main-menu.vm")
     <div class="grid_12">
-	#parseTemplate("home-parts/myarmsrequests.vm")
+	#parseTemplate("home-components/myarmsrequests.vm")
     </div>
     <div class="clear"></div>
 #elseif(!$page.authentication.is_logged_in())

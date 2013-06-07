@@ -5,8 +5,6 @@ from java.io import ByteArrayInputStream, ByteArrayOutputStream
 from java.text import SimpleDateFormat
 from java.util import ArrayList
 
-import glob
-
 class HomeData:
     def __init__(self):
         pass
