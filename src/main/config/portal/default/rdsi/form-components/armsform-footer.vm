@@ -11,6 +11,14 @@
 			 changeMonth: true,
 			 changeYear: true,
 			 showButtonPanel: false
-			 }); 
+			 });
+		$('#save-close').click(function () { action= $(this).val();
+			jaffa.form.save();
+			function redirect() {
+                window.location.href = "$portalPath";
+            }
+            setTimeout(redirect, 1500);
+			}
+		); 
    	})
 </script>
