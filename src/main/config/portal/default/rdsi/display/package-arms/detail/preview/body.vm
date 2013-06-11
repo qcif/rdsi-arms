@@ -1,8 +1,0 @@
-<div>
-    #set($oid = $metadata.get("id"))
-    ##parseDisplayTemplate("detail/preview/sections/overview.vm")
-</div>
-
-<p>Display $oid</p>
-
-<div class="clear"></div>
