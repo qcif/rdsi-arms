@@ -1,0 +1,25 @@
+<table class="meta">
+#set($dic = $self.getDisplayList())
+#foreach($key in $dic.keys())
+	#set( $label_key = $dic.get($key) )
+    #set($label = 'arms.field.label.' + $label_key)
+    <tr>
+        <th width="25%">#displayMessage($label)</th>
+        <td>
+            #set($valueList = $metadata.getList("$key"))
+            #if ($valueList.isEmpty())
+ Not supplied
+#else
+            
+            #if($valueList.size() > 1)
+                #foreach($value in $valueList)
+                    <span class="meta-value">$parent.escape($value)</span><br/>
+                #end
+            #else
+                $self.escape($valueList.get(0))
+            #end
+        </td>
+    </tr>
+#end
+#end
+</table>
