@@ -1,0 +1,24 @@
+<script src="$portalPath/js/wizard.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var hidden_elements = document.getElementsByClassName('HiddenWidget');
+   		for( var i = 0; i < hidden_elements.length; i++) {
+   			hidden_elements[i].style.display = 'none';
+   		}
+		prepareHelps();
+		$("#simpleworkflow-form").find("input.dateYMD, input.date").datepicker({
+			 dateFormat: 'MM yy',
+			 changeMonth: true,
+			 changeYear: true,
+			 showButtonPanel: false
+			 });
+		$('#save-close').click(function () { action= $(this).val();
+			jaffa.form.save();
+			function redirect() {
+                window.location.href = "$portalPath";
+            }
+            setTimeout(redirect, 1500);
+			}
+		); 
+   	})
+</script>
