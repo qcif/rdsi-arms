@@ -59,9 +59,14 @@
                             "additional-classes":""
                         },
                         {
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.foaf-state"
+                        },
+                        {
                             "component-type":"data-source-dropdown",
                             "field-name":"dataprovider:foaf:state",
-                            "label":"arms.field.label.foaf-state",
+                            "label":"",
                             "field-name-label":"dataprovider:foaf:state:prefLabel",
                             "sourceUrl":"form-components/states.json"
                         },
@@ -114,9 +119,14 @@
                             "additional-classes":""
                         },
                         {
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.foaf-state"
+                        },
+                        {
                             "component-type":"data-source-dropdown",
                             "field-name":"requester:foaf:state",
-                            "label":"arms.field.label.foaf-state",
+                            "label":"",
                             "field-name-label":"requester:foaf:state:prefLabel",
                             "sourceUrl":"form-components/states.json"
                         }
@@ -150,11 +160,15 @@
                             "content": ""
                         },
                         {
-                            "component-type":"text-input",
-                            "field-name":"relation:metadata",
-                            "label":"arms.field.label.relation-metadata",
-                            "help":"arms.field.help.relation-metadata",
-                            "additional-classes":""
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.discover-metadata"
+                        },
+                        {
+                            "component-type":"repeatable-text",
+                            "field-name":"discover-metadata",
+                            "label":"discover-metadata",
+                            "help":"arms.field.help.discover-metadata"
                         },
                         {
                             "component-type":"text-block",
@@ -344,11 +358,32 @@
                             "content": "arms.heading.technicaldetails"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"text-block",
+                            "type":"label",
+                            "content":"arms.field.label.rdsi-node"
+                        },
+                        {
+                            "component-type":"dropdown-fixedvalue",
                             "field-name":"rdsi-node",
-                            "label":"arms.field.label.rdsi-node",
-                            "help":"arms.field.help.rdsi-node",
-                            "additional-classes":""
+                            "label":"",
+                            "options":[
+	                            {
+									"label":"",
+									"value":""
+								},
+	                            {
+									"label":"QCIF",
+									"value":"QCIF"
+								},
+								{
+									"label":"Monash", 
+									"value":"Monash"
+								},
+								{ 
+									"label":"ERSA", 
+									"value":"ERSA"
+								}
+                            ]
                         },
                         {
                             "component-type":"text-input",
@@ -411,7 +446,14 @@
                             "additional-classes":"dateYMD"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type": "textarea",
+                            "field-name": "vivo-Dataset.dc.format",
+                            "label":"arms.field.label.vivo-Dataset.dc.format",
+                            "help":"arms.field.help.vivo-Dataset.dc.format",
+                            "content": ""
+                        },
+                        {
+                            "component-type":"textarea",
                             "field-name":"reuse-availability",
                             "label":"arms.field.label.reuse-availability",
                             "help":"arms.field.help.reuse-availability",
@@ -466,13 +508,13 @@
 							]
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"textarea",
                             "field-name":"storage-risk-disruption",
                             "label":"arms.field.label.storage-risk-disruption",
                             "additional-classes":""
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"textarea",
                             "field-name":"data-medium-migration",
                             "label":"arms.field.label.data-medium-migration",
                             "help":"arms.field.help.data-medium-migration",
@@ -494,7 +536,7 @@
                             ]
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"textarea",
                             "field-name":"required-resources",
                             "label":"arms.field.label.required-resources",
                             "help":"arms.field.help.required-resources",

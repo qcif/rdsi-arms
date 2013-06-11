@@ -6,5 +6,11 @@
    			hidden_elements[i].style.display = 'none';
    		}
 		prepareHelps();
+		$("#simpleworkflow-form").find("input.dateYMD, input.date").datepicker({
+			 dateFormat: 'MM yy',
+			 changeMonth: true,
+			 changeYear: true,
+			 showButtonPanel: false
+			 }); 
    	})
 </script>
