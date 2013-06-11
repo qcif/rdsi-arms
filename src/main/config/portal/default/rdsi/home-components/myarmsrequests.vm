@@ -1,0 +1,28 @@
+#set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+#if ($self.myArms && $self.myArms.size() > 0)
+<table>
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.created')</th>
+            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.modified')</th>
+            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.manage')</th>
+        </tr>
+    </thead>
+    <tbody>
+	#foreach($item in $self.myArms)
+	    #set($oid = $item.get("id"))
+	    <tr>
+	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
+            <td>$self.formatDate($item.get("create_timestamp"))</td>
+            <td>$self.formatDate($item.get("last_modified"))</td>
+	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('researcher-dashboard.home.mydatasets.manage.edit')"></a>
+	       </td>
+	    </tr>
+	#end
+    </tbody>
+</table>
+#end
+</div>

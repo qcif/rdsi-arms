@@ -1,0 +1,222 @@
+#set($oid = $velocityContext.get('formData').get('oid'))
+<script type="text/javascript">
+    // Fix in case there are some unchecked logging statements
+    if(!window.console) {
+        var console = {
+            log : function(){},
+            warn : function(){},
+            error : function(){},
+            time : function(){},
+            timeEnd : function(){}
+        }
+    }
+</script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaRegexes.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaUtilities.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaValidation.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaWidgets.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaUI.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaForm.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/validatious/validatious.2.0.min.0.9.1.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/jaffa.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/myJaffa.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets-ini.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/text.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/dropDown.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/container.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/people.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/funding-body.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/grants.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/nameLookup2.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/libs/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript" src="$portalPath/jaffa/widgets/anzsrc-Selection.js"></script>
+
+<script type="text/javascript">
+	var validationFieldMap = {};
+</script>
+<div class="errorbox">
+		#displayMessage("reports.create.report.validation.message")
+		<ul id="errorbox-list">
+		</ul>
+</div>
+	
+
+<div id="simpleworkflow-form">
+	$fieldElementsHtml
+	$divElementsHtml
+	$buttonElementsHtml
+</div>	
+
+
+<script type="text/javascript">
+  var jaffa = jaffaFactory({
+        debuggingEnabled: true,
+        urlDataSource: "$portalPath/workflows/simpleworkflow.ajax?func=get-tfpackage&oid=$oid&dateStamp="+new Date().getTime(),
+        formSelector: "#simpleworkflow-form",
+        functionSaveData: saveData,
+        callbackPreSave: preSave,
+        callbackStartupComplete: startupComplete
+    });
+    
+    function startupComplete(jaffa) {
+    	//discover the prefixes for all the multivalued fields
+    	var prefixes = [];
+		$(".jaffaList").each(function() {
+                                var listId= $(this).attr('id');
+                                var multiVariablePrefix = listId.substring(0, listId.length - 16);
+                                prefixes.push(multiVariablePrefix);
+                                }
+        					 );
+    	
+    	
+    	
+		var dataSource = jaffa.config("urlDataSource");
+		
+		if (dataSource != null && dataSource != "") {
+			// Get the JSON Data and run this callback
+			jaffa.util.loadJsonUrl(dataSource, function(data) {
+				var prefixCounts = {};		
+				for (var field in data) {
+					jaffa.serverData[field] = data[field];
+					var prefix = matchesPrefix(field,prefixes);
+					if(prefix != null) {
+						var index = field.substring(prefix.length+1,prefix.length+2);
+						var count = prefixCounts[prefix];
+						if (count == null) {
+							count = 0;
+						}
+						if(count < index) {
+							prefixCounts[prefix] = index;
+						}
+					}
+				}
+				
+				//Click the add button to initialise the correct number of repeatable elements to populate
+				for(prefix in prefixCounts) {
+					for(var i=1; i<prefixCounts[prefix];i++) {
+						$("[id='"+prefix+".1.ContainerItem']").parent().find('.jaffaAddItem button').click();
+					}
+				}
+				
+				$("#simpleworkflow-form").find("input.dateYMD, input.date").datepicker({
+																	dateFormat: "yy-mm-dd",
+																	changeMonth: true,
+																	changeYear: true,
+																	showButtonPanel: false
+																	}); 
+				
+				//final population of data
+				jaffa.form.synch(true);
+				//populate map if it exists
+				if(window["openLayersMap"] != null) {
+					window["openLayersMap"].loadData();
+
+					$('.redboxGeoData .jaffaDeleteItem').each(function (index, value) {
+       						 var currentItem = $(value);
+        					 var originalClickEvent = currentItem.data("events")['click'][0].handler;
+       						 currentItem.unbind('click');
+        					 currentItem.click(function (event) {
+        					   window["openLayersMap"].deleteFeature(event.target);   
+                			 	jQuery.proxy(originalClickEvent, currentItem)(event); 
+           					 });
+       					 });
+				
+				} 
+				
+					var loadingCheckId = window.setInterval(function() {
+             		if($('.jaffa2Loading').length == 0) {
+				   		$('#simpleworkflow-form').unblock();
+				   		window.clearInterval(loadingCheckId);
+				   }
+       		  },500); 
+				
+			});
+		}
+		
+	}
+	
+	function validationFail(fieldId, testsFailed) {
+    	$(".errorbox").show();
+    	var validation = validationFieldMap[fieldId];
+    	for(var i =0; i < testsFailed.length; i++) {
+    		var message = validation["validationMessages"][testsFailed[i]];
+    		$("#errorbox-list").append('<li>'+message+'<button id="'+fieldId+'-errorButton" class="jaffaHelpToggle ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-circle-arrow-e"></span><span class="ui-button-text"></span></button></li>');
+    		
+        	$("[id='"+fieldId+"-errorButton']").click(function() { $("[id='"+validation["focusId"]+"']").focus();});
+        }
+    	
+	}
+    
+    function matchesPrefix(field,prefixes) {
+    	for(var i=0;i<prefixes.length; i++) {
+    		var prefix = prefixes[i];
+    		if(field.indexOf(prefix) ==0) {
+    			return prefix;
+    		}
+    	}
+    	
+    	return null;
+    }
+    
+    function preSave() {
+    	return true;
+    }
+
+
+	function validateTab() {
+		$(".errorbox").hide();
+    	$("#errorbox-list").html(''); 
+		var activeTabHref = $("[id='"+ wizardTabIdentifier +"'] > li.ui-state-active > a").attr('href');
+		var tabId = activeTabHref.substring(1,activeTabHref.length);
+		var ids = [];
+
+		//get all input ids
+		var inputs = $("[id='"+tabId+"']").find(".component-wrapper input");
+		for(var i=0; i < inputs.length; i++) {
+    		ids.push($(inputs[i]).attr('id'));
+		}
+		//get all textarea ids
+		var textareas = $("[id='"+tabId+"']").find(".component-wrapper textarea");
+		for(var i=0; i < textareas.length; i++) {
+    		ids.push($(textareas[i]).attr('id'));
+		}
+		
+		//get all select ids
+		var selects = $("[id='"+tabId+"']").find(".component-wrapper select");
+		for(var i=0; i < selects.length; i++) {
+    		ids.push($(selects[i]).attr('id'));
+		}
+		
+		//get all radiobutton names
+		var radios = $("[id='"+tabId+"']").find(".component-wrapper input[type='radio']");
+		for(var i=0; i < radios.length; i++) {
+    		var name = $(radios[i]).attr('name');
+    		if(ids.indexOf(name) == -1) {
+    			ids.push(name);
+    		}
+		}
+		
+		//get all checkbox names
+		var checkboxes = $("[id='"+tabId+"']").find(".component-wrapper input[type='checkbox']");
+		for(var i=0; i < checkboxes.length; i++) {
+    		var name = $(checkboxes[i]).attr('name');
+    		if(ids.indexOf(name) == -1) {
+    			ids.push(name);
+    		}
+		}
+
+		
+		return jaffa.valid.test("save", ids);
+		}
+	
+	
+</script>
+
+$formFooterHtml
+
+<script type="text/javascript">
+ $(document).ready(function() {
+ 	$('#ui-datepicker-div').hide();
+ 	$('#simpleworkflow-form').block();
+ });
+</script>
