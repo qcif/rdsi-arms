@@ -23,16 +23,6 @@ class DetailData:
         self.log = context["log"]
         
     def getDisplayList(self):
-#         return {'dc_description': 'description', 
-#                 'dataprovider:foaf-title': 'foaf-title',
-#                 'dataprovider:foaf-givenName': 'foaf-givenName',
-#                 'dataprovider:foaf-givenName': 'foaf-givenName',
-#                 'dataprovider:foaf-familyName': 'foaf-familyName',
-#                 'dataprovider:foaf-email': 'foaf-email',
-#                 'dataprovider:foaf-phone': 'foaf-phone',
-#                 'dataprovider:foaf-role': 'foaf-role',
-#                 'dataprovider:foaf-organization': 'foaf-organization',
-#                 'dataprovider:foaf-state': 'foaf-state'}
         jsonString = """
             {"dc_description": "description", 
                 "dataprovider:foaf-title": "foaf-title",
@@ -43,7 +33,17 @@ class DetailData:
                 "dataprovider:foaf-phone": "foaf-phone",
                 "dataprovider:foaf-role": "foaf-role",
                 "dataprovider:foaf-organization": "foaf-organization",
-                "dataprovider:foaf-state": "foaf-state"}
+                "requester:foaf-state": "foaf-state",
+                "requester:foaf-title": "foaf-title",
+                "requester:foaf-givenName": "foaf-givenName",
+                "requester:foaf-givenName": "foaf-givenName",
+                "requester:foaf-familyName": "foaf-familyName",
+                "requester:foaf-email": "foaf-email",
+                "requester:foaf-phone": "foaf-phone",
+                "requester:foaf-role": "foaf-role",
+                "requester:foaf-organization": "foaf-organization",
+                "requester:foaf-state": "foaf-state",
+             }
             """
         return JsonSimple(jsonString)    
     
