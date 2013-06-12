@@ -1,0 +1,3 @@
+#parseDisplayTemplate("detail/common.vm")
+#parseDisplayTemplate("detail/navigation/actions.vm")
+#parseDisplayTemplate("detail/navigation/attachments.vm")
