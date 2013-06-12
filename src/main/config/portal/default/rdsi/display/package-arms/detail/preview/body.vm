@@ -1,7 +1,7 @@
 <table class="meta">
 #set($dic = $self.getDisplayList())
-#foreach($key in $dic.keys())
-	#set( $label_key = $dic.get($key) )
+#foreach($key in $dic.getJsonObject().keySet())
+	#set( $label_key = $dic.getString("",$key) )
     #set($label = 'arms.field.label.' + $label_key)
     <tr>
         <th width="25%">#displayMessage($label)</th>
