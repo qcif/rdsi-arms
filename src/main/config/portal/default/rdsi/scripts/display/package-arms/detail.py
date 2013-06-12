@@ -23,16 +23,29 @@ class DetailData:
         self.log = context["log"]
         
     def getDisplayList(self):
-        return {'dc_description': 'description', 
-                'dataprovider:foaf-title': 'foaf-title',
-                'dataprovider:foaf-givenName': 'foaf-givenName',
-                'dataprovider:foaf-givenName': 'foaf-givenName',
-                'dataprovider:foaf-familyName': 'foaf-familyName',
-                'dataprovider:foaf-email': 'foaf-email',
-                'dataprovider:foaf-phone': 'foaf-phone',
-                'dataprovider:foaf-role': 'foaf-role',
-                'dataprovider:foaf-organization': 'foaf-organization',
-                'dataprovider:foaf-state': 'foaf-state'}
+#         return {'dc_description': 'description', 
+#                 'dataprovider:foaf-title': 'foaf-title',
+#                 'dataprovider:foaf-givenName': 'foaf-givenName',
+#                 'dataprovider:foaf-givenName': 'foaf-givenName',
+#                 'dataprovider:foaf-familyName': 'foaf-familyName',
+#                 'dataprovider:foaf-email': 'foaf-email',
+#                 'dataprovider:foaf-phone': 'foaf-phone',
+#                 'dataprovider:foaf-role': 'foaf-role',
+#                 'dataprovider:foaf-organization': 'foaf-organization',
+#                 'dataprovider:foaf-state': 'foaf-state'}
+        jsonString = """
+            {"dc_description": "description", 
+                "dataprovider:foaf-title": "foaf-title",
+                "dataprovider:foaf-givenName": "foaf-givenName",
+                "dataprovider:foaf-givenName": "foaf-givenName",
+                "dataprovider:foaf-familyName": "foaf-familyName",
+                "dataprovider:foaf-email": "foaf-email",
+                "dataprovider:foaf-phone": "foaf-phone",
+                "dataprovider:foaf-role": "foaf-role",
+                "dataprovider:foaf-organization": "foaf-organization",
+                "dataprovider:foaf-state": "foaf-state"}
+            """
+        return JsonSimple(jsonString)    
     
     def hasWorkflow(self):
         self.__workflowStep = self.metadata.getList("workflow_step_label")
