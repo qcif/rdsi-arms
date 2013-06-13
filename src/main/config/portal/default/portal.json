@@ -2,7 +2,7 @@
   "portal" : {
     "name" : "default",
     "description" : "RDSI-ARMS",
-    "query" : "-display_type:attachment AND packageType:arms",
+    "query" : "-display_type:attachment",
     "records-per-page" : "25",
     "facet-count" : "100",
     "facet-sort-by-count" : "false",

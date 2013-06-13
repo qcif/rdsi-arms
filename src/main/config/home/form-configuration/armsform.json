@@ -24,7 +24,7 @@
                         },
                         {
                             "component-type":"text-input",
-                            "field-name":"dataprovider:foaf-givenName",
+                            "field-name":"dataprovider:foaf:givenName",
                             "label":"arms.field.label.foaf-givenName",
                             "additional-classes":""
                         },
@@ -84,7 +84,7 @@
                         },
                         {
                             "component-type":"text-input",
-                            "field-name":"requester:foaf-givenName",
+                            "field-name":"requester:foaf:givenName",
                             "label":"arms.field.label.foaf-givenName",
                             "additional-classes":""
                         },
@@ -167,7 +167,7 @@
                         {
                             "component-type":"repeatable-text",
                             "field-name":"discover-metadata",
-                            "label":"discover-metadata",
+                            "label":"",
                             "help":"arms.field.help.discover-metadata"
                         },
                         {
@@ -203,8 +203,8 @@
                         {
                             "component-type": "textarea",
                             "field-name": "merit-description",
-                            "label": "arms.field.label.description-merit",
-                            "help": "arms.field.help.description-merit",
+                            "label": "arms.field.label.merit-description",
+                            "help": "arms.field.help.merit-description",
                             "content": ""
                         }
                     ]
@@ -220,12 +220,12 @@
                         {
                             "component-type":"text-block",
                             "type":"label",
-                            "content":"arms.field.label.dc-accessRights",
-                            "help":"arms.field.help.dc-accessRights"
+                            "content":"arms.field.label.accessRestrictions",
+                            "help":"arms.field.help.accessRestrictions"
                         },
 						{
 							"component-type":"radio-button",
-							"field-name": "dc:accessRights",
+							"field-name": "accessRestrictions",
 							"button-for": "",
 							"buttons": [
 								{
@@ -489,6 +489,10 @@
                             "field-name":"storage-risk-regenerate",
                             "label":"arms.field.label.storage-risk-regenerate",
                             "options":[
+								{
+									"label":"Please select one", 
+									"value":""
+								},
 								{
 									"label":"Fully replaceable", 
 									"value":"Fully replaceable"
