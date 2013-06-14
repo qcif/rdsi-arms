@@ -14,7 +14,7 @@ class DetailData:
         self.metadata = context["metadata"]
         
     def getDisplayList(self):
-        return JsonSimple(FascinatorHome.getPathFile("system-files/package-arms/preview-fields.json"))
+        return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))
 
     def getList(self, baseKey):
         return preview.getList(self.metadata, baseKey)
