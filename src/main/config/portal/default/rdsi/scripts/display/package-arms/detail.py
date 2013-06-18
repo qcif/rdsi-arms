@@ -15,3 +15,14 @@ class DetailData:
 
     def getList(self, baseKey):
         return preview.getList(self.metadata, baseKey)
+
+    # Return in a string  
+    def getRepeatables(self, repeats, baseKey, subKey):
+        rvalues = [] 
+        for skey in repeats.keySet():
+            print "skey = %s" % skey
+            item = repeats.get(skey)            
+            subv = item.get(subKey).strip()
+            if len(subv):
+                rvalues.append(subv)
+        return ", ".join(rvalues)

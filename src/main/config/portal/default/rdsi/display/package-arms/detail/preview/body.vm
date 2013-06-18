@@ -12,7 +12,10 @@
 	#if ($forList.isEmpty())
      Not supplied
 	#else
-     #set($subKey = "")
+	  #if ($key=='dc:subject.anzsrc:for')
+		$self.getRepeatables($forList, 'dc:subject.anzsrc:for', 'skos:prefLabel')
+	  #else				
+       #set($subKey = "")
      	#set($i = 0)    	
         #foreach($key in $forList.keySet())
             #if($i==0) #set($i=$i+1) #else, #end
@@ -20,9 +23,9 @@
             #set($subv = $item.get("$subKey"))
             $page.escapeHtml($!subv)
         #end
+       #end
      #end
   #else
-            
             #if($valueList.size() > 1)
                 #foreach($value in $valueList)
                     <span class="meta-value">$page.escapeHtml($value)</span><br/>
@@ -32,6 +35,6 @@
             #end
         </td>
     </tr>
-  #end
+	#end
 #end
 </table>

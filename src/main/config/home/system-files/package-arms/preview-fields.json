@@ -16,9 +16,8 @@
     "requester:foaf:organization": "foaf-organization",
     "requester:foaf:state:prefLabel": "foaf-state",
     "dc_description": "description",
-
     "discover-metadata.": "discover-metadata",
-    "dc:subject.anzsrc:for.1.skos:prefLabel": "dc-subject.anzsrc-for",
+    "dc:subject.anzsrc:for": "dc-subject.anzsrc-for",
     "merit-description": "merit-description",
     "accessRestrictions": "accessRestrictions",
     "dc:rights.skos:note": "dc-rights.skos-note",
