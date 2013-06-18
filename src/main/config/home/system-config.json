@@ -7,19 +7,6 @@
         "RIF-CS Group": "The University of Examples, Australia",
         "internalGrantString": "urn:uoe:internal"
     },
-    "transitionWorkflow": {
-        "transitions": [
-            {
-                "name": "Researcher Record",
-                "from-workflow-id": "arms",
-                "from-workflow-stage": "arms-submitted",
-                "to-workflow-id": "arms",
-                "to-workflow-stage": "arms-approved",
-                "to-workflow-page-title": "Metadata Record",
-         		"to-workflow-label": "Metadata Review"
-            }           
-        ]
-    },
     "configured": true,
     "urlBase": "${server.url.base}",
     "email": "DO_NOT_CHANGE",
