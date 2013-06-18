@@ -3,9 +3,6 @@ import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 import preview
 
-# from com.googlecode.fascinator.common import FascinatorHome, JsonObject, JsonSimple
-# from java.util import TreeMap, TreeSet
-
 class DetailData:
     def __init__(self):
         pass

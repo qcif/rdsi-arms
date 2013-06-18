@@ -1,25 +1,52 @@
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#if ($self.myArms && $self.myArms.size() > 0)
+#set($results = $self.getListOfStage('arms-request'))
+#if ($results && $results.size() > 0)
+<p style="margin-bottom: 0px;">#displayMessage('arms.home.requests.draft.title')</p>
 <table>
     <thead>
         <tr>
             <th>#displayMessage('arms.home.requests.table.dataset')</th>
-            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.created')</th>
-            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.modified')</th>
-            <th>#displayMessage('researcher-dashboard.home.mydatasets.table.manage')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.table.manage')</th>
         </tr>
     </thead>
     <tbody>
-	#foreach($item in $self.myArms)
+	#foreach($item in $results)
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
             <td>$self.formatDate($item.get("create_timestamp"))</td>
             <td>$self.formatDate($item.get("last_modified"))</td>
-	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('researcher-dashboard.home.mydatasets.manage.edit')"></a>
+	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
 	       </td>
+	    </tr>
+	#end
+    </tbody>
+</table>
+#end
+#set($results = $self.getListOfStage('arms-submitted,arms-approved,arms-retired'))
+#if ($results && $results.size() > 0)
+<p style="margin-bottom: 0px;">#displayMessage('arms.home.requests.submitted.title')</p>
+<table>
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody>
+	#foreach($item in $results)
+	    #set($oid = $item.get("id"))
+	    <tr>
+	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
+            <td>$self.formatDate($item.get("create_timestamp"))</td>
+            <td>$self.formatDate($item.get("last_modified"))</td>
+	        <td>$item.get("workflow_step_label")</td>
 	    </tr>
 	#end
     </tbody>
