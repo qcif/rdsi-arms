@@ -1,4 +1,3 @@
-<script src="$portalPath/js/wizard.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		var hidden_elements = document.getElementsByClassName('HiddenWidget');
@@ -12,13 +11,22 @@
 			 changeYear: true,
 			 showButtonPanel: false
 			 });
-		$('#save-close').click(function () { action= $(this).val();
-			jaffa.form.save();
-			function redirect() {
-                window.location.href = "$portalPath";
-            }
-            setTimeout(redirect, 1500);
+		$('#save-close').click(function () { //add redirect to standard button
+            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
 			}
-		); 
-   	})
+		);
+		// hide Submit link until user acknowledges 
+		$('#save-submit').hide();
+		$("[id='arms.field.label.authoritycheck.1']").click(function() {
+			$( "#save-submit" ).toggle();
+		});		
+		$('#save-submit').click(function () { 
+            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
+			}
+		);
+		$('#save-approve').click(function () { 
+            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
+			}
+		);
+	})
 </script>
