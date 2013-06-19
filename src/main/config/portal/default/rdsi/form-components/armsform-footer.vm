@@ -1,32 +1,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		var hidden_elements = document.getElementsByClassName('HiddenWidget');
-   		for( var i = 0; i < hidden_elements.length; i++) {
-   			hidden_elements[i].style.display = 'none';
-   		}
-		prepareHelps();
-		$("#simpleworkflow-form").find("input.dateYMD, input.date").datepicker({
-			 dateFormat: 'MM yy',
-			 changeMonth: true,
-			 changeYear: true,
-			 showButtonPanel: false
-			 });
-		$('#save-close').click(function () { //add redirect to standard button
-            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
-			}
-		);
-		// hide Submit link until user acknowledges 
-		$('#save-submit').hide();
-		$("[id='arms.field.label.authoritycheck.1']").click(function() {
-			$( "#save-submit" ).toggle();
+		$('#submit').hide();
+		$("[id='arms.field.label.authoritycheck.1']").change(function() {
+			$( "#submit" ).toggle();
 		});		
-		$('#save-submit').click(function () { 
-            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
-			}
-		);
-		$('#save-approve').click(function () { 
-            setTimeout(function () { window.location.href = "$portalPath"; }, 1500);
-			}
-		);
 	})
 </script>

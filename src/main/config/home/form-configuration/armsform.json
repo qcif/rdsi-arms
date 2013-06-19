@@ -422,28 +422,28 @@
                             ]
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"datepicker",
                             "field-name":"ingest-1qtr",
                             "label": "arms.field.label.ingest-1qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"datepicker",
                             "field-name":"ingest-2qtr",
                             "label": "arms.field.label.ingest-2qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"datepicker",
                             "field-name":"ingest-3qtr",
                             "label": "arms.field.label.ingest-3qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"datepicker",
                             "field-name":"ingest-4stqtr",
                             "label": "arms.field.label.ingest-4qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
                             "component-type": "textarea",
@@ -559,9 +559,10 @@
                         },   
                         {
                             "component-type": "standard-button",
-                            "button-name": "save-submit",
+                            "button-name": "submit",
+                            "label": "Submit",
                             "action": "next",
-                            "label": "Submit"
+                            "closeUrl":"home"
                         }                        
                     ]
                 }
@@ -570,15 +571,16 @@
                         {
                             "component-type": "standard-button",
                             "button-name": "save",
-                            "action": "save",
-                            "label": "Save"
+                            "label": "Save",
+                            "action": "save"
                         },
                         {
                             "component-type": "standard-button",
                             "button-name": "save-close",
+                            "label": "Save and close",
                             "action": "save",
-                            "label": "Save and close"
-                        },
+                            "closeUrl":"home"
+                        }
             ],
             "form-footer": "armsform-footer",
             "validation": {
@@ -752,7 +754,8 @@
                         {
                             "component-type":"repeatable-text",
                             "field-name":"discover-metadata",
-                            "label":"",
+                            "label":"",                            "closeUrl":"home",
+                            
                             "help":"arms.field.help.discover-metadata"
                         },
                         {
@@ -1133,9 +1136,10 @@
                         },   
                         {
                             "component-type": "standard-button",
-                            "button-name": "save-approve",
+                            "button-name": "approve",
+                            "label": "Approve",
                             "action": "next",
-                            "label": "Approve"
+                            "closeUrl":"home"
                         }                        
                     ]
                 }
@@ -1150,10 +1154,10 @@
                         {
                             "component-type": "standard-button",
                             "button-name": "save-close",
-                            "action": "save",
                             "label": "Save and close",
+                            "action": "save",
 							"closeUrl": "home"
-                        },
+                        }
             ],
             "form-footer": "armsform-footer",
             "validation": {
