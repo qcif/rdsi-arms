@@ -229,6 +229,7 @@ span.required {
     display: none;
     margin: 4px 2em;
     padding: 4px;
+    font-size: small;
     font-weight: normal;
 }
 
@@ -248,10 +249,6 @@ span.required {
     color: red;
     cursor: pointer;
     vertical-align: top;
-}
-
-h3 div.help-content {
-    font-size: 63%;
 }
 
 #validation-summary .validation-err-msg {
