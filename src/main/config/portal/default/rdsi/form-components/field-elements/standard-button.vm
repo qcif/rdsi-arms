@@ -1,7 +1,0 @@
-#set($oid = $formData.get("oid"))
-<button id="$button-name" value="$action" >$label</button>
-<script type="text/javascript">
-$('#$button-name').click(function () { action= $(this).val();
-#if($closeUrl) closeUrl="$portalPath/$closeUrl"; #end
-								   	    jaffa.form.save();});
-</script>
