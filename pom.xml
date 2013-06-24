@@ -9,11 +9,11 @@
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>redbox</artifactId>
-    <version>1.6.1</version>
+    <version>1.7-SNAPSHOT</version>
   </parent>
   <properties>
     <!-- Used in build -->
-    <redbox.version>1.6.1</redbox.version>
+    <redbox.version>1.7-SNAPSHOT</redbox.version>
     <package.finalname>${project.build.finalName}</package.finalname>
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <app.location.windows>${project.home}</app.location.windows>
@@ -44,28 +44,28 @@
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-project</artifactId>
       <type>pom</type>
-      <version>1.6.1</version>
+      <version>1.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox</artifactId>
       <type>pom</type>
-      <version>1.6.1</version>
+      <version>1.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-config</artifactId>
-      <version>1.6.1</version>
+      <version>1.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>redbox-secure-api</artifactId>
-      <version>1.6.1</version>
+      <version>1.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transaction-curation-redbox</artifactId>
-      <version>1.6.1</version>
+      <version>1.7-SNAPSHOT</version>
     </dependency>
     <!-- Local Curation Plugin (from Mint) -->
     <dependency>
@@ -78,7 +78,7 @@
           <groupId>com.googlecode.the-fascinator</groupId>
           <artifactId>fascinator-portal</artifactId>
           <type>warpath</type>
-          <version>1.1.5-SNAPSHOT</version>
+          <version>1.2-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <profiles>
