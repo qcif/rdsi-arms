@@ -19,8 +19,8 @@
                         {
                             "component-type":"text-input",
                             "field-name":"dataprovider:foaf:title",
-                            "label":"arms.field.label.foaf-title",
-                            "additional-classes":""
+                            "label":"arms.field.label.foaf-title", 
+                            "additional-classes":""                         
                         },
                         {
                             "component-type":"text-input",
@@ -32,7 +32,17 @@
                             "component-type":"text-input",
                             "field-name":"dataprovider:foaf:familyName",
                             "label":"arms.field.label.foaf-familyName",
-                            "additional-classes":""
+                            "additional-classes":"",
+,                           "validation": {
+        									"save-rules": [
+            									"required"
+        									],
+        									"validation-id": "dataprovider:foaf:familyName",
+        									"focus-id": "dataprovider:foaf:familyName",
+        									 "validation-messages":{
+        									 						"required": "Family name is required"
+        									 						}
+    						 			  }                             
                         },
                         {
                             "component-type":"text-input",
@@ -878,7 +888,7 @@
                         {
                             "component-type":"radio-button",
                             "field-name":"user-number",
-                            "button-for":"",
+                            "button-for":"", 
                             "buttons":[
 	                            {
 									"label":"<10 users",
@@ -1160,9 +1170,7 @@
                         }
             ],
             "form-footer": "armsform-footer",
-            "validation": {
-                "required": "title"
-            }
+            "valdation-function": "standard"
         }
     }
 }
