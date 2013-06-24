@@ -18,6 +18,8 @@ export NON_PROXY_HOSTS="${non.proxy.hosts}"
 if [ -z "$TF_HOME" ]; then
 	export TF_HOME="$PROJECT_HOME/home"
 fi
+
+export FASCINATOR_HOME="$PROJECT_HOME/home"
 export REDBOX_VERSION="${redbox.version}"
 
 # java class path
