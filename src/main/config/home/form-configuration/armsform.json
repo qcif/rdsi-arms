@@ -422,25 +422,25 @@
                             ]
                         },
                         {
-                            "component-type":"datepicker",
+                            "component-type":"date-picker",
                             "field-name":"ingest-1qtr",
                             "label": "arms.field.label.ingest-1qtr",
                             "format":"MM yy"
                         },
                         {
-                            "component-type":"datepicker",
+                            "component-type":"date-picker",
                             "field-name":"ingest-2qtr",
                             "label": "arms.field.label.ingest-2qtr",
                             "format":"MM yy"
                         },
                         {
-                            "component-type":"datepicker",
+                            "component-type":"date-picker",
                             "field-name":"ingest-3qtr",
                             "label": "arms.field.label.ingest-3qtr",
                             "format":"MM yy"
                         },
                         {
-                            "component-type":"datepicker",
+                            "component-type":"date-picker",
                             "field-name":"ingest-4stqtr",
                             "label": "arms.field.label.ingest-4qtr",
                             "format":"MM yy"
@@ -1010,28 +1010,28 @@
                             ]
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"date-picker",
                             "field-name":"ingest-1qtr",
                             "label": "arms.field.label.ingest-1qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"date-picker",
                             "field-name":"ingest-2qtr",
                             "label": "arms.field.label.ingest-2qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"date-picker",
                             "field-name":"ingest-3qtr",
                             "label": "arms.field.label.ingest-3qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
-                            "component-type":"text-input",
+                            "component-type":"date-picker",
                             "field-name":"ingest-4stqtr",
                             "label": "arms.field.label.ingest-4qtr",
-                            "additional-classes":"dateYMD"
+                            "format":"MM yy"
                         },
                         {
                             "component-type": "textarea",
