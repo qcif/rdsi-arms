@@ -1,0 +1,25 @@
+#set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+#set($results = $self.getListOfStage('arms-submitted'))
+#if ($results && $results.size() > 0)
+<p style="margin-bottom: 0px;">#displayMessage('arms.home.requests.draft.title')</p>
+<table>
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.collection.title')</th>
+            <th>#displayMessage('arms.home.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody>
+	#foreach($item in $results)
+	    #set($oid = $item.get("id"))
+	    <tr>
+	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
+	    	<td>$item.get("workflow_step_label")</td>
+	    </tr>
+	#end
+    </tbody>
+</table>
+#end
+</div>

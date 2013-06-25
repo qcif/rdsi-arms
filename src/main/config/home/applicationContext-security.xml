@@ -10,12 +10,16 @@
 
 
 	<http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+		<intercept-url pattern="/*/login" access="permitAll" />
+		<intercept-url pattern="/*/accessDenied" access="permitAll" />
+		<intercept-url pattern="/*/dashboards/admin" access="hasRole('admin')" />
+		<intercept-url pattern="/*/dashboards/reviewer" access="hasRole('reviewer')" />
 		<intercept-url pattern="/*/admin" access="hasRole('admin')" />
-		<intercept-url pattern="/*/report/*" access="hasRole('admin')" />
 		<intercept-url pattern="/*/settings" access="hasRole('admin')" />
 		<intercept-url pattern="/*/batchprocesses" access="hasRole('admin')" />
 		<intercept-url pattern="/*/queues" access="hasRole('admin')" />
 		<intercept-url pattern="/*/workflow/*" access="isAuthenticated()" />
+		<intercept-url pattern="/*/**" access="isAuthenticated()" />
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
 		<custom-filter ref="fascinatorAuthInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
 		<access-denied-handler ref="accessDeniedHandler"/>
