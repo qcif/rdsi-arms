@@ -9,7 +9,7 @@
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
 
-	<http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+	<http auto-config="false" disable-url-rewriting="true" use-expressions="true" entry-point-ref="authenticationEntryPoint">
 		<intercept-url pattern="/*/admin" access="hasRole('admin')" />
 		<intercept-url pattern="/*/report/*" access="hasRole('admin')" />
 		<intercept-url pattern="/*/settings" access="hasRole('admin')" />
