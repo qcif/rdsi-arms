@@ -274,12 +274,6 @@
                 "desktop": true,
                 "frequency": "3600",
                 "jobs": [
-					{
-					  "name": "transitionWorkflow",
-					  "type": "external",
-					  "url": "http://localhost:${jetty.port}/redbox/default/hkjobs/transitionWorkflow.ajax",
-					  "timing": "0 0/15 * * * ?"
-					}                
 				 ]
             }
         },
@@ -293,48 +287,18 @@
                     ],
                     "schema": "http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
                     "metadataNamespace": "http://www.openarchives.org/OAI/2.0/oai_dc/"
-                },
-                "eac_cpf": {
-                    "enabledInAllViews": false,
-                    "enabledViews": [
-                        "published"
-                    ],
-                    "schema": "urn:isbn:1-931666-33-4 http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd",
-                    "metadataNamespace": "urn:isbn:1-931666-33-4"
-                },
-                "rif": {
-                    "enabledInAllViews": false,
-                    "enabledViews": [
-                        "published"
-                    ],
-                    "schema": "http://ands.org.au/standards/rif-cs/registryObjects http://services.ands.org.au/home/orca/schemata/registryObjects.xsd",
-                    "metadataNamespace": "http://ands.org.au/standards/rif-cs/registryObjects"
-                },
-                "marc": {
-                    "enabledInAllViews": false,
-                    "enabledViews": [
-                        "published"
-                    ],
-                    "schema": "http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd",
-                    "metadataNamespace": "http://www.loc.gov/MARC21/slim"
                 }
             }
         }
     },
     "proxy-urls": {
-        "Activities": "${mint.proxy.url}/Activities/opensearch/lookup",
         "ANZSRC_FOR": "${mint.proxy.url}/ANZSRC_FOR/opensearch/lookup",
-        "ANZSRC_SEO": "${mint.proxy.url}/ANZSRC_SEO/opensearch/lookup",
-        "Languages": "${mint.proxy.url}/Languages/opensearch/lookup",
         "Funding_Bodies": "${mint.proxy.url}/Funding_Bodies/opensearch/lookup",
         "Parties_Groups": "${mint.proxy.url}/Parties_Groups/opensearch/lookup",
         "Parties_People": "${mint.proxy.url}/Parties_People/opensearch/lookup",
         "Services": "${mint.proxy.url}/Services/opensearch/lookup",
-        "Geonames": "${mint.proxy.server}/geonames/search",
         "NLA_SRU": "${mint.proxy.url}/default/search/nlaLookup",
-        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type",
-        "Countries": "${mint.proxy.url}/default/api/query.script?callType=countries",
-        "Countries_Detail": "${mint.proxy.url}/default/api/query.script?callType=countries&func=detail"
+        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type"
     },
     "alerts": {
         "path": "${fascinator.home}/alerts",
