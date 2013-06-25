@@ -73,13 +73,6 @@
       <artifactId>plugin-transformer-local</artifactId>
       <version>1.6.1</version>
     </dependency>
-    <!-- Clean up a dependency error raised during 1.6.1 redbox release -->
-    <dependency>
-          <groupId>com.googlecode.the-fascinator</groupId>
-          <artifactId>fascinator-portal</artifactId>
-          <type>warpath</type>
-          <version>1.2-SNAPSHOT</version>
-    </dependency>
   </dependencies>
   <profiles>
     <profile>
@@ -486,8 +479,8 @@
     </repository>
   </repositories>
   <scm>
-    <url>https://github.com/redbox-mint/redbox-build-dev-local</url>
-    <developerConnection>scm:git:https://github.com/redbox-mint/redbox-build-dev-local.git</developerConnection>
+    <url>https://github.com/qcif/redbox-rdsi</url>
+    <developerConnection>scm:git:https://github.com/qcif/redbox-rdsi.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
