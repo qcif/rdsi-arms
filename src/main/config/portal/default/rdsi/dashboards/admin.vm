@@ -1,15 +1,3 @@
-## Introduce jaffa to dashboard
-<script type="text/javascript" src="$portalPath/jaffa/libs/validatious/validatious.2.0.min.0.9.1.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/jaffa.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaRegexes.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaUtilities.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaValidation.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaWidgets.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaUI.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/libs/jaffaForm.js"></script>
-<script type="text/javascript" src="$portalPath/jaffa/widgets/text.js"></script>
-
-#if($page.authentication.is_logged_in())
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
@@ -21,9 +9,3 @@
 	#parseTemplate("home-components/admin-requests.vm")
     </div>
     <div class="clear"></div>
-#elseif(!$page.authentication.is_logged_in())
- ##prompt user to login
- <script type="text/javascript">
- 	$(document).ready(function() {$(".login-now").click();});
- </script>
-#end

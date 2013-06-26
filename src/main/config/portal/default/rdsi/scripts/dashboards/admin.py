@@ -11,9 +11,6 @@ class AdminData:
 
     def __activate__(self, context):
         self.velocityContext = context
-        if not self.vc("page").authentication.has_role("admin"):
-            self.vc("response").sendError(500, "You are not authorised to access this page.")
-            return
         
         self.indexer = self.vc('Services').getIndexer()
         
