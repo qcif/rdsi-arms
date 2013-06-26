@@ -3,7 +3,6 @@
 <div class="block">
 #set($results = $self.getListOfStage('arms-submitted'))
 #if ($results && $results.size() > 0)
-<p style="margin-bottom: 0px;">#displayMessage('arms.home.requests.draft.title')</p>
 <table>
     <thead>
         <tr>
@@ -23,3 +22,4 @@
 </table>
 #end
 </div>
+#parseTemplate("wrapping/info-box-close.vm")

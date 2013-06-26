@@ -1,9 +1,8 @@
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-request'))
+#set($results = $self.getListOfStage('arms-submitted'))
 #if ($results && $results.size() > 0)
-<p style="margin-bottom: 0px;">#displayMessage('arms.home.requests.draft.title')</p>
 <table>
     <thead>
         <tr>
@@ -23,9 +22,14 @@
     </tbody>
 </table>
 #end
+</div>
+
+#parseTemplate("wrapping/info-box-close.vm")
 #set($results = $self.getListOfStage('arms-approved,arms-retired'))
+<div class="block">
 #if ($results && $results.size() > 0)
-<p style="margin-bottom: 0px;">#displayMessage('arms.home.admin-dashboard.holdding.title')</p>
+#set($menuTitle = "#displayMessage('arms.home.admin-dashboard.holdding.title')")
+#parseTemplate("wrapping/info-box-open.vm")
 <table>
     <thead>
         <tr>
@@ -45,3 +49,4 @@
 </table>
 #end
 </div>
+#parseTemplate("wrapping/info-box-close.vm")
