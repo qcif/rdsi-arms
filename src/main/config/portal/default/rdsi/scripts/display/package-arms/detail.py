@@ -8,8 +8,9 @@ class DetailData:
         pass
 
     def __activate__(self, context):
-        self.metadata = context["metadata"]
-        
+        sid = context["metadata"].getFirst("storage_id")
+        self.metadata = preview.loadPackage(sid, context["Services"].getStorage())    
+
     def getDisplayList(self):
         return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))
 
@@ -20,7 +21,6 @@ class DetailData:
     def getRepeatables(self, repeats, baseKey, subKey):
         rvalues = [] 
         for skey in repeats.keySet():
-            print "skey = %s" % skey
             item = repeats.get(skey)            
             subv = item.get(subKey).strip()
             if len(subv):

@@ -1,10 +1,26 @@
 """
-This is a simple script to demonstrate how to create user lookup hook
+Utility function library for preview page
 """
-from com.googlecode.fascinator.common import FascinatorHome, JsonObject, JsonSimple
-from java.util import TreeMap, TreeSet
+from com.googlecode.fascinator.common import JsonSimple
+from java.util import TreeMap
+
+def loadPackage(sid, storage):
+    """Load the tfpackage and retrun in JSON format."""
+    storedObj = storage.getObject(sid)
+    pkgJson = None
+    try:
+        for pid in storedObj.getPayloadIdList():
+            if pid.endswith(".tfpackage"):
+                payload = storedObj.getPayload(pid)
+                pkgJson = JsonSimple(payload.open())
+                payload.close()
+    except Exception:
+        pass
+            
+    return pkgJson
 
 def getList(metadata, baseKey):
+    """Get all elements of a field."""
     if baseKey[-1:] != ".":
         baseKey = baseKey + "."
     valueMap = TreeMap()
