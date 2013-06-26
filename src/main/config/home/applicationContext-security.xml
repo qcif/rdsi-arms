@@ -8,8 +8,7 @@
                     http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-
-	<http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+	<http auto-config="false" disable-url-rewriting="true" use-expressions="true" entry-point-ref="authenticationEntryPoint">
 		<intercept-url pattern="/*/login" access="permitAll" />
 		<intercept-url pattern="/*/accessDenied" access="permitAll" />
 		<intercept-url pattern="/*/dashboards/admin" access="hasRole('admin')" />
