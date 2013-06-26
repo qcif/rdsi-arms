@@ -15,7 +15,7 @@
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
+	    	<td>$item.get("workflow_step_label")</td>
 	       </td>
 	    </tr>
 	#end
