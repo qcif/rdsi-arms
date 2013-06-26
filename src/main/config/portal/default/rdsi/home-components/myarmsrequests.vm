@@ -1,7 +1,7 @@
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage('arms-request'))
 <div class="block">
+#set($results = $self.getListOfStage('arms-request'))
 #if ($results && $results.size() > 0)
 <table>
     <thead>
@@ -31,8 +31,8 @@
 
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage('arms-submitted,arms-approved,arms-retired'))
 <div class="block">
+#set($results = $self.getListOfStage('arms-submitted,arms-approved,arms-retired'))
 #if ($results && $results.size() > 0)
 <table>
     <thead>
