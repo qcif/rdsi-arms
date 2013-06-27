@@ -1,8 +1,0 @@
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#submit').hide();
-		$("[id='arms.field.label.authoritycheck.1']").change(function() {
-			$( "#submit" ).toggle();
-		});		
-	})
-</script>

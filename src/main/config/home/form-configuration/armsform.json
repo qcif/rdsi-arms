@@ -598,23 +598,15 @@
                             "label":""
                         },
                         {
-                            "component-type": "checkbox",
-                            "field-name": "arms.field.label.authoritycheck",
-                            "box-for": "",
-                            "boxes":[
-                                {
-                                    "label": "arms.field.label.authoritycheck.yes",
-                                    "value": "Yes"
-                                }
-                            ]
-                        },   
-                        {
-                            "component-type": "standard-button",
-                            "button-name": "submit",
-                            "label": "Submit",
-                            "action": "next",
-                            "closeUrl":"home"
-                        }                        
+                    	"component-type" : "confirm-and-submit-button",
+                    	"field-name": "arms.field.label.authoritycheck",
+                    	"box-label": "arms.field.label.authoritycheck.yes",
+                    	"box-value": "yes",
+                    	"button-name": "submit",
+                        "label": "Submit",
+                        "action": "next",
+                        "closeUrl":"home"
+                    }                        
                     ]
                 }
             ],
@@ -632,11 +624,7 @@
                             "action": "save",
                             "closeUrl":"home"
                         }
-            ],
-            "form-footer": "armsform-footer",
-            "validation": {
-                "required": "title"
-            }
+            ]
         },
         "arms-submitted":{
             "divs":[
