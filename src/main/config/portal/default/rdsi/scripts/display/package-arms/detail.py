@@ -9,20 +9,27 @@ class DetailData:
 
     def __activate__(self, context):
         sid = context["metadata"].getFirst("storage_id")
-        self.metadata = preview.loadPackage(sid, context["Services"].getStorage())    
+        self.packageData = preview.loadPackage(sid, context["Services"].getStorage())    
+        self.keys = self.packageData.getJsonObject().keySet()
 
     def getDisplayList(self):
         return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))
 
-    def getList(self, baseKey):
-        return preview.getList(self.metadata, baseKey)
+    def getValue(self, key):
+        return self.packageData.getString("", key)
+    
+    def getValueList(self, key):
+        rvalues = [] 
+        for k in self.keys:
+            if k.startswith(key):
+                #print "We found one %s - %s" % (key, k)
+                rvalues.append(self.getValue(k))
+        return ", ".join(rvalues)
 
     # Return in a string  
-    def getRepeatables(self, repeats, baseKey, subKey):
+    def getRepeatables(self, baseKey, subKey):
         rvalues = [] 
-        for skey in repeats.keySet():
-            item = repeats.get(skey)            
-            subv = item.get(subKey).strip()
-            if len(subv):
-                rvalues.append(subv)
+        for k in self.keys:
+            if k.startswith(baseKey) and k.endswith(subKey):
+                rvalues.append(self.getValue(k))
         return ", ".join(rvalues)
