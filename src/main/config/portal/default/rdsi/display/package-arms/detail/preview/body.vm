@@ -1,40 +1,94 @@
-<table class="meta">
-#set($dic = $self.getDisplayList())
-#foreach($key in $dic.getJsonObject().keySet())
-	#set( $label_key = $dic.getString("",$key) )
-    #set($label = 'arms.field.label.' + $label_key)
-    <tr>
-        <th width="25%">#displayMessage($label)</th>
-        <td>
-            #set($valueList = $metadata.getList("$key"))
-  #if ($valueList.isEmpty())
-     #set($forList = $self.getList("$key"))
-	#if ($forList.isEmpty())
-     Not supplied
-	#else
-	  #if ($key=='dc:subject.anzsrc:for')
-		$self.getRepeatables($forList, 'dc:subject.anzsrc:for', 'skos:prefLabel')
-	  #else				
-       #set($subKey = "")
-     	#set($i = 0)    	
-        #foreach($key in $forList.keySet())
-            #if($i==0) #set($i=$i+1) #else, #end
-            #set($item = $forList.get($key))            
-            #set($subv = $item.get("$subKey"))
-            $page.escapeHtml($!subv)
-        #end
-       #end
-     #end
-  #else
-            #if($valueList.size() > 1)
-                #foreach($value in $valueList)
-                    <span class="meta-value">$page.escapeHtml($value)</span><br/>
-                #end
-            #else
-                $page.escapeHtml($valueList.get(0))
-            #end
-        </td>
-    </tr>
-	#end
-#end
-</table>
+#set($contentJson = $self.packageData)
+<p>Citation</p>
+<p>$page.escapeHtml($contentJson.getString("","citation"))</p>
+
+<p>Description</p>
+<p>$page.escapeHtml($contentJson.getString("","description"))</p>
+
+<p>Merit description</p>
+<p>$page.escapeHtml($contentJson.getString("","merit-description"))</p>
+
+<div>
+	<dl>
+		<dt>Name:</dt>
+		<dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:title"))
+		    $page.escapeHtml($contentJson.getString("","dataprovider:foaf:givenName"))
+		    $page.escapeHtml($contentJson.getString("","dataprovider:foaf:familyName"))
+		</dd>
+		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:role"))</dd>
+		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:organization"))</dd>
+		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:state:prefLabel"))</dd>
+		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:email"))</dd>
+		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:phone"))</dd>
+	</dl>
+	<dl>
+		<dt>Name:</dt>
+		<dd>$page.escapeHtml($contentJson.getString("","requester:foaf:title"))
+		    $page.escapeHtml($contentJson.getString("","requester:foaf:givenName"))
+		    $page.escapeHtml($contentJson.getString("","requester:foaf:familyName"))
+		</dd>
+		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:role"))</dd>
+		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:organization"))</dd>
+		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:state:prefLabel"))</dd>
+		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:email"))</dd>
+		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:phone"))</dd>
+	</dl>
+</div>
+<h3>Data profile</h3>
+	<dl>
+		<dt>Primary RDSI node:</dt>
+		<dd>NSW</dd>
+		<dt>Other hosting node:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:role")))</dd>
+		<dt>Data format:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:organization")))</dd>
+		<dt>Required storage class:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:state:prefLabel")))</dd>
+		<dt>Data medium and migration:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:email")))</dd>
+		<dt>Required tools and interfaces:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:phone")))</dd>
+		<dt>RDSI is the only host?</dt>
+		<dd>
+			<ul>
+				<li>Yes</li>
+				<li>Ease of regeneration</li>
+				<li>Disruption</li>
+			</ul>
+		</dd>
+	</dl>
+<h3>Data schedule</h3>
+	<dl>
+		<dt>ingest 0f 25%:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dt>ingest 0f 25%:</dt>
+		<dd>$contentJson.getString("","ingest-2qtr")</dd>
+		<dt>ingest 0f 25%:</dt>
+		<dd>$contentJson.getString("","ingest-3qtr")</dd>
+		<dt>ingest 0f 25%:</dt>
+		<dd>$contentJson.getString("","ingest-4qtr")</dd>
+	</dl>
+<h3>Access and licensing</h3>
+	<dl>
+		<dt>Access restriction:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dt>Terms of use:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dt>Licence:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dt>Anticipated number of users:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dt>Access frequency:</dt>
+		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+	</dl>
+<h3>Other details</h3>
+<dl>
+	<dt>Field(s) of research:</dt>
+	<dd>
+		<li>$contentJson.getString("","dc:subject.anzsrc:for.1.skos:prefLabel")</li>
+		<li>$contentJson.getString("","dc:subject.anzsrc:for.2.skos:prefLabel")</li>
+	</dd>
+	<dt>Metadata records:</dt>
+	<dd>
+		<li>$contentJson.getString("","discover-metadata.1.")</li>
+		<li>$contentJson.getString("","discover-metadata.2.")</li>
+	</dd>
+</dl>
+
+<p>$self.getValueList('discover-metadata')</p>
+<p>$self.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel')</p>
