@@ -1,48 +1,50 @@
 #set($contentJson = $self.packageData)
 <p>Citation</p>
-<p>$page.escapeHtml($contentJson.getString("","citation"))</p>
+<p>$page.escapeHtml($contentJson.getValue("citation"))</p>
+<p>$contentJson.getValueList('discover-metadata')</p>
+<p>$contentJson.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel')</p>
 
 <p>Description</p>
-<p>$page.escapeHtml($contentJson.getString("","description"))</p>
+<p>$page.escapeHtml($contentJson.getValue("description"))</p>
 
 <p>Merit description</p>
-<p>$page.escapeHtml($contentJson.getString("","merit-description"))</p>
+<p>$page.escapeHtml($contentJson.getValue("merit-description"))</p>
 
 <div>
 	<dl>
 		<dt>Name:</dt>
-		<dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:title"))
-		    $page.escapeHtml($contentJson.getString("","dataprovider:foaf:givenName"))
-		    $page.escapeHtml($contentJson.getString("","dataprovider:foaf:familyName"))
+		<dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:title"))
+		    $page.escapeHtml($contentJson.getValue("dataprovider:foaf:givenName"))
+		    $page.escapeHtml($contentJson.getValue("dataprovider:foaf:familyName"))
 		</dd>
-		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:role"))</dd>
-		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:organization"))</dd>
-		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:state:prefLabel"))</dd>
-		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:email"))</dd>
-		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getString("","dataprovider:foaf:phone"))</dd>
+		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:role"))</dd>
+		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:organization"))</dd>
+		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:state:prefLabel"))</dd>
+		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:email"))</dd>
+		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:phone"))</dd>
 	</dl>
 	<dl>
 		<dt>Name:</dt>
-		<dd>$page.escapeHtml($contentJson.getString("","requester:foaf:title"))
-		    $page.escapeHtml($contentJson.getString("","requester:foaf:givenName"))
-		    $page.escapeHtml($contentJson.getString("","requester:foaf:familyName"))
+		<dd>$page.escapeHtml($contentJson.getValue("requester:foaf:title"))
+		    $page.escapeHtml($contentJson.getValue("requester:foaf:givenName"))
+		    $page.escapeHtml($contentJson.getValue("requester:foaf:familyName"))
 		</dd>
-		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:role"))</dd>
-		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:organization"))</dd>
-		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:state:prefLabel"))</dd>
-		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:email"))</dd>
-		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:phone"))</dd>
+		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</dd>
+		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</dd>
+		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</dd>
+		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</dd>
+		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</dd>
 	</dl>
 </div>
 <h3>Data profile</h3>
 	<dl>
 		<dt>Primary RDSI node:</dt>
 		<dd>NSW</dd>
-		<dt>Other hosting node:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:role")))</dd>
-		<dt>Data format:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:organization")))</dd>
-		<dt>Required storage class:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:state:prefLabel")))</dd>
-		<dt>Data medium and migration:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:email")))</dd>
-		<dt>Required tools and interfaces:</dt><dd>$page.escapeHtml($contentJson.getString("","requester:foaf:phone")))</dd>
+		<dt>Other hosting node:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:role")))</dd>
+		<dt>Data format:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:organization")))</dd>
+		<dt>Required storage class:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel")))</dd>
+		<dt>Data medium and migration:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:email")))</dd>
+		<dt>Required tools and interfaces:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:phone")))</dd>
 		<dt>RDSI is the only host?</dt>
 		<dd>
 			<ul>
@@ -55,40 +57,37 @@
 <h3>Data schedule</h3>
 	<dl>
 		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getString("","ingest-2qtr")</dd>
+		<dd>$contentJson.getValue("ingest-2qtr")</dd>
 		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getString("","ingest-3qtr")</dd>
+		<dd>$contentJson.getValue("ingest-3qtr")</dd>
 		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getString("","ingest-4qtr")</dd>
+		<dd>$contentJson.getValue("ingest-4qtr")</dd>
 	</dl>
 <h3>Access and licensing</h3>
 	<dl>
 		<dt>Access restriction:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 		<dt>Terms of use:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 		<dt>Licence:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 		<dt>Anticipated number of users:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 		<dt>Access frequency:</dt>
-		<dd>$contentJson.getString("","ingest-1qtr")</dd>
+		<dd>$contentJson.getValue("ingest-1qtr")</dd>
 	</dl>
 <h3>Other details</h3>
 <dl>
 	<dt>Field(s) of research:</dt>
 	<dd>
-		<li>$contentJson.getString("","dc:subject.anzsrc:for.1.skos:prefLabel")</li>
-		<li>$contentJson.getString("","dc:subject.anzsrc:for.2.skos:prefLabel")</li>
+		<li>$contentJson.getValue("dc:subject.anzsrc:for.1.skos:prefLabel")</li>
+		<li>$contentJson.getValue("dc:subject.anzsrc:for.2.skos:prefLabel")</li>
 	</dd>
 	<dt>Metadata records:</dt>
 	<dd>
-		<li>$contentJson.getString("","discover-metadata.1.")</li>
-		<li>$contentJson.getString("","discover-metadata.2.")</li>
+		<li>$contentJson.getValue("discover-metadata.1.")</li>
+		<li>$contentJson.getValue("discover-metadata.2.")</li>
 	</dd>
 </dl>
-
-<p>$self.getValueList('discover-metadata')</p>
-<p>$self.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel')</p>
