@@ -1,93 +1,192 @@
-#set($contentJson = $self.packageData)
-<p>Citation</p>
-<p>$page.escapeHtml($contentJson.getValue("citation"))</p>
-<p>$contentJson.getValueList('discover-metadata')</p>
-<p>$contentJson.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel')</p>
+<style type="text/css">
+.people {
+    float: left;
+    margin: 0 2em 2em 0;
+    width: 45%;
+}
 
-<p>Description</p>
+tr:nth-child(even) td { background: #CCC }
+   
+td {
+    border-right: 1px solid;
+}
+
+td:first-child { width: 15em }
+.people td:first-child { width: 10em }
+</style>
+
+#macro(displayList $vals)
+<ul>
+	#foreach( $v in $vals )
+	<li>$page.escapeHtml($v)</li> #end
+</ul>
+#end #set($contentJson = $self.packageData)
+<p>
+	<span>Citation:</span>$page.escapeHtml($contentJson.getValue("citation"))
+</p>
+
+<h4>Description</h4>
 <p>$page.escapeHtml($contentJson.getValue("description"))</p>
 
-<p>Merit description</p>
+<h4>Merit description</h4>
 <p>$page.escapeHtml($contentJson.getValue("merit-description"))</p>
 
-<div>
-	<dl>
-		<dt>Name:</dt>
-		<dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:title"))
-		    $page.escapeHtml($contentJson.getValue("dataprovider:foaf:givenName"))
-		    $page.escapeHtml($contentJson.getValue("dataprovider:foaf:familyName"))
-		</dd>
-		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:role"))</dd>
-		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:organization"))</dd>
-		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:state:prefLabel"))</dd>
-		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:email"))</dd>
-		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:phone"))</dd>
-	</dl>
-	<dl>
-		<dt>Name:</dt>
-		<dd>$page.escapeHtml($contentJson.getValue("requester:foaf:title"))
-		    $page.escapeHtml($contentJson.getValue("requester:foaf:givenName"))
-		    $page.escapeHtml($contentJson.getValue("requester:foaf:familyName"))
-		</dd>
-		<dt>Role:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</dd>
-		<dt>Organisation:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</dd>
-		<dt>State:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</dd>
-		<dt>email:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</dd>
-		<dt>phone:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</dd>
-	</dl>
+<div id="people-container">
+	<div class="people">
+		<h4>Data provider</h4>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:title"))
+					$page.escapeHtml($contentJson.getValue("dataprovider:foaf:givenName"))
+					$page.escapeHtml($contentJson.getValue("dataprovider:foaf:familyName"))
+				</td>
+			</tr>
+			<tr>
+				<td>Role:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:role"))</td>
+			</tr>
+			<tr>
+				<td>Organisation:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:organization"))</td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:state:prefLabel"))</td>
+			</tr>
+			<tr>
+				<td>email:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:email"))</td>
+			</tr>
+			<tr>
+				<td>phone:</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:phone"))</td>
+			</tr>
+		</table>
+	</div>
+	<div class="people">
+		<h4>Data manager</h4>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:title"))
+					$page.escapeHtml($contentJson.getValue("requester:foaf:givenName"))
+					$page.escapeHtml($contentJson.getValue("requester:foaf:familyName"))
+				</td>
+			</tr>
+			<tr>
+				<td>Role:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</td>
+			</tr>
+			<tr>
+				<td>Organisation:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</td>
+			</tr>
+			<tr>
+				<td>State:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</td>
+			</tr>
+			<tr>
+				<td>email:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</td>
+			</tr>
+			<tr>
+				<td>phone:</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</td>
+			</tr>
+		</table>
+	</div>
 </div>
-<h3>Data profile</h3>
-	<dl>
-		<dt>Primary RDSI node:</dt>
-		<dd>NSW</dd>
-		<dt>Other hosting node:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:role")))</dd>
-		<dt>Data format:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:organization")))</dd>
-		<dt>Required storage class:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel")))</dd>
-		<dt>Data medium and migration:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:email")))</dd>
-		<dt>Required tools and interfaces:</dt><dd>$page.escapeHtml($contentJson.getValue("requester:foaf:phone")))</dd>
-		<dt>RDSI is the only host?</dt>
-		<dd>
+<h4 style="clear: left">Data profile</h4>
+<table>
+	<tr>
+		<td>Primary RDSI node:</td>
+		<td>NSW</td>
+	</tr>
+	<tr>
+		<td>Other hosting node:</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</td>
+	</tr>
+	<tr>
+		<td>Data format:</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</td>
+	</tr>
+	<tr>
+		<td>Required storage class:</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</td>
+	</tr>
+	<tr>
+		<td>Data medium and migration:</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</td>
+	</tr>
+	<tr>
+		<td>Required tools and interfaces:</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</td>
+	</tr>
+	<tr>
+		<td>RDSI is the only host?</td>
+		<td>
 			<ul>
 				<li>Yes</li>
 				<li>Ease of regeneration</li>
 				<li>Disruption</li>
 			</ul>
-		</dd>
-	</dl>
-<h3>Data schedule</h3>
-	<dl>
-		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getValue("ingest-2qtr")</dd>
-		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getValue("ingest-3qtr")</dd>
-		<dt>ingest 0f 25%:</dt>
-		<dd>$contentJson.getValue("ingest-4qtr")</dd>
-	</dl>
-<h3>Access and licensing</h3>
-	<dl>
-		<dt>Access restriction:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-		<dt>Terms of use:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-		<dt>Licence:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-		<dt>Anticipated number of users:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-		<dt>Access frequency:</dt>
-		<dd>$contentJson.getValue("ingest-1qtr")</dd>
-	</dl>
-<h3>Other details</h3>
-<dl>
-	<dt>Field(s) of research:</dt>
-	<dd>
-		<li>$contentJson.getValue("dc:subject.anzsrc:for.1.skos:prefLabel")</li>
-		<li>$contentJson.getValue("dc:subject.anzsrc:for.2.skos:prefLabel")</li>
-	</dd>
-	<dt>Metadata records:</dt>
-	<dd>
-		<li>$contentJson.getValue("discover-metadata.1.")</li>
-		<li>$contentJson.getValue("discover-metadata.2.")</li>
-	</dd>
-</dl>
+		</td>
+	</tr>
+</table>
+<h4>Data schedule</h4>
+<table>
+	<tr>
+		<td>ingest 0f 25%:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+	<tr>
+		<td>ingest 0f 25%:</td>
+		<td>$contentJson.getValue("ingest-2qtr")</td>
+	</tr>
+	<tr>
+		<td>ingest 0f 25%:</td>
+		<td>$contentJson.getValue("ingest-3qtr")</td>
+	</tr>
+	<tr>
+		<td>ingest 0f 25%:</td>
+		<td>$contentJson.getValue("ingest-4qtr")</td>
+	</tr>
+</table>
+<h4>Access and licensing</h4>
+<table>
+	<tr>
+		<td>Access restriction:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+	<tr>
+		<td>Terms of use:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+	<tr>
+		<td>Licence:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+	<tr>
+		<td>Anticipated number of users:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+	<tr>
+		<td>Access frequency:</td>
+		<td>$contentJson.getValue("ingest-1qtr")</td>
+	</tr>
+</table>
+<h4>Other details</h4>
+<table>
+	<tr>
+		<td>Field(s) of research:</td>
+		<td>
+			#displayList($contentJson.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel'))
+		</td>
+	</tr>
+	<tr>
+		<td>Metadata records:</td>
+		<td>#displayList($contentJson.getValueList("discover-metadata"))
+		</td>
+	</tr>
+</table>
