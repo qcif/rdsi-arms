@@ -1,18 +1,12 @@
 <style type="text/css">
+#content tr:nth-child(even) td { background: #CCC }
+#content td:first-child { width: 15em; border-right: 1px solid; }
 .people {
     float: left;
     margin: 0 2em 2em 0;
     width: 45%;
 }
-
-tr:nth-child(even) td { background: #CCC }
-   
-td {
-    border-right: 1px solid;
-}
-
-td:first-child { width: 15em }
-.people td:first-child { width: 10em }
+#people-container td:first-child { width: 10em; border-right: 1px solid; }
 </style>
 
 #macro(displayList $vals)
@@ -127,9 +121,9 @@ td:first-child { width: 15em }
 		<td>RDSI is the only host?</td>
 		<td>
 			<ul>
-				<li>Yes</li>
-				<li>Ease of regeneration</li>
-				<li>Disruption</li>
+				<li>$contentJson.getValue("storage-risk-rdsi-only")</li>
+				<li>$contentJson.getValue("storage-risk-regenerate")</li>
+				<li>$contentJson.getValue("storage-risk-disruption")</li>
 			</ul>
 		</td>
 	</tr>
@@ -157,23 +151,23 @@ td:first-child { width: 15em }
 <table>
 	<tr>
 		<td>Access restriction:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$contentJson.getValue("accessRestrictions")</td>
 	</tr>
 	<tr>
 		<td>Terms of use:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$contentJson.getValue("dc:rights.skos:note")</td>
 	</tr>
 	<tr>
 		<td>Licence:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$contentJson.getValue("dc:accessRights")</td>
 	</tr>
 	<tr>
 		<td>Anticipated number of users:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$contentJson.getValue("user-number")</td>
 	</tr>
 	<tr>
 		<td>Access frequency:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$contentJson.getValue("user-access-frequency")</td>
 	</tr>
 </table>
 <h4>Other details</h4>
