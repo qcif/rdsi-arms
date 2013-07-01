@@ -8,7 +8,7 @@ body {
 }
 
 .menu .selected, .facet-list .selected {
-    background-color: #900009;
+    background-color: #0091b6;
 }
 
 .sorting, .paging {
@@ -16,7 +16,7 @@ body {
 }
 
 h1#branding, .branding {
-    background: #B1101A;
+    background: white;
     padding-bottom: 0;
 }
 
@@ -31,23 +31,23 @@ h1#branding a, .branding {
 }
 
 ul.nav, ul.main li a, .box h2 {
-    background: #500005;
+    background: #0091b6;
 }
 
 ul.main li:hover a {
-    background-color: #900009;
+    background-color: #007694;
 }
 
 ul.main li:hover ul li a {
-    background-color: #900009 !important;
+    background-color: #007694 !important;
 }
 
 ul.main li:hover ul li a:hover {
-    background-color: #500005 !important;
+    background-color: #015d75 !important;
 }
 
 ul.main li ul li a {
-    background-color: #500005;
+    background-color: #0091b6;
     border-top: none;
 }
 
@@ -63,7 +63,7 @@ ul.main li ul li.selected-view a {
     margin-bottom: 4px;
 }
 .accordion-header {
-    background: #500005;
+    background: #0091b6;
     color: white;
     display: block;
     font-size: 1.025em;
@@ -75,7 +75,7 @@ ul.main li ul li.selected-view a {
 }
 
 .accordion-header.ui-state-active, .accordion-header:hover {
-    background: #900009;
+    background: #0091b6;
     border: 1px solid #CCCCCC;
 }
 
@@ -112,11 +112,11 @@ th.header h3 {
 }
 
 .box h2 a, .box h2 a.visible {
-    background-color: #500005;
+    background-color: #0091b6;
 }
 
 .box h2 a:hover, .box h2 a.visible:hover {
-    background-color: #900009;
+    background-color: #007694	;
 }
 
 .toggle-accordion {
@@ -130,15 +130,15 @@ th.header h3 {
 }
 
 .accordion-reset {
-    border: 1px solid #500005;
+    border: 1px solid #0091b6;
     font-size: 1.15em;
     padding-bottom: 0;
     padding-left: 1em;
 }
 
 .accordion-reset:hover {
-    background-color: #500005;
-    border: 1px solid #500005;
+    background-color: #0091b6;
+    border: 1px solid #0091b6;
 }
 
 #delete-record-error {
@@ -436,4 +436,39 @@ button.anzsrcSelection {
 
 .HiddenWidget {
 	display:none;
+}
+
+ul.main li a {
+
+}
+
+ul.main li:hover a {
+ background-color: #007694;
+ 
+}
+
+ul.main li:hover ul li a:hover {
+	background: #015d75;
+}
+
+ul.main li ul li a {
+	
+}
+
+.box h2 {
+	
+}
+
+body {
+ background-color: #f4eedc;
+}
+
+.box {
+	background: #E8E8E8 !important;
+}
+
+thead th {
+border-bottom: 2px solid #6E469C !important;
+background: #8D9CCF !important;
+color: white;
 }
