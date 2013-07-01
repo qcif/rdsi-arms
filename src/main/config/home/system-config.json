@@ -153,7 +153,7 @@
         "jsonVelocity": {
             "id": "jsonVelocity",
             "sourcePayload": ".tfpackage",
-            "templatesPath": "${fascinator.home}/templates"
+            "templatesPath": "${fascinator.home}/templates/arms.vm"
         }
     },
     "uploader": {
