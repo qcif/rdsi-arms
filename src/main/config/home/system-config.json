@@ -154,7 +154,11 @@
             "id": "jsonVelocity",
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates/arms.vm"
-        }
+        },
+        "basicVersioning": {
+    		"id": "basicVersioning",
+    		"sourcePayload": ".tfpackage"
+		}
     },
     "uploader": {
         "attachment-upload": {
