@@ -461,6 +461,7 @@ ul.main li ul li a {
 
 body {
  background-color: #f4eedc;
+ font-size:15px;
 }
 
 .box {
@@ -471,4 +472,42 @@ thead th {
 border-bottom: 2px solid #6E469C !important;
 background: #8D9CCF !important;
 color: white;
+}
+
+.ui-widget-header {
+	background: #8D9CCF !important;
+}
+
+.box h2 {
+	text-transform: none !important;
+	font-size: 20px !important;
+}
+
+div.menu h2 {
+	text-transform: none !important;
+	font-size:20px !important;
+}
+input#query {
+	vertical-align: bottom;
+}
+ul.nav.main {
+	font-size:20px;
+}
+
+a.search img {
+	vertical-align: baseline !important;
+}
+
+ul.nav.actions {
+	height:1.4em;
+	line-height:1.4em;
+}
+
+ul.nav.actions li a {
+	height:1.4em;
+	line-height:1.4em;
+}
+
+ul.nav.actions li ul {
+	top:1.4em;
 }
