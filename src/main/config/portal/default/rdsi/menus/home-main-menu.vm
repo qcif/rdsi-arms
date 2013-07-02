@@ -1,6 +1,6 @@
 #if($page.authentication.is_logged_in())
 <div class="grid_4">
-    #set($menuTitle = "OPTIONS")
+    #set($menuTitle = "Options")
     #parseTemplate("wrapping/main-menu-open.vm")
     <ul class="menu">
         <li>
