@@ -4,9 +4,8 @@ Utility function library for preview page
 from com.googlecode.fascinator.common import JsonSimple
 from java.util import TreeMap
 
-def loadPackage(sid, storage):
+def loadPackage(storedObj):
     """Load the tfpackage and retrun in JSON format."""
-    storedObj = storage.getObject(sid)
     pkgJson = None
     try:
         for pid in storedObj.getPayloadIdList():
