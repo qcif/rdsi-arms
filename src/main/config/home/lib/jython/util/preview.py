@@ -3,6 +3,7 @@ Utility function library for preview page
 """
 from com.googlecode.fascinator.common import JsonSimple
 from java.util import TreeMap
+from java.text import SimpleDateFormat
 
 def loadPackage(storedObj):
     """Load the tfpackage and retrun in JSON format."""
@@ -45,3 +46,8 @@ def getList(metadata, baseKey):
         data.put(dataIndex, value)
         
     return valueMap
+
+def formatDate(date, fmt="yyyy-MM-dd'T'HH:mm:ss"):    
+    dfSource = SimpleDateFormat(fmt)
+    dfTarget = SimpleDateFormat("dd/MM/yyyy")
+    return dfTarget.format(dfSource.parse(date))
