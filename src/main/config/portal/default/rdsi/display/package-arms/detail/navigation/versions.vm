@@ -1,0 +1,21 @@
+#if($page.authentication.is_admin())
+#set($menuClass = "versions")
+#set($menuTitle = '<a class="collapsible" href="#">Versions</a>')
+#parseTemplate("wrapping/menu-open.vm")
+<ul class="menu hidden">
+#foreach($k in $self.versions)
+  <li class="payload">
+      <a href="#/$k.file_name">$self.formatDate($k.timestamp)</a>
+  </li>
+#end
+</ul>
+
+#parseTemplate("wrapping/menu-close.vm")
+<script type="text/javascript">
+<!--
+    $(function() {
+        collapsible(".versions", "ul.menu");
+    });
+-->
+</script>
+#end
