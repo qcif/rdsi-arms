@@ -1,6 +1,6 @@
 @echo off
 
-set SERVER_URL=${server.url.base}
+set SERVER_URL=http://localhost:9000/redbox/
 set LOCAL_PORT=${server.port}
 set PROJECT_HOME=${app.location.windows}
 set AMQ_PORT=${amq.port}
@@ -50,7 +50,7 @@ REM jvm memory settings
 set JVM_OPTS=-XX:MaxPermSize=256m -Xmx512m
 
 REM jetty settings
-set JETTY_OPTS=-Djetty.port=%LOCAL_PORT% -Djetty.logs=%JETTY_LOGS% -Djetty.home=%PROJECT_HOME%/server/jetty
+set JETTY_OPTS=-Djetty.port=%LOCAL_PORT% -Djetty.logs=%JETTY_LOGS% -Djetty.home=%PROJECT_HOME%/server/jetty -Xrunjdwp:server=y,transport=dt_socket,address=1044,suspend=n
 
 REM solr settings
 set SOLR_OPTS=-Dsolr.solr.home="%PROJECT_HOME%/solr"
