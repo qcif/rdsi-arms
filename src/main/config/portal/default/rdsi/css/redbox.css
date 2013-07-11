@@ -472,6 +472,7 @@ ul.nav.actions li ul {
 
 .simple-workflow.component-wrapper.inline-component > label {
 	display:inline;
+	font-weight:normal;
 }
 
 .component-wrapper.inline-component .widgetLabel {
