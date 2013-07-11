@@ -15,25 +15,30 @@
                             "type": "h4",
                             "content": "arms.field.label.dataprovider",
                             "help": "arms.field.help.dataprovider"
-                        },
+                        },					                        
                         {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:title",
-                            "label":"arms.field.label.foaf-title", 
-                            "additional-classes":""                         
-                        },
-                        {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:givenName",
-                            "label":"arms.field.label.foaf-givenName",
-                            "additional-classes":""
-                        },
-                        {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:familyName",
-                            "label":"arms.field.label.foaf-familyName",
-                            "additional-classes":"",
-                            "validation": {
+                        	"component-type": "group",
+                        	"template": "group-div",
+                        	"fields": [{
+                            			"component-type":"text-input",
+                           				 "field-name":"dataprovider:foaf:title",
+                          				 "label":"arms.field.label.foaf-title", 
+                           				 "additional-classes":"",
+                            			 "wrapper-class" : "inline-component"                         
+                        				},
+                        				{
+                            		     "component-type":"text-input",
+                            			 "field-name":"dataprovider:foaf:givenName",
+                            			 "label":"arms.field.label.foaf-givenName",
+                            			 "additional-classes":"",
+                            			 "wrapper-class" : "inline-component"
+                        				},
+                        				{
+                            			 "component-type":"text-input",
+                            			 "field-name":"dataprovider:foaf:familyName",
+                            			 "label":"arms.field.label.foaf-familyName",
+                            			 "additional-classes":"",
+                            			 "validation": {
         									"save-rules": [
             									"required"
         									],
@@ -42,43 +47,70 @@
         									 "validation-messages":{
         									 						"required": "Family name is required"
         									 						}
-    						 			  }                             
+    						 			  },
+                            			   "wrapper-class" : "inline-component"                             
+                            				}
+                        	           ]
                         },
                         {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:email",
-                            "label":"arms.field.label.foaf-email",
-                            "additional-classes":""
+                        	"component-type": "group",
+                        	"template": "group-div",
+                        	"fields": [
+                        				{
+                            			"component-type":"text-input",
+                            			"field-name":"dataprovider:foaf:email",
+                            			"label":"arms.field.label.foaf-email",
+                            			"additional-classes":"",
+                            			"wrapper-class" : "inline-component"
+                        				},
+                        				{
+                            			"component-type":"text-input",
+                            			"field-name":"dataprovider:foaf:phone",
+                            			"label":"arms.field.label.foaf-phone",
+                            			"additional-classes":"",
+                            			"wrapper-class" : "inline-component"
+                        				}
+                        	           ]
                         },
                         {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:phone",
-                            "label":"arms.field.label.foaf-phone",
-                            "additional-classes":""
+                        	"component-type": "group",
+                        	"template": "group-div",
+                        	"fields": [
+                        			{
+                            		"component-type":"text-input",
+                            		"field-name":"dataprovider:foaf:role",
+                            		"label":"arms.field.label.foaf-role",
+                            		"additional-classes":"",
+                            		"wrapper-class" : "inline-component"
+                        			},
+                        			{
+                            		"component-type":"text-input",
+                            		"field-name":"dataprovider:foaf:organization",
+                            		"label":"arms.field.label.foaf-organization",
+                            		"additional-classes":"",
+                            		"wrapper-class" : "inline-component"
+                        			}
+                        	           ]
                         },
                         {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:role",
-                            "label":"arms.field.label.foaf-role",
-                            "additional-classes":""
-                        },
-                        {
-                            "component-type":"text-input",
-                            "field-name":"dataprovider:foaf:organization",
-                            "label":"arms.field.label.foaf-organization",
-                            "additional-classes":""
-                        },
-                        {
-                            "component-type":"text-block",
-                            "type":"label",
-                            "content":"arms.field.label.foaf-state"
-                        },
-                        {
-                            "component-type":"data-source-dropdown",
-                            "field-name":"dataprovider:foaf:state",
-                            "label":"",
-                            "field-name-label":"dataprovider:foaf:state:prefLabel",
-                            "sourceUrl":"form-components/states.json"
+                        	"component-type": "group",
+                        	"template": "group-div",
+                        	"fields": [
+                        				{
+                          				"component-type":"text-block",
+                        			     "type":"label",
+                         	 		    "content":"arms.field.label.foaf-state",
+                         	 		    "wrapper-class" : "inline-component"
+                        				},
+                        				{
+                            			"component-type":"data-source-dropdown",
+                            			"field-name":"dataprovider:foaf:state",
+                            			"label":"",
+                            			"field-name-label":"dataprovider:foaf:state:prefLabel",
+                            			"sourceUrl":"form-components/states.json",
+                            			"wrapper-class" : "inline-component"
+                        				}
+                        	           ]
                         },
 						{
                             "component-type": "text-block",
