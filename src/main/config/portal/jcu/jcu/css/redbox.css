@@ -1,6 +1,16 @@
+@import "http://www.jcu.edu.au/css/webassets/jcu_header.css";
+@import "http://www.jcu.edu.au/css/webassets/jcu_common.css";
+@import "http://www.jcu.edu.au/css/webassets/jcu_footer.css";
+
 body {
-    font-size: 75%;
-    min-width: 960px
+    border: 1px solid #C8C8C8;
+    margin: 0 auto;
+    max-width: 965px;
+    min-width: 800px;
+}
+
+a {
+	font-weight: normal;
 }
 
 #notifications h2 {
@@ -8,7 +18,7 @@ body {
 }
 
 .menu .selected, .facet-list .selected {
-    background-color: #0091b6;
+    background-color: #333399;
 }
 
 .sorting, .paging {
@@ -16,8 +26,8 @@ body {
 }
 
 h1#branding, .branding {
-    background: white;
     padding-bottom: 0;
+    background-color: white;
 }
 
 h1#branding a, .branding {
@@ -25,13 +35,13 @@ h1#branding a, .branding {
 }
 
 .branding .subtitle {
-    font-size: larger;
+    /* font-size: larger; */
     padding-left: 0.85em;
     padding-bottom: 0.5em;
 }
 
 ul.nav, ul.main li a, .box h2 {
-    background: #0091b6;
+    background: #333399;
 }
 
 ul.main li:hover a {
@@ -43,11 +53,11 @@ ul.main li:hover ul li a {
 }
 
 ul.main li:hover ul li a:hover {
-    background-color: #015d75 !important;
+	background: #015d75;
 }
 
 ul.main li ul li a {
-    background-color: #0091b6;
+    background-color: #333399;
     border-top: none;
 }
 
@@ -63,7 +73,7 @@ ul.main li ul li.selected-view a {
     margin-bottom: 4px;
 }
 .accordion-header {
-    background: #0091b6;
+    background: #333399;
     color: white;
     display: block;
     font-size: 1.025em;
@@ -75,7 +85,7 @@ ul.main li ul li.selected-view a {
 }
 
 .accordion-header.ui-state-active, .accordion-header:hover {
-    background: #0091b6;
+    background: #333399;
     border: 1px solid #CCCCCC;
 }
 
@@ -112,7 +122,7 @@ th.header h3 {
 }
 
 .box h2 a, .box h2 a.visible {
-    background-color: #0091b6;
+    background-color: #333399;
 }
 
 .box h2 a:hover, .box h2 a.visible:hover {
@@ -130,15 +140,15 @@ th.header h3 {
 }
 
 .accordion-reset {
-    border: 1px solid #0091b6;
+    border: 1px solid #333399;
     font-size: 1.15em;
     padding-bottom: 0;
     padding-left: 1em;
 }
 
 .accordion-reset:hover {
-    background-color: #0091b6;
-    border: 1px solid #0091b6;
+    background-color: #333399;
+    border: 1px solid #333399;
 }
 
 #delete-record-error {
@@ -295,22 +305,6 @@ fieldset p textarea {
     text-decoration: line-through;
 }
 
-/*
-input.button, .inputscreens button {
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    background-color: #EEE;
-    border: 1px solid #666;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-input.button:hover, .inputscreens button:hover {
-    background-color: #CCC;
-}
-*/
-
 div.meta dl {
     margin-bottom: 0;
     padding: 8px;
@@ -400,15 +394,15 @@ button.anzsrcSelection {
 }
 
 .reportImages { 
-	width:1220px;
+    width:1220px;
  }
 
 .report-img { 
-				display:inline-block; 
-				border: solid 1px; 
-				margin:5px; 
-				padding:10px 
-			}
+    display:inline-block; 
+    border: solid 1px; 
+    margin:5px; 
+    padding:10px 
+}
 
 .errorbox{
    display:none;
@@ -439,52 +433,16 @@ button.anzsrcSelection {
 }
 
 ul.main li a {
-
-}
-
-ul.main li:hover a {
- background-color: #007694;
- 
-}
-
-ul.main li:hover ul li a:hover {
-	background: #015d75;
-}
-
-ul.main li ul li a {
-	
-}
-
-.box h2 {
-	
-}
-
-body {
- background-color: #f4eedc;
- font-size:15px;
-}
-
-.box {
-	background: #E8E8E8 !important;
-}
-
-thead th {
-border-bottom: 2px solid #6E469C !important;
-background: #8D9CCF !important;
-color: white;
+    font-size: 0.9em;
+    font-weight: normal;	
 }
 
 .ui-widget-header {
 	background: #8D9CCF !important;
 }
 
-.box h2 {
-	text-transform: none !important;
-	font-size: 20px !important;
-}
-
 .ui-tabs-nav.ui-widget-header {
-	background: #f4eedc !important;
+	background: #333399 !important;
 }
 
 .ui-state-hover a, .ui-state-hover a:hover {
@@ -494,13 +452,10 @@ color: white;
 
 div.menu h2 {
 	text-transform: none !important;
-	font-size:20px !important;
+	/* font-size:20px !important; */
 }
 input#query {
 	vertical-align: bottom;
-}
-ul.nav.main {
-	font-size:20px;
 }
 
 a.search img {
