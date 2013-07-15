@@ -1,7 +1,7 @@
 {
   "portal" : {
-    "name" : "default",
-    "description" : "QCIF",
+    "name" : "jcu",
+    "description" : "James Cook University",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",
     "facet-count" : "100",
