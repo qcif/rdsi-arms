@@ -193,11 +193,11 @@
     "portal": {
         "home": "${portal.home}",
         "contentDir": "${fascinator.home}/content",
-        "defaultView": "rdsi",
+        "defaultView": "default",
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
-            "order": [ "local", "rdsi", "redbox" ]
+            "order": [ "local", "jcu", "rdsi", "redbox" ]
         },
         "caching": {
             "caches": {

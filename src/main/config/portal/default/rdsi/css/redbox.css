@@ -7,9 +7,7 @@ body {
     color: white;
 }
 
-.menu .selected, .facet-list .selected {
-    background-color: #0091b6;
-}
+
 
 .sorting, .paging {
     font-size: 100%;
@@ -30,24 +28,7 @@ h1#branding a, .branding {
     padding-bottom: 0.5em;
 }
 
-ul.nav, ul.main li a, .box h2 {
-    background: #0091b6;
-}
-
-ul.main li:hover a {
-    background-color: #007694;
-}
-
-ul.main li:hover ul li a {
-    background-color: #007694 !important;
-}
-
-ul.main li:hover ul li a:hover {
-    background-color: #015d75 !important;
-}
-
 ul.main li ul li a {
-    background-color: #0091b6;
     border-top: none;
 }
 
@@ -62,8 +43,8 @@ ul.main li ul li.selected-view a {
 .accordion table {
     margin-bottom: 4px;
 }
+
 .accordion-header {
-    background: #0091b6;
     color: white;
     display: block;
     font-size: 1.025em;
@@ -75,12 +56,10 @@ ul.main li ul li.selected-view a {
 }
 
 .accordion-header.ui-state-active, .accordion-header:hover {
-    background: #0091b6;
     border: 1px solid #CCCCCC;
 }
 
 #content .ui-accordion-content {
-    background: #EEEEEE;
     font-size: 0.909em;
     padding: 0;
 }
@@ -100,7 +79,6 @@ table.meta th {
 }
 
 th.header {
-    background: #FFF5D2;
     margin: 0;
     padding: 0;
 }
@@ -109,14 +87,6 @@ th.header h3 {
     font-size: 1.1em;
     margin-top: 0;
     padding-left: 0.8em;
-}
-
-.box h2 a, .box h2 a.visible {
-    background-color: #0091b6;
-}
-
-.box h2 a:hover, .box h2 a.visible:hover {
-    background-color: #007694	;
 }
 
 .toggle-accordion {
@@ -130,15 +100,10 @@ th.header h3 {
 }
 
 .accordion-reset {
-    border: 1px solid #0091b6;
+    border: 1px solid #333399;
     font-size: 1.15em;
     padding-bottom: 0;
     padding-left: 1em;
-}
-
-.accordion-reset:hover {
-    background-color: #0091b6;
-    border: 1px solid #0091b6;
 }
 
 #delete-record-error {
@@ -442,14 +407,6 @@ ul.main li a {
 
 }
 
-ul.main li:hover a {
- background-color: #007694;
- 
-}
-
-ul.main li:hover ul li a:hover {
-	background: #015d75;
-}
 
 ul.main li ul li a {
 	
@@ -460,7 +417,7 @@ ul.main li ul li a {
 }
 
 body {
- background-color: #f4eedc;
+ background-color: white;
  font-size:15px;
 }
 
@@ -469,28 +426,16 @@ body {
 }
 
 thead th {
-border-bottom: 2px solid #6E469C !important;
-background: #8D9CCF !important;
-color: white;
+	color: white;
 }
 
-.ui-widget-header {
-	background: #8D9CCF !important;
-}
+
 
 .box h2 {
 	text-transform: none !important;
 	font-size: 20px !important;
 }
 
-.ui-tabs-nav.ui-widget-header {
-	background: #f4eedc !important;
-}
-
-.ui-state-hover a, .ui-state-hover a:hover {
- background-color: #007694;
- color: white;
-}
 
 div.menu h2 {
 	text-transform: none !important;
@@ -519,4 +464,20 @@ ul.nav.actions li a {
 
 ul.nav.actions li ul {
 	top:1.4em;
+}
+
+.inline-component {
+  display:inline;
+}
+
+.simple-workflow.component-wrapper.inline-component > label {
+	display:inline;
+}
+
+.component-wrapper.inline-component .widgetLabel {
+	display:inline;
+}
+
+#data-source-dropdown-dataprovider\:foaf\:state {
+display: inline;
 }
