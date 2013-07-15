@@ -278,6 +278,13 @@
                 "desktop": true,
                 "frequency": "3600",
                 "jobs": [
+                    {
+                        "name": "process-set-all",
+                        "type": "processingSet",
+                        "configFile" : "${fascinator.home}/process/processConfig.json",
+                        "setId" : "",                        
+                        "timing": "0 0/5 * * * ?"
+                    }
 				 ]
             }
         },
