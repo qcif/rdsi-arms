@@ -95,27 +95,31 @@
 <table>
 	<tr>
 		<td>Primary RDSI node:</td>
-		<td>NSW</td>
+		<td>$page.escapeHtml($contentJson.getValue("rdsi-node"))</td>
 	</tr>
 	<tr>
 		<td>Other hosting node:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:role"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("rdsi-secondary-nodes"))</td>
+	</tr>
+	<tr>
+		<td>Current data size:</td>
+		<td>$page.escapeHtml($contentJson.getValue("data-size"))</td>
 	</tr>
 	<tr>
 		<td>Data format:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:organization"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("vivo-Dataset.dc.format"))</td>
 	</tr>
 	<tr>
 		<td>Required storage class:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:state:prefLabel"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("storage-class"))</td>
 	</tr>
 	<tr>
 		<td>Data medium and migration:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:email"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("data-medium-migration"))</td>
 	</tr>
 	<tr>
 		<td>Required tools and interfaces:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:phone"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("migrate-required-resources"))</td>
 	</tr>
 	<tr>
 		<td>RDSI is the only host?</td>
