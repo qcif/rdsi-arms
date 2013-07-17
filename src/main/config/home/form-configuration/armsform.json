@@ -903,7 +903,7 @@
                         },
                         {
                             "component-type": "date-picker",
-                            "field-name": "ingest-4stqtr",
+                            "field-name": "ingest-4qtr",
                             "label": "arms.field.label.ingest-4qtr",
                             "format": "MM yy"
                         }
