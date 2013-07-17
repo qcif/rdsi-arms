@@ -470,6 +470,11 @@ ul.nav.actions li ul {
   display:inline;
 }
 
+.inline-block-component {
+  display:inline-block;
+  margin-right:1em;
+}
+
 .simple-workflow.component-wrapper.inline-component > label {
 	display:inline;
 	font-weight:normal;
