@@ -20,7 +20,7 @@
                             "component-type": "text-input",
                             "field-name": "dc:title",
                             "label": "",
-                            "additional-classes": ""
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -449,50 +449,7 @@
                             "help": "arms.field.help.accessRestrictions"
                         },
                         {
-                            "component-type": "radio-button",
-                            "field-name": "accessRestrictions",
-                            "button-for": "",
-                            "buttons": [
-                                {
-                                    "label": "Unrestricted access",
-                                    "value": "Unrestricted access"
-                                },
-                                {
-                                    "label": "Restricted access",
-                                    "value": "Restricted access"
-                                },
-                                {
-                                    "label": "Embargo access",
-                                    "value": "Embargo access"
-                                },
-                                {
-                                    "label": "Custom access",
-                                    "value": "Custom access"
-                                },
-                                {
-                                    "label": "No access",
-                                    "value": "No access"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "accessRestrictions-sub",
-                            "button-for": "",
-                            "buttons": [
-                                {
-                                    "label": "Research data is made freely available to selected users only",
-                                    "value": "Research data is made freely available to selected users only"
-                                },
-                                {
-                                    "label": "Research data is made freely available to selected users only, following a delay",
-                                    "value": "Research data is made freely available to selected users only, following a delay"
-                                },
-                                {
-                                    "label": "Research data is made freely available to selected users following data de-identification",
-                                    "value": "Research data is made freely available to selected users following data de-identification"
-                                }
-                            ]
+                            "component-type": "access-restrictions"
                         },
                         {
                             "component-type": "text-block",
@@ -720,58 +677,56 @@
                             "content": "arms.field.label.storage-options"
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-class"
-                        },
-                        {
-                            "component-type": "dropdown-fixedvalue",
-                            "field-name": "storage-class",
-                            "label": "",
-                            "options": [
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
                                 {
-                                    "label": "Storage Class I (HSM/Tape)",
-                                    "value": "Storage Class I (HSM/Tape)"
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "storage-class",
+                                    "label": "arms.field.label.storage-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
                                 },
                                 {
-                                    "label": "Storage Class II (Standard disk)",
-                                    "value": "Storage Class II (Standard disk)"
-                                },
-                                {
-                                    "label": "Storage Class III (High-performance disk)",
-                                    "value": "Storage Class III (High-performance disk)"
-                                },
-                                {
-                                    "label": "Other Storage Class",
-                                    "value": "Other Storage Class"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.data-protection-class"
-                        },
-                        {
-                            "component-type": "dropdown-fixedvalue",
-                            "field-name": "data-protection-class",
-                            "label": "",
-                            "options": [
-                                {
-                                    "label": "Storage Class I (HSM/Tape)",
-                                    "value": "Storage Class I (HSM/Tape)"
-                                },
-                                {
-                                    "label": "Storage Class II (Standard disk)",
-                                    "value": "Storage Class II (Standard disk)"
-                                },
-                                {
-                                    "label": "Storage Class III (High-performance disk)",
-                                    "value": "Storage Class III (High-performance disk)"
-                                },
-                                {
-                                    "label": "Other Storage Class",
-                                    "value": "Other Storage Class"
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "data-protection-class",
+                                    "label": "arms.field.label.data-protection-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
                                 }
                             ]
                         },
@@ -789,7 +744,8 @@
                         {
                             "component-type": "text-input",
                             "field-name": "data-size",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -800,7 +756,8 @@
                         {
                             "component-type": "text-input",
                             "field-name": "data-growth",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -811,29 +768,46 @@
                         {
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.dataset-file-maxsize",
-                            "help": "arms.field.help.dataset-file-maxsize"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-maxsize",
+                                    "help": "arms.field.help.dataset-file-maxsize"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-maxsize",
+                                    "label": "",
+                                    "additional-classes": "fileSizeInput"
+                                }
+                            ],
+                            "additional-classes": "inline-block-component"
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "dataset-file-maxsize",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.dataset-file-minsize",
-                            "help": "arms.field.help.dataset-file-minsize"
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "dataset-file-minsize",
-                            "label": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-minsize",
+                                    "help": "arms.field.help.dataset-file-minsize"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-minsize",
+                                    "label": "",
+                                    "additional-classes": "fileSizeInput"
+                                }
+                            ],
+                            "additional-classes": "inline-block-component"
                         },
                         {
                             "component-type": "text-block",
@@ -844,7 +818,8 @@
                         {
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -855,7 +830,8 @@
                         {
                             "component-type": "text-input",
                             "field-name": "data-file-type",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -864,28 +840,44 @@
                             "help": "arms.field.help.ingest"
                         },
                         {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-1qtr",
-                            "label": "arms.field.label.ingest-1qtr",
-                            "format": "MM yy"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-1qtr",
+                                    "label": "arms.field.label.ingest-1qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-2qtr",
+                                    "label": "arms.field.label.ingest-2qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-2qtr",
-                            "label": "arms.field.label.ingest-2qtr",
-                            "format": "MM yy"
-                        },
-                        {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-3qtr",
-                            "label": "arms.field.label.ingest-3qtr",
-                            "format": "MM yy"
-                        },
-                        {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-4stqtr",
-                            "label": "arms.field.label.ingest-4qtr",
-                            "format": "MM yy"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-3qtr",
+                                    "label": "arms.field.label.ingest-3qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-4stqtr",
+                                    "label": "arms.field.label.ingest-4qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1025,46 +1017,53 @@
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-risk-rdsi-only-yes"
-                        },
-                        {
-                            "component-type": "dropdown-fixedvalue",
-                            "field-name": "storage-risk-regenerate",
-                            "label": "arms.field.label.storage-risk-regenerate",
-                            "options": [
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
                                 {
-                                    "label": "Please select one",
-                                    "value": ""
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.storage-risk-rdsi-only-yes"
                                 },
                                 {
-                                    "label": "Fully replaceable",
-                                    "value": "Fully replaceable"
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "storage-risk-regenerate",
+                                    "label": "arms.field.label.storage-risk-regenerate",
+                                    "options": [
+                                        {
+                                            "label": "Please select one",
+                                            "value": ""
+                                        },
+                                        {
+                                            "label": "Fully replaceable",
+                                            "value": "Fully replaceable"
+                                        },
+                                        {
+                                            "label": "Replaceable by equivalent data",
+                                            "value": "Replaceable by equivalent data"
+                                        },
+                                        {
+                                            "label": "Irreplaceable",
+                                            "value": "Irreplaceable"
+                                        },
+                                        {
+                                            "label": "Uncertain",
+                                            "value": "Uncertain"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "label": "Replaceable by equivalent data",
-                                    "value": "Replaceable by equivalent data"
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.storage-risk-disruption"
                                 },
                                 {
-                                    "label": "Irreplaceable",
-                                    "value": "Irreplaceable"
-                                },
-                                {
-                                    "label": "Uncertain",
-                                    "value": "Uncertain"
+                                    "component-type": "textarea",
+                                    "field-name": "storage-risk-disruption",
+                                    "label": ""
                                 }
-                            ]
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-risk-disruption"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "storage-risk-disruption",
-                            "label": ""
+                            ],
+                            "additional-classes": "storageRiskDetailsArea"
                         },
                         {
                             "component-type": "text-block",
@@ -1077,101 +1076,7 @@
                             "content": "arms.field.label.encumbrances-checkbox-title"
                         },
                         {
-                            "component-type": "checkbox",
-                            "field-name": "publisher-embargoes",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.publisher-embargoes",
-                                    "value": "publisher-embargoes"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "publisher-embargoes-details",
-                            "label": "arms.field.label.embargo-details"
-                        },
-                        {
-                            "component-type": "checkbox",
-                            "field-name": "privacy-restrictions",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.privacy-restrictions",
-                                    "value": "privacy-restrictions"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "privacy-restrictions-details",
-                            "label": "arms.field.label.embargo-details"
-                        },
-                        {
-                            "component-type": "checkbox",
-                            "field-name": "ethics-condtions",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.ethics-condtions",
-                                    "value": "ethics-condtions"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "ethics-condtions-details",
-                            "label": "arms.field.label.embargo-details"
-                        },
-                        {
-                            "component-type": "checkbox",
-                            "field-name": "copyright-issues",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.copyright-issues",
-                                    "value": "copyright-issues"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "copyright-issues-details",
-                            "label": "arms.field.label.embargo-details"
-                        },
-                        {
-                            "component-type": "checkbox",
-                            "field-name": "commericial-sensitivity",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.commericial-sensitivity",
-                                    "value": "commericial-sensitivity"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "commericial-sensitivity-details",
-                            "label": "arms.field.label.embargo-details"
-                        },
-                        {
-                            "component-type": "checkbox",
-                            "field-name": "no-embargo",
-                            "box-for": "",
-                            "multiline": false,
-                            "boxes": [
-                                {
-                                    "label": "arms.field.label.no-embargo",
-                                    "value": "no-embargo"
-                                }
-                            ]
+                            "component-type": "encumberances"
                         }
                     ]
                 },
@@ -1224,7 +1129,71 @@
         "arms-submitted": {
             "divs": [
                 {
-                    "heading": "Contact Details",
+                    "heading": "Data Collection",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.datacollection"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-title",
+                            "help": "arms.field.help.dc-title"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "dc:title",
+                            "label": "",
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.collection-description",
+                            "help": "arms.field.help.collection-description"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "collection:description",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.merit-description",
+                            "help": "arms.field.help.merit-description"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "merit:description",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-subject.anzsrc-for",
+                            "help": "arms.field.help.dc-subject.anzsrc-for"
+                        },
+                        {
+                            "component-type": "repeatable-anzsrc-selection",
+                            "label": "FoR code(s)",
+                            "fieldName": "dc:subject.anzsrc:for",
+                            "fieldNameLabel": "dc:subject.anzsrc:for.0.skos:prefLabel",
+                            "sourceUrl": "proxyGet.script?ns=ANZSRC_FOR&qs=count%3D999%26level%3D",
+                            "dataLevel": "top",
+                            "mandatory": "false",
+                            "idKey": "rdf:about",
+                            "labelKey": "skos:prefLabel",
+                            "listKey": "results",
+                            "defaultValue": "skos:narrower",
+                            "anzsrcType": "for"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Contact details",
                     "fields": [
                         {
                             "component-type": "text-block",
@@ -1235,162 +1204,369 @@
                             "component-type": "text-block",
                             "type": "h4",
                             "content": "arms.field.label.dataprovider",
-                            "help": "arms.field.help.dataprovider"
+                            "help": "arms.field.help.dataprovider",
+                            "additional-class": "section-heading"
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:title",
-                            "label": "arms.field.label.title",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:givenName",
-                            "label": "arms.field.label.givenName",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:familyName",
-                            "label": "arms.field.label.familyName",
-                            "additional-classes": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "dataprovider:familyName",
-                                "focus-id": "dataprovider:familyName",
-                                "validation-messages": {
-                                    "required": "Family name is required"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:familyName",
+                                        "focus-id": "dataprovider:familyName",
+                                        "validation-messages": {
+                                            "required": "Family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
                                 }
-                            }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:email",
-                            "label": "arms.field.label.email",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:phone",
-                            "label": "arms.field.label.phone",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:organization",
+                                    "label": "arms.field.label.organization",
+                                    "additional-classes": "organizationField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:role",
+                                    "label": "arms.field.label.role",
+                                    "additional-classes": "roleField",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:role",
-                            "label": "arms.field.label.role",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "dataprovider:organization",
-                            "label": "arms.field.label.organization",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.state"
-                        },
-                        {
-                            "component-type": "data-source-dropdown",
-                            "field-name": "dataprovider:state",
-                            "label": "",
-                            "field-name-label": "dataprovider:state:prefLabel",
-                            "sourceUrl": "form-components/states.json"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.state",
+                                    "wrapper-class": "inline-block-component statesLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "dataprovider:state",
+                                    "label": "",
+                                    "field-name-label": "dataprovider:state:prefLabel",
+                                    "sourceUrl": "form-components/states.json",
+                                    "wrapper-class": "inline-component statesField"
+                                }
+                            ]
                         },
                         {
                             "component-type": "text-block",
                             "type": "h4",
                             "content": "arms.field.label.requester",
-                            "help": "arms.field.help.requester"
+                            "help": "arms.field.help.requester",
+                            "additional-class": "section-heading"
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "requester:title",
-                            "label": "arms.field.label.title",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:familyName",
+                                        "focus-id": "requester:familyName",
+                                        "validation-messages": {
+                                            "required": "Family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "requester:givenName",
-                            "label": "arms.field.label.givenName",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "requester:familyName",
-                            "label": "arms.field.label.familyName",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:organization",
+                                    "label": "arms.field.label.organization",
+                                    "additional-classes": "organizationField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:role",
+                                    "label": "arms.field.label.role",
+                                    "additional-classes": "roleField",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "requester:email",
-                            "label": "arms.field.label.email",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "requester:phone",
-                            "label": "arms.field.label.phone",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "requester:role",
-                            "label": "arms.field.label.role",
-                            "additional-classes": ""
-                        },
-                        {
-                            "component-type": "text-input",
-                            "field-name": "requester:organization",
-                            "label": "arms.field.label.organization",
-                            "additional-classes": ""
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.state",
+                                    "wrapper-class": "inline-block-component statesLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "requester:state",
+                                    "label": "",
+                                    "field-name-label": "requester:state:prefLabel",
+                                    "sourceUrl": "form-components/states.json",
+                                    "wrapper-class": "inline-block-component statesField"
+                                }
+                            ]
                         },
                         {
                             "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.state"
+                            "type": "h4",
+                            "content": "arms.field.label.nodecontact",
+                            "help": "arms.field.help.nodecontact",
+                            "additional-class": "section-heading"
                         },
                         {
-                            "component-type": "data-source-dropdown",
-                            "field-name": "requester:state",
-                            "label": "",
-                            "field-name-label": "requester:state:prefLabel",
-                            "sourceUrl": "form-components/states.json"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:familyName",
+                                        "focus-id": "nodecontact:familyName",
+                                        "validation-messages": {
+                                            "required": "Family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "nodecontact:node",
+                            "label": "arms.field.label.node",
+                            "additional-classes": "nodeField",
+                            "wrapper-class": "inline-block-component"
                         }
                     ]
                 },
                 {
-                    "heading": "Merit",
+                    "heading": "Funding Information",
                     "fields": [
                         {
                             "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.researchdatameritsupport"
+                            "type": "h4",
+                            "content": "arms.field.heading.funding-information",
+                            "help": ""
                         },
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.merit-description",
-                            "help": "arms.field.help.merit-description"
+                            "content": "arms.field.label.is-funded",
+                            "help": "arms.field.help.is-funded"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "isFunded",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "Yes",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.funding-bodies",
+                            "help": "arms.field.help.funding-bodies"
+                        },
+                        {
+                            "component-type": "checkbox",
+                            "field-name": "funding-body",
+                            "box-for": "",
+                            "multiline": true,
+                            "boxes": [
+                                {
+                                    "label": "ARC",
+                                    "value": "ARC"
+                                },
+                                {
+                                    "label": "NHMRC",
+                                    "value": "NHMRC"
+                                },
+                                {
+                                    "label": "Industry",
+                                    "value": "Industry"
+                                },
+                                {
+                                    "label": "Other (please describe below)",
+                                    "value": "Other"
+                                }
+                            ]
                         },
                         {
                             "component-type": "textarea",
-                            "field-name": "merit-description",
-                            "label": ""
+                            "field-name": "funding-body-other",
+                            "label": "",
+                            "content": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.grant-details",
+                            "help": "arms.field.help.grant-details"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "ToDo"
                         }
                     ]
                 },
                 {
-                    "heading": "Re-use",
+                    "heading": "Data access and re-use",
                     "fields": [
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.heading.researchdatare-use"
+                            "content": "arms.heading.researchdata-access"
                         },
                         {
                             "component-type": "text-block",
@@ -1399,23 +1575,45 @@
                             "help": "arms.field.help.accessRestrictions"
                         },
                         {
-                            "component-type": "radio-button",
+                            "component-type": "access-restrictions",
                             "field-name": "accessRestrictions",
                             "button-for": "",
                             "buttons": [
                                 {
-                                    "label": "Unrestricted access - Research data is made freely available to all users",
+                                    "label": "Unrestricted access",
                                     "value": "Unrestricted access"
                                 },
                                 {
-                                    "label": "Restricted access - Research data is made freely available to selected users",
-                                    "value": "Restricted access"
+                                    "label": "Research data is made freely available to selected users only",
+                                    "value": "Research data is made freely available to selected users only"
                                 },
                                 {
-                                    "label": "Embargo access - Research data is made freely available following an appropriate delay",
+                                    "label": "Research data is made freely available to selected users only, following a delay",
+                                    "value": "Research data is made freely available to selected users only, following a delay"
+                                },
+                                {
+                                    "label": "Research data is made freely available to selected users following data de-identification",
+                                    "value": "Research data is made freely available to selected users following data de-identification"
+                                },
+                                {
+                                    "label": "Embargo access",
                                     "value": "Embargo access"
+                                },
+                                {
+                                    "label": "Custom access",
+                                    "value": "Custom access"
+                                },
+                                {
+                                    "label": "No access",
+                                    "value": "No access"
                                 }
                             ]
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "accessRestrictions-sub",
+                            "button-for": "",
+                            "buttons": []
                         },
                         {
                             "component-type": "text-block",
@@ -1427,6 +1625,11 @@
                             "component-type": "textarea",
                             "field-name": "dc:rights.skos:note",
                             "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.researchdata-reuse"
                         },
                         {
                             "component-type": "text-block",
@@ -1460,8 +1663,56 @@
                             "help": "arms.field.help.citation"
                         },
                         {
-                            "component-type": "text-input",
+                            "component-type": "textarea",
                             "field-name": "citation",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.terms-use-reuse",
+                            "help": "arms.field.help.terms-use-reuse"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "terms-use-reuse",
+                            "label": ""
+                        }
+                    ]
+                },
+                {
+                    "heading": "User base",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.user-base"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "current-user-number",
+                            "label": "arms.field.label.current-user-number"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.current-access-use",
+                            "help": "arms.field.help.current-access-use"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "current-access-use",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.current-user-locations",
+                            "help": "arms.field.help.current-user-locations"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "current-user-locations",
                             "label": ""
                         },
                         {
@@ -1538,7 +1789,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.heading.technicaldetails"
+                            "content": "arms.heading.nodeselection"
                         },
                         {
                             "component-type": "text-block",
@@ -1569,6 +1820,86 @@
                             ]
                         },
                         {
+                            "component-type": "textarea",
+                            "field-name": "rdsi-secondary-nodes",
+                            "label": "arms.field.label.rdsi-secondary-nodes"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.multi-nodes-reason",
+                            "help": "arms.field.help.multi-nodes-reason"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "multi-nodes-reason",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.label.storage-options"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "storage-class",
+                                    "label": "arms.field.label.storage-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "data-protection-class",
+                                    "label": "arms.field.label.data-protection-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.label.dataset-metrics"
+                        },
+                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.data-size",
@@ -1577,60 +1908,70 @@
                         {
                             "component-type": "text-input",
                             "field-name": "data-size",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.storage-class",
-                            "help": "arms.field.help.storage-class"
+                            "content": "arms.field.label.data-growth",
+                            "help": "arms.field.help.data-growth"
                         },
                         {
-                            "component-type": "dropdown-fixedvalue",
-                            "field-name": "storage-class",
+                            "component-type": "text-input",
+                            "field-name": "data-growth",
                             "label": "",
-                            "options": [
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dataset-file-number",
+                            "help": "arms.field.help.dataset-file-number"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "dataset-file-number",
+                            "label": "",
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
                                 {
-                                    "label": "Storage Class I (HSM/Tape)",
-                                    "value": "Storage Class I (HSM/Tape)"
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-maxsize",
+                                    "help": "arms.field.help.dataset-file-maxsize"
                                 },
                                 {
-                                    "label": "Storage Class II (Standard disk)",
-                                    "value": "Storage Class II (Standard disk)"
-                                },
-                                {
-                                    "label": "Storage Class III (High-performance disk)",
-                                    "value": "Storage Class III (High-performance disk)"
-                                },
-                                {
-                                    "label": "Other Storage Class",
-                                    "value": "Other Storage Class"
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-maxsize",
+                                    "label": "",
+                                    "additional-classes": "fileSizeInput"
                                 }
-                            ]
+                            ],
+                            "additional-classes": "inline-block-component"
                         },
                         {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-1qtr",
-                            "label": "arms.field.label.ingest-1qtr",
-                            "format": "MM yy"
-                        },
-                        {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-2qtr",
-                            "label": "arms.field.label.ingest-2qtr",
-                            "format": "MM yy"
-                        },
-                        {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-3qtr",
-                            "label": "arms.field.label.ingest-3qtr",
-                            "format": "MM yy"
-                        },
-                        {
-                            "component-type": "date-picker",
-                            "field-name": "ingest-4stqtr",
-                            "label": "arms.field.label.ingest-4qtr",
-                            "format": "MM yy"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-minsize",
+                                    "help": "arms.field.help.dataset-file-minsize"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-minsize",
+                                    "label": "",
+                                    "additional-classes": "fileSizeInput"
+                                }
+                            ],
+                            "additional-classes": "inline-block-component"
                         },
                         {
                             "component-type": "text-block",
@@ -1639,93 +1980,78 @@
                             "help": "arms.field.help.vivo-Dataset.dc.format"
                         },
                         {
-                            "component-type": "textarea",
+                            "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
-                            "label": ""
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.reuse-availability",
-                            "help": "arms.field.help.reuse-availability"
+                            "content": "arms.field.label.data-file-type",
+                            "help": "arms.field.help.data-file-type"
                         },
                         {
-                            "component-type": "textarea",
-                            "field-name": "reuse-availability",
-                            "label": ""
+                            "component-type": "text-input",
+                            "field-name": "data-file-type",
+                            "label": "",
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-risk"
+                            "type": "h1",
+                            "content": "arms.field.label.ingest",
+                            "help": "arms.field.help.ingest"
                         },
                         {
-                            "component-type": "radio-button",
-                            "field-name": "storage-risk-rdsi-only",
-                            "button-for": "arms.field.label.storage-risk-rdsi-only",
-                            "buttons": [
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
                                 {
-                                    "label": "Yes",
-                                    "value": "Yes"
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-1qtr",
+                                    "label": "arms.field.label.ingest-1qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
                                 },
                                 {
-                                    "label": "No",
-                                    "value": "No"
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-2qtr",
+                                    "label": "arms.field.label.ingest-2qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
                                 }
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-risk-rdsi-only-yes"
-                        },
-                        {
-                            "component-type": "dropdown-fixedvalue",
-                            "field-name": "storage-risk-regenerate",
-                            "label": "arms.field.label.storage-risk-regenerate",
-                            "options": [
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
                                 {
-                                    "label": "Please select one",
-                                    "value": ""
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-3qtr",
+                                    "label": "arms.field.label.ingest-3qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
                                 },
                                 {
-                                    "label": "Fully replaceable",
-                                    "value": "Fully replaceable"
-                                },
-                                {
-                                    "label": "Replaceable by equivalent data",
-                                    "value": "Replaceable by equivalent data"
-                                },
-                                {
-                                    "label": "Irreplaceable",
-                                    "value": "Irreplaceable"
-                                },
-                                {
-                                    "label": "Uncertain",
-                                    "value": "Uncertain"
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-4stqtr",
+                                    "label": "arms.field.label.ingest-4qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
                                 }
                             ]
-                        },
+                        }
+                    ]
+                },
+                {
+                    "heading": "Data migration",
+                    "fields": [
                         {
                             "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.storage-risk-disruption"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "storage-risk-disruption",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.data-medium-migration",
-                            "help": "arms.field.help.data-medium-migration"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "data-medium-migration",
-                            "label": ""
+                            "type": "h1",
+                            "content": "arms.field.heading.migration"
                         },
                         {
                             "component-type": "radio-button",
@@ -1745,18 +2071,194 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.required-resources",
-                            "help": "arms.field.help.required-resources"
+                            "content": "arms.field.label.data-medium-migration",
+                            "help": "arms.field.help.data-medium-migration"
                         },
                         {
                             "component-type": "textarea",
-                            "field-name": "required-resources",
+                            "field-name": "data-medium-migration",
                             "label": ""
                         },
                         {
-                            "component-type": "standard-button",
-                            "button-name": "approve",
-                            "label": "Approve",
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.migrate-required-resources",
+                            "help": "arms.field.help.migrate-required-resources"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "migrate-required-resources",
+                            "label": ""
+                        }
+                    ]
+                },
+                {
+                    "heading": "Collection metadata",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.heading.collection-metadata"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.metadata-location"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "ToDo"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.heading.collection-manage"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "data-well-managed",
+                            "button-for": "arms.field.label.data-well-managed",
+                            "buttons": [
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                },
+                                {
+                                    "label": "Yes (please describe below)",
+                                    "value": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "data-well-managed-desc",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "data-management-plan",
+                            "button-for": "arms.field.label.data-management-plan",
+                            "buttons": [
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                },
+                                {
+                                    "label": "Yes (please attach the plan below)",
+                                    "value": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "ToDo upload widget"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Data storage risk",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.heading.store-risk"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "storage-risk-rdsi-only",
+                            "button-for": "arms.field.label.storage-risk-rdsi-only",
+                            "buttons": [
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                },
+                                {
+                                    "label": "Yes",
+                                    "value": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.storage-risk-rdsi-only-yes"
+                                },
+                                {
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "storage-risk-regenerate",
+                                    "label": "arms.field.label.storage-risk-regenerate",
+                                    "options": [
+                                        {
+                                            "label": "Please select one",
+                                            "value": ""
+                                        },
+                                        {
+                                            "label": "Fully replaceable",
+                                            "value": "Fully replaceable"
+                                        },
+                                        {
+                                            "label": "Replaceable by equivalent data",
+                                            "value": "Replaceable by equivalent data"
+                                        },
+                                        {
+                                            "label": "Irreplaceable",
+                                            "value": "Irreplaceable"
+                                        },
+                                        {
+                                            "label": "Uncertain",
+                                            "value": "Uncertain"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.storage-risk-disruption"
+                                },
+                                {
+                                    "component-type": "textarea",
+                                    "field-name": "storage-risk-disruption",
+                                    "label": ""
+                                }
+                            ],
+                            "additional-classes": "storageRiskDetailsArea"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.heading.encumbrances"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.encumbrances-checkbox-title"
+                        },
+                        {
+                            "component-type": "encumberances"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Submit",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.heading.submission"
+                        },
+                        {
+                            "component-type": "confirm-and-submit-button",
+                            "field-name": "arms.field.label.authoritycheck",
+                            "box-label": "arms.field.label.authoritycheck.yes",
+                            "box-value": "yes",
+                            "button-name": "submit",
+                            "label": "Submit",
                             "action": "next",
                             "closeUrl": "home"
                         }
@@ -1767,8 +2269,8 @@
                 {
                     "component-type": "standard-button",
                     "button-name": "save",
-                    "action": "save",
-                    "label": "Save"
+                    "label": "Save",
+                    "action": "save"
                 },
                 {
                     "component-type": "standard-button",
@@ -1778,6 +2280,7 @@
                     "closeUrl": "home"
                 }
             ],
+            "form-footer": "armsform-footer",
             "form-layout": {
                 "component-type": "tabbed",
                 "tabHeaderIdentifier": "armsTabHeader"
