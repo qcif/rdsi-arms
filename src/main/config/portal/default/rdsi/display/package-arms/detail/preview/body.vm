@@ -31,30 +31,30 @@
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:title"))
-					$page.escapeHtml($contentJson.getValue("dataprovider:foaf:givenName"))
-					$page.escapeHtml($contentJson.getValue("dataprovider:foaf:familyName"))
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:title"))
+					$page.escapeHtml($contentJson.getValue("dataprovider:givenName"))
+					$page.escapeHtml($contentJson.getValue("dataprovider:familyName"))
 				</td>
 			</tr>
 			<tr>
 				<td>Role:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:role"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:role"))</td>
 			</tr>
 			<tr>
 				<td>Organisation:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:organization"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:organization"))</td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:state:prefLabel"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:state:prefLabel"))</td>
 			</tr>
 			<tr>
 				<td>email:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:email"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:email"))</td>
 			</tr>
 			<tr>
 				<td>phone:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:foaf:phone"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("dataprovider:phone"))</td>
 			</tr>
 		</table>
 	</div>
@@ -63,30 +63,30 @@
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:title"))
-					$page.escapeHtml($contentJson.getValue("requester:foaf:givenName"))
-					$page.escapeHtml($contentJson.getValue("requester:foaf:familyName"))
+				<td>$page.escapeHtml($contentJson.getValue("requester:title"))
+					$page.escapeHtml($contentJson.getValue("requester:givenName"))
+					$page.escapeHtml($contentJson.getValue("requester:familyName"))
 				</td>
 			</tr>
 			<tr>
 				<td>Role:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:role"))</td>
 			</tr>
 			<tr>
 				<td>Organisation:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:organization"))</td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:state:prefLabel"))</td>
 			</tr>
 			<tr>
 				<td>email:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:email"))</td>
 			</tr>
 			<tr>
 				<td>phone:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</td>
+				<td>$page.escapeHtml($contentJson.getValue("requester:phone"))</td>
 			</tr>
 		</table>
 	</div>
@@ -99,23 +99,23 @@
 	</tr>
 	<tr>
 		<td>Other hosting node:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:role"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:role"))</td>
 	</tr>
 	<tr>
 		<td>Data format:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:organization"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:organization"))</td>
 	</tr>
 	<tr>
 		<td>Required storage class:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:state:prefLabel"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:state:prefLabel"))</td>
 	</tr>
 	<tr>
 		<td>Data medium and migration:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:email"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:email"))</td>
 	</tr>
 	<tr>
 		<td>Required tools and interfaces:</td>
-		<td>$page.escapeHtml($contentJson.getValue("requester:foaf:phone"))</td>
+		<td>$page.escapeHtml($contentJson.getValue("requester:phone"))</td>
 	</tr>
 	<tr>
 		<td>RDSI is the only host?</td>
