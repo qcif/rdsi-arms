@@ -1,0 +1,51 @@
+.titleField {
+	width:4.7em;
+}
+
+.givenNameField {
+	width:12em;
+}
+
+.familyNameField {
+	width:11em;
+}
+
+.emailField {
+	width:18em;
+}
+
+.telephoneField {
+  width:11em;
+}
+
+.organizationField {
+	width:18em;
+}
+
+.roleField {
+  width:11em;
+}
+
+.statesField > div {
+  display: inline;
+}
+
+.statesField select {
+  width: 11em;
+}
+
+.statesLabel {
+	margin-left: 14em;
+}
+
+.nodeField {
+	width:18em;
+}
+
+.section-heading {
+  margin-top:0.5em;
+}
+
+#armsTabHeader {
+  font-size:50%;
+]
