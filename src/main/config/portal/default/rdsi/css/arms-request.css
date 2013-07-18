@@ -98,3 +98,7 @@
 #simpleworkflow-form > div { 
     min-height: 35em; 
 }
+
+#simpleworkflow-form > div.blockUI { 
+    min-height: 0em; 
+}
