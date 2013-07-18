@@ -102,3 +102,9 @@
 #simpleworkflow-form > div.blockUI { 
     min-height: 0em; 
 }
+.workflow-controls {
+	border-top: solid	
+}
+.next-button {
+  float:right;
+}
