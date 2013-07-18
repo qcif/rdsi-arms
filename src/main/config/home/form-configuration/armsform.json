@@ -63,6 +63,40 @@
                             "listKey": "results",
                             "defaultValue": "skos:narrower",
                             "anzsrcType": "for"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -360,8 +394,8 @@
                     "fields": [
                         {
                             "component-type": "text-block",
-                            "type": "h4",
-                            "content": "arms.field.heading.funding-information",
+                            "type": "h1",
+                            "content": "arms.heading.funding-information",
                             "help": ""
                         },
                         {
@@ -915,7 +949,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.migration"
+                            "content": "arms.heading.migration"
                         },
                         {
                             "component-type": "radio-button",
@@ -962,7 +996,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.collection-metadata"
+                            "content": "arms.heading.collection-metadata"
                         },
                         {
                             "component-type": "text-block",
@@ -977,7 +1011,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.collection-manage"
+                            "content": "arms.heading.collection-manage"
                         },
                         {
                             "component-type": "radio-button",
@@ -998,6 +1032,11 @@
                             "component-type": "textarea",
                             "field-name": "data-well-managed-desc",
                             "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.data-management-plan"
                         },
                         {
                             "component-type": "radio-button",
@@ -1027,7 +1066,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.store-risk"
+                            "content": "arms.heading.store-risk"
                         },
                         {
                             "component-type": "radio-button",
@@ -1096,7 +1135,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.encumbrances"
+                            "content": "arms.heading.encumbrances"
                         },
                         {
                             "component-type": "text-block",
@@ -1114,7 +1153,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.submission"
+                            "content": "arms.heading.submission"
                         },
                         {
                             "component-type": "confirm-and-submit-button",
@@ -1146,8 +1185,9 @@
             ],
             "form-footer": "armsform-footer",
             "form-layout": {
-                "component-type": "tabbed",
-                "tabHeaderIdentifier": "armsTabHeader"
+                "component-type": "tabbed-wizard",
+                "tabHeaderIdentifier": "armsTabHeader",
+                "wizardDefPath": "wizard-definitions/arms-request.json"
             },
             "validation-function": {
                 "component-type": "active-tab",
@@ -1514,8 +1554,8 @@
                     "fields": [
                         {
                             "component-type": "text-block",
-                            "type": "h4",
-                            "content": "arms.field.heading.funding-information",
+                            "type": "h1",
+                            "content": "arms.heading.funding-information",
                             "help": ""
                         },
                         {
@@ -2069,7 +2109,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.migration"
+                            "content": "arms.heading.migration"
                         },
                         {
                             "component-type": "radio-button",
@@ -2116,7 +2156,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.collection-metadata"
+                            "content": "arms.heading.collection-metadata"
                         },
                         {
                             "component-type": "text-block",
@@ -2131,7 +2171,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.collection-manage"
+                            "content": "arms.heading.collection-manage"
                         },
                         {
                             "component-type": "radio-button",
@@ -2152,6 +2192,11 @@
                             "component-type": "textarea",
                             "field-name": "data-well-managed-desc",
                             "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.data-management-plan"
                         },
                         {
                             "component-type": "radio-button",
@@ -2181,7 +2226,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.store-risk"
+                            "content": "arms.heading.store-risk"
                         },
                         {
                             "component-type": "radio-button",
@@ -2250,7 +2295,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.encumbrances"
+                            "content": "arms.heading.encumbrances"
                         },
                         {
                             "component-type": "text-block",
@@ -2268,7 +2313,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.review"
+                            "content": "arms.heading.review"
                         },
                         {
                             "component-type": "text-input",
@@ -2313,7 +2358,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.review-notes"
+                            "content": "arms.heading.review-notes"
                         },
                         {
                             "component-type": "text-block",
@@ -2333,7 +2378,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.field.heading.review-attachments"
+                            "content": "arms.heading.review-attachments"
                         },
                         {
                             "component-type": "text-block",
@@ -2375,8 +2420,9 @@
             ],
             "form-footer": "armsform-footer",
             "form-layout": {
-                "component-type": "tabbed",
-                "tabHeaderIdentifier": "armsTabHeader"
+                "component-type": "tabbed-wizard",
+                "tabHeaderIdentifier": "armsTabHeader",
+                "wizardDefPath": "wizard-definitions/arms-request.json"
             },
             "validation-function": {
                 "component-type": "active-tab",

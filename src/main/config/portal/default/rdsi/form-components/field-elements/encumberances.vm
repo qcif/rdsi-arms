@@ -1,11 +1,11 @@
     <label value="publisher-embargoes"><input name="encumbrances" id="encumbrances.1" class="jaffa-field" type="checkbox" value="publisher-embargoes">#displayMessage("arms.field.label.publisher-embargoes")</label>
-	<label for="publisher-embargoes-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><input type="text" id="publisher-embargoes-details" size="" placeholder="">
+	<label for="publisher-embargoes-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><textarea cols="80" rows="1" id="publisher-embargoes-details"></textarea>
     <label value="privacy-restrictions"><input name="encumbrances" id="encumbrances.2" class="jaffa-field" type="checkbox" value="privacy-restrictions">#displayMessage("arms.field.label.privacy-restrictions")</label>
-	<label for="privacy-restrictions-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><input type="text" id="privacy-restrictions-details" size="" placeholder="">
+	<label for="privacy-restrictions-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><textarea cols="80" rows="1" id="privacy-restrictions-details"></textarea>
     <label value="ethics-condtions"><input name="encumbrances" id="encumbrances.3" class="jaffa-field" type="checkbox" value="ethics-clearance">#displayMessage("arms.field.label.ethics-condtions")</label>
-    <label for="ethics-condtions-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><input type="text" id="ethics-condtions-details" size="" placeholder="">
+    <label for="ethics-condtions-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><textarea cols="80" rows="1" id="ethics-condtions-details"></textarea>
     <label value="copyright-issues"><input name="encumbrances" id="encumbrances.4" class="jaffa-field" type="checkbox" value="copyright">#displayMessage("arms.field.label.copyright-issues")</label>
-	<label for="copyright-issues-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><input type="text" id="copyright-issues-details" size="" placeholder="">
+	<label for="copyright-issues-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><textarea cols="80" rows="1" id="copyright-issues-details"></textarea>
     <label value="commericial-sensitivity"><input name="encumbrances" id="encumbrances.5" class="jaffa-field" type="checkbox" value="commercial-sensitivity">#displayMessage("arms.field.label.commericial-sensitivity")</label>
-	<label for="commericial-sensitivity-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><input type="text" id="commericial-sensitivity-details" size="" placeholder="">
+	<label for="commericial-sensitivity-details" class="widgetLabel">#displayMessage("arms.field.label.embargo-details")</label><textarea cols="80" rows="1" id="commericial-sensitivity-details"></textarea>
     <label value="no-embargo"><input name="encumbrances" id="encumbrances.2" class="jaffa-field" type="checkbox" value="no-encumberances">#displayMessage("arms.field.label.no-embargo")</label>
