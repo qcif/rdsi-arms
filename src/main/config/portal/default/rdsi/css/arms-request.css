@@ -103,8 +103,10 @@
     min-height: 0em; 
 }
 .workflow-controls {
-	border-top: solid	
+	border-top: 1px solid #666;	
+	
+	bottom:0;
 }
 .next-button {
-  float:right;
+  margin-left:25.5em;
 }
