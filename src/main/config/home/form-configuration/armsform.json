@@ -1515,6 +1515,40 @@
                             "listKey": "results",
                             "defaultValue": "skos:narrower",
                             "anzsrcType": "for"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1804,6 +1838,40 @@
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
                             "wrapper-class": "inline-block-component"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1883,6 +1951,40 @@
                             "component-type": "text-block",
                             "type": "label",
                             "content": "ToDo"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -1965,6 +2067,40 @@
                             "component-type": "textarea",
                             "field-name": "terms-use-reuse",
                             "label": ""
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2066,6 +2202,40 @@
                                 {
                                     "label": "Ad Hoc",
                                     "value": "Ad Hoc"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
                                 }
                             ]
                         }
@@ -2358,6 +2528,40 @@
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2405,6 +2609,40 @@
                             "component-type": "textarea",
                             "field-name": "migrate-required-resources",
                             "label": ""
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2475,6 +2713,40 @@
                             "component-type": "text-block",
                             "type": "label",
                             "content": "ToDo upload widget"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2562,6 +2834,40 @@
                         },
                         {
                             "component-type": "encumberances"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -2661,21 +2967,7 @@
                     ]
                 }
             ],
-            "buttons": [
-                {
-                    "component-type": "standard-button",
-                    "button-name": "save",
-                    "label": "Save",
-                    "action": "save"
-                },
-                {
-                    "component-type": "standard-button",
-                    "button-name": "save-close",
-                    "label": "Save and close",
-                    "action": "save",
-                    "closeUrl": "home"
-                }
-            ],
+            "buttons": [],
             "form-footer": "armsform-footer",
             "form-layout": {
                 "component-type": "tabbed-wizard",
