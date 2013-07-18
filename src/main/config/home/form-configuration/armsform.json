@@ -71,14 +71,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save1",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close1",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -394,14 +394,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save2",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close2",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -496,14 +496,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save3",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -612,14 +612,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save4",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -749,14 +749,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save5",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close5",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1073,14 +1073,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save6",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close6",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1154,14 +1154,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save7",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1238,14 +1238,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save8",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1359,14 +1359,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save9",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close9",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1492,14 +1492,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save1",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close1",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1815,14 +1815,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save2",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close2",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -1917,14 +1917,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save3",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2033,14 +2033,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save4",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2170,14 +2170,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save5",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close5",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2494,14 +2494,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save6",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close6",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2575,14 +2575,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save7",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2659,14 +2659,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save8",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2780,14 +2780,14 @@
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save",
+                                    "button-name": "save9",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close",
+                                    "button-name": "save-close9",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2883,6 +2883,28 @@
                             "label": "Approved",
                             "action": "next",
                             "closeUrl": "home"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save10",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close10",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 }
