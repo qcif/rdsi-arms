@@ -2932,7 +2932,9 @@
                         {
                             "component-type": "repeatable-text",
                             "field-name": "review-notes",
-                            "label": ""
+                            "label": "",
+                            "textarea": true,
+                            "wrapper-class" : "notesFields"
                         },
                         {
                             "component-type": "text-block",
