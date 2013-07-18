@@ -490,17 +490,6 @@
                             "content": ""
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.grant-details",
-                            "help": "arms.field.help.grant-details"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo"
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
@@ -1200,21 +1189,6 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.heading.collection-metadata"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.metadata-location"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
                             "content": "arms.heading.collection-manage"
                         },
                         {
@@ -1256,11 +1230,6 @@
                                     "value": "Yes"
                                 }
                             ]
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo upload widget"
                         },
                         {
                             "component-type": "group",
@@ -1942,17 +1911,6 @@
                             "content": ""
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.grant-details",
-                            "help": "arms.field.help.grant-details"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo"
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
@@ -2652,21 +2610,6 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
-                            "content": "arms.heading.collection-metadata"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.metadata-location"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
                             "content": "arms.heading.collection-manage"
                         },
                         {
@@ -2708,11 +2651,6 @@
                                     "value": "Yes"
                                 }
                             ]
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo upload widget"
                         },
                         {
                             "component-type": "group",
@@ -2935,26 +2873,6 @@
                             "label": "",
                             "textarea": true,
                             "wrapper-class" : "notesFields"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo - brief note list with expand buttons"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.review-attachments"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo - file upload widget"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "ToDo - uploaded file list with delete buttons"
                         },
                         {
                             "component-type": "confirm-and-submit-button",
