@@ -20,10 +20,10 @@
 </p>
 
 <h4>Description</h4>
-<p>$page.escapeHtml($contentJson.getValue("description"))</p>
+<p>$page.escapeHtml($contentJson.getValue("collection:description"))</p>
 
 <h4>Merit description</h4>
-<p>$page.escapeHtml($contentJson.getValue("merit-description"))</p>
+<p>$page.escapeHtml($contentJson.getValue("merit:description"))</p>
 
 <div id="people-container">
 	<div class="people">
@@ -139,15 +139,15 @@
 		<td>$contentJson.getValue("ingest-1qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 25%:</td>
+		<td>ingest 0f 50%:</td>
 		<td>$contentJson.getValue("ingest-2qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 25%:</td>
+		<td>ingest 0f 75%:</td>
 		<td>$contentJson.getValue("ingest-3qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 25%:</td>
+		<td>ingest 0f 100%:</td>
 		<td>$contentJson.getValue("ingest-4qtr")</td>
 	</tr>
 </table>
