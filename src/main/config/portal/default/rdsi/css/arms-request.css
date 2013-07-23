@@ -114,3 +114,8 @@
 .notesFields textarea {
   width:40em;	
 }
+
+#submit {
+	margin-left: 1em;
+    margin-top: 0.4em;	
+} 

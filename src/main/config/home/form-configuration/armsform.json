@@ -801,20 +801,20 @@
                                     "value": ""
                                 },
                                 {
-                                    "label": "QCIF",
-                                    "value": "QCIF"
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE"
                                 },
                                 {
-                                    "label": "ERSA",
-                                    "value": "ERSA"
+                                    "label": "eRSA",
+                                    "value": "eRSA"
                                 },
                                 {
                                     "label": "Intersect",
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "JCU",
-                                    "value": "JCU"
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
                                 }
                             ]
                         },
@@ -829,22 +829,22 @@
                             "box-for": "",
                             "multiline": true,
                             "boxes": [
-                                {
-                                    "label": "QCIF",
-                                    "value": "QCIF"
-                                },
-                                {
-                                    "label": "ERSA",
-                                    "value": "ERSA"
-                                },
-                                {
-                                    "label": "Intersect",
-                                    "value": "Intersect"
-                                },
-                                {
-                                    "label": "JCU",
-                                    "value": "JCU"
-                                }
+                                      {
+                                          "label": "QCIF-BNE",
+                                          "value": "QCIF-BNE"
+                                      },
+                                      {
+                                          "label": "eRSA",
+                                          "value": "eRSA"
+                                      },
+                                      {
+                                          "label": "Intersect",
+                                          "value": "Intersect"
+                                      },
+                                      {
+                                          "label": "QCIF-TSV",
+                                          "value": "QCIF-TSV"
+                                      }
                             ]
                         },
                         {
@@ -1148,45 +1148,6 @@
                             "label": ""
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "additional-classes": "workflow-controls",
-                            "fields": [
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save7",
-                                    "label": "Save",
-                                    "action": "save",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save-close7",
-                                    "label": "Save and close",
-                                    "action": "save",
-                                    "closeUrl": "home",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "transition-control",
-                                    "transitions": [
-                                        {
-                                            "name": "Next",
-                                            "form-submit-action": "save",
-                                            "type": "button"
-                                        }
-                                    ],
-                                    "additional-classes": "next-button",
-                                    "wrapper-class": "inline-component"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "heading": "Collection metadata",
-                    "fields": [
-                        {
                             "component-type": "text-block",
                             "type": "h1",
                             "content": "arms.heading.collection-manage"
@@ -1212,161 +1173,20 @@
                             "label": ""
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.data-management-plan"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "data-management-plan",
-                            "button-for": "arms.field.label.data-management-plan",
-                            "buttons": [
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                },
-                                {
-                                    "label": "Yes (please attach the plan below)",
-                                    "value": "Yes"
-                                }
-                            ]
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save8",
+                                    "button-name": "save7",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close8",
-                                    "label": "Save and close",
-                                    "action": "save",
-                                    "closeUrl": "home",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "transition-control",
-                                    "transitions": [
-                                        {
-                                            "name": "Next",
-                                            "form-submit-action": "save",
-                                            "type": "button"
-                                        }
-                                    ],
-                                    "additional-classes": "next-button",
-                                    "wrapper-class": "inline-component"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "heading": "Data storage risk",
-                    "fields": [
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.store-risk"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "storage-risk-rdsi-only",
-                            "button-for": "arms.field.label.storage-risk-rdsi-only",
-                            "buttons": [
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                },
-                                {
-                                    "label": "Yes",
-                                    "value": "Yes"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.storage-risk-rdsi-only-yes"
-                                },
-                                {
-                                    "component-type": "dropdown-fixedvalue",
-                                    "field-name": "storage-risk-regenerate",
-                                    "label": "arms.field.label.storage-risk-regenerate",
-                                    "options": [
-                                        {
-                                            "label": "Please select one",
-                                            "value": ""
-                                        },
-                                        {
-                                            "label": "Fully replaceable",
-                                            "value": "Fully replaceable"
-                                        },
-                                        {
-                                            "label": "Replaceable by equivalent data",
-                                            "value": "Replaceable by equivalent data"
-                                        },
-                                        {
-                                            "label": "Irreplaceable",
-                                            "value": "Irreplaceable"
-                                        },
-                                        {
-                                            "label": "Uncertain",
-                                            "value": "Uncertain"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.storage-risk-disruption"
-                                },
-                                {
-                                    "component-type": "textarea",
-                                    "field-name": "storage-risk-disruption",
-                                    "label": ""
-                                }
-                            ],
-                            "additional-classes": "storageRiskDetailsArea"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.encumbrances"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.encumbrances-checkbox-title"
-                        },
-                        {
-                            "component-type": "encumberances"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "additional-classes": "workflow-controls",
-                            "fields": [
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save9",
-                                    "label": "Save",
-                                    "action": "save",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save-close9",
+                                    "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
@@ -2222,20 +2042,20 @@
                                     "value": ""
                                 },
                                 {
-                                    "label": "QCIF",
-                                    "value": "QCIF"
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE"
                                 },
                                 {
-                                    "label": "ERSA",
-                                    "value": "ERSA"
+                                    "label": "eRSA",
+                                    "value": "eRSA"
                                 },
                                 {
                                     "label": "Intersect",
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "JCU",
-                                    "value": "JCU"
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
                                 }
                             ]
                         },
@@ -2250,22 +2070,22 @@
                             "box-for": "",
                             "multiline": true,
                             "boxes": [
-                                {
-                                    "label": "QCIF",
-                                    "value": "QCIF"
-                                },
-                                {
-                                    "label": "ERSA",
-                                    "value": "ERSA"
-                                },
-                                {
-                                    "label": "Intersect",
-                                    "value": "Intersect"
-                                },
-                                {
-                                    "label": "JCU",
-                                    "value": "JCU"
-                                }
+                                      {
+                                          "label": "QCIF-BNE",
+                                          "value": "QCIF-BNE"
+                                      },
+                                      {
+                                          "label": "eRSA",
+                                          "value": "eRSA"
+                                      },
+                                      {
+                                          "label": "Intersect",
+                                          "value": "Intersect"
+                                      },
+                                      {
+                                          "label": "QCIF-TSV",
+                                          "value": "QCIF-TSV"
+                                      }
                             ]
                         },
                         {
@@ -2569,45 +2389,6 @@
                             "label": ""
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "additional-classes": "workflow-controls",
-                            "fields": [
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save7",
-                                    "label": "Save",
-                                    "action": "save",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save-close7",
-                                    "label": "Save and close",
-                                    "action": "save",
-                                    "closeUrl": "home",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "transition-control",
-                                    "transitions": [
-                                        {
-                                            "name": "Next",
-                                            "form-submit-action": "save",
-                                            "type": "button"
-                                        }
-                                    ],
-                                    "additional-classes": "next-button",
-                                    "wrapper-class": "inline-component"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "heading": "Collection metadata",
-                    "fields": [
-                        {
                             "component-type": "text-block",
                             "type": "h1",
                             "content": "arms.heading.collection-manage"
@@ -2633,161 +2414,20 @@
                             "label": ""
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.data-management-plan"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "data-management-plan",
-                            "button-for": "arms.field.label.data-management-plan",
-                            "buttons": [
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                },
-                                {
-                                    "label": "Yes (please attach the plan below)",
-                                    "value": "Yes"
-                                }
-                            ]
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
                             "fields": [
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save8",
+                                    "button-name": "save7",
                                     "label": "Save",
                                     "action": "save",
                                     "wrapper-class": "inline-component"
                                 },
                                 {
                                     "component-type": "standard-button",
-                                    "button-name": "save-close8",
-                                    "label": "Save and close",
-                                    "action": "save",
-                                    "closeUrl": "home",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "transition-control",
-                                    "transitions": [
-                                        {
-                                            "name": "Next",
-                                            "form-submit-action": "save",
-                                            "type": "button"
-                                        }
-                                    ],
-                                    "additional-classes": "next-button",
-                                    "wrapper-class": "inline-component"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "heading": "Data storage risk",
-                    "fields": [
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.store-risk"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "storage-risk-rdsi-only",
-                            "button-for": "arms.field.label.storage-risk-rdsi-only",
-                            "buttons": [
-                                {
-                                    "label": "No",
-                                    "value": "No"
-                                },
-                                {
-                                    "label": "Yes",
-                                    "value": "Yes"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.storage-risk-rdsi-only-yes"
-                                },
-                                {
-                                    "component-type": "dropdown-fixedvalue",
-                                    "field-name": "storage-risk-regenerate",
-                                    "label": "arms.field.label.storage-risk-regenerate",
-                                    "options": [
-                                        {
-                                            "label": "Please select one",
-                                            "value": ""
-                                        },
-                                        {
-                                            "label": "Fully replaceable",
-                                            "value": "Fully replaceable"
-                                        },
-                                        {
-                                            "label": "Replaceable by equivalent data",
-                                            "value": "Replaceable by equivalent data"
-                                        },
-                                        {
-                                            "label": "Irreplaceable",
-                                            "value": "Irreplaceable"
-                                        },
-                                        {
-                                            "label": "Uncertain",
-                                            "value": "Uncertain"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.storage-risk-disruption"
-                                },
-                                {
-                                    "component-type": "textarea",
-                                    "field-name": "storage-risk-disruption",
-                                    "label": ""
-                                }
-                            ],
-                            "additional-classes": "storageRiskDetailsArea"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.encumbrances"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.encumbrances-checkbox-title"
-                        },
-                        {
-                            "component-type": "encumberances"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "additional-classes": "workflow-controls",
-                            "fields": [
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save9",
-                                    "label": "Save",
-                                    "action": "save",
-                                    "wrapper-class": "inline-component"
-                                },
-                                {
-                                    "component-type": "standard-button",
-                                    "button-name": "save-close9",
+                                    "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
                                     "closeUrl": "home",
