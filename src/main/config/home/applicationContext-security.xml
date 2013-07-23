@@ -11,6 +11,7 @@
 	<http auto-config="false" disable-url-rewriting="true" use-expressions="true" entry-point-ref="authenticationEntryPoint">
 		<intercept-url pattern="/*/login" access="permitAll" />
 		<intercept-url pattern="/*/accessDenied" access="permitAll" />
+		<intercept-url pattern="/*/dashboards/user" access="hasRole('requester')" />
 		<intercept-url pattern="/*/dashboards/admin" access="hasRole('admin')" />
 		<intercept-url pattern="/*/dashboards/reviewer" access="hasRole('reviewer')" />
 		<intercept-url pattern="/*/admin" access="hasRole('admin')" />
