@@ -19,12 +19,6 @@
             "Next": "Data migration"
         },
         "Data migration": {
-            "Next": "Collection metadata"
-        },
-        "Collection metadata": {
-            "Next": "Data storage risk"
-        },
-        "Data storage risk": {
             "Next": "Review"
         }
     }
