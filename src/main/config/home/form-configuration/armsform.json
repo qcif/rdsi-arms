@@ -873,12 +873,13 @@
                                     "label": "arms.field.label.storage-class",
                                     "options": [
                                         {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)"
-                                        },
-                                        {
                                             "label": "Storage Class I (HSM/Tape)",
                                             "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
                                         },
                                         {
                                             "label": "Storage Class III (High-performance disk)",
@@ -897,12 +898,13 @@
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
                                         {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)"
-                                        },
-                                        {
                                             "label": "Storage Class I (HSM/Tape)",
                                             "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
                                         },
                                         {
                                             "label": "Storage Class III (High-performance disk)",
@@ -2114,12 +2116,13 @@
                                     "label": "arms.field.label.storage-class",
                                     "options": [
                                         {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)"
-                                        },
-                                        {
                                             "label": "Storage Class I (HSM/Tape)",
                                             "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
                                         },
                                         {
                                             "label": "Storage Class III (High-performance disk)",
@@ -2138,12 +2141,13 @@
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
                                         {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)"
-                                        },
-                                        {
                                             "label": "Storage Class I (HSM/Tape)",
                                             "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
                                         },
                                         {
                                             "label": "Storage Class III (High-performance disk)",
