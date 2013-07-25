@@ -12,9 +12,13 @@
 #macro(displayList $vals)
 <ul>
 	#foreach( $v in $vals )
+	#if ($v != 'null')
 	<li>$page.escapeHtml($v)</li> #end
+	#end
 </ul>
-#end #set($contentJson = $self.packageData)
+#end
+
+#set($contentJson = $self.packageData)
 <p>
 	<span>Citation:</span>$page.escapeHtml($contentJson.getValue("citation"))
 </p>
@@ -27,7 +31,7 @@
 
 <div id="people-container">
 	<div class="people">
-		<h4>Data provider</h4>
+		<h4>Data custodian</h4>
 		<table>
 			<tr>
 				<td>Name:</td>
@@ -99,7 +103,7 @@
 	</tr>
 	<tr>
 		<td>Other hosting node:</td>
-		<td>$page.escapeHtml($contentJson.getValue("rdsi-secondary-nodes"))</td>
+		<td>#displayList($contentJson.getValueList("rdsi-secondary-nodes"))</td>
 	</tr>
 	<tr>
 		<td>Current data size:</td>
@@ -135,19 +139,19 @@
 <h4>Data schedule</h4>
 <table>
 	<tr>
-		<td>ingest 0f 25%:</td>
+		<td>Anticipated ingest 0f 25%:</td>
 		<td>$contentJson.getValue("ingest-1qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 50%:</td>
+		<td>Anticipated ingest 0f 50%:</td>
 		<td>$contentJson.getValue("ingest-2qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 75%:</td>
+		<td>Anticipated ingest 0f 75%:</td>
 		<td>$contentJson.getValue("ingest-3qtr")</td>
 	</tr>
 	<tr>
-		<td>ingest 0f 100%:</td>
+		<td>Anticipated ingest 0f 100%:</td>
 		<td>$contentJson.getValue("ingest-4qtr")</td>
 	</tr>
 </table>
