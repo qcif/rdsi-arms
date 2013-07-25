@@ -9,15 +9,6 @@
 #people-container td:first-child { width: 10em; border-right: 1px solid; }
 </style>
 
-#macro(displayList $vals)
-<ul>
-	#foreach( $v in $vals )
-	#if ($v != 'null')
-	<li>$page.escapeHtml($v)</li> #end
-	#end
-</ul>
-#end
-
 #set($contentJson = $self.packageData)
 <p>
 	<span>Citation:</span>$page.escapeHtml($contentJson.getValue("citation"))
@@ -128,11 +119,8 @@
 	<tr>
 		<td>RDSI is the only host?</td>
 		<td>
-			<ul>
-				<li>$contentJson.getValue("storage-risk-rdsi-only")</li>
-				<li>$contentJson.getValue("storage-risk-regenerate")</li>
-				<li>$contentJson.getValue("storage-risk-disruption")</li>
-			</ul>
+			#set( $vals = [$contentJson.getValue("storage-risk-rdsi-only"), $contentJson.getValue("storage-risk-regenerate"), $contentJson.getValue("storage-risk-disruption")] )
+			#displayList($vals)
 		</td>
 	</tr>
 </table>
