@@ -155,6 +155,11 @@
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates/arms.vm"
         },
+        "jsonVelocityPDF": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/pdf"
+        },
         "basicVersioning": {
         "id": "basicVersioning",
         "sourcePayload": ".tfpackage"
