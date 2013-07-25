@@ -1,0 +1,185 @@
+#macro(getValue $key)
+    #set($v = $util.get($item, $key).trim())
+    #if($v && ("$!v" != ""))
+		<![CDATA[ $v ]]>
+    #end
+#end
+
+## display a list in a row
+#macro(displayRepeatables $baseKey $subKey)
+#set($repeats = $util.getList($item, "$baseKey"))
+#if ($repeats.size() > 0)
+<ul>
+#foreach($key in $repeats.keySet())
+<li>
+<![CDATA[$repeats.get($key).get("$subKey")]]>
+</li>
+#end
+</ul>
+#end
+#end
+
+#macro(displayList $key)
+#set($vals = $util.getList($item, "$key"))
+#if ($vals.size() > 0)
+<ul>
+	#foreach( $v in $vals )
+	<li><![CDATA[ $v ]]> </li>
+	#end
+</ul>
+#end
+#end
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>#getValue("dc:title")</title>
+<style type="text/css">
+dt { font-weight: bold; padding-right:1em }
+dt.none-flow {float:none}
+.people {
+    float: left;
+    padding-right:2em;
+    width: 45%;
+}
+#people-container dt { float: left; width: 6em; text-align: right; font-size: small }
+
+#people-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: left;
+    visibility: hidden;
+}
+</style>
+</head>
+<body>
+<h1>#getValue("dc:title") [Review]</h1>
+<p>
+	<span>Citation:</span>#getValue("citation")
+</p>
+
+<h2>#displayMessage("arms.field.label.collection-description")</h2>
+<p>#getValue("collection:description")</p>
+
+<h2>Merit description</h2>
+<p>#getValue("merit:description")</p>
+
+<div id="people-container">
+	<div class="people">
+		<h2>Data custodian</h2>
+			<dl>
+				<dt>Name:</dt>
+				<dd>#getValue("dataprovider:title")
+					#getValue("dataprovider:givenName")
+					#getValue("dataprovider:familyName")</dd>
+
+				<dt>Role:</dt>
+				<dd>#getValue("dataprovider:role")</dd>
+
+				<dt>Organisation:</dt>
+				<dd>#getValue("dataprovider:organization")</dd>
+
+				<dt>State:</dt>
+				<dd>#getValue("dataprovider:state:prefLabel")</dd>
+
+				<dt>email:</dt>
+				<dd>#getValue("dataprovider:email")</dd>
+
+				<dt>phone:</dt>
+				<dd>#getValue("dataprovider:phone")</dd>
+			</dl>
+		</div>
+	<div class="people">
+		<h2>Data manager</h2>
+			<dl>
+				<dt>Name:</dt>
+				<dd>#getValue("requester:title")
+					#getValue("requester:givenName")
+					#getValue("requester:familyName")</dd>
+
+				<dt>Role:</dt>
+				<dd>#getValue("requester:role")</dd>
+
+				<dt>Organisation:</dt>
+				<dd>#getValue("requester:organization")</dd>
+
+				<dt>State:</dt>
+				<dd>#getValue("requester:state:prefLabel")</dd>
+
+				<dt>email:</dt>
+				<dd>#getValue("requester:email")</dd>
+
+				<dt>phone:</dt>
+				<dd>#getValue("requester:phone")</dd>
+			</dl>
+	</div>
+</div>
+<h2 style="clear: left">Data profile</h2>
+<dl>
+	<dt>Primary RDSI node:</dt>
+	<dd>#getValue("rdsi-node")</dd>
+	<dt>Other hosting node:</dt>
+	<dd>#getValue("rdsi-secondary-nodes")</dd>
+	<dt>Current data size:</dt>
+	<dd>#getValue("data-size")</dd>
+	<dt>Data format:</dt>
+	<dd>#getValue("vivo-Dataset.dc.format")</dd>
+	<dt>Required storage class:</dt>
+	<dd>#getValue("storage-class")</dd>
+	<dt>Data medium and migration:</dt>
+	<dd>#getValue("data-medium-migration")</dd>
+	<dt>Required tools and interfaces:</dt>
+	<dd>#getValue("migrate-required-resources")</dd>
+	<dt>RDSI is the only host?</dt>
+	<dd>
+		<ul>
+		#set($v = $util.get($item, "storage-risk-rdsi-only").trim())
+		#if($v)
+			<li>$v</li>
+		#end
+		#set($v = $util.get($item, "storage-risk-regenerate").trim())
+		#if($v)
+			<li>$v</li>
+		#end
+		#set($v = $util.get($item, "storage-risk-disruption").trim())
+		#if($v)
+			<li>$v</li>
+		#end
+		</ul>
+	</dd>
+</dl>
+<h2>Data schedule</h2>
+<dl>
+	<dt>Anticipated ingest 0f 25%:</dt>
+	<dd>#getValue("ingest-1qtr")</dd>
+	<dt>Anticipated ingest 0f 50%:</dt>
+	<dd>#getValue("ingest-2qtr")</dd>
+	<dt>Anticipated ingest 0f 75%:</dt>
+	<dd>#getValue("ingest-3qtr")</dd>
+	<dt>Anticipated ingest 0f 100%:</dt>
+	<dd>#getValue("ingest-4qtr")</dd>
+</dl>
+<h2>Access and licensing</h2>
+<dl>
+	<dt>Access restriction:</dt>
+	<dd>#getValue("accessRestrictions")</dd>
+	<dt>Terms of use:</dt>
+	<dd>#getValue("dc:rights.skos:note")</dd>
+	<dt>Licence:</dt>
+	<dd>#getValue("dc:accessRights")</dd>
+	<dt>Anticipated number of users:</dt>
+	<dd>#getValue("user-number")</dd>
+	<dt>Access frequency:</dt>
+	<dd>#getValue("user-access-frequency")</dd>
+</dl>
+<h2>Other details</h2>
+<dl>
+		<dt class="none-flow">Field(s) of research:</dt>
+		<dd>
+			#displayRepeatables("dc:subject.anzsrc:for","skos:prefLabel")
+		</dd>
+</dl>
+</body>
+</html>
