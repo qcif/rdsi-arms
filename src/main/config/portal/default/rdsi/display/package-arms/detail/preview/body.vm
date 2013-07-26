@@ -6,19 +6,46 @@
     margin: 0 2em 2em 0;
     width: 45%;
 }
+
+#$oid {
+    background:white !important;
+}
+
+#$oid > h2 {
+    display: none;
+}
+
+#page-heading > span{
+	display:none;
+}
+
+h2#page-heading {
+	border-bottom: none;
+}
+
+.article h4 {
+    background: none repeat scroll 0 0 #0091B6;
+    color: white;
+    padding: 0.3em;
+    text-transform: none;
+}
+
 #people-container td:first-child { width: 10em; border-right: 1px solid; }
 </style>
 
 #set($contentJson = $self.packageData)
+#set($item = $self.item)
+#set($util = $self.util)
+
 <p>
-	<span>Citation:</span>$page.escapeHtml($contentJson.getValue("citation"))
+	<span>Citation:</span>$page.escapeHtml($util.get($item,"citation"))
 </p>
 
 <h4>Description</h4>
-<p>$page.escapeHtml($contentJson.getValue("collection:description"))</p>
+<p>$page.escapeHtml($util.get($item,"collection:description"))</p>
 
 <h4>Merit description</h4>
-<p>$page.escapeHtml($contentJson.getValue("merit:description"))</p>
+<p>$page.escapeHtml($util.get($item,"merit:description"))</p>
 
 <div id="people-container">
 	<div class="people">
@@ -26,30 +53,30 @@
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:title"))
-					$page.escapeHtml($contentJson.getValue("dataprovider:givenName"))
-					$page.escapeHtml($contentJson.getValue("dataprovider:familyName"))
+				<td>$page.escapeHtml($util.get($item,"dataprovider:title"))
+					$page.escapeHtml($util.get($item,"dataprovider:givenName"))
+					$page.escapeHtml($util.get($item,"dataprovider:familyName"))
 				</td>
 			</tr>
 			<tr>
 				<td>Role:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:role"))</td>
+				<td>$page.escapeHtml($util.get($item,"dataprovider:role"))</td>
 			</tr>
 			<tr>
 				<td>Organisation:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:organization"))</td>
+				<td>$page.escapeHtml($util.get($item,"dataprovider:organization"))</td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:state:prefLabel"))</td>
+				<td>$page.escapeHtml($util.get($item,"dataprovider:state:prefLabel"))</td>
 			</tr>
 			<tr>
 				<td>email:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:email"))</td>
+				<td>$page.escapeHtml($util.get($item,"dataprovider:email"))</td>
 			</tr>
 			<tr>
 				<td>phone:</td>
-				<td>$page.escapeHtml($contentJson.getValue("dataprovider:phone"))</td>
+				<td>$page.escapeHtml($util.get($item,"dataprovider:phone"))</td>
 			</tr>
 		</table>
 	</div>
@@ -58,30 +85,30 @@
 		<table>
 			<tr>
 				<td>Name:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:title"))
-					$page.escapeHtml($contentJson.getValue("requester:givenName"))
-					$page.escapeHtml($contentJson.getValue("requester:familyName"))
+				<td>$page.escapeHtml($util.get($item,"requester:title"))
+					$page.escapeHtml($util.get($item,"requester:givenName"))
+					$page.escapeHtml($util.get($item,"requester:familyName"))
 				</td>
 			</tr>
 			<tr>
 				<td>Role:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:role"))</td>
+				<td>$page.escapeHtml($util.get($item,"requester:role"))</td>
 			</tr>
 			<tr>
 				<td>Organisation:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:organization"))</td>
+				<td>$page.escapeHtml($util.get($item,"requester:organization"))</td>
 			</tr>
 			<tr>
 				<td>State:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:state:prefLabel"))</td>
+				<td>$page.escapeHtml($util.get($item,"requester:state:prefLabel"))</td>
 			</tr>
 			<tr>
 				<td>email:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:email"))</td>
+				<td>$page.escapeHtml($util.get($item,"requester:email"))</td>
 			</tr>
 			<tr>
 				<td>phone:</td>
-				<td>$page.escapeHtml($contentJson.getValue("requester:phone"))</td>
+				<td>$page.escapeHtml($util.get($item,"requester:phone"))</td>
 			</tr>
 		</table>
 	</div>
@@ -90,37 +117,38 @@
 <table>
 	<tr>
 		<td>Primary RDSI node:</td>
-		<td>$page.escapeHtml($contentJson.getValue("rdsi-node"))</td>
+		<td>$page.escapeHtml($util.get($item,"rdsi-node"))</td>
 	</tr>
 	<tr>
 		<td>Other hosting node:</td>
-		<td>#displayList($contentJson.getValueList("rdsi-secondary-nodes"))</td>
+		#set($vals = $util.getStringList($item, "rdsi-secondary-nodes"))
+		<td>#displayUL($vals)</td>
 	</tr>
 	<tr>
 		<td>Current data size:</td>
-		<td>$page.escapeHtml($contentJson.getValue("data-size"))</td>
+		<td>$page.escapeHtml($util.get($item,"data-size"))</td>
 	</tr>
 	<tr>
 		<td>Data format:</td>
-		<td>$page.escapeHtml($contentJson.getValue("vivo-Dataset.dc.format"))</td>
+		<td>$page.escapeHtml($util.get($item,"vivo-Dataset.dc.format"))</td>
 	</tr>
 	<tr>
 		<td>Required storage class:</td>
-		<td>$page.escapeHtml($contentJson.getValue("storage-class"))</td>
+		<td>$page.escapeHtml($util.get($item,"storage-class"))</td>
 	</tr>
 	<tr>
 		<td>Data medium and migration:</td>
-		<td>$page.escapeHtml($contentJson.getValue("data-medium-migration"))</td>
+		<td>$page.escapeHtml($util.get($item,"data-medium-migration"))</td>
 	</tr>
 	<tr>
 		<td>Required tools and interfaces:</td>
-		<td>$page.escapeHtml($contentJson.getValue("migrate-required-resources"))</td>
+		<td>$page.escapeHtml($util.get($item,"migrate-required-resources"))</td>
 	</tr>
 	<tr>
 		<td>RDSI is the only host?</td>
 		<td>
-			#set( $vals = [$contentJson.getValue("storage-risk-rdsi-only"), $contentJson.getValue("storage-risk-regenerate"), $contentJson.getValue("storage-risk-disruption")] )
-			#displayList($vals)
+			#set( $vals = [$util.get($item,"storage-risk-rdsi-only"), $util.get($item,"storage-risk-regenerate"), $util.get($item,"storage-risk-disruption")] )
+			#displayUL($vals)
 		</td>
 	</tr>
 </table>
@@ -128,42 +156,42 @@
 <table>
 	<tr>
 		<td>Anticipated ingest 0f 25%:</td>
-		<td>$contentJson.getValue("ingest-1qtr")</td>
+		<td>$util.get($item,"ingest-1qtr")</td>
 	</tr>
 	<tr>
 		<td>Anticipated ingest 0f 50%:</td>
-		<td>$contentJson.getValue("ingest-2qtr")</td>
+		<td>$util.get($item,"ingest-2qtr")</td>
 	</tr>
 	<tr>
 		<td>Anticipated ingest 0f 75%:</td>
-		<td>$contentJson.getValue("ingest-3qtr")</td>
+		<td>$util.get($item,"ingest-3qtr")</td>
 	</tr>
 	<tr>
 		<td>Anticipated ingest 0f 100%:</td>
-		<td>$contentJson.getValue("ingest-4qtr")</td>
+		<td>$util.get($item,"ingest-4qtr")</td>
 	</tr>
 </table>
 <h4>Access and licensing</h4>
 <table>
 	<tr>
 		<td>Access restriction:</td>
-		<td>$contentJson.getValue("accessRestrictions")</td>
+		<td>$util.get($item,"accessRestrictions")</td>
 	</tr>
 	<tr>
 		<td>Terms of use:</td>
-		<td>$contentJson.getValue("dc:rights.skos:note")</td>
+		<td>$util.get($item,"dc:rights.skos:note")</td>
 	</tr>
 	<tr>
 		<td>Licence:</td>
-		<td>$contentJson.getValue("dc:accessRights")</td>
+		<td>$util.get($item,"dc:accessRights")</td>
 	</tr>
 	<tr>
 		<td>Anticipated number of users:</td>
-		<td>$contentJson.getValue("user-number")</td>
+		<td>$util.get($item,"user-number")</td>
 	</tr>
 	<tr>
 		<td>Access frequency:</td>
-		<td>$contentJson.getValue("user-access-frequency")</td>
+		<td>$util.get($item,"user-access-frequency")</td>
 	</tr>
 </table>
 <h4>Other details</h4>
@@ -171,12 +199,7 @@
 	<tr>
 		<td>Field(s) of research:</td>
 		<td>
-			#displayList($contentJson.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel'))
-		</td>
-	</tr>
-	<tr>
-		<td>Metadata records:</td>
-		<td>#displayList($contentJson.getValueList("discover-metadata"))
+			#displayUL($contentJson.getRepeatables('dc:subject.anzsrc:for','skos:prefLabel'))
 		</td>
 	</tr>
 </table>
