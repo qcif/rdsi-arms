@@ -1,0 +1,42 @@
+#page-heading > span{
+	display:none;
+}
+
+h2#page-heading {
+	border-bottom: none;
+}
+
+.article h4 {
+    background: none repeat scroll 0 0 #0091B6;
+    color: white;
+    padding: 0.3em;
+    text-transform: none;
+}
+
+dt { font-weight: bold; padding-right:1em }
+dd { padding-left: 1em; }
+
+.people {
+    float: left;
+    padding: 0 0.5% 2em 0;  
+    width: 49%;
+}
+
+#people-container dt { float: left; width: 6em; text-align: right; }
+#people-container dd { padding: 0px; }
+
+#people-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: left;
+    visibility: hidden;
+}
+
+.headerless {
+    background:white !important;
+}
+
+.headerless > h2 {
+    display: none;
+}
