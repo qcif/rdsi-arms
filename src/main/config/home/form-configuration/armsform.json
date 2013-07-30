@@ -2519,6 +2519,26 @@
                             "wrapper-class" : "notesFields"
                         },
                         {
+                        	"component-type":"text-block",
+                        	"type":"label",
+                        	"content":"arms.heading.review-attachments"
+                        },
+                        {
+                        	"component-type":"file-attachments",
+                            "widgetname": "review_attachment",
+                            "attachType": "review-attachments",
+                            "accessRights": "public",
+                            "enableDescription" : "true",
+                            "addFunction" : "addfileUploadModelRow"
+                        },
+                        {
+                            "component-type":"file-upload-table",
+                            "modelName": "fileUploadModel",
+                            "tableName": "fileUploadTable",
+                            "initialiseFunctionName": "review_attachment_getUploadedFiles",                                                        
+                            "removeFunction" : "review_attachment_deleteFile"
+                        },
+                        {
                             "component-type": "confirm-and-submit-button",
                             "field-name": "arms.field.label.approvalcheck",
                             "box-label": "arms.field.label.approvalcheck.yes",
