@@ -1,21 +1,16 @@
 <link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen">
 
-#macro(getValue $key)
-    $jsonUtil.getEmptyIfNull($item, $key)
-#end
-
 #set($item = $self.item)
 
-
 <p>
-	<span>Citation:</span>$page.escapeHtml($jsonUtil.get($item,"citation"))
+	<span>Citation:</span>#getValue("citation")
 </p>
 
 <h4>Description</h4>
-<p>$page.escapeHtml($jsonUtil.get($item,"collection:description"))</p>
+<p>#getValue("collection:description")</p>
 
 <h4>Merit description</h4>
-<p>$page.escapeHtml($jsonUtil.get($item,"merit:description"))</p>
+<p>#getValue("merit:description")</p>
 
 <div id="people-container">
 	<div class="people">

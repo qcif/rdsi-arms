@@ -1,35 +1,3 @@
-#macro(getValue $key)
-    #set($v = $util.get($item, $key).trim())
-    #if($v && ("$!v" != ""))
-		<![CDATA[ $v ]]>
-    #end
-#end
-
-## display a list in a row
-#macro(displayRepeatables $baseKey $subKey)
-#set($repeats = $util.getList($item, "$baseKey"))
-#if ($repeats.size() > 0)
-<ul>
-#foreach($key in $repeats.keySet())
-<li>
-<![CDATA[$repeats.get($key).get("$subKey")]]>
-</li>
-#end
-</ul>
-#end
-#end
-
-#macro(displayList $key)
-#set($vals = $util.getList($item, "$key"))
-#if ($vals.size() > 0)
-<ul>
-	#foreach( $v in $vals )
-	<li><![CDATA[ $v ]]> </li>
-	#end
-</ul>
-#end
-#end
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,18 +25,18 @@ dt.none-flow {float:none}
 <body>
 <h1>#getValue("dc:title")</h1>
 <p>
-	<span>Citation:</span>#getValue("citation")
+	<span>#displayMessage("arms.field.label.citation"):</span>#getValue("citation")
 </p>
 
 <h2>#displayMessage("arms.field.label.collection-description")</h2>
 <p>#getValue("collection:description")</p>
 
-<h2>Merit description</h2>
+<h2>#displayMessage("arms.field.label.merit-description")</h2>
 <p>#getValue("merit:description")</p>
 
 <div id="people-container">
 	<div class="people">
-		<h2>Data custodian</h2>
+		<h2>#displayMessage("arms.field.label.dataprovider")</h2>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("dataprovider:title")
@@ -92,7 +60,7 @@ dt.none-flow {float:none}
 			</dl>
 		</div>
 	<div class="people">
-		<h2>Data manager</h2>
+		<h2>#displayMessage("arms.field.label.requester")</h2>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("requester:title")
@@ -121,7 +89,8 @@ dt.none-flow {float:none}
 	<dt>Primary RDSI node:</dt>
 	<dd>#getValue("rdsi-node")</dd>
 	<dt>Other hosting node:</dt>
-	<dd>#getValue("rdsi-secondary-nodes")</dd>
+	#set($vals = $jsonUtil.getStringList($item, "rdsi-secondary-nodes"))
+	<dd>#displayUL($vals)</dd>
 	<dt>Current data size:</dt>
 	<dd>#getValue("data-size")</dd>
 	<dt>Data format:</dt>
@@ -135,15 +104,15 @@ dt.none-flow {float:none}
 	<dt>RDSI is the only host?</dt>
 	<dd>
 		<ul>
-		#set($v = $util.get($item, "storage-risk-rdsi-only").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-rdsi-only").trim())
 		#if($v)
 			<li>$v</li>
 		#end
-		#set($v = $util.get($item, "storage-risk-regenerate").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-regenerate").trim())
 		#if($v)
 			<li>$v</li>
 		#end
-		#set($v = $util.get($item, "storage-risk-disruption").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-disruption").trim())
 		#if($v)
 			<li>$v</li>
 		#end
@@ -178,7 +147,7 @@ dt.none-flow {float:none}
 <dl>
 		<dt class="none-flow">Field(s) of research:</dt>
 		<dd>
-			#displayRepeatables("dc:subject.anzsrc:for","skos:prefLabel")
+			#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 		</dd>
 </dl>
 </body>
