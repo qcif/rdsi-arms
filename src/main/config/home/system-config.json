@@ -171,6 +171,16 @@
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment.json"
         },
+        "attachment-file": {
+            "screen-label": "Attachment",
+            "security": [
+                "librarian",
+                "reviewer",
+                "admin"
+            ],
+            "upload-path": "${fascinator.home}/uploads/attachments",
+            "json-config": "${fascinator.home}/harvest/workflows/attachment-file.json"
+        },
         "notify": {
             "screen-label": "Notify us about a dataset",
             "security": [
