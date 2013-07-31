@@ -1,20 +1,42 @@
-<link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>#getValue("dc:title")</title>
+<style type="text/css">
+dt { font-weight: bold; padding-right:1em }
+dt.none-flow {float:none}
+.people {
+    float: left;
+    padding-right:2em;
+    width: 45%;
+}
+#people-container dt { float: left; width: 6em; text-align: right; font-size: small }
 
-#set($item = $self.item)
-
+#people-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: left;
+    visibility: hidden;
+}
+</style>
+</head>
+<body>
+<h1>#getValue("dc:title")</h1>
 <p>
-	<span>Citation:</span>#getValue("citation")
+	<span>#displayMessage("arms.field.label.citation"):</span>#getValue("citation")
 </p>
 
-<h4>Description</h4>
+<h2>#displayMessage("arms.field.label.collection-description")</h2>
 <p>#getValue("collection:description")</p>
 
-<h4>Merit description</h4>
+<h2>#displayMessage("arms.field.label.merit-description")</h2>
 <p>#getValue("merit:description")</p>
 
 <div id="people-container">
 	<div class="people">
-		<h4>#displayMessage("arms.field.label.dataprovider")</h4>
+		<h2>#displayMessage("arms.field.label.dataprovider")</h2>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("dataprovider:title")
@@ -38,7 +60,7 @@
 			</dl>
 		</div>
 	<div class="people">
-		<h4>#displayMessage("arms.field.label.requester")</h4>
+		<h2>#displayMessage("arms.field.label.requester")</h2>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("requester:title")
@@ -62,7 +84,7 @@
 			</dl>
 	</div>
 </div>
-<h4 style="clear: left">Data profile</h4>
+<h2 style="clear: left">Data profile</h2>
 <dl>
 	<dt>Primary RDSI node:</dt>
 	<dd>#getValue("rdsi-node")</dd>
@@ -97,18 +119,18 @@
 		</ul>
 	</dd>
 </dl>
-<h4>Data schedule</h4>
+<h2>Data schedule</h2>
 <dl>
-	<dt>Anticipated ingest of 25%:</dt>
+	<dt>Anticipated ingest 0f 25%:</dt>
 	<dd>#getValue("ingest-1qtr")</dd>
-	<dt>Anticipated ingest of 50%:</dt>
+	<dt>Anticipated ingest 0f 50%:</dt>
 	<dd>#getValue("ingest-2qtr")</dd>
-	<dt>Anticipated ingest of 75%:</dt>
+	<dt>Anticipated ingest 0f 75%:</dt>
 	<dd>#getValue("ingest-3qtr")</dd>
-	<dt>Anticipated ingest of 100%:</dt>
+	<dt>Anticipated ingest 0f 100%:</dt>
 	<dd>#getValue("ingest-4qtr")</dd>
 </dl>
-<h4>Access and licensing</h4>
+<h2>Access and licensing</h2>
 <dl>
 	<dt>Access restriction:</dt>
 	<dd>#getValue("accessRestrictions")</dd>
@@ -121,10 +143,12 @@
 	<dt>Access frequency:</dt>
 	<dd>#getValue("user-access-frequency")</dd>
 </dl>
-<h4>Other details</h4>
+<h2>Other details</h2>
 <dl>
-		<dt>Field(s) of research:</dt>
+		<dt class="none-flow">Field(s) of research:</dt>
 		<dd>
 			#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 		</dd>
 </dl>
+</body>
+</html>

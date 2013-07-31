@@ -1,5 +1,5 @@
 #parseDisplayTemplate("detail/common.vm")
-
+#set($contentClass ="headerless") ## hide unwanted Preview heading
 #if($parent.isDetail())
     #if($parent.isPending())
         #set($menuId = "pending")
