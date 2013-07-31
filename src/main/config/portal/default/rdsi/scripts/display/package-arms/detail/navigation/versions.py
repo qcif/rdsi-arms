@@ -41,4 +41,4 @@ class VersionsData:
         return versions
 
     def formatDate(self, date):
-        return preview.formatDate(date, "yyyyMMddHHmmss")
+        return preview.formatDate(date, "yyyyMMddHHmmss", "yyyy-MM-dd HH:mm:ss")
