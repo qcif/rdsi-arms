@@ -2534,7 +2534,7 @@
                         {
                             "component-type":"file-upload-table",
                             "modelName": "fileUploadModel",
-                            "tableName": "fileUploadTable",
+                            "tableName": "fileUploadTable",                            
                             "initialiseFunctionName": "review_attachment_getUploadedFiles",                                                        
                             "removeFunction" : "review_attachment_deleteFile"
                         },
