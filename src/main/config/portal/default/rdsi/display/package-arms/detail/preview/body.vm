@@ -1,21 +1,21 @@
 <link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen">
 
 #macro(getValue $key)
-    $util.getEmptyIfNull($item, $key)
+    $jsonUtil.getEmptyIfNull($item, $key)
 #end
 
 #set($item = $self.item)
-#set($util = $self.util)
+
 
 <p>
-	<span>Citation:</span>$page.escapeHtml($util.get($item,"citation"))
+	<span>Citation:</span>$page.escapeHtml($jsonUtil.get($item,"citation"))
 </p>
 
 <h4>Description</h4>
-<p>$page.escapeHtml($util.get($item,"collection:description"))</p>
+<p>$page.escapeHtml($jsonUtil.get($item,"collection:description"))</p>
 
 <h4>Merit description</h4>
-<p>$page.escapeHtml($util.get($item,"merit:description"))</p>
+<p>$page.escapeHtml($jsonUtil.get($item,"merit:description"))</p>
 
 <div id="people-container">
 	<div class="people">
@@ -72,7 +72,7 @@
 	<dt>Primary RDSI node:</dt>
 	<dd>#getValue("rdsi-node")</dd>
 	<dt>Other hosting node:</dt>
-	#set($vals = $util.getStringList($item, "rdsi-secondary-nodes"))
+	#set($vals = $jsonUtil.getStringList($item, "rdsi-secondary-nodes"))
 	<dd>#displayUL($vals)</dd>
 	<dt>Current data size:</dt>
 	<dd>#getValue("data-size")</dd>
@@ -87,15 +87,15 @@
 	<dt>RDSI is the only host?</dt>
 	<dd>
 		<ul>
-		#set($v = $util.get($item, "storage-risk-rdsi-only").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-rdsi-only").trim())
 		#if($v)
 			<li>$v</li>
 		#end
-		#set($v = $util.get($item, "storage-risk-regenerate").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-regenerate").trim())
 		#if($v)
 			<li>$v</li>
 		#end
-		#set($v = $util.get($item, "storage-risk-disruption").trim())
+		#set($v = $jsonUtil.get($item, "storage-risk-disruption").trim())
 		#if($v)
 			<li>$v</li>
 		#end
