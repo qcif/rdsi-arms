@@ -155,10 +155,11 @@
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates/arms.vm"
         },
-        "jsonVelocityPDF": {
+        "detailPdf": {
             "id": "jsonVelocityPDF",
             "sourcePayload": ".tfpackage",
-            "templatesPath": "${fascinator.home}/templates/pdf"
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "request.pdf"
         },
         "basicVersioning": {
         "id": "basicVersioning",

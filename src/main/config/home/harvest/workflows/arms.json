@@ -13,7 +13,7 @@
     "default-owner":"admin",
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "jsonVelocityPDF", "basicVersioning"]
+        "metadata": ["jsonVelocity", "detailPdf", "basicVersioning"]
     },
     "curation": {
         "neverPublish": true,
@@ -23,6 +23,14 @@
     "transformerOverrides": {
         "local": {
             "template": "${server.url.base}published/detail/[[OID]]"
+        },
+        "detailPdf": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "request.pdf",
+            "velocityContextParams": {
+            							"stage":"arms-request"
+            						  }
         }
     },
     "indexer": {

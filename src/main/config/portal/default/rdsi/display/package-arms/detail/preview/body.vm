@@ -1,10 +1,22 @@
-<link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen">
-
+## When rendering for web pages, it has $self variable - use it as a switch 
+#if($self)
+<link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen"/>
 #set($item = $self.item)
-
+#else
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="default/rdsi/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="default/rdsi/css/package-arms/print.css" rel="stylesheet" type="text/css" media="print"/>
+</head>
+<body>
+<h1>#getValue("dc:title")</h1>
+#end
 <p>
 	<span>Citation:</span>#getValue("citation")
 </p>
+
 
 <h4>Description</h4>
 <p>#getValue("collection:description")</p>
@@ -128,3 +140,9 @@
 			#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 		</dd>
 </dl>
+#if($page)
+
+#else
+</body>
+</html>
+#end
