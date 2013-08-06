@@ -78,6 +78,17 @@
             "template": "workflows/simpleworkflow"
         },
         {
+            "name": "arms-completed",
+            "label": "Completed",
+            "description": "Requests have been allocated",
+            "owner_edit_allowed": "false",
+            "security": ["admin"],
+            "visibility": ["admin"],
+            "actions" :[ { "action-name" : "next",
+                "target-step" : "arms-retired" }],
+            "template": "workflows/simpleworkflow"
+        },
+        {
             "name": "arms-retired",
             "label": "Retired",
             "description": "Archived records.",

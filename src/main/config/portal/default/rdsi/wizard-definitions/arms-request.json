@@ -1,21 +1,21 @@
 {
     "steps": {
-        "Data Collection": {
+        "Introduction": {
+            "Next": "Data collection details"
+        },
+        "Data collection details": {
+            "Next": "Merit information"
+        },
+        "Merit information": {
             "Next": "Contact details"
         },
         "Contact details": {
-            "Next": "Funding Information"
+            "Next": "Technical details"
         },
-        "Funding Information": {
+        "Technical details": {
             "Next": "Data access and re-use"
         },
         "Data access and re-use": {
-            "Next": "User base"
-        },
-        "User base": {
-            "Next": "Technical Details"
-        },
-        "Technical Details": {
             "Next": "Data migration"
         },
         "Data migration": {
