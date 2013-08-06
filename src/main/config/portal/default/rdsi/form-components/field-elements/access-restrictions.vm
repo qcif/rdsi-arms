@@ -3,6 +3,3 @@
     <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made freely available to selected users only">Research data is made freely available to selected users only</label>
     <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made freely available to selected users only, following a delay">Research data is made freely available to selected users only, following a delay</label>
     <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made freely available to selected users following data de-identification">Research data is made freely available to selected users following data de-identification</label>
-    <label><input name="accessRestrictions" class="jaffa-field" type="radio" value="Embargo access">Embargo access</label>
-    <label><input name="accessRestrictions" class="jaffa-field" type="radio" value="Custom access">Custom access</label>
-    <label><input name="accessRestrictions" class="jaffa-field" type="radio" value="No access">No access</label>
