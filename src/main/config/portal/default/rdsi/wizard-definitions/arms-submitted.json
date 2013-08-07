@@ -20,6 +20,12 @@
         },
         "Data migration": {
             "Next": "Review"
+        },
+        "Review": {
+        	"Next": "Allocation committe"
+        },
+        "Allocation committe": {
+        	"Next":"Approval"
         }
     }
 }

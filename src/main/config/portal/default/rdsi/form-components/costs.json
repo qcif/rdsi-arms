@@ -1,0 +1,12 @@
+{
+    "ingest1": {
+        "disk": 1,
+        "tape": 2,
+        "volume": 2
+    },
+    "ingest2": {
+        "disk": 1,
+        "tape": 2,
+        "volume": 2
+    }
+}
