@@ -956,12 +956,12 @@
                                     "options": [
                                         {
                                             "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
+                                            "value": "Storage Class I (HSM/Tape)",
+                                            "default": true
                                         },
                                         {
                                             "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
+                                            "value": "Storage Class II (Standard disk)"
                                         },
                                         {
                                             "label": "Storage Class III (High-performance disk)",
