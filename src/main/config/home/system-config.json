@@ -119,6 +119,15 @@
                         "body": "Default email message"
                     }
                 }
+            },
+            {
+                "id": "jsonHarvester",
+                "description": "Harvester queue for incoming JSON objects.",
+                "priority": "7",
+                "config": {
+                    "name": "jsonHarvester",
+                    "shouldPark" : true
+                }
             }
         ]
     },
