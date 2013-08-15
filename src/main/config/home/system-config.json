@@ -155,11 +155,17 @@
             "sourcePayload": ".tfpackage",
             "templatesPath": "${fascinator.home}/templates/arms.vm"
         },
-        "detailPdf": {
+        "requestPdf": {
             "id": "jsonVelocityPDF",
             "sourcePayload": ".tfpackage",
             "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
-            "outputFilename": "request.pdf"
+            "outputFilename": "request.pdf"            
+        },
+        "reviewerPdf": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "reviewer.pdf"            
         },
         "basicVersioning": {
         "id": "basicVersioning",

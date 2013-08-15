@@ -13,7 +13,7 @@
     "default-owner":"admin",
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "detailPdf", "basicVersioning"]
+        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning"]
     },
     "curation": {
         "neverPublish": true,
@@ -24,12 +24,22 @@
         "local": {
             "template": "${server.url.base}published/detail/[[OID]]"
         },
-        "detailPdf": {
+        "requestPdf": {
             "sourcePayload": ".tfpackage",
             "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
             "outputFilename": "request.pdf",
             "velocityContextParams": {
-            							"stage":"arms-request"
+            							"workflowStage":"arms-request",
+            							"isReviewer": false
+            						  }
+        },
+        "reviewerPdf": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "reviewer.pdf",
+            "velocityContextParams": {
+            							"workflowStage":"arms-submitted",
+            							"isReviewer":true
             						  }
         }
     },
