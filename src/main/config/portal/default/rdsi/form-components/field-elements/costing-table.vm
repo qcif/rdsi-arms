@@ -1,0 +1,45 @@
+<div id="unitCostTable">
+<table>
+<thead><tr>
+<th>&nbsp;</th><th>Standard Disk</th><th>Tape</th><th>Volume</th><th>High speed disk</th>
+</tr></thead>
+<tbody>
+        <tr>
+            <td>Unit cost per TB</td>
+             <td><input type="text" class="jaffa-field" id="unitcost:standard" data-bind="value: unitcost.standard" /></td>
+             <td><input type="text" class="jaffa-field" id="unitcost:tape" data-bind="value: unitcost.tape" /></td>
+             <td><input type="text" class="jaffa-field" id="unitcost:volume" data-bind="value: unitcost.volume" /></td>
+             <td><input type="text" class="jaffa-field" id="unitcost:highspeed" data-bind="value: unitcost.highspeed" /></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script>
+
+startupCompleteListeners.push("initialiseCostingTable");
+function initialiseCostingTable() {
+jQuery.getJSON('http://127.0.0.1:9000/redbox/default/form-components/unitcosts.json', function(data) {
+	var modelName = 'unitcost';
+    var model = {};
+    model.unitcost = {};
+	function iniField(baseKey) {
+        var id = modelName + ':' + baseKey; 
+	    model[modelName][baseKey] = ko.observable();
+	    if(jaffa.serverData[id] != "") {
+	        model[modelName][baseKey](jaffa.serverData[id]);
+	    } else {
+	        model[modelName][baseKey](data[baseKey]); 
+	    }
+        model[modelName][baseKey].subscribe(function(newValue) {jaffa.serverData[id] = newValue;});
+	}
+    iniField("standard");
+    iniField("tape");
+    iniField("volume");
+    iniField("highspeed");
+	ko.applyBindings(model, $("[id='unitCostTable']")[0]);
+	
+});
+}
+
+</script>
