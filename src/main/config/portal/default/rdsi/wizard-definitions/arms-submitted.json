@@ -22,9 +22,9 @@
             "Next": "Review"
         },
         "Review": {
-        	"Next": "Allocation committe"
+        	"Next": "Allocation committee"
         },
-        "Allocation committe": {
+        "Allocation committee": {
         	"Next":"Approval"
         }
     }

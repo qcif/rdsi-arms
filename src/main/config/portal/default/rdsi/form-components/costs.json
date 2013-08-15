@@ -8,5 +8,15 @@
         "disk": 1,
         "tape": 2,
         "volume": 2
+    },
+    "ingest3": {
+        "disk": 1,
+        "tape": 2,
+        "volume": 2
+    },
+    "ingest4": {
+        "disk": 1,
+        "tape": 2,
+        "volume": 2
     }
 }
