@@ -18,14 +18,15 @@ dd { padding-left: 1em; }
 
 .people {
     float: left;
+    margin-left: 2em;
     padding: 0 0.5% 2em 0;  
-    width: 49%;
+    width: 40%;
 }
 
-#people-container dt { float: left; width: 6em; text-align: right; }
-#people-container dd { padding: 0px; }
+.people-container dt { float: left; width: 6em; text-align: right; }
+.people-container dd { padding: 0px; }
 
-#people-container:after {
+.people-container:after {
     content: ".";
     display: block;
     height: 0;
@@ -40,3 +41,5 @@ dd { padding-left: 1em; }
 .headerless > h2 {
     display: none;
 }
+
+table { margin-left: 1%; width: 98%; }
