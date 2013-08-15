@@ -1,7 +1,11 @@
 ## When rendering for web pages, it has $self variable - use it as a switch 
 #if($self)
 <link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen"/>
+#set($workflowStage = $self.workflowStage)
 #set($item = $self.item)
+#if($page.authentication.has_role('reviewer'))
+#set($isReviewer = true)
+#end
 #else
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -13,20 +17,79 @@
 <body>
 <h1>#getValue("dc:title")</h1>
 #end
-<p>
-	<span>Citation:</span>#getValue("citation")
-</p>
+## common part starts from here
+#if ($isReviewer)
+<p>[Reviewer's version]</p>
+#end
+<p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
-
+<h4>#displayMessage("arms.heading.request-type")</h4>
+<p>#getValue("request-type")</p>
 <h4>Description</h4>
 <p>#getValue("collection:description")</p>
+<h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
+#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
+
+<h4>#displayMessage("arms.heading.collection-metadata")</h4>
+#set($repeats = $jsonUtil.getJavaList($item, "dataCollectionLocation"))
+<table>
+    <thead>
+    	<tr>
+    	    <th>URL</th>
+			<th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+	#foreach($v in $repeats)
+	<tr>
+		<td>$v.get("description").trim()</td>
+		<td>$v.get("url").trim()</td>
+	</tr>
+	#end
+    </tbody>
+</table>
 
 <h4>Merit description</h4>
-<p>#getValue("merit:description")</p>
+<p>#displayMessage("arms.label.merit-sectionA")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-sectionA"))
+#displayUL($vals)
+<p>#displayMessage("arms.label.merit-sectionB")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-sectionB"))
+#displayUL($vals)
+<p>#displayMessage("arms.label.merit-sectionC")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-sectionC"))
+#displayUL($vals)
 
-<div id="people-container">
+<h4>#displayMessage("arms.heading.funding-information")</h4>
+#set($v = $jsonUtil.getEmptyIfNull($item, "isFunded"))
+#if ($v == "Yes")
+	#set($repeats = $jsonUtil.getJavaList($item, "fundingInfoTable"))
+	<table>
+    <thead>
+    	<tr>
+   	        <th>Funder</th>
+			<th>Grant number</th>
+			<th>Project name</th>
+			<th>Start date</th>
+			<th>End date</th> 
+        </tr>
+    </thead>    
+	#foreach($v in $repeats)
+        <tr>
+		<td>$v.get("fundingSource").trim()</td>
+		<td>$v.get("grantNumber").trim()</td>
+		<td>$v.get("projectName").trim()</td>
+		<td>$v.get("startDate").trim()</td>
+		<td>$v.get("endDate").trim()</td>
+        </tr>
+	#end
+	</table>
+#end
+
+<h4>#displayMessage("arms.heading.contactdetails")</h4>
+<div class="people-container">
 	<div class="people">
-		<h4>#displayMessage("arms.field.label.dataprovider")</h4>
+		<h5>#displayMessage("arms.field.label.dataprovider")</h5>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("dataprovider:title")
@@ -50,7 +113,7 @@
 			</dl>
 		</div>
 	<div class="people">
-		<h4>#displayMessage("arms.field.label.requester")</h4>
+		<h5>#displayMessage("arms.field.label.requester")</h5>
 			<dl>
 				<dt>Name:</dt>
 				<dd>#getValue("requester:title")
@@ -74,50 +137,72 @@
 			</dl>
 	</div>
 </div>
-<h4 style="clear: left">Data profile</h4>
+<div class="people-container">
+<div class="people">
+		<h5>#displayMessage("arms.field.label.nodecontact")</h5>
+			<dl>
+				<dt>Name:</dt>
+				<dd>#getValue("nodecontact:title")
+					#getValue("nodecontact:givenName")
+					#getValue("nodecontact:familyName")</dd>
+
+				<dt>email:</dt>
+				<dd>#getValue("nodecontact:email")</dd>
+
+				<dt>phone:</dt>
+				<dd>#getValue("nodecontact:phone")</dd>
+
+				<dt>Node:</dt>
+				<dd>#getValue("nodecontact:node")</dd>
+			</dl>
+</div>
+</div>
+
+<h4 style="clear: left">#displayMessage("arms.heading.nodeselection")</h4>
 <dl>
 	<dt>Primary RDSI node:</dt>
 	<dd>#getValue("rdsi-node")</dd>
 	<dt>Other hosting node:</dt>
 	#set($vals = $jsonUtil.getStringList($item, "rdsi-secondary-nodes"))
 	<dd>#displayUL($vals)</dd>
+	<dt>#displayMessage("arms.field.label.multi-nodes-reason")</dt>
+	<dd>#getValue("multi-nodes-reason") #getVakue("multi-nodes-reason-other")</dd>
+	<dt>#displayMessage("arms.field.label.storage-class")</dt>
+	<dd>#getValue("storage-class")</dd>
+	<dt>#displayMessage("arms.field.label.data-protection-class")</dt>
+	<dd>#getValue("data-protection-class")</dd>
 	<dt>Current data size:</dt>
 	<dd>#getValue("data-size")</dd>
+	<dt>#displayMessage("arms.field.label.data-growth")</dt>
+	<dd>#getValue("data-growth")</dd>
+	<dt>#displayMessage("arms.field.label.dataset-file-number")</dt>
+	<dd>#getValue("dataset-file-number")</dd>
+
+	<dt>#displayMessage("arms.field.label.dataset-file-maxsize")</dt>
+	<dd>#getValue("dataset-file-maxsize")</dd>
+	<dt>#displayMessage("arms.field.label.dataset-file-minsize")</dt>
+	<dd>#getValue("dataset-file-minsize")</dd>
 	<dt>Data format:</dt>
 	<dd>#getValue("vivo-Dataset.dc.format")</dd>
-	<dt>Required storage class:</dt>
-	<dd>#getValue("storage-class")</dd>
-	<dt>Data medium and migration:</dt>
-	<dd>#getValue("data-medium-migration")</dd>
-	<dt>Required tools and interfaces:</dt>
-	<dd>#getValue("migrate-required-resources")</dd>
-	<dt>RDSI is the only host?</dt>
-	<dd>
-		<ul>
-		#set($v = $jsonUtil.get($item, "storage-risk-rdsi-only").trim())
-		#if($v)
-			<li>$v</li>
-		#end
-		#set($v = $jsonUtil.get($item, "storage-risk-regenerate").trim())
-		#if($v)
-			<li>$v</li>
-		#end
-		#set($v = $jsonUtil.get($item, "storage-risk-disruption").trim())
-		#if($v)
-			<li>$v</li>
-		#end
-		</ul>
-	</dd>
 </dl>
-<h4>Data schedule</h4>
+<h4>#displayMessage("arms.heading.user-base")</h4>
 <dl>
-	<dt>Anticipated ingest of 25%:</dt>
+	<dt>#displayMessage("arms.field.label.current-user-number")</dt>
+	<dd>#getValue("current-user-number")</dd>
+	<dt>#displayMessage("arms.field.label.user-number")</dt>
+	<dd>#getValue("user-number")</dd>
+	<dt>#displayMessage("arms.field.label.user-access-frequency")</dt>
+	<dd>#getValue("user-access-frequency")</dd>
+</dl>
+<h4>#displayMessage("arms.field.label.ingest")</h4>
+<dl>
+	<dt>#displayMessage("arms.field.label.ingest-1qtr")</dt>
 	<dd>#getValue("ingest-1qtr")</dd>
-	<dt>Anticipated ingest of 50%:</dt>
+	<dt>#displayMessage("arms.field.label.ingest-2qtr")</dt>
 	<dd>#getValue("ingest-2qtr")</dd>
-	<dt>Anticipated ingest of 75%:</dt>
+	<dt>#displayMessage("arms.field.label.ingest-3qtr")</dt>
 	<dd>#getValue("ingest-3qtr")</dd>
-	<dt>Anticipated ingest of 100%:</dt>
+	<dt>#displayMessage("arms.field.label.ingest-4qtr")</dt>
 	<dd>#getValue("ingest-4qtr")</dd>
 </dl>
 <h4>Access and licensing</h4>
@@ -127,18 +212,16 @@
 	<dt>Terms of use:</dt>
 	<dd>#getValue("dc:rights.skos:note")</dd>
 	<dt>Licence:</dt>
-	<dd>#getValue("dc:accessRights")</dd>
-	<dt>Anticipated number of users:</dt>
-	<dd>#getValue("user-number")</dd>
-	<dt>Access frequency:</dt>
-	<dd>#getValue("user-access-frequency")</dd>
+	<dd>#getValue("dc:accessRights") #getValue("dc:license.other")</dd>
+	<dt>#displayMessage("arms.field.label.citation")</dt>
+	<dd>#getValue("citation")</dd>
 </dl>
-<h4>Other details</h4>
+<h4>#displayMessage("arms.heading.migration")</h4>
 <dl>
-		<dt>Field(s) of research:</dt>
-		<dd>
-			#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
-		</dd>
+	<dt>Data medium and migration:</dt>
+	<dd>#getValue("data-medium-migration")</dd>
+	<dt>Required tools and interfaces:</dt>
+	<dd>#getValue("migrate-required-resources")</dd>
 </dl>
 #if($page)
 

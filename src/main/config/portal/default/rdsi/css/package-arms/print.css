@@ -6,10 +6,13 @@ h4 {
 }
 p { margin: 0.1em }
 
-#people-container dt { text-align: right; font-size: small }
+.people-container dt { text-align: right; font-size: small }
 
 .people {
     float: left;
+    margin-left: 1em;
     padding: 0 0.5% 2em 0;  
-    width: 49.5%;
+    width: 45%;
 }
+
+dd { padding-left: 0em; }
