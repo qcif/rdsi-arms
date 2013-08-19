@@ -1,4 +1,3 @@
-#if($page.authentication.is_logged_in())
 <div class="grid_4">
     #set($menuTitle = "Options")
     #parseTemplate("wrapping/main-menu-open.vm")
@@ -24,8 +23,10 @@ $(function() {
                 ajax: 1,
                 func: "create-new",
                 packageType: "arms",
-                metaList: ["title", "description", "redbox:newForm", "redbox:formVersion"],
+                metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
+                sequencesMetaList: [ '{ "sequenceName":"qcloudRequest","metadataName": "requestID","stringFormat":"QCloud_%04d"}'],
                 title: "[Untitled]",
+                node: "QCloud",
                 description: "",
                 "redbox:newForm": "true",
                 "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
@@ -50,4 +51,3 @@ $(function() {
 });
 
 </script>
-#end
