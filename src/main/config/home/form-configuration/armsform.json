@@ -102,10 +102,10 @@
                             "content": "arms.heading.data-collection"
                         },
                         {
-                            "component-type": "text-input",
+                            "component-type": "knockout-text-block1",
                             "field-name": "requestID",
-                            "label": "arms.field.label.requestID",
-                            "additional-classes": ""
+                            "type": "label",
+                            "content": "arms.field.label.requestID"
                         },
                         {
                             "component-type": "text-block",
@@ -117,6 +117,16 @@
                             "component-type": "text-input",
                             "field-name": "dc:title",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dc:title",
+                                "focus-id": "dc:title",
+                                "validation-messages": {
+                                    "required": "Title is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -128,7 +138,17 @@
                         {
                             "component-type": "textarea",
                             "field-name": "collection:description",
-                            "label": ""
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "collection:description",
+                                "focus-id": "collection:description",
+                                "validation-messages": {
+                                    "required": "Description is required"
+                                }
+                            }
                         },
                         {
                             "component-type": "text-block",
@@ -255,6 +275,24 @@
                             "field-name": "merit-sectionA",
                             "box-for": "",
                             "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "allMeritAChecked": {
+                                            "validationType": "allCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionA",
+                                                "5"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionA.1",
+                                "focus-id": "merit-sectionA.1",
+                                "validation-messages": {
+                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
+                                }
+                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -288,6 +326,24 @@
                             "field-name": "merit-sectionB",
                             "box-for": "",
                             "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "MeritBChecked": {
+                                            "validationType": "minCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionB",
+                                                "1"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionB.1",
+                                "focus-id": "merit-sectionB.1",
+                                "validation-messages": {
+                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
+                                }
+                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
@@ -529,6 +585,16 @@
                                     "field-name": "dataprovider:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:givenName",
+                                        "focus-id": "dataprovider:givenName",
+                                        "validation-messages": {
+                                            "required": "Data custodian: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -543,7 +609,7 @@
                                         "validation-id": "dataprovider:familyName",
                                         "focus-id": "dataprovider:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Data custodian: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -559,6 +625,16 @@
                                     "field-name": "dataprovider:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:email",
+                                        "focus-id": "dataprovider:email",
+                                        "validation-messages": {
+                                            "required": "Data custodian: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -566,6 +642,16 @@
                                     "field-name": "dataprovider:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:phone",
+                                        "focus-id": "dataprovider:phone",
+                                        "validation-messages": {
+                                            "required": "Data custodian: telephone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -579,6 +665,16 @@
                                     "field-name": "dataprovider:organization",
                                     "label": "arms.field.label.organization",
                                     "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:organization",
+                                        "focus-id": "dataprovider:organization",
+                                        "validation-messages": {
+                                            "required": "Data custodian: organisation is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -586,6 +682,16 @@
                                     "field-name": "dataprovider:role",
                                     "label": "arms.field.label.role",
                                     "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:role",
+                                        "focus-id": "dataprovider:role",
+                                        "validation-messages": {
+                                            "required": "Data custodian: role is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -606,6 +712,16 @@
                                     "label": "",
                                     "field-name-label": "dataprovider:state:prefLabel",
                                     "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:state",
+                                        "focus-id": "dataprovider:state",
+                                        "validation-messages": {
+                                            "required": "Data custodian: state is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-component statesField"
                                 }
                             ]
@@ -633,6 +749,16 @@
                                     "field-name": "requester:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:givenName",
+                                        "focus-id": "requester:givenName",
+                                        "validation-messages": {
+                                            "required": "Data manager: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -647,7 +773,7 @@
                                         "validation-id": "requester:familyName",
                                         "focus-id": "requester:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Data manager: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -663,6 +789,16 @@
                                     "field-name": "requester:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:email",
+                                        "focus-id": "requester:email",
+                                        "validation-messages": {
+                                            "required": "Data manager: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -670,6 +806,16 @@
                                     "field-name": "requester:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:phone",
+                                        "focus-id": "requester:phone",
+                                        "validation-messages": {
+                                            "required": "Data manager: phone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -683,6 +829,16 @@
                                     "field-name": "requester:organization",
                                     "label": "arms.field.label.organization",
                                     "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:organization",
+                                        "focus-id": "requester:organization",
+                                        "validation-messages": {
+                                            "required": "Data manager: organisation is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -690,6 +846,16 @@
                                     "field-name": "requester:role",
                                     "label": "arms.field.label.role",
                                     "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:role",
+                                        "focus-id": "requester:role",
+                                        "validation-messages": {
+                                            "required": "Data manager: role name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -710,6 +876,16 @@
                                     "label": "",
                                     "field-name-label": "requester:state:prefLabel",
                                     "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:state",
+                                        "focus-id": "requester:state",
+                                        "validation-messages": {
+                                            "required": "Data manager: state is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component statesField"
                                 }
                             ]
@@ -737,6 +913,16 @@
                                     "field-name": "nodecontact:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:givenName",
+                                        "focus-id": "nodecontact:givenName",
+                                        "validation-messages": {
+                                            "required": "Node contact: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -751,7 +937,7 @@
                                         "validation-id": "nodecontact:familyName",
                                         "focus-id": "nodecontact:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Node contact: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -767,6 +953,16 @@
                                     "field-name": "nodecontact:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:email",
+                                        "focus-id": "nodecontact:email",
+                                        "validation-messages": {
+                                            "required": "Node contact: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -774,6 +970,16 @@
                                     "field-name": "nodecontact:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:phone",
+                                        "focus-id": "nodecontact:phone",
+                                        "validation-messages": {
+                                            "required": "Node contact: telephone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -783,6 +989,16 @@
                             "field-name": "nodecontact:node",
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "nodecontact:node",
+                                "focus-id": "nodecontact:node",
+                                "validation-messages": {
+                                    "required": "Node contact: node is required"
+                                }
+                            },
                             "wrapper-class": "inline-block-component"
                         },
                         {
@@ -833,12 +1049,9 @@
                             "label": "",
                             "options": [
                                 {
-                                    "label": "",
-                                    "value": ""
-                                },
-                                {
                                     "label": "QCIF-BNE",
-                                    "value": "QCIF-BNE"
+                                    "value": "QCIF-BNE",
+                                    "default": true
                                 },
                                 {
                                     "label": "eRSA",
@@ -865,6 +1078,10 @@
                             "label": "",
                             "multiple": true,
                             "options": [
+                                {
+                                    "label": "",
+                                    "value": ""
+                                },
                                 {
                                     "label": "QCIF-BNE",
                                     "value": "QCIF-BNE"
@@ -989,6 +1206,16 @@
                             "component-type": "text-input",
                             "field-name": "data-size",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-size",
+                                "focus-id": "data-size",
+                                "validation-messages": {
+                                    "required": "Size of data is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1001,6 +1228,16 @@
                             "component-type": "text-input",
                             "field-name": "data-growth",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-growth",
+                                "focus-id": "data-growth",
+                                "validation-messages": {
+                                    "required": "Growth rate is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1013,6 +1250,16 @@
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dataset-file-number",
+                                "focus-id": "dataset-file-number",
+                                "validation-messages": {
+                                    "required": "Number of files is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1029,6 +1276,16 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-maxsize",
                                     "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-maxsize",
+                                        "focus-id": "dataset-file-maxsize",
+                                        "validation-messages": {
+                                            "required": "Size of largest file is required"
+                                        }
+                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -1048,6 +1305,16 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-minsize",
                                     "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-minsize",
+                                        "focus-id": "dataset-file-minsize",
+                                        "validation-messages": {
+                                            "required": "Size of smallest file is required"
+                                        }
+                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -1063,6 +1330,16 @@
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "vivo-Dataset.dc.format",
+                                "focus-id": "vivo-Dataset.dc.format",
+                                "validation-messages": {
+                                    "required": "Format of data is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1183,6 +1460,16 @@
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
                                     "format": "MM yy",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "ingest-4qtr",
+                                        "focus-id": "ingest-4qtr",
+                                        "validation-messages": {
+                                            "required": "Anticipated ingesgt of 100% is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -1272,7 +1559,22 @@
                         {
                             "component-type": "textarea",
                             "field-name": "dc:license.other",
-                            "label": "arms.field.label.dc-license.other"
+                            "label": "arms.field.label.dc-license.other",
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "licenceCheck": {
+                                            "validationType": "atLeastOneRequired",
+                                            "params": [ "dc:license.dc:identifier" ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "dc:license.other",
+                                "focus-id": "dc:license.dc:identifier",
+                                "validation-messages": {
+                                    "licenceCheck": "Please either select one from licence or provide one"
+                                }
+                            }
                         },
                         {
                             "component-type": "text-block",
@@ -1447,6 +1749,16 @@
                             "component-type": "text-input",
                             "field-name": "dc:title",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dc:title",
+                                "focus-id": "dc:title",
+                                "validation-messages": {
+                                    "required": "Title is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1458,7 +1770,17 @@
                         {
                             "component-type": "textarea",
                             "field-name": "collection:description",
-                            "label": ""
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "collection:description",
+                                "focus-id": "collection:description",
+                                "validation-messages": {
+                                    "required": "Description is required"
+                                }
+                            }
                         },
                         {
                             "component-type": "text-block",
@@ -1585,6 +1907,24 @@
                             "field-name": "merit-sectionA",
                             "box-for": "",
                             "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "allMeritAChecked": {
+                                            "validationType": "allCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionA",
+                                                "5"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionA.1",
+                                "focus-id": "merit-sectionA.1",
+                                "validation-messages": {
+                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
+                                }
+                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -1618,6 +1958,24 @@
                             "field-name": "merit-sectionB",
                             "box-for": "",
                             "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "MeritBChecked": {
+                                            "validationType": "minCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionB",
+                                                "1"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionB.1",
+                                "focus-id": "merit-sectionB.1",
+                                "validation-messages": {
+                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
+                                }
+                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
@@ -1843,6 +2201,7 @@
                             "help": "arms.field.help.dataprovider",
                             "additional-class": "section-heading"
                         },
+
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -1859,6 +2218,16 @@
                                     "field-name": "dataprovider:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:givenName",
+                                        "focus-id": "dataprovider:givenName",
+                                        "validation-messages": {
+                                            "required": "Data custodian: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -1873,7 +2242,7 @@
                                         "validation-id": "dataprovider:familyName",
                                         "focus-id": "dataprovider:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Data custodian: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -1889,6 +2258,16 @@
                                     "field-name": "dataprovider:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:email",
+                                        "focus-id": "dataprovider:email",
+                                        "validation-messages": {
+                                            "required": "Data custodian: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -1896,6 +2275,16 @@
                                     "field-name": "dataprovider:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:phone",
+                                        "focus-id": "dataprovider:phone",
+                                        "validation-messages": {
+                                            "required": "Data custodian: telephone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -1909,6 +2298,16 @@
                                     "field-name": "dataprovider:organization",
                                     "label": "arms.field.label.organization",
                                     "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:organization",
+                                        "focus-id": "dataprovider:organization",
+                                        "validation-messages": {
+                                            "required": "Data custodian: organisation is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -1916,6 +2315,16 @@
                                     "field-name": "dataprovider:role",
                                     "label": "arms.field.label.role",
                                     "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:role",
+                                        "focus-id": "dataprovider:role",
+                                        "validation-messages": {
+                                            "required": "Data custodian: role is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -1936,6 +2345,16 @@
                                     "label": "",
                                     "field-name-label": "dataprovider:state:prefLabel",
                                     "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:state",
+                                        "focus-id": "dataprovider:state",
+                                        "validation-messages": {
+                                            "required": "Data custodian: state is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-component statesField"
                                 }
                             ]
@@ -1963,6 +2382,16 @@
                                     "field-name": "requester:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:givenName",
+                                        "focus-id": "requester:givenName",
+                                        "validation-messages": {
+                                            "required": "Data manager: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -1977,7 +2406,7 @@
                                         "validation-id": "requester:familyName",
                                         "focus-id": "requester:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Data manager: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -1993,6 +2422,16 @@
                                     "field-name": "requester:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:email",
+                                        "focus-id": "requester:email",
+                                        "validation-messages": {
+                                            "required": "Data manager: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -2000,6 +2439,16 @@
                                     "field-name": "requester:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:phone",
+                                        "focus-id": "requester:phone",
+                                        "validation-messages": {
+                                            "required": "Data manager: phone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2013,6 +2462,16 @@
                                     "field-name": "requester:organization",
                                     "label": "arms.field.label.organization",
                                     "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:organization",
+                                        "focus-id": "requester:organization",
+                                        "validation-messages": {
+                                            "required": "Data manager: organisation is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -2020,6 +2479,16 @@
                                     "field-name": "requester:role",
                                     "label": "arms.field.label.role",
                                     "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:role",
+                                        "focus-id": "requester:role",
+                                        "validation-messages": {
+                                            "required": "Data manager: role name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2040,6 +2509,16 @@
                                     "label": "",
                                     "field-name-label": "requester:state:prefLabel",
                                     "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:state",
+                                        "focus-id": "requester:state",
+                                        "validation-messages": {
+                                            "required": "Data manager: state is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component statesField"
                                 }
                             ]
@@ -2067,6 +2546,16 @@
                                     "field-name": "nodecontact:givenName",
                                     "label": "arms.field.label.givenName",
                                     "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:givenName",
+                                        "focus-id": "nodecontact:givenName",
+                                        "validation-messages": {
+                                            "required": "Node contact: given name is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -2081,7 +2570,7 @@
                                         "validation-id": "nodecontact:familyName",
                                         "focus-id": "nodecontact:familyName",
                                         "validation-messages": {
-                                            "required": "Family name is required"
+                                            "required": "Node contact: family name is required"
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
@@ -2097,6 +2586,16 @@
                                     "field-name": "nodecontact:email",
                                     "label": "arms.field.label.email",
                                     "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:email",
+                                        "focus-id": "nodecontact:email",
+                                        "validation-messages": {
+                                            "required": "Node contact: email is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
@@ -2104,6 +2603,16 @@
                                     "field-name": "nodecontact:phone",
                                     "label": "arms.field.label.phone",
                                     "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:phone",
+                                        "focus-id": "nodecontact:phone",
+                                        "validation-messages": {
+                                            "required": "Node contact: telephone is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2113,6 +2622,16 @@
                             "field-name": "nodecontact:node",
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "nodecontact:node",
+                                "focus-id": "nodecontact:node",
+                                "validation-messages": {
+                                    "required": "Node contact: node is required"
+                                }
+                            },
                             "wrapper-class": "inline-block-component"
                         },
                         {
@@ -2163,12 +2682,9 @@
                             "label": "",
                             "options": [
                                 {
-                                    "label": "",
-                                    "value": ""
-                                },
-                                {
                                     "label": "QCIF-BNE",
-                                    "value": "QCIF-BNE"
+                                    "value": "QCIF-BNE",
+                                    "default": true
                                 },
                                 {
                                     "label": "eRSA",
@@ -2195,6 +2711,10 @@
                             "label": "",
                             "multiple": true,
                             "options": [
+                                {
+                                    "label": "",
+                                    "value": ""
+                                },
                                 {
                                     "label": "QCIF-BNE",
                                     "value": "QCIF-BNE"
@@ -2319,6 +2839,16 @@
                             "component-type": "text-input",
                             "field-name": "data-size",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-size",
+                                "focus-id": "data-size",
+                                "validation-messages": {
+                                    "required": "Size of data is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -2331,6 +2861,16 @@
                             "component-type": "text-input",
                             "field-name": "data-growth",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-growth",
+                                "focus-id": "data-growth",
+                                "validation-messages": {
+                                    "required": "Growth rate is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -2343,6 +2883,16 @@
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dataset-file-number",
+                                "focus-id": "dataset-file-number",
+                                "validation-messages": {
+                                    "required": "Number of files is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -2359,6 +2909,16 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-maxsize",
                                     "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-maxsize",
+                                        "focus-id": "dataset-file-maxsize",
+                                        "validation-messages": {
+                                            "required": "Size of largest file is required"
+                                        }
+                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -2378,6 +2938,16 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-minsize",
                                     "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-minsize",
+                                        "focus-id": "dataset-file-minsize",
+                                        "validation-messages": {
+                                            "required": "Size of smallest file is required"
+                                        }
+                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -2393,6 +2963,16 @@
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
                             "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "vivo-Dataset.dc.format",
+                                "focus-id": "vivo-Dataset.dc.format",
+                                "validation-messages": {
+                                    "required": "Format of data is required"
+                                }
+                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -2513,6 +3093,16 @@
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
                                     "format": "MM yy",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "ingest-4qtr",
+                                        "focus-id": "ingest-4qtr",
+                                        "validation-messages": {
+                                            "required": "Anticipated ingesgt of 100% is required"
+                                        }
+                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2602,7 +3192,22 @@
                         {
                             "component-type": "textarea",
                             "field-name": "dc:license.other",
-                            "label": "arms.field.label.dc-license.other"
+                            "label": "arms.field.label.dc-license.other",
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "licenceCheck": {
+                                            "validationType": "atLeastOneRequired",
+                                            "params": [ "dc:license.dc:identifier" ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "dc:license.other",
+                                "focus-id": "dc:license.dc:identifier",
+                                "validation-messages": {
+                                    "licenceCheck": "Please either select one from licence or provide one"
+                                }
+                            }
                         },
                         {
                             "component-type": "text-block",
@@ -2737,11 +3342,22 @@
                             "content": "arms.field.label.review-note"
                         },
                         {
-                            "component-type": "repeatable-text",
-                            "field-name": "review-notes",
-                            "label": "",
-                            "textarea": true,
-                            "wrapper-class": "notesFields"
+                            "component-type": "notes-table",
+                            "metadataPrefix": "dataReviewNotes",
+                            "modelName": "dataReviewNotesModel",
+                            "tableName": "ReviewNotesTable",
+                            "visibleNoteLength": 60,
+                            "columns": [
+                                {
+                                    "columnHeader": "Date added"
+                                },
+                                {
+                                    "columnHeader": "Added by"
+                                },
+                                {
+                                    "columnHeader": "Note"
+                                }
+                            ]
                         },
                         {
                             "component-type": "text-block",
@@ -2807,10 +3423,10 @@
                             "label": "arms.field.label.node"
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "allocationId",
-                            "disabled": true,
-                            "label": "arms.field.label.allocationId"
+                            "component-type": "knockout-text-block1",
+                            "field-name": "requestID",
+                            "type": "label",
+                            "content": "arms.field.label.allocationId"
                         },
                         {
                             "component-type": "text-block",
