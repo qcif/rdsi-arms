@@ -1,4 +1,4 @@
-<div id="unitCostTable">
+<div id="unitCostTable" data-bind="stopBindings: true" >
 <table>
 <thead><tr>
 <th>&nbsp;</th><th>Standard Disk</th><th>Tape</th><th>Volume</th><th>High speed disk</th>
