@@ -161,6 +161,14 @@
       </build>
     </profile>
     <profile>
+      <id>prod</id>
+      <properties>
+        <packaging>pom</packaging>
+        <server.url.base>http://arms.qcif.edu.au/redbox/</server.url.base>
+        <package.finalname>${project.build.finalName}-prod</package.finalname>
+      </properties>
+    </profile>
+    <profile>
       <id>ide</id>
       <properties>
         <packaging>jar</packaging>
