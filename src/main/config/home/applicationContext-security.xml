@@ -19,8 +19,9 @@
 		<intercept-url pattern="/*/batchprocesses" access="hasRole('admin')" />
 		<intercept-url pattern="/*/queues" access="hasRole('admin')" />
 		<intercept-url pattern="/*/workflow/*" access="isAuthenticated()" />
-		<intercept-url pattern="/*/**" access="isAuthenticated()" />
 		<intercept-url pattern="/**/download/**/*.tfPackage" access="hasRole('admin')" />		
+		<intercept-url pattern="/*/**/*.*" access="permitAll" />
+		<intercept-url pattern="/*/**" access="isAuthenticated()" />
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
 		<custom-filter ref="fascinatorAuthInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
 		<access-denied-handler ref="accessDeniedHandler"/>
