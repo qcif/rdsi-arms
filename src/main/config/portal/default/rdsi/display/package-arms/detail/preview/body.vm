@@ -20,6 +20,7 @@
 ## common part starts from here
 #if ($isReviewer)
 <p>[Reviewer's version]</p>
+<p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
 #end
 <p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
