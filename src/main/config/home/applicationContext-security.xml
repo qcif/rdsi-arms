@@ -18,6 +18,7 @@
 		<intercept-url pattern="/**/settings" access="hasRole('admin')" />
 		<intercept-url pattern="/**/batchprocesses" access="hasRole('admin')" />
 		<intercept-url pattern="/**/queues" access="hasRole('admin')" />
+		<intercept-url pattern="/**/workflow/*" access="hasWorkflowAccess()" />
 		<intercept-url pattern="/**/workflows/simpleworkflow.script" access="hasWorkflowAccess()" />
 		<intercept-url pattern="/**/workflows/simpleworkflow.ajax" access="hasWorkflowAccess()" />
 		<intercept-url pattern="/**/workflows/simpleworkflow*" access="hasWorkflowAccess()" />
@@ -31,7 +32,10 @@
 		
 	</http>
 
-	<beans:bean id="fascinatorWebSecurityExpressionHandler" class="com.googlecode.fascinator.portal.security.FascinatorWebSecurityExpressionHandler"/>
+	<beans:bean id="fascinatorWebSecurityExpressionHandler" class="com.googlecode.fascinator.portal.security.FascinatorWebSecurityExpressionHandler">
+		<beans:property name="storage" ref="fascinatorStorage"/>
+		<beans:property name="accessControl" ref="fascinatorAccess"/>
+	</beans:bean>
 	
 	<beans:bean id="fascinatorAccessDecisionManagerBean" class="org.springframework.security.access.vote.AffirmativeBased">
 	    <beans:property name="decisionVoters">
