@@ -23,6 +23,8 @@
 		<intercept-url pattern="/**/workflows/simpleworkflow.ajax" access="hasWorkflowAccess()" />
 		<intercept-url pattern="/**/workflows/simpleworkflow*" access="hasWorkflowAccess()" />
 		<intercept-url pattern="/**/download/**/*.tfPackage" access="hasRole('admin')" />
+		<intercept-url pattern="/**/download/**/request.pdf" access="hasDownloadAccess() and (hasAnyRole('reviewer','admin'))" />
+		<intercept-url pattern="/**/download/**/*" access="hasDownloadAccess()" />
 		<intercept-url pattern="/**/detail/*" access="hasViewAccess()" />		
 		<intercept-url pattern="/**/*.*" access="permitAll" />
 		<intercept-url pattern="/*/**" access="isAuthenticated()" />
