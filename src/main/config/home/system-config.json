@@ -10,8 +10,33 @@
     "configured": true,
     "urlBase": "${server.url.base}",
     "email": "DO_NOT_CHANGE",
+    "Shibboleth":{
+   		"use_headers": "false",
+	    "username_attribute":"eppn",
+	    "cn_attribute":"cn",
+	    "session_attribute":"Shib-Session-ID",
+	    "idp_attribute":"Shib-Identity-Provider",
+	    "attributes":["affiliation"],
+	    "delimiter":";",
+	    "rolePlugins":["SimpleShibbolethRoleManager"],
+		"SimpleShibbolethRoleManager":{
+		        "reviewer":[
+		            [
+		                ["affiliation","is","member@edu.au"]
+		            ],
+		            [
+		                ["auEduPersonSharedToken","is","ddsdsf678hgH878786G67F7Fg"]
+		            ]
+		        ],
+		        "ourInstitution":[
+		            [
+		                ["Shib-Identity-Provider","is","https://idp.example.com:8443/idp/shibboleth"]
+		            ]
+		        ]
+		    }	    
+	 },
     "sso": {
-        "plugins": [],
+        "plugins": ["Shibboleth"],
         "urlExclusions": {
             "startsWith": [
                 "css/",
