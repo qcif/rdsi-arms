@@ -5,7 +5,7 @@
 .NoteViewCtrl { margin-left: 2px}
 </style>
 
-<script type='text/javascript' src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+<script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
 <div id="$tableName" data-bind="stopBindings: true">
 <textarea data-bind="value: note" rows="4" cols="80"></textarea>
 #if ($visibleNoteLength) #set($lengthLimit = $visibleNoteLength)

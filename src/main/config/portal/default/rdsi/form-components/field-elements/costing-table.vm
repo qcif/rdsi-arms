@@ -19,7 +19,7 @@
 
 startupCompleteListeners.push("initialiseCostingTable");
 function initialiseCostingTable() {
-jQuery.getJSON('http://127.0.0.1:9000/redbox/default/form-components/unitcosts.json', function(data) {
+jQuery.getJSON('$portalPath/form-components/unitcosts.json', function(data) {
 	var modelName = 'unitcost';
     var model = {};
     model.unitcost = {};
