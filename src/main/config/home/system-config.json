@@ -7,11 +7,28 @@
         "RIF-CS Group": "The University of Examples, Australia",
         "internalGrantString": "urn:uoe:internal"
     },
-    "configured": true,
+    "configured": true,       
     "urlBase": "${server.url.base}",
     "email": "DO_NOT_CHANGE",
+    "Shibboleth":{
+        "use_headers":"false",
+        "username_attribute":"auEduPersonSharedToken",
+        "cn_attribute":"displayName",
+        "session_attribute":"Shib-Session-ID",
+        "idp_attribute":"Shib-Identity-Provider",
+        "attributes":["eduPersonAffiliation", "commonName"],
+        "delimiter":";",
+        "rolePlugins":["SimpleShibbolethRoleManager"],
+        "SimpleShibbolethRoleManager":{
+            "requester":[
+                [
+                    ["eduPersonAffiliation", "is", "member"]
+                ]
+            ]
+        }
+    },
     "sso": {
-        "plugins": [],
+        "plugins": ["Shibboleth"],
         "urlExclusions": {
             "startsWith": [
                 "css/",
@@ -57,7 +74,7 @@
         "pidProperty": "localPid",
         "pidType": "local",
         "mintBroker": "${mint.amq.broker}"
-    }
+    },
     "messaging": {
         "url": "tcp://localhost:${amq.port}",
         "stompUrl": "stomp://localhost:${amq.stomp.port}",
