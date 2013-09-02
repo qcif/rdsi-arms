@@ -73,6 +73,17 @@
             "security": ["reviewer","approver","admin"],
             "visibility": ["reviewer","approver","admin"],
             "actions" :[ { "action-name" : "next",
+                "target-step" : "arms-allocation-commitee" }],
+            "template": "workflows/simpleworkflow"
+        },
+        {
+            "name": "arms-allocation-commitee",
+            "label": "Allocation commitee",
+            "description": "Records for allocation commitee to approve.",
+            "owner_edit_allowed": "false",
+            "security": ["commitee","approver","admin"],
+            "visibility": ["commitee","approver","admin"],
+            "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-approved" }],
             "template": "workflows/simpleworkflow"
         },

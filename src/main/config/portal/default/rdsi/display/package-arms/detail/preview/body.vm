@@ -167,7 +167,7 @@
 	#set($vals = $jsonUtil.getStringList($item, "rdsi-secondary-nodes"))
 	<dd>#displayUL($vals)</dd>
 	<dt>#displayMessage("arms.field.label.multi-nodes-reason")</dt>
-	<dd>#getValue("multi-nodes-reason") #getVakue("multi-nodes-reason-other")</dd>
+	<dd>#getValue("multi-nodes-reason") #getValue("multi-nodes-reason-other")</dd>
 	<dt>#displayMessage("arms.field.label.storage-class")</dt>
 	<dd>#getValue("storage-class")</dd>
 	<dt>#displayMessage("arms.field.label.data-protection-class")</dt>
@@ -226,10 +226,19 @@
 </dl>
 #if($page)
 
-#if($page.authentication.has_role('committee'))
-<p>
-	put a table here
+#if($page.authentication.has_role('commitee')) ## Actual role has to be used.
+<h4>Allocation commitee has to say</h4>
+<form>
+<input type="hidden" name="requestID" value="#getValue("requestID")" />
+<p><span>Approved</span>
+<label><input name="approved" class="jaffa-field" value="Yes" type="radio">Yes</label>
+<label><input name="approved" class="jaffa-field" value="No" type="radio">No</label>
+</label>
 </p>
+<label for="approval_comment">Comment</label>
+<textarea name="approval_comment" id="approval_comment"></textarea>
+<input type="submit" value="Submit" />
+</form>
 #end
 #else
 </body>
