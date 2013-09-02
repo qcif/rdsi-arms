@@ -4126,6 +4126,2410 @@
                 "component-type": "active-tab",
                 "tabHeaderIdentifier": "armsTabHeader"
             }
+        },
+        "arms-commitee": {
+            "divs": [
+                {
+                    "heading": "Data collection details",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.data-collection"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "requestID",
+                            "label": "arms.field.label.requestID",
+                            "additional-classes": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-title",
+                            "help": "arms.field.help.dc-title"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "dc:title",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dc:title",
+                                "focus-id": "dc:title",
+                                "validation-messages": {
+                                    "required": "Title is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.collection-description",
+                            "help": "arms.field.help.collection-description"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "collection:description",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "collection:description",
+                                "focus-id": "collection:description",
+                                "validation-messages": {
+                                    "required": "Description is required"
+                                }
+                            }
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-subject.anzsrc-for",
+                            "help": "arms.field.help.dc-subject.anzsrc-for"
+                        },
+                        {
+                            "component-type": "repeatable-anzsrc-selection",
+                            "label": "FoR code(s)",
+                            "fieldName": "dc:subject.anzsrc:for",
+                            "fieldNameLabel": "dc:subject.anzsrc:for.0.skos:prefLabel",
+                            "sourceUrl": "proxyGet.script?ns=ANZSRC_FOR&qs=count%3D999%26level%3D",
+                            "dataLevel": "top",
+                            "mandatory": "false",
+                            "idKey": "rdf:about",
+                            "labelKey": "skos:prefLabel",
+                            "listKey": "results",
+                            "defaultValue": "skos:narrower",
+                            "anzsrcType": "for"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.collection-metadata"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.metadata-locations"
+                        },
+                        {
+                            "component-type": "table",
+                            "editFunction": "editDataCollectionLocation",
+                            "addFunction": "addDataCollectionLocation",
+                            "metadataPrefix": "dataCollectionLocation",
+                            "modelName": "dataCollectionLocationModel",
+                            "tableName": "DataCollectionLocationTable",
+                            "initialiseMethodName": "initialiseDataCollectionLocationTable",
+                            "addButtonText": "Add more metadata locations",
+                            "columns": [
+                                {
+                                    "columnHeader": "URL",
+                                    "propertyName": "url"
+                                },
+                                {
+                                    "columnHeader": "Description",
+                                    "propertyName": "description"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "dialoged-table-form-group",
+                            "element-id": "dataLocationForm",
+                            "modelName": "dataLocationFormModel",
+                            "editFunction": "editDataCollectionLocation",
+                            "addFunction": "addDataCollectionLocation",
+                            "tableModelName": "dataCollectionLocationModel",
+                            "addFormTitle": "Add a new metadata location",
+                            "editFormTitle": "Edit a metadata location",
+                            "additional-class": "tableForm",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "metadata-location-url",
+                                    "label": "URL",
+                                    "additional-classes": "longTextInput",
+                                    "table-json-propertyName": "url"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "metadata-location-description",
+                                    "label": "Description",
+                                    "additional-classes": "longTextInput",
+                                    "table-json-propertyName": "description"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close2",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Merit information",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.merit-info"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.label.merit-sectionA"
+                        },
+                        {
+                            "component-type": "checkbox",
+                            "field-name": "merit-sectionA",
+                            "box-for": "",
+                            "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "allMeritAChecked": {
+                                            "validationType": "allCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionA",
+                                                "5"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionA.1",
+                                "focus-id": "merit-sectionA.1",
+                                "validation-messages": {
+                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
+                                }
+                            },
+                            "boxes": [
+                                {
+                                    "label": "of importance as an input to future research;",
+                                    "value": "of importance as an input to future research;"
+                                },
+                                {
+                                    "label": "relevant to research questions of interest to a variety of researchers;",
+                                    "value": "relevant to research questions of interest to a variety of researchers;"
+                                },
+                                {
+                                    "label": "accessible, for the purposes of research, subject to appropriate access rules;",
+                                    "value": "accessible, for the purposes of research, subject to appropriate access rules;"
+                                },
+                                {
+                                    "label": "discoverable through registration in discipline/domain registries, or generic registries such as Research Data Australia; and",
+                                    "value": "discoverable through registration in discipline/domain registries, or generic registries such as Research Data Australia; and"
+                                },
+                                {
+                                    "label": "an input to research supported by at least one participant organisation in the node.",
+                                    "value": "an input to research supported by at least one participant organisation in the node."
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.label.merit-sectionB"
+                        },
+                        {
+                            "component-type": "checkbox",
+                            "field-name": "merit-sectionB",
+                            "box-for": "",
+                            "multiline": true,
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "MeritBChecked": {
+                                            "validationType": "minCheckboxesChecked",
+                                            "params": [
+                                                "merit-sectionB",
+                                                "1"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "merit-sectionB.1",
+                                "focus-id": "merit-sectionB.1",
+                                "validation-messages": {
+                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
+                                }
+                            },
+                            "boxes": [
+                                {
+                                    "label": "observational data that is collected, curated and made available to third party researchers;",
+                                    "value": "observational data that is collected, curated and made available to third party researchers;"
+                                },
+                                {
+                                    "label": "generated data that is developed as an information product to underpin the research of third party researchers;",
+                                    "value": "generated data that is developed as an information product to underpin the research of third party researchers;"
+                                },
+                                {
+                                    "label": "aggregated data that is assembled by individuals or research communities in order to make research questions more addressable; and/or",
+                                    "value": "aggregated data that is assembled by individuals or research communities in order to make research questions more addressable; and/or"
+                                },
+                                {
+                                    "label": "a mirror of international collections that are held locally, for purposes of improved performance and reduced cost.",
+                                    "value": "a mirror of international collections that are held locally, for purposes of improved performance and reduced cost."
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.label.merit-sectionC"
+                        },
+                        {
+                            "component-type": "checkbox",
+                            "field-name": "merit-sectionC",
+                            "box-for": "",
+                            "multiline": true,
+                            "boxes": [
+                                {
+                                    "label": "relevant to a broad user base within or across disciplines and domains;",
+                                    "value": "relevant to a broad user base within or across disciplines and domains;"
+                                },
+                                {
+                                    "label": "readily accessible, with respect to connectivity and integration, recognising any constraints such as legal, licensing or ethical requirements;",
+                                    "value": "readily accessible, with respect to connectivity and integration, recognising any constraints such as legal, licensing or ethical requirements;"
+                                },
+                                {
+                                    "label": "in reusable forms, well described and documented, to support long-term access and management;",
+                                    "value": "in reusable forms, well described and documented, to support long-term access and management;"
+                                },
+                                {
+                                    "label": "citable through a mechanism such as a digital object identifier; and",
+                                    "value": "citable through a mechanism such as a digital object identifier; and"
+                                },
+                                {
+                                    "label": "of sufficiently high quality and fit for purpose, as indicated by domain-relevant measures such as completeness, coverage, and resolution.",
+                                    "value": "of sufficiently high quality and fit for purpose, as indicated by domain-relevant measures such as completeness, coverage, and resolution."
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.funding-information"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.is-funded",
+                            "help": "arms.field.help.is-funded"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "isFunded",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "Yes",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.funding-details"
+                        },
+                        {
+                            "component-type": "table",
+                            "editFunction": "editFundingInfo",
+                            "addFunction": "addFundingInfo",
+                            "metadataPrefix": "fundingInfoTable",
+                            "modelName": "fundingInfoModel",
+                            "tableName": "fundingInfoTable",
+                            "initialiseMethodName": "initialiseFundingInfoTable",
+                            "addButtonText": "Add more Funding information",
+                            "columns": [
+                                {
+                                    "columnHeader": "Funder",
+                                    "propertyName": "fundingSource"
+                                },
+                                {
+                                    "columnHeader": "Grant number",
+                                    "propertyName": "grantNumber"
+                                },
+                                {
+                                    "columnHeader": "Project name",
+                                    "propertyName": "grantNumber"
+                                },
+                                {
+                                    "columnHeader": "Start date",
+                                    "propertyName": "startDate"
+                                },
+                                {
+                                    "columnHeader": "End date",
+                                    "propertyName": "endDate"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "dialoged-table-form-group",
+                            "element-id": "fundingInfoForm",
+                            "modelName": "fundingInfoFormModel",
+                            "editFunction": "editFundingInfo",
+                            "addFunction": "addFundingInfo",
+                            "tableModelName": "fundingInfoModel",
+                            "addFormTitle": "Add Funding Information",
+                            "editFormTitle": "Edit Funding Information",
+                            "additional-class": "tableForm",
+                            "fields": [
+                                {
+                                    "component-type": "radio-button",
+                                    "field-name": "funding-body",
+                                    "button-for": "Funding body",
+                                    "buttons": [
+                                        {
+                                            "label": "ARC",
+                                            "value": "ARC"
+                                        },
+                                        {
+                                            "label": "NHMRC",
+                                            "value": "NHMRC"
+                                        },
+                                        {
+                                            "label": "Industry",
+                                            "value": "Industry"
+                                        },
+                                        {
+                                            "label": "Other (please describe below)",
+                                            "value": "Other"
+                                        }
+                                    ],
+                                    "table-json-propertyName": "fundingSource"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "grantNumber",
+                                    "label": "Grant number/reference",
+                                    "additional-classes": "longTextInput",
+                                    "table-json-propertyName": "grantNumber"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "projectName",
+                                    "label": "Project name",
+                                    "additional-classes": "longTextInput",
+                                    "table-json-propertyName": "projectName"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "startDate",
+                                    "label": "Start date",
+                                    "format": "dd MM yy",
+                                    "table-json-propertyName": "startDate"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "endDate",
+                                    "label": "End date",
+                                    "format": "dd MM yy",
+                                    "table-json-propertyName": "endDate"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close3",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Contact details",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.contactdetails"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h4",
+                            "content": "arms.field.label.dataprovider",
+                            "help": "arms.field.help.dataprovider",
+                            "additional-class": "section-heading"
+                        },
+
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:givenName",
+                                        "focus-id": "dataprovider:givenName",
+                                        "validation-messages": {
+                                            "required": "Data custodian: given name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:familyName",
+                                        "focus-id": "dataprovider:familyName",
+                                        "validation-messages": {
+                                            "required": "Data custodian: family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:email",
+                                        "focus-id": "dataprovider:email",
+                                        "validation-messages": {
+                                            "required": "Data custodian: email is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:phone",
+                                        "focus-id": "dataprovider:phone",
+                                        "validation-messages": {
+                                            "required": "Data custodian: telephone is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:organization",
+                                    "label": "arms.field.label.organization",
+                                    "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:organization",
+                                        "focus-id": "dataprovider:organization",
+                                        "validation-messages": {
+                                            "required": "Data custodian: organisation is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataprovider:role",
+                                    "label": "arms.field.label.role",
+                                    "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:role",
+                                        "focus-id": "dataprovider:role",
+                                        "validation-messages": {
+                                            "required": "Data custodian: role is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.state",
+                                    "wrapper-class": "inline-block-component statesLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "dataprovider:state",
+                                    "label": "",
+                                    "field-name-label": "dataprovider:state:prefLabel",
+                                    "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataprovider:state",
+                                        "focus-id": "dataprovider:state",
+                                        "validation-messages": {
+                                            "required": "Data custodian: state is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-component statesField"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h4",
+                            "content": "arms.field.label.requester",
+                            "help": "arms.field.help.requester",
+                            "additional-class": "section-heading"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:givenName",
+                                        "focus-id": "requester:givenName",
+                                        "validation-messages": {
+                                            "required": "Data manager: given name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:familyName",
+                                        "focus-id": "requester:familyName",
+                                        "validation-messages": {
+                                            "required": "Data manager: family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:email",
+                                        "focus-id": "requester:email",
+                                        "validation-messages": {
+                                            "required": "Data manager: email is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:phone",
+                                        "focus-id": "requester:phone",
+                                        "validation-messages": {
+                                            "required": "Data manager: phone is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:organization",
+                                    "label": "arms.field.label.organization",
+                                    "additional-classes": "organizationField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:organization",
+                                        "focus-id": "requester:organization",
+                                        "validation-messages": {
+                                            "required": "Data manager: organisation is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "requester:role",
+                                    "label": "arms.field.label.role",
+                                    "additional-classes": "roleField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:role",
+                                        "focus-id": "requester:role",
+                                        "validation-messages": {
+                                            "required": "Data manager: role name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.state",
+                                    "wrapper-class": "inline-block-component statesLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "requester:state",
+                                    "label": "",
+                                    "field-name-label": "requester:state:prefLabel",
+                                    "sourceUrl": "form-components/states.json",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "requester:state",
+                                        "focus-id": "requester:state",
+                                        "validation-messages": {
+                                            "required": "Data manager: state is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component statesField"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h4",
+                            "content": "arms.field.label.nodecontact",
+                            "help": "arms.field.help.nodecontact",
+                            "additional-class": "section-heading"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:title",
+                                    "label": "arms.field.label.title",
+                                    "additional-classes": "titleField",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:givenName",
+                                    "label": "arms.field.label.givenName",
+                                    "additional-classes": "givenNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:givenName",
+                                        "focus-id": "nodecontact:givenName",
+                                        "validation-messages": {
+                                            "required": "Node contact: given name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:familyName",
+                                    "label": "arms.field.label.familyName",
+                                    "additional-classes": "familyNameField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:familyName",
+                                        "focus-id": "nodecontact:familyName",
+                                        "validation-messages": {
+                                            "required": "Node contact: family name is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:email",
+                                    "label": "arms.field.label.email",
+                                    "additional-classes": "emailField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:email",
+                                        "focus-id": "nodecontact:email",
+                                        "validation-messages": {
+                                            "required": "Node contact: email is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "nodecontact:phone",
+                                    "label": "arms.field.label.phone",
+                                    "additional-classes": "telephoneField",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "nodecontact:phone",
+                                        "focus-id": "nodecontact:phone",
+                                        "validation-messages": {
+                                            "required": "Node contact: telephone is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "nodecontact:node",
+                            "label": "arms.field.label.node",
+                            "additional-classes": "nodeField",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "nodecontact:node",
+                                "focus-id": "nodecontact:node",
+                                "validation-messages": {
+                                    "required": "Node contact: node is required"
+                                }
+                            },
+                            "wrapper-class": "inline-block-component"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close4",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Technical details",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.nodeselection"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.rdsi-node"
+                        },
+                        {
+                            "component-type": "dropdown-fixedvalue",
+                            "field-name": "rdsi-node",
+                            "label": "",
+                            "options": [
+                                {
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE",
+                                    "default": true
+                                },
+                                {
+                                    "label": "eRSA",
+                                    "value": "eRSA"
+                                },
+                                {
+                                    "label": "Intersect",
+                                    "value": "Intersect"
+                                },
+                                {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.rdsi-secondary-nodes"
+                        },
+                        {
+                            "component-type": "dropdown-fixedvalue",
+                            "field-name": "rdsi-secondary-nodes",
+                            "label": "",
+                            "multiple": true,
+                            "options": [
+                                {
+                                    "label": "",
+                                    "value": ""
+                                },
+                                {
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE"
+                                },
+                                {
+                                    "label": "eRSA",
+                                    "value": "eRSA"
+                                },
+                                {
+                                    "label": "Intersect",
+                                    "value": "Intersect"
+                                },
+                                {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.multi-nodes-reason",
+                            "help": "arms.field.help.multi-nodes-reason"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "multi-nodes-reason",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "Co-location with a partner research group",
+                                    "value": "Co-location with a partner research group"
+                                },
+                                {
+                                    "label": "Proximity to computational facility",
+                                    "value": "Proximity to computational facility"
+                                },
+                                {
+                                    "label": "Other (please provide details below):",
+                                    "value": "Other (please provide details below):"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "multi-nodes-reason-other",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.label.storage-options"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "storage-class",
+                                    "label": "arms.field.label.storage-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "dropdown-fixedvalue",
+                                    "field-name": "data-protection-class",
+                                    "label": "arms.field.label.data-protection-class",
+                                    "options": [
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)"
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        },
+                                        {
+                                            "label": "Other Storage Class",
+                                            "value": "Other Storage Class"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.label.dataset-metrics"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.data-size",
+                            "help": "arms.field.help.data-size"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "data-size",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-size",
+                                "focus-id": "data-size",
+                                "validation-messages": {
+                                    "required": "Size of data is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.data-growth",
+                            "help": "arms.field.help.data-growth"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "data-growth",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "data-growth",
+                                "focus-id": "data-growth",
+                                "validation-messages": {
+                                    "required": "Growth rate is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dataset-file-number",
+                            "help": "arms.field.help.dataset-file-number"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "dataset-file-number",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "dataset-file-number",
+                                "focus-id": "dataset-file-number",
+                                "validation-messages": {
+                                    "required": "Number of files is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-maxsize",
+                                    "help": "arms.field.help.dataset-file-maxsize"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-maxsize",
+                                    "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-maxsize",
+                                        "focus-id": "dataset-file-maxsize",
+                                        "validation-messages": {
+                                            "required": "Size of largest file is required"
+                                        }
+                                    },
+                                    "additional-classes": "fileSizeInput"
+                                }
+                            ],
+                            "additional-classes": "inline-block-component"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.dataset-file-minsize",
+                                    "help": "arms.field.help.dataset-file-minsize"
+                                },
+                                {
+                                    "component-type": "text-input",
+                                    "field-name": "dataset-file-minsize",
+                                    "label": "",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "dataset-file-minsize",
+                                        "focus-id": "dataset-file-minsize",
+                                        "validation-messages": {
+                                            "required": "Size of smallest file is required"
+                                        }
+                                    },
+                                    "additional-classes": "fileSizeInput"
+                                }
+                            ],
+                            "additional-classes": "inline-block-component"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.vivo-Dataset.dc.format",
+                            "help": "arms.field.help.vivo-Dataset.dc.format"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "vivo-Dataset.dc.format",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "vivo-Dataset.dc.format",
+                                "focus-id": "vivo-Dataset.dc.format",
+                                "validation-messages": {
+                                    "required": "Format of data is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.user-base"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "current-user-number",
+                            "label": "arms.field.label.current-user-number"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.user-number",
+                            "help": "arms.field.help.user-number"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "user-number",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "<10 users",
+                                    "value": "<10 users"
+                                },
+                                {
+                                    "label": "<50 users",
+                                    "value": "<50 users"
+                                },
+                                {
+                                    "label": "<100 users",
+                                    "value": "<100 users"
+                                },
+                                {
+                                    "label": "<500 users",
+                                    "value": "<500 users"
+                                },
+                                {
+                                    "label": "<1000 users",
+                                    "value": "<1000 users"
+                                },
+                                {
+                                    "label": ">1000 users",
+                                    "value": ">1000 users"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.user-access-frequency",
+                            "help": "arms.field.help.user-access-frequency"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "user-access-frequency",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "Daily",
+                                    "value": "Daily"
+                                },
+                                {
+                                    "label": "Weekly",
+                                    "value": "Weekly"
+                                },
+                                {
+                                    "label": "Monthly",
+                                    "value": "Monthly"
+                                },
+                                {
+                                    "label": "Ad Hoc",
+                                    "value": "Ad Hoc"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.field.label.ingest",
+                            "help": "arms.field.help.ingest"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-1qtr",
+                                    "label": "arms.field.label.ingest-1qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-2qtr",
+                                    "label": "arms.field.label.ingest-2qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-3qtr",
+                                    "label": "arms.field.label.ingest-3qtr",
+                                    "format": "MM yy",
+                                    "wrapper-class": "inline-block-component"
+                                },
+                                {
+                                    "component-type": "date-picker",
+                                    "field-name": "ingest-4qtr",
+                                    "label": "arms.field.label.ingest-4qtr",
+                                    "format": "MM yy",
+                                    "validation": {
+                                        "save-rules": [
+                                            "required"
+                                        ],
+                                        "validation-id": "ingest-4qtr",
+                                        "focus-id": "ingest-4qtr",
+                                        "validation-messages": {
+                                            "required": "Anticipated ingesgt of 100% is required"
+                                        }
+                                    },
+                                    "wrapper-class": "inline-block-component"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close5",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Data access and re-use",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.researchdata-access"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.accessRestrictions",
+                            "help": "arms.field.help.accessRestrictions"
+                        },
+                        {
+                            "component-type": "access-restrictions"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-rights.skos-note",
+                            "help": "arms.field.help.dc-rights.skos-note"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "dc:rights.skos:note",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.data-licence"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "p",
+                            "content": "arms.description.data-licence"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.dc-license"
+                        },
+                        {
+                            "component-type": "data-source-dropdown",
+                            "field-name": "dc:license.dc:identifier",
+                            "field-name-label": "dc:license.skos:prefLabel",
+                            "label": "",
+                            "sourceUrl": "workflows/forms/data/licences.json",
+                            "idKey": "id",
+                            "labelKey": "label",
+                            "listKey": "results"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "dc:license.other",
+                            "label": "arms.field.label.dc-license.other",
+                            "validation": {
+                                "save-rules": [
+                                    {
+                                        "licenceCheck": {
+                                            "validationType": "atLeastOneRequired",
+                                            "params": [ "dc:license.dc:identifier" ]
+                                        }
+                                    }
+                                ],
+                                "validation-id": "dc:license.other",
+                                "focus-id": "dc:license.dc:identifier",
+                                "validation-messages": {
+                                    "licenceCheck": "Please either select one from licence or provide one"
+                                }
+                            }
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.citation",
+                            "help": "arms.field.help.citation"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "citation",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close6",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Data migration",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.migration"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "data-medium-migration-assistance",
+                            "button-for": "arms.field.label.data-medium-migration-assistance",
+                            "buttons": [
+                                {
+                                    "label": "Yes",
+                                    "value": "Yes"
+                                },
+                                {
+                                    "label": "No",
+                                    "value": "No"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.data-medium-migration",
+                            "help": "arms.field.help.data-medium-migration"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "data-medium-migration",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.migrate-required-resources",
+                            "help": "arms.field.help.migrate-required-resources"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "migrate-required-resources",
+                            "label": ""
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close7",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Review",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.review"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "p",
+                            "content": "arms.description.notes"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.review-note"
+                        },
+                        {
+                            "component-type": "notes-table",
+                            "metadataPrefix": "dataReviewNotes",
+                            "modelName": "dataReviewNotesModel",
+                            "tableName": "ReviewNotesTable",
+                            "visibleNoteLength": 60,
+                            "columns": [
+                                {
+                                    "columnHeader": "Date added"
+                                },
+                                {
+                                    "columnHeader": "Added by"
+                                },
+                                {
+                                    "columnHeader": "Note"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.heading.review-attachments"
+                        },
+                        {
+                            "component-type": "file-attachments",
+                            "widgetname": "review_attachment",
+                            "attachType": "review-attachments",
+                            "accessRights": "public",
+                            "enableDescription": "true",
+                            "addFunction": "addfileUploadModelRow"
+                        },
+                        {
+                            "component-type": "file-upload-table",
+                            "modelName": "fileUploadModel",
+                            "tableName": "fileUploadTable",
+                            "initialiseFunctionName": "review_attachment_getUploadedFiles",
+                            "removeFunction": "review_attachment_deleteFile"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close8",
+                                    "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "heading": "Allocation committee",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.allocation-committee"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "allocated:node",
+                            "disabled": true,
+                            "label": "arms.field.label.node"
+                        },
+                        {
+                            "component-type": "knockout-text-block1",
+                            "field-name": "requestID",
+                            "type": "label",
+                            "content": "arms.field.label.allocationId"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.review-PartA"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-proposed",
+                            "label": "arms.field.label.reviewer-proposed"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-assessment",
+                            "label": "arms.field.label.reviewer-assessment"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-rationale1",
+                            "label": "arms.field.label.reviewer-rationale1"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-rationale2",
+                            "label": "arms.field.label.reviewer-rationale2"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-rationale3",
+                            "label": "arms.field.label.reviewer-rationale3"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "reviewer-summary",
+                            "label": "arms.field.label.reviewer-summary"
+                        },
+                        {
+                            "component-type": "date-picker",
+                            "field-name": "completion-date",
+                            "label": "arms.field.label.completion-date"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.review-PartB"
+                        },
+                        {
+                            "component-type": "costing-table",
+                            "type": "costing-table"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.instanceA-location"
+                        },
+                        {
+                            "component-type": "dropdown-fixedvalue",
+                            "field-name": "instanceA-location",
+                            "label": "",
+                            "options": [
+                                {
+                                    "label": "",
+                                    "value": ""
+                                },
+                                {
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE"
+                                },
+                                {
+                                    "label": "eRSA",
+                                    "value": "eRSA"
+                                },
+                                {
+                                    "label": "Intersect",
+                                    "value": "Intersect"
+                                },
+                                {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.instanceB-location"
+                        },
+                        {
+                            "component-type": "dropdown-fixedvalue",
+                            "field-name": "instanceB-location",
+                            "label": "",
+                            "multiple": true,
+                            "options": [
+                                {
+                                    "label": "QCIF-BNE",
+                                    "value": "QCIF-BNE"
+                                },
+                                {
+                                    "label": "eRSA",
+                                    "value": "eRSA"
+                                },
+                                {
+                                    "label": "Intersect",
+                                    "value": "Intersect"
+                                },
+                                {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "cost-table"
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "cost-details",
+                            "fields": [
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "25%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-1qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-1qtr:B:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "50%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-2qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-2qtr:B:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "75%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-3qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-3qtr:B:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "100%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-4qtr:B:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "group",
+                            "template": "group-table",
+                            "additional-class": "tableForm",
+                            "fields": [
+                                {
+                                    "component-type": "group",
+                                    "template": "group-thead",
+                                    "fields": [
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-th",
+                                            "additional-class": "tableForm",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-block",
+                                                    "type": "span",
+                                                    "content": "Milestones",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-th",
+                                            "additional-class": "tableForm",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-block",
+                                                    "type": "span",
+                                                    "content": "Status",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-th",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-block",
+                                                    "type": "span",
+                                                    "content": "indicative date",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tbody",
+                                    "fields": [
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-tr",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-block",
+                                                    "type": "td",
+                                                    "content": "Discovery"
+                                                },
+                                                {
+                                                    "component-type": "group",
+                                                    "template": "group-td",
+                                                    "fields": [
+                                                        {
+                                                            "component-type": "text-input",
+                                                            "field-name": "discover:status",
+                                                            "label": "",
+                                                            "wrapper-class": "inline"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "component-type": "group",
+                                                    "template": "group-td",
+                                                    "fields": [
+                                                        {
+                                                            "component-type": "date-picker",
+                                                            "field-name": "discover:date",
+                                                            "label": "",
+                                                            "wrapper-class": "inline"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-tr",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-block",
+                                                    "type": "td",
+                                                    "content": "Accessibility"
+                                                },
+                                                {
+                                                    "component-type": "group",
+                                                    "template": "group-td",
+                                                    "fields": [
+                                                        {
+                                                            "component-type": "text-input",
+                                                            "field-name": "accessibility:status",
+                                                            "label": "",
+                                                            "wrapper-class": "inline"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "component-type": "group",
+                                                    "template": "group-td",
+                                                    "fields": [
+                                                        {
+                                                            "component-type": "date-picker",
+                                                            "field-name": "accessibility:date",
+                                                            "label": "",
+                                                            "wrapper-class": "inline"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "standard-button",
+                            "button-name": "save-close9",
+                            "label": "Save and close",
+                            "action": "save",
+                            "closeUrl": "home"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Approval",
+                    "fields": [
+                        {
+                            "component-type": "text-block",
+                            "type": "h1",
+                            "content": "arms.heading.approval"
+                        },
+                        {
+                            "component-type": "textarea",
+                            "field-name": "committee-feedback",
+                            "label": "arms.field.label.committee-feedback"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.approvalBy"
+                        },
+                        {
+                            "component-type": "radio-button",
+                            "field-name": "approvalBy",
+                            "button-for": "",
+                            "buttons": [
+                                {
+                                    "label": "Approved for REDS",
+                                    "value": "Approved for REDS"
+                                },
+                                {
+                                    "label": "Approved for CDS",
+                                    "value": "Approved for CDS"
+                                },
+                                {
+                                    "label": "Approved for Data Storage",
+                                    "value": "Approved for Data Storage"
+                                }
+                            ]
+                        },
+                        {
+                            "component-type": "transition-control",
+                            "transitions": [
+                                {
+                                    "name": "Submit",
+                                    "type": "button",
+                                    "form-submit-action": "next",
+                                    "close": true,
+                                    "closeUrl": "home"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "buttons": [],
+            "form-footer": "armsform-footer",
+            "form-layout": {
+                "component-type": "tabbed-wizard",
+                "tabHeaderIdentifier": "armsTabHeader",
+                "wizardDefPath": "wizard-definitions/arms-submitted.json"
+            },
+            "validation-function": {
+                "component-type": "active-tab",
+                "tabHeaderIdentifier": "armsTabHeader"
+            }
         }
     }
 }
