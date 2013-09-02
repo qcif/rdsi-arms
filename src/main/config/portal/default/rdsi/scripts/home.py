@@ -26,7 +26,7 @@ class HomeData:
         if auth.has_role("admin"):
             dashboard = "admin"
             print "User has admin role"
-        elif auth.has_role("reviewer"):
+        elif auth.has_role("reviewer") or auth.has_role("approver") or auth.has_role("committee"):
             dashboard = "reviewer"
             print "User has reviewer role"
         

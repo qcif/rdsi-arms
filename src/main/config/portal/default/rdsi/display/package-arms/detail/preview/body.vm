@@ -226,6 +226,11 @@
 </dl>
 #if($page)
 
+#if($page.authentication.has_role('committee'))
+<p>
+	put a table here
+</p>
+#end
 #else
 </body>
 </html>

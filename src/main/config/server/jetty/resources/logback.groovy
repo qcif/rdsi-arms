@@ -64,10 +64,10 @@ appender("AMQ", RollingFileAppender) {
     pattern = "%d %-8X{name} %-6p %-20.20c{0} %m%n"
   }
 }
-appender("JCU", RollingFileAppender) {
-  file = "${logHome}/logs/jcu.log"
+appender("SHIB", RollingFileAppender) {
+  file = "${logHome}/logs/shib.log"
   rollingPolicy(TimeBasedRollingPolicy) {
-    fileNamePattern = "${logHome}/logs/archives/%d{yyyy-MM}_jcu.zip"
+    fileNamePattern = "${logHome}/logs/archives/%d{yyyy-MM}_shib.zip"
     maxHistory = 30
   }
   encoder(PatternLayoutEncoder) {
@@ -97,7 +97,7 @@ appender("SPRING", RollingFileAppender) {
 	}
   }
 root(ALL)
-logger("au.edu.jcu", TRACE, ["JCU"])
+logger("au.edu.jcu", TRACE, ["SHIB"])
 logger("com.googlecode.fascinator", DEBUG, ["SIFT"])
 logger("org.apache.activemq", WARN, ["AMQ"])
 logger("org.apache.solr", INFO, ["SOLR"])
