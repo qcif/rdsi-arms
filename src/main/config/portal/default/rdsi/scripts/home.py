@@ -25,9 +25,12 @@ class HomeData:
         dashboard = "user"
         if auth.has_role("admin"):
             dashboard = "admin"
-            print "User has admin role"
-        elif auth.has_role("reviewer") or auth.has_role("approver") or auth.has_role("committee"):
+            # print "User has admin role"
+        elif auth.has_role("reviewer") or auth.has_role("approver"):
             dashboard = "reviewer"
-            print "User has reviewer role"
+            # print "User has reviewer role"
+        elif auth.has_role("commitee"):
+            dashboard = "commitee"
+            # print "User has commitee role"
         
         context["response"].sendRedirect("dashboards/" + dashboard)
