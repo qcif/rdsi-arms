@@ -904,42 +904,22 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:givenName",
-                                    "label": "arms.field.label.givenName",
+                                    "label": "arms.field.label.optional.givenName",
                                     "additional-classes": "givenNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:givenName",
-                                        "focus-id": "nodecontact:givenName",
-                                        "validation-messages": {
-                                            "required": "Node contact: given name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:familyName",
-                                    "label": "arms.field.label.familyName",
+                                    "label": "arms.field.label.optional.familyName",
                                     "additional-classes": "familyNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:familyName",
-                                        "focus-id": "nodecontact:familyName",
-                                        "validation-messages": {
-                                            "required": "Node contact: family name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -951,35 +931,15 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:email",
-                                    "label": "arms.field.label.email",
+                                    "label": "arms.field.label.optional.email",
                                     "additional-classes": "emailField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:email",
-                                        "focus-id": "nodecontact:email",
-                                        "validation-messages": {
-                                            "required": "Node contact: email is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:phone",
-                                    "label": "arms.field.label.phone",
+                                    "label": "arms.field.label.optional.phone",
                                     "additional-classes": "telephoneField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:phone",
-                                        "focus-id": "nodecontact:phone",
-                                        "validation-messages": {
-                                            "required": "Node contact: telephone is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -989,16 +949,6 @@
                             "field-name": "nodecontact:node",
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "nodecontact:node",
-                                "focus-id": "nodecontact:node",
-                                "validation-messages": {
-                                    "required": "Node contact: node is required"
-                                }
-                            },
                             "wrapper-class": "inline-block-component"
                         },
                         {
@@ -1432,14 +1382,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -1452,14 +1402,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -3065,14 +3015,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -3085,14 +3035,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -4055,11 +4005,31 @@
                             ]
                         },
                         {
-                            "component-type": "standard-button",
-                            "button-name": "save-close9",
-                            "label": "Save and close",
-                            "action": "save",
-                            "closeUrl": "home"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+		                        {
+		                            "component-type": "standard-button",
+		                            "button-name": "save-close9",
+		                            "label": "Save and close",
+		                            "action": "save",
+		                            "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+		                        },
+		                        {
+		                            "component-type": "transition-control",
+		                            "transitions": [
+		                                {
+		                                    "name": "Next",
+		                                    "form-submit-action": "save",
+		                                    "type": "button"
+		                                }
+		                            ],
+		                            "additional-classes": "next-button",
+		                            "wrapper-class": "inline-component"
+		                        }
+		                      ]
                         }
                     ]
                 },
@@ -5469,14 +5439,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -5489,14 +5459,14 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "MM yy",
+                                    "format": "dd/mm/yy",
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -6459,11 +6429,31 @@
                             ]
                         },
                         {
-                            "component-type": "standard-button",
-                            "button-name": "save-close9",
-                            "label": "Save and close",
-                            "action": "save",
-                            "closeUrl": "home"
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "workflow-controls",
+                            "fields": [
+		                        {
+		                            "component-type": "standard-button",
+		                            "button-name": "save-close9",
+		                            "label": "Save and close",
+		                            "action": "save",
+		                            "closeUrl": "home",
+                                    "wrapper-class": "inline-component"
+		                        },
+		                        {
+		                            "component-type": "transition-control",
+		                            "transitions": [
+		                                {
+		                                    "name": "Next",
+		                                    "form-submit-action": "save",
+		                                    "type": "button"
+		                                }
+		                            ],
+		                            "additional-classes": "next-button",
+		                            "wrapper-class": "inline-component"
+		                        }
+		                      ]
                         }
                     ]
                 },
