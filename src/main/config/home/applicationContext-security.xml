@@ -28,7 +28,7 @@
 		<intercept-url pattern="/**/download/**/*.tfPackage" access="hasRole('admin')" />
 		<intercept-url pattern="/**/download/**/request.pdf" access="hasDownloadAccess() and (hasAnyRole('reviewer','admin'))" />
 		<intercept-url pattern="/**/download/**/*" access="hasDownloadAccess()" />
-		<intercept-url pattern="/**/detail/*" access="hasViewAccess()" />		
+		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('commitee')"/>		
 		<intercept-url pattern="/**/*.*" access="permitAll" />
 		<intercept-url pattern="/*/**" access="isAuthenticated()" />
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />

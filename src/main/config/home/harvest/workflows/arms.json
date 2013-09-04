@@ -78,11 +78,11 @@
         },
         {
             "name": "arms-allocation-commitee",
-            "label": "Allocation commitee",
+            "label": "Allocation commitee review",
             "description": "Records for allocation commitee to approve.",
             "owner_edit_allowed": "false",
-            "security": ["commitee","approver","admin"],
-            "visibility": ["commitee","approver","admin"],
+            "security": ["reviewer",  "approver","admin"],
+            "visibility": ["reviewer", "commitee","approver","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-approved" }],
             "template": "workflows/simpleworkflow"
