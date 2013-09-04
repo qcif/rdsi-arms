@@ -226,17 +226,41 @@
 </dl>
 #if($page)
 
+#if($page.authentication.has_role('reviewer'))
+#set($responses = $self.getComitteeResponses())
+#set($members = $responses.keySet())
+#if(!$members.isEmpty())
+<h4>Committee responses</h4>
+<table>
+<tr>
+	<th>Member</th>
+	<th>Response</th>
+	<th>Comment</th>
+</tr>
+#foreach($key in $members)
+<tr>
+#set($response = $responses.get($key))
+<td>$key</td>
+<td>$response.get("approved")</td>
+<td>$response.get("approval_comment")</td>
+</tr>
+#end
+</table>
+#end
+#end
+
 #if($page.authentication.has_role('commitee')) ## Actual role has to be used.
+#set($committeeResponse = $self.getComitteeResponse($page.authentication.get_username()))
 <h4>Allocation commitee has to say</h4>
-<form>
-<input type="hidden" name="requestID" value="#getValue("requestID")" />
+<form action="$portalPath/allocation-committee/committee.script" method="POST">
+<input type="hidden" name="oid" value="$oid" />
 <p><span>Approved</span>
-<label><input name="approved" class="jaffa-field" value="Yes" type="radio">Yes</label>
-<label><input name="approved" class="jaffa-field" value="No" type="radio">No</label>
+<label><input name="approved" value="Yes" type="radio" #if($committeeResponse.get("approved") == "Yes") checked #end))>Yes</label>
+<label><input name="approved" value="No" type="radio" #if($committeeResponse.get("approved") != "Yes") checked #end>No</label>
 </label>
 </p>
 <label for="approval_comment">Comment</label>
-<textarea name="approval_comment" id="approval_comment"></textarea>
+<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$committeeResponse.get("approval_comment")#end</textarea>
 <input type="submit" value="Submit" />
 </form>
 #end

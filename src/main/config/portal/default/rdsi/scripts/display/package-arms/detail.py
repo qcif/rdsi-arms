@@ -16,7 +16,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-from com.googlecode.fascinator.common import FascinatorHome, JsonSimple
+from com.googlecode.fascinator.common import FascinatorHome, JsonSimple, JsonObject
 from com.googlecode.fascinator.transformer.jsonVelocity import Util
 import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
@@ -29,7 +29,21 @@ class DetailData:
     def __activate__(self, context):
         storage = context["Services"].getStorage()
         storedObj = storage.getObject(context["metadata"].getFirst("storage_id"))
-        self.item = preview.loadPackage(storedObj);
+        self.item = preview.loadPackage(storedObj)
+        
+        self.committeeResponses = None
+        payloadList = storedObj.getPayloadIdList()
+        if payloadList.contains("committee-responses.metadata"):
+            committeeResponsePayload = storedObj.getPayload("committee-responses.metadata")
+            self.committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
+        else:
+            self.committeeResponses = JsonObject()
+
+    def getComitteeResponses(self):
+        return self.committeeResponses
+    
+    def getComitteeResponse(self, userName):
+        return self.committeeResponses.get(userName)
 
     def getDisplayList(self):
-        return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))
+        return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))   
