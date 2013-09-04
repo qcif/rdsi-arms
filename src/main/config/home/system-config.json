@@ -47,8 +47,9 @@
         "trustTokens": {}
     },
     "accesscontrol": {
-        "type": "derby",
-        "derby": {}
+        "type": "hibernateAccessControl",
+        "derby": {},
+        "hibernateAccessControl":{}
     },
     "authentication": {
         "type": "internal",
