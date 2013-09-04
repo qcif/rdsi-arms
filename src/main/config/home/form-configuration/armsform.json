@@ -1023,15 +1023,11 @@
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
-                            "component-type": "dropdown-fixedvalue",
+                            "component-type": "checkbox",
                             "field-name": "rdsi-secondary-nodes",
-                            "label": "",
-                            "multiple": true,
-                            "options": [
-                                {
-                                    "label": "",
-                                    "value": ""
-                                },
+                            "box-for": "",
+                            "multiline": true,
+                            "boxes": [
                                 {
                                     "label": "QCIF-BNE",
                                     "value": "QCIF-BNE"
@@ -2656,15 +2652,11 @@
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
-                            "component-type": "dropdown-fixedvalue",
+                            "component-type": "checkbox",
                             "field-name": "rdsi-secondary-nodes",
-                            "label": "",
-                            "multiple": true,
-                            "options": [
-                                {
-                                    "label": "",
-                                    "value": ""
-                                },
+                            "box-for": "",
+                            "multiline": true,
+                            "boxes": [
                                 {
                                     "label": "QCIF-BNE",
                                     "value": "QCIF-BNE"
@@ -5080,15 +5072,11 @@
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
-                            "component-type": "dropdown-fixedvalue",
+                            "component-type": "checkbox",
                             "field-name": "rdsi-secondary-nodes",
-                            "label": "",
-                            "multiple": true,
-                            "options": [
-                                {
-                                    "label": "",
-                                    "value": ""
-                                },
+                            "box-for": "",
+                            "multiline": true,
+                            "boxes": [
                                 {
                                     "label": "QCIF-BNE",
                                     "value": "QCIF-BNE"
