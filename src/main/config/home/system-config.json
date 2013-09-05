@@ -48,7 +48,6 @@
     },
     "accesscontrol": {
         "type": "hibernateAccessControl",
-        "derby": {},
         "hibernateAccessControl":{}
     },
     "authentication": {
