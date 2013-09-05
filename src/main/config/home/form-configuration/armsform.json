@@ -1378,14 +1378,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -1398,14 +1406,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -3007,14 +3023,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -3027,14 +3051,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -5427,14 +5459,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -5447,14 +5487,22 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
-                                    "format": "dd/mm/yy",
+                                    "format": "MM yy",
+                                    "month-year": true,
+                                    "options": "showButtonPanel: true",
+                                    "currentText": "Current month",
+                                    "closeText": "Select",
                                     "validation": {
                                         "save-rules": [
                                             "required"
