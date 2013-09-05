@@ -1,4 +1,4 @@
-<div id="unitCostTable" data-bind="stopBindings: true" >
+<div id="unitCostTable" data-bind="stopBindings: true">
 <table>
 <thead><tr>
 <th>&nbsp;</th><th>Standard Disk</th><th>Tape</th><th>Volume</th><th>High speed disk</th>
@@ -6,10 +6,10 @@
 <tbody>
         <tr>
             <td>Unit cost per TB</td>
-             <td><input type="text" class="jaffa-field" id="unitcost:standard" data-bind="value: unitcost.standard" /></td>
-             <td><input type="text" class="jaffa-field" id="unitcost:tape" data-bind="value: unitcost.tape" /></td>
-             <td><input type="text" class="jaffa-field" id="unitcost:volume" data-bind="value: unitcost.volume" /></td>
-             <td><input type="text" class="jaffa-field" id="unitcost:highspeed" data-bind="value: unitcost.highspeed" /></td>
+             <td><input type="text"  data-bind="value: standard"/></td>
+             <td><input type="text"  data-bind="value: tape" /></td>
+             <td><input type="text"  data-bind="value: volume" /></td>
+             <td><input type="text"  data-bind="value: highspeed" /></td>
         </tr>
     </tbody>
 </table>
@@ -17,29 +17,69 @@
 
 <script>
 
+var unitCost = {
+    standard: ko.observable(""),
+    tape: ko.observable(""),
+    volume: ko.observable(""),
+    highspeed: ko.observable("")
+};
+
 startupCompleteListeners.push("initialiseCostingTable");
+
 function initialiseCostingTable() {
+
 jQuery.getJSON('$portalPath/form-components/unitcosts.json', function(data) {
-	var modelName = 'unitcost';
-    var model = {};
-    model.unitcost = {};
-	function iniField(baseKey) {
-        var id = modelName + ':' + baseKey; 
-	    model[modelName][baseKey] = ko.observable();
-	    if(jaffa.serverData[id] != "") {
-	        model[modelName][baseKey](jaffa.serverData[id]);
-	    } else {
-	        model[modelName][baseKey](data[baseKey]); 
-	    }
-        model[modelName][baseKey].subscribe(function(newValue) {jaffa.serverData[id] = newValue;});
-	}
-    iniField("standard");
-    iniField("tape");
-    iniField("volume");
-    iniField("highspeed");
-	ko.applyBindings(model, $("[id='unitCostTable']")[0]);
-	
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:standard"]))) {
+	unitCost.standard(data["standard"]);
+    } else {
+	unitCost.standard(jaffa.serverData["unitcost:standard"]);
+    }
+    if(isNaN(parseInt(jaffa.serverData["unitcost:tape"]))) {
+	unitCost.tape(data["tape"]);
+    } else {
+	unitCost.tape(jaffa.serverData["unitcost:tape"]);
+    }
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:volume"]))) {
+	unitCost.volume(data["volume"]);
+    } else {
+	unitCost.volume(jaffa.serverData["unitcost:volume"]);
+    }
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:highspeed"]))) {
+	unitCost.highspeed(data["highspeed"]);
+    } else {
+	unitCost.highspeed(jaffa.serverData["unitcost:highspeed"]);
+    }
+    
 });
+
+
+    unitCost.standard.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:standard"] = newValue;
+    });
+    
+    unitCost.tape.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:tape"] = newValue;
+	});
+    
+    unitCost.highspeed.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:highspeed"] = newValue;
+	});
+    
+    unitCost.volume.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:volume"] = newValue;
+	});
+		
 }
+
+
+
+
+
+
+ko.applyBindings(unitCost, $("[id='unitCostTable']")[0]);
+
 
 </script>
