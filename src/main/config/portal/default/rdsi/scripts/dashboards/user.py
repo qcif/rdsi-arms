@@ -154,3 +154,14 @@ class UserData:
 #         workflow_step == arms-request, arms-submitted, arms-approved, arms-retired
         print "Query about %s." % stageName
         return self._searchStage(stageName).getResults()
+    
+    def getShared(self):
+        current_user = self.vc("page").authentication.get_username()
+        security_roles = self.vc("page").authentication.get_roles_list()
+        security_exceptions = 'security_exception:"' + current_user + '"'
+        owner_query = 'owner:"' + current_user + '"'
+        shared = self._searchSets(Services.getIndexer(), "arms", False, security_exceptions + " -"+owner_query)
+        if shared:
+            return shared.getResults()
+        else:
+            return ArrayList()

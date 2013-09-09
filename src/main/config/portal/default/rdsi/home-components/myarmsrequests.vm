@@ -10,6 +10,7 @@
             <th>#displayMessage('arms.home.requests.table.created')</th>
             <th>#displayMessage('arms.home.requests.table.modified')</th>
             <th>#displayMessage('arms.home.requests.table.manage')</th>
+			<th>Share</th>            
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td>$self.formatDate($item.get("create_timestamp"))</td>
             <td>$self.formatDate($item.get("last_modified"))</td>
 	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
+	        <td><a href="#" onclick="manage_access('$oid');" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
 	       </td>
 	    </tr>
 	#end
@@ -58,3 +60,57 @@
 #end
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
+
+#parseTemplate("form-components/access-control.vm")
+
+#set($results = $self.getShared())
+#if ($results && $results.size() > 0)
+#set($menuTitle = "#displayMessage('arms.home.requests.shared.title')" )
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+<table>
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody>
+	#foreach($item in $results)
+	    #set($oid = $item.get("id"))
+	    <tr>
+	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
+            <td>$self.formatDate($item.get("create_timestamp"))</td>
+            <td>$self.formatDate($item.get("last_modified"))</td>
+	        <td>$item.get("workflow_step_label")</td>
+	    </tr>
+	#end
+    </tbody>
+</table>
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+#end
+
+<script>
+    function prepareHelps() {
+    	var help_contents = $('.pre-help-content');
+    	for (var i = 0; i < help_contents.length; i++ ) {
+    		$(help_contents[i]).hide().attr("class","help-content");
+    		var helpToggleHtml = "<button class=\"jaffaHelpToggle\"></button>";
+    	    helpToggle = $(helpToggleHtml);
+    	    helpToggle.button({icons: {primary:'ui-icon-help'}});
+
+    	    // Setup click logic
+    	    helpToggle.click(function(){$(this).next().toggle('fast');});
+
+    	    // And attach to our container
+    	    helpToggle.insertBefore(help_contents[i]);	
+    	}
+    }
+ $(document).ready(function() {
+	prepareHelps();
+ });
+
+</script>
