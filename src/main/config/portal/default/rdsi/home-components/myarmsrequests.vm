@@ -9,8 +9,9 @@
             <th>#displayMessage('arms.home.requests.table.dataset')</th>
             <th>#displayMessage('arms.home.requests.table.created')</th>
             <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.table.manage')</th>
-			<th>Share</th>            
+            <th>#displayMessage('arms.home.requests.manage.edit')</th>
+	    <th>Share</th>
+	    <th>Delete</th>            
         </tr>
     </thead>
     <tbody>
@@ -18,11 +19,11 @@
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-            <td>$self.formatDate($item.get("create_timestamp"))</td>
-            <td>$self.formatDate($item.get("last_modified"))</td>
+		<td>$self.formatDate($item.get("create_timestamp"))</td>
+		<td>$self.formatDate($item.get("last_modified"))</td>
 	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
 	        <td><a href="#" onclick="manage_access('$oid');" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
-	       </td>
+	        <td><a href="#" onclick="change_owner('$oid');" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
 	    </tr>
 	#end
     </tbody>
