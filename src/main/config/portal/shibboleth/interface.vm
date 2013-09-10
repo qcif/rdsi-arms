@@ -1,2 +1,3 @@
-<img src="/redbox/default/images/aaf_logo.gif">
-<a href="$shibboleth_url">AAF Login</a>
+<a href="$shibboleth_url">
+<img alt="AAF Login" src="https://raw.github.com/qcif/redbox-rdsi/master/src/main/config/portal/default/rdsi/images/aaf_logo.gif">
+</a>
