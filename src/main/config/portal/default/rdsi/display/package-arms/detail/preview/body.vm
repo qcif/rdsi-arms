@@ -20,8 +20,11 @@
 ## common part starts from here
 #if ($isReviewer)
 <p>[Reviewer's version]</p>
+<p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
+#else
 <p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
 #end
+
 <p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
 <h4>#displayMessage("arms.heading.request-type")</h4>
@@ -43,8 +46,8 @@
     <tbody>
 	#foreach($v in $repeats)
 	<tr>
-		<td>$v.get("description").trim()</td>
 		<td>$v.get("url").trim()</td>
+		<td>$v.get("description").trim()</td>
 	</tr>
 	#end
     </tbody>
@@ -213,12 +216,14 @@
 	<dt>Terms of use:</dt>
 	<dd>#getValue("dc:rights.skos:note")</dd>
 	<dt>Licence:</dt>
-	<dd>#getValue("dc:accessRights") #getValue("dc:license.other")</dd>
+	<dd>#getValue("dc:license.dc:identifier") #getValue("dc:license.other")</dd>
 	<dt>#displayMessage("arms.field.label.citation")</dt>
 	<dd>#getValue("citation")</dd>
 </dl>
 <h4>#displayMessage("arms.heading.migration")</h4>
 <dl>
+	<dt>Help needed to migrate the data from its current environment to the Node:</dt>
+	<dd>#getValue("data-medium-migration-assistance")</dd>
 	<dt>Data medium and migration:</dt>
 	<dd>#getValue("data-medium-migration")</dd>
 	<dt>Required tools and interfaces:</dt>
