@@ -74,7 +74,8 @@
                                     "button-name": "save-close1",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -102,7 +103,7 @@
                             "content": "arms.heading.data-collection"
                         },
                         {
-                            "component-type": "knockout-text-block1",
+                            "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
                             "content": "arms.field.label.requestID"
@@ -237,8 +238,8 @@
                                     "component-type": "standard-button",
                                     "button-name": "save-close2",
                                     "label": "Save and close",
-                                    "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -275,6 +276,7 @@
                             "field-name": "merit-sectionA",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -326,6 +328,7 @@
                             "field-name": "merit-sectionB",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -373,6 +376,7 @@
                             "field-name": "merit-sectionC",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "boxes": [
                                 {
                                     "label": "relevant to a broad user base within or across disciplines and domains;",
@@ -418,46 +422,54 @@
                                 },
                                 {
                                     "label": "No",
-                                    "value": "No"
+                                    "value": "No",
+                                    "checked": true
                                 }
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.funding-details"
-                        },
-                        {
-                            "component-type": "table",
-                            "editFunction": "editFundingInfo",
-                            "addFunction": "addFundingInfo",
-                            "metadataPrefix": "fundingInfoTable",
-                            "modelName": "fundingInfoModel",
-                            "tableName": "fundingInfoTable",
-                            "initialiseMethodName": "initialiseFundingInfoTable",
-                            "addButtonText": "Add more Funding information",
-                            "columns": [
-                                {
-                                    "columnHeader": "Funder",
-                                    "propertyName": "fundingSource"
-                                },
-                                {
-                                    "columnHeader": "Grant number",
-                                    "propertyName": "grantNumber"
-                                },
-                                {
-                                    "columnHeader": "Project name",
-                                    "propertyName": "projectName"
-                                },
-                                {
-                                    "columnHeader": "Start date",
-                                    "propertyName": "startDate"
-                                },
-                                {
-                                    "columnHeader": "End date",
-                                    "propertyName": "endDate"
-                                }
-                            ]
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "fundinginfoSec",
+                            "fields": [
+		                        {
+		                            "component-type": "text-block",
+		                            "type": "label",
+		                            "content": "arms.field.label.funding-details"
+		                        },
+		                        {
+		                            "component-type": "table",
+		                            "editFunction": "editFundingInfo",
+		                            "addFunction": "addFundingInfo",
+		                            "metadataPrefix": "fundingInfoTable",
+		                            "modelName": "fundingInfoModel",
+		                            "tableName": "fundingInfoTable",
+		                            "initialiseMethodName": "initialiseFundingInfoTable",
+		                            "addButtonText": "Add more Funding information",
+		                            "columns": [
+		                                {
+		                                    "columnHeader": "Funder",
+		                                    "propertyName": "fundingSource"
+		                                },
+		                                {
+		                                    "columnHeader": "Grant number",
+		                                    "propertyName": "grantNumber"
+		                                },
+		                                {
+		                                    "columnHeader": "Project name",
+		                                    "propertyName": "projectName"
+		                                },
+		                                {
+		                                    "columnHeader": "Start date",
+		                                    "propertyName": "startDate"
+		                                },
+		                                {
+		                                    "columnHeader": "End date",
+		                                    "propertyName": "endDate"
+		                                }
+		                            ]
+		                        }
+		                      ]
                         },
                         {
                             "component-type": "group",
@@ -535,7 +547,8 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -727,12 +740,27 @@
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "h4",
-                            "content": "arms.field.label.requester",
-                            "help": "arms.field.help.requester",
-                            "additional-class": "section-heading"
-                        },
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "cust-manager",
+                            "fields": [
+		                        {
+		                            "component-type": "text-block",
+		                            "type": "h4",
+		                            "content": "arms.field.label.requester",
+		                            "help": "arms.field.help.requester",
+		                            "additional-class": "section-heading",
+		                            "wrapper-class": "inline-block-component"
+		                        },
+                                {
+                                    "component-type": "checkbox",
+                                    "field-name": "useCustodianDetials",
+                                    "box-for": "",
+                                    "boxes": [ {"label":"Use custodian details", "value":"Yes"}],
+		                            "wrapper-class": "inline-block-component"
+                                },
+		                    ]
+                        },                      
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -961,7 +989,8 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -1446,7 +1475,8 @@
                                     "button-name": "save-close5",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -1559,7 +1589,8 @@
                                     "button-name": "save-close6",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -1633,7 +1664,8 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -1668,7 +1700,8 @@
                             "button-name": "submit",
                             "label": "Submit",
                             "action": "next",
-                            "closeUrl": "home"
+                            "closeUrl": "detail",
+                            "appendOID": true
                         }
                     ]
                 }
@@ -1696,10 +1729,10 @@
                             "content": "arms.heading.data-collection"
                         },
                         {
-                            "component-type": "text-input",
+                            "component-type": "knockout-text-block",
                             "field-name": "requestID",
-                            "label": "arms.field.label.requestID",
-                            "additional-classes": ""
+                            "type": "label",
+                            "content": "arms.field.label.requestID"
                         },
                         {
                             "component-type": "text-block",
@@ -1832,7 +1865,8 @@
                                     "button-name": "save-close2",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -1869,6 +1903,7 @@
                             "field-name": "merit-sectionA",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -1920,6 +1955,7 @@
                             "field-name": "merit-sectionB",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -1967,6 +2003,7 @@
                             "field-name": "merit-sectionC",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "boxes": [
                                 {
                                     "label": "relevant to a broad user base within or across disciplines and domains;",
@@ -2012,46 +2049,54 @@
                                 },
                                 {
                                     "label": "No",
-                                    "value": "No"
+                                    "value": "No",
+                                    "checked": true
                                 }
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.funding-details"
-                        },
-                        {
-                            "component-type": "table",
-                            "editFunction": "editFundingInfo",
-                            "addFunction": "addFundingInfo",
-                            "metadataPrefix": "fundingInfoTable",
-                            "modelName": "fundingInfoModel",
-                            "tableName": "fundingInfoTable",
-                            "initialiseMethodName": "initialiseFundingInfoTable",
-                            "addButtonText": "Add more Funding information",
-                            "columns": [
-                                {
-                                    "columnHeader": "Funder",
-                                    "propertyName": "fundingSource"
-                                },
-                                {
-                                    "columnHeader": "Grant number",
-                                    "propertyName": "grantNumber"
-                                },
-                                {
-                                    "columnHeader": "Project name",
-                                    "propertyName": "grantNumber"
-                                },
-                                {
-                                    "columnHeader": "Start date",
-                                    "propertyName": "startDate"
-                                },
-                                {
-                                    "columnHeader": "End date",
-                                    "propertyName": "endDate"
-                                }
-                            ]
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "fundinginfoSec",
+                            "fields": [
+		                        {
+		                            "component-type": "text-block",
+		                            "type": "label",
+		                            "content": "arms.field.label.funding-details"
+		                        },
+		                        {
+		                            "component-type": "table",
+		                            "editFunction": "editFundingInfo",
+		                            "addFunction": "addFundingInfo",
+		                            "metadataPrefix": "fundingInfoTable",
+		                            "modelName": "fundingInfoModel",
+		                            "tableName": "fundingInfoTable",
+		                            "initialiseMethodName": "initialiseFundingInfoTable",
+		                            "addButtonText": "Add more Funding information",
+		                            "columns": [
+		                                {
+		                                    "columnHeader": "Funder",
+		                                    "propertyName": "fundingSource"
+		                                },
+		                                {
+		                                    "columnHeader": "Grant number",
+		                                    "propertyName": "grantNumber"
+		                                },
+		                                {
+		                                    "columnHeader": "Project name",
+		                                    "propertyName": "projectName"
+		                                },
+		                                {
+		                                    "columnHeader": "Start date",
+		                                    "propertyName": "startDate"
+		                                },
+		                                {
+		                                    "columnHeader": "End date",
+		                                    "propertyName": "endDate"
+		                                }
+		                            ]
+		                        }
+		                      ]
                         },
                         {
                             "component-type": "group",
@@ -2129,7 +2174,8 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -2499,42 +2545,22 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:givenName",
-                                    "label": "arms.field.label.givenName",
+                                    "label": "arms.field.label.optional.givenName",
                                     "additional-classes": "givenNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:givenName",
-                                        "focus-id": "nodecontact:givenName",
-                                        "validation-messages": {
-                                            "required": "Node contact: given name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:familyName",
-                                    "label": "arms.field.label.familyName",
+                                    "label": "arms.field.label.optional.familyName",
                                     "additional-classes": "familyNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:familyName",
-                                        "focus-id": "nodecontact:familyName",
-                                        "validation-messages": {
-                                            "required": "Node contact: family name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2546,35 +2572,15 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:email",
-                                    "label": "arms.field.label.email",
+                                    "label": "arms.field.label.optional.email",
                                     "additional-classes": "emailField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:email",
-                                        "focus-id": "nodecontact:email",
-                                        "validation-messages": {
-                                            "required": "Node contact: email is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:phone",
-                                    "label": "arms.field.label.phone",
+                                    "label": "arms.field.label.optional.phone",
                                     "additional-classes": "telephoneField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:phone",
-                                        "focus-id": "nodecontact:phone",
-                                        "validation-messages": {
-                                            "required": "Node contact: telephone is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2584,16 +2590,6 @@
                             "field-name": "nodecontact:node",
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "nodecontact:node",
-                                "focus-id": "nodecontact:node",
-                                "validation-messages": {
-                                    "required": "Node contact: node is required"
-                                }
-                            },
                             "wrapper-class": "inline-block-component"
                         },
                         {
@@ -2606,7 +2602,8 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -3091,7 +3088,8 @@
                                     "button-name": "save-close5",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -3204,7 +3202,8 @@
                                     "button-name": "save-close6",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -3278,7 +3277,8 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -3363,7 +3363,8 @@
                                     "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -3397,7 +3398,7 @@
                             "label": "arms.field.label.node"
                         },
                         {
-                            "component-type": "knockout-text-block1",
+                            "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
                             "content": "arms.field.label.allocationId"
@@ -4038,7 +4039,8 @@
 		                            "button-name": "save-close9",
 		                            "label": "Save and close",
 		                            "action": "save",
-		                            "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
 		                        },
 		                        {
@@ -4102,7 +4104,7 @@
                                     "type": "button",
                                     "form-submit-action": "next",
                                     "close": true,
-                                    "closeUrl": "home"
+                                    "closeUrl": "detail"
                                 }
                             ]
                         }
@@ -4132,10 +4134,10 @@
                             "content": "arms.heading.data-collection"
                         },
                         {
-                            "component-type": "text-input",
+                            "component-type": "knockout-text-block",
                             "field-name": "requestID",
-                            "label": "arms.field.label.requestID",
-                            "additional-classes": ""
+                            "type": "label",
+                            "content": "arms.field.label.requestID"
                         },
                         {
                             "component-type": "text-block",
@@ -4268,7 +4270,8 @@
                                     "button-name": "save-close2",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -4305,6 +4308,7 @@
                             "field-name": "merit-sectionA",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -4356,6 +4360,7 @@
                             "field-name": "merit-sectionB",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "validation": {
                                 "save-rules": [
                                     {
@@ -4403,6 +4408,7 @@
                             "field-name": "merit-sectionC",
                             "box-for": "",
                             "multiline": true,
+                            "additional-class": "ofFormCheckboxes",
                             "boxes": [
                                 {
                                     "label": "relevant to a broad user base within or across disciplines and domains;",
@@ -4448,46 +4454,54 @@
                                 },
                                 {
                                     "label": "No",
-                                    "value": "No"
+                                    "value": "No",
+                                    "checked": true
                                 }
                             ]
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.funding-details"
-                        },
-                        {
-                            "component-type": "table",
-                            "editFunction": "editFundingInfo",
-                            "addFunction": "addFundingInfo",
-                            "metadataPrefix": "fundingInfoTable",
-                            "modelName": "fundingInfoModel",
-                            "tableName": "fundingInfoTable",
-                            "initialiseMethodName": "initialiseFundingInfoTable",
-                            "addButtonText": "Add more Funding information",
-                            "columns": [
-                                {
-                                    "columnHeader": "Funder",
-                                    "propertyName": "fundingSource"
-                                },
-                                {
-                                    "columnHeader": "Grant number",
-                                    "propertyName": "grantNumber"
-                                },
-                                {
-                                    "columnHeader": "Project name",
-                                    "propertyName": "grantNumber"
-                                },
-                                {
-                                    "columnHeader": "Start date",
-                                    "propertyName": "startDate"
-                                },
-                                {
-                                    "columnHeader": "End date",
-                                    "propertyName": "endDate"
-                                }
-                            ]
+                            "component-type": "group",
+                            "template": "group-div",
+                            "additional-classes": "fundinginfoSec",
+                            "fields": [
+		                        {
+		                            "component-type": "text-block",
+		                            "type": "label",
+		                            "content": "arms.field.label.funding-details"
+		                        },
+		                        {
+		                            "component-type": "table",
+		                            "editFunction": "editFundingInfo",
+		                            "addFunction": "addFundingInfo",
+		                            "metadataPrefix": "fundingInfoTable",
+		                            "modelName": "fundingInfoModel",
+		                            "tableName": "fundingInfoTable",
+		                            "initialiseMethodName": "initialiseFundingInfoTable",
+		                            "addButtonText": "Add more Funding information",
+		                            "columns": [
+		                                {
+		                                    "columnHeader": "Funder",
+		                                    "propertyName": "fundingSource"
+		                                },
+		                                {
+		                                    "columnHeader": "Grant number",
+		                                    "propertyName": "grantNumber"
+		                                },
+		                                {
+		                                    "columnHeader": "Project name",
+		                                    "propertyName": "projectName"
+		                                },
+		                                {
+		                                    "columnHeader": "Start date",
+		                                    "propertyName": "startDate"
+		                                },
+		                                {
+		                                    "columnHeader": "End date",
+		                                    "propertyName": "endDate"
+		                                }
+		                            ]
+		                        }
+		                      ]
                         },
                         {
                             "component-type": "group",
@@ -4565,7 +4579,8 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -4935,42 +4950,22 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:givenName",
-                                    "label": "arms.field.label.givenName",
+                                    "label": "arms.field.label.optional.givenName",
                                     "additional-classes": "givenNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:givenName",
-                                        "focus-id": "nodecontact:givenName",
-                                        "validation-messages": {
-                                            "required": "Node contact: given name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:familyName",
-                                    "label": "arms.field.label.familyName",
+                                    "label": "arms.field.label.optional.familyName",
                                     "additional-classes": "familyNameField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:familyName",
-                                        "focus-id": "nodecontact:familyName",
-                                        "validation-messages": {
-                                            "required": "Node contact: family name is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -4982,35 +4977,15 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:email",
-                                    "label": "arms.field.label.email",
+                                    "label": "arms.field.label.optional.email",
                                     "additional-classes": "emailField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:email",
-                                        "focus-id": "nodecontact:email",
-                                        "validation-messages": {
-                                            "required": "Node contact: email is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 },
                                 {
                                     "component-type": "text-input",
                                     "field-name": "nodecontact:phone",
-                                    "label": "arms.field.label.phone",
+                                    "label": "arms.field.label.optional.phone",
                                     "additional-classes": "telephoneField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "nodecontact:phone",
-                                        "focus-id": "nodecontact:phone",
-                                        "validation-messages": {
-                                            "required": "Node contact: telephone is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -5020,16 +4995,6 @@
                             "field-name": "nodecontact:node",
                             "label": "arms.field.label.node",
                             "additional-classes": "nodeField",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "nodecontact:node",
-                                "focus-id": "nodecontact:node",
-                                "validation-messages": {
-                                    "required": "Node contact: node is required"
-                                }
-                            },
                             "wrapper-class": "inline-block-component"
                         },
                         {
@@ -5042,7 +5007,8 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -5527,7 +5493,8 @@
                                     "button-name": "save-close5",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -5640,7 +5607,8 @@
                                     "button-name": "save-close6",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -5714,7 +5682,8 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -5799,7 +5768,8 @@
                                     "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
-                                    "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
                                 {
@@ -5833,7 +5803,7 @@
                             "label": "arms.field.label.node"
                         },
                         {
-                            "component-type": "knockout-text-block1",
+                            "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
                             "content": "arms.field.label.allocationId"
@@ -6474,7 +6444,8 @@
 		                            "button-name": "save-close9",
 		                            "label": "Save and close",
 		                            "action": "save",
-		                            "closeUrl": "home",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
                                     "wrapper-class": "inline-component"
 		                        },
 		                        {
@@ -6538,7 +6509,7 @@
                                     "type": "button",
                                     "form-submit-action": "next",
                                     "close": true,
-                                    "closeUrl": "home"
+                                    "closeUrl": "detail"
                                 }
                             ]
                         }

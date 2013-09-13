@@ -119,3 +119,12 @@
 	margin-left: 1em;
     margin-top: 0.4em;	
 } 
+
+.component-wrapper a { color: blue; }
+
+label.ofFormCheckboxes {
+  font-weight: normal !important;
+}
+
+.cust-manager { margin-top: 1em; }
+#btnCopyCust { font-size: 80%; font-weight: bold; padding: 3px;}

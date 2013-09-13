@@ -1,3 +1,92 @@
 <link rel="stylesheet" type="text/css" href="$portalPath/css/arms-request.css" />
 ## Jira feedback widget
 <script type="text/javascript" src="https://qcifltd.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-a8zxgz-1988229788/6139/11/1.4.0-m6/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=7b97161c"></script>
+
+## toggle isFunded and fundingInfoTable
+## The section has label and knockout table, has a special class: .fundinginfoSec but has no ID
+<script type="text/javascript">
+function toggleFundingInfo() {
+	if($('input[name=isFunded]:radio:checked').val() == "Yes" ) {
+		$(".fundinginfoSec").show();
+	} else {
+		$(".fundinginfoSec").hide();
+	}
+}
+
+$('input[name=isFunded]:radio').change(toggleFundingInfo);		
+
+function copyCustodianToManager() {
+	var cb = document.getElementById('useCustodianDetials');
+	var fields =["title","givenName","familyName","role","organization","email","phone","state"];
+	var el, i;
+	if (cb.checked) {
+		var custodianModel = {}
+		for (i=0; i<8; i++) {
+			el = document.getElementById("requester:"+fields[i]);
+			document.getElementById("requester:"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
+			el.value = document.getElementById("dataprovider:"+fields[i]).value;
+			el.disabled = true;
+
+			custodianModel[fields[i]] = ko.observable($("[id='dataprovider:"+fields[i]+"']").val());
+			ko.applyBindingsToNode($("[id='dataprovider:"+fields[i]+"']")[0], { value: custodianModel[fields[i]] }, custodianModel );
+		}
+		$("[id='requester:state']").change();
+		custodianModel.title.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:title']").val(newValue);
+				}
+		 });
+		custodianModel.givenName.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:givenName']").val(newValue);
+				}
+		 });
+		custodianModel.familyName.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:familyName']").val(newValue);
+				}
+		 });
+		custodianModel.role.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:role']").val(newValue);
+				}
+		 });
+		custodianModel.organization.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:organization']").val(newValue);
+				}
+		 });
+		custodianModel.email.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:email']").val(newValue);
+				}
+		 });
+		custodianModel.phone.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:phone']").val(newValue);
+				}
+		 });
+		custodianModel.state.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:state']").val(newValue);
+					$("[id='requester:state']").change();
+				}
+		 });
+	} else {
+		for (i=0; i<8; i++) {
+			document.getElementById("requester:"+fields[i]).disabled = false;
+		}
+	}
+}
+
+// This happens after jaffa binding data and triggering changes. If binding applys at that time,
+// dropdown-list is not ready
+var bApplyCustodianBinding = window.setInterval(function() {
+	if($('.jaffa2Loading').length == 0) {
+		$("input[id='useCustodianDetials']").change(copyCustodianToManager);
+		copyCustodianToManager();
+		window.clearInterval(bApplyCustodianBinding);
+   }
+},500); 
+
+</script>								   	    
