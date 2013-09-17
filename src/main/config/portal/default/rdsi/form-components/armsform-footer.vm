@@ -79,10 +79,11 @@ function copyCustodianToManager() {
 	}
 }
 
-// This happens after jaffa binding data and triggering changes. If binding applys at that time,
-// dropdown-list is not ready
+// This happens after jaffa binding data and triggering changes. If binding applies at that time,
+// dropdown-list is not ready, we have a problem.
+// This binding only when there is the checkbox useCustodianDetials
 var bApplyCustodianBinding = window.setInterval(function() {
-	if($('.jaffa2Loading').length == 0) {
+	if($('.jaffa2Loading').length == 0 && document.getElementById('useCustodianDetials') != null) {
 		$("input[id='useCustodianDetials']").change(copyCustodianToManager);
 		copyCustodianToManager();
 		window.clearInterval(bApplyCustodianBinding);
