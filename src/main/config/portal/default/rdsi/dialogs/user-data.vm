@@ -25,14 +25,14 @@
 </script>
 
 <style type="text/css">
-   dt { float: left; width: 5em; }
+   #user-data dt { float: left; width: 5em; }
  </style>
  
 <div class="box hidden" id="user-data">
   <form id="user-data-form" method="post" action="#">
     <fieldset class="search">
       <legend>User Data</legend>
-      <dl>
+      <dl id="user-data">
         <dt>User ID:</dt>
         <dd>$page.escapeHtml($page.authentication.get_username()) </dd>
        #if ($page.authentication.is_admin())
