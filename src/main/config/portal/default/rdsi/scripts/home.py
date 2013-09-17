@@ -16,21 +16,16 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-class HomeData:
+from com.googlecode.fascinator.common import FascinatorHome
+import sys, os
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display")) 
+
+from Dashboard import Dashboard
+
+class HomeData(Dashboard):
     def __init__(self):
         pass
 
     def __activate__(self, context):
-        auth = context["page"].authentication
-        dashboard = "user"
-        if auth.has_role("admin"):
-            dashboard = "admin"
-            # print "User has admin role"
-        elif auth.has_role("reviewer") or auth.has_role("approver"):
-            dashboard = "reviewer"
-            # print "User has reviewer role"
-        elif auth.has_role("commitee"):
-            dashboard = "commitee"
-            # print "User has commitee role"
-        
-        context["response"].sendRedirect("dashboards/" + dashboard)
+        self.velocityContext = context
+        self.activate(context)
