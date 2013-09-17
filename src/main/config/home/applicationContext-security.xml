@@ -14,7 +14,7 @@
 		<intercept-url pattern="/**/accessDenied" access="permitAll" />
 		<intercept-url pattern="/**/dashboards/user" access="hasRole('requester')" />
 		<intercept-url pattern="/**/dashboards/admin" access="hasRole('admin')" />
-		<intercept-url pattern="/**/dashboards/reviewer" access="hasRole('reviewer')" />
+		<intercept-url pattern="/**/dashboards/reviewer" access="hasAnyRole('reviewer','approver')" />
 		<intercept-url pattern="/**/dashboards/commitee" access="hasRole('commitee')" />
 		<intercept-url pattern="/**/history/*" access="hasRole('admin')" />
 		<intercept-url pattern="/**/admin" access="hasRole('admin')" />                                                         
