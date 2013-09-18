@@ -676,8 +676,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "dataprovider:organization",
-                                    "label": "arms.field.label.organization",
-                                    "additional-classes": "organizationField",
+                                    "label": "arms.field.label.organization",                                    
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -688,7 +687,9 @@
                                             "required": "Data custodian: organisation is required"
                                         }
                                     },
-                                    "wrapper-class": "inline-block-component"
+                                    "wrapper-class": "inline-block-component",
+                                    "classes":"organizationField",
+                                    "lookupdata":"../process/notification/homes.script"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -855,8 +856,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "requester:organization",
-                                    "label": "arms.field.label.organization",
-                                    "additional-classes": "organizationField",
+                                    "label": "arms.field.label.organization",                                  
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -867,7 +867,9 @@
                                             "required": "Data manager: organisation is required"
                                         }
                                     },
-                                    "wrapper-class": "inline-block-component"
+                                    "wrapper-class": "inline-block-component",
+                                    "classes":"organizationField",
+                                    "lookupdata":"../process/notification/homes.script"                                    
                                 },
                                 {
                                     "component-type": "text-input",
@@ -2304,8 +2306,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "dataprovider:organization",
-                                    "label": "arms.field.label.organization",
-                                    "additional-classes": "organizationField",
+                                    "label": "arms.field.label.organization",                                    
                                     "validation": {
                                         "save-rules": [
                                             "required"
@@ -2316,7 +2317,9 @@
                                             "required": "Data custodian: organisation is required"
                                         }
                                     },
-                                    "wrapper-class": "inline-block-component"
+                                    "wrapper-class": "inline-block-component",
+                                    "classes":"organizationField",
+                                    "lookupdata":"../process/notification/homes.script"
                                 },
                                 {
                                     "component-type": "text-input",
