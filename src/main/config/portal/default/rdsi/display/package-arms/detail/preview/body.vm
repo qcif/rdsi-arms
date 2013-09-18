@@ -27,8 +27,6 @@
 
 <p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
-<h4>#displayMessage("arms.heading.request-type")</h4>
-<p>#getValue("request-type")</p>
 <h4>Description</h4>
 <p>#getValue("collection:description")</p>
 <h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
