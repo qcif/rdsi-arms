@@ -27,5 +27,4 @@ class HomeData(Dashboard):
         pass
 
     def __activate__(self, context):
-        self.velocityContext = context
         self.activate(context)
