@@ -897,12 +897,26 @@
                             ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "nodecontact:node",
-                            "label": "arms.field.label.node",
-                            "additional-classes": "nodeField",
-                            "wrapper-class": "inline-block-component"
-                        },
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.node",
+                                    "wrapper-class": "inline-block-component nodeContactNodeLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "nodecontact:node",
+                                    "label": "",
+                                    "data-id-key": "value",
+                                    "sourceUrl": "form-components/rdsi-nodes.json",
+                                    "additional-classes": "nodeField",
+                                    "wrapper-class": "inline-component statesField"
+                                }
+                              ]
+                        },                        
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -2550,12 +2564,26 @@
                             ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "nodecontact:node",
-                            "label": "arms.field.label.node",
-                            "additional-classes": "nodeField",
-                            "wrapper-class": "inline-block-component"
-                        },
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.node",
+                                    "wrapper-class": "inline-block-component nodeContactNodeLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "nodecontact:node",
+                                    "label": "",
+                                    "data-id-key": "value",
+                                    "sourceUrl": "form-components/rdsi-nodes.json",
+                                    "additional-classes": "nodeField",
+                                    "wrapper-class": "inline-component statesField"
+                                }
+                              ]
+                        },                        
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -5029,12 +5057,26 @@
                             ]
                         },
                         {
-                            "component-type": "text-input",
-                            "field-name": "nodecontact:node",
-                            "label": "arms.field.label.node",
-                            "additional-classes": "nodeField",
-                            "wrapper-class": "inline-block-component"
-                        },
+                            "component-type": "group",
+                            "template": "group-div",
+                            "fields": [
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.node",
+                                    "wrapper-class": "inline-block-component nodeContactNodeLabel"
+                                },
+                                {
+                                    "component-type": "data-source-dropdown",
+                                    "field-name": "nodecontact:node",
+                                    "label": "",
+                                    "data-id-key": "value",
+                                    "sourceUrl": "form-components/rdsi-nodes.json",
+                                    "additional-classes": "nodeField",
+                                    "wrapper-class": "inline-component statesField"
+                                }
+                              ]
+                        },                        
                         {
                             "component-type": "group",
                             "template": "group-div",
