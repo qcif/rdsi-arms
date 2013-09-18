@@ -1161,6 +1161,28 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "content": "arms.field.label.requested-allocation-size",
+                            "help": "arms.field.help.requested-allocation-size"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "requested-allocation-size",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "requested-allocation-size",
+                                "focus-id": "requested-allocation-size",
+                                "validation-messages": {
+                                    "required": "Requested allocation size is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
                             "content": "arms.field.label.data-size",
                             "help": "arms.field.help.data-size"
                         },
@@ -2824,6 +2846,28 @@
                             "component-type": "text-block",
                             "type": "h1",
                             "content": "arms.field.label.dataset-metrics"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.requested-allocation-size",
+                            "help": "arms.field.help.requested-allocation-size"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "requested-allocation-size",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "requested-allocation-size",
+                                "focus-id": "requested-allocation-size",
+                                "validation-messages": {
+                                    "required": "Requested allocation size is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
@@ -5317,6 +5361,28 @@
                             "component-type": "text-block",
                             "type": "h1",
                             "content": "arms.field.label.dataset-metrics"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "label",
+                            "content": "arms.field.label.requested-allocation-size",
+                            "help": "arms.field.help.requested-allocation-size"
+                        },
+                        {
+                            "component-type": "text-input",
+                            "field-name": "requested-allocation-size",
+                            "label": "",
+                            "validation": {
+                                "save-rules": [
+                                    "required"
+                                ],
+                                "validation-id": "requested-allocation-size",
+                                "focus-id": "requested-allocation-size",
+                                "validation-messages": {
+                                    "required": "Requested allocation size is required"
+                                }
+                            },
+                            "additional-classes": "longTextInput"
                         },
                         {
                             "component-type": "text-block",
