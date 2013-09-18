@@ -974,6 +974,10 @@
                                     "default": true
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -982,8 +986,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
@@ -1003,6 +1019,10 @@
                                     "value": "QCIF-BNE"
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -1011,8 +1031,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
@@ -2595,6 +2627,10 @@
                                     "default": true
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -2603,8 +2639,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
@@ -2624,6 +2672,10 @@
                                     "value": "QCIF-BNE"
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -2632,8 +2684,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
@@ -5042,6 +5106,10 @@
                                     "default": true
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -5050,8 +5118,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
@@ -5071,6 +5151,10 @@
                                     "value": "QCIF-BNE"
                                 },
                                 {
+                                    "label": "QCIF-TSV",
+                                    "value": "QCIF-TSV"
+                                },
+                                {
                                     "label": "eRSA",
                                     "value": "eRSA"
                                 },
@@ -5079,8 +5163,20 @@
                                     "value": "Intersect"
                                 },
                                 {
-                                    "label": "QCIF-TSV",
-                                    "value": "QCIF-TSV"
+                                    "label": "iVEC",
+                                    "value": "iVEC"
+                                },
+                                {
+                                    "label": "NCI",
+                                    "value": "NCI"
+                                },
+                                {
+                                    "label": "TPAC",
+                                    "value": "TPAC"
+                                },
+                                {
+                                    "label": "VicNode",
+                                    "value": "VicNode"
                                 }
                             ]
                         },
