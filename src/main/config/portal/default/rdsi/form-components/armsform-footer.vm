@@ -13,15 +13,13 @@ function toggleFundingInfo() {
 	}
 }
 
-$('input[name=isFunded]:radio').change(toggleFundingInfo);		
-
 function copyCustodianToManager() {
 	var cb = document.getElementById('useCustodianDetials');
-	var fields =["title","givenName","familyName","role","organization","email","phone","state"];
+	var fields =["title","givenName","familyName","organization","email","phone"];
 	var el, i;
 	if (cb.checked) {
 		var custodianModel = {}
-		for (i=0; i<8; i++) {
+		for (i=0; i<fields.length; i++) {
 			el = document.getElementById("requester:"+fields[i]);
 			document.getElementById("requester:"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
 			el.value = document.getElementById("dataprovider:"+fields[i]).value;
@@ -30,7 +28,6 @@ function copyCustodianToManager() {
 			custodianModel[fields[i]] = ko.observable($("[id='dataprovider:"+fields[i]+"']").val());
 			ko.applyBindingsToNode($("[id='dataprovider:"+fields[i]+"']")[0], { value: custodianModel[fields[i]] }, custodianModel );
 		}
-		$("[id='requester:state']").change();
 		custodianModel.title.subscribe(function(newValue) {
 				if(cb.checked) {
 					$("[id='requester:title']").val(newValue);
@@ -44,11 +41,6 @@ function copyCustodianToManager() {
 		custodianModel.familyName.subscribe(function(newValue) {
 				if(cb.checked) {
 					$("[id='requester:familyName']").val(newValue);
-				}
-		 });
-		custodianModel.role.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:role']").val(newValue);
 				}
 		 });
 		custodianModel.organization.subscribe(function(newValue) {
@@ -66,14 +58,8 @@ function copyCustodianToManager() {
 					$("[id='requester:phone']").val(newValue);
 				}
 		 });
-		custodianModel.state.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:state']").val(newValue);
-					$("[id='requester:state']").change();
-				}
-		 });
 	} else {
-		for (i=0; i<8; i++) {
+		for (i=0; i<fields.length; i++) {
 			document.getElementById("requester:"+fields[i]).disabled = false;
 		}
 	}
@@ -82,12 +68,18 @@ function copyCustodianToManager() {
 // This happens after jaffa binding data and triggering changes. If binding applies at that time,
 // dropdown-list is not ready, we have a problem.
 // This binding only when there is the checkbox useCustodianDetials
-var bApplyCustodianBinding = window.setInterval(function() {
-	if($('.jaffa2Loading').length == 0 && document.getElementById('useCustodianDetials') != null) {
-		$("input[id='useCustodianDetials']").change(copyCustodianToManager);
-		copyCustodianToManager();
-		window.clearInterval(bApplyCustodianBinding);
-   }
+// Or simply missed change event
+var bApplyEventBindings = window.setInterval(function() {
+	if($('.jaffa2Loading').length == 0) {
+		toggleFundingInfo();
+		$('input[name=isFunded]:radio').change(toggleFundingInfo);		
+
+		if(document.getElementById('useCustodianDetials') != null) {
+			$("input[id='useCustodianDetials']").change(copyCustodianToManager);
+			copyCustodianToManager();
+		}
+		window.clearInterval(bApplyEventBindings);
+	}
 },500); 
 
 </script>								   	    
