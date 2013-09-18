@@ -31,40 +31,6 @@
                             "content": "arms.description.custodian-agreement"
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.request-type"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "p",
-                            "content": "arms.description.request-type"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.request-type"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "request-type",
-                            "button-for": "",
-                            "buttons": [
-                                {
-                                    "label": "A collection of significant national importance to future research and innovation (ReDS program)",
-                                    "value": "A collection of significant national importance to future research and innovation (ReDS program)"
-                                },
-                                {
-                                    "label": "A collection that is being developed with the intent of its becoming nationally important (CDS program)",
-                                    "value": "A collection that is being developed with the intent of its becoming nationally important (CDS program)"
-                                },
-                                {
-                                    "label": "Other data storage",
-                                    "value": "Other data storage"
-                                }
-                            ]
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
