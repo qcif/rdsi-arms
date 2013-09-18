@@ -98,14 +98,8 @@
 					#getValue("dataprovider:givenName")
 					#getValue("dataprovider:familyName")</dd>
 
-				<dt>Role:</dt>
-				<dd>#getValue("dataprovider:role")</dd>
-
 				<dt>Organisation:</dt>
 				<dd>#getValue("dataprovider:organization")</dd>
-
-				<dt>State:</dt>
-				<dd>#getValue("dataprovider:state:prefLabel")</dd>
 
 				<dt>email:</dt>
 				<dd>#getValue("dataprovider:email")</dd>
@@ -122,14 +116,8 @@
 					#getValue("requester:givenName")
 					#getValue("requester:familyName")</dd>
 
-				<dt>Role:</dt>
-				<dd>#getValue("requester:role")</dd>
-
 				<dt>Organisation:</dt>
 				<dd>#getValue("requester:organization")</dd>
-
-				<dt>State:</dt>
-				<dd>#getValue("requester:state:prefLabel")</dd>
 
 				<dt>email:</dt>
 				<dd>#getValue("requester:email")</dd>
@@ -173,7 +161,9 @@
 	<dd>#getValue("storage-class")</dd>
 	<dt>#displayMessage("arms.field.label.data-protection-class")</dt>
 	<dd>#getValue("data-protection-class")</dd>
-	<dt>Current data size:</dt>
+	<dt>#displayMessage("arms.field.label.requested-allocation-size")</dt>
+	<dd>#getValue("requested-allocation-size")</dd>
+	<dt>#displayMessage("arms.field.label.data-size")</dt>
 	<dd>#getValue("data-size")</dd>
 	<dt>#displayMessage("arms.field.label.data-growth")</dt>
 	<dd>#getValue("data-growth")</dd>
