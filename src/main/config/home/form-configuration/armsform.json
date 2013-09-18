@@ -607,7 +607,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "dataprovider:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -739,7 +739,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "requester:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -1234,16 +1234,6 @@
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "dataset-file-number",
-                                "focus-id": "dataset-file-number",
-                                "validation-messages": {
-                                    "required": "Number of files is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1260,16 +1250,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-maxsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-maxsize",
-                                        "focus-id": "dataset-file-maxsize",
-                                        "validation-messages": {
-                                            "required": "Size of largest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -1289,16 +1269,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-minsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-minsize",
-                                        "focus-id": "dataset-file-minsize",
-                                        "validation-messages": {
-                                            "required": "Size of smallest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -1314,16 +1284,6 @@
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "vivo-Dataset.dc.format",
-                                "focus-id": "vivo-Dataset.dc.format",
-                                "validation-messages": {
-                                    "required": "Format of data is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -1460,16 +1420,6 @@
                                     "options": "showButtonPanel: true",
                                     "currentText": "Current month",
                                     "closeText": "Select",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "ingest-4qtr",
-                                        "focus-id": "ingest-4qtr",
-                                        "validation-messages": {
-                                            "required": "Anticipated ingesgt of 100% is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -2311,7 +2261,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "dataprovider:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -2428,7 +2378,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "requester:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -2923,16 +2873,6 @@
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "dataset-file-number",
-                                "focus-id": "dataset-file-number",
-                                "validation-messages": {
-                                    "required": "Number of files is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -2949,16 +2889,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-maxsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-maxsize",
-                                        "focus-id": "dataset-file-maxsize",
-                                        "validation-messages": {
-                                            "required": "Size of largest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -2978,16 +2908,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-minsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-minsize",
-                                        "focus-id": "dataset-file-minsize",
-                                        "validation-messages": {
-                                            "required": "Size of smallest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -3003,16 +2923,6 @@
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "vivo-Dataset.dc.format",
-                                "focus-id": "vivo-Dataset.dc.format",
-                                "validation-messages": {
-                                    "required": "Format of data is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -3149,16 +3059,6 @@
                                     "options": "showButtonPanel: true",
                                     "currentText": "Current month",
                                     "closeText": "Select",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "ingest-4qtr",
-                                        "focus-id": "ingest-4qtr",
-                                        "validation-messages": {
-                                            "required": "Anticipated ingesgt of 100% is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
@@ -4826,7 +4726,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "dataprovider:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -4943,7 +4843,7 @@
                                 {
                                     "component-type": "text-input",
                                     "field-name": "requester:title",
-                                    "label": "arms.field.label.title",
+                                    "label": "arms.field.label.optional.title",
                                     "additional-classes": "titleField",
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -5438,16 +5338,6 @@
                             "component-type": "text-input",
                             "field-name": "dataset-file-number",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "dataset-file-number",
-                                "focus-id": "dataset-file-number",
-                                "validation-messages": {
-                                    "required": "Number of files is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -5464,16 +5354,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-maxsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-maxsize",
-                                        "focus-id": "dataset-file-maxsize",
-                                        "validation-messages": {
-                                            "required": "Size of largest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -5493,16 +5373,6 @@
                                     "component-type": "text-input",
                                     "field-name": "dataset-file-minsize",
                                     "label": "",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataset-file-minsize",
-                                        "focus-id": "dataset-file-minsize",
-                                        "validation-messages": {
-                                            "required": "Size of smallest file is required"
-                                        }
-                                    },
                                     "additional-classes": "fileSizeInput"
                                 }
                             ],
@@ -5518,16 +5388,6 @@
                             "component-type": "text-input",
                             "field-name": "vivo-Dataset.dc.format",
                             "label": "",
-                            "validation": {
-                                "save-rules": [
-                                    "required"
-                                ],
-                                "validation-id": "vivo-Dataset.dc.format",
-                                "focus-id": "vivo-Dataset.dc.format",
-                                "validation-messages": {
-                                    "required": "Format of data is required"
-                                }
-                            },
                             "additional-classes": "longTextInput"
                         },
                         {
@@ -5664,16 +5524,6 @@
                                     "options": "showButtonPanel: true",
                                     "currentText": "Current month",
                                     "closeText": "Select",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "ingest-4qtr",
-                                        "focus-id": "ingest-4qtr",
-                                        "validation-messages": {
-                                            "required": "Anticipated ingesgt of 100% is required"
-                                        }
-                                    },
                                     "wrapper-class": "inline-block-component"
                                 }
                             ]
