@@ -741,53 +741,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataprovider:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:role",
-                                        "focus-id": "dataprovider:role",
-                                        "validation-messages": {
-                                            "required": "Data custodian: role is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "dataprovider:state",
-                                    "label": "",
-                                    "field-name-label": "dataprovider:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:state",
-                                        "focus-id": "dataprovider:state",
-                                        "validation-messages": {
-                                            "required": "Data custodian: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-component statesField"
                                 }
                             ]
                         },
@@ -810,7 +763,7 @@
                                     "box-for": "",
                                     "boxes": [ {"label":"Use custodian details", "value":"Yes"}],
 		                            "wrapper-class": "inline-block-component"
-                                },
+                                }
 		                    ]
                         },                      
                         {
@@ -920,53 +873,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "requester:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:role",
-                                        "focus-id": "requester:role",
-                                        "validation-messages": {
-                                            "required": "Data manager: role name is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "requester:state",
-                                    "label": "",
-                                    "field-name-label": "requester:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:state",
-                                        "focus-id": "requester:state",
-                                        "validation-messages": {
-                                            "required": "Data manager: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component statesField"
                                 }
                             ]
                         },
@@ -2471,53 +2377,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataprovider:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:role",
-                                        "focus-id": "dataprovider:role",
-                                        "validation-messages": {
-                                            "required": "Data custodian: role is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "dataprovider:state",
-                                    "label": "",
-                                    "field-name-label": "dataprovider:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:state",
-                                        "focus-id": "dataprovider:state",
-                                        "validation-messages": {
-                                            "required": "Data custodian: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-component statesField"
                                 }
                             ]
                         },
@@ -2635,53 +2494,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "requester:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:role",
-                                        "focus-id": "requester:role",
-                                        "validation-messages": {
-                                            "required": "Data manager: role name is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "requester:state",
-                                    "label": "",
-                                    "field-name-label": "requester:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:state",
-                                        "focus-id": "requester:state",
-                                        "validation-messages": {
-                                            "required": "Data manager: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component statesField"
                                 }
                             ]
                         },
@@ -5012,53 +4824,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataprovider:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:role",
-                                        "focus-id": "dataprovider:role",
-                                        "validation-messages": {
-                                            "required": "Data custodian: role is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "dataprovider:state",
-                                    "label": "",
-                                    "field-name-label": "dataprovider:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "dataprovider:state",
-                                        "focus-id": "dataprovider:state",
-                                        "validation-messages": {
-                                            "required": "Data custodian: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-component statesField"
                                 }
                             ]
                         },
@@ -5176,53 +4941,6 @@
                                         }
                                     },
                                     "wrapper-class": "inline-block-component"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "requester:role",
-                                    "label": "arms.field.label.role",
-                                    "additional-classes": "roleField",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:role",
-                                        "focus-id": "requester:role",
-                                        "validation-messages": {
-                                            "required": "Data manager: role name is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component"
-                                }
-                            ]
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.state",
-                                    "wrapper-class": "inline-block-component statesLabel"
-                                },
-                                {
-                                    "component-type": "data-source-dropdown",
-                                    "field-name": "requester:state",
-                                    "label": "",
-                                    "field-name-label": "requester:state:prefLabel",
-                                    "sourceUrl": "form-components/states.json",
-                                    "validation": {
-                                        "save-rules": [
-                                            "required"
-                                        ],
-                                        "validation-id": "requester:state",
-                                        "focus-id": "requester:state",
-                                        "validation-messages": {
-                                            "required": "Data manager: state is required"
-                                        }
-                                    },
-                                    "wrapper-class": "inline-block-component statesField"
                                 }
                             ]
                         },
