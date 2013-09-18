@@ -79,6 +79,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save1",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close1",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -238,6 +255,24 @@
                                     "component-type": "standard-button",
                                     "button-name": "save-close2",
                                     "label": "Save and close",
+                                    "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save2",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close2",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -547,6 +582,23 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save3",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close3",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -989,6 +1041,23 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save4",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close4",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -1480,6 +1549,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save5",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close5",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -1594,6 +1680,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save6",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close6",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -1664,6 +1767,23 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save7",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close7",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -1865,6 +1985,23 @@
                                     "button-name": "save-close2",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save2",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close2",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -2174,6 +2311,23 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save3",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close3",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -2602,6 +2756,23 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save4",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close4",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -3093,6 +3264,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save5",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close5",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -3207,6 +3395,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save6",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close6",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -3277,6 +3482,23 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save7",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close7",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -3363,6 +3585,23 @@
                                     "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save8",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close8",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -4043,6 +4282,23 @@
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
 		                        },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save9",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close9",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
 		                        {
 		                            "component-type": "transition-control",
 		                            "transitions": [
@@ -4275,6 +4531,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save2",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close2",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -4579,6 +4852,23 @@
                                     "button-name": "save-close3",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save3",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close3",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -5007,6 +5297,23 @@
                                     "button-name": "save-close4",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save4",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close4",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -5498,6 +5805,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save5",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close5",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -5612,6 +5936,23 @@
                                     "wrapper-class": "inline-component"
                                 },
                                 {
+                                    "component-type": "standard-button",
+                                    "button-name": "save6",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close6",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
                                     "component-type": "transition-control",
                                     "transitions": [
                                         {
@@ -5682,6 +6023,23 @@
                                     "button-name": "save-close7",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save7",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close7",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -5768,6 +6126,23 @@
                                     "button-name": "save-close8",
                                     "label": "Save and close",
                                     "action": "save",
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save8",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close8",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
@@ -6448,6 +6823,23 @@
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
 		                        },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save9",
+                                    "label": "Save",
+                                    "action": "save",
+                                    "skipValidation": true,
+                                    "wrapper-class": "inline-component"
+                                },
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "close9",
+                                    "label": "Close",
+                                    "closeWithoutSaving": true,
+                                    "closeUrl": "detail",
+                                    "appendOID": true,
+                                    "wrapper-class": "inline-component"
+                                },
 		                        {
 		                            "component-type": "transition-control",
 		                            "transitions": [
