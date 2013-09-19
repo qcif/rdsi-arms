@@ -89,6 +89,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
+                            "help": "arms.field.help.requestID",
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -156,13 +157,8 @@
                         },
                         {
                             "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.collection-metadata"
-                        },
-                        {
-                            "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.metadata-locations"
+                            "content": "arms.field.label.collection-metadata"
                         },
                         {
                             "component-type": "table",
@@ -172,7 +168,7 @@
                             "modelName": "dataCollectionLocationModel",
                             "tableName": "DataCollectionLocationTable",
                             "initialiseMethodName": "initialiseDataCollectionLocationTable",
-                            "addButtonText": "Add more metadata locations",
+                            "addButtonText": "Add a metadata location",
                             "columns": [
                                 {
                                     "columnHeader": "URL",
@@ -265,6 +261,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
                         },
                         {
@@ -446,7 +443,7 @@
 		                            "modelName": "fundingInfoModel",
 		                            "tableName": "fundingInfoTable",
 		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add more Funding information",
+		                            "addButtonText": "Add a funding source",
 		                            "columns": [
 		                                {
 		                                    "columnHeader": "Funder",
@@ -975,6 +972,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-node", 
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -1020,6 +1018,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-secondary-nodes",
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
@@ -1095,6 +1094,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.field.label.storage-options",
                             "content": "arms.field.label.storage-options"
                         },
                         {
@@ -1106,23 +1106,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class III (High-performance disk)",
+                                                    "value": "Storage Class III (High-performance disk)"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -1131,23 +1123,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)"
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class I (HSM/Tape)",
+                                                    "value": "Storage Class I (HSM/Tape)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)"
+                                                },
+                                                {
+                                                    "label": "Not required",
+                                                    "value": "Not required"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -1227,8 +1215,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dataset-file-number",
-                            "help": "arms.field.help.dataset-file-number"
+                            "content": "arms.field.label.dataset-file-number"
                         },
                         {
                             "component-type": "text-input",
@@ -1243,8 +1230,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize",
-                                    "help": "arms.field.help.dataset-file-maxsize"
+                                    "content": "arms.field.label.dataset-file-maxsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -1262,8 +1248,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize",
-                                    "help": "arms.field.help.dataset-file-minsize"
+                                    "content": "arms.field.label.dataset-file-minsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -1482,8 +1467,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.accessRestrictions",
-                            "help": "arms.field.help.accessRestrictions"
+                            "content": "arms.field.label.accessRestrictions"
                         },
                         {
                             "component-type": "access-restrictions"
@@ -1491,8 +1475,8 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dc-rights.skos-note",
-                            "help": "arms.field.help.dc-rights.skos-note"
+                            "help": "arms.field.label.dc-rights.skos-note",
+                            "content": "arms.field.label.dc-rights.skos-note"
                         },
                         {
                             "component-type": "textarea",
@@ -1502,6 +1486,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.data-licence",
                             "content": "arms.heading.data-licence"
                         },
                         {
@@ -1703,6 +1688,11 @@
                             "content": "arms.heading.submission"
                         },
                         {
+                            "component-type": "text-block",
+                            "type": "div",
+                            "content": "arms.field.label.happens-next"
+                        },
+                        {
                             "component-type": "confirm-and-submit-button",
                             "field-name": "arms.field.label.authoritycheck",
                             "box-label": "arms.field.label.authoritycheck.yes",
@@ -1742,6 +1732,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
+                            "help": "arms.field.help.requestID",                            
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -1809,13 +1800,8 @@
                         },
                         {
                             "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.collection-metadata"
-                        },
-                        {
-                            "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.metadata-locations"
+                            "content": "arms.field.label.collection-metadata"
                         },
                         {
                             "component-type": "table",
@@ -1825,7 +1811,7 @@
                             "modelName": "dataCollectionLocationModel",
                             "tableName": "DataCollectionLocationTable",
                             "initialiseMethodName": "initialiseDataCollectionLocationTable",
-                            "addButtonText": "Add more metadata locations",
+                            "addButtonText": "Add a metadata location",
                             "columns": [
                                 {
                                     "columnHeader": "URL",
@@ -1918,6 +1904,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
                         },
                         {
@@ -2099,7 +2086,7 @@
 		                            "modelName": "fundingInfoModel",
 		                            "tableName": "fundingInfoTable",
 		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add more Funding information",
+		                            "addButtonText": "Add a funding source",
 		                            "columns": [
 		                                {
 		                                    "columnHeader": "Funder",
@@ -2614,6 +2601,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-node", 
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -2659,6 +2647,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-secondary-nodes",
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
@@ -2734,6 +2723,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.field.label.storage-options",
                             "content": "arms.field.label.storage-options"
                         },
                         {
@@ -2745,23 +2735,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class III (High-performance disk)",
+                                                    "value": "Storage Class III (High-performance disk)"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -2770,23 +2752,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class I (HSM/Tape)",
+                                                    "value": "Storage Class I (HSM/Tape)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)"
+                                                },
+                                                {
+                                                    "label": "Not required",
+                                                    "value": "Not required"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -2866,8 +2844,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dataset-file-number",
-                            "help": "arms.field.help.dataset-file-number"
+                            "content": "arms.field.label.dataset-file-number"
                         },
                         {
                             "component-type": "text-input",
@@ -2882,8 +2859,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize",
-                                    "help": "arms.field.help.dataset-file-maxsize"
+                                    "content": "arms.field.label.dataset-file-maxsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -2901,8 +2877,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize",
-                                    "help": "arms.field.help.dataset-file-minsize"
+                                    "content": "arms.field.label.dataset-file-minsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -3121,8 +3096,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.accessRestrictions",
-                            "help": "arms.field.help.accessRestrictions"
+                            "content": "arms.field.label.accessRestrictions"
                         },
                         {
                             "component-type": "access-restrictions"
@@ -3130,8 +3104,8 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dc-rights.skos-note",
-                            "help": "arms.field.help.dc-rights.skos-note"
+                            "help": "arms.field.label.dc-rights.skos-note",
+                            "content": "arms.field.label.dc-rights.skos-note"
                         },
                         {
                             "component-type": "textarea",
@@ -3141,6 +3115,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.data-licence",
                             "content": "arms.heading.data-licence"
                         },
                         {
@@ -4207,6 +4182,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
+                            "help": "arms.field.help.requestID",                            
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -4274,13 +4250,8 @@
                         },
                         {
                             "component-type": "text-block",
-                            "type": "h1",
-                            "content": "arms.heading.collection-metadata"
-                        },
-                        {
-                            "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.metadata-locations"
+                            "content": "arms.field.label.collection-metadata"
                         },
                         {
                             "component-type": "table",
@@ -4290,7 +4261,7 @@
                             "modelName": "dataCollectionLocationModel",
                             "tableName": "DataCollectionLocationTable",
                             "initialiseMethodName": "initialiseDataCollectionLocationTable",
-                            "addButtonText": "Add more metadata locations",
+                            "addButtonText": "Add a metadata location",
                             "columns": [
                                 {
                                     "columnHeader": "URL",
@@ -4383,6 +4354,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
                         },
                         {
@@ -4564,7 +4536,7 @@
 		                            "modelName": "fundingInfoModel",
 		                            "tableName": "fundingInfoTable",
 		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add more Funding information",
+		                            "addButtonText": "Add a funding source",
 		                            "columns": [
 		                                {
 		                                    "columnHeader": "Funder",
@@ -5079,6 +5051,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-node", 
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -5124,6 +5097,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
+                            "help": "arms.field.help.rdsi-secondary-nodes",
                             "content": "arms.field.label.rdsi-secondary-nodes"
                         },
                         {
@@ -5199,6 +5173,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.field.label.storage-options",
                             "content": "arms.field.label.storage-options"
                         },
                         {
@@ -5210,23 +5185,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class III (High-performance disk)",
+                                                    "value": "Storage Class III (High-performance disk)"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -5235,23 +5202,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                        {
-                                            "label": "Storage Class I (HSM/Tape)",
-                                            "value": "Storage Class I (HSM/Tape)"
-                                        },
-                                        {
-                                            "label": "Storage Class II (Standard disk)",
-                                            "value": "Storage Class II (Standard disk)",
-                                            "default": true
-                                        },
-                                        {
-                                            "label": "Storage Class III (High-performance disk)",
-                                            "value": "Storage Class III (High-performance disk)"
-                                        },
-                                        {
-                                            "label": "Other Storage Class",
-                                            "value": "Other Storage Class"
-                                        }
+                                                {
+                                                    "label": "Storage Class I (HSM/Tape)",
+                                                    "value": "Storage Class I (HSM/Tape)",
+                                                    "default": true
+                                                },
+                                                {
+                                                    "label": "Storage Class II (Standard disk)",
+                                                    "value": "Storage Class II (Standard disk)"
+                                                },
+                                                {
+                                                    "label": "Not required",
+                                                    "value": "Not required"
+                                                }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -5331,8 +5294,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dataset-file-number",
-                            "help": "arms.field.help.dataset-file-number"
+                            "content": "arms.field.label.dataset-file-number"
                         },
                         {
                             "component-type": "text-input",
@@ -5347,8 +5309,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize",
-                                    "help": "arms.field.help.dataset-file-maxsize"
+                                    "content": "arms.field.label.dataset-file-maxsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -5366,8 +5327,7 @@
                                 {
                                     "component-type": "text-block",
                                     "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize",
-                                    "help": "arms.field.help.dataset-file-minsize"
+                                    "content": "arms.field.label.dataset-file-minsize"
                                 },
                                 {
                                     "component-type": "text-input",
@@ -5586,8 +5546,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.accessRestrictions",
-                            "help": "arms.field.help.accessRestrictions"
+                            "content": "arms.field.label.accessRestrictions"
                         },
                         {
                             "component-type": "access-restrictions"
@@ -5595,8 +5554,8 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "content": "arms.field.label.dc-rights.skos-note",
-                            "help": "arms.field.help.dc-rights.skos-note"
+                            "help": "arms.field.label.dc-rights.skos-note",
+                            "content": "arms.field.label.dc-rights.skos-note"
                         },
                         {
                             "component-type": "textarea",
@@ -5606,6 +5565,7 @@
                         {
                             "component-type": "text-block",
                             "type": "h1",
+                            "help": "arms.help.data-licence",
                             "content": "arms.heading.data-licence"
                         },
                         {
