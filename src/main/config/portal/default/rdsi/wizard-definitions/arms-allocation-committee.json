@@ -1,8 +1,5 @@
 {
     "steps": {
-        "Introduction": {
-            "Next": "Data collection details"
-        },
         "Data collection details": {
             "Next": "Merit information"
         },

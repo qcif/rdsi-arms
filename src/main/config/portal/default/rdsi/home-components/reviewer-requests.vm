@@ -2,8 +2,8 @@
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
 #set($results = $self.getListOfStage('arms-submitted'))
-#set($commitees_results = $self.getListOfStage('arms-allocation-commitee'))
-#if (($results && $results.size() > 0) || ($commitees_results && $commitees_results.size()))
+#set($committees_results = $self.getListOfStage('arms-allocation-committee'))
+#if (($results && $results.size() > 0) || ($committees_results && $committees_results.size()))
 <table>
     <thead>
         <tr>
@@ -21,7 +21,7 @@
 	    	<td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
 	    </tr>
 	#end
-	#foreach($item in $commitees_results)
+	#foreach($item in $committees_results)
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>

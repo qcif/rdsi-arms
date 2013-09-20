@@ -73,16 +73,16 @@
             "security": ["reviewer","approver","admin"],
             "visibility": ["reviewer","approver","admin"],
             "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-allocation-commitee" }],
+                "target-step" : "arms-allocation-committee" }],
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-allocation-commitee",
-            "label": "Allocation commitee review",
-            "description": "Records for allocation commitee to approve.",
+            "name": "arms-allocation-committee",
+            "label": "Allocation committee review",
+            "description": "Records for allocation committee to approve.",
             "owner_edit_allowed": "false",
             "security": ["reviewer",  "approver","admin"],
-            "visibility": ["reviewer", "commitee","approver","admin"],
+            "visibility": ["reviewer", "committee","approver","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-approved" }],
             "template": "workflows/simpleworkflow"

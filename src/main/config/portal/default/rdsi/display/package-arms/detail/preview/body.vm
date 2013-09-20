@@ -6,6 +6,12 @@
 #if($page.authentication.has_role('reviewer'))
 #set($isReviewer = true)
 #end
+#if ($isReviewer)
+<p>[Reviewer's version]</p>
+<p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
+#else
+<p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
+#end
 #else
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -18,12 +24,6 @@
 <h1>#getValue("dc:title")</h1>
 #end
 ## common part starts from here
-#if ($isReviewer)
-<p>[Reviewer's version]</p>
-<p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
-#else
-<p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
-#end
 
 <p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
@@ -32,7 +32,7 @@
 <h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
 #displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 
-<h4>#displayMessage("arms.heading.collection-metadata")</h4>
+<h4>#displayMessage("arms.field.label.collection-metadata")</h4>
 #set($repeats = $jsonUtil.getJavaList($item, "dataCollectionLocation"))
 <table>
     <thead>
@@ -97,15 +97,12 @@
 				<dd>#getValue("dataprovider:title")
 					#getValue("dataprovider:givenName")
 					#getValue("dataprovider:familyName")</dd>
-
+				<dt>Email:</dt>
+				<dd>#getValue("dataprovider:email")</dd>
+				<dt>Telephone:</dt>
+				<dd>#getValue("dataprovider:phone")</dd>
 				<dt>Organisation:</dt>
 				<dd>#getValue("dataprovider:organization")</dd>
-
-				<dt>email:</dt>
-				<dd>#getValue("dataprovider:email")</dd>
-
-				<dt>phone:</dt>
-				<dd>#getValue("dataprovider:phone")</dd>
 			</dl>
 		</div>
 	<div class="people">
@@ -115,15 +112,12 @@
 				<dd>#getValue("requester:title")
 					#getValue("requester:givenName")
 					#getValue("requester:familyName")</dd>
-
+				<dt>Email:</dt>
+				<dd>#getValue("requester:email")</dd>
+				<dt>Telephone:</dt>
+				<dd>#getValue("requester:phone")</dd>
 				<dt>Organisation:</dt>
 				<dd>#getValue("requester:organization")</dd>
-
-				<dt>email:</dt>
-				<dd>#getValue("requester:email")</dd>
-
-				<dt>phone:</dt>
-				<dd>#getValue("requester:phone")</dd>
 			</dl>
 	</div>
 </div>
@@ -135,13 +129,10 @@
 				<dd>#getValue("nodecontact:title")
 					#getValue("nodecontact:givenName")
 					#getValue("nodecontact:familyName")</dd>
-
-				<dt>email:</dt>
+				<dt>Email:</dt>
 				<dd>#getValue("nodecontact:email")</dd>
-
-				<dt>phone:</dt>
+				<dt>Telephone:</dt>
 				<dd>#getValue("nodecontact:phone")</dd>
-
 				<dt>Node:</dt>
 				<dd>#getValue("nodecontact:node")</dd>
 			</dl>
@@ -199,9 +190,9 @@
 </dl>
 <h4>Access and licensing</h4>
 <dl>
-	<dt>Access restriction:</dt>
+	<dt>#displayMessage("arms.heading.researchdata-access")</dt>
 	<dd>#getValue("accessRestrictions")</dd>
-	<dt>Terms of use:</dt>
+	<dt>#displayMessage("arms.field.label.dc-rights.skos-note")</dt>
 	<dd>#getValue("dc:rights.skos:note")</dd>
 	<dt>Licence:</dt>
 	<dd>#getValue("dc:license.dc:identifier") #getValue("dc:license.other")</dd>
@@ -242,9 +233,9 @@
 #end
 #end
 
-#if($page.authentication.has_role('commitee')) ## Actual role has to be used.
+#if($page.authentication.has_role('committee')) ## Actual role has to be used.
 #set($committeeResponse = $self.getComitteeResponse($page.authentication.get_username()))
-<h4>Allocation commitee has to say</h4>
+<h4>Committee responses</h4>
 <form action="$portalPath/allocation-committee/committee.script" method="POST">
 <input type="hidden" name="oid" value="$oid" />
 <p><span>Approved</span>

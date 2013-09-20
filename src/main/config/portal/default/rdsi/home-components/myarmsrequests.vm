@@ -35,7 +35,7 @@
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-submitted,arms-approved,arms-retired'))
+#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-approved,arms-retired'))
 #if ($results && $results.size() > 0)
 <table>
     <thead>

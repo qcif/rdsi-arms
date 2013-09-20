@@ -16,8 +16,8 @@
     #parseTemplate("home-components/admin-requests.vm")
 #elseif ($page.authentication.has_role("reviewer") or $page.authentication.has_role("approver"))
     #parseTemplate("home-components/reviewer-requests.vm")
-#elseif ($page.authentication.has_role("commitee"))
-    #parseTemplate("home-components/commitee-requests.vm")
+#elseif ($page.authentication.has_role("committee"))
+    #parseTemplate("home-components/committee-requests.vm")
 #else
     #parseTemplate("home-components/myarmsrequests.vm")
 #end

@@ -6,6 +6,6 @@
 
 ##parseTemplate("menus/home-main-menu.vm")
     <div class="grid_12">
-	#parseTemplate("home-components/commitee-requests.vm")
+	#parseTemplate("home-components/committee-requests.vm")
     </div>
     <div class="clear"></div>
