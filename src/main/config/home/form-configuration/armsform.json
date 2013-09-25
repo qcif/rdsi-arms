@@ -3639,7 +3639,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-1qtr:B:indic-date",
+                                                    "field-name": "ingest-1qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -3734,7 +3734,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-2qtr:B:indic-date",
+                                                    "field-name": "ingest-2qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -3829,7 +3829,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-3qtr:B:indic-date",
+                                                    "field-name": "ingest-3qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -3924,7 +3924,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-4qtr:B:indic-date",
+                                                    "field-name": "ingest-4qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6091,7 +6091,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-1qtr:B:indic-date",
+                                                    "field-name": "ingest-1qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6186,7 +6186,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-2qtr:B:indic-date",
+                                                    "field-name": "ingest-2qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6281,7 +6281,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-3qtr:B:indic-date",
+                                                    "field-name": "ingest-3qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6376,7 +6376,7 @@
                                             "fields": [
                                                 {
                                                     "component-type": "date-picker",
-                                                    "field-name": "ingest-4qtr:B:indic-date",
+                                                    "field-name": "ingest-4qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6617,7 +6617,7 @@
             "form-layout": {
                 "component-type": "tabbed-wizard",
                 "tabHeaderIdentifier": "armsTabHeader",
-                "wizardDefPath": "wizard-definitions/arms-submitted.json"
+                "wizardDefPath": "wizard-definitions/arms-allocation-committee.json"
             },
             "validation-function": {
                 "component-type": "active-tab",
