@@ -150,7 +150,7 @@ class Dashboard:
         return current_user
     
     def getListOfStage(self, stageName):
-#         workflow_step == arms-request, arms-submitted, arms-allocation-committee, arms-approved, arms-retired
+#         workflow_step == arms-request, arms-submitted, arms-allocation-committee, arms-provisioning, arms-retired
         # print "Query about %s." % stageName
         return self._searchStage(stageName).getResults()
 

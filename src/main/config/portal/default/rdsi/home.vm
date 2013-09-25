@@ -10,11 +10,11 @@
   #parseTemplate("menus/home-main-menu.vm")
 #end
 
-## reviewer and approver have the same home page
+## reviewer and provisioner have the same home page
 <div class="grid_12">
 #if ($page.authentication.has_role("admin"))
     #parseTemplate("home-components/admin-requests.vm")
-#elseif ($page.authentication.has_role("reviewer") or $page.authentication.has_role("approver"))
+#elseif ($page.authentication.has_role("reviewer") or $page.authentication.has_role("provisioner"))
     #parseTemplate("home-components/reviewer-requests.vm")
 #elseif ($page.authentication.has_role("committee"))
     #parseTemplate("home-components/committee-requests.vm")
