@@ -42,7 +42,7 @@
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-	        <td>$item.get("dataprovider:foaf:email")</td>
+	        <td>$item.get("dataprovider:email")</td>
 	    </tr>
 	#end
     </tbody>
