@@ -14,7 +14,6 @@
             </ul>
         </li>
         #end
-        <li><a href="$portalPath/about">About</a></li>
         #if($page.authentication.is_admin())
         <li class="secondary">
             <a class="search" href="#"><img src="$portalPath/images/icons/magnifier.png" alt="Search" /></a>
