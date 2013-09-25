@@ -33,9 +33,9 @@
 	<spatial>Brisbane</spatial>
 	
 	<mediator>
-		<givenName>$util.get($item, "requester:foaf:givenName")</givenName>
-		<familyName>$util.get($item, "requester:foaf:familyName")</familyName>
-		<email>$util.get($item, "requester:foaf:email")</email>
+		<givenName>$util.get($item, "requester:givenName")</givenName>
+		<familyName>$util.get($item, "requester:familyName")</familyName>
+		<email>$util.get($item, "requester:email")</email>
 	</mediator>
 	<creators>
 		<creator>
