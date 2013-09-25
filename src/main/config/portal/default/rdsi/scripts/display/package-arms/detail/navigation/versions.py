@@ -17,6 +17,7 @@
 #
 
 from com.googlecode.fascinator.common import FascinatorHome, JsonSimple
+from org.json.simple import JSONArray
 import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 import preview
@@ -37,6 +38,11 @@ class VersionsData:
         versions = []
         if indF.exists():
             versions = JsonSimple(indF).getJsonArray()
+            # reverse to the order to from latest to oldest 
+            r = JSONArray()
+            for s in reversed(versions):
+                r.add(s)
+            versions = r
 
         return versions
 
