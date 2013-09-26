@@ -18,6 +18,8 @@
 
 from com.googlecode.fascinator.common import FascinatorHome, JsonSimple, JsonObject
 from com.googlecode.fascinator.transformer.jsonVelocity import Util
+from java.io import File
+
 import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 import preview
@@ -29,8 +31,15 @@ class DetailData:
     def __activate__(self, context):
         storage = context["Services"].getStorage()
         storedObj = storage.getObject(context["metadata"].getFirst("storage_id"))
-        self.item = preview.loadPackage(storedObj)
-        
+        request = context["request"]
+        version = request.getParameter("version")
+        if version is not None:
+            self.item = JsonSimple(File(storedObj.getPath() + "/version_" + version))
+            self.version = preview.formatDate(version, "yyyyMMddHHmmss", "yyyy-MM-dd HH:mm:ss")
+        else:
+            self.version = None
+            self.item = preview.loadPackage(storedObj)
+
         self.committeeResponses = None
         payloadList = storedObj.getPayloadIdList()
         if payloadList.contains("committee-responses.metadata"):

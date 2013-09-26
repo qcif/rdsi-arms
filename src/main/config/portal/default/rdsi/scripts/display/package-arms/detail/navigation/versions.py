@@ -31,7 +31,8 @@ class VersionsData:
         storage = context["Services"].getStorage()
         storedObj = storage.getObject(context["metadata"].getFirst("storage_id"))
         self.versions = self.getVersions(storedObj)
-        
+        self.oid = storedObj.getId()
+
     def getVersions(self, storedObj):
         indF = File(storedObj.getPath() + "/Version_Index.json")
         

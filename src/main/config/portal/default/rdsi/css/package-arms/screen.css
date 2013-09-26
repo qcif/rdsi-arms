@@ -43,3 +43,5 @@ dd { padding-left: 1em; }
 }
 
 table { margin-left: 1%; width: 98%; }
+
+#version_string { font-weight:bold; margin-bottom:0.5em; font-style:italic }

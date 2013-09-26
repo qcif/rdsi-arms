@@ -3,14 +3,14 @@
 <link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen"/>
 #set($workflowStage = $self.workflowStage)
 #set($item = $self.item)
-#if($page.authentication.has_role('reviewer'))
-#set($isReviewer = true)
-#end
-#if ($isReviewer)
-<p>[Reviewer's version]</p>
-<p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
-#else
-<p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
+#if($page.authentication.has_role('reviewer')) #set($isReviewer = true) #end
+#if(! $self.version)
+    #if ($isReviewer)
+    <p>[Reviewer's version]</p>
+    <p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
+    #else
+    <p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
+    #end
 #end
 #else
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -23,8 +23,9 @@
 <body>
 <h1>#getValue("dc:title")</h1>
 #end
+## version indication
+#if($self && $self.version)<p id="version_string">This version was created at $self.version</p>#end
 ## common part starts from here
-
 <p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
 <h4>Description</h4>
