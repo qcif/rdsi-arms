@@ -275,24 +275,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "allMeritAChecked": {
-                                            "validationType": "allCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionA",
-                                                "5"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionA.1",
-                                "focus-id": "merit-sectionA.1",
-                                "validation-messages": {
-                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -327,24 +309,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "MeritBChecked": {
-                                            "validationType": "minCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionB",
-                                                "1"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionB.1",
-                                "focus-id": "merit-sectionB.1",
-                                "validation-messages": {
-                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
@@ -1920,24 +1884,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "allMeritAChecked": {
-                                            "validationType": "allCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionA",
-                                                "5"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionA.1",
-                                "focus-id": "merit-sectionA.1",
-                                "validation-messages": {
-                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -1972,24 +1918,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "MeritBChecked": {
-                                            "validationType": "minCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionB",
-                                                "1"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionB.1",
-                                "focus-id": "merit-sectionB.1",
-                                "validation-messages": {
-                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
@@ -4372,24 +4300,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "allMeritAChecked": {
-                                            "validationType": "allCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionA",
-                                                "5"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionA.1",
-                                "focus-id": "merit-sectionA.1",
-                                "validation-messages": {
-                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -4424,24 +4334,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "MeritBChecked": {
-                                            "validationType": "minCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionB",
-                                                "1"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionB.1",
-                                "focus-id": "merit-sectionB.1",
-                                "validation-messages": {
-                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
@@ -6824,24 +6716,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "allMeritAChecked": {
-                                            "validationType": "allCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionA",
-                                                "5"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionA.1",
-                                "focus-id": "merit-sectionA.1",
-                                "validation-messages": {
-                                    "allMeritAChecked": "Merit Information Section A must have all criteria met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "of importance as an input to future research;",
@@ -6876,24 +6750,6 @@
                             "box-for": "",
                             "multiline": true,
                             "additional-class": "ofFormCheckboxes",
-                            "validation": {
-                                "save-rules": [
-                                    {
-                                        "MeritBChecked": {
-                                            "validationType": "minCheckboxesChecked",
-                                            "params": [
-                                                "merit-sectionB",
-                                                "1"
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "validation-id": "merit-sectionB.1",
-                                "focus-id": "merit-sectionB.1",
-                                "validation-messages": {
-                                    "MeritBChecked": "Merit Information Section B must have at least one criterion met"
-                                }
-                            },
                             "boxes": [
                                 {
                                     "label": "observational data that is collected, curated and made available to third party researchers;",
