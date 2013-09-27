@@ -210,7 +210,7 @@
 	<dd>#getValue("migrate-required-resources")</dd>
 </dl>
 #if($page)
-
+#if(!$self.version)
 #if($page.authentication.has_role('reviewer'))
 #set($responses = $self.getComitteeResponses())
 #set($members = $responses.keySet())
@@ -248,6 +248,7 @@
 <textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$committeeResponse.get("approval_comment")#end</textarea>
 <input type="submit" value="Submit" />
 </form>
+#end
 #end
 #else
 </body>
