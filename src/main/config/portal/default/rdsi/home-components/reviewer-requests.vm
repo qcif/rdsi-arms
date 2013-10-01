@@ -3,7 +3,7 @@
 <div class="block">
 #set($results = $self.getListOfStage('arms-submitted'))
 #set($committees_results = $self.getListOfStage('arms-allocation-committee'))
-#if (($results && $results.size() > 0) || ($committees_results && $committees_results.size()))
+#if (($results && $results.size() > 0) || ($committees_results && $committees_results.size() >0))
 <table>
     <thead>
         <tr>
