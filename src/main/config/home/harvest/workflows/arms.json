@@ -41,7 +41,7 @@
             							"workflowStage":"arms-submitted",
             							"isReviewer":true
             						  }
-        }  
+        }         
     },
     "indexer": {
         "script": {
@@ -95,7 +95,7 @@
             "security": ["provisioner","admin"],
             "visibility": ["provisioner","admin"],
             "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-retired" }],
+                "target-step" : "arms-completed" }],
             "template": "workflows/simpleworkflow"
         },
         {
