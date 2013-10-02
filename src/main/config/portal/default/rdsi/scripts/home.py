@@ -28,3 +28,14 @@ class HomeData(Dashboard):
 
     def __activate__(self, context):
         self.activate(context)
+        auth = context["page"].authentication
+        if auth.has_role("admin"):
+            self.selected = "admin"
+        elif auth.has_role("committee"):
+            self.selected = "committee"
+        elif auth.has_role("requester"):
+            self.selected = "requester"
+        elif  auth.has_role("reviewer"):
+            self.selected = "reviewer"
+        elif auth.has_role("provisioner"):
+            self.selected = "provisioner"

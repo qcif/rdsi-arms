@@ -4,6 +4,7 @@
   <span>#displayMessage("arms.home.title")</span>
 </h2>
 
+#parseTemplate("home-components/role-switch-board.vm")
 ##parseTemplate("menus/home-main-menu.vm")
     <div class="grid_12">
 	#parseTemplate("home-components/reviewer-requests.vm")

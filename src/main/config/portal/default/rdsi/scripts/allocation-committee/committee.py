@@ -34,7 +34,7 @@ class CommitteeData:
         username = auth.get_username()
         
         oid = request.getParameter("oid")
-        approved = request.getParameter("approved")
+        approval = request.getParameter("approval")
         approval_comment = request.getParameter("approval_comment")
         
         storedObj = storage.getObject(oid)
@@ -48,11 +48,11 @@ class CommitteeData:
             committeeResponses = JsonObject()
         
         committeeResponse = JsonObject()
-        committeeResponse.put("approved",approved)
+        committeeResponse.put("approval",approval)
         committeeResponse.put("approval_comment",approval_comment)
         
         committeeResponses.put(username,committeeResponse)
 
-        log.debug(" %s: Committee %s, approval = %s, comment = %s"  % ( oid, username, approved, approval_comment))
+        log.debug(" %s: Committee %s, approval = %s, comment = %s"  % ( oid, username, approval, approval_comment))
         StorageUtils.createOrUpdatePayload(storedObj,"committee-responses.metadata",IOUtils.toInputStream(committeeResponses.toString(), "UTF-8"))
         context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
