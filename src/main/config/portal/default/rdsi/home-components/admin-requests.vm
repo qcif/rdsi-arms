@@ -28,7 +28,7 @@
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.holdding.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-provisioning,arms-retired'))
+#set($results = $self.getListOfStage('arms-provisioning,arms-completed,arms-retired'))
 #if ($results && $results.size() > 0)
 <table>
     <thead>
