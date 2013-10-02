@@ -1327,6 +1327,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -1338,6 +1339,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -1355,6 +1357,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -1366,6 +1369,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -2922,6 +2926,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -2933,6 +2938,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -2950,6 +2956,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -2961,6 +2968,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -4045,39 +4053,15 @@
                             "content": "arms.heading.approval"
                         },
                         {
-                            "component-type": "textarea",
-                            "field-name": "committee-feedback",
-                            "label": "arms.field.label.committee-feedback"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.approvalBy"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "approvalBy",
-                            "button-for": "",
-                            "buttons": [
-                                {
-                                    "label": "Approved for REDS",
-                                    "value": "Approved for REDS"
-                                },
-                                {
-                                    "label": "Approved for CDS",
-                                    "value": "Approved for CDS"
-                                },
-                                {
-                                    "label": "Approved for Data Storage",
-                                    "value": "Approved for Data Storage"
-                                }
-                            ]
+                        	"component-type": "text-block",
+                        	"type": "p",
+                        	"content": "arms.paragraph.stage.submitted.approval"
                         },
                         {
                             "component-type": "transition-control",
                             "transitions": [
                                 {
-                                    "name": "Submit",
+                                    "name": "This request is ready for the Allocation Committee",
                                     "type": "button",
                                     "form-submit-action": "next",
                                     "close": true,
@@ -5338,6 +5322,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -5349,6 +5334,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -5366,6 +5352,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -5377,6 +5364,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -6461,16 +6449,6 @@
                             "content": "arms.heading.approval"
                         },
                         {
-                            "component-type": "textarea",
-                            "field-name": "committee-feedback",
-                            "label": "arms.field.label.committee-feedback"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.approvalBy"
-                        },
-                        {
                             "component-type": "radio-button",
                             "field-name": "approvalBy",
                             "button-for": "",
@@ -6482,18 +6460,19 @@
                                 {
                                     "label": "Approved for CDS",
                                     "value": "Approved for CDS"
-                                },
-                                {
-                                    "label": "Approved for Data Storage",
-                                    "value": "Approved for Data Storage"
                                 }
                             ]
+                        },
+                        {
+                        	"component-type": "text-block",
+                        	"type": "p",
+                        	"content": "arms.paragraph.stage.committee.approval"
                         },
                         {
                             "component-type": "transition-control",
                             "transitions": [
                                 {
-                                    "name": "Submit",
+                                    "name": "This request is ready for Provisioning",
                                     "type": "button",
                                     "form-submit-action": "next",
                                     "close": true,
@@ -7754,6 +7733,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-1qtr",
                                     "label": "arms.field.label.ingest-1qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -7765,6 +7745,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-2qtr",
                                     "label": "arms.field.label.ingest-2qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -7782,6 +7763,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-3qtr",
                                     "label": "arms.field.label.ingest-3qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -7793,6 +7775,7 @@
                                     "component-type": "date-picker",
                                     "field-name": "ingest-4qtr",
                                     "label": "arms.field.label.ingest-4qtr",
+                                    "clear-date": true,
                                     "format": "MM yy",
                                     "month-year": true,
                                     "options": "showButtonPanel: true",
@@ -8877,39 +8860,15 @@
                             "content": "arms.heading.approval"
                         },
                         {
-                            "component-type": "textarea",
-                            "field-name": "committee-feedback",
-                            "label": "arms.field.label.committee-feedback"
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.approvalBy"
-                        },
-                        {
-                            "component-type": "radio-button",
-                            "field-name": "approvalBy",
-                            "button-for": "",
-                            "buttons": [
-                                {
-                                    "label": "Approved for REDS",
-                                    "value": "Approved for REDS"
-                                },
-                                {
-                                    "label": "Approved for CDS",
-                                    "value": "Approved for CDS"
-                                },
-                                {
-                                    "label": "Approved for Data Storage",
-                                    "value": "Approved for Data Storage"
-                                }
-                            ]
+                        	"component-type": "text-block",
+                        	"type": "p",
+                        	"content": "arms.paragraph.stage.provisioning.approval"
                         },
                         {
                             "component-type": "transition-control",
                             "transitions": [
                                 {
-                                    "name": "Submit",
+                                    "name": "This request is now completed",
                                     "type": "button",
                                     "form-submit-action": "next",
                                     "close": true,
