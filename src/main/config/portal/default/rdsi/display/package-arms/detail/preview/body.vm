@@ -226,7 +226,7 @@
 <tr>
 #set($response = $responses.get($key))
 <td>$key</td>
-<td>$response.get("approved")</td>
+<td>$response.get("approval")</td>
 <td>$response.get("approval_comment")</td>
 </tr>
 #end
@@ -239,10 +239,21 @@
 <h4>Committee responses</h4>
 <form action="$portalPath/allocation-committee/committee.script" method="POST">
 <input type="hidden" name="oid" value="$oid" />
-<p><span>Approved</span>
-<label><input name="approved" value="Yes" type="radio" #if($committeeResponse.get("approved") == "Yes") checked #end))>Yes</label>
-<label><input name="approved" value="No" type="radio" #if($committeeResponse.get("approved") != "Yes") checked #end>No</label>
-</label>
+#set($approval = $committeeResponse.get("approval"))
+<p>
+	<label>
+		<input name="approval" value="Approved for REDS" type="radio" #if($approval == "Approved for REDS") checked #end>Approved for REDS
+	</label>
+</p>
+<p>
+	<label>
+		<input name="approval" value="Approved for CDS" type="radio" #if($approval == "Approved for CDS") checked #end>Approved for CDS
+	</label>
+</p>
+<p>
+	<label>
+		<input name="approval" value="Not approved" type="radio" #if($approval == "Not approved") checked #end>Not approved</label>
+	</label>
 </p>
 <label for="approval_comment">Comment</label>
 <textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$committeeResponse.get("approval_comment")#end</textarea>
