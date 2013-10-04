@@ -62,7 +62,8 @@
     "roles": {
         "type": "internal",
         "internal": {
-            "path": "${fascinator.home}/security/roles.properties"
+            "path": "${fascinator.home}/security/roles.properties",
+            "defaultRole":"requester"
         }
     },
     "storage": {
