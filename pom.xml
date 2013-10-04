@@ -267,25 +267,6 @@
 							</artifactItems>
 						</configuration>
 					</execution>
-					<!-- Shibboleth Resources -->
-					<execution>
-						<id>unpack-shib-conf</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>unpack</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.home}</outputDirectory>
-							<artifactItems>
-								<artifactItem>
-									<groupId>au.com.redboxresearchdata</groupId>
-									<artifactId>fascinator-shibboleth</artifactId>
-									<classifier>redbox-config</classifier>
-									<type>zip</type>
-								</artifactItem>
-							</artifactItems>
-						</configuration>
-					</execution>
 				</executions>
 			</plugin>
 			<!-- 2nd - Deploy Institutional build over default ReDBox -->

@@ -10,6 +10,7 @@
 
 	<http auto-config="false"  disable-url-rewriting="true" access-decision-manager-ref="fascinatorAccessDecisionManagerBean" use-expressions="true" entry-point-ref="authenticationEntryPoint">
 		<intercept-url pattern="/**/login" access="permitAll" />
+		<intercept-url pattern="/**/sso/*" access="permitAll" />
 		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('committee')"/>
 		<intercept-url pattern="/**/accessDenied" access="permitAll" />
 		<intercept-url pattern="/**/dashboards/user" access="hasRole('requester')" />

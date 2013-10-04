@@ -22,7 +22,10 @@
         "SimpleShibbolethRoleManager":{
             "requester":[
                 [
-                    ["eduPersonAffiliation", "is", "member"]
+                    ["eduPersonAffiliation", "is", "student"]
+                ],
+                [
+                    ["eduPersonAffiliation", "is not", "student"]
                 ]
             ]
         }
