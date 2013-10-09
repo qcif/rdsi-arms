@@ -16,7 +16,7 @@
         "cn_attribute":"displayName",
         "session_attribute":"Shib-Session-ID",
         "idp_attribute":"Shib-Identity-Provider",
-        "attributes":["eduPersonAffiliation", "commonName"],
+        "attributes":["eduPersonAffiliation", "commonName", "email"],
         "delimiter":";",
         "rolePlugins":["SimpleShibbolethRoleManager"],
         "SimpleShibbolethRoleManager":{
