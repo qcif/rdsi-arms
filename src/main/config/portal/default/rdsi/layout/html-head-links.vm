@@ -4,3 +4,6 @@
 <!--[if gte IE 6]>
 <link rel="stylesheet" type="text/css" href="$portalPath/css/redbox-ie.css" />
 <![endif]-->
+
+## Jira feedback widget
+<script type="text/javascript" src="https://qcifltd.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e/en_US-a8zxgz-1988229788/6139/11/1.4.0-m6/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?collectorId=7b97161c"></script>
