@@ -31,7 +31,7 @@ class CommitteeData:
         auth = context["page"].authentication
         log = context["log"]
         
-        username = auth.get_username()
+        username = auth.get_name()
         
         oid = request.getParameter("oid")
         approval = request.getParameter("approval")
