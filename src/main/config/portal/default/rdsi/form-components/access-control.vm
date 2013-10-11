@@ -13,7 +13,7 @@
 		var owner = results.owner;
 		table_html += "<tr>";
 		table_html += "<td><input type='radio' name='is_owner' checked = 'checked' value='old-owner' /></td>";
-		table_html += "<td>" + owner + "</td>";
+		table_html += "<td>" + owner.realName + "</td>";
 		table_html += "<td></td>";
 		table_html += "</tr>";
 
@@ -31,9 +31,9 @@
 		    	table_html += "<tr>";
 		    	table_html += "<td><input type='radio' name='is_owner'";
 		    	if (users[i] == owner) { table_html += " checked = 'checked'"; } 
-		    	table_html += "  value='" + users[i] + "'/></td>";
-		    	table_html += "<td>" + users[i] + "</td>";
-		    	table_html += "<td><span class='ui-icon ui-icon-trash' style='display:inline-block' onclick=\"revoke_user('" + users[i] + "')\"></span></td>";
+		    	table_html += "  value='" + users[i].userName + "'/></td>";
+		    	table_html += "<td>" + users[i].realName + "</td>";
+		    	table_html += "<td><span class='ui-icon ui-icon-trash' style='display:inline-block' onclick=\"revoke_user('" + users[i].userName + "')\"></span></td>";
 		    	table_html += "</tr>";
 		    }
 		}
@@ -60,30 +60,41 @@
     	
     	if (added_user) {
 			jQuery.ajax({
-				type : "POST",
-				url : "$portalPath/actions/admin.ajax",
-				error: function (req) {
-					alert("Attention please:\n" + req.responseText);
-				},
+				type : "GET",
+				url : "$portalPath/grantAccess.ajax",
 				data: {
-					record: access_control_oid,
-					user: added_user,
-					source: "hibernateAccessControl",
-					verb: "grant-access"
+					action: "getUserName",
+					user: added_user
 				},
-        		dataType:"text",	
-        		success: function() {
-        			document.getElementById('add_user').value = "";
-	    			jQuery.ajax({
-	    				url: "$portalPath/grantAccess.ajax",
-	    				data: { oid:access_control_oid,
-	    						action:"get"
-	    					  },
-	    				error: function(req) { alert("Attention please:\n" + req.responseText); },
-	    				success: function(d) { build_users_table(d); $("#action-warning-msg").show(); }
-	    				});
-        			}
-        		});
+				success: function(verifiedUserName) {
+					var realName = verifiedUserName.realName;
+					jQuery.ajax({
+						type : "POST",
+						url : "$portalPath/actions/admin.ajax",
+						error: function (req) {
+							alert("Attention please:\n" + req.responseText);
+						},
+						data: {
+							record: access_control_oid,
+							user: realName,
+							source: "hibernateAccessControl",
+							verb: "grant-access"
+						},
+				         dataType:"text",
+				         success: function() {
+						        document.getElementById('add_user').value = "";
+								jQuery.ajax({
+									url: "$portalPath/grantAccess.ajax",
+									data: { oid:access_control_oid,
+											action:"get"
+									},
+									error: function(req) { alert("Attention please:\n" + req.responseText); },
+									success: function(d) { build_users_table(d); $("#action-warning-msg").show(); }
+								});
+						  }
+						});
+				}
+    		});
     	}
     }
 
