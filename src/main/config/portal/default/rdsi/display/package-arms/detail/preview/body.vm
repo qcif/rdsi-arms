@@ -7,9 +7,9 @@
 #if(! $self.version)
     #if ($isReviewer)
     <p>[Reviewer's version]</p>
-    <p><a href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
+    <p><a target="_blank" href="$portalPath/download/$oid/reviewer.pdf">Download request as a PDF</a></p>
     #else
-    <p><a href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
+    <p><a target="_blank" href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
     #end
 #end
 #else
