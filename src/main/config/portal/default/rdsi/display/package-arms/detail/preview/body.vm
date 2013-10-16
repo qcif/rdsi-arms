@@ -45,8 +45,8 @@
     <tbody>
 	#foreach($v in $repeats)
 	<tr>
-		<td>$v.get("url").trim()</td>
-		<td>$v.get("description").trim()</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("url").trim())</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("description").trim())</td>
 	</tr>
 	#end
     </tbody>
@@ -79,9 +79,9 @@
     </thead>    
 	#foreach($v in $repeats)
         <tr>
-		<td>$v.get("fundingSource").trim()</td>
-		<td>$v.get("grantNumber").trim()</td>
-		<td>$v.get("projectName").trim()</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("fundingSource").trim())</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("grantNumber").trim())</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("projectName").trim())</td>
 		<td>$v.get("startDate").trim()</td>
 		<td>$v.get("endDate").trim()</td>
         </tr>
@@ -226,8 +226,8 @@
 <tr>
 #set($response = $responses.get($key))
 <td>$key</td>
-<td>$response.get("approval")</td>
-<td>$response.get("approval_comment")</td>
+<td>$StringEscapeUtils.escapeHtml($response.get("approval"))</td>
+<td>$StringEscapeUtils.escapeHtml($response.get("approval_comment"))</td>
 </tr>
 #end
 </table>
@@ -256,7 +256,7 @@
 	</label>
 </p>
 <label for="approval_comment">Comment</label>
-<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$committeeResponse.get("approval_comment")#end</textarea>
+<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$StringEscapeUtils.escapeHtml($committeeResponse.get("approval_comment"))#end</textarea>
 <input type="submit" value="Submit" />
 </form>
 #end
