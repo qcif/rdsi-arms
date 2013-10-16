@@ -422,11 +422,11 @@
 		                                    "propertyName": "projectName"
 		                                },
 		                                {
-		                                    "columnHeader": "Start date",
+		                                    "columnHeader": "Start year",
 		                                    "propertyName": "startDate"
 		                                },
 		                                {
-		                                    "columnHeader": "End date",
+		                                    "columnHeader": "End year",
 		                                    "propertyName": "endDate"
 		                                }
 		                            ]
@@ -484,17 +484,15 @@
                                     "table-json-propertyName": "projectName"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "startDate",
-                                    "label": "Start date",
-                                    "format": "dd MM yy",
+                                    "label": "Start year",
                                     "table-json-propertyName": "startDate"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "endDate",
-                                    "label": "End date",
-                                    "format": "dd MM yy",
+                                    "label": "End year",
                                     "table-json-propertyName": "endDate"
                                 }
                             ]
@@ -2035,11 +2033,11 @@
 		                                    "propertyName": "projectName"
 		                                },
 		                                {
-		                                    "columnHeader": "Start date",
+		                                    "columnHeader": "Start year",
 		                                    "propertyName": "startDate"
 		                                },
 		                                {
-		                                    "columnHeader": "End date",
+		                                    "columnHeader": "End year",
 		                                    "propertyName": "endDate"
 		                                }
 		                            ]
@@ -2097,17 +2095,15 @@
                                     "table-json-propertyName": "projectName"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "startDate",
-                                    "label": "Start date",
-                                    "format": "dd MM yy",
+                                    "label": "Start year",
                                     "table-json-propertyName": "startDate"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "endDate",
-                                    "label": "End date",
-                                    "format": "dd MM yy",
+                                    "label": "End year",
                                     "table-json-propertyName": "endDate"
                                 }
                             ]
@@ -4431,11 +4427,11 @@
 		                                    "propertyName": "projectName"
 		                                },
 		                                {
-		                                    "columnHeader": "Start date",
+		                                    "columnHeader": "Start year",
 		                                    "propertyName": "startDate"
 		                                },
 		                                {
-		                                    "columnHeader": "End date",
+		                                    "columnHeader": "End year",
 		                                    "propertyName": "endDate"
 		                                }
 		                            ]
@@ -4493,17 +4489,15 @@
                                     "table-json-propertyName": "projectName"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "startDate",
-                                    "label": "Start date",
-                                    "format": "dd MM yy",
+                                    "label": "Start year",
                                     "table-json-propertyName": "startDate"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "endDate",
-                                    "label": "End date",
-                                    "format": "dd MM yy",
+                                    "label": "End year",
                                     "table-json-propertyName": "endDate"
                                 }
                             ]
@@ -6842,11 +6836,11 @@
 		                                    "propertyName": "projectName"
 		                                },
 		                                {
-		                                    "columnHeader": "Start date",
+		                                    "columnHeader": "Start year",
 		                                    "propertyName": "startDate"
 		                                },
 		                                {
-		                                    "columnHeader": "End date",
+		                                    "columnHeader": "End year",
 		                                    "propertyName": "endDate"
 		                                }
 		                            ]
@@ -6904,17 +6898,15 @@
                                     "table-json-propertyName": "projectName"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "startDate",
-                                    "label": "Start date",
-                                    "format": "dd MM yy",
+                                    "label": "Start year",
                                     "table-json-propertyName": "startDate"
                                 },
                                 {
-                                    "component-type": "date-picker",
+                                    "component-type": "text-input",
                                     "field-name": "endDate",
-                                    "label": "End date",
-                                    "format": "dd MM yy",
+                                    "label": "End year",
                                     "table-json-propertyName": "endDate"
                                 }
                             ]
