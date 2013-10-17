@@ -200,7 +200,13 @@
         "basicVersioning": {
         "id": "basicVersioning",
         "sourcePayload": ".tfpackage"
-    	}         
+    	},
+        "proposalForm": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
+            "outputFilename": "allocation.pdf"
+        }         
     },
     "uploader": {
         "attachment-upload": {
