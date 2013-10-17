@@ -104,7 +104,7 @@ function add${modelName}Row() {
     var model = {};
     jQuery.getJSON('$portalPath/servertime.script?format=YYYY-MM-dd', function(data) {
     	model['dateAdded'] = data.date;
-        model['addedBy'] = '$page.authentication.get_username()';
+        model['addedBy'] = '$page.authentication.get_name()';
 	
 	setNoteValues(model,true);
 	
