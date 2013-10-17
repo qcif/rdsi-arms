@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>#getValue("dc:title")</title>
+<style type="text/css">
+body { font-size: 10pt;  }
+table {
+	border-collapse: collapse; margin-bottom: 1em; width: 100%
+}
+
+table,th,td {
+	border: 1px solid black;
+}
+thead {
+	background-color: #D9D9D9;
+}
+table.align-centre {
+	text-align: center;
+}
+ul {
+	float: left;  list-style-position: inside; list-style-type: none;
+}
+
+#approval {
+	border: 1px solid
+}
+
+.signature_area { width: 42% }
+</style>
+</head>
+<body>
+<h3>NODE: #getValue("node")</h3>
+<h3>Allocation ID: #getValue("requestID")</h3>
+
+	<div class="section">
+		<h4>Part A</h4>
+		<table>
+			<tr>
+				<td>Proposed data holding and its source</td>
+				<td>#getValue("reviewer-proposed")</td>
+			</tr>
+			<tr>
+				<td>Assessment against ReDS Guidelines</td>
+				<td>#getValue("reviewer-assessment")</td>
+			</tr>
+			<tr>
+				<td>Rationale for first instance, including a statement of interest by the node</td>
+				<td>#getValue("reviewer-rationale1")</td>
+			</tr>
+			<tr>
+				<td>Rationale for class(es) of storage for first the instance</td>
+				<td>#getValue("reviewer-rationale2")</td>
+			</tr>
+			<tr>
+				<td>Rationale for the second instance (if proposed) including its extent, location and storage class(es)</td>
+				<td>#getValue("reviewer-rationale3")</td>
+			</tr>
+			<tr>
+				<td>Summary of the activities to be undertaken to achieve ingest and meet accessibility requirements</td>
+				<td>#getValue("reviewer-summary")</td>
+			</tr>
+			<tr>
+				<td>Expected completion date (all milestones met)</td>
+				<td>#getValue("completion-date")</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="section">
+		<h4>Part B</h4>
+		<table class="align-centre">
+			<thead>
+				<tr>
+					<th>Unit costs</th>
+					<th>Class _____</th>
+					<th>Class _____</th>
+					<th>Class _____</th>
+					<th>Class _____</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Cost/TB ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+			</tr>
+		</table>
+
+		<table class="align-centre">
+			<thead>
+				<tr>
+					<td rowspan="2" style="width:8em">Ingest milestone (by $ value)</td>
+					<td colspan="3">Instance A (LOCATION)</td>
+					<td colspan="3">Instance B (LOCATION)</td>
+					<td rowspan="2">Indicative Date</td>
+				</tr>
+				<tr>
+					<th class="twoline">Class <br/>_____</th>
+					<th class="twoline">Class <br/> _____</th>
+					<th class="twoline">Class <br/> _____</th>
+					<th class="twoline">Class <br/> _____</th>
+					<th class="twoline">Class <br/> _____</th>
+					<th class="twoline">Class <br/> _____</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>100%</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(Date)</td>
+			</tr>
+			<tr>
+				<td>(25%)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(Date)</td>
+			</tr>
+			<tr>
+				<td>(50%)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(Date)</td>
+			</tr>
+			<tr>
+				<td>(75%)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(TB)</td>
+				<td>_____(Date)</td>
+			</tr>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Milestones</th>
+					<th>Status</th>
+					<th>Indicative Date</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Discovery metadata</td>
+				<td>&lt;A specific collection record in Research Data Australia, or other disciplinary portal&gt;</td>
+				<td>_____(Date)</td>
+			</tr>
+			<tr>
+				<td>Accessibility</td>
+				<td>&lt;Accessibility meets one of a range of generic statements covering acceptable ReDS use cases&gt;</td>
+				<td>_____(Date)</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="approval">
+		<h4>APPROVALS</h4>
+		<ul class="signature_area">
+			<li>Node Allocation Panel Chair</li>
+			<li>Signature:</li>
+			<li>&nbsp;</li>
+			<li>Date:</li>
+		</ul>
+		<ul class="signature_area">
+			<li>RDSI Node Contract Delegate</li>
+			<li>Signature:</li>
+			<li>&nbsp;</li>
+			<li>Date:</li>
+		</ul>
+		 <div style="clear:both;"></div>
+	</div>
+
+</body>
+</html>

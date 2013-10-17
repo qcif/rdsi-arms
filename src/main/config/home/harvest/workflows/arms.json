@@ -13,7 +13,7 @@
     "default-owner":"admin",
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning"]
+        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm"]
     },
     "curation": {
         "neverPublish": true,
@@ -41,6 +41,11 @@
             							"workflowStage":"arms-submitted",
             							"isReviewer":true
             						  }
+        },
+		"proposalForm": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
+            "outputFilename": "allocation.pdf"
         }         
     },
     "indexer": {
