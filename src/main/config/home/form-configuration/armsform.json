@@ -394,44 +394,44 @@
                             "template": "group-div",
                             "additional-classes": "fundinginfoSec",
                             "fields": [
-		                        {
-		                            "component-type": "text-block",
-		                            "type": "label",
-		                            "content": "arms.field.label.funding-details"
-		                        },
-		                        {
-		                            "component-type": "table",
-		                            "editFunction": "editFundingInfo",
-		                            "addFunction": "addFundingInfo",
-		                            "metadataPrefix": "fundingInfoTable",
-		                            "modelName": "fundingInfoModel",
-		                            "tableName": "fundingInfoTable",
-		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add a funding source",
-		                            "columns": [
-		                                {
-		                                    "columnHeader": "Funder",
-		                                    "propertyName": "fundingSource"
-		                                },
-		                                {
-		                                    "columnHeader": "Grant number",
-		                                    "propertyName": "grantNumber"
-		                                },
-		                                {
-		                                    "columnHeader": "Project name",
-		                                    "propertyName": "projectName"
-		                                },
-		                                {
-		                                    "columnHeader": "Start year",
-		                                    "propertyName": "startDate"
-		                                },
-		                                {
-		                                    "columnHeader": "End year",
-		                                    "propertyName": "endDate"
-		                                }
-		                            ]
-		                        }
-		                      ]
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.funding-details"
+                                },
+                                {
+                                    "component-type": "table",
+                                    "editFunction": "editFundingInfo",
+                                    "addFunction": "addFundingInfo",
+                                    "metadataPrefix": "fundingInfoTable",
+                                    "modelName": "fundingInfoModel",
+                                    "tableName": "fundingInfoTable",
+                                    "initialiseMethodName": "initialiseFundingInfoTable",
+                                    "addButtonText": "Add a funding source",
+                                    "columns": [
+                                        {
+                                            "columnHeader": "Funder",
+                                            "propertyName": "fundingSource"
+                                        },
+                                        {
+                                            "columnHeader": "Grant number",
+                                            "propertyName": "grantNumber"
+                                        },
+                                        {
+                                            "columnHeader": "Project name",
+                                            "propertyName": "projectName"
+                                        },
+                                        {
+                                            "columnHeader": "Start year",
+                                            "propertyName": "startDate"
+                                        },
+                                        {
+                                            "columnHeader": "End year",
+                                            "propertyName": "endDate"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component-type": "group",
@@ -666,7 +666,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -675,23 +675,28 @@
                             "template": "group-div",
                             "additional-classes": "cust-manager",
                             "fields": [
-		                        {
-		                            "component-type": "text-block",
-		                            "type": "h4",
-		                            "content": "arms.field.label.requester",
-		                            "help": "arms.field.help.requester",
-		                            "additional-class": "section-heading",
-		                            "wrapper-class": "inline-block-component"
-		                        },
+                                {
+                                    "component-type": "text-block",
+                                    "type": "h4",
+                                    "content": "arms.field.label.requester",
+                                    "help": "arms.field.help.requester",
+                                    "additional-class": "section-heading",
+                                    "wrapper-class": "inline-block-component"
+                                },
                                 {
                                     "component-type": "checkbox",
                                     "field-name": "useCustodianDetials",
                                     "box-for": "",
-                                    "boxes": [ {"label":"Use custodian details", "value":"Yes"}],
-		                            "wrapper-class": "inline-block-component"
+                                    "boxes": [
+                                        {
+                                            "label": "Use custodian details",
+                                            "value": "Yes"
+                                        }
+                                    ],
+                                    "wrapper-class": "inline-block-component"
                                 }
-		                    ]
-                        },                      
+                            ]
+                        },
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -799,7 +804,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -876,8 +881,8 @@
                                     "additional-classes": "nodeField",
                                     "wrapper-class": "inline-component statesField"
                                 }
-                              ]
-                        },                        
+                            ]
+                        },
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -936,7 +941,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "help": "arms.field.help.rdsi-node", 
+                            "help": "arms.field.help.rdsi-node",
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -1070,15 +1075,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class III (High-performance disk)",
-                                                    "value": "Storage Class III (High-performance disk)"
-                                                }
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -1087,19 +1092,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class I (HSM/Tape)",
-                                                    "value": "Storage Class I (HSM/Tape)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)"
-                                                },
-                                                {
-                                                    "label": "Not required",
-                                                    "value": "Not required"
-                                                }
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Not required",
+                                            "value": "Not required"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -1486,7 +1491,9 @@
                                     {
                                         "licenceCheck": {
                                             "validationType": "atLeastOneRequired",
-                                            "params": [ "dc:license.dc:identifier" ]
+                                            "params": [
+                                                "dc:license.dc:identifier"
+                                            ]
                                         }
                                     }
                                 ],
@@ -1700,7 +1707,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
-                            "help": "arms.field.help.requestID",                            
+                            "help": "arms.field.help.requestID",
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -2005,44 +2012,44 @@
                             "template": "group-div",
                             "additional-classes": "fundinginfoSec",
                             "fields": [
-		                        {
-		                            "component-type": "text-block",
-		                            "type": "label",
-		                            "content": "arms.field.label.funding-details"
-		                        },
-		                        {
-		                            "component-type": "table",
-		                            "editFunction": "editFundingInfo",
-		                            "addFunction": "addFundingInfo",
-		                            "metadataPrefix": "fundingInfoTable",
-		                            "modelName": "fundingInfoModel",
-		                            "tableName": "fundingInfoTable",
-		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add a funding source",
-		                            "columns": [
-		                                {
-		                                    "columnHeader": "Funder",
-		                                    "propertyName": "fundingSource"
-		                                },
-		                                {
-		                                    "columnHeader": "Grant number",
-		                                    "propertyName": "grantNumber"
-		                                },
-		                                {
-		                                    "columnHeader": "Project name",
-		                                    "propertyName": "projectName"
-		                                },
-		                                {
-		                                    "columnHeader": "Start year",
-		                                    "propertyName": "startDate"
-		                                },
-		                                {
-		                                    "columnHeader": "End year",
-		                                    "propertyName": "endDate"
-		                                }
-		                            ]
-		                        }
-		                      ]
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.funding-details"
+                                },
+                                {
+                                    "component-type": "table",
+                                    "editFunction": "editFundingInfo",
+                                    "addFunction": "addFundingInfo",
+                                    "metadataPrefix": "fundingInfoTable",
+                                    "modelName": "fundingInfoModel",
+                                    "tableName": "fundingInfoTable",
+                                    "initialiseMethodName": "initialiseFundingInfoTable",
+                                    "addButtonText": "Add a funding source",
+                                    "columns": [
+                                        {
+                                            "columnHeader": "Funder",
+                                            "propertyName": "fundingSource"
+                                        },
+                                        {
+                                            "columnHeader": "Grant number",
+                                            "propertyName": "grantNumber"
+                                        },
+                                        {
+                                            "columnHeader": "Project name",
+                                            "propertyName": "projectName"
+                                        },
+                                        {
+                                            "columnHeader": "Start year",
+                                            "propertyName": "startDate"
+                                        },
+                                        {
+                                            "columnHeader": "End year",
+                                            "propertyName": "endDate"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component-type": "group",
@@ -2170,7 +2177,6 @@
                             "help": "arms.field.help.dataprovider",
                             "additional-class": "section-heading"
                         },
-
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -2278,7 +2284,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -2396,7 +2402,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -2473,8 +2479,8 @@
                                     "additional-classes": "nodeField",
                                     "wrapper-class": "inline-component statesField"
                                 }
-                              ]
-                        },                        
+                            ]
+                        },
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -2533,7 +2539,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "help": "arms.field.help.rdsi-node", 
+                            "help": "arms.field.help.rdsi-node",
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -2667,15 +2673,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class III (High-performance disk)",
-                                                    "value": "Storage Class III (High-performance disk)"
-                                                }
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -2684,19 +2690,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class I (HSM/Tape)",
-                                                    "value": "Storage Class I (HSM/Tape)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)"
-                                                },
-                                                {
-                                                    "label": "Not required",
-                                                    "value": "Not required"
-                                                }
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Not required",
+                                            "value": "Not required"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -3083,7 +3089,9 @@
                                     {
                                         "licenceCheck": {
                                             "validationType": "atLeastOneRequired",
-                                            "params": [ "dc:license.dc:identifier" ]
+                                            "params": [
+                                                "dc:license.dc:identifier"
+                                            ]
                                         }
                                     }
                                 ],
@@ -3491,7 +3499,102 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "25%"
+                                            "content": "100%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-4qtr:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "(25%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -3586,7 +3689,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "50%"
+                                            "content": "(50%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -3681,7 +3784,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "75%"
+                                            "content": "(75%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -3762,101 +3865,6 @@
                                                 {
                                                     "component-type": "date-picker",
                                                     "field-name": "ingest-3qtr:indic-date",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "component-type": "group",
-                                    "template": "group-tr",
-                                    "fields": [
-                                        {
-                                            "component-type": "text-block",
-                                            "type": "td",
-                                            "content": "100%"
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "date-picker",
-                                                    "field-name": "ingest-4qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -3998,15 +4006,15 @@
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
                             "fields": [
-		                        {
-		                            "component-type": "standard-button",
-		                            "button-name": "save-close9",
-		                            "label": "Save and close",
-		                            "action": "save",
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close9",
+                                    "label": "Save and close",
+                                    "action": "save",
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
-		                        },
+                                },
                                 {
                                     "component-type": "standard-button",
                                     "button-name": "save9",
@@ -4024,19 +4032,19 @@
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
-		                        {
-		                            "component-type": "transition-control",
-		                            "transitions": [
-		                                {
-		                                    "name": "Next",
-		                                    "form-submit-action": "save",
-		                                    "type": "button"
-		                                }
-		                            ],
-		                            "additional-classes": "next-button",
-		                            "wrapper-class": "inline-component"
-		                        }
-		                      ]
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -4049,9 +4057,9 @@
                             "content": "arms.heading.approval"
                         },
                         {
-                        	"component-type": "text-block",
-                        	"type": "p",
-                        	"content": "arms.paragraph.stage.submitted.approval"
+                            "component-type": "text-block",
+                            "type": "p",
+                            "content": "arms.paragraph.stage.submitted.approval"
                         },
                         {
                             "component-type": "transition-control",
@@ -4094,7 +4102,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
-                            "help": "arms.field.help.requestID",                            
+                            "help": "arms.field.help.requestID",
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -4399,44 +4407,44 @@
                             "template": "group-div",
                             "additional-classes": "fundinginfoSec",
                             "fields": [
-		                        {
-		                            "component-type": "text-block",
-		                            "type": "label",
-		                            "content": "arms.field.label.funding-details"
-		                        },
-		                        {
-		                            "component-type": "table",
-		                            "editFunction": "editFundingInfo",
-		                            "addFunction": "addFundingInfo",
-		                            "metadataPrefix": "fundingInfoTable",
-		                            "modelName": "fundingInfoModel",
-		                            "tableName": "fundingInfoTable",
-		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add a funding source",
-		                            "columns": [
-		                                {
-		                                    "columnHeader": "Funder",
-		                                    "propertyName": "fundingSource"
-		                                },
-		                                {
-		                                    "columnHeader": "Grant number",
-		                                    "propertyName": "grantNumber"
-		                                },
-		                                {
-		                                    "columnHeader": "Project name",
-		                                    "propertyName": "projectName"
-		                                },
-		                                {
-		                                    "columnHeader": "Start year",
-		                                    "propertyName": "startDate"
-		                                },
-		                                {
-		                                    "columnHeader": "End year",
-		                                    "propertyName": "endDate"
-		                                }
-		                            ]
-		                        }
-		                      ]
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.funding-details"
+                                },
+                                {
+                                    "component-type": "table",
+                                    "editFunction": "editFundingInfo",
+                                    "addFunction": "addFundingInfo",
+                                    "metadataPrefix": "fundingInfoTable",
+                                    "modelName": "fundingInfoModel",
+                                    "tableName": "fundingInfoTable",
+                                    "initialiseMethodName": "initialiseFundingInfoTable",
+                                    "addButtonText": "Add a funding source",
+                                    "columns": [
+                                        {
+                                            "columnHeader": "Funder",
+                                            "propertyName": "fundingSource"
+                                        },
+                                        {
+                                            "columnHeader": "Grant number",
+                                            "propertyName": "grantNumber"
+                                        },
+                                        {
+                                            "columnHeader": "Project name",
+                                            "propertyName": "projectName"
+                                        },
+                                        {
+                                            "columnHeader": "Start year",
+                                            "propertyName": "startDate"
+                                        },
+                                        {
+                                            "columnHeader": "End year",
+                                            "propertyName": "endDate"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component-type": "group",
@@ -4564,7 +4572,6 @@
                             "help": "arms.field.help.dataprovider",
                             "additional-class": "section-heading"
                         },
-
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -4672,7 +4679,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -4790,7 +4797,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -4867,8 +4874,8 @@
                                     "additional-classes": "nodeField",
                                     "wrapper-class": "inline-component statesField"
                                 }
-                              ]
-                        },                        
+                            ]
+                        },
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -4927,7 +4934,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "help": "arms.field.help.rdsi-node", 
+                            "help": "arms.field.help.rdsi-node",
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -5061,15 +5068,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class III (High-performance disk)",
-                                                    "value": "Storage Class III (High-performance disk)"
-                                                }
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -5078,19 +5085,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class I (HSM/Tape)",
-                                                    "value": "Storage Class I (HSM/Tape)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)"
-                                                },
-                                                {
-                                                    "label": "Not required",
-                                                    "value": "Not required"
-                                                }
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Not required",
+                                            "value": "Not required"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -5477,7 +5484,9 @@
                                     {
                                         "licenceCheck": {
                                             "validationType": "atLeastOneRequired",
-                                            "params": [ "dc:license.dc:identifier" ]
+                                            "params": [
+                                                "dc:license.dc:identifier"
+                                            ]
                                         }
                                     }
                                 ],
@@ -5885,7 +5894,102 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "25%"
+                                            "content": "100%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-4qtr:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "(25%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -5980,7 +6084,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "50%"
+                                            "content": "(50%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -6075,7 +6179,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "75%"
+                                            "content": "(75%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -6156,101 +6260,6 @@
                                                 {
                                                     "component-type": "date-picker",
                                                     "field-name": "ingest-3qtr:indic-date",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "component-type": "group",
-                                    "template": "group-tr",
-                                    "fields": [
-                                        {
-                                            "component-type": "text-block",
-                                            "type": "td",
-                                            "content": "100%"
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "date-picker",
-                                                    "field-name": "ingest-4qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -6392,15 +6401,15 @@
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
                             "fields": [
-		                        {
-		                            "component-type": "standard-button",
-		                            "button-name": "save-close9",
-		                            "label": "Save and close",
-		                            "action": "save",
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close9",
+                                    "label": "Save and close",
+                                    "action": "save",
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
-		                        },
+                                },
                                 {
                                     "component-type": "standard-button",
                                     "button-name": "save9",
@@ -6418,19 +6427,19 @@
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
-		                        {
-		                            "component-type": "transition-control",
-		                            "transitions": [
-		                                {
-		                                    "name": "Next",
-		                                    "form-submit-action": "save",
-		                                    "type": "button"
-		                                }
-		                            ],
-		                            "additional-classes": "next-button",
-		                            "wrapper-class": "inline-component"
-		                        }
-		                      ]
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -6458,9 +6467,9 @@
                             ]
                         },
                         {
-                        	"component-type": "text-block",
-                        	"type": "p",
-                        	"content": "arms.paragraph.stage.committee.approval"
+                            "component-type": "text-block",
+                            "type": "p",
+                            "content": "arms.paragraph.stage.committee.approval"
                         },
                         {
                             "component-type": "transition-control",
@@ -6503,7 +6512,7 @@
                             "component-type": "knockout-text-block",
                             "field-name": "requestID",
                             "type": "label",
-                            "help": "arms.field.help.requestID",                            
+                            "help": "arms.field.help.requestID",
                             "content": "arms.field.label.requestID"
                         },
                         {
@@ -6808,44 +6817,44 @@
                             "template": "group-div",
                             "additional-classes": "fundinginfoSec",
                             "fields": [
-		                        {
-		                            "component-type": "text-block",
-		                            "type": "label",
-		                            "content": "arms.field.label.funding-details"
-		                        },
-		                        {
-		                            "component-type": "table",
-		                            "editFunction": "editFundingInfo",
-		                            "addFunction": "addFundingInfo",
-		                            "metadataPrefix": "fundingInfoTable",
-		                            "modelName": "fundingInfoModel",
-		                            "tableName": "fundingInfoTable",
-		                            "initialiseMethodName": "initialiseFundingInfoTable",
-		                            "addButtonText": "Add a funding source",
-		                            "columns": [
-		                                {
-		                                    "columnHeader": "Funder",
-		                                    "propertyName": "fundingSource"
-		                                },
-		                                {
-		                                    "columnHeader": "Grant number",
-		                                    "propertyName": "grantNumber"
-		                                },
-		                                {
-		                                    "columnHeader": "Project name",
-		                                    "propertyName": "projectName"
-		                                },
-		                                {
-		                                    "columnHeader": "Start year",
-		                                    "propertyName": "startDate"
-		                                },
-		                                {
-		                                    "columnHeader": "End year",
-		                                    "propertyName": "endDate"
-		                                }
-		                            ]
-		                        }
-		                      ]
+                                {
+                                    "component-type": "text-block",
+                                    "type": "label",
+                                    "content": "arms.field.label.funding-details"
+                                },
+                                {
+                                    "component-type": "table",
+                                    "editFunction": "editFundingInfo",
+                                    "addFunction": "addFundingInfo",
+                                    "metadataPrefix": "fundingInfoTable",
+                                    "modelName": "fundingInfoModel",
+                                    "tableName": "fundingInfoTable",
+                                    "initialiseMethodName": "initialiseFundingInfoTable",
+                                    "addButtonText": "Add a funding source",
+                                    "columns": [
+                                        {
+                                            "columnHeader": "Funder",
+                                            "propertyName": "fundingSource"
+                                        },
+                                        {
+                                            "columnHeader": "Grant number",
+                                            "propertyName": "grantNumber"
+                                        },
+                                        {
+                                            "columnHeader": "Project name",
+                                            "propertyName": "projectName"
+                                        },
+                                        {
+                                            "columnHeader": "Start year",
+                                            "propertyName": "startDate"
+                                        },
+                                        {
+                                            "columnHeader": "End year",
+                                            "propertyName": "endDate"
+                                        }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "component-type": "group",
@@ -6973,7 +6982,6 @@
                             "help": "arms.field.help.dataprovider",
                             "additional-class": "section-heading"
                         },
-
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -7081,7 +7089,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -7199,7 +7207,7 @@
                                     },
                                     "wrapper-class": "inline-block-component",
                                     "classes": "organizationField",
-                                    "lookupdata":"../process/notification/homes.script" 
+                                    "lookupdata": "../process/notification/homes.script"
                                 }
                             ]
                         },
@@ -7276,8 +7284,8 @@
                                     "additional-classes": "nodeField",
                                     "wrapper-class": "inline-component statesField"
                                 }
-                              ]
-                        },                        
+                            ]
+                        },
                         {
                             "component-type": "group",
                             "template": "group-div",
@@ -7336,7 +7344,7 @@
                         {
                             "component-type": "text-block",
                             "type": "label",
-                            "help": "arms.field.help.rdsi-node", 
+                            "help": "arms.field.help.rdsi-node",
                             "content": "arms.field.label.rdsi-node"
                         },
                         {
@@ -7470,15 +7478,15 @@
                                     "field-name": "storage-class",
                                     "label": "arms.field.label.storage-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class III (High-performance disk)",
-                                                    "value": "Storage Class III (High-performance disk)"
-                                                }
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class III (High-performance disk)",
+                                            "value": "Storage Class III (High-performance disk)"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 },
@@ -7487,19 +7495,19 @@
                                     "field-name": "data-protection-class",
                                     "label": "arms.field.label.data-protection-class",
                                     "options": [
-                                                {
-                                                    "label": "Storage Class I (HSM/Tape)",
-                                                    "value": "Storage Class I (HSM/Tape)",
-                                                    "default": true
-                                                },
-                                                {
-                                                    "label": "Storage Class II (Standard disk)",
-                                                    "value": "Storage Class II (Standard disk)"
-                                                },
-                                                {
-                                                    "label": "Not required",
-                                                    "value": "Not required"
-                                                }
+                                        {
+                                            "label": "Storage Class I (HSM/Tape)",
+                                            "value": "Storage Class I (HSM/Tape)",
+                                            "default": true
+                                        },
+                                        {
+                                            "label": "Storage Class II (Standard disk)",
+                                            "value": "Storage Class II (Standard disk)"
+                                        },
+                                        {
+                                            "label": "Not required",
+                                            "value": "Not required"
+                                        }
                                     ],
                                     "wrapper-class": "inline-block-component"
                                 }
@@ -7886,7 +7894,9 @@
                                     {
                                         "licenceCheck": {
                                             "validationType": "atLeastOneRequired",
-                                            "params": [ "dc:license.dc:identifier" ]
+                                            "params": [
+                                                "dc:license.dc:identifier"
+                                            ]
                                         }
                                     }
                                 ],
@@ -8294,7 +8304,102 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "25%"
+                                            "content": "100%"
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:A:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:disk",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:tape",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "text-input",
+                                                    "field-name": "ingest-4qtr:B:volume",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "component-type": "group",
+                                            "template": "group-td",
+                                            "fields": [
+                                                {
+                                                    "component-type": "date-picker",
+                                                    "field-name": "ingest-4qtr:indic-date",
+                                                    "label": "",
+                                                    "wrapper-class": "inline"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "component-type": "group",
+                                    "template": "group-tr",
+                                    "fields": [
+                                        {
+                                            "component-type": "text-block",
+                                            "type": "td",
+                                            "content": "(25%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -8389,7 +8494,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "50%"
+                                            "content": "(50%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -8484,7 +8589,7 @@
                                         {
                                             "component-type": "text-block",
                                             "type": "td",
-                                            "content": "75%"
+                                            "content": "(75%)"
                                         },
                                         {
                                             "component-type": "group",
@@ -8565,101 +8670,6 @@
                                                 {
                                                     "component-type": "date-picker",
                                                     "field-name": "ingest-3qtr:indic-date",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
-                                {
-                                    "component-type": "group",
-                                    "template": "group-tr",
-                                    "fields": [
-                                        {
-                                            "component-type": "text-block",
-                                            "type": "td",
-                                            "content": "100%"
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:A:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:disk",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:tape",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "text-input",
-                                                    "field-name": "ingest-4qtr:B:volume",
-                                                    "label": "",
-                                                    "wrapper-class": "inline"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "component-type": "group",
-                                            "template": "group-td",
-                                            "fields": [
-                                                {
-                                                    "component-type": "date-picker",
-                                                    "field-name": "ingest-4qtr:indic-date",
                                                     "label": "",
                                                     "wrapper-class": "inline"
                                                 }
@@ -8801,15 +8811,15 @@
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
                             "fields": [
-		                        {
-		                            "component-type": "standard-button",
-		                            "button-name": "save-close9",
-		                            "label": "Save and close",
-		                            "action": "save",
+                                {
+                                    "component-type": "standard-button",
+                                    "button-name": "save-close9",
+                                    "label": "Save and close",
+                                    "action": "save",
                                     "closeUrl": "detail",
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
-		                        },
+                                },
                                 {
                                     "component-type": "standard-button",
                                     "button-name": "save9",
@@ -8827,19 +8837,19 @@
                                     "appendOID": true,
                                     "wrapper-class": "inline-component"
                                 },
-		                        {
-		                            "component-type": "transition-control",
-		                            "transitions": [
-		                                {
-		                                    "name": "Next",
-		                                    "form-submit-action": "save",
-		                                    "type": "button"
-		                                }
-		                            ],
-		                            "additional-classes": "next-button",
-		                            "wrapper-class": "inline-component"
-		                        }
-		                      ]
+                                {
+                                    "component-type": "transition-control",
+                                    "transitions": [
+                                        {
+                                            "name": "Next",
+                                            "form-submit-action": "save",
+                                            "type": "button"
+                                        }
+                                    ],
+                                    "additional-classes": "next-button",
+                                    "wrapper-class": "inline-component"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -8852,9 +8862,9 @@
                             "content": "arms.heading.approval"
                         },
                         {
-                        	"component-type": "text-block",
-                        	"type": "p",
-                        	"content": "arms.paragraph.stage.provisioning.approval"
+                            "component-type": "text-block",
+                            "type": "p",
+                            "content": "arms.paragraph.stage.provisioning.approval"
                         },
                         {
                             "component-type": "transition-control",
