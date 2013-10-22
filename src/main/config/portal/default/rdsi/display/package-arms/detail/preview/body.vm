@@ -53,14 +53,13 @@
 </table>
 
 <h4>Merit description</h4>
-<p>#displayMessage("arms.label.merit-sectionA")</p>
+<p class="item_title">#displayMessage("arms.label.merit-sectionA")</p>
 #set($vals = $jsonUtil.getStringList($item, "merit-sectionA"))
 #displayUL($vals)
-<p>#displayMessage("arms.label.merit-sectionB")</p>
+<p class="item_title">#displayMessage("arms.label.merit-sectionB")</p>
 #set($vals = $jsonUtil.getStringList($item, "merit-sectionB"))
 #displayUL($vals)
-<p>#displayMessage("arms.label.merit-sectionC")</p>
-#set($vals = $jsonUtil.getStringList($item, "merit-sectionC"))
+<p class="item_title">#displayMessage("arms.label.merit-sectionC")</p>
 #displayUL($vals)
 
 <h4>#displayMessage("arms.heading.funding-information")</h4>
@@ -209,8 +208,166 @@
 	<dt>Required tools and interfaces:</dt>
 	<dd>#getValue("migrate-required-resources")</dd>
 </dl>
+
+#if($isReviewer)
+	<h4>#displayMessage("arms.heading.review")</h4>
+	<p class="item_title">	#displayMessage("arms.description.notes")</p>
+    #set($repeats = $jsonUtil.getJavaList($item, "dataReviewNotes"))
+    <table>
+        <thead>
+        	<tr>
+        	    <th>Date added</th>
+        	    <th>Added by</th>
+    			<th>Note</th>
+            </tr>
+        </thead>
+        <tbody>
+    	#foreach($v in $repeats)
+    	<tr>
+    		<td>$StringEscapeUtils.escapeHtml($v.get("dateAdded"))</td>
+    		<td>$StringEscapeUtils.escapeHtml($v.get("addedBy"))</td>
+    		<td>$StringEscapeUtils.escapeHtml($v.get("note"))</td>
+    	</tr>
+    	#end
+        </tbody>
+    </table>
+    <p>&nbsp;</p>
+    ## start of allocation committee submission
+    <h4>#displayMessage("arms.heading.allocation-committee")</h4>
+    <p class="item_title">NODE: #getValue("node")</p>
+    <p class="item_title">Allocation ID: #getValue("requestID")</p>
+    <p>&nbsp;</p>
+		<h5>Part A</h5>
+		<dl>
+				<dt>Proposed data holding and its source</dt>
+				<dd>#getValue("reviewer-proposed")</dd>
+				<dt>Assessment against ReDS Guidelines</dt>
+				<dd>#getValue("reviewer-assessment")</dd>
+				<dt>Rationale for first instance, including a statement of interest by the node</dt>
+				<dd>#getValue("reviewer-rationale1")</dd>
+				<dt>Rationale for class(es) of storage for first the instance</dt>
+				<dd>#getValue("reviewer-rationale2")</dd>
+				<dt>Rationale for the second instance (if proposed) including its extent, location and storage class(es)</dt>
+				<dd>#getValue("reviewer-rationale3")</dd>
+				<dt>Summary of the activities to be undertaken to achieve ingest and meet accessibility requirements</dt>
+				<dd>#getValue("reviewer-summary")</dd>
+				<dt>Expected completion date (all milestones met)</dt>
+				<dd>#getValue("completion-date")</dd>
+		</dl>
+
+
+		<h5>Part B</h5>
+		<p>Unit cost table maybe just needed for form not here for reading</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Unit costs</th>
+					<th>Standard Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>High speed disk</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Cost/TB ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+				<td>_____ ($)</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table class="align-centre">
+			<thead>
+				<tr>
+					<th style="width:8em">&#xA0;</th>
+					<th colspan="3">Instance A (#getValue("instanceA-location"))</th>
+					<th colspan="3">Instance B (#getValue("instanceB-location"))</th>
+					<th>&#xA0;</th>
+				</tr>
+				<tr>
+					<th>Ingest milestone (by $ value)</th>
+					<th>Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>Indicative Date</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>100%</td>
+				<td>#getValue("ingest-4qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(25%)</td>
+				<td>#getValue("ingest-1qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(50%)</td>
+				<td>#getValue("ingest-2qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(75%)</td>
+				<td>#getValue("ingest-3qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:indic-date")</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Milestones</th>
+					<th>Status</th>
+					<th>Indicative Date</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Discovery metadata</td>
+				<td>#getValue("discover:status")</td>
+				<td>#getValue("discover:date")</td>
+			</tr>
+			<tr>
+				<td>Accessibility</td>
+				<td>#getValue("accessibility:status")</td>
+				<td>#getValue("accessibility:date")</td>
+			</tr>
+			</tbody>
+		</table>
+#end
+## end of allocation committee submission
 #if($page)
 #if(!$self.version)
+## more tests needed here as pdf is different and I have not tested committee comments
 #if($page.authentication.has_role('reviewer'))
 #set($responses = $self.getComitteeResponses())
 #set($members = $responses.keySet())
