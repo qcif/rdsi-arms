@@ -24,6 +24,11 @@ import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 import preview
 
+## for Attachments
+from com.googlecode.fascinator.api.indexer import SearchRequest
+from java.io import ByteArrayInputStream, ByteArrayOutputStream
+from com.googlecode.fascinator.common.solr import SolrResult
+
 class DetailData:
     def __init__(self):
         pass
@@ -48,6 +53,11 @@ class DetailData:
         else:
             self.committeeResponses = JsonObject()
 
+        self.Services = context["Services"]
+        self.oid = storedObj.getId()
+        self.getAttachments()    
+            
+
     def getComitteeResponses(self):
         return self.committeeResponses
     
@@ -56,3 +66,13 @@ class DetailData:
 
     def getDisplayList(self):
         return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))   
+
+    def getAttachments(self):
+        attachmentType = "review-attachments"
+
+        req = SearchRequest("attached_to:%s AND attachment_type:%s" % (self.oid, attachmentType))
+        req.setParam("rows", "1000")
+        out = ByteArrayOutputStream()
+        self.Services.indexer.search(req, out)
+        response = SolrResult(ByteArrayInputStream(out.toByteArray()))
+        return response.getResults()
