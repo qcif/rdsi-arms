@@ -232,6 +232,28 @@
         </tbody>
     </table>
     <p>&nbsp;</p>
+	## Does not work in PDF
+    #set($repeats = $self.getAttachments())
+    #if ($repeats.size() > 0)
+    <p class="item_title">Attachments</p>
+    <table>
+    <thead>
+		<tr>
+			<th>File name</th>
+			<th>Description</th>
+		</tr>
+    </thead>
+    <tbody>
+    #foreach($v in $self.getAttachments())
+		<tr>
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
+			<td>$v.get("description")</td>
+		</tr>
+    #end
+    </tbody>
+    </table> 
+    #end
+	
     ## start of allocation committee submission
     <h4>#displayMessage("arms.heading.allocation-committee")</h4>
     <p class="item_title">NODE: #getValue("node")</p>
@@ -257,8 +279,7 @@
 
 
 		<h5>Part B</h5>
-		<p>Unit cost table maybe just needed for form not here for reading</p>
-		<table>
+		<table class="align-centre">
 			<thead>
 				<tr>
 					<th>Unit costs</th>
@@ -271,10 +292,10 @@
 			<tbody>
 			<tr>
 				<td>Cost/TB ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
+				<td>#getValue("unitcost:standard")</td>
+				<td>#getValue("unitcost:tape")</td>
+				<td>#getValue("unitcost:volume")</td>
+				<td>#getValue("unitcost:highspeed")</td>
 			</tr>
 			</tbody>
 		</table>
