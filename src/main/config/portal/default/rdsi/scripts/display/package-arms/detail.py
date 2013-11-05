@@ -45,25 +45,10 @@ class DetailData:
             self.version = None
             self.item = preview.loadPackage(storedObj)
 
-        self.committeeResponses = None
-        payloadList = storedObj.getPayloadIdList()
-        if payloadList.contains("committee-responses.metadata"):
-            committeeResponsePayload = storedObj.getPayload("committee-responses.metadata")
-            self.committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
-        else:
-            self.committeeResponses = JsonObject()
-
         self.Services = context["Services"]
         self.oid = storedObj.getId()
         self.getAttachments()    
             
-
-    def getComitteeResponses(self):
-        return self.committeeResponses
-    
-    def getComitteeResponse(self, userName):
-        return self.committeeResponses.get(userName)
-
     def getDisplayList(self):
         return JsonSimple(FascinatorHome.getPathFile(os.path.join("system-files", "package-arms", "preview-fields.json")))   
 
