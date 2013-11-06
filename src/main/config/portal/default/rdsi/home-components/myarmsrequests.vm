@@ -2,6 +2,7 @@
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
 #set($results = $self.getListOfStage('arms-request'))
+
 #if ($results && $results.size() > 0)
 <table>
     <thead>
@@ -30,6 +31,7 @@
 </table>
 #end
 </div>
+<div>There are 25 more requests available <a href="$portalPath/dashboards/records.script">show another 10 requests</a></div>
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
@@ -115,3 +117,120 @@
  });
 
 </script>
+
+
+#set($paging = $self.paging)
+#set($currentPage = $paging.page)
+#set($lastPage = $paging.lastPage)
+#if($paging.pages.size() > 1)
+<div class="paging">
+  <ul>
+    #if($currentPage > 1)
+      #set($prev = $currentPage - 1)
+      <li>
+        <a class="select-page" rel="1" href="#">
+          First
+          <!-- <img src="$portalPath/images/icons/resultset_first.png" /> -->
+        </a>
+      </li>
+      <li>
+        <a class="select-page" rel="$prev" href="#">
+          Previous
+          <!-- <img src="$portalPath/images/icons/resultset_previous.png" /> -->
+        </a>
+      </li>
+    #end
+    #foreach($pageNum in $paging.pages)
+      #if($pageNum.selected)
+        <li class="selected-page">$pageNum.value</li>
+      #else
+        <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
+      #end
+    #end
+    #if($currentPage < $lastPage)
+      #set($next = $currentPage + 1)
+      <li>
+        <a class="select-page" rel="$next" href="#">
+          Next
+          <!-- <img src="$portalPath/images/icons/resultset_next.png" /> -->
+        </a>
+      </li>
+      <li>
+        <a class="select-page" rel="$lastPage" href="#">
+          Last
+          <!-- <img src="$portalPath/images/icons/resultset_last.png" /> -->
+        </a>
+      </li>
+    #end
+  </ul>
+</div>
+#end
+
+<script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
+<div id="searchResults" data-bind="stopBindings: true">
+<table>
+    <thead>
+    	<tr>
+        <th>Col1</th>
+        <th>Col2</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+	    <td data-bind="text: dateAdded"/>
+	    <td data-bind="text: numberFound"/>
+	    <td data-bind="html: showMoreLink" />
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script>
+$(document).ready(function() { loadSearchResults(); });
+
+function loadSearchResults() {
+    searchResultsModel.rows.removeAll();
+    var model = {};
+    jQuery.getJSON('$portalPath/dashboards/records.script', function(data) {
+    	model['dateAdded'] = new Date();
+        model['numberFound'] = data.status;
+	setNoteValues(model);
+	//searchResultsModel.rows.remove();
+        
+	searchResultsModel.rows.push(model);
+        setsearchResultsModelDefaults();
+   	});
+}
+
+function searchResultsModel() {
+    var self = this;
+    self.dateAdded = ko.observable();
+    self.numberFound = ko.observable();
+    self.showMoreLink = ko.observable();
+    self.rows = ko.observableArray([]);
+}
+
+
+function setNoteValues(model) {
+    var str = model["numberFound"];
+    
+    model["numberFound"] = str;
+    model["showMoreLink"] = "<a href='#' onclick='showFullNote(this); return false;'>Show more</a>";
+}
+
+function setsearchResultsModelDefaults() {
+	searchResultsModel.dateAdded('');
+	searchResultsModel.numberFound('');
+}
+
+var searchResultsModel = new searchResultsModel();
+ko.applyBindings(searchResultsModel, $("[id='searchResults']")[0]);
+
+function showFullNote(me) {
+    console.debug("showMoreLink was clicked and showFullNote was called");
+    loadSearchResults();
+}
+   	
+</script>
+
