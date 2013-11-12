@@ -24,17 +24,6 @@ jQuery(document).ready(function() {
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
-	#foreach($item in $results)
-	    #set($oid = $item.get("id"))
-	    <tr>
-	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-		<td>$self.formatDate($item.get("create_timestamp"))</td>
-		<td>$self.formatDate($item.get("last_modified"))</td>
-	        <td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
-	        <td><a href="#" onclick="manage_access('$oid');" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
-	        <td><a href="#" onclick="change_owner('$oid');" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
-	    </tr>
-	#end
         <tr>
 	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
 	    <td data-bind="text: create_timestamp"/>
@@ -48,8 +37,7 @@ jQuery(document).ready(function() {
 #set($paging = $self.paging)
 #set($currentPage = $paging.page)
 #set($lastPage = $paging.lastPage)
-<p>This needs to be fixed: when there is only one page $currentPage $paging.pages.size()</p>
-#if($paging.pages.size() >= 1)
+#if($paging.pages.size() > 1)
 <div id="myRecordsPaging" class="paging">
   <ul>
     #foreach($pageNum in $paging.pages)
@@ -88,17 +76,8 @@ jQuery(document).ready(function() {
             <th>#displayMessage('arms.home.requests.table.status')</th>
         </tr>
     </thead>
-    <tbody>
-	#foreach($item in $results)
-	    #set($oid = $item.get("id"))
-	    <tr>
-	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-            <td>$self.formatDate($item.get("create_timestamp"))</td>
-            <td>$self.formatDate($item.get("last_modified"))</td>
-	        <td>$item.get("workflow_step_label")</td>
-	    </tr>
-	#end
-        <tr data-bind="foreach: rows">
+    <tbody data-bind="foreach: rows">
+        <tr>
 	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
@@ -106,7 +85,10 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#end
+#set($paging = $self.paging)
+#set($currentPage = $paging.page)
+#set($lastPage = $paging.lastPage)
+#if($paging.pages.size() > 1)
 <div id="submittedRecordPaging" class="paging">
   <ul>
     #foreach($pageNum in $paging.pages)
@@ -118,6 +100,8 @@ jQuery(document).ready(function() {
     #end
   </ul>
 </div>
+#end
+#end
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
 
@@ -144,17 +128,8 @@ jQuery(document).ready(function() {
             <th>#displayMessage('arms.home.requests.table.status')</th>
         </tr>
     </thead>
-    <tbody>
-	#foreach($item in $results)
-	    #set($oid = $item.get("id"))
-	    <tr>
-	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-            <td>$self.formatDate($item.get("create_timestamp"))</td>
-            <td>$self.formatDate($item.get("last_modified"))</td>
-	        <td>$item.get("workflow_step_label")</td>
-	    </tr>
-	#end
-        <tr data-bind="foreach: rows">
+    <tbody data-bind="foreach: rows">
+        <tr>
 	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
@@ -162,6 +137,13 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
+#set($pagingCtrlID = 'sharedRecordPaging')
+#parseTemplate("home-components/test.vm")
+<p>Working in progress</p>
+#set($paging = $self.paging)
+#set($currentPage = $paging.page)
+#set($lastPage = $paging.lastPage)
+#if($paging.pages.size() > 1)
 <div id="sharedRecordPaging" class="paging">
   <ul>
     #foreach($pageNum in $paging.pages)
@@ -173,6 +155,7 @@ jQuery(document).ready(function() {
     #end
   </ul>
 </div>
+#end
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
 #end
