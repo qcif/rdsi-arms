@@ -27,7 +27,7 @@ class HomeData(Dashboard):
         pass
 
     def __activate__(self, context):
-        self.activate(context)
+        self.activate(context, context["page"].getPortal().recordsPerPage)
         auth = context["page"].authentication
         if auth.has_role("admin"):
             self.selected = "admin"

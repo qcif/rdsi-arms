@@ -27,5 +27,5 @@ class ProvisionerData(Dashboard):
         pass
 
     def __activate__(self, context):
-        self.activate(context)
+        self.activate(context, context["page"].getPortal().recordsPerPage)
         self.selected = "provisioner"        

@@ -21,11 +21,35 @@ import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display")) 
 
 from Dashboard import Dashboard
-## might not used
-class AdminData(Dashboard):
+
+class RecordsData(Dashboard):
+    """
+        Used in AJAX call to get paged search results of ARMS records
+        It returns results of three types of search:
+        submitted, shared and default: draft 
+    """
+    
     def __init__(self):
         pass
 
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
-        self.selected = "admin"
+        
+        formData = context["formData"]
+        pageNum = formData.get("pageNum")
+        searchType = formData.get("searchType")
+        if pageNum:
+            pageNum = int(pageNum)
+        else:
+            pageNum = 1
+
+        if searchType == "shared":
+            results = self.getShared(pageNum)
+        elif searchType == "submitted":
+            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed',pageNum)
+        else:
+            results = self.getListOfStage('arms-request',pageNum)
+        
+        writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
+        writer.println(results)
+        writer.close()        
