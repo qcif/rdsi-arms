@@ -1,9 +1,8 @@
 #set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-submitted'))
-#set($committees_results = $self.getListOfStage('arms-allocation-committee'))
-#if (($results && $results.size() > 0) || ($committees_results && $committees_results.size() >0))
+#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee'))
+#if ($results && $results.size() > 0)
 <table>
     <thead>
         <tr>
@@ -14,14 +13,6 @@
     </thead>
     <tbody>
 	#foreach($item in $results)
-	    #set($oid = $item.get("id"))
-	    <tr>
-	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
-	    	<td>$item.get("workflow_step_label")</td>
-	    	<td><a href="$portalPath/workflow/$oid"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
-	    </tr>
-	#end
-	#foreach($item in $committees_results)
 	    #set($oid = $item.get("id"))
 	    <tr>
 	    	<td><a href="$portalPath/detail/$oid">$item.get("dc_title")</a></td>
