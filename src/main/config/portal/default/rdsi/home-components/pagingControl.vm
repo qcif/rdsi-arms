@@ -1,0 +1,21 @@
+## Set up a pagination control with a given ID when there is a need
+## Reference search-paging.vm from fascinator
+##
+## $pagingCtrlID : the CSS ID for control's div
+##
+#macro(setPagingCtrl $pagingCtrlID)
+    #set($paging = $self.paging)
+	#if($paging.pages.size() > 1)
+<div id="$pagingCtrlID" class="paging">
+  <ul>
+    #foreach($pageNum in $paging.pages)
+      #if($pageNum.selected)
+        <li><a class="selected-page" rel="$pageNum.value">$pageNum.value</a></li>
+      #else
+        <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
+      #end
+    #end
+  </ul>
+</div>
+	#end
+#end
