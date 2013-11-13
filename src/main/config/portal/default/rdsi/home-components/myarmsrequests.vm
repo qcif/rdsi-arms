@@ -1,3 +1,40 @@
+## load Velocity macro setPagingCtrl
+#parseTemplate("home-components/pagingControl.vm")
+
+## Create a macro for creating readonly tables
+#macro(setDashboardReadonlyTbl $prefix $results) 
+<script>jQuery(document).ready(function() { 
+	ko.applyBindings(${prefix}Results, $('${prefix}ResultsTbl')[0]);
+	setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results);
+	initDashboardRows(${prefix}Results, $results);
+});</script>
+#set($stringID = "arms.home.requests.${prefix}.title")
+#set($menuTitle = "#displayMessage($stringID)" )
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+<table id="${prefix}ResultsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
+	    <td data-bind="text: create_timestamp"/>
+	    <td data-bind="text: last_modified"/>
+	    <td data-bind="text: workflow_step_label"/>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("${prefix}RecordPaging")
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+#end
+
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
@@ -8,7 +45,7 @@
 jQuery(document).ready(function() { 
 	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
 	setupPagingCtrls('myRecordsPaging', myRecords);
-	myRecords.reloadRecords();
+	initDashboardRows(myRecords, $results);
 });
 </script>
 
@@ -28,136 +65,26 @@ jQuery(document).ready(function() {
 	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
-	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a>
+	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
 	        <td><a href="#" data-bind="click: $parent.manageAccess" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
 	        <td><a href="#" onclick="click: $parent.changeOwner;" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
         </tr>
     </tbody>
 </table>
-#set($paging = $self.paging)
-#set($currentPage = $paging.page)
-#set($lastPage = $paging.lastPage)
-#if($paging.pages.size() > 1)
-<div id="myRecordsPaging" class="paging">
-  <ul>
-    #foreach($pageNum in $paging.pages)
-      #if($pageNum.selected)
-        <li><a class="selected-page" rel="$pageNum.value">$pageNum.value</a></li>
-      #else
-        <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
-      #end
-    #end
-  </ul>
-</div>
-#end
+#setPagingCtrl("myRecordsPaging")
 #end
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
+#parseTemplate("form-components/access-control.vm")
 
-#set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
-#parseTemplate("wrapping/info-box-open.vm")
-<div class="block">
 #set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
 #if ($results && $results.size() > 0)
-<script>
-jQuery(document).ready(function() { 
-	ko.applyBindings(submittedResults, jQuery('#submittedResultsTbl')[0]);
-	setupPagingCtrls('submittedRecordPaging', submittedResults);
-	submittedResults.reloadRecords();
-});
-</script>
-
-<table id="submittedResultsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.home.requests.table.dataset')</th>
-            <th>#displayMessage('arms.home.requests.table.created')</th>
-            <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.table.status')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
-	    <td data-bind="text: workflow_step_label"/>
-        </tr>
-    </tbody>
-</table>
-#set($paging = $self.paging)
-#set($currentPage = $paging.page)
-#set($lastPage = $paging.lastPage)
-#if($paging.pages.size() > 1)
-<div id="submittedRecordPaging" class="paging">
-  <ul>
-    #foreach($pageNum in $paging.pages)
-      #if($pageNum.selected)
-        <li><a class="selected-page" rel="$pageNum.value">$pageNum.value</a></li>
-      #else
-        <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
-      #end
-    #end
-  </ul>
-</div>
+  #setDashboardReadonlyTbl('submitted' $results)
 #end
-#end
-</div>
-#parseTemplate("wrapping/info-box-close.vm")
-
-#parseTemplate("form-components/access-control.vm")
 
 #set($results = $self.getShared())
 #if ($results && $results.size() > 0)
-<script>
-jQuery(document).ready(function() { 
-	ko.applyBindings(sharedResults, $('#sharedResultsTbl')[0]);
-	setupPagingCtrls('sharedRecordPaging', sharedResults);
-	sharedResults.reloadRecords();
-});
-</script>
-#set($menuTitle = "#displayMessage('arms.home.requests.shared.title')" )
-#parseTemplate("wrapping/info-box-open.vm")
-<div class="block">
-<table id="sharedResultsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.home.requests.table.dataset')</th>
-            <th>#displayMessage('arms.home.requests.table.created')</th>
-            <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.table.status')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
-	    <td data-bind="text: workflow_step_label"/>
-        </tr>
-    </tbody>
-</table>
-#set($pagingCtrlID = 'sharedRecordPaging')
-#parseTemplate("home-components/test.vm")
-<p>Working in progress</p>
-#set($paging = $self.paging)
-#set($currentPage = $paging.page)
-#set($lastPage = $paging.lastPage)
-#if($paging.pages.size() > 1)
-<div id="sharedRecordPaging" class="paging">
-  <ul>
-    #foreach($pageNum in $paging.pages)
-      #if($pageNum.selected)
-        <li><a class="selected-page" rel="$pageNum.value">$pageNum.value</a></li>
-      #else
-        <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
-      #end
-    #end
-  </ul>
-</div>
-#end
-</div>
-#parseTemplate("wrapping/info-box-close.vm")
+  #setDashboardReadonlyTbl('shared' $results)
 #end
 
 <script>
@@ -186,8 +113,8 @@ jQuery(document).ready(function() {
 
 <script>
 var myRecords = new myRecordsModel();
-var submittedResults = new submittedResultsModel();
-var sharedResults = new sharedResultsModel();
+var submittedResults = new redonlyResultsModel('submitted');
+var sharedResults = new redonlyResultsModel('shared');
 
 function setupPagingCtrls(ctrlID, modelInst) {
 	$("#"+ ctrlID +" a").click(function() {
@@ -199,48 +126,21 @@ function setupPagingCtrls(ctrlID, modelInst) {
     });
 }
 
-function submittedResultsModel() {
-	var self = this;
+// only has data and reload function
+function redonlyResultsModel(searchType) {
+	var self = this
 	self.rows = ko.observableArray([]);
 
 	self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType=submitted&pageNum='+pageN, function(data) {
-			var x;
-	    	for(var i=0; i < data.length; i++) {
-			    data[i].href = ko.computed(function() {
-				  return '$portalPath/detail/' + data[i].id;
-			    });
-				data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
-				data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
-	    		self.rows.push(data[i]);
-	    	}
+		jQuery.getJSON('$portalPath/dashboards/records.script?searchType='+searchType+'&pageNum='+pageN, function(data) {
+			initDashboardRows(self, data);
 		});
 	};
 }
 
-function sharedResultsModel() {
-	var self = this;
-	self.rows = ko.observableArray([]);
-
-	self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType=shared&pageNum='+pageN, function(data) {
-			var x;
-	    	for(var i=0; i < data.length; i++) {
-			    data[i].href = ko.computed(function() {
-				  return '$portalPath/detail/' + data[i].id;
-			    });
-				data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
-				data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
-	    		self.rows.push(data[i]);
-	    	}
-		});
-	};
-}
-
+// Not only has data as readonlyResultsModel but also has access control functions
 function myRecordsModel() {
     var self = this;
     self.rows = ko.observableArray([]);
@@ -251,15 +151,24 @@ function myRecordsModel() {
 		if (pageN == null) { pageN = 1; }
 		console.debug("pageNum passed is " + pageN);
 		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
-	    	for(var i=0; i < data.length; i++) {
-			    data[i].href = '$portalPath/detail/' + data[i].id;
-				data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
-				data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
-				data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
-	    		self.rows.push(data[i]);
-	    	}
+			initDashboardRows(self, data);
    		});
     };
+}
+
+// Prepare data from server to be bound to knockout tables
+// Reconstrcut href for editing editUrl (only used in myRecordsModel)
+// Reformat datestamp
+// Reconstruct the href of detail page
+// Pass on the rest of data untouched.
+function initDashboardRows(mod, data) {
+	for(var i=0; i < data.length; i++) {
+	    data[i].href = '$portalPath/detail/' + data[i].id;
+		data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
+		data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
+		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+		mod.rows.push(data[i]);
+	}
 }
 
 function zeroFill( number, width )
