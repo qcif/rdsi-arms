@@ -3,11 +3,13 @@
 
 ## Create a macro for creating readonly tables
 #macro(setDashboardReadonlyTbl $prefix $results) 
-<script>jQuery(document).ready(function() { 
+<script>
+jQuery(document).ready(function() { 
 	ko.applyBindings(${prefix}Results, $('${prefix}ResultsTbl')[0]);
 	setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results);
 	initDashboardRows(${prefix}Results, $results);
-});</script>
+});
+</script>
 #set($stringID = "arms.home.requests.${prefix}.title")
 #set($menuTitle = "#displayMessage($stringID)" )
 #parseTemplate("wrapping/info-box-open.vm")
@@ -23,10 +25,10 @@
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
-	    <td data-bind="text: workflow_step_label"/>
+		<td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: create_timestamp"></td>
+	    <td data-bind="text: last_modified"></td>
+	    <td data-bind="text: workflow_step_label"></td>
         </tr>
     </tbody>
 </table>
@@ -62,9 +64,9 @@ jQuery(document).ready(function() {
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-	    <td><a data-bind="attr: {href: href}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
+			<td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+			<td data-bind="text: create_timestamp"/>
+			<td data-bind="text: last_modified"/>
 	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
 	        <td><a href="#" data-bind="click: $parent.manageAccess" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
 	        <td><a href="#" onclick="click: $parent.changeOwner;" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
@@ -109,26 +111,14 @@ jQuery(document).ready(function() {
 
 </script>
 
-<script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
-
 <script>
 var myRecords = new myRecordsModel();
 var submittedResults = new redonlyResultsModel('submitted');
 var sharedResults = new redonlyResultsModel('shared');
 
-function setupPagingCtrls(ctrlID, modelInst) {
-	$("#"+ ctrlID +" a").click(function() {
-	    $("#"+ ctrlID +" .selected-page").addClass("select-page").removeClass("selected-page").attr("href","#");
-  		$(this).removeClass("select-page").addClass("selected-page").removeAttr("href");
-		var pN = $(this).attr("rel");
-  		modelInst.reloadRecords(pN);
-        return false;
-    });
-}
-
 // only has data and reload function
 function redonlyResultsModel(searchType) {
-	var self = this
+	var self = this;
 	self.rows = ko.observableArray([]);
 
 	self.reloadRecords = function(pageN) {
@@ -163,29 +153,12 @@ function myRecordsModel() {
 // Pass on the rest of data untouched.
 function initDashboardRows(mod, data) {
 	for(var i=0; i < data.length; i++) {
-	    data[i].href = '$portalPath/detail/' + data[i].id;
+	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
 		data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
 		data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
 		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
 		mod.rows.push(data[i]);
 	}
-}
-
-function zeroFill( number, width )
-{
-  width -= number.toString().length;
-  if ( width > 0 )
-  {
-    return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
-  }
-  return number + ""; // always return a string
-}
-
-// Convert a full UTC date into format of dd/mm/yyyy
-function formatDate(od) {
-    var d = new Date(od);
-    var newD = zeroFill(d.getUTCDate(),2) + '/' + zeroFill(parseInt(d.getUTCMonth())+1,2) + '/' + d.getUTCFullYear();
-    return newD;
 }
 
 </script>
