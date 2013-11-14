@@ -40,6 +40,7 @@ class Dashboard:
         self.indexer = self.vc('Services').getIndexer()
 
         self.recordsPerPage = recordsPerPage
+        self.returnFields = "id,create_timestamp,dc_title,last_modified,workflow_step_label,dataprovider:email"
 
     # Get from velocity context
     def vc(self, index):
@@ -69,6 +70,7 @@ class Dashboard:
             req.addParam("fq", 'workflow_step:' + stage)
 
         req.setParam("sort", "last_modified desc, f_dc_title asc")
+        req.setParam("fl",self.returnFields)
         out = ByteArrayOutputStream()
         self.indexer.search(req, out)
         return SolrResult(ByteArrayInputStream(out.toByteArray()))
@@ -82,7 +84,8 @@ class Dashboard:
         req.setParam("fq", 'item_type:"object"')
 
         req.addParam("fq", "")
-        req.setParam("sort", "last_modified desc, f_dc_title asc");
+        req.setParam("sort", "last_modified desc, f_dc_title asc")
+        req.setParam("fl",self.returnFields)
         if not isAdmin:
             req.addParam("fq", security_query)
         out = ByteArrayOutputStream()

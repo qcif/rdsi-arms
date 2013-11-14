@@ -47,6 +47,16 @@ class RecordsData(Dashboard):
             results = self.getShared(pageNum)
         elif searchType == "submitted":
             results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed',pageNum)
+        elif searchType == "provisioner":
+            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed',pageNum)
+        elif searchType == "reviewer":
+            results = self.getListOfStage('arms-submitted,arms-allocation-committee',pageNum)
+        elif searchType == "committee":
+            results = self.getListOfStage('arms-allocation-committee',pageNum)
+        elif searchType == "adminProvisions":
+            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning',pageNum)
+        elif searchType == "adminHoldings":
+            results = self.getListOfStage('arms-completed,arms-retired',pageNum)
         else:
             results = self.getListOfStage('arms-request',pageNum)
         

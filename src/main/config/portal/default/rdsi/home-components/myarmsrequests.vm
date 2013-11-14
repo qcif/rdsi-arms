@@ -1,19 +1,18 @@
-## load Velocity macro setPagingCtrl
+## Load Velocity macro setPagingCtrl
+## Load necessary javaScript functions for knockout to bind these tables
 #parseTemplate("home-components/pagingControl.vm")
-
-## Create a macro for creating readonly tables
-#macro(setDashboardReadonlyTbl $prefix $results) 
+## Create a macro for creating tables which list recored submitted by user or shared with user
+#macro(setMyRelatedTbl $prefix $results) 
 <script>
+var ${prefix}Results = new dataRowsModel('${prefix}');
+
 jQuery(document).ready(function() { 
-	ko.applyBindings(${prefix}Results, $('${prefix}ResultsTbl')[0]);
+	ko.applyBindings(${prefix}Results, jQuery('#${prefix}ResultsTbl')[0]);
 	setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results);
 	initDashboardRows(${prefix}Results, $results);
 });
 </script>
-#set($stringID = "arms.home.requests.${prefix}.title")
-#set($menuTitle = "#displayMessage($stringID)" )
-#parseTemplate("wrapping/info-box-open.vm")
-<div class="block">
+
 <table id="${prefix}ResultsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
@@ -25,16 +24,14 @@ jQuery(document).ready(function() {
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-		<td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: create_timestamp"></td>
-	    <td data-bind="text: last_modified"></td>
-	    <td data-bind="text: workflow_step_label"></td>
+	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+	    <td data-bind="text: create_timestamp"/>
+	    <td data-bind="text: last_modified"/>
+	    <td data-bind="text: workflow_step_label"/>
         </tr>
     </tbody>
 </table>
 #setPagingCtrl("${prefix}RecordPaging")
-</div>
-#parseTemplate("wrapping/info-box-close.vm")
 #end
 
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
@@ -44,6 +41,23 @@ jQuery(document).ready(function() {
 
 #if ($results && $results.size() > 0)
 <script>
+var myRecords = new myRecordsModel();
+
+function myRecordsModel() {
+    var self = this;
+    self.rows = ko.observableArray([]);
+    self.manageAccess = function(item) { manage_access(item.id); };
+    self.changeOwner = function(item) { change_owner(item.id); };
+    self.reloadRecords = function(pageN) {
+		self.rows.removeAll();
+		if (pageN == null) { pageN = 1; }
+		console.debug("pageNum passed is " + pageN);
+		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
+			initDashboardRows(self, data);
+   		});
+    };
+}
+
 jQuery(document).ready(function() { 
 	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
 	setupPagingCtrls('myRecordsPaging', myRecords);
@@ -64,12 +78,12 @@ jQuery(document).ready(function() {
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-			<td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-			<td data-bind="text: create_timestamp"/>
-			<td data-bind="text: last_modified"/>
+	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+	    <td data-bind="text: create_timestamp"/>
+	    <td data-bind="text: last_modified"/>
 	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
 	        <td><a href="#" data-bind="click: $parent.manageAccess" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
-	        <td><a href="#" onclick="click: $parent.changeOwner;" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
+	        <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
         </tr>
     </tbody>
 </table>
@@ -77,16 +91,27 @@ jQuery(document).ready(function() {
 #end
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
+
 #parseTemplate("form-components/access-control.vm")
 
+#set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
 #set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
 #if ($results && $results.size() > 0)
-  #setDashboardReadonlyTbl('submitted' $results)
+	#setMyRelatedTbl('submitted' $results)
 #end
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
 
 #set($results = $self.getShared())
 #if ($results && $results.size() > 0)
-  #setDashboardReadonlyTbl('shared' $results)
+#set($menuTitle = "#displayMessage('arms.home.requests.shared.title')" )
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+	#setMyRelatedTbl('shared' $results)
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
 #end
 
 <script>
@@ -108,43 +133,6 @@ jQuery(document).ready(function() {
  $(document).ready(function() {
 	prepareHelps();
  });
-
-</script>
-
-<script>
-var myRecords = new myRecordsModel();
-var submittedResults = new redonlyResultsModel('submitted');
-var sharedResults = new redonlyResultsModel('shared');
-
-// only has data and reload function
-function redonlyResultsModel(searchType) {
-	var self = this;
-	self.rows = ko.observableArray([]);
-
-	self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType='+searchType+'&pageNum='+pageN, function(data) {
-			initDashboardRows(self, data);
-		});
-	};
-}
-
-// Not only has data as readonlyResultsModel but also has access control functions
-function myRecordsModel() {
-    var self = this;
-    self.rows = ko.observableArray([]);
-    self.manageAccess = function(item) { manage_access(item.id); };
-    self.changeOwner = function(item) { change_owner(item.id); };
-    self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		console.debug("pageNum passed is " + pageN);
-		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
-			initDashboardRows(self, data);
-   		});
-    };
-}
 
 // Prepare data from server to be bound to knockout tables
 // Reconstrcut href for editing editUrl (only used in myRecordsModel)
