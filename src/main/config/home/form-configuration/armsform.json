@@ -266,6 +266,11 @@
                         },
                         {
                             "component-type": "text-block",
+                            "type": "span",
+                            "content": "arms.label.merit-reminder"
+                        },
+                        {
+                            "component-type": "text-block",
                             "type": "label",
                             "content": "arms.label.merit-sectionA"
                         },
@@ -1881,6 +1886,11 @@
                             "type": "h1",
                             "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "span",
+                            "content": "arms.label.merit-reminder"
                         },
                         {
                             "component-type": "text-block",
@@ -4276,6 +4286,11 @@
                             "type": "h1",
                             "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "span",
+                            "content": "arms.label.merit-reminder"
                         },
                         {
                             "component-type": "text-block",
@@ -6686,6 +6701,11 @@
                             "type": "h1",
                             "help": "arms.help.merit-info",
                             "content": "arms.heading.merit-info"
+                        },
+                        {
+                            "component-type": "text-block",
+                            "type": "span",
+                            "content": "arms.label.merit-reminder"
                         },
                         {
                             "component-type": "text-block",
