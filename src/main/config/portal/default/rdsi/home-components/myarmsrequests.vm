@@ -51,7 +51,6 @@ function myRecordsModel() {
     self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		console.debug("pageNum passed is " + pageN);
 		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
 			initDashboardRows(self, data);
    		});
