@@ -1,0 +1,411 @@
+{
+    "version": "1.1.0.1",
+    "redbox.version.string": "${redbox.version}",
+    "version.string": "${redbox.version}",
+    "redbox.identity": {
+        "institution": "University of Examples",
+        "RIF-CS Group": "The University of Examples, Australia",
+        "internalGrantString": "urn:uoe:internal"
+    },
+    "configured": true,       
+    "urlBase": "${server.url.base}",
+    "email": "DO_NOT_CHANGE",
+    "Shibboleth":{
+        "use_headers":"false",
+        "username_attribute":"auEduPersonSharedToken",
+        "cn_attribute":"displayName",
+        "session_attribute":"Shib-Session-ID",
+        "idp_attribute":"Shib-Identity-Provider",
+        "attributes":["eduPersonAffiliation", "commonName", "email"],
+        "delimiter":";",
+        "rolePlugins":["SimpleShibbolethRoleManager"],
+        "SimpleShibbolethRoleManager":{
+            "requester":[
+                [
+                    ["eduPersonAffiliation", "is", "student"]
+                ],
+                [
+                    ["eduPersonAffiliation", "is not", "student"]
+                ]
+            ]
+        }
+    },
+    "sso": {
+        "plugins": ["Shibboleth"],
+        "urlExclusions": {
+            "startsWith": [
+                "css/",
+                "feed/",
+                "images/",
+                "js/",
+                "flowplayer/"
+            ],
+            "endsWith": [
+                ".ico"
+            ],
+            "equals": [
+                "css"
+            ]
+        },
+        "trustTokens": {}
+    },
+    "accesscontrol": {
+        "type": "hibernateAccessControl",
+        "hibernateAccessControl":{}
+    },
+    "authentication": {
+        "type": "internal",
+        "internal": {
+            "path": "${fascinator.home}/security/users.properties"
+        }
+    },
+    "roles": {
+        "type": "internal",
+        "internal": {
+            "path": "${fascinator.home}/security/roles.properties",
+            "defaultRole":"requester"
+        }
+    },
+    "storage": {
+        "type": "file-system",
+        "file-system": {
+            "home": "${storage.home}"
+        }
+    },
+    "curation": {
+        "curationEmailAddress": "${admin.email}",
+        "curationRequiresConfirmation": false,
+        "pidProperty": "localPid",
+        "pidType": "local",
+        "mintBroker": "${mint.amq.broker}"
+    },
+    "messaging": {
+        "url": "tcp://localhost:${amq.port}",
+        "stompUrl": "stomp://localhost:${amq.stomp.port}",
+        "home": "${fascinator.home}/activemq-data",
+        "startup": {
+            "delay": "5000",
+            "timer": "15000"
+        },
+        "statistics": {
+            "enabled": true,
+            "destination": "houseKeeping"
+        },
+        "toolChainQueue": "transactionManager",
+        "threads": [
+            {
+                "id": "transactionManager",
+                "description": "Transaction Manager Queue for complicated tool chains.",
+                "priority": "5",
+                "config": {
+                    "name": "transactionManager",
+                    "transactionManagerPlugin": "curation-redbox"
+                }
+            },
+            {
+                "id": "subscriber",
+                "description": "Subscriber queue for event log.",
+                "priority": "7",
+                "config": {
+                    "name": "subscriber",
+                    "subscribers": [
+                        "solr-event-log"
+                    ]
+                }
+            },
+            {
+                "id": "solrwrapper",
+                "description": "Wrapper for ingest into main Solr core.",
+                "priority": "5",
+                "config": {
+                    "name": "solrwrapper"
+                }
+            },
+            {
+                "id": "emailnotification",
+                "description": "Queue to send email notifications",
+                "priority": "8",
+                "config": {
+                    "name": "emailnotification",
+                    "debug": false,
+                    "from": {
+                        "email": "${admin.email}",
+                        "name": "ReDBox"
+                    },
+                    "smtp": {
+                        "host": "${smtp.host}"
+                    },
+                    "defaults": {
+                        "subject": "Notification",
+                        "body": "Default email message"
+                    }
+                }
+            },
+            {
+                "id": "jsonHarvester",
+                "description": "Harvester queue for incoming JSON objects.",
+                "priority": "7",
+                "config": {
+                    "name": "jsonHarvester",
+                    "shouldPark" : true
+                }
+            }
+        ]
+    },
+    "indexer": {
+        "type": "solr",
+        "properties": "TF-OBJ-META",
+        "useCache": true,
+        "buffer": {
+            "docLimit": "200",
+            "sizeLimit": "204800",
+            "timeLimit": "30"
+        },
+        "solr": {
+            "uri": "http://localhost:${jetty.port}/solr/fascinator",
+            "coreName": "fascinator",
+            "autocommit": false,
+            "embedded": false
+        },
+        "anotar": {
+            "uri": "http://localhost:${jetty.port}/solr/anotar",
+            "coreName": "anotar",
+            "autocommit": true
+        },
+        "eventLog": {
+            "uri": "http://localhost:${jetty.port}/solr/eventlog",
+            "coreName": "eventlog",
+            "autocommit": false,
+            "embedded": false
+        }
+    },
+    "transformerDefaults": {
+        "jsonVelocity": {
+            "id": "jsonVelocity",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/arms.vm"
+        },
+        "requestPdf": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "request.pdf"            
+        },
+        "reviewerPdf": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "reviewer.pdf"            
+        },
+        "basicVersioning": {
+        "id": "basicVersioning",
+        "sourcePayload": ".tfpackage"
+    	},
+        "proposalForm": {
+            "id": "jsonVelocityPDF",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
+            "outputFilename": "allocation.pdf"
+        }         
+    },
+    "uploader": {
+        "attachment-upload": {
+            "screen-label": "Attachment Upload",
+            "security": [
+                "librarian",
+                "reviewer",
+                "admin"
+            ],
+            "upload-path": "${fascinator.home}/uploads/attachments",
+            "json-config": "${fascinator.home}/harvest/workflows/attachment.json"
+        },
+        "attachment-file": {
+            "screen-label": "Attachment",
+            "security": [
+                "librarian",
+                "reviewer",
+                "admin"
+            ],
+            "upload-path": "${fascinator.home}/uploads/attachments",
+            "json-config": "${fascinator.home}/harvest/workflows/attachment-file.json"
+        },
+        "notify": {
+            "screen-label": "Notify us about a dataset",
+            "security": [
+                "guest",
+                "metadata",
+                "editor",
+                "admin"
+            ],
+            "upload-path": "${fascinator.home}/uploads/submissions",
+            "json-config": "${fascinator.home}/harvest/workflows/dataset.json",
+            "upload-template": "workflows/submission"
+        }
+    },
+    "mime-types": {
+        "tfpackage": "application/x-fascinator-package"
+    },
+    "database-service": {
+        "derbyHome": "${fascinator.home}/database"
+    },
+    "portal": {
+        "home": "${portal.home}",
+        "contentDir": "${fascinator.home}/content",
+        "defaultView": "default",
+        "sessionTimeout": "60",
+        "skins": {
+            "default": "default",
+            "order": [ "local", "jcu", "rdsi", "redbox" ]
+        },
+        "caching": {
+            "caches": {
+                "scriptObjects": {
+                    "label": "Cache for Jython scripts",
+                    "profile": "dynamic",
+                    "lastModifiedCheck": true
+                },
+                "pathLookup": {
+                    "label": "Cache for path lookups",
+                    "profile": "full"
+                }
+            },
+            "profiles": {
+                "default": {
+                    "label": "Factory defaults",
+                    "refreshIntervalSeconds": 30,
+                    "maxElementsInMemory": 10000,
+                    "eternal": false,
+                    "timeToIdleSeconds": 120,
+                    "timeToLiveSeconds": 120,
+                    "overflowToDisk": false,
+                    "maxElementsOnDisk": 10000,
+                    "diskPersistent": false,
+                    "memoryStoreEvictionPolicy": "LRU"
+                },
+                "off": {
+                    "label": "Disabled",
+                    "maxElementsInMemory": 10000,
+                    "eternal": false,
+                    "timeToIdleSeconds": 1,
+                    "timeToLiveSeconds": 1,
+                    "overflowToDisk": false,
+                    "maxElementsOnDisk": 1,
+                    "diskPersistent": false,
+                    "memoryStoreEvictionPolicy": "LRU"
+                },
+                "dynamic": {
+                    "label": "Dynamic - Caches are refreshed periodically",
+                    "maxElementsInMemory": 25000,
+                    "eternal": false,
+                    "timeToIdleSeconds": 120,
+                    "timeToLiveSeconds": 300,
+                    "overflowToDisk": false,
+                    "maxElementsOnDisk": 25000,
+                    "diskPersistent": false,
+                    "memoryStoreEvictionPolicy": "LRU"
+                },
+                "full": {
+                    "label": "Full - Caches never expire",
+                    "maxElementsInMemory": 100000,
+                    "eternal": true,
+                    "timeToIdleSeconds": 0,
+                    "timeToLiveSeconds": 0,
+                    "overflowToDisk": true,
+                    "maxElementsOnDisk": 100000,
+                    "diskPersistent": false,
+                    "memoryStoreEvictionPolicy": "LRU"
+                }
+            }
+        },
+        "layout": "layout",
+        "nativeJython": true,
+        "packageTypes": {
+            "default": {
+                "jsonconfig": "packaging-config.json",
+                "packages-in-package": false
+            },
+            "arms": {
+                "jsonconfig": "arms.json",
+                "packages-in-package": false
+            }
+        },
+        "harvestFiles": "${fascinator.home}/harvest",
+        "houseKeeping": {
+            "config": {
+                "quartzConfig": "${fascinator.home}/quartz.properties",
+                "desktop": true,
+                "frequency": "3600",
+                "jobs": [
+                    {
+                        "name": "process-set-all",
+                        "type": "processingSet",
+                        "configFile" : "${fascinator.home}/process/processConfig.json",
+                        "setId" : "",                        
+                        "timing": "0 0/5 * * * ?"
+                    }
+				 ]
+            }
+        },
+        "oai-pmh": {
+            "sessionExpiry": "300000",
+            "metadataFormats": {
+                "oai_dc": {
+                    "enabledInAllViews": false,
+                    "enabledViews": [
+                        "published"
+                    ],
+                    "schema": "http://www.openarchives.org/OAI/2.0/oai_dc.xsd",
+                    "metadataNamespace": "http://www.openarchives.org/OAI/2.0/oai_dc/"
+                }
+            }
+        }
+    },
+    "proxy-urls": {
+        "ANZSRC_FOR": "${mint.proxy.url}/ANZSRC_FOR/opensearch/lookup",
+        "Funding_Bodies": "${mint.proxy.url}/Funding_Bodies/opensearch/lookup",
+        "Parties_Groups": "${mint.proxy.url}/Parties_Groups/opensearch/lookup",
+        "Parties_People": "${mint.proxy.url}/Parties_People/opensearch/lookup",
+        "Services": "${mint.proxy.url}/Services/opensearch/lookup",
+        "NLA_SRU": "${mint.proxy.url}/default/search/nlaLookup",
+        "Published_Records_By_Type": "${mint.proxy.url}/default/api/query.script?callType=published-records-by-type"
+    },
+    "alerts": {
+        "path": "${fascinator.home}/alerts",
+        "xmlMaps": {
+            "xml": "${fascinator.home}/alerts/config/basicXmlMap.json",
+            "rif": "${fascinator.home}/alerts/config/rifXmlMap.json"
+        }
+    },
+    "new-alerts": {
+        "alertSet": [
+            
+        ]
+    },
+    "subscriber": {
+        "solr-event-log": {
+            "uri": "http://localhost:${jetty.port}/solr/eventlog",
+            "buffer": {
+                "docLimit": "200",
+                "sizeLimit": "204800",
+                "timeLimit": "30"
+            }
+        }
+    },
+    "restoreTool": {
+        "harvestRemap": {
+            "enabled": false,
+            "allowOlder": false,
+            "failOnMissing": false
+        },
+        "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
+    },
+    "services": [
+        {
+            "id": "languageService",
+            "className": "com.googlecode.fascinator.portal.services.impl.JavaPropertiesLanguageService",
+            "config": {
+                "propertiesDir": "${fascinator.home}/language-files/"
+            }
+        }
+    ]
+}

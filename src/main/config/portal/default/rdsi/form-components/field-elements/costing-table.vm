@@ -1,0 +1,85 @@
+<div id="unitCostTable" data-bind="stopBindings: true">
+<table>
+<thead><tr>
+<th>&nbsp;</th><th>Standard Disk</th><th>Tape</th><th>Volume</th><th>High speed disk</th>
+</tr></thead>
+<tbody>
+        <tr>
+            <td>Unit cost per TB</td>
+             <td><input type="text"  data-bind="value: standard"/></td>
+             <td><input type="text"  data-bind="value: tape" /></td>
+             <td><input type="text"  data-bind="value: volume" /></td>
+             <td><input type="text"  data-bind="value: highspeed" /></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script>
+
+var unitCost = {
+    standard: ko.observable(""),
+    tape: ko.observable(""),
+    volume: ko.observable(""),
+    highspeed: ko.observable("")
+};
+
+startupCompleteListeners.push("initialiseCostingTable");
+
+function initialiseCostingTable() {
+
+jQuery.getJSON('$portalPath/form-components/unitcosts.json', function(data) {
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:standard"]))) {
+	unitCost.standard(data["standard"]);
+    } else {
+	unitCost.standard(jaffa.serverData["unitcost:standard"]);
+    }
+    if(isNaN(parseInt(jaffa.serverData["unitcost:tape"]))) {
+	unitCost.tape(data["tape"]);
+    } else {
+	unitCost.tape(jaffa.serverData["unitcost:tape"]);
+    }
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:volume"]))) {
+	unitCost.volume(data["volume"]);
+    } else {
+	unitCost.volume(jaffa.serverData["unitcost:volume"]);
+    }
+    
+    if(isNaN(parseInt(jaffa.serverData["unitcost:highspeed"]))) {
+	unitCost.highspeed(data["highspeed"]);
+    } else {
+	unitCost.highspeed(jaffa.serverData["unitcost:highspeed"]);
+    }
+    
+});
+
+
+    unitCost.standard.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:standard"] = newValue;
+    });
+    
+    unitCost.tape.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:tape"] = newValue;
+	});
+    
+    unitCost.highspeed.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:highspeed"] = newValue;
+	});
+    
+    unitCost.volume.subscribe(function(newValue) {
+			jaffa.serverData["unitcost:volume"] = newValue;
+	});
+		
+}
+
+
+
+
+
+
+ko.applyBindings(unitCost, $("[id='unitCostTable']")[0]);
+
+
+</script>

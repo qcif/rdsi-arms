@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dset:record
+	xmlns:dset="http://www.redboxresearchdata.com.au/schema/dataset-simple/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.redboxresearchdata.com.au/schema/dataset-simple/ dataset.xsd ">
+	<header>
+		<identifier type="uri">http://metadata.example.com/1234
+		</identifier>
+		<originatingSource>My DC System</originatingSource>
+		<created>2001-12-31T12:00:00</created>
+		<modified>2001-12-31T12:00:00</modified>
+	</header>
+	<identifier type="uri">http://data.example.com/8365</identifier>
+	<title>$util.get($item, "dc:title")</title>
+	<location>http://datastore.example.com/48576</location>
+	<type>dataset</type>
+	<description>$util.get($item, "description")</description>
+	<created>2001-12-31T12:00:00</created>
+	<modified>2001-12-31T12:00:00</modified>
+	<language>en</language>
+	<rights>Copyright 2013, Fred Nurk</rights>
+	<rightsHolder>Fred Nurk</rightsHolder>
+	<license>CC-BY-AU</license>
+	<accessRights>$util.get($item, "dc:accessRights")</accessRights>
+	<available>2001-12-31T12:00:00</available>
+	<extent>$util.get($item, "data-size")</extent>
+	
+	<temporal>
+		<start>2001-12-31T12:00:00</start>
+		<end>2001-12-31T12:00:00</end>
+	</temporal>
+	
+	<spatial>Brisbane</spatial>
+	
+	<mediator>
+		<givenName>$util.get($item, "requester:givenName")</givenName>
+		<familyName>$util.get($item, "requester:familyName")</familyName>
+		<email>$util.get($item, "requester:email")</email>
+	</mediator>
+	<creators>
+		<creator>
+			<identifiers>
+				<identifier type="url">http://duncan.dickinson.name</identifier>
+			</identifiers>
+			<honorificPrefix>Mr</honorificPrefix>
+			<givenName>Duncan</givenName>
+			<familyName>Dickinson</familyName>
+			<email>d.dickinson@qcif.edu.au</email>
+			<organisation>QCIF</organisation>
+		</creator>
+		<creator>
+			<identifiers>
+				<identifier type="url">http://people.example.com/48575</identifier>
+			</identifiers>
+			<honorificPrefix>Dr</honorificPrefix>
+			<givenName>Fred</givenName>
+			<familyName>Nurk</familyName>
+			<email>nurk@example.com</email>
+			<organisation>Nurk Pty Ltd</organisation>
+		</creator>
+	</creators>
+</dset:record>

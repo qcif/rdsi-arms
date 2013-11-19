@@ -1,0 +1,32 @@
+h4 {
+    background: none repeat scroll 0 0 #0091B6;
+    color: white;
+    padding: 0.3em;
+    text-transform: none;
+}
+p { margin: 0.1em }
+
+.people-container dt { text-align: right; font-size: small }
+
+.people {
+    float: left;
+    margin-left: 1em;
+    padding: 0 0.5% 2em 0;  
+    width: 45%;
+}
+
+dd { padding-left: 0em; }
+
+table {
+	border-collapse: collapse; margin-bottom: 1em; width: 100%
+}
+
+table,th,td {
+	border: 1px solid black;
+}
+thead {
+	background-color: #D9D9D9;
+}
+table.align-centre {
+	text-align: center;
+}

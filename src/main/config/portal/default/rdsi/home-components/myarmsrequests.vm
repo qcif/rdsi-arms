@@ -1,0 +1,151 @@
+## Load Velocity macro setPagingCtrl
+## Load necessary javaScript functions for knockout to bind these tables
+#parseTemplate("home-components/pagingControl.vm")
+## Create a macro for creating tables which list recored submitted by user or shared with user
+#macro(setMyRelatedTbl $prefix $results) 
+<script>
+var ${prefix}Results = new dataRowsModel('${prefix}');
+
+jQuery(document).ready(function() { 
+	ko.applyBindings(${prefix}Results, jQuery('#${prefix}ResultsTbl')[0]);
+	setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results);
+	initDashboardRows(${prefix}Results, $results);
+});
+</script>
+
+<table id="${prefix}ResultsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+	    <td data-bind="text: create_timestamp"/>
+	    <td data-bind="text: last_modified"/>
+	    <td data-bind="text: workflow_step_label"/>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("${prefix}RecordPaging")
+#end
+
+#set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+#set($results = $self.getListOfStage('arms-request'))
+
+#if ($results && $results.size() > 0)
+<script>
+var myRecords = new myRecordsModel();
+
+function myRecordsModel() {
+    var self = this;
+    self.rows = ko.observableArray([]);
+    self.manageAccess = function(item) { manage_access(item.id); };
+    self.changeOwner = function(item) { change_owner(item.id); };
+    self.reloadRecords = function(pageN) {
+		self.rows.removeAll();
+		if (pageN == null) { pageN = 1; }
+		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
+			initDashboardRows(self, data);
+   		});
+    };
+}
+
+jQuery(document).ready(function() { 
+	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
+	setupPagingCtrls('myRecordsPaging', myRecords);
+	initDashboardRows(myRecords, $results);
+});
+</script>
+
+<table id="myRecordsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.home.requests.table.modified')</th>
+            <th>#displayMessage('arms.home.requests.manage.edit')</th>
+	    <th>Share</th>
+	    <th>Delete</th>            
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+	    <td data-bind="text: create_timestamp"/>
+	    <td data-bind="text: last_modified"/>
+	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
+	        <td><a href="#" data-bind="click: $parent.manageAccess" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
+	        <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("myRecordsPaging")
+#end
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+
+#parseTemplate("form-components/access-control.vm")
+
+#set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
+#if ($results && $results.size() > 0)
+	#setMyRelatedTbl('submitted' $results)
+#end
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+
+#set($results = $self.getShared())
+#if ($results && $results.size() > 0)
+#set($menuTitle = "#displayMessage('arms.home.requests.shared.title')" )
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+	#setMyRelatedTbl('shared' $results)
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+#end
+
+<script>
+    function prepareHelps() {
+    	var help_contents = $('.pre-help-content');
+    	for (var i = 0; i < help_contents.length; i++ ) {
+    		$(help_contents[i]).hide().attr("class","help-content");
+    		var helpToggleHtml = "<button class=\"jaffaHelpToggle\"></button>";
+    	    helpToggle = $(helpToggleHtml);
+    	    helpToggle.button({icons: {primary:'ui-icon-help'}});
+
+    	    // Setup click logic
+    	    helpToggle.click(function(){$(this).next().toggle('fast');});
+
+    	    // And attach to our container
+    	    helpToggle.insertBefore(help_contents[i]);	
+    	}
+    }
+ $(document).ready(function() {
+	prepareHelps();
+ });
+
+// Prepare data from server to be bound to knockout tables
+// Reconstrcut href for editing editUrl (only used in myRecordsModel)
+// Reformat datestamp
+// Reconstruct the href of detail page
+// Pass on the rest of data untouched.
+function initDashboardRows(mod, data) {
+	for(var i=0; i < data.length; i++) {
+	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+		data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
+		data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
+		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+		mod.rows.push(data[i]);
+	}
+}
+
+</script>

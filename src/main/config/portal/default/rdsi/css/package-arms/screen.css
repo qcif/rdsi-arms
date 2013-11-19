@@ -1,0 +1,49 @@
+#page-heading > span{
+	display:none;
+}
+
+h2#page-heading {
+	border-bottom: none;
+}
+
+.article h4 {
+    background: none repeat scroll 0 0 #0091B6;
+    color: white;
+    padding: 0.3em;
+    text-transform: none;
+}
+
+dt { font-weight: bold; padding-right:1em }
+dd { padding-left: 1em; }
+
+.people {
+    float: left;
+    margin-left: 2em;
+    padding: 0 0.5% 2em 0;  
+    width: 40%;
+}
+
+.people-container dt { float: left; width: 6em; text-align: right; }
+.people-container dd { padding: 0px; }
+
+.people-container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: left;
+    visibility: hidden;
+}
+
+.headerless {
+    background:white !important;
+}
+
+.headerless > h2 {
+    display: none;
+}
+
+table { margin-left: 1%; width: 98%; }
+
+#version_string { font-weight:bold; margin-bottom:0.5em; font-style:italic }
+
+p.item_title { font-weight: bold; margin-bottom: 0px}

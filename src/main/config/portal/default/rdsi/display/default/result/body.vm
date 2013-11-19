@@ -1,0 +1,5 @@
+#if($wfStep && $wfStep != "" && $wfStep != "live")
+     <div class="tags">Workflow stage: <span>$self.metadata.get("workflow_step_label")</span></div>
+#end
+#set($description = $self.metadata.get("collection:description")) 
+<p class="item-description condense">$page.escapeHtml($!description)&nbsp;</p>

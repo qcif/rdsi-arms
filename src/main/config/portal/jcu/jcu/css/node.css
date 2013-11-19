@@ -1,0 +1,74 @@
+.menu .selected, .facet-list .selected {
+    background-color: #333399;
+}
+
+ul.nav, ul.main li a, .box h2 {
+    background: #333399;
+}
+
+ul.main li:hover a {
+    background-color: #007694;
+}
+
+ul.main li:hover ul li a {
+    background-color: #007694 !important;
+}
+
+ul.main li:hover ul li a:hover {
+    background-color: #015d75 !important;
+}
+
+ul.main li ul li a {
+    background-color: #333399;
+}
+
+.accordion-header {
+    background: #333399;
+}
+
+.accordion-header.ui-state-active, .accordion-header:hover {
+    background: #333399;
+}
+
+#content .ui-accordion-content {
+    background: #EEEEEE;
+}
+
+th.header {
+    background: #FFF5D2;
+}
+
+.box h2 a, .box h2 a.visible {
+    background-color: #333399;
+}
+
+.box h2 a:hover, .box h2 a.visible:hover {
+    background-color: #007694;
+}
+
+.accordion-reset:hover {
+    background-color: #333399;
+    border: 1px solid #333399;
+}
+
+ul.main li:hover a {
+ background-color: #007694;
+ 
+}
+
+ul.main li:hover ul li a:hover {
+	background: #015d75;
+}
+
+.ui-widget-header {
+	background: #8D9CCF !important;
+}
+
+.ui-tabs-nav.ui-widget-header {
+	background: #f4eedc !important;
+}
+
+.ui-state-hover a, .ui-state-hover a:hover {
+ background-color: #007694;
+ color: white;
+}
