@@ -1,0 +1,46 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1767" measuredH="539" mockupW="1639" mockupH="497">
+  <controls>
+    <control controlID="87" controlTypeID="__group__" x="128" y="42" w="1190" h="497" measuredW="1190" measuredH="497" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="1190" h="497" measuredW="1068" measuredH="100" zOrder="0" locked="false" isInGroup="87">
+          <controlProperties>
+            <hrefs>ARMS%20Introduction%26bm%3BARMS%20Introduction.bmml%26bm%3BARMS%20Introduction.bmml%26bm%3BARMS%20Introduction.bmml%2CARMS%20Overview%26bm%3BARMS%20Overview.bmml%26bm%3BARMS%20Overview.bmml%26bm%3BARMS%20Overview.bmml%2CARMS%20Merit%26bm%3BARMS%20Merit.bmml%26bm%3BARMS%20Merit.bmml%26bm%3BARMS%20Merit.bmml%2CARMS%20People%26bm%3BARMS%20People.bmml%26bm%3BARMS%20People.bmml%26bm%3BARMS%20People.bmml%2CARMS%20Technical%26bm%3BARMS%20Technical.bmml%26bm%3BARMS%20Technical.bmml%26bm%3BARMS%20Technical.bmml%2CARMS%20Access%26bm%3BARMS%20Access.bmml%26bm%3BARMS%20Access.bmml%26bm%3BARMS%20Access.bmml%2CARMS%20Migration%26bm%3BARMS%20Migration.bmml%26bm%3BARMS%20Migration.bmml%26bm%3BARMS%20Migration.bmml%2C%2C%2CARMS%20Review%20Approval%26bm%3BARMS%20Review%20Approval.bmml%26bm%3BARMS%20Review%20Approval.bmml%26bm%3BARMS%20Review%20Approval.bmml</hrefs>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2220%2C0%2C103%2C27%22%20href%3D%22ARMS%2520Introduction.bmml%22%20alt%3D%22ARMS%20Introduction%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22103%2C0%2C246%2C27%22%20href%3D%22ARMS%2520Overview.bmml%22%20alt%3D%22ARMS%20Overview%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22246%2C0%2C356%2C27%22%20href%3D%22ARMS%2520Merit.bmml%22%20alt%3D%22ARMS%20Merit%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22356%2C0%2C459%2C27%22%20href%3D%22ARMS%2520People.bmml%22%20alt%3D%22ARMS%20People%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22459%2C0%2C570%2C27%22%20href%3D%22ARMS%2520Technical.bmml%22%20alt%3D%22ARMS%20Technical%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22570%2C0%2C725%2C27%22%20href%3D%22ARMS%2520Access.bmml%22%20alt%3D%22ARMS%20Access%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22725%2C0%2C822%2C27%22%20href%3D%22ARMS%2520Migration.bmml%22%20alt%3D%22ARMS%20Migration%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%221051%2C0%2C1114%2C27%22%20href%3D%22ARMS%2520Review%2520Approval.bmml%22%20alt%3D%22ARMS%20Review%20Approval%22%20id%3D%220%22/%3E%0A</map>
+            <text>Introduction%2CData%20collection%20details%2CMerit%20information%2CContact%20details%2CTechnical%20details%2CData%20access%20and%20re-use%2CData%20migration%2CReview%20notes%2CAllocation%20Committee%2CApproval</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="1" y="451" w="1189" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="87"/>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="42" y="466" w="112" h="20" measuredW="112" measuredH="27" zOrder="2" locked="false" isInGroup="87">
+          <controlProperties>
+            <text>Save%20and%20close</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="121" controlTypeID="com.balsamiq.mockups::Label" x="147" y="249" w="-1" h="-1" measuredW="651" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Once%20the%20allocation%20committee%20has%20approved%20this%20record%20and%20is%20to%20be%20provisioned%2C%20please%20click%20the%20button%20below</text>
+      </controlProperties>
+    </control>
+    <control controlID="123" controlTypeID="com.balsamiq.mockups::SubTitle" x="153" y="83" w="-1" h="-1" measuredW="94" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Approval</text>
+      </controlProperties>
+    </control>
+    <control controlID="124" controlTypeID="com.balsamiq.mockups::StickyNote" x="1357" y="50" w="410" h="259" measuredW="109" measuredH="123" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>This%20is%20the%20submit%20screen%20seen%20by%20Reviewers%20at%20the%20Allocation%20Committee%20Review%20stage.%0A%20%0AClicking%20the%20submit%20button%20will%20move%20the%20record%20to%20the%20Provisioning%20stage</text>
+      </controlProperties>
+    </control>
+    <control controlID="125" controlTypeID="com.balsamiq.mockups::Button" x="474" y="285" w="330" h="65" measuredW="243" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>This%20request%20is%20ready%20for%20Provisioning</text>
+      </controlProperties>
+    </control>
+    <control controlID="127" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="153" y="149" w="276" h="61" measuredW="182" measuredH="61" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Approved%20for%20REDS%0A%28%29%20Approved%20for%20CDS%0A%28%29%20Approved%20for%20Data%20Storage</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
