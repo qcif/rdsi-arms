@@ -1,0 +1,34 @@
+[
+    {
+        "label": "QCIF-BNE",
+        "value": "QCIF-BNE"
+    },
+    {
+        "label": "QCIF-TSV",
+        "value": "QCIF-TSV"
+    },
+    {
+        "label": "eRSA",
+        "value": "eRSA"
+    },
+    {
+        "label": "Intersect",
+        "value": "Intersect"
+    },
+    {
+        "label": "iVEC",
+        "value": "iVEC"
+    },
+    {
+        "label": "NCI",
+        "value": "NCI"
+    },
+    {
+        "label": "TPAC",
+        "value": "TPAC"
+    },
+    {
+        "label": "VicNode",
+        "value": "VicNode"
+    }
+]

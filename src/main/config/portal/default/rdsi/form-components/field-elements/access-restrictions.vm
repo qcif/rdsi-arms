@@ -1,0 +1,6 @@
+    <label><input name="accessRestrictions" class="jaffa-field" type="radio" value="No access (Data cannot be shared or released under any circumstances due to ethical constraints)">No access (Data cannot be shared or released under any circumstances due to ethical constraints)</label>
+    <label><input name="accessRestrictions" class="jaffa-field" type="radio" value="Unrestricted access">Unrestricted access</label>
+    <label>Restricted access</label>
+    <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made freely available to selected users only">Research data is made freely available to selected users only</label>
+    <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made available to selected users only, following an appropriate delay">Research data is made available to selected users only, following an appropriate delay</label>
+    <label><input name="accessRestrictions" class="jaffa-field restrictedAccessButton" type="radio" value="Research data is made available to selected users following data de-identification">Research data is made available to selected users following data de-identification</label>

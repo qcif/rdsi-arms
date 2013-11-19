@@ -1,0 +1,28 @@
+{
+    "steps": {
+        "Data collection details": {
+            "Next": "Merit information"
+        },
+        "Merit information": {
+            "Next": "Contact details"
+        },
+        "Contact details": {
+            "Next": "Technical details"
+        },
+        "Technical details": {
+            "Next": "Data access and re-use"
+        },
+        "Data access and re-use": {
+            "Next": "Data migration"
+        },
+        "Data migration": {
+            "Next": "Review"
+        },
+        "Review": {
+        	"Next": "Allocation committee"
+        },
+        "Allocation committee": {
+        	"Next":"Approval"
+        }
+    }
+}

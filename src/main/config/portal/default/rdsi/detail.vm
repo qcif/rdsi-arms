@@ -1,0 +1,28 @@
+#set($pageTitle = "Detail")
+
+#set($metadata = $self.metadata)
+#if($self.isDetail())
+	#define($pageHeader)
+		#renderObject($metadata "detail/head")
+	#end
+#end
+
+#if($self.isIndexed())
+	#if($self.isDetail())
+		#renderObject($metadata "detail/title")
+		<div class="grid_4">
+			#renderObject($metadata "detail/navigation")
+		</div>
+
+		<div class="grid_12">
+			#renderObject($metadata "detail")
+		</div>
+	#else
+		#set($noLayout = "true")
+		#renderObject($metadata "detail")
+	#end
+#else
+	#set($status = $self.setStatus(404))
+	#set($renderContent = false)
+	#parseTemplate("detail-screen/not-found.vm")
+#end

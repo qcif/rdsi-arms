@@ -1,0 +1,144 @@
+.titleField {
+	width:4.7em;
+}
+
+.givenNameField {
+	width:12em;
+}
+
+.familyNameField {
+	width:11em;
+}
+
+.emailField {
+	width:18em;
+}
+
+.telephoneField {
+  width:11em;
+}
+
+.organizationField {
+	width:18em;
+}
+
+.roleField {
+  width:11em;
+}
+
+.statesField > div {
+  display: inline;
+}
+
+.statesField select {
+  width: 11em;
+}
+
+.statesLabel {
+	margin-left: 14em;
+}
+
+.nodeContactNodeLabel {
+	margin-left: 15.5em;
+}
+
+.nodeField {
+	width:18em;
+}
+
+.section-heading {
+  margin-top:0.5em;
+}
+
+
+.restrictedAccessButton {
+  margin-left: 1em;
+}
+
+.longTextInput {
+ 	width:40em;
+}
+
+.fileSizeInput {
+	 width: 19em;
+}
+
+.storageRiskDetailsArea {
+ 	margin-left:1em;
+}
+
+
+#simpleworkflow-form { 
+    position: relative; 
+    padding-left: 13.5em; 
+} 
+#simpleworkflow-form .ui-tabs-nav { 
+    position: absolute; 
+    left: 0.25em; 
+    top: 0.25em; 
+    bottom: 0.25em; 
+    width: 13em; 
+    padding: 0.2em 0 0.2em 0.2em; 
+} 
+#simpleworkflow-form .ui-tabs-nav li { 
+    right: 1px; 
+    width: 100%; 
+    border-right: none; 
+    border-bottom-width: 1px !important; 
+    -moz-border-radius: 4px 0px 0px 4px; 
+    -webkit-border-radius: 4px 0px 0px 4px; 
+    border-radius: 4px 0px 0px 4px; 
+    overflow: hidden; 
+} 
+#simpleworkflow-form .ui-tabs-nav li.ui-tabs-selected, 
+#simpleworkflow-form .ui-tabs-nav li.ui-state-active { 
+    border-right: 1px solid transparent; 
+} 
+#simpleworkflow-form .ui-tabs-nav li a { 
+    float: right; 
+    width: 100%; 
+    text-align: right; 
+} 
+#simpleworkflow-form > div { 
+    min-height: 35em; 
+}
+
+#simpleworkflow-form > div.blockUI { 
+    min-height: 0em; 
+}
+.workflow-controls {
+	border-top: 1px solid #666;	
+	margin-top: 0.5em;
+	padding-top: 0.5em;
+	bottom:0;
+}
+.next-button {
+  margin-left:25.5em;
+}
+.notesFields textarea {
+  width:40em;	
+}
+
+#submit {
+	margin-left: 1em;
+    margin-top: 0.4em;	
+} 
+
+.component-wrapper a { color: blue; }
+
+label.ofFormCheckboxes {
+  font-weight: normal !important;
+}
+
+.cust-manager { margin-top: 1em; }
+#btnCopyCust { font-size: 80%; font-weight: bold; padding: 3px;}
+
+.jaffaHelpToggle {
+    margin-left: 5px;
+    height: 25px;
+    width: 25px;
+}
+/* when above size of help changes, change this */
+.jaffaHelpToggle .ui-icon {
+    left: 3px
+}

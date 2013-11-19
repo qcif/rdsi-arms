@@ -1,0 +1,8 @@
+This file doesn't 'do' anything; its presence is used as a test for deployment
+by Mint/ReDBox. This is a slight tweak on a simple hack suggested here:
+
+http://stackoverflow.com/a/1502322
+
+Mint/ReDBox do not have this file, so their deployment profile will not trigger,
+but the presence of the file in an institutional build lets it piggy-back off
+the profile specified centrally in the Mint/ReDBox POM.

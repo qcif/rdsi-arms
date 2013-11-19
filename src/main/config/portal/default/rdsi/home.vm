@@ -1,0 +1,30 @@
+#set($pageTitle = "Home")
+
+<h2 id="page-heading">
+  <span>#displayMessage("arms.home.title")</span>
+</h2>
+
+#parseTemplate("home-components/role-switch-board.vm")
+
+## requester and admin can create request
+#if ($page.authentication.has_role("admin"))
+  #parseTemplate("menus/home-admin-menu.vm")
+#elseif ($page.authentication.has_role("requester"))
+  #parseTemplate("menus/home-main-menu.vm")
+#end
+
+## reviewer and provisioner have the same home page
+<div class="grid_12">
+#if ($page.authentication.has_role("admin"))
+    #parseTemplate("home-components/admin-requests.vm")
+#elseif ($page.authentication.has_role("committee"))
+    #parseTemplate("home-components/committee-requests.vm")
+#elseif ($page.authentication.has_role("requester"))
+    #parseTemplate("home-components/myarmsrequests.vm")
+#elseif ($page.authentication.has_role("reviewer"))
+    #parseTemplate("home-components/reviewer-requests.vm")
+#elseif ($page.authentication.has_role("provisioner"))
+    #parseTemplate("home-components/provisioner-requests.vm")
+#end
+</div>
+<div class="clear"></div>

@@ -1,0 +1,83 @@
+<link rel="stylesheet" type="text/css" href="$portalPath/css/arms-request.css" />
+
+## toggle isFunded and fundingInfoTable
+## The section has label and knockout table, has a special class: .fundinginfoSec but has no ID
+<script type="text/javascript">
+function toggleFundingInfo() {
+	if($('input[name=isFunded]:radio:checked').val() == "Yes" ) {
+		$(".fundinginfoSec").show();
+	} else {
+		$(".fundinginfoSec").hide();
+	}
+}
+
+function copyCustodianToManager() {
+	var cb = document.getElementById('useCustodianDetials');
+	var fields =["title","givenName","familyName","organization","email","phone"];
+	var el, i;
+	if (cb.checked) {
+		var custodianModel = {}
+		for (i=0; i<fields.length; i++) {
+			el = document.getElementById("requester:"+fields[i]);
+			document.getElementById("requester:"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
+			el.value = document.getElementById("dataprovider:"+fields[i]).value;
+			el.disabled = true;
+
+			custodianModel[fields[i]] = ko.observable($("[id='dataprovider:"+fields[i]+"']").val());
+			ko.applyBindingsToNode($("[id='dataprovider:"+fields[i]+"']")[0], { value: custodianModel[fields[i]] }, custodianModel );
+		}
+		custodianModel.title.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:title']").val(newValue);
+				}
+		 });
+		custodianModel.givenName.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:givenName']").val(newValue);
+				}
+		 });
+		custodianModel.familyName.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:familyName']").val(newValue);
+				}
+		 });
+		custodianModel.organization.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:organization']").val(newValue);
+				}
+		 });
+		custodianModel.email.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:email']").val(newValue);
+				}
+		 });
+		custodianModel.phone.subscribe(function(newValue) {
+				if(cb.checked) {
+					$("[id='requester:phone']").val(newValue);
+				}
+		 });
+	} else {
+		for (i=0; i<fields.length; i++) {
+			document.getElementById("requester:"+fields[i]).disabled = false;
+		}
+	}
+}
+
+// This happens after jaffa binding data and triggering changes. If binding applies at that time,
+// dropdown-list is not ready, we have a problem.
+// This binding only when there is the checkbox useCustodianDetials
+// Or simply missed change event
+var bApplyEventBindings = window.setInterval(function() {
+	if($('.jaffa2Loading').length == 0) {
+		toggleFundingInfo();
+		$('input[name=isFunded]:radio').change(toggleFundingInfo);		
+
+		if(document.getElementById('useCustodianDetials') != null) {
+			$("input[id='useCustodianDetials']").change(copyCustodianToManager);
+			copyCustodianToManager();
+		}
+		window.clearInterval(bApplyEventBindings);
+	}
+},500); 
+
+</script>								   	    
