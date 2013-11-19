@@ -1198,42 +1198,6 @@
                             "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.vivo-Dataset.dc.format",
@@ -2799,42 +2763,6 @@
                             "field-name": "dataset-file-number",
                             "label": "",
                             "additional-classes": "longTextInput"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
                         },
                         {
                             "component-type": "text-block",
@@ -5199,42 +5127,6 @@
                             "field-name": "dataset-file-number",
                             "label": "",
                             "additional-classes": "longTextInput"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
                         },
                         {
                             "component-type": "text-block",
@@ -7614,42 +7506,6 @@
                             "field-name": "dataset-file-number",
                             "label": "",
                             "additional-classes": "longTextInput"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
                         },
                         {
                             "component-type": "text-block",
