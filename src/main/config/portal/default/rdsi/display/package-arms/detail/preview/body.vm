@@ -161,10 +161,6 @@
 	<dt>#displayMessage("arms.field.label.dataset-file-number")</dt>
 	<dd>#getValue("dataset-file-number")</dd>
 
-	<dt>#displayMessage("arms.field.label.dataset-file-maxsize")</dt>
-	<dd>#getValue("dataset-file-maxsize")</dd>
-	<dt>#displayMessage("arms.field.label.dataset-file-minsize")</dt>
-	<dd>#getValue("dataset-file-minsize")</dd>
 	<dt>Data format:</dt>
 	<dd>#getValue("vivo-Dataset.dc.format")</dd>
 </dl>
