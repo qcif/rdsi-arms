@@ -1,0 +1,112 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1318" measuredH="935" mockupW="1190" mockupH="854">
+  <controls>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Label" x="154" y="142" w="-1" h="-1" measuredW="379" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20the%20appropriate%20access%20restrictions%20for%20this%20research%20data</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::RadioButton" x="177" y="163" w="-1" h="-1" measuredW="138" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>Unrestricted%20access</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="154" y="291" w="324" h="-1" measuredW="289" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Further%20information%20regarding%20access%20restrictions</text>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::TextArea" x="154" y="312" w="561" h="54" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1"/>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Label" x="177" y="192" w="-1" h="-1" measuredW="110" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Restricted%20access</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="197" y="213" w="-1" h="-1" measuredW="504" measuredH="61" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Research%20data%20is%20made%20freely%20available%20to%20selected%20users%20only%0A%28%29%20Research%20data%20is%20made%20available%20to%20selected%20users%20only%2C%20following%20a%20delay%0A%28%29%20Research%20data%20is%20made%20available%20to%20selected%20users%20following%20data%20de-identification</text>
+      </controlProperties>
+    </control>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Icon" x="540" y="144" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Help2Icon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Icon" x="449" y="293" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Help2Icon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Label" x="154" y="427" w="-1" h="-1" measuredW="457" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Please%20provide%20details%20of%20the%20licence%20applicable%20to%20users%20of%20the%20data%20collection</text>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::TextArea" x="154" y="681" w="584" h="44" measuredW="200" measuredH="140" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::SubTitle" x="154" y="115" w="-1" h="-1" measuredW="139" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Data%20access</text>
+      </controlProperties>
+    </control>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::SubTitle" x="154" y="400" w="-1" h="-1" measuredW="136" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Data%20licence</text>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::Icon" x="611" y="429" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Help2Icon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::Icon" x="241" y="649" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Help2Icon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="__group__" x="128" y="81" w="1190" h="854" measuredW="1190" measuredH="854" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TabBar" x="0" y="0" w="1190" h="854" measuredW="854" measuredH="100" zOrder="0" locked="false" isInGroup="86">
+          <controlProperties>
+            <hrefs>ARMS%20Introduction%26bm%3BARMS%20Introduction.bmml%26bm%3BARMS%20Introduction.bmml%26bm%3BARMS%20Introduction.bmml%2CARMS%20Overview%26bm%3BARMS%20Overview.bmml%26bm%3BARMS%20Overview.bmml%26bm%3BARMS%20Overview.bmml%2CARMS%20Merit%26bm%3BARMS%20Merit.bmml%26bm%3BARMS%20Merit.bmml%26bm%3BARMS%20Merit.bmml%2CARMS%20People%26bm%3BARMS%20People.bmml%26bm%3BARMS%20People.bmml%26bm%3BARMS%20People.bmml%2CARMS%20Technical%26bm%3BARMS%20Technical.bmml%26bm%3BARMS%20Technical.bmml%26bm%3BARMS%20Technical.bmml%2CARMS%20Access%26bm%3BARMS%20Access.bmml%26bm%3BARMS%20Access.bmml%26bm%3BARMS%20Access.bmml%2CARMS%20Migration%26bm%3BARMS%20Migration.bmml%26bm%3BARMS%20Migration.bmml%26bm%3BARMS%20Migration.bmml%2CARMS%20Submit%26bm%3BARMS%20Submit.bmml%26bm%3BARMS%20Submit.bmml%26bm%3BARMS%20Submit.bmml</hrefs>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2220%2C0%2C103%2C27%22%20href%3D%22ARMS%2520Introduction.bmml%22%20alt%3D%22ARMS%20Introduction%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22103%2C0%2C246%2C27%22%20href%3D%22ARMS%2520Overview.bmml%22%20alt%3D%22ARMS%20Overview%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22246%2C0%2C356%2C27%22%20href%3D%22ARMS%2520Merit.bmml%22%20alt%3D%22ARMS%20Merit%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22356%2C0%2C459%2C27%22%20href%3D%22ARMS%2520People.bmml%22%20alt%3D%22ARMS%20People%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22459%2C0%2C570%2C27%22%20href%3D%22ARMS%2520Technical.bmml%22%20alt%3D%22ARMS%20Technical%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22570%2C0%2C725%2C27%22%20href%3D%22ARMS%2520Access.bmml%22%20alt%3D%22ARMS%20Access%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22725%2C0%2C822%2C27%22%20href%3D%22ARMS%2520Migration.bmml%22%20alt%3D%22ARMS%20Migration%22%20id%3D%220%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%22822%2C0%2C876%2C27%22%20href%3D%22ARMS%2520Submit.bmml%22%20alt%3D%22ARMS%20Submit%22%20id%3D%220%22/%3E%0A</map>
+            <text>Introduction%2CData%20collection%20details%2CMerit%20information%2CContact%20details%2CTechnical%20details%2CData%20access%20and%20re-use%2CData%20migration%2CSubmit</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="1" y="775" w="1189" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="86"/>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="1090" y="800" w="85" h="37" measuredW="85" measuredH="32" zOrder="2" locked="false" isInGroup="86">
+          <controlProperties>
+            <icon>SimpleArrowIcon%7Cmedium</icon>
+            <text>Next</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="42" y="801" w="112" h="34" measuredW="112" measuredH="27" zOrder="3" locked="false" isInGroup="86">
+          <controlProperties>
+            <text>Save%20and%20close</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::Label" x="154" y="493" w="-1" h="-1" measuredW="521" measuredH="21" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>If%20you%20do%20not%20wish%20to%20use%20one%20of%20the%20licences%20above%2C%20please%20enter%20your%20licence%20text%20below</text>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::ComboBox" x="256" y="454" w="-1" h="-1" measuredW="106" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>closed</state>
+        <text>Not%20selected%0ACreative%20Commons%20BY%20%28AU%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::TextArea" x="154" y="514" w="584" h="115" measuredW="200" measuredH="140" zOrder="17" locked="false" isInGroup="-1"/>
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::Label" x="154" y="456" w="-1" h="-1" measuredW="97" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pre-set%20licences</text>
+      </controlProperties>
+    </control>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::SubTitle" x="154" y="644" w="-1" h="-1" measuredW="84" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Citation</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

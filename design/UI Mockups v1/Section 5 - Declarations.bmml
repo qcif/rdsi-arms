@@ -1,0 +1,54 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1227" measuredH="408" mockupW="1227" mockupH="408">
+  <controls>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Title" x="153" y="15" w="-1" h="-1" measuredW="415" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Section%205%3A%20Declarations</text>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Paragraph" x="153" y="73" w="648" h="15" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20terms%20and%20conditions%20associated%20with%20these%20storage%20services%20are%20published%20at%20http%3A//%3CTBA%3E.</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::CheckBox" x="153" y="103" w="-1" h="-1" measuredW="570" measuredH="22" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>I%20understand%20the%20terms%20and%20conditions%20must%20be%20accepted%20prior%20to%20the%20use%20of%20storage%20services</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::CheckBox" x="153" y="133" w="570" h="51" measuredW="951" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>To%20the%20best%20of%20my%20knowledge%20this%20collection%2C%20nor%20a%20significantly%20similar%20collection%2C%20is%20not%20under%20consideration%20by%20any%20RDSI%20node%20as%20part%20of%20the%20ReDS%20programme</text>
+      </controlProperties>
+    </control>
+    <control controlID="75" controlTypeID="__group__" x="0" y="0" w="1227" h="408" measuredW="1227" measuredH="408" zOrder="0" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="138" y="252" w="1089" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="75"/>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="151" y="277" w="112" h="53" measuredW="112" measuredH="27" zOrder="2" locked="false" isInGroup="75">
+          <controlProperties>
+            <text>Save%20and%20close</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="601" y="298" w="200" h="110" measuredW="200" measuredH="100" zOrder="3" locked="false" isInGroup="75">
+          <controlProperties>
+            <text>Introduction%2CContact%20details%2CCollection%20details%2CResearch%20significance%2CStorage%20requirements%2CDeclarations</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="0" y="0" w="1227" h="345" measuredW="200" measuredH="242" zOrder="0" locked="false" isInGroup="75">
+          <controlProperties>
+            <hrefs>Section%200%20-%20Introduction%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%2CSection%201%20-%20Contact%20details%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%2CSection%202%20-%20Collection%20details%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%2CSection%203%20-%20Research%20significance%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%2CSection%204%20-%20Storage%20requirements%26bm%3BSection%204%20-%20Storage%20requirements.bmml%26bm%3BSection%204%20-%20Storage%20requirements.bmml%26bm%3BSection%204%20-%20Storage%20requirements.bmml%2CSection%205%20-%20Declarations%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml</hrefs>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C20%2C141%2C50%22%20href%3D%22Section%25200%2520-%2520Introduction.bmml%22%20alt%3D%22Section%200%20-%20Introduction%22%20id%3D%225%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Section%25201%2520-%2520Contact%2520details.bmml%22%20alt%3D%22Section%201%20-%20Contact%20details%22%20id%3D%225%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Section%25202%2520-%2520Collection%2520details.bmml%22%20alt%3D%22Section%202%20-%20Collection%20details%22%20id%3D%225%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Section%25203%2520-%2520Research%2520significance.bmml%22%20alt%3D%22Section%203%20-%20Research%20significance%22%20id%3D%225%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C132%2C141%2C162%22%20href%3D%22Section%25204%2520-%2520Storage%2520requirements.bmml%22%20alt%3D%22Section%204%20-%20Storage%20requirements%22%20id%3D%225%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Section%25205%2520-%2520Declarations.bmml%22%20alt%3D%22Section%205%20-%20Declarations%22%20id%3D%225%22/%3E%0A</map>
+            <position>left</position>
+            <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Button" x="151" y="199" w="-1" h="-1" measuredW="64" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Researchers%20dashboard%26bm%3BResearchers%20dashboard.bmml%26bm%3BResearchers%20dashboard.bmml%26bm%3BResearchers%20dashboard.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22151%2C199%2C215%2C226%22%20href%3D%22Researchers%2520dashboard.bmml%22%20alt%3D%22Researchers%20dashboard%22%20id%3D%2276%22/%3E</map>
+        <text>Submit</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
