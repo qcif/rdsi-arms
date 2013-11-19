@@ -205,8 +205,6 @@
 	<dd>#getValue("data-medium-migration-assistance")</dd>
 	<dt>Data medium and migration:</dt>
 	<dd>#getValue("data-medium-migration")</dd>
-	<dt>Required tools and interfaces:</dt>
-	<dd>#getValue("migrate-required-resources")</dd>
 </dl>
 
 #if($isReviewer)

@@ -1566,17 +1566,6 @@
                             "label": ""
                         },
                         {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
-                            "label": ""
-                        },
-                        {
                             "component-type": "group",
                             "template": "group-div",
                             "additional-classes": "workflow-controls",
@@ -3130,17 +3119,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
@@ -5494,17 +5472,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
@@ -7873,17 +7840,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
