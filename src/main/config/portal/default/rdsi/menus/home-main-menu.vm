@@ -1,12 +1,9 @@
-<div class="grid_4">
-    #set($menuTitle = "Options")
-    #parseTemplate("wrapping/main-menu-open.vm")
-    <ul class="menu">
+<div class="grid_3">
+    <ul class="menu-btn">
         <li>
-            <a id="new-request" href="#" title="New request">#displayMessage("arms.home.menu.newarmssubmission")</a>
+           <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.home.menu.newarmssubmission")'></input>
         </li>
     </ul>
-    #parseTemplate("wrapping/main-menu-close.vm")
 </div>
 <script type="text/javascript">
 $(function() {
