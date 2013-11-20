@@ -226,9 +226,9 @@
         </tbody>
     </table>
     <p>&nbsp;</p>
-	## Does not work in PDF
-    #set($repeats = $self.getAttachments())
-    #if ($repeats.size() > 0)
+	
+    #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+    #if ($responses.size() > 0)
     <p class="item_title">Attachments</p>
     <table>
     <thead>
@@ -238,7 +238,7 @@
 		</tr>
     </thead>
     <tbody>
-    #foreach($v in $self.getAttachments())
+    #foreach($v in $responses)
 		<tr>
 			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
 			<td>$v.get("description")</td>
