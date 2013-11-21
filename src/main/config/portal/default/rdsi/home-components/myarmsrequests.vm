@@ -17,6 +17,7 @@ jQuery(document).ready(function() {
     <thead>
         <tr>
             <th>#displayMessage('arms.home.requests.table.dataset')</th>
+            <th>stuff</th>
             <th>#displayMessage('arms.home.requests.table.created')</th>
             <th>#displayMessage('arms.home.requests.table.modified')</th>
             <th>#displayMessage('arms.home.requests.table.status')</th>
@@ -25,6 +26,7 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+	     <td data-bind="text: dataprovider:givenName"/>
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
 	    <td data-bind="text: workflow_step_label"/>
