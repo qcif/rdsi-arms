@@ -5,5 +5,5 @@ The ARMS system is built on the ReDBox software and a significant level of docum
 ##Repository structure
 * src/ - contains the source code
 * design/ - contains the mockups developed for the forms
-* doc/ - provides documentation
+* [doc](doc/)/ - provides documentation
 * support/ - provides support scripts for deployment
