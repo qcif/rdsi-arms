@@ -10,7 +10,7 @@ This guide assumes that you are comfortable with Apache Maven and Git. Before co
   *Oracle's JDK (http://www.oracle.com/technetwork/java/javase/downloads/index.html) or
   * Open JDK (http://openjdk.java.net/install/index.html)
 * Apache Maven 2.2.1 (http://maven.apache.org/download.cgi)
-* Maven 3 may compile fine but the deployed system WILL NOT WORK PROPERLY
+  * Maven 3 may compile fine but the deployed system WILL NOT WORK PROPERLY
 * Git (http://git-scm.com/downloads)
 
 ###Step-by-step guide - packaging
