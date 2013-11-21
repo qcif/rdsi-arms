@@ -1,11 +1,9 @@
-ReDBox - Local Curation Demo
-======================
+#RDSI ARMS
 
-Sample institutional build with file system storage and local curation.
+The ARMS system is built on the ReDBox software and a significant level of documentation is available at <http://www.redboxresearchdata.com.au/> .
 
-Downloaded the latest builds here:
-
-* [Release](http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=releases&g=com.googlecode.redbox-mint&a=redbox-local-curation-demo&v=LATEST&c=build&e=tar.gz)
-* [Development Snapshot](http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=com.googlecode.redbox-mint&a=redbox-local-curation-demo&v=LATEST&c=build&e=tar.gz)
-
-Please refer to http://www.redboxresearchdata.com.au/documentation/how-to/institutional-builds
+##Repository structure
+* src/ - contains the source code
+* design/ - contains the mockups developed for the forms
+* doc/ - provides documentation
+* support/ - provides support scripts for deployment
