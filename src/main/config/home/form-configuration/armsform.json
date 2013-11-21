@@ -1198,42 +1198,6 @@
                             "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.vivo-Dataset.dc.format",
@@ -1599,17 +1563,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
@@ -2801,42 +2754,6 @@
                             "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.vivo-Dataset.dc.format",
@@ -3202,17 +3119,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
@@ -5201,42 +5107,6 @@
                             "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.vivo-Dataset.dc.format",
@@ -5602,17 +5472,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
@@ -7616,42 +7475,6 @@
                             "additional-classes": "longTextInput"
                         },
                         {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-maxsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-maxsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
-                            "component-type": "group",
-                            "template": "group-div",
-                            "fields": [
-                                {
-                                    "component-type": "text-block",
-                                    "type": "label",
-                                    "content": "arms.field.label.dataset-file-minsize"
-                                },
-                                {
-                                    "component-type": "text-input",
-                                    "field-name": "dataset-file-minsize",
-                                    "label": "",
-                                    "additional-classes": "fileSizeInput"
-                                }
-                            ],
-                            "additional-classes": "inline-block-component"
-                        },
-                        {
                             "component-type": "text-block",
                             "type": "label",
                             "content": "arms.field.label.vivo-Dataset.dc.format",
@@ -8017,17 +7840,6 @@
                         {
                             "component-type": "textarea",
                             "field-name": "data-medium-migration",
-                            "label": ""
-                        },
-                        {
-                            "component-type": "text-block",
-                            "type": "label",
-                            "content": "arms.field.label.migrate-required-resources",
-                            "help": "arms.field.help.migrate-required-resources"
-                        },
-                        {
-                            "component-type": "textarea",
-                            "field-name": "migrate-required-resources",
                             "label": ""
                         },
                         {
