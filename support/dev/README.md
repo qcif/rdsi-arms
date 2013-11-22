@@ -10,23 +10,25 @@ Run these:
     sudo ufw enable
     
     sudo adduser --system redbox
+    
     sudo mkdir /opt
     sudo mkdir /opt/mint /opt/redbox /opt/deploy
     sudo chown redbox /opt/*
     cd /home/redbox
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
+    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/setup_redbox_cron.sh
+    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/start_all.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
-    sudo chmod u+x deploy.sh
-    sudo chmod u+x redbox.cron
-    sudo chmod u+x redbox-mint.sh
-    sudo mv apache /etc/apache2/mods-available/redbox.conf
+    sudo chmod u+x *.sh
+    
     sudo chown -R redbox /home/redbox
     
     sudo apt-get install apache2 openjdk-7-jdk
     sudo apt-get install denyhosts htop unzip
 
+	sudo mv /home/redbox/apache /etc/apache2/mods-available/redbox.conf
     cd /etc/apache2/mods-enabled
     sudo ln -s ../mods-available/proxy_http.load
     sudo ln -s ../mods-available/proxy.conf 
@@ -34,6 +36,9 @@ Run these:
     sudo ln -s ../mods-available/redbox.conf
     sudo apachectl restart
 
+	## setup crontab for redbox user
+	
+	
     cd /home/redbox
     sudo ./redbox.cron
 
