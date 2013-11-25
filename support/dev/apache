@@ -1,0 +1,20 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+       ProxyPass               /arms http://localhost:9000/redbox
+       ProxyPassReverse        /arms http://localhost:9000/redbox
+
+       ProxyPass               /redbox http://localhost:9000/redbox
+       ProxyPassReverse        /redbox http://localhost:9000/redbox
+
+       ProxyPass               /mint http://localhost:9001/mint
+       ProxyPassReverse        /mint http://localhost:9001/mint
+
+       ProxyRequests Off
+       ProxyPreserveHost On
+</VirtualHost>
