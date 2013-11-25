@@ -35,19 +35,17 @@ Run these:
     sudo ln -s ../mods-available/proxy.load
     sudo ln -s ../mods-available/redbox.conf
     sudo apachectl restart
-
-	## setup crontab for redbox user
-	
 	
     cd /home/redbox
-    sudo ./redbox.cron
+    sudo ./start_all.sh
 
     cd /opt/mint/server
     sudo -u redbox ./tf_harvest.sh ANZSRC_FOR
 
 
 ##Scripts
-* redbox.cron - a cron job usually placed in /etc/cron.daily/
+* redbox.cron - a crontab file
+* start_all.sh - initial startup of deploy.sh for redbox and mint, before cron is used.
 * apache - the apache config
 * redbox-mint.sh - a /etc/init.d/ script
 * deploy.sh - takes 1 param (redbox | mint) and checks to see if there's a new deployment
