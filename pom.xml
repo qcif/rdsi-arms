@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.edu.qcif</groupId>
-	<artifactId>redbox-rdsi-demo</artifactId>
+	<artifactId>redbox-rdsi-arms</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>${packaging}</packaging>
-	<name>ReDBox - RDSI Demo</name>
+	<name>ReDBox - RDSI Arms</name>
 	<parent>
 		<groupId>com.googlecode.redbox-mint</groupId>
 		<artifactId>redbox</artifactId>
