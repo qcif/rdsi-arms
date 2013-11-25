@@ -40,7 +40,7 @@ class Dashboard:
         self.indexer = self.vc('Services').getIndexer()
 
         self.recordsPerPage = recordsPerPage
-        self.returnFields = "id,create_timestamp,dc_title,last_modified,workflow_step_label,dataprovider:email, dataprovider:givenName, dataprovider:familyName, dc:title, dataprovider_givenName, foaf-givenName, foaf-familyName, foaf-givenName"
+        self.returnFields = "id,create_timestamp,dc_title,last_modified,workflow_step_label,dataprovider:email"
 
     # Get from velocity context
     def vc(self, index):
