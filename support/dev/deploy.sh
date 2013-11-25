@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 # Make sure /etc/sudoers has the following setting:
