@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 # Make sure /etc/sudoers has the following setting:
@@ -14,7 +15,7 @@ case "$RB_SYSTEM" in
         echo Deploying ReDBox
         INSTALL_DIR=/opt/redbox
         DEPLOY_DIR=/opt/deploy/redbox
-        DEPLOY_URL="http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=com.googlecode.redbox-mint&a=rdsi-arms&v=LATEST&c=build&e=tar.gz"
+        DEPLOY_URL="http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=au.edu.qcif&a=redbox-rdsi-arms&v=LATEST&c=build&e=tar.gz"
         ;;
     "mint")
         echo Deploying Mint
@@ -73,7 +74,7 @@ REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/$RB_SYSTEM\//g"
 echo "Fixing the incorrect url: $REGEX"
 sed $REGEX $RB_SYSTEM/server/tf_env.sh > $RB_SYSTEM/server/tf_env.new
 
-mv $RB_SYSTEM/server/tf_env.new $RB_SYSTEM/server/tf_env.sh
+mv $RB_SYSTEM/server/tf_env.new $RB_SYSTEM/server/tf_env.shcd 
 
 if [ -f $INSTALL_DIR/server/tf.sh ]; then
     echo Stopping $RB_SYSTEM
