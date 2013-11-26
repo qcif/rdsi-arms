@@ -31,6 +31,9 @@ function setupPagingCtrls(ctrlID, modelInst) {
     });
 }
 
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+
 //only has data and reload function
 function dataRowsModel(searchType) {
 	var self = this
@@ -39,7 +42,7 @@ function dataRowsModel(searchType) {
 	self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType='+searchType+'&pageNum='+pageN, function(data) {
+		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType='+searchType+'&pageNum='+pageN, function(data) {
 			initDashboardRows(self, data); //It resides each individual vm
 		});
 	};

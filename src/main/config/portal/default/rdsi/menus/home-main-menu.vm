@@ -5,6 +5,8 @@
         </li>
     </ul>
 </div>
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
 <script type="text/javascript">
 $(function() {
     var jQ = $;
@@ -19,11 +21,11 @@ $(function() {
             data: {
                 ajax: 1,
                 func: "create-new",
-                packageType: "arms",
+                packageType: "arms$nodeSuffix",
                 metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
                 sequencesMetaList: [ '{ "sequenceName":"qcloudRequest","metadataName": "requestID","stringFormat":"QCloud_%04d"}'],
                 title: "[Untitled]",
-                node: "QCloud",
+                node: "RDSI$nodeSuffix",
                 description: "",
                 "redbox:newForm": "true",
                 "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"

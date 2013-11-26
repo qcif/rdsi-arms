@@ -1,3 +1,6 @@
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+
 ## Load Velocity macro setPagingCtrl
 ## Load necessary javaScript functions for knockout to bind these tables
 #parseTemplate("home-components/pagingControl.vm")
@@ -37,7 +40,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-request'))
+#set($results = $self.getListOfStage("$packageType", 'arms-request'))
 
 #if ($results && $results.size() > 0)
 <script>
@@ -51,7 +54,7 @@ function myRecordsModel() {
     self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?pageNum='+pageN, function(data) {
+		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&pageNum='+pageN, function(data) {
 			initDashboardRows(self, data);
    		});
     };
@@ -96,7 +99,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
+#set($results = $self.getListOfStage("$packageType", 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
 #if ($results && $results.size() > 0)
 	#setMyRelatedTbl('submitted' $results)
 #end

@@ -36,8 +36,12 @@ class RecordsData(Dashboard):
         self.activate(context, context["page"].getPortal().recordsPerPage)
         
         formData = context["formData"]
-        pageNum = formData.get("pageNum")
+        packageType = formData.get("packageType")
+        # Default packageType used in search is arms
+        if not packageType:
+            packageType = "arms"
         searchType = formData.get("searchType")
+        pageNum = formData.get("pageNum")
         if pageNum:
             pageNum = int(pageNum)
         else:
@@ -46,19 +50,19 @@ class RecordsData(Dashboard):
         if searchType == "shared":
             results = self.getShared(pageNum)
         elif searchType == "submitted":
-            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed',pageNum)
+            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed', pageNum)
         elif searchType == "provisioner":
-            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed',pageNum)
+            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed', pageNum)
         elif searchType == "reviewer":
-            results = self.getListOfStage('arms-submitted,arms-allocation-committee',pageNum)
+            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee', pageNum)
         elif searchType == "committee":
-            results = self.getListOfStage('arms-allocation-committee',pageNum)
+            results = self.getListOfStage(packageType, 'arms-allocation-committee', pageNum)
         elif searchType == "adminProvisions":
-            results = self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning',pageNum)
+            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning', pageNum)
         elif searchType == "adminHoldings":
-            results = self.getListOfStage('arms-completed,arms-retired',pageNum)
+            results = self.getListOfStage(packageType, 'arms-completed,arms-retired', pageNum)
         else:
-            results = self.getListOfStage('arms-request',pageNum)
+            results = self.getListOfStage(packageType, 'arms-request', pageNum)
         
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)

@@ -55,8 +55,8 @@ class Dashboard:
         dfTarget = SimpleDateFormat("dd/MM/yyyy")
         return dfTarget.format(dfSource.parse(date))
     
-    def _searchStage(self, stage, startPage=1):
-        req = SearchRequest("packageType:arms")
+    def _searchStage(self, packageType, stage, startPage=1):
+        req = SearchRequest("packageType:"+packageType)
         req.setParam("rows", str(self.recordsPerPage))
         req.setParam("start", str((startPage - 1) * self.recordsPerPage))
 
@@ -76,8 +76,8 @@ class Dashboard:
         return SolrResult(ByteArrayInputStream(out.toByteArray()))
 
     # if isAdmin, no security_query is needed
-    def _searchSets(self, searchType, isAdmin=True, security_query='', startPage=1):
-        req = SearchRequest("packageType:"+searchType)
+    def _searchSets(self, packageType, isAdmin=True, security_query='', startPage=1):
+        req = SearchRequest("packageType:"+packageType)
         req.setParam("rows", str(self.recordsPerPage))
         req.setParam("start", str((startPage - 1) * self.recordsPerPage))
 
@@ -96,18 +96,18 @@ class Dashboard:
         current_user = self.vc("page").authentication.get_username()
         return current_user
     
-    def getListOfStage(self, stageName, startPage=1):
-        rt = self._searchStage(stageName, startPage)
+    def getListOfStage(self, packageType, stageName, startPage=1):
+        rt = self._searchStage(packageType, stageName, startPage)
         self._setPaging(rt.getNumFound())
         return rt.getResults()
 
     # Used by searching shared requests to the current user
-    def getShared(self, startPage=1):
+    def getShared(self, packageType="arms", startPage=1):
         current_user = self.vc("page").authentication.get_username()
         security_roles = self.vc("page").authentication.get_roles_list()
         security_exceptions = 'security_exception:"' + current_user + '"'
         owner_query = 'owner:"' + current_user + '"'
-        shared = self._searchSets( "arms", False, security_exceptions + " -"+owner_query)
+        shared = self._searchSets( packageType, False, security_exceptions + " -"+owner_query)
         if shared:
             self._setPaging(shared.getNumFound())
             return shared.getResults()
