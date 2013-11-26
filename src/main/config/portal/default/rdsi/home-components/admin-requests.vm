@@ -5,7 +5,10 @@
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee,arms-provisioning'))
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+
+#set($results = $self.getListOfStage("$packageType",'arms-submitted,arms-allocation-committee,arms-provisioning'))
 #if ($results && $results.size() > 0)
 <script>
 function adminProvisionsRowsModel(iniData) {
@@ -21,7 +24,7 @@ function adminProvisionsRowsModel(iniData) {
 	self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType=adminProvisions&pageNum='+pageN, function(data) {
+		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType=adminProvisions&pageNum='+pageN, function(data) {
 			self.loadData(data); 
 		});
 	};
@@ -61,7 +64,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.holdding.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage('arms-completed,arms-retired'))
+#set($results = $self.getListOfStage("$packageType", 'arms-completed,arms-retired'))
 #if ($results && $results.size() > 0)
 <script>
 function adminHoldingsRowsModel(iniData) {
@@ -77,7 +80,7 @@ function adminHoldingsRowsModel(iniData) {
 	self.reloadRecords = function(pageN) {
 		self.rows.removeAll();
 		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?searchType=adminHoldings&pageNum='+pageN, function(data) {
+		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType=adminHoldings&pageNum='+pageN, function(data) {
 			self.loadData(data); 
 		});
 	};

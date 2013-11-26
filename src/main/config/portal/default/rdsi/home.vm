@@ -1,7 +1,7 @@
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
-  <span>#displayMessage("arms.home.title")</span>
+  <span>#displayMessage("arms.home.title", "$portalId")</span>
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")
@@ -21,10 +21,12 @@
     #parseTemplate("home-components/committee-requests.vm")
 #elseif ($page.authentication.has_role("requester"))
     #parseTemplate("home-components/myarmsrequests.vm")
-#elseif ($page.authentication.has_role("reviewer"))
+#elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
     #parseTemplate("home-components/reviewer-requests.vm")
-#elseif ($page.authentication.has_role("provisioner"))
+#elseif ($page.authentication.has_role("provisioner") || $page.authentication.has_role("provisioner-$portalId"))
     #parseTemplate("home-components/provisioner-requests.vm")
+#else
+	<p>Nothing is configured for your roles: $page.authentication.get_roles()</p>    
 #end
 </div>
 <div class="clear"></div>

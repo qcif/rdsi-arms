@@ -1,7 +1,10 @@
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+
 #set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage('arms-submitted,arms-allocation-committee'))
+#set($results = $self.getListOfStage("$packageType", 'arms-submitted,arms-allocation-committee'))
 #if ($results && $results.size() > 0)
 ## load Velocity macro setPagingCtrl
 #parseTemplate("home-components/pagingControl.vm")

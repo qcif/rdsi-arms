@@ -1,6 +1,9 @@
+## make pakgeType portalId dependent
+#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+
 #set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage('arms-allocation-committee'))
+#set($results = $self.getListOfStage("$packageType", 'arms-allocation-committee'))
 #if ($results && $results.size() > 0)
 
 ## load Velocity macro setPagingCtrl
@@ -25,7 +28,6 @@ jQuery(document).ready(function() {
 </script>
 
 <div class="block">
-
 <table id="myRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
