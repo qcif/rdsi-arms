@@ -398,8 +398,27 @@
 			<!-- Set executable attribute for shell scripts -->
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>ant-contrib</groupId>
+						<artifactId>ant-contrib</artifactId>
+						<version>1.0b3</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ant</groupId>
+								<artifactId>ant</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-nodeps</artifactId>
+						<version>1.8.1</version>
+					</dependency>
+				</dependencies>
 				<executions>
 					<execution>
+						<id>set-permissions</id>
 						<phase>process-resources</phase>
 						<configuration>
 							<tasks>
@@ -409,6 +428,75 @@
 						<goals>
 							<goal>run</goal>
 						</goals>
+					</execution>
+					<execution>
+						<id>copy-armsjson</id>
+						<phase>process-resources</phase>
+						<configuration>
+							<tasks>
+								<taskdef resource="net/sf/antcontrib/antlib.xml"
+									classpathref="maven.plugin.classpath" />
+  								<for list="qcif,intersect,ersa" param="node">
+									<sequential>
+									<echo>Processing configuration for node @{node}</echo>
+										<copy file="support/node-management/templates/arms.json"
+											tofile="${dir.home}/harvest/workflows/arms-@{node}.json"
+											filtering="true">
+											<filterset>
+												<filter token="nodeName" value="@{node}" />
+											</filterset>
+										</copy>
+									</sequential>
+								</for>
+
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<!-- Workaround bug MRESOURCES-104 -->
+					<delimiters>
+						<delimiter>${*}</delimiter>
+					</delimiters>
+					<useDefaultDelimiters>false</useDefaultDelimiters>
+				</configuration>
+
+				<executions>
+					<!-- Configuration -->
+					<execution>
+						<id>copy-home</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+
+							<outputDirectory>${dir.home}</outputDirectory>
+							<includeEmptyDirs>true</includeEmptyDirs>
+							<overwrite>true</overwrite>
+							<resources>
+								<!-- Most config copied first as is -->
+								<resource>
+									<directory>src/main/config/home</directory>
+									<filtering>false</filtering>
+								</resource>
+								<resource>
+									<directory>src/main/config/home</directory>
+									<includes>
+										<include>system-config.json</include>
+									</includes>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

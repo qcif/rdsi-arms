@@ -8,7 +8,7 @@
             "force-storage": "true"
         }
     },
-    "workflow-id":"arms",
+    "workflow-id":"arms-@nodeName@",
     "page-title": "RDSI ARMS Request",
     "default-owner":"admin",
     "transformer": {
@@ -65,8 +65,8 @@
             "label": "Draft",
             "description": "Draft request - yet to be submitted",
             "owner_edit_allowed": "true",
-            "security": ["reviewer","provisioner","admin"],
-            "visibility": ["reviewer","provisioner","admin"],
+            "security": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
             "actions": [ { "action-name" : "next",
                            "target-step" : "arms-submitted" }]
         },
@@ -75,8 +75,8 @@
             "label": "Submitted",
             "description": "Records under investigation.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer","provisioner","admin"],
-            "visibility": ["reviewer","provisioner","admin"],
+            "security": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-allocation-committee" }],
             "template": "workflows/simpleworkflow"
@@ -86,8 +86,8 @@
             "label": "Allocation committee review",
             "description": "Records for allocation committee to approve.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer",  "provisioner","admin"],
-            "visibility": ["reviewer", "committee","provisioner","admin"],
+            "security": ["reviewer-@nodeName@",  "provisioner-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@", "committee-@nodeName@","provisioner-@nodeName@","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-provisioning" }],
             "template": "workflows/simpleworkflow"
@@ -97,8 +97,8 @@
             "label": "Provisioning",
             "description": "Records approved for provisioning",
             "owner_edit_allowed": "false",
-            "security": ["provisioner","admin"],
-            "visibility": ["provisioner","admin"],
+            "security": ["provisioner-@nodeName@","admin"],
+            "visibility": ["provisioner-@nodeName@","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-completed" }],
             "template": "workflows/simpleworkflow"
