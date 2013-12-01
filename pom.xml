@@ -33,6 +33,7 @@
 		<smtp.host>localhost</smtp.host>
 		<admin.email>admin@localhost</admin.email>
 		<packaging>pom</packaging>
+		<node.list>qcif</node.list>
 		<!-- Control scripts try to auto-detect proxy. Use this value if you want 
 			Java to specifically exclude certain hosts from proxying. -->
 		<non.proxy.hosts>localhost</non.proxy.hosts>
@@ -182,87 +183,87 @@
 			<!-- clean up the deploy directory first -->
 			<build>
 				<plugins>
-					  <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>rpm-maven-plugin</artifactId>
-                <version>2.1-alpha-3</version>
-                <executions>
-                    <execution>
-                        <id>generate-rpm</id>
-                        <goals>
-                            <goal>rpm</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <copyright>GPL</copyright>
-                    <distribution>Trash 2005</distribution>
-                    <group>Application/Internet</group>
-                    <mappings>
-                        <mapping>
-                            <directory>/opt/redbox/home</directory>
-                            <filemode>744</filemode>
-                            <username>redbox</username>
-                            <groupname>redbox</groupname>
-                            <sources>
-                                <source>
-                                    <location>${dir.home}</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                        <mapping>
-                            <directory>/opt/redbox/portal</directory>
-                            <filemode>744</filemode>
-                            <username>redbox</username>
-                            <groupname>redbox</groupname>
-                            <sources>
-                                <source>
-                                    <location>${dir.portal}</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                        <mapping>
-                            <directory>/opt/redbox/server</directory>
-                            <filemode>744</filemode>
-                            <username>redbox</username>
-                            <groupname>redbox</groupname>
-                            <sources>
-                                <source>
-                                    <location>${dir.server}</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                        <mapping>
-                            <directory>/opt/redbox/solr</directory>
-                            <filemode>744</filemode>
-                            <username>redbox</username>
-                            <groupname>redbox</groupname>
-                            <sources>
-                                <source>
-                                    <location>${dir.solr}</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                        <mapping>
-                            <directory>/opt/redbox/storage</directory>
-                            <filemode>744</filemode>
-                            <username>redbox</username>
-                            <groupname>redbox</groupname>
-                            <sources>
-                                <source>
-                                    <location>${dir.storage}</location>
-                                </source>
-                            </sources>
-                        </mapping>
-                    </mappings>
-                    <requires>
-					    <require>java</require>
-					</requires>
-                    <preinstallScriptlet>
-                        <scriptFile>support/dev/rpm-build-preinst.sh</scriptFile>
-                    </preinstallScriptlet>
-                </configuration>
-            </plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>rpm-maven-plugin</artifactId>
+						<version>2.1-alpha-3</version>
+						<executions>
+							<execution>
+								<id>generate-rpm</id>
+								<goals>
+									<goal>rpm</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<copyright>GPL</copyright>
+							<distribution>Trash 2005</distribution>
+							<group>Application/Internet</group>
+							<mappings>
+								<mapping>
+									<directory>/opt/redbox/home</directory>
+									<filemode>744</filemode>
+									<username>redbox</username>
+									<groupname>redbox</groupname>
+									<sources>
+										<source>
+											<location>${dir.home}</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/opt/redbox/portal</directory>
+									<filemode>744</filemode>
+									<username>redbox</username>
+									<groupname>redbox</groupname>
+									<sources>
+										<source>
+											<location>${dir.portal}</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/opt/redbox/server</directory>
+									<filemode>744</filemode>
+									<username>redbox</username>
+									<groupname>redbox</groupname>
+									<sources>
+										<source>
+											<location>${dir.server}</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/opt/redbox/solr</directory>
+									<filemode>744</filemode>
+									<username>redbox</username>
+									<groupname>redbox</groupname>
+									<sources>
+										<source>
+											<location>${dir.solr}</location>
+										</source>
+									</sources>
+								</mapping>
+								<mapping>
+									<directory>/opt/redbox/storage</directory>
+									<filemode>744</filemode>
+									<username>redbox</username>
+									<groupname>redbox</groupname>
+									<sources>
+										<source>
+											<location>${dir.storage}</location>
+										</source>
+									</sources>
+								</mapping>
+							</mappings>
+							<requires>
+								<require>java</require>
+							</requires>
+							<preinstallScriptlet>
+								<scriptFile>support/dev/rpm-build-preinst.sh</scriptFile>
+							</preinstallScriptlet>
+						</configuration>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>
@@ -530,9 +531,9 @@
 							<tasks>
 								<taskdef resource="net/sf/antcontrib/antlib.xml"
 									classpathref="maven.plugin.classpath" />
-  								<for list="qcif,intersect,ersa" param="node">
+								<for list="${node.list}" param="node">
 									<sequential>
-									<echo>Processing configuration for node @{node}</echo>
+										<echo>Processing configuration for node @{node}</echo>
 										<copy file="support/node-management/templates/arms.json"
 											tofile="${dir.home}/harvest/workflows/arms-@{node}.json"
 											filtering="true">
@@ -550,6 +551,23 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.groovy.maven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>default</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>${pom.basedir}/support/node-management/setupSystemConfig.groovy</source>
+						</configuration>
+					</execution>
+					</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
