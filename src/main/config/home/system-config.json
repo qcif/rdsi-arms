@@ -51,7 +51,7 @@
     },
     "accesscontrol": {
         "type": "hibernateAccessControl",
-        "hibernateAccessControl":{}
+        "hibernateAccessControl":{},
     },
     "authentication": {
         "type": "internal",
@@ -323,14 +323,6 @@
             "default": {
                 "jsonconfig": "packaging-config.json",
                 "packages-in-package": false
-            },
-            "arms": {
-                "jsonconfig": "arms.json",
-                "packages-in-package": false
-            },
-            "arms-ersa": {
-                "jsonconfig": "arms-ersa.json",
-                "packages-in-package": false
             }
         },
         "harvestFiles": "${fascinator.home}/harvest",
@@ -406,9 +398,9 @@
     "services": [
         {
             "id": "languageService",
-            "className": "com.googlecode.fascinator.portal.services.impl.RegionSpecificJavaPropertiesLanguageService",
+            "className": "com.googlecode.fascinator.portal.services.impl.JavaPropertiesLanguageService",
             "config": {
-                "propertiesDir": "${fascinator.home}/language-files/"
+                "propertiesDir": "${fascinator.home}/language-files/default/"
             }
         }
     ]
