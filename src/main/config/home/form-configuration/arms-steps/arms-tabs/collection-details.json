@@ -1,0 +1,178 @@
+{
+  "heading": "Data collection details",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.data-collection"
+    },
+    {
+      "component-type": "knockout-text-block",
+      "field-name": "requestID",
+      "type": "label",
+      "help": "arms.field.help.requestID",
+      "content": "arms.field.label.requestID"
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.dc-title",
+      "help": "arms.field.help.dc-title"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "dc:title",
+      "label": "",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "dc:title",
+        "focus-id": "dc:title",
+        "validation-messages": {
+          "required": "Title is required"
+        }
+      },
+      "additional-classes": "longTextInput"
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.collection-description",
+      "help": "arms.field.help.collection-description"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "collection:description",
+      "label": "",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "collection:description",
+        "focus-id": "collection:description",
+        "validation-messages": {
+          "required": "Description is required"
+        }
+      }
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.dc-subject.anzsrc-for",
+      "help": "arms.field.help.dc-subject.anzsrc-for"
+    },
+    {
+      "component-type": "repeatable-anzsrc-selection",
+      "label": "FoR code(s)",
+      "fieldName": "dc:subject.anzsrc:for",
+      "fieldNameLabel": "dc:subject.anzsrc:for.0.skos:prefLabel",
+      "sourceUrl": "proxyGet.script?ns=ANZSRC_FOR&qs=count%3D999%26level%3D",
+      "dataLevel": "top",
+      "mandatory": "false",
+      "idKey": "rdf:about",
+      "labelKey": "skos:prefLabel",
+      "listKey": "results",
+      "defaultValue": "skos:narrower",
+      "anzsrcType": "for"
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.collection-metadata"
+    },
+    {
+      "component-type": "table",
+      "editFunction": "editDataCollectionLocation",
+      "addFunction": "addDataCollectionLocation",
+      "metadataPrefix": "dataCollectionLocation",
+      "modelName": "dataCollectionLocationModel",
+      "tableName": "DataCollectionLocationTable",
+      "initialiseMethodName": "initialiseDataCollectionLocationTable",
+      "addButtonText": "Add a metadata location",
+      "columns": [
+        {
+          "columnHeader": "URL",
+          "propertyName": "url"
+        },
+        {
+          "columnHeader": "Description",
+          "propertyName": "description"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "dialoged-table-form-group",
+      "element-id": "dataLocationForm",
+      "modelName": "dataLocationFormModel",
+      "editFunction": "editDataCollectionLocation",
+      "addFunction": "addDataCollectionLocation",
+      "tableModelName": "dataCollectionLocationModel",
+      "addFormTitle": "Add a new metadata location",
+      "editFormTitle": "Edit a metadata location",
+      "additional-class": "tableForm",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "metadata-location-url",
+          "label": "URL",
+          "additional-classes": "longTextInput",
+          "table-json-propertyName": "url"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "metadata-location-description",
+          "label": "Description",
+          "additional-classes": "longTextInput",
+          "table-json-propertyName": "description"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close2",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "standard-button",
+          "button-name": "save2",
+          "label": "Save",
+          "action": "save",
+          "skipValidation": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "standard-button",
+          "button-name": "close2",
+          "label": "Close",
+          "closeWithoutSaving": true,
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        }
+      ]
+    }
+  ]
+}

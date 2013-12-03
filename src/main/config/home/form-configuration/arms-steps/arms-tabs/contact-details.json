@@ -1,0 +1,386 @@
+{
+  "heading": "Contact details",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.contactdetails"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h4",
+      "content": "arms.field.label.dataprovider",
+      "help": "arms.field.help.dataprovider",
+      "additional-class": "section-heading"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:title",
+          "label": "arms.field.label.optional.title",
+          "additional-classes": "titleField",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:givenName",
+          "label": "arms.field.label.givenName",
+          "additional-classes": "givenNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:givenName",
+            "focus-id": "dataprovider:givenName",
+            "validation-messages": {
+              "required": "Data custodian: given name is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:familyName",
+          "label": "arms.field.label.familyName",
+          "additional-classes": "familyNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:familyName",
+            "focus-id": "dataprovider:familyName",
+            "validation-messages": {
+              "required": "Data custodian: family name is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:email",
+          "label": "arms.field.label.email",
+          "additional-classes": "emailField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:email",
+            "focus-id": "dataprovider:email",
+            "validation-messages": {
+              "required": "Data custodian: email is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:phone",
+          "label": "arms.field.label.phone",
+          "additional-classes": "telephoneField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:phone",
+            "focus-id": "dataprovider:phone",
+            "validation-messages": {
+              "required": "Data custodian: telephone is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:organization",
+          "label": "arms.field.label.organization",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:organization",
+            "focus-id": "dataprovider:organization",
+            "validation-messages": {
+              "required": "Data custodian: organisation is required"
+            }
+          },
+          "wrapper-class": "inline-block-component",
+          "classes": "organizationField",
+          "lookupdata": "../process/notification/homes.script"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "cust-manager",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h4",
+          "content": "arms.field.label.requester",
+          "help": "arms.field.help.requester",
+          "additional-class": "section-heading",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "checkbox",
+          "field-name": "useCustodianDetials",
+          "box-for": "",
+          "boxes": [
+            {
+              "label": "Use custodian details",
+              "value": "Yes"
+            }
+          ],
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "requester:title",
+          "label": "arms.field.label.optional.title",
+          "additional-classes": "titleField",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "requester:givenName",
+          "label": "arms.field.label.givenName",
+          "additional-classes": "givenNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:givenName",
+            "focus-id": "requester:givenName",
+            "validation-messages": {
+              "required": "Data manager: given name is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "requester:familyName",
+          "label": "arms.field.label.familyName",
+          "additional-classes": "familyNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:familyName",
+            "focus-id": "requester:familyName",
+            "validation-messages": {
+              "required": "Data manager: family name is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "requester:email",
+          "label": "arms.field.label.email",
+          "additional-classes": "emailField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:email",
+            "focus-id": "requester:email",
+            "validation-messages": {
+              "required": "Data manager: email is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "requester:phone",
+          "label": "arms.field.label.phone",
+          "additional-classes": "telephoneField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:phone",
+            "focus-id": "requester:phone",
+            "validation-messages": {
+              "required": "Data manager: phone is required"
+            }
+          },
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "requester:organization",
+          "label": "arms.field.label.organization",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:organization",
+            "focus-id": "requester:organization",
+            "validation-messages": {
+              "required": "Data manager: organisation is required"
+            }
+          },
+          "wrapper-class": "inline-block-component",
+          "classes": "organizationField",
+          "lookupdata": "../process/notification/homes.script"
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "h4",
+      "content": "arms.field.label.nodecontact",
+      "help": "arms.field.help.nodecontact",
+      "additional-class": "section-heading"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:title",
+          "label": "arms.field.label.optional.title",
+          "additional-classes": "titleField",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:givenName",
+          "label": "arms.field.label.optional.givenName",
+          "additional-classes": "givenNameField",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:familyName",
+          "label": "arms.field.label.optional.familyName",
+          "additional-classes": "familyNameField",
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:email",
+          "label": "arms.field.label.optional.email",
+          "additional-classes": "emailField",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:phone",
+          "label": "arms.field.label.optional.phone",
+          "additional-classes": "telephoneField",
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "label",
+          "content": "arms.field.label.node",
+          "wrapper-class": "inline-block-component nodeContactNodeLabel"
+        },
+        {
+          "component-type": "data-source-dropdown",
+          "field-name": "nodecontact:node",
+          "label": "",
+          "data-id-key": "value",
+          "sourceUrl": "form-components/rdsi-nodes.json",
+          "additional-classes": "nodeField",
+          "wrapper-class": "inline-component statesField"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close4",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "standard-button",
+          "button-name": "save4",
+          "label": "Save",
+          "action": "save",
+          "skipValidation": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "standard-button",
+          "button-name": "close4",
+          "label": "Close",
+          "closeWithoutSaving": true,
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        }
+      ]
+    }
+  ]
+}
