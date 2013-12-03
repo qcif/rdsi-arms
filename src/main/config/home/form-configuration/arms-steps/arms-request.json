@@ -16,7 +16,7 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
     },
     {
-      "heading": "Submit",
+      "heading": "Declarations",
       "fields": [
         {
           "component-type": "text-block",
@@ -25,17 +25,30 @@
         },
         {
           "component-type": "text-block",
-          "type": "div",
-          "content": "arms.field.label.happens-next"
+          "type": "p",
+          "content": "arms.description.declarations"
         },
         {
-          "component-type": "confirm-and-submit-button",
-          "field-name": "arms.field.label.authoritycheck",
-          "box-label": "arms.field.label.authoritycheck.yes",
-          "box-value": "yes",
-          "button-name": "submit",
-          "label": "Submit",
-          "action": "next",
+          "component-type": "checkbox",
+          "field-name": "request:declarations",
+          "box-for": "",
+          "multiline": true,
+          "boxes": [
+            {
+              "label": "I understand the terms and conditions must be accepted prior to the use of storage services",
+              "value": "item1-checked"
+            },
+            {
+              "label": "To the best of my knowledge this collection, nor a significantly similar collection, is not under consideration by any RDSI node as part of the ReDS programme",
+              "value": "item2-checked"
+            }
+          ]
+        },
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close-submission",
+          "label": "Save and close",
+          "action": "save",
           "closeUrl": "detail",
           "appendOID": true
         }
