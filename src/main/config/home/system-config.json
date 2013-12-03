@@ -51,7 +51,7 @@
     },
     "accesscontrol": {
         "type": "hibernateAccessControl",
-        "hibernateAccessControl":{},
+        "hibernateAccessControl":{}
     },
     "authentication": {
         "type": "internal",
@@ -400,7 +400,7 @@
             "id": "languageService",
             "className": "com.googlecode.fascinator.portal.services.impl.RegionSpecificJavaPropertiesLanguageService",
             "config": {
-                "propertiesDir": "${fascinator.home}/language-files/default/"
+                "propertiesDir": "${fascinator.home}/language-files/"
             }
         }
     ]
