@@ -7,11 +7,35 @@
       "content": "arms.heading.contactdetails"
     },
     {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "cust-manager",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h4",
+          "content": "arms.field.label.dataprovider",
+          "additional-class": "section-heading",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "checkbox",
+          "field-name": "dataprovider:useAAFDetials",
+          "box-for": "",
+          "boxes": [
+            {
+              "label": "Use my login details",
+              "value": "Yes"
+            }
+          ],
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
       "component-type": "text-block",
-      "type": "h4",
-      "content": "arms.field.label.dataprovider",
-      "help": "arms.field.help.dataprovider",
-      "additional-class": "section-heading"
+      "type": "p",
+      "content": "arms.description.dataprovider"
     },
     {
       "component-type": "group",
@@ -27,35 +51,15 @@
         {
           "component-type": "text-input",
           "field-name": "dataprovider:givenName",
-          "label": "arms.field.label.givenName",
+          "label": "arms.field.label.optional.givenName",
           "additional-classes": "givenNameField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "dataprovider:givenName",
-            "focus-id": "dataprovider:givenName",
-            "validation-messages": {
-              "required": "Data custodian: given name is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         },
         {
           "component-type": "text-input",
           "field-name": "dataprovider:familyName",
-          "label": "arms.field.label.familyName",
+          "label": "arms.field.label.optional.familyName",
           "additional-classes": "familyNameField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "dataprovider:familyName",
-            "focus-id": "dataprovider:familyName",
-            "validation-messages": {
-              "required": "Data custodian: family name is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -67,35 +71,15 @@
         {
           "component-type": "text-input",
           "field-name": "dataprovider:email",
-          "label": "arms.field.label.email",
+          "label": "arms.field.label.optional.email",
           "additional-classes": "emailField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "dataprovider:email",
-            "focus-id": "dataprovider:email",
-            "validation-messages": {
-              "required": "Data custodian: email is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         },
         {
           "component-type": "text-input",
           "field-name": "dataprovider:phone",
-          "label": "arms.field.label.phone",
+          "label": "arms.field.label.optional.phone",
           "additional-classes": "telephoneField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "dataprovider:phone",
-            "focus-id": "dataprovider:phone",
-            "validation-messages": {
-              "required": "Data custodian: telephone is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -107,20 +91,68 @@
         {
           "component-type": "text-input",
           "field-name": "dataprovider:organization",
-          "label": "arms.field.label.organization",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "dataprovider:organization",
-            "focus-id": "dataprovider:organization",
-            "validation-messages": {
-              "required": "Data custodian: organisation is required"
-            }
-          },
+          "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
           "classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "dataprovider:role",
+          "label": "arms.field.label.optional.role",
+          "additional-classes": "roleField",
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "label",
+          "content": "arms.field.label.optional.state",
+          "wrapper-class": "inline-block-component statesLabel"
+        },
+        {
+          "component-type": "data-source-dropdown",
+          "field-name": "dataprovider:state",
+          "label": "",
+          "field-name-label": "dataprovider:state:prefLabel",
+          "sourceUrl": "form-components/states.json",
+          "wrapper-class": "inline-component statesField"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h5",
+          "content": "arms.heading.dataprovider-authority"
+        },
+        {
+          "component-type": "text-block",
+          "type": "p",
+          "content": "arms.label.dataprovider-authority"
+        },
+        {
+          "component-type": "radio-button",
+          "field-name": "dataprovider:authority",
+          "button-for": "",
+          "buttons": [
+            {
+              "label": "No",
+              "value": "No"
+            },
+            {
+              "label": "Yes",
+              "value": "Yes"
+            }
+          ]
         }
       ]
     },
@@ -133,13 +165,24 @@
           "component-type": "text-block",
           "type": "h4",
           "content": "arms.field.label.requester",
-          "help": "arms.field.help.requester",
           "additional-class": "section-heading",
           "wrapper-class": "inline-block-component"
         },
         {
           "component-type": "checkbox",
-          "field-name": "useCustodianDetials",
+          "field-name": "requester:useAAFDetials",
+          "box-for": "",
+          "boxes": [
+            {
+              "label": "Use my login details",
+              "value": "Yes"
+            }
+          ],
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "checkbox",
+          "field-name": "requester:useCustodianDetials",
           "box-for": "",
           "boxes": [
             {
@@ -150,6 +193,11 @@
           "wrapper-class": "inline-block-component"
         }
       ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.requester"
     },
     {
       "component-type": "group",
@@ -165,35 +213,15 @@
         {
           "component-type": "text-input",
           "field-name": "requester:givenName",
-          "label": "arms.field.label.givenName",
+          "label": "arms.field.label.optional.givenName",
           "additional-classes": "givenNameField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "requester:givenName",
-            "focus-id": "requester:givenName",
-            "validation-messages": {
-              "required": "Data manager: given name is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         },
         {
           "component-type": "text-input",
           "field-name": "requester:familyName",
-          "label": "arms.field.label.familyName",
+          "label": "arms.field.label.optional.familyName",
           "additional-classes": "familyNameField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "requester:familyName",
-            "focus-id": "requester:familyName",
-            "validation-messages": {
-              "required": "Data manager: family name is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -205,35 +233,15 @@
         {
           "component-type": "text-input",
           "field-name": "requester:email",
-          "label": "arms.field.label.email",
+          "label": "arms.field.label.optional.email",
           "additional-classes": "emailField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "requester:email",
-            "focus-id": "requester:email",
-            "validation-messages": {
-              "required": "Data manager: email is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         },
         {
           "component-type": "text-input",
           "field-name": "requester:phone",
-          "label": "arms.field.label.phone",
+          "label": "arms.field.label.optional.phone",
           "additional-classes": "telephoneField",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "requester:phone",
-            "focus-id": "requester:phone",
-            "validation-messages": {
-              "required": "Data manager: phone is required"
-            }
-          },
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -245,29 +253,82 @@
         {
           "component-type": "text-input",
           "field-name": "requester:organization",
-          "label": "arms.field.label.organization",
-          "validation": {
-            "save-rules": [
-              "required"
-            ],
-            "validation-id": "requester:organization",
-            "focus-id": "requester:organization",
-            "validation-messages": {
-              "required": "Data manager: organisation is required"
-            }
-          },
+          "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
           "classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "requester:role",
+          "label": "arms.field.label.optional.role",
+          "additional-classes": "roleField",
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "label",
+          "content": "arms.field.label.optional.state",
+          "wrapper-class": "inline-block-component statesLabel"
+        },
+        {
+          "component-type": "data-source-dropdown",
+          "field-name": "dataprovider:state",
+          "label": "",
+          "field-name-label": "dataprovider:state:prefLabel",
+          "sourceUrl": "form-components/states.json",
+          "wrapper-class": "inline-component statesField"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "cust-manager",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h4",
+          "content": "arms.field.label.nodecontact",
+          "additional-class": "section-heading",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "checkbox",
+          "field-name": "nodecontact:useAAFDetials",
+          "box-for": "",
+          "boxes": [
+            {
+              "label": "Use my login details",
+              "value": "Yes"
+            }
+          ],
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "checkbox",
+          "field-name": "nodecontact:useAAFDetials",
+          "box-for": "",
+          "boxes": [
+            {
+              "label": "Use my login details",
+              "value": "Yes"
+            }
+          ],
+          "wrapper-class": "inline-block-component"
         }
       ]
     },
     {
       "component-type": "text-block",
-      "type": "h4",
-      "content": "arms.field.label.nodecontact",
-      "help": "arms.field.help.nodecontact",
-      "additional-class": "section-heading"
+      "type": "p",
+      "content": "arms.description.nodecontact"
     },
     {
       "component-type": "group",
@@ -321,18 +382,38 @@
       "template": "group-div",
       "fields": [
         {
+          "component-type": "text-input",
+          "field-name": "nodecontact:organization",
+          "label": "arms.field.label.optional.organization",
+          "wrapper-class": "inline-block-component",
+          "classes": "organizationField",
+          "lookupdata": "../process/notification/homes.script"
+        },
+        {
+          "component-type": "text-input",
+          "field-name": "nodecontact:role",
+          "label": "arms.field.label.optional.role",
+          "additional-classes": "roleField",
+          "wrapper-class": "inline-block-component"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
           "component-type": "text-block",
           "type": "label",
-          "content": "arms.field.label.node",
-          "wrapper-class": "inline-block-component nodeContactNodeLabel"
+          "content": "arms.field.label.optional.state",
+          "wrapper-class": "inline-block-component statesLabel"
         },
         {
           "component-type": "data-source-dropdown",
-          "field-name": "nodecontact:node",
+          "field-name": "nodecontact:state",
           "label": "",
-          "data-id-key": "value",
-          "sourceUrl": "form-components/rdsi-nodes.json",
-          "additional-classes": "nodeField",
+          "field-name-label": "nodecontact:state:prefLabel",
+          "sourceUrl": "form-components/states.json",
           "wrapper-class": "inline-component statesField"
         }
       ]
