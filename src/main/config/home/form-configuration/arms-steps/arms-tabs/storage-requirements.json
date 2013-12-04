@@ -23,7 +23,7 @@
     },
      {
       "component-type": "checkbox",
-      "field-name": "section4-subsectionA",
+      "field-name": "storage-location",
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
       "multiline": true,
       "additional-class": "ofFormCheckboxes",
@@ -44,7 +44,7 @@
     },
     {
       "component-type": "textarea",
-      "field-name": "section4-subsectionA.paragraphC",
+      "field-name": "storage-purpose",
       "label": "arms.field.label.section4-subsectionA.paragraphC.description"
     },
     {
@@ -59,17 +59,17 @@
     },
      {
       "component-type": "textarea",
-      "field-name": "section4-subsectionB.paragraphA,
+      "field-name": "storage-current-size",
       "label": "arms.field.label.section4-subsectionB.paragraphA"
     },
      {
       "component-type": "textarea",
-      "field-name": "section4-subsectionB.paragraphB",
+      "field-name": "storage-expected-size",
       "label": "arms.field.label.section4-subsectionB.paragraphB"
     },
      {
       "component-type": "textarea",
-      "field-name": "section4-subsectionB.paragraphC",
+      "field-name": "storage-estimated-growth-rate",
       "label": "arms.field.label.section4-subsectionB.paragraphC"
       
     },
