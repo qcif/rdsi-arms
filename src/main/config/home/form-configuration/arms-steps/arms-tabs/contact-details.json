@@ -21,6 +21,7 @@
         {
           "component-type": "checkbox",
           "field-name": "dataprovider:useAAFDetials",
+          "additional-class": "ofFormCheckboxes",          
           "box-for": "",
           "boxes": [
             {
@@ -35,7 +36,8 @@
     {
       "component-type": "text-block",
       "type": "p",
-      "content": "arms.description.dataprovider"
+      "content": "arms.description.dataprovider",
+      "additional-class": "description"
     },
     {
       "component-type": "group",
@@ -93,7 +95,7 @@
           "field-name": "dataprovider:organization",
           "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
-          "classes": "organizationField",
+          "additional-classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
         },
         {
@@ -137,12 +139,13 @@
         {
           "component-type": "text-block",
           "type": "p",
-          "content": "arms.label.dataprovider-authority"
+          "content": "arms.label.dataprovider-authority",
+          "additional-class": "description"
         },
         {
           "component-type": "radio-button",
           "field-name": "dataprovider:authority",
-          "button-for": "",
+          "additional-class": "yesNoRight"
           "buttons": [
             {
               "label": "No",
@@ -171,7 +174,7 @@
         {
           "component-type": "checkbox",
           "field-name": "requester:useAAFDetials",
-          "box-for": "",
+		  "additional-class": "ofFormCheckboxes",
           "boxes": [
             {
               "label": "Use my login details",
@@ -183,7 +186,7 @@
         {
           "component-type": "checkbox",
           "field-name": "requester:useCustodianDetials",
-          "box-for": "",
+		  "additional-class": "ofFormCheckboxes",
           "boxes": [
             {
               "label": "Use custodian details",
@@ -197,7 +200,8 @@
     {
       "component-type": "text-block",
       "type": "p",
-      "content": "arms.description.requester"
+      "content": "arms.description.requester",
+      "additional-class": "description"
     },
     {
       "component-type": "group",
@@ -255,7 +259,7 @@
           "field-name": "requester:organization",
           "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
-          "classes": "organizationField",
+          "additional-classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
         },
         {
@@ -302,6 +306,7 @@
         {
           "component-type": "checkbox",
           "field-name": "nodecontact:useAAFDetials",
+          "additional-class": "ofFormCheckboxes",          
           "box-for": "",
           "boxes": [
             {
@@ -313,11 +318,12 @@
         },
         {
           "component-type": "checkbox",
-          "field-name": "nodecontact:useAAFDetials",
+          "field-name": "nodecontact:useCustodianDetials",
+          "additional-class": "ofFormCheckboxes",          
           "box-for": "",
           "boxes": [
             {
-              "label": "Use my login details",
+              "label": "Use custodian details",
               "value": "Yes"
             }
           ],
@@ -328,7 +334,8 @@
     {
       "component-type": "text-block",
       "type": "p",
-      "content": "arms.description.nodecontact"
+      "content": "arms.description.nodecontact",
+      "additional-class": "description"
     },
     {
       "component-type": "group",
@@ -386,7 +393,7 @@
           "field-name": "nodecontact:organization",
           "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
-          "classes": "organizationField",
+          "additional-classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
         },
         {
