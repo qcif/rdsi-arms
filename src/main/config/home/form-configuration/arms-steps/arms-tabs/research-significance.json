@@ -18,6 +18,7 @@
     },
     {
       "component-type": "textarea",
+      "field-name":"merit-description",
       "field-name": "section3-subsectionA",
       "label": ""
     },
@@ -28,7 +29,7 @@
     },
     {
       "component-type": "checkbox",
-      "field-name": "section3-sectionB",
+      "field-name": "merit-origin",
       "box-for": "arms.field.label.section3-subsectionB.description",
       "multiline": true,
       "additional-class": "ofFormCheckboxes",
