@@ -34,8 +34,9 @@
   width: 11em;
 }
 
+/* label and select on single row align right */
 .statesLabel {
-	margin-left: 14em;
+	margin-left: 15.5em;
 }
 
 .nodeContactNodeLabel {
@@ -141,4 +142,14 @@ label.ofFormCheckboxes {
 /* when above size of help changes, change this */
 .jaffaHelpToggle .ui-icon {
     left: 3px
+}
+
+p.description {
+    width: 35em;
+}
+
+/* used in contact details Authority section */
+.simple-workflow.component-wrapper > label.yesNoRight {
+    margin-left: 26em;
+    font-size: 90%;
 }
