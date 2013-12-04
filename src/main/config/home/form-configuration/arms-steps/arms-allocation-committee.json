@@ -1,19 +1,19 @@
 {
   "divs": [
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/introduction.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/section0.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/contact-details.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/section1.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/collection-details.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/section2.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/research-significance.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/section3.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/section4.json"
     },
     {
       "heading": "Submit",
