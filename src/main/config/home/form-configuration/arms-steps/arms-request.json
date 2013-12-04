@@ -28,30 +28,7 @@
           "type": "p",
           "content": "arms.description.declarations"
         },
-        {
-          "component-type": "checkbox",
-          "field-name": "request:declarations",
-          "box-for": "",
-          "multiline": true,
-          "boxes": [
-            {
-              "label": "I understand the terms and conditions must be accepted prior to the use of storage services",
-              "value": "item1-checked"
-            },
-            {
-              "label": "To the best of my knowledge this collection, nor a significantly similar collection, is not under consideration by any RDSI node as part of the ReDS programme",
-              "value": "item2-checked"
-            }
-          ]
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "save-close-submission",
-          "label": "Save and close",
-          "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true
-        }
+        { "component-type": "request-submit-btn" }
       ]
     }
   ],
