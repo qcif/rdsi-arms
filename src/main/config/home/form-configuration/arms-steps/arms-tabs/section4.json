@@ -1,0 +1,77 @@
+{
+  "heading": "arms.field.label.section4-menu.title",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.field.label.section4-title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section4-subsectionA.title"
+    },
+     {
+      "component-type": "text-block",
+      "type": "span",
+      "content": "arms.field.label.section4-subsectionA.description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.label.section4-subsectionA.paragraphA"
+    },
+     {
+      "component-type": "checkbox",
+      "field-name": "section4-subsectionA",
+      "box-for": "arms.field.label.section4-subsectionA.paragraphB",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointA",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointB",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointB"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointC",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointC"
+        }
+      ]
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "section4-subsectionA.paragraphC",
+      "label": "arms.field.label.section4-subsectionA.paragraphC.description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section4-subsectionB.title"
+    },
+     {
+      "component-type": "text-block",
+      "type": "span",
+      "content": "arms.field.label.section4-subsectionB.description"
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "section4-subsectionB.paragraphA,
+      "label": "arms.field.label.section4-subsectionB.paragraphA"
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "section4-subsectionB.paragraphB",
+      "label": "arms.field.label.section4-subsectionB.paragraphB"
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "section4-subsectionB.paragraphC",
+      "label": "arms.field.label.section4-subsectionB.paragraphC"
+    },
+     
+  ]
+}

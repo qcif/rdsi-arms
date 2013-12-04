@@ -1,0 +1,132 @@
+{
+  "heading": "arms.field.label.section3-menu.title",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.field.label.section3-title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section3-sectionA.title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "span",
+      "content": "arms.field.label.section3-subsectionA.description"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "section3-subsectionA",
+      "label": ""
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section3-subsectionB.title"
+    },
+    {
+      "component-type": "checkbox",
+      "field-name": "section3-sectionB",
+      "box-for": "arms.field.label.section3-subsectionB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section3-subsectionB.pointA",
+          "value": "arms.field.label.section3-subsectionB.pointA"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionB.pointB",
+          "value": "arms.field.label.section3-subsectionB.pointB"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionB.pointC",
+          "value": "arms.field.label.section3-subsectionB.pointC"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionB.pointD",
+          "value": "arms.field.label.section3-subsectionB.pointD"
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section3-subsectionC.title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section3-subsectionC.paragraphA-title"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "section3:sectionC:subsectionA",
+      "label": "arms.field.label.section3-subsectionC.paragraphA-description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section3-subsectionC.paragraphB-title"
+    },
+    {
+      "component-type": "checkbox",
+      "field-name": "section3:sectionB:subsectionB",
+      "box-for": "arms.field.label.section3-subsectionC.paragraphB-description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB-pointA",
+          "value": "arms.field.label.section3-subsectionC.paragraphB-pointA"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB-pointB",
+          "value": "arms.field.label.section3-subsectionC.paragraphB-pointB"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB-pointC",
+          "value": "arms.field.label.section3-subsectionC.paragraphB-pointC"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB-pointD",
+          "value": "arms.field.label.section3-subsectionC.paragraphB-pointD"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB-pointE",
+          "value": "arms.field.label.section3-subsectionC.paragraphB-pointE"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close1",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        }
+      ]
+    }
+  ]
+}
