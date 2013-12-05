@@ -92,24 +92,8 @@
       "type": "p",
       "content": "arms.field.help.completeness"
     },
-    {
-      "component-type": "radio-button",
-      "field-name": "completeness",
-      "button-for": "arms.field.label.completeness",
-      "buttons": [
-        {
-          "label": "The collection is complete. No substantial changes to the collection are anticipated.",
-          "value": "The collection is complete. No substantial changes to the collection are anticipated."
-        },
-        {
-          "label": "The collection is currently growing and is expected to be complete by MONTH YEAR",
-          "value": "The collection is currently growing and is expected to be complete by "
-        },
-        {
-          "label": "The collection will be growing for the foreseeable future.",
-          "value": "The collection will be growing for the foreseeable future"
-        }
-      ]
+    {   
+        "component-type": "completeness-choices"
     },
     {
       "component-type": "text-block",
