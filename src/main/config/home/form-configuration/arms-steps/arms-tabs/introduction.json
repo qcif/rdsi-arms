@@ -1,5 +1,5 @@
 {
-  "heading": "arms.field.label.section0-menu.title",
+  "heading": "Introduction",
   "fields": [
     {
       "component-type": "text-block",
@@ -36,17 +36,19 @@
       "type": "none",
       "list-elements": [
         {
-       
           "value": "arms.field.label.section0-subsectionB.pointA"
         },
         {
           "value": "arms.field.label.section0-subsectionB.pointB"
         },
         {
-          "value": "arms.field.label.section0-subectionB.pointC"
+          "value": "arms.field.label.section0-subsectionB.pointC"
         },
         {
           "value": "arms.field.label.section0-subsectionB.pointD"
+        },
+        {
+          "value": "arms.field.label.section0-subsectionB.pointE"
         }
       ]
     },
@@ -57,7 +59,7 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close1",
+          "button-name": "save-close0",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
