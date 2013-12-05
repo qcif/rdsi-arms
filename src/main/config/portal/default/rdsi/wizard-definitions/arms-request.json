@@ -1,25 +1,19 @@
 {
     "steps": {
         "Introduction": {
-            "Next": "Data collection details"
-        },
-        "Data collection details": {
-            "Next": "Merit information"
-        },
-        "Merit information": {
             "Next": "Contact details"
         },
         "Contact details": {
-            "Next": "Technical details"
+            "Next": "Collection details"
         },
-        "Technical details": {
-            "Next": "Data access and re-use"
+        "Collection details": {
+            "Next": "Research significance"
         },
-        "Data access and re-use": {
-            "Next": "Data migration"
+        "Research significance": {
+            "Next": "Storage requirements"
         },
-        "Data migration": {
-            "Next": "Submit"
+        "Storage requirements": {
+            "Next": "Declarations"
         }
     }
 }
