@@ -194,23 +194,6 @@
           "wrapper-class": "inline-component"
         },
         {
-          "component-type": "standard-button",
-          "button-name": "save2",
-          "label": "Save",
-          "action": "save",
-          "skipValidation": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "close2",
-          "label": "Close",
-          "closeWithoutSaving": true,
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
           "component-type": "transition-control",
           "transitions": [
             {
