@@ -1,7 +1,7 @@
 {
   "portal" : {
-    "name" : "qcif",
-    "description" : "Queensland Cyberinfrastructure Foundation",
+    "name" : "rdsi",
+    "description" : "Research Data Storage Initiative",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",
     "facet-count" : "100",
