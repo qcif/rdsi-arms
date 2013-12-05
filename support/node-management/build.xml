@@ -1,8 +1,8 @@
 <project name="createPortal" default="create" basedir=".">
 	<description>Build a portal a time with its own name and description</description>
 	<!-- set global properties for this build -->
-	<property name="nodeName" value="qcif" />
-	<property name="nodeDescription" value="Queensland Cyberinfrastructure Foundation" />
+	<property name="nodeName" value="rdsi" />
+	<property name="nodeDescription" value="Research Data Storage Initiative" />
 	<target name="create" description="copy portal directory to new location">
 		<!-- Copy new directories of portal to src/main/config -->
 		<filter token="nodeName" value="${nodeName}" />
@@ -11,8 +11,8 @@
 			<fileset dir="templates/portal" />
 		</copy>
 		<!-- Rename to the currect name using property nodeName -->
-		<move todir="../../src/main/config/portal/${nodeName}/${nodeName}">
-		    <fileset dir="../../src/main/config/portal/${nodeName}/portal">
+		<move todir="../../src/main/config/portal/${nodeName}/default">
+		    <fileset dir="../../src/main/config/portal/${nodeName}/default">
 		    </fileset>
 		 </move>
 	</target>
