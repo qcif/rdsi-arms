@@ -1,418 +1,77 @@
 {
-  "heading": "Technical details",
+  "heading": "Storage requirements",
   "fields": [
     {
       "component-type": "text-block",
       "type": "h1",
-      "content": "arms.heading.nodeselection"
+      "content": "arms.field.label.section4-title"
     },
     {
       "component-type": "text-block",
-      "type": "label",
-      "help": "arms.field.help.rdsi-node",
-      "content": "arms.field.label.rdsi-node"
+      "type": "h2",
+      "content": "arms.field.label.section4-subsectionA.title"
     },
-    {
-      "component-type": "dropdown-fixedvalue",
-      "field-name": "rdsi-node",
-      "label": "",
-      "options": [
-        {
-          "label": "QCIF-BNE",
-          "value": "QCIF-BNE",
-          "default": true
-        },
-        {
-          "label": "QCIF-TSV",
-          "value": "QCIF-TSV"
-        },
-        {
-          "label": "eRSA",
-          "value": "eRSA"
-        },
-        {
-          "label": "Intersect",
-          "value": "Intersect"
-        },
-        {
-          "label": "iVEC",
-          "value": "iVEC"
-        },
-        {
-          "label": "NCI",
-          "value": "NCI"
-        },
-        {
-          "label": "TPAC",
-          "value": "TPAC"
-        },
-        {
-          "label": "VicNode",
-          "value": "VicNode"
-        }
-      ]
+     {
+      "component-type": "text-block",
+      "type": "span",
+      "content": "arms.field.label.section4-subsectionA.description"
     },
     {
       "component-type": "text-block",
-      "type": "label",
-      "help": "arms.field.help.rdsi-secondary-nodes",
-      "content": "arms.field.label.rdsi-secondary-nodes"
+      "type": "p",
+      "content": "arms.field.label.section4-subsectionA.paragraphA"
     },
-    {
-      "component-type": "checkbox",
-      "field-name": "rdsi-secondary-nodes",
-      "box-for": "",
+     {
+      "component-type": "checkbox3",
+      "field-name": "storage-location",
+      "box-for": "arms.field.label.section4-subsectionA.paragraphB",
       "multiline": true,
+      "additional-class": "ofFormCheckboxes",
       "boxes": [
         {
-          "label": "QCIF-BNE",
-          "value": "QCIF-BNE"
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointA",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointA"
         },
         {
-          "label": "QCIF-TSV",
-          "value": "QCIF-TSV"
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointB",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointB"
         },
         {
-          "label": "eRSA",
-          "value": "eRSA"
-        },
-        {
-          "label": "Intersect",
-          "value": "Intersect"
-        },
-        {
-          "label": "iVEC",
-          "value": "iVEC"
-        },
-        {
-          "label": "NCI",
-          "value": "NCI"
-        },
-        {
-          "label": "TPAC",
-          "value": "TPAC"
-        },
-        {
-          "label": "VicNode",
-          "value": "VicNode"
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.multi-nodes-reason",
-      "help": "arms.field.help.multi-nodes-reason"
-    },
-    {
-      "component-type": "radio-button",
-      "field-name": "multi-nodes-reason",
-      "button-for": "",
-      "buttons": [
-        {
-          "label": "Co-location with a partner research group",
-          "value": "Co-location with a partner research group"
-        },
-        {
-          "label": "Proximity to computational facility",
-          "value": "Proximity to computational facility"
-        },
-        {
-          "label": "Other (please provide details below):",
-          "value": ""
+          "label": "arms.field.label.section4-subsectionA.paragraphB.pointC",
+          "value": "arms.field.label.section4-subsectionA.paragraphB.pointC"
         }
       ]
     },
     {
       "component-type": "textarea",
-      "field-name": "multi-nodes-reason-other",
-      "label": ""
+      "field-name": "storage-purpose",
+      "label": "arms.field.label.section4-subsectionA.paragraphC.description"
     },
     {
       "component-type": "text-block",
-      "type": "h1",
-      "help": "arms.field.label.storage-options",
-      "content": "arms.field.label.storage-options"
+      "type": "h2",
+      "content": "arms.field.label.section4-subsectionB.title"
     },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "dropdown-fixedvalue",
-          "field-name": "storage-class",
-          "label": "arms.field.label.storage-class",
-          "options": [
-            {
-              "label": "Storage Class II (Standard disk)",
-              "value": "Storage Class II (Standard disk)",
-              "default": true
-            },
-            {
-              "label": "Storage Class III (High-performance disk)",
-              "value": "Storage Class III (High-performance disk)"
-            }
-          ],
-          "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "dropdown-fixedvalue",
-          "field-name": "data-protection-class",
-          "label": "arms.field.label.data-protection-class",
-          "options": [
-            {
-              "label": "Storage Class I (HSM/Tape)",
-              "value": "Storage Class I (HSM/Tape)",
-              "default": true
-            },
-            {
-              "label": "Storage Class II (Standard disk)",
-              "value": "Storage Class II (Standard disk)"
-            },
-            {
-              "label": "Not required",
-              "value": "Not required"
-            }
-          ],
-          "wrapper-class": "inline-block-component"
-        }
-      ]
-    },
-    {
+     {
       "component-type": "text-block",
-      "type": "h1",
-      "content": "arms.field.label.dataset-metrics"
+      "type": "span",
+      "content": "arms.field.label.section4-subsectionB.description"
     },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.requested-allocation-size",
-      "help": "arms.field.help.requested-allocation-size"
-    },
-    {
+     {
       "component-type": "text-input",
-      "field-name": "requested-allocation-size",
-      "label": "",
-      "validation": {
-        "save-rules": [
-          "required"
-        ],
-        "validation-id": "requested-allocation-size",
-        "focus-id": "requested-allocation-size",
-        "validation-messages": {
-          "required": "Requested allocation size is required"
-        }
-      },
-      "additional-classes": "longTextInput"
+      "field-name": "storage-current-size",
+      "label": "arms.field.label.section4-subsectionB.paragraphA"
     },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.data-size",
-      "help": "arms.field.help.data-size"
-    },
-    {
+     {
       "component-type": "text-input",
-      "field-name": "data-size",
-      "label": "",
-      "validation": {
-        "save-rules": [
-          "required"
-        ],
-        "validation-id": "data-size",
-        "focus-id": "data-size",
-        "validation-messages": {
-          "required": "Size of data is required"
-        }
-      },
-      "additional-classes": "longTextInput"
+      "field-name": "storage-expected-size",
+      "label": "arms.field.label.section4-subsectionB.paragraphB"
     },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.data-growth",
-      "help": "arms.field.help.data-growth"
-    },
-    {
+     {
       "component-type": "text-input",
-      "field-name": "data-growth",
-      "label": "",
-      "validation": {
-        "save-rules": [
-          "required"
-        ],
-        "validation-id": "data-growth",
-        "focus-id": "data-growth",
-        "validation-messages": {
-          "required": "Growth rate is required"
-        }
-      },
-      "additional-classes": "longTextInput"
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.dataset-file-number"
-    },
-    {
-      "component-type": "text-input",
-      "field-name": "dataset-file-number",
-      "label": "",
-      "additional-classes": "longTextInput"
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.vivo-Dataset.dc.format",
-      "help": "arms.field.help.vivo-Dataset.dc.format"
-    },
-    {
-      "component-type": "text-input",
-      "field-name": "vivo-Dataset.dc.format",
-      "label": "",
-      "additional-classes": "longTextInput"
-    },
-    {
-      "component-type": "text-block",
-      "type": "h1",
-      "content": "arms.heading.user-base"
-    },
-    {
-      "component-type": "text-input",
-      "field-name": "current-user-number",
-      "label": "arms.field.label.current-user-number"
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.user-number",
-      "help": "arms.field.help.user-number"
-    },
-    {
-      "component-type": "radio-button",
-      "field-name": "user-number",
-      "button-for": "",
-      "buttons": [
-        {
-          "label": "<10 users",
-          "value": "<10 users"
-        },
-        {
-          "label": "<50 users",
-          "value": "<50 users"
-        },
-        {
-          "label": "<100 users",
-          "value": "<100 users"
-        },
-        {
-          "label": "<500 users",
-          "value": "<500 users"
-        },
-        {
-          "label": "<1000 users",
-          "value": "<1000 users"
-        },
-        {
-          "label": ">1000 users",
-          "value": ">1000 users"
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.user-access-frequency",
-      "help": "arms.field.help.user-access-frequency"
-    },
-    {
-      "component-type": "radio-button",
-      "field-name": "user-access-frequency",
-      "button-for": "",
-      "buttons": [
-        {
-          "label": "Daily",
-          "value": "Daily"
-        },
-        {
-          "label": "Weekly",
-          "value": "Weekly"
-        },
-        {
-          "label": "Monthly",
-          "value": "Monthly"
-        },
-        {
-          "label": "Ad Hoc",
-          "value": "Ad Hoc"
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "h1",
-      "content": "arms.field.label.ingest",
-      "help": "arms.field.help.ingest"
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "date-picker",
-          "field-name": "ingest-1qtr",
-          "label": "arms.field.label.ingest-1qtr",
-          "clear-date": true,
-          "format": "MM yy",
-          "month-year": true,
-          "options": "showButtonPanel: true",
-          "currentText": "Current month",
-          "closeText": "Select",
-          "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "date-picker",
-          "field-name": "ingest-2qtr",
-          "label": "arms.field.label.ingest-2qtr",
-          "clear-date": true,
-          "format": "MM yy",
-          "month-year": true,
-          "options": "showButtonPanel: true",
-          "currentText": "Current month",
-          "closeText": "Select",
-          "wrapper-class": "inline-block-component"
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "date-picker",
-          "field-name": "ingest-3qtr",
-          "label": "arms.field.label.ingest-3qtr",
-          "clear-date": true,
-          "format": "MM yy",
-          "month-year": true,
-          "options": "showButtonPanel: true",
-          "currentText": "Current month",
-          "closeText": "Select",
-          "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "date-picker",
-          "field-name": "ingest-4qtr",
-          "label": "arms.field.label.ingest-4qtr",
-          "clear-date": true,
-          "format": "MM yy",
-          "month-year": true,
-          "options": "showButtonPanel: true",
-          "currentText": "Current month",
-          "closeText": "Select",
-          "wrapper-class": "inline-block-component"
-        }
-      ]
+      "field-name": "storage-estimated-growth-rate",
+      "label": "arms.field.label.section4-subsectionB.paragraphC"
+      
     },
     {
       "component-type": "group",
@@ -421,26 +80,9 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close5",
+          "button-name": "save-close4",
           "label": "Save and close",
           "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "save5",
-          "label": "Save",
-          "action": "save",
-          "skipValidation": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "close5",
-          "label": "Close",
-          "closeWithoutSaving": true,
           "closeUrl": "detail",
           "appendOID": true,
           "wrapper-class": "inline-component"
@@ -459,5 +101,6 @@
         }
       ]
     }
+     
   ]
 }
