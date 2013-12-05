@@ -1,247 +1,54 @@
 {
-  "heading": "Merit information",
+  "heading": "Research significance",
   "fields": [
     {
       "component-type": "text-block",
       "type": "h1",
-      "help": "arms.help.merit-info",
-      "content": "arms.heading.merit-info"
+      "content": "arms.field.label.section3-title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section3-subsectionA.title"
     },
     {
       "component-type": "text-block",
       "type": "span",
-      "content": "arms.label.merit-reminder"
+      "content": "arms.field.label.section3-subsectionA.description"
+    },
+    {
+      "component-type": "textarea",
+      "field-name":"merit-description",
+      "field-name": "section3-subsectionA",
+      "label": ""
     },
     {
       "component-type": "text-block",
-      "type": "label",
-      "content": "arms.label.merit-sectionA"
+      "type": "h2",
+      "content": "arms.field.label.section3-subsectionB.title"
     },
     {
-      "component-type": "checkbox",
-      "field-name": "merit-sectionA",
-      "box-for": "",
+      "component-type": "checkbox3",
+      "field-name": "merit-origin",
+      "box-for": "arms.field.label.section3-subsectionB.description",
       "multiline": true,
       "additional-class": "ofFormCheckboxes",
       "boxes": [
         {
-          "label": "of importance as an input to future research;",
-          "value": "of importance as an input to future research;"
+          "label": "arms.field.label.section3-subsectionB.pointA",
+          "value": "arms.field.label.section3-subsectionB.pointA"
         },
         {
-          "label": "relevant to research questions of interest to a variety of researchers;",
-          "value": "relevant to research questions of interest to a variety of researchers;"
+          "label": "arms.field.label.section3-subsectionB.pointB",
+          "value": "arms.field.label.section3-subsectionB.pointB"
         },
         {
-          "label": "accessible, for the purposes of research, subject to appropriate access rules;",
-          "value": "accessible, for the purposes of research, subject to appropriate access rules;"
+          "label": "arms.field.label.section3-subsectionB.pointC",
+          "value": "arms.field.label.section3-subsectionB.pointC"
         },
         {
-          "label": "discoverable through registration in discipline/domain registries, or generic registries such as Research Data Australia; and",
-          "value": "discoverable through registration in discipline/domain registries, or generic registries such as Research Data Australia; and"
-        },
-        {
-          "label": "an input to research supported by at least one participant organisation in the node.",
-          "value": "an input to research supported by at least one participant organisation in the node."
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.label.merit-sectionB"
-    },
-    {
-      "component-type": "checkbox",
-      "field-name": "merit-sectionB",
-      "box-for": "",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "observational data that is collected, curated and made available to third party researchers;",
-          "value": "observational data that is collected, curated and made available to third party researchers;"
-        },
-        {
-          "label": "generated data that is developed as an information product to underpin the research of third party researchers;",
-          "value": "generated data that is developed as an information product to underpin the research of third party researchers;"
-        },
-        {
-          "label": "aggregated data that is assembled by individuals or research communities in order to make research questions more addressable; and/or",
-          "value": "aggregated data that is assembled by individuals or research communities in order to make research questions more addressable; and/or"
-        },
-        {
-          "label": "a mirror of international collections that are held locally, for purposes of improved performance and reduced cost.",
-          "value": "a mirror of international collections that are held locally, for purposes of improved performance and reduced cost."
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.label.merit-sectionC"
-    },
-    {
-      "component-type": "checkbox",
-      "field-name": "merit-sectionC",
-      "box-for": "",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "relevant to a broad user base within or across disciplines and domains;",
-          "value": "relevant to a broad user base within or across disciplines and domains;"
-        },
-        {
-          "label": "readily accessible, with respect to connectivity and integration, recognising any constraints such as legal, licensing or ethical requirements;",
-          "value": "readily accessible, with respect to connectivity and integration, recognising any constraints such as legal, licensing or ethical requirements;"
-        },
-        {
-          "label": "in reusable forms, well described and documented, to support long-term access and management;",
-          "value": "in reusable forms, well described and documented, to support long-term access and management;"
-        },
-        {
-          "label": "citable through a mechanism such as a digital object identifier; and",
-          "value": "citable through a mechanism such as a digital object identifier; and"
-        },
-        {
-          "label": "of sufficiently high quality and fit for purpose, as indicated by domain-relevant measures such as completeness, coverage, and resolution.",
-          "value": "of sufficiently high quality and fit for purpose, as indicated by domain-relevant measures such as completeness, coverage, and resolution."
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "h1",
-      "content": "arms.heading.funding-information"
-    },
-    {
-      "component-type": "text-block",
-      "type": "label",
-      "content": "arms.field.label.is-funded",
-      "help": "arms.field.help.is-funded"
-    },
-    {
-      "component-type": "radio-button",
-      "field-name": "isFunded",
-      "button-for": "",
-      "buttons": [
-        {
-          "label": "Yes",
-          "value": "Yes"
-        },
-        {
-          "label": "No",
-          "value": "No",
-          "checked": true
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "additional-classes": "fundinginfoSec",
-      "fields": [
-        {
-          "component-type": "text-block",
-          "type": "label",
-          "content": "arms.field.label.funding-details"
-        },
-        {
-          "component-type": "table",
-          "editFunction": "editFundingInfo",
-          "addFunction": "addFundingInfo",
-          "metadataPrefix": "fundingInfoTable",
-          "modelName": "fundingInfoModel",
-          "tableName": "fundingInfoTable",
-          "initialiseMethodName": "initialiseFundingInfoTable",
-          "addButtonText": "Add a funding source",
-          "columns": [
-            {
-              "columnHeader": "Funder",
-              "propertyName": "fundingSource"
-            },
-            {
-              "columnHeader": "Grant number",
-              "propertyName": "grantNumber"
-            },
-            {
-              "columnHeader": "Project name",
-              "propertyName": "projectName"
-            },
-            {
-              "columnHeader": "Start year",
-              "propertyName": "startDate"
-            },
-            {
-              "columnHeader": "End year",
-              "propertyName": "endDate"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "dialoged-table-form-group",
-      "element-id": "fundingInfoForm",
-      "modelName": "fundingInfoFormModel",
-      "editFunction": "editFundingInfo",
-      "addFunction": "addFundingInfo",
-      "tableModelName": "fundingInfoModel",
-      "addFormTitle": "Add Funding Information",
-      "editFormTitle": "Edit Funding Information",
-      "additional-class": "tableForm",
-      "fields": [
-        {
-          "component-type": "radio-button",
-          "field-name": "funding-body",
-          "button-for": "Funding body",
-          "buttons": [
-            {
-              "label": "ARC",
-              "value": "ARC"
-            },
-            {
-              "label": "NHMRC",
-              "value": "NHMRC"
-            },
-            {
-              "label": "Industry",
-              "value": "Industry"
-            },
-            {
-              "label": "Other (please describe below)",
-              "value": "Other"
-            }
-          ],
-          "table-json-propertyName": "fundingSource"
-        },
-        {
-          "component-type": "text-input",
-          "field-name": "grantNumber",
-          "label": "Grant number/reference",
-          "additional-classes": "longTextInput",
-          "table-json-propertyName": "grantNumber"
-        },
-        {
-          "component-type": "text-input",
-          "field-name": "projectName",
-          "label": "Project name",
-          "additional-classes": "longTextInput",
-          "table-json-propertyName": "projectName"
-        },
-        {
-          "component-type": "text-input",
-          "field-name": "startDate",
-          "label": "Start year",
-          "table-json-propertyName": "startDate"
-        },
-        {
-          "component-type": "text-input",
-          "field-name": "endDate",
-          "label": "End year",
-          "table-json-propertyName": "endDate"
+          "label": "arms.field.label.section3-subsectionB.pointD",
+          "value": "arms.field.label.section3-subsectionB.pointD"
         }
       ]
     },
@@ -255,23 +62,6 @@
           "button-name": "save-close3",
           "label": "Save and close",
           "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "save3",
-          "label": "Save",
-          "action": "save",
-          "skipValidation": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "close3",
-          "label": "Close",
-          "closeWithoutSaving": true,
           "closeUrl": "detail",
           "appendOID": true,
           "wrapper-class": "inline-component"

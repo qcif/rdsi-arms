@@ -432,7 +432,7 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close4",
+          "button-name": "save-close1",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
@@ -441,7 +441,7 @@
         },
         {
           "component-type": "standard-button",
-          "button-name": "save4",
+          "button-name": "save1",
           "label": "Save",
           "action": "save",
           "skipValidation": true,
@@ -449,7 +449,7 @@
         },
         {
           "component-type": "standard-button",
-          "button-name": "close4",
+          "button-name": "close1",
           "label": "Close",
           "closeWithoutSaving": true,
           "closeUrl": "detail",
