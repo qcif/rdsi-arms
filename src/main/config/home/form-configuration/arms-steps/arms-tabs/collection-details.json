@@ -1,5 +1,5 @@
 {
-  "heading": "Data collection details",
+  "heading": "Collection details",
   "fields": [
     {
       "component-type": "text-block",
@@ -10,36 +10,38 @@
       "component-type": "knockout-text-block",
       "field-name": "requestID",
       "type": "label",
-      "help": "arms.field.help.requestID",
       "content": "arms.field.label.requestID"
     },
     {
       "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.help.requestID"
+    },
+    {
+      "component-type": "text-block",
       "type": "label",
-      "content": "arms.field.label.dc-title",
-      "help": "arms.field.help.dc-title"
+      "content": "arms.field.label.dc-title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.help.dc-title"
     },
     {
       "component-type": "text-input",
       "field-name": "dc:title",
       "label": "",
-      "validation": {
-        "save-rules": [
-          "required"
-        ],
-        "validation-id": "dc:title",
-        "focus-id": "dc:title",
-        "validation-messages": {
-          "required": "Title is required"
-        }
-      },
       "additional-classes": "longTextInput"
     },
     {
       "component-type": "text-block",
       "type": "label",
-      "content": "arms.field.label.collection-description",
-      "help": "arms.field.help.collection-description"
+      "content": "arms.field.label.collection-description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.help.collection-description"
     },
     {
       "component-type": "textarea",
@@ -59,8 +61,12 @@
     {
       "component-type": "text-block",
       "type": "label",
-      "content": "arms.field.label.dc-subject.anzsrc-for",
-      "help": "arms.field.help.dc-subject.anzsrc-for"
+      "content": "arms.field.label.dc-subject.anzsrc-for"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.help.dc-subject.anzsrc-for"
     },
     {
       "component-type": "repeatable-anzsrc-selection",
@@ -79,53 +85,97 @@
     {
       "component-type": "text-block",
       "type": "label",
-      "content": "arms.field.label.collection-metadata"
+      "content": "arms.heading.completeness"
     },
     {
-      "component-type": "table",
-      "editFunction": "editDataCollectionLocation",
-      "addFunction": "addDataCollectionLocation",
-      "metadataPrefix": "dataCollectionLocation",
-      "modelName": "dataCollectionLocationModel",
-      "tableName": "DataCollectionLocationTable",
-      "initialiseMethodName": "initialiseDataCollectionLocationTable",
-      "addButtonText": "Add a metadata location",
-      "columns": [
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.help.completeness"
+    },
+    {
+      "component-type": "radio-button",
+      "field-name": "completeness",
+      "button-for": "arms.field.label.completeness",
+      "buttons": [
         {
-          "columnHeader": "URL",
-          "propertyName": "url"
+          "label": "The collection is complete. No substantial changes to the collection are anticipated.",
+          "value": "The collection is complete. No substantial changes to the collection are anticipated."
         },
         {
-          "columnHeader": "Description",
-          "propertyName": "description"
+          "label": "The collection is currently growing and is expected to be complete by MONTH YEAR",
+          "value": "The collection is currently growing and is expected to be complete by "
+        },
+        {
+          "label": "The collection will be growing for the foreseeable future.",
+          "value": "The collection will be growing for the foreseeable future"
         }
       ]
     },
     {
-      "component-type": "group",
-      "template": "dialoged-table-form-group",
-      "element-id": "dataLocationForm",
-      "modelName": "dataLocationFormModel",
-      "editFunction": "editDataCollectionLocation",
-      "addFunction": "addDataCollectionLocation",
-      "tableModelName": "dataCollectionLocationModel",
-      "addFormTitle": "Add a new metadata location",
-      "editFormTitle": "Edit a metadata location",
-      "additional-class": "tableForm",
-      "fields": [
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.researchdata-access"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.researchdata-access"
+    },
+    {
+      "component-type": "level-access"
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.section.methodmeta"
+    },
+    {
+      "component-type": "radio-button",
+      "field-name": "methodmeta",
+      "button-for": "arms.field.label.methodmeta",
+      "buttons": [
         {
-          "component-type": "text-input",
-          "field-name": "metadata-location-url",
-          "label": "URL",
-          "additional-classes": "longTextInput",
-          "table-json-propertyName": "url"
+          "label": "Yes",
+          "value": "Yes"
         },
         {
-          "component-type": "text-input",
-          "field-name": "metadata-location-description",
-          "label": "Description",
-          "additional-classes": "longTextInput",
-          "table-json-propertyName": "description"
+          "label": "No",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.methoddetail"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "methoddetails",
+      "label": ""
+    },
+    {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "Support"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.support"
+    },
+	{
+      "component-type": "radio-button",
+      "field-name": "support",
+      "button-for": "arms.field.label.support",
+      "buttons": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
         }
       ]
     },
