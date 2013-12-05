@@ -1,0 +1,32 @@
+<div>Completeness of the collection:</div>    
+<label><input type="radio" value="The collection is complete. No substantial changes to the collection are anticipated." class="jaffa-field" name="completeness">The collection is complete. No substantial changes to the collection are anticipated.</label>
+<label><input type="radio" value="The collection is currently growing and is expected to be complete by " class="jaffa-field" name="completeness">The collection is currently growing and is expected to be complete by 
+<input style="width:8em;" type="text" name="complete_date" id ="complete_date" value="" />
+</label>
+
+<label><input type="radio" value="The collection will be growing for the foreseeable future" class="jaffa-field" name="completeness">The collection will be growing for the foreseeable future.</label>
+
+<script>
+ $(function() {
+	 $("[id='complete_date']").datepicker({
+		 dateFormat: 'MM yy',
+		 changeMonth: true,
+		 changeYear: true,
+         currentText: 'Current month',
+         closeText: 'Select',
+         onClose: function(dateText, inst) {  
+             var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val(); 
+             var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val(); 
+             var day = inst.selectedDay;
+             $(this).val(jQuery.datepicker.formatDate($(this).datepicker( "option", "dateFormat" ), new Date(year, month, day, "00", "00", "00", "00") )); 
+         }
+         ,showButtonPanel: true	 });
+    $("[id='complete_date']").focus(function () {
+         $(".ui-datepicker-calendar").hide();         $("#ui-datepicker-div").position({
+            my: "center top",
+            at: "center bottom",
+            of: $(this)
+        });    
+    });
+ });
+</script>
