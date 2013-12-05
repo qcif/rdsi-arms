@@ -19,16 +19,9 @@
           "wrapper-class": "inline-block-component"
         },
         {
-          "component-type": "checkbox",
-          "field-name": "dataprovider:useAAFDetials",
-          "additional-class": "ofFormCheckboxes",          
-          "box-for": "",
-          "boxes": [
-            {
-              "label": "Use my login details",
-              "value": "Yes"
-            }
-          ],
+          "component-type": "standard-button",
+          "button-name": "dataprovider:useAAFDetials",
+          "label": "Use my login details",
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -145,7 +138,7 @@
         {
           "component-type": "radio-button",
           "field-name": "dataprovider:authority",
-          "additional-class": "yesNoRight"
+          "additional-class": "yesNoRight",
           "buttons": [
             {
               "label": "No",
@@ -172,27 +165,15 @@
           "wrapper-class": "inline-block-component"
         },
         {
-          "component-type": "checkbox",
-          "field-name": "requester:useAAFDetials",
-		  "additional-class": "ofFormCheckboxes",
-          "boxes": [
-            {
-              "label": "Use my login details",
-              "value": "Yes"
-            }
-          ],
+          "component-type": "standard-button",
+          "button-name": "requester:useAAFDetials",
+          "label": "Use my login details",
           "wrapper-class": "inline-block-component"
         },
         {
-          "component-type": "checkbox",
-          "field-name": "requester:useCustodianDetials",
-		  "additional-class": "ofFormCheckboxes",
-          "boxes": [
-            {
-              "label": "Use custodian details",
-              "value": "Yes"
-            }
-          ],
+          "component-type": "standard-button",
+          "button-name": "requester:useCustodianDetials",
+          "label": "Click here to copy the Data custodian details",
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -304,29 +285,15 @@
           "wrapper-class": "inline-block-component"
         },
         {
-          "component-type": "checkbox",
-          "field-name": "nodecontact:useAAFDetials",
-          "additional-class": "ofFormCheckboxes",          
-          "box-for": "",
-          "boxes": [
-            {
-              "label": "Use my login details",
-              "value": "Yes"
-            }
-          ],
+          "component-type": "standard-button",
+          "button-name": "nodecontact:useAAFDetials",
+          "label": "Use my login details",
           "wrapper-class": "inline-block-component"
         },
         {
-          "component-type": "checkbox",
-          "field-name": "nodecontact:useCustodianDetials",
-          "additional-class": "ofFormCheckboxes",          
-          "box-for": "",
-          "boxes": [
-            {
-              "label": "Use custodian details",
-              "value": "Yes"
-            }
-          ],
+          "component-type": "standard-button",
+          "button-name": "nodecontact:useCustodianDetials",
+          "label": "Click here to copy the Data custodian details",
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -435,23 +402,6 @@
           "button-name": "save-close1",
           "label": "Save and close",
           "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "save1",
-          "label": "Save",
-          "action": "save",
-          "skipValidation": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "close1",
-          "label": "Close",
-          "closeWithoutSaving": true,
           "closeUrl": "detail",
           "appendOID": true,
           "wrapper-class": "inline-component"
