@@ -1,5 +1,5 @@
 {
-  "heading": "arms.field.label.section4-menu.title",
+  "heading": "Storage requirements",
   "fields": [
     {
       "component-type": "text-block",
@@ -22,7 +22,7 @@
       "content": "arms.field.label.section4-subsectionA.paragraphA"
     },
      {
-      "component-type": "checkbox",
+      "component-type": "checkbox3",
       "field-name": "storage-location",
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
       "multiline": true,
@@ -58,17 +58,17 @@
       "content": "arms.field.label.section4-subsectionB.description"
     },
      {
-      "component-type": "textarea",
+      "component-type": "text-input",
       "field-name": "storage-current-size",
       "label": "arms.field.label.section4-subsectionB.paragraphA"
     },
      {
-      "component-type": "textarea",
+      "component-type": "text-input",
       "field-name": "storage-expected-size",
       "label": "arms.field.label.section4-subsectionB.paragraphB"
     },
      {
-      "component-type": "textarea",
+      "component-type": "text-input",
       "field-name": "storage-estimated-growth-rate",
       "label": "arms.field.label.section4-subsectionB.paragraphC"
       
@@ -85,7 +85,7 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close1",
+          "button-name": "save-close4",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
