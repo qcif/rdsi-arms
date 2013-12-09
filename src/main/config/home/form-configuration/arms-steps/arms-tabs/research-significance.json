@@ -1,5 +1,5 @@
 {
-  "heading": "arms.field.label.section3-menu.title",
+  "heading": "Research significance",
   "fields": [
     {
       "component-type": "text-block",
@@ -9,7 +9,7 @@
     {
       "component-type": "text-block",
       "type": "h2",
-      "content": "arms.field.label.section3-sectionA.title"
+      "content": "arms.field.label.section3-subsectionA.title"
     },
     {
       "component-type": "text-block",
@@ -28,7 +28,7 @@
       "content": "arms.field.label.section3-subsectionB.title"
     },
     {
-      "component-type": "checkbox",
+      "component-type": "checkbox3",
       "field-name": "merit-origin",
       "box-for": "arms.field.label.section3-subsectionB.description",
       "multiline": true,
@@ -108,7 +108,7 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close1",
+          "button-name": "save-close3",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
