@@ -16,7 +16,7 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
     },
     {
-      "heading": "Submit",
+      "heading": "Declarations",
       "fields": [
         {
           "component-type": "text-block",
@@ -25,20 +25,10 @@
         },
         {
           "component-type": "text-block",
-          "type": "div",
-          "content": "arms.field.label.happens-next"
+          "type": "p",
+          "content": "arms.description.declarations"
         },
-        {
-          "component-type": "confirm-and-submit-button",
-          "field-name": "arms.field.label.authoritycheck",
-          "box-label": "arms.field.label.authoritycheck.yes",
-          "box-value": "yes",
-          "button-name": "submit",
-          "label": "Submit",
-          "action": "next",
-          "closeUrl": "detail",
-          "appendOID": true
-        }
+        { "component-type": "request-submit-btn" }
       ]
     }
   ],

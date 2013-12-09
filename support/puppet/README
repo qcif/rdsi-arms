@@ -1,0 +1,24 @@
+redbox
+
+This is the redbox module.
+After installing puppet, redbox needs to be copied to the module path on the OS.
+Enter: 
+
+puppet config print modulepath 
+
+to find where to install the redbox module.
+Once redbox is in the module path, to apply it:
+puppet apply -e "class {'redbox':}" 
+
+License
+-------
+
+
+Contact
+-------
+
+
+Support
+-------
+
+Please log tickets and issues at our [Projects site](http://projects.example.com)

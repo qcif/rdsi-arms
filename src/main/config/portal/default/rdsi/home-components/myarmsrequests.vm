@@ -73,9 +73,7 @@ jQuery(document).ready(function() {
             <th>#displayMessage('arms.home.requests.table.dataset')</th>
             <th>#displayMessage('arms.home.requests.table.created')</th>
             <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.manage.edit')</th>
-	    <th>Share</th>
-	    <th>Delete</th>            
+            <th>#displayMessage('arms.home.requests.manage.edit')</th>        
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
@@ -84,8 +82,6 @@ jQuery(document).ready(function() {
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
 	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
-	        <td><a href="#" data-bind="click: $parent.manageAccess" title="#displayMessage('researcher-dashboard.home.myplans.manage.access')"><img alt="#displayMessage('researcher-dashboard.home.myplans.manage.access')" src="$portalPath/images/icons/application_key.png"></a></td>
-	        <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
         </tr>
     </tbody>
 </table>

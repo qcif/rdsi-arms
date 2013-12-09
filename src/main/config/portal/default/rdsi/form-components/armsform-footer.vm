@@ -63,6 +63,11 @@ function copyCustodianToManager() {
 	}
 }
 
+// Check if all checkbox are checked
+function allChecked(eid) {
+	return jQuery("input[id^='"+eid+"']:checked").length == jQuery("input[id^='"+eid+"']").length
+}
+
 // This happens after jaffa binding data and triggering changes. If binding applies at that time,
 // dropdown-list is not ready, we have a problem.
 // This binding only when there is the checkbox useCustodianDetials
