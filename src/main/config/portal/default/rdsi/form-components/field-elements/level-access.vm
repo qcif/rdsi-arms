@@ -1,0 +1,21 @@
+<label>
+	<input type="radio" name="leve-access" id="leve-access.yes" value="yes">
+		Yes
+</label>
+<div style="margin-left:3em">
+    <label>Future date:<input type="text" id="futureAccessDate"></label><br>
+    <label>Details:<textarea cols="80" rows="4"></textarea></label>
+</div>
+<label>
+      <input type="radio" name="leve-access" id="leve-access.no" value="no">
+      No
+</label>
+
+<script>
+ $(function() {
+	 $("[id='futureAccessDate']").datepicker({
+		 changeMonth: true,
+		 changeYear: true
+         ,showButtonPanel: true	 });
+    });
+</script>

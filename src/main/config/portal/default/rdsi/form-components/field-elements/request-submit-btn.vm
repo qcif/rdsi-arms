@@ -1,0 +1,41 @@
+## These are hard coded submission condition checking elements
+## These checkboxes are not saved
+<label>
+	<input type="checkbox" value="item1-checked" id="request:declarations.1" name="request:declarations">
+		I understand the terms and conditions must be accepted prior to the use of storage services
+</label>
+<label>
+      <input type="checkbox" value="item2-checked" id="request:declarations.2" name="request:declarations">
+      To the best of my knowledge this collection, nor a significantly similar collection, is not under consideration by any RDSI node as part of the ReDS programme
+</label>
+            
+#set($oid = $formData.get("oid"))
+
+<button value="next" id="request-submit">Submit</button>
+
+<script type="text/javascript">
+
+$('#request-submit').click( function () { 
+	closeUrl="$portalPath/detail/$oid"; 
+	action= $(this).val();
+	 if(validateSubmit()) {  jaffa.form.save(true);  }
+});
+
+## allChecked(eid) is defined in arms-footer.vm 
+$(document).ready(function() {
+	var eid = 'request:declarations';
+	function toggleSubmitButton() {
+		if(allChecked(eid)) {
+			$("[id='request-submit']").show();
+		} else {
+			$("[id='request-submit']").hide();
+		}
+	}
+	toggleSubmitButton();
+	$("[id^='"+eid+"']").change(function() {
+		toggleSubmitButton();	
+	});
+});
+
+</script>
+
