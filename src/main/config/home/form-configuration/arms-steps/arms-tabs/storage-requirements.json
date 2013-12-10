@@ -70,8 +70,342 @@
      {
       "component-type": "text-input",
       "field-name": "storage-estimated-growth-rate",
-      "label": "arms.field.label.section4-subsectionB.paragraphC"
-      
+      "label": "arms.field.label.section4-subsectionB.paragraphC" 
+    },
+    {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section4-subsectionC.title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphA.title"
+    },
+     {
+      "component-type": "checkbox3",
+      "field-name": "storage-duration",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphA.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphA.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphA.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphA.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphA.pointB"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphA.pointC",
+          "value": "arms.field.label.section4-subsectionC.paragraphA.pointC"
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphB.title"
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "storage-data-format",
+      "label": "arms.field.label.section4-subsectionC.paragraphB.description"
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphC.title"
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-duration",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphC.statementA.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB"
+        }
+      ]
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-duration",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphC.statementB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD",
+          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD"
+        }
+      ]
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "storage-data-loss-management-impact",
+      "label": "arms.field.label.section4-subsectionC.paragraphC.statementC.description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphD.title"
+    },
+     {
+      "component-type": "textarea",
+      "field-name": "storage-data-migration-medium",
+      "label": "arms.field.label.section4-subsectionC.paragraphD.statementA.description"
+    },
+     {
+      "component-type": "checkbox3",
+      "field-name": "storage-data-migration-assistance",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphD.statementB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA"
+        }
+      ]
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphE.title"
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-ingest-milestones-indicator",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphE.statementA.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB"
+        }
+      ]
+    },
+     {
+      "component-type": "text-block",
+      "type": "h4",
+      "content": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointC"
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphF.title"
+    },
+    {
+      "component-type": "text-block",
+      "type": "span",
+      "content": "arms.field.label.section4-subsectionC.paragraphF.statementA"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphG.title"
+    },
+     {
+      "component-type": "checkbox3",
+      "field-name": "storage-interfaces-standard",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphG.statementA.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB"
+        }
+      ]
+    },
+     {
+      "component-type": "checkbox3",
+      "field-name": "storage-interfaces-standard",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphG.statementB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB"
+        }
+      ]
+    },
+     {
+      "component-type": "text-input",
+      "field-name": "storage-interfaces-other",
+      "label": "arms.field.label.section4-subsectionC.paragraphG.statementC.description"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "storage-tools-other",
+      "label": "arms.field.label.section4-subsectionC.paragraphG.statementD.description"
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphH.title"
+    },
+     {
+      "component-type": "text-input",
+      "field-name": "storage-geographic-audience",
+      "label": "arms.field.label.section4-subsectionC.paragraphH.statementA.description"
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-geographic-distribution-researcher",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphH.statementB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB"
+        },
+          {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE"
+        }
+      ]
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-geographic-distribution-tools",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphH.statementC.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB"
+        },
+          {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE",
+          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE"
+        }
+      ]
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphI.title"
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "storage-related-infrastructure-services",
+      "box-for": "arms.field.label.section4-subsectionC.paragraphI.statementA.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB"
+        },
+          {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG"
+        },
+        {
+          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH",
+          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH"
+        }
+      ]
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "storage-related-infrastructure-other",
+      "label": "arms.field.label.section4-subsectionC.paragraphG.statementD.description"
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionC.paragraphJ.title"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "storage-other-technical",
+      "label": "arms.field.label.section4-subsectionC.paragraphJ.description"
     },
     {
       "component-type": "group",
