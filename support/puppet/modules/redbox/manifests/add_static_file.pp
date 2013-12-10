@@ -2,8 +2,6 @@ define redbox::add_static_file($static_file=$title, $owner) {
   $source = "wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/$static_file"
   $destination = "/home/redbox/$static_file"
 
-  anchor { "add_${destination}::begin:": }
-  ->
   exec {"$source  -O $destination":}
   ->
   file { $destination:
@@ -13,6 +11,4 @@ define redbox::add_static_file($static_file=$title, $owner) {
     mode    => 744,
     require => Add_systemuser[$owner],
   }
-  -> 
-  anchor { "add_${destination}::end:": }
 }
