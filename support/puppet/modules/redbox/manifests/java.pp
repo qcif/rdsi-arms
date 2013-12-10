@@ -2,8 +2,6 @@ class redbox::java(
   $version  = 'present',
 ) {
 
-  anchor { 'java::begin:': }
-  ->
   class {'redbox::variables::java':}
   ->
   package { 'java':
@@ -12,6 +10,5 @@ class redbox::java(
   }
   ->
   class { 'redbox::post_config::java': }
-  -> anchor { 'java::end': }
 
 }
