@@ -92,8 +92,8 @@
       "type": "p",
       "content": "arms.field.help.completeness"
     },
-    {   
-        "component-type": "completeness-choices"
+    {
+      "component-type": "completeness-choices"
     },
     {
       "component-type": "text-block",
@@ -148,7 +148,7 @@
       "type": "p",
       "content": "arms.description.support"
     },
-	{
+    {
       "component-type": "radio-button",
       "field-name": "support",
       "button-for": "arms.field.label.support",
@@ -160,6 +160,458 @@
         {
           "label": "No",
           "value": "No"
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "arms-accordion-group",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section2-additional-subsectionA.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "textarea",
+              "field-name": "collection-details-related-collections",
+              "label": "arms.field.label.section2-additional-subsectionA.paragraphA.description"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section2-additional-subsectionB.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "collection-details-access-level",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphC.statementA.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA",
+                  "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointB",
+                  "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointB"
+                },
+                {
+                  "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointC",
+                  "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointC"
+                }
+              ]
+            },
+            {
+              "component-type": "text-block",
+              "type": "p",
+              "content": ""
+            },
+            {
+              "component-type": "text-block",
+              "type": "p",
+              "content": "arms.field.label.section2-additional-subsectionB.paragraphB.description"
+            },
+            {
+              "component-type": "group",
+              "template": "group-table",
+              "fields": [
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "Restriction",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "Details",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "Clearance date",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointA",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointA"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-publisher-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-publisher-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointB",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointB"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-privacy-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-privacy-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointC",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointC"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-ethics-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-ethics-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointD",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointD"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-copyright-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-copyright-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointE",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointE"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-sensitivity-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-sensitivity-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "collection-details-access-restriction",
+                          "box-for": "",
+                          "multiline": true,
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "arms.field.label.section2-additional-subsectionB.paragraphB.pointF",
+                              "value": "arms.field.label.section2-additional-subsectionB.paragraphB.pointF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "text-input",
+                          "field-name": "collection-details-access-restriction-encumbrance-notes",
+                          "label": "",
+                          "wrapper-class": "inline",
+                          "additional-classes": "longTextInput"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "collection-details-access-restriction-encumbrance-date",
+                          "label": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section2-additional-subsectionC.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "p",
+              "content": "arms.field.label.section2-additional-subsectionC.paragraphA.description"
+            },
+            {
+              "component-type": "textarea",
+              "field-name": "collection-details-licence-use",
+              "label": "arms.field.label.section2-additional-subsectionC.paragraphB.description"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section2-additional-subsectionD.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "p",
+              "content": "arms.field.label.section2-additional-subsectionD.paragraphA.description"
+            },
+            {
+              "component-type": "textarea",
+              "field-name": "collection-details-citations",
+              "label": "arms.field.label.section2-additional-subsectionD.paragraphB.description"
+            }
+          ]
         }
       ]
     },
