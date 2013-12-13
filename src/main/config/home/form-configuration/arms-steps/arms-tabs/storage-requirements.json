@@ -11,7 +11,7 @@
       "type": "h2",
       "content": "arms.field.label.section4-subsectionA.title"
     },
-     {
+    {
       "component-type": "text-block",
       "type": "span",
       "content": "arms.field.label.section4-subsectionA.description"
@@ -21,7 +21,7 @@
       "type": "p",
       "content": "arms.field.label.section4-subsectionA.paragraphA"
     },
-     {
+    {
       "component-type": "checkbox3",
       "field-name": "storage-location",
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
@@ -52,25 +52,25 @@
       "type": "h2",
       "content": "arms.field.label.section4-subsectionB.title"
     },
-     {
+    {
       "component-type": "text-block",
       "type": "span",
       "content": "arms.field.label.section4-subsectionB.description"
     },
-     {
+    {
       "component-type": "text-input",
       "field-name": "storage-current-size",
       "label": "arms.field.label.section4-subsectionB.paragraphA"
     },
-     {
+    {
       "component-type": "text-input",
       "field-name": "storage-expected-size",
       "label": "arms.field.label.section4-subsectionB.paragraphB"
     },
-     {
+    {
       "component-type": "text-input",
       "field-name": "storage-estimated-growth-rate",
-      "label": "arms.field.label.section4-subsectionB.paragraphC" 
+      "label": "arms.field.label.section4-subsectionB.paragraphC"
     },
     {
       "component-type": "text-block",
@@ -78,334 +78,962 @@
       "content": "arms.field.label.section4-subsectionC.title"
     },
     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphA.title"
-    },
-     {
-      "component-type": "checkbox3",
-      "field-name": "storage-duration",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphA.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "arms-accordion-group",
+      "fields": [
         {
-          "label": "arms.field.label.section4-subsectionC.paragraphA.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphA.pointA"
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphA.title",
+          "wrapper-class": "inline-block-component"
         },
         {
-          "label": "arms.field.label.section4-subsectionC.paragraphA.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphA.pointB"
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-duration",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphA.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphA.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphA.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphA.pointB"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphA.pointC",
+                  "value": "arms.field.label.section4-subsectionC.paragraphA.pointC"
+                }
+              ]
+            },
+            {
+              "component-type": "date-picker",
+              "field-name": "storage-duration-date",
+              "label": "arms.field.label.section4-subsectionC.paragraphA.pointD",
+              "clear-date": true,
+              "format": "yy",
+              "month-year": true,
+              "options": "showButtonPanel: true",
+              "closeText": "Select"
+            }
+          ]
         },
         {
-          "label": "arms.field.label.section4-subsectionC.paragraphA.pointC",
-          "value": "arms.field.label.section4-subsectionC.paragraphA.pointC"
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphB.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "textarea",
+              "field-name": "storage-data-format",
+              "label": "arms.field.label.section4-subsectionC.paragraphB.description"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphC.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-data-loss-only-copy",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphC.statementA.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB"
+                }
+              ]
+            },
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-data-loss-regenerate",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphC.statementB.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD",
+                  "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD"
+                }
+              ]
+            },
+            {
+              "component-type": "textarea",
+              "field-name": "storage-data-loss-management-impact",
+              "label": "arms.field.label.section4-subsectionC.paragraphC.statementC.description"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphD.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "textarea",
+              "field-name": "storage-data-migration-medium",
+              "label": "arms.field.label.section4-subsectionC.paragraphD.statementA.description"
+            },
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-data-migration-assistance",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphD.statementB.description",
+              "additional-class": "ofFormRadioButton",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointB"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphE.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-ingest-milestones-indicator",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphE.statementA.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB"
+                }
+              ]
+            },
+            {
+              "component-type": "text-block",
+              "type": "h4",
+              "content": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointC"
+            },
+            {
+              "component-type": "text-block",
+              "type": "p",
+              "content": ""
+            },
+            {
+              "component-type": "group",
+              "template": "group-table",
+              "fields": [
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.title",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-th",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerA",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerB",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerC",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "storage-ingest-completed",
+                          "box-for": "",
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "",
+                              "value": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerA"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "storage-ingest-completed",
+                          "box-for": "",
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "",
+                              "value": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerB"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "checkbox3",
+                          "field-name": "storage-ingest-completed",
+                          "box-for": "",
+                          "additional-class": "ofFormCheckboxes",
+                          "boxes": [
+                            {
+                              "label": "",
+                              "value": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerC"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "OR",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "OR",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "OR",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointB",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-market-25percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-vault-25percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "options": "showButtonPanel: true",
+                          "wrapperClass": "inline-component",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-preservation-25percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointC",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-market-50percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-vault-50percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "options": "showButtonPanel: true",
+                          "wrapperClass": "inline-component",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-preservation-50percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointD",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-market-75percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-vault-75percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "options": "showButtonPanel: true",
+                          "wrapperClass": "inline-component",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-preservation-75percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-tr",
+                  "fields": [
+                    {
+                      "component-type": "group",
+                      "template": "group-td2",
+                      "fields": [
+                        {
+                          "component-type": "text-block",
+                          "type": "span",
+                          "content": "arms.field.label.section4-subsectionC.paragraphE.statementB.pointE",
+                          "wrapper-class": "inline"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-market-100percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-vault-100percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "options": "showButtonPanel: true",
+                          "wrapperClass": "inline-component",
+                          "closeText": "Select"
+                        }
+                      ]
+                    },
+                    {
+                      "component-type": "group",
+                      "template": "group-td",
+                      "fields": [
+                        {
+                          "component-type": "date-picker",
+                          "field-name": "storage-ingest-date-preservation-100percent",
+                          "label": "",
+                          "format": "MM yy",
+                          "month-year": true,
+                          "currentText": "Current month",
+                          "wrapperClass": "inline-component",
+                          "options": "showButtonPanel: true",
+                          "closeText": "Select"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphF.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "span",
+              "content": "arms.field.label.section4-subsectionC.paragraphF.statementA"
+            },
+            {
+              "component-type": "notes-table",
+              "metadataPrefix": "dataReviewNotes",
+              "modelName": "dataReviewNotesModel",
+              "tableName": "storage-data-management-table",
+              "visibleNoteLength": 60
+            },
+            {
+              "component-type": "text-block",
+              "type": "label",
+              "content": "arms.heading.review-attachments"
+            },
+            {
+              "component-type": "file-attachments",
+              "widgetname": "review_attachment",
+              "attachType": "review-attachments",
+              "accessRights": "public",
+              "enableDescription": "true",
+              "addFunction": "addfileUploadModelRow"
+            },
+            {
+              "component-type": "file-upload-table",
+              "modelName": "fileUploadModel",
+              "tableName": "storage-data-fileUploadTable",
+              "initialiseFunctionName": "review_attachment_getUploadedFiles",
+              "removeFunction": "review_attachment_deleteFile"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphG.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-interfaces-standard",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphG.statementA.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB"
+                }
+              ]
+            },
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-interfaces-standard",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphG.statementB.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB"
+                }
+              ]
+            },
+            {
+              "component-type": "text-input",
+              "field-name": "storage-interfaces-other",
+              "size": "90em",
+              "label": "arms.field.label.section4-subsectionC.paragraphG.statementC.description"
+            },
+            {
+              "component-type": "textarea",
+              "field-name": "storage-tools-other",
+              "label": "arms.field.label.section4-subsectionC.paragraphG.statementD.description"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphH.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "text-input",
+              "additional-classes": "longTextInput",
+              "field-name": "storage-geographic-audience",
+              "label": "arms.field.label.section4-subsectionC.paragraphH.statementA.description"
+            },
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-geographic-distribution-researchers",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphH.statementB.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE"
+                }
+              ]
+            },
+            {
+              "component-type": "radio-button2",
+              "field-name": "storage-geographic-distribution-tools",
+              "button-for": "arms.field.label.section4-subsectionC.paragraphH.statementC.description",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE",
+                  "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphI.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "checkbox3",
+              "field-name": "storage-related-infrastructure-services",
+              "box-for": "arms.field.label.section4-subsectionC.paragraphI.statementA.description",
+              "multiline": true,
+              "additional-class": "ofFormCheckboxes",
+              "boxes": [
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG"
+                },
+                {
+                  "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH",
+                  "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH"
+                }
+              ]
+            },
+            {
+              "component-type": "text-input",
+              "label": "",
+              "field-name": "storage-related-infrastructure-other"
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h3",
+          "content": "arms.field.label.section4-subsectionC.paragraphJ.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "textarea",
+              "field-name": "storage-other-technical",
+              "label": "arms.field.label.section4-subsectionC.paragraphJ.description"
+            }
+          ]
         }
       ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphB.title"
-    },
-     {
-      "component-type": "textarea",
-      "field-name": "storage-data-format",
-      "label": "arms.field.label.section4-subsectionC.paragraphB.description"
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphC.title"
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-duration",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphC.statementA.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementA.pointB"
-        }
-      ]
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-duration",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphC.statementB.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointB"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointC"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD",
-          "value": "arms.field.label.section4-subsectionC.paragraphC.statementB.pointD"
-        }
-      ]
-    },
-     {
-      "component-type": "textarea",
-      "field-name": "storage-data-loss-management-impact",
-      "label": "arms.field.label.section4-subsectionC.paragraphC.statementC.description"
-    },
-    {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphD.title"
-    },
-     {
-      "component-type": "textarea",
-      "field-name": "storage-data-migration-medium",
-      "label": "arms.field.label.section4-subsectionC.paragraphD.statementA.description"
-    },
-     {
-      "component-type": "checkbox3",
-      "field-name": "storage-data-migration-assistance",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphD.statementB.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphD.statementB.pointA"
-        }
-      ]
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphE.title"
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-ingest-milestones-indicator",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphE.statementA.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB"
-        }
-      ]
-    },
-     {
-      "component-type": "text-block",
-      "type": "h4",
-      "content": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointC"
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphF.title"
-    },
-    {
-      "component-type": "text-block",
-      "type": "span",
-      "content": "arms.field.label.section4-subsectionC.paragraphF.statementA"
-    },
-    {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphG.title"
-    },
-     {
-      "component-type": "checkbox3",
-      "field-name": "storage-interfaces-standard",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphG.statementA.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointB"
-        }
-      ]
-    },
-     {
-      "component-type": "checkbox3",
-      "field-name": "storage-interfaces-standard",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphG.statementB.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointB"
-        }
-      ]
-    },
-     {
-      "component-type": "text-input",
-      "field-name": "storage-interfaces-other",
-      "label": "arms.field.label.section4-subsectionC.paragraphG.statementC.description"
-    },
-    {
-      "component-type": "textarea",
-      "field-name": "storage-tools-other",
-      "label": "arms.field.label.section4-subsectionC.paragraphG.statementD.description"
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphH.title"
-    },
-     {
-      "component-type": "text-input",
-      "field-name": "storage-geographic-audience",
-      "label": "arms.field.label.section4-subsectionC.paragraphH.statementA.description"
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-geographic-distribution-researcher",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphH.statementB.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointB"
-        },
-          {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointC"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointD"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementB.pointE"
-        }
-      ]
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-geographic-distribution-tools",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphH.statementC.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointB"
-        },
-          {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointC"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointD"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE",
-          "value": "arms.field.label.section4-subsectionC.paragraphH.statementC.pointE"
-        }
-      ]
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphI.title"
-    },
-    {
-      "component-type": "checkbox3",
-      "field-name": "storage-related-infrastructure-services",
-      "box-for": "arms.field.label.section4-subsectionC.paragraphI.statementA.description",
-      "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointB"
-        },
-          {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointC"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointD"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointE"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointF"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointG"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH",
-          "value": "arms.field.label.section4-subsectionC.paragraphI.statementA.pointH"
-        }
-      ]
-    },
-    {
-      "component-type": "text-input",
-      "field-name": "storage-related-infrastructure-other",
-      "label": "arms.field.label.section4-subsectionC.paragraphG.statementD.description"
-    },
-     {
-      "component-type": "text-block",
-      "type": "h3",
-      "content": "arms.field.label.section4-subsectionC.paragraphJ.title"
-    },
-    {
-      "component-type": "textarea",
-      "field-name": "storage-other-technical",
-      "label": "arms.field.label.section4-subsectionC.paragraphJ.description"
     },
     {
       "component-type": "group",
@@ -435,6 +1063,5 @@
         }
       ]
     }
-     
   ]
 }
