@@ -127,7 +127,7 @@
 
 .component-wrapper a { color: blue; }
 
-label.ofFormCheckboxes {
+label.ofFormCheckboxes label.ofFormRadioButtons {
   font-weight: normal !important;
 }
 
@@ -152,4 +152,9 @@ p.description {
 .simple-workflow.component-wrapper > label.yesNoRight {
     margin-left: 26em;
     font-size: 90%;
+}
+
+/* accordion content has style height set to 0. Override this. */
+div.arms-accordion-group div.ui-accordion-content-active {
+        height: auto !important;
 }
