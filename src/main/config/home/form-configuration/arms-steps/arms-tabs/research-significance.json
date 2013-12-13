@@ -53,6 +53,55 @@
       ]
     },
     {
+      "component-type": "text-block",
+      "type": "h2",
+      "content": "arms.field.label.section3-subsectionC.title"
+    },
+     {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section3-subsectionC.paragraphA.title"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "institutional-support",
+      "label": "arms.field.label.section3-subsectionC.paragraphA.description"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section3-subsectionC.paragraphB.title"
+    },
+    {
+      "component-type": "checkbox3",
+      "field-name": "merit-origin",
+      "box-for": "arms.field.label.section3-subsectionC.paragraphB.description",
+      "multiline": true,
+      "additional-class": "ofFormCheckboxes",
+      "boxes": [
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB.pointA",
+          "value": "arms.field.label.section3-subsectionC.paragraphB.pointA"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB.pointB",
+          "value": "arms.field.label.section3-subsectionC.paragraphB.pointB"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB.pointC",
+          "value": "arms.field.label.section3-subsectionC.paragraphB.pointC"
+        },
+        {
+          "label": "arms.field.label.section3-subsectionC.paragraphB.pointD",
+          "value": "arms.field.label.section3-subsectionC.paragraphB.pointD"
+        },
+         {
+          "label": "arms.field.label.section3-subsectionC.paragraphB.pointE",
+          "value": "arms.field.label.section3-subsectionC.paragraphB.pointE"
+        }
+      ]
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "additional-classes": "workflow-controls",

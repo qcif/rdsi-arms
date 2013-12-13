@@ -85,4 +85,13 @@ var bApplyEventBindings = window.setInterval(function() {
 	}
 },500); 
 
+$(document).ready(function() {
+        $(".arms-accordion-group").accordion({
+                autoHeight:false,
+                clearStyle:true,
+                collapsible:false,
+                header:".inline-block-component"
+        });
+});
+
 </script>								   	    
