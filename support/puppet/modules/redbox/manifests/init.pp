@@ -48,8 +48,6 @@ class redbox {
       ip => '127.0.0.1',
   }
  
-  anchor { 'redbox::begin:': }
-  ->
   add_systemuser { $variables::defaults::redbox_user: }
   -> 
   add_directory { $variables::defaults::directories: 
@@ -63,6 +61,5 @@ class redbox {
   class { 'add_all_packages':
     package_type => $variables::defaults::package_type 
   }
-  -> anchor { 'redbox::end': }
 
 }
