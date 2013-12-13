@@ -198,7 +198,7 @@
             {
               "component-type": "radio-button2",
               "field-name": "collection-details-access-level",
-              "button-for": "arms.field.label.section4-subsectionC.paragraphC.statementA.description",
+              "button-for": "arms.field.label.section2-additional-subsectionB.description",
               "additional-class": "ofFormRadioButtons",
               "buttons": [
                 {
