@@ -8,11 +8,8 @@ class redbox::add_all_packages($package_type = undef) {
     provider => $package_type,
   }
 
-  anchor { 'package::begin:': }
-  ->
   class {'redbox::java':}
   ->
   class {'redbox::proxy_server':}
-  -> anchor { 'package::end': }
 
 }
