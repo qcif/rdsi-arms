@@ -87,7 +87,7 @@ var bApplyEventBindings = window.setInterval(function() {
 
 $(document).ready(function() {
         $(".arms-accordion-group").accordion({
-                autoHeight:false,
+                autoHeight:true,
                 clearStyle:true,
                 collapsible:false,
                 header:".inline-block-component"
