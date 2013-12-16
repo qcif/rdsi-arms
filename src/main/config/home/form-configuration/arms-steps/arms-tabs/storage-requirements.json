@@ -117,7 +117,7 @@
               "field-name": "storage-duration-date",
               "label": "arms.field.label.section4-subsectionC.paragraphA.pointD",
               "clear-date": true,
-              "changeMonth": "false",
+              "changeMonth": false,
               "format": "yy",
               "month-year": true,
               "options": "showButtonPanel: true",
@@ -804,13 +804,6 @@
               "content": "arms.field.label.section4-subsectionC.paragraphF.statementA"
             },
             {
-              "component-type": "notes-table",
-              "metadataPrefix": "dataReviewNotes",
-              "modelName": "dataReviewNotesModel",
-              "tableName": "storage-data-management-table",
-              "visibleNoteLength": 60
-            },
-            {
               "component-type": "text-block",
               "type": "label",
               "content": "arms.heading.review-attachments"
@@ -824,7 +817,7 @@
               "addFunction": "addfileUploadModelRow"
             },
             {
-              "component-type": "file-upload-table",
+              "component-type": "file-upload-table2",
               "modelName": "fileUploadModel",
               "tableName": "storage-data-fileUploadTable",
               "initialiseFunctionName": "review_attachment_getUploadedFiles",
