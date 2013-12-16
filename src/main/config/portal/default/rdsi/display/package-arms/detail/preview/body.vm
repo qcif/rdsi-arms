@@ -53,6 +53,42 @@
     </tbody>
 </table>
 
+<h4>#displayMessage("arms.field.label.section2-additional-subsectionA.title")</h4>
+<p>#getValue("collection-details-related-collections")</p>
+
+<h4>#displayMessage("arms.field.label.section2-additional-subsectionB.title")</h4>
+<p>Access restrictions: #getValue("ccollection-details-access-level")</p>
+#set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
+#set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
+#set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
+<table>
+    <thead>
+        <tr>
+                        <th>Restriction</th>
+                        <th>Notes</th>
+                        <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($restriction in $accessRestrictions)
+                #if ($StringUtils.isNotBlank($restriction))
+                        #set($accessCount = $velocityCount - 1)
+                        <tr>
+                                <td>$StringEscapeUtils.escapeHtml($restriction)</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessNotes.get($accessCount))</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessDates.get($accessCount))</td>
+                        </tr>
+                #end
+        #end
+    </tbody>
+</table>
+
+<h4>#displayMessage("arms.field.label.section2-additional-subsectionC.title")</h4>
+<p>#getValue("collection-details-licence-use")</p>
+
+<h4>#displayMessage("arms.field.label.section2-additional-subsectionD.title")</h4>
+<p>#getValue("collection-details-citations")</p>
+
 <h4>Merit description</h4>
 <p class="item_title">#displayMessage("arms.label.merit-sectionA")</p>
 #set($vals = $jsonUtil.getStringList($item, "merit-sectionA"))
