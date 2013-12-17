@@ -164,6 +164,16 @@
       ]
     },
     {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.section.additional"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.additional"
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "additional-classes": "arms-accordion-group",
