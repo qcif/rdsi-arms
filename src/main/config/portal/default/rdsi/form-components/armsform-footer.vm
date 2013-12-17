@@ -89,7 +89,7 @@ $(document).ready(function() {
         $(".arms-accordion-group").accordion({
                 autoHeight:true,
                 clearStyle:true,
-                collapsible:false,
+                collapsible:true,
                 header:".inline-block-component"
         });
 });
