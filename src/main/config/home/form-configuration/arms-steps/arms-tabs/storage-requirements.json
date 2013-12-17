@@ -404,7 +404,7 @@
                       "fields": [
                         {
                           "component-type": "checkbox3",
-                          "field-name": "storage-ingest-completed",
+                          "field-name": "storage-ingest-completed.1",
                           "box-for": "",
                           "additional-class": "ofFormCheckboxes",
                           "boxes": [
@@ -422,7 +422,7 @@
                       "fields": [
                         {
                           "component-type": "checkbox3",
-                          "field-name": "storage-ingest-completed",
+                          "field-name": "storage-ingest-completed.2",
                           "box-for": "",
                           "additional-class": "ofFormCheckboxes",
                           "boxes": [
@@ -440,7 +440,7 @@
                       "fields": [
                         {
                           "component-type": "checkbox3",
-                          "field-name": "storage-ingest-completed",
+                          "field-name": "storage-ingest-completed.3",
                           "box-for": "",
                           "additional-class": "ofFormCheckboxes",
                           "boxes": [
@@ -530,7 +530,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-market-25percent",
+                          "field-name": "storage-ingest-date-25percent.1",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -547,7 +547,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-vault-25percent",
+                          "field-name": "storage-ingest-date-25percent.2",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -564,7 +564,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-preservation-25percent",
+                          "field-name": "storage-ingest-date-25percent.3",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -599,7 +599,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-market-50percent",
+                          "field-name": "storage-ingest-date-50percent.1",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -616,7 +616,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-vault-50percent",
+                          "field-name": "storage-ingest-date-50percent.2",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -633,7 +633,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-preservation-50percent",
+                          "field-name": "storage-ingest-date-50percent.3",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -668,7 +668,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-market-75percent",
+                          "field-name": "storage-ingest-date-75percent.1",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -685,7 +685,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-vault-75percent",
+                          "field-name": "storage-ingest-date-75percent.2",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -702,7 +702,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-preservation-75percent",
+                          "field-name": "storage-ingest-date-75percent.3",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -737,7 +737,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-market-100percent",
+                          "field-name": "storage-ingest-date-100percent.1",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -754,7 +754,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-vault-100percent",
+                          "field-name": "storage-ingest-date-100percent.2",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -771,7 +771,7 @@
                       "fields": [
                         {
                           "component-type": "date-picker",
-                          "field-name": "storage-ingest-date-preservation-100percent",
+                          "field-name": "storage-ingest-date-100percent.3",
                           "label": "",
                           "format": "MM yy",
                           "month-year": true,
@@ -839,7 +839,6 @@
               "component-type": "radio-button2",
               "field-name": "storage-interfaces-standard",
               "button-for": "arms.field.label.section4-subsectionC.paragraphG.statementA.description",
-              "additional-class": "ofFormRadioButtons",
               "buttons": [
                 {
                   "label": "arms.field.label.section4-subsectionC.paragraphG.statementA.pointA",
@@ -853,9 +852,8 @@
             },
             {
               "component-type": "radio-button2",
-              "field-name": "storage-interfaces-standard",
+              "field-name": "storage-interfaces-other",
               "button-for": "arms.field.label.section4-subsectionC.paragraphG.statementB.description",
-              "additional-class": "ofFormRadioButtons",
               "buttons": [
                 {
                   "label": "arms.field.label.section4-subsectionC.paragraphG.statementB.pointA",
@@ -869,7 +867,7 @@
             },
             {
               "component-type": "text-input",
-              "field-name": "storage-interfaces-other",
+              "field-name": "storage-interfaces-other-description",
               "size": "90em",
               "label": "arms.field.label.section4-subsectionC.paragraphG.statementC.description"
             },

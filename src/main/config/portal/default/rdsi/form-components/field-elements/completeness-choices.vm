@@ -1,10 +1,11 @@
-<div>Completeness of the collection:</div>    
-<label><input type="radio" value="The collection is complete. No substantial changes to the collection are anticipated." class="jaffa-field" name="completeness">The collection is complete. No substantial changes to the collection are anticipated.</label>
-<label><input type="radio" value="The collection is currently growing and is expected to be complete by " class="jaffa-field" name="completeness">The collection is currently growing and is expected to be complete by 
-<input style="width:8em;" type="text" name="complete_date" id ="complete_date" value="" />
+<div>#displayMessage("arms.field.label.completeness")</div>    
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointA')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointA")</label>
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointB')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointB")
+<input style="width:8em;" type="text" name="complete_date" class="jaffa-field" id ="complete_date" value="" />
+<button class="ui-datepicker-clear">Clear</button>
 </label>
 
-<label><input type="radio" value="The collection will be growing for the foreseeable future" class="jaffa-field" name="completeness">The collection will be growing for the foreseeable future.</label>
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointC')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointC")</label>
 
 <script>
  $(function() {
