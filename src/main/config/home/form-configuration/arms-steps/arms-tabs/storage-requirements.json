@@ -113,18 +113,11 @@
               ]
             },
             {
-              "component-type": "date-picker",
+              "component-type": "text-input",
               "field-name": "storage-duration-date",
               "label": "arms.field.label.section4-subsectionC.paragraphA.pointD",
-              "clear-date": true,
-              "changeMonth": false,
-              "format": "yy",
-              "month-year": true,
-              "options": "showButtonPanel: true",
-              "currentText": "Current year",
-              "closeText": "Select"
+              "wrapper-class": "inline-component"
             }
-
           ]
         },
         {
