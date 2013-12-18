@@ -1,0 +1,28 @@
+<p>#displayMessage("arms.field.label.methodmeta")</p>
+<label><input type="radio" value="Yes" class="jaffa-field" name="methodmeta">Yes</label>
+<label><input type="radio" value="No" class="jaffa-field" name="methodmeta">No</label>
+
+<div id="methodological-div">
+    <p>#displayMessage("arms.description.methoddetail")</p>
+    <label for="methoddetails"></label>
+    <textarea id="methoddetails" rows="4" cols="80" class="jaffa-field "></textarea>
+</div>
+
+<script>
+						   	    
+$(document).ready(function() {
+	function toggleMethodologicalDetails() {
+		if($('input:radio[name=methodmeta]:checked').val() == "Yes") {
+			$("[id='methodological-div']").show();
+		} else {
+			$("[id='methodological-div']").hide();
+			$("[id='methoddetails']").val("");
+		}
+	}
+	toggleMethodologicalDetails();
+	$('input:radio[name=methodmeta]').change(function() {
+		toggleMethodologicalDetails();	
+	});		
+});
+   
+</script>

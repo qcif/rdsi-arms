@@ -114,29 +114,7 @@
       "content": "arms.section.methodmeta"
     },
     {
-      "component-type": "radio-button",
-      "field-name": "methodmeta",
-      "button-for": "arms.field.label.methodmeta",
-      "buttons": [
-        {
-          "label": "Yes",
-          "value": "Yes"
-        },
-        {
-          "label": "No",
-          "value": "No"
-        }
-      ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "p",
-      "content": "arms.description.methoddetail"
-    },
-    {
-      "component-type": "textarea",
-      "field-name": "methoddetails",
-      "label": ""
+    	"component-type": "methodological-details"
     },
     {
       "component-type": "text-block",
