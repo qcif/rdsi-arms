@@ -818,8 +818,8 @@
             {
               "component-type": "file-upload-table2",
               "metadataPrefix" : "storageFileUpload",
-              "modelName": "storageFileUploadModel",
-              "tableName": "storage-fileUploadTable",
+              "modelName": "fileUploadModel",
+              "tableName": " fileUploadTable",
               "initialiseFunctionName": "storage_attachment_getUploadedFiles",
               "removeFunction": "storage_attachment_deleteFile"
             }
