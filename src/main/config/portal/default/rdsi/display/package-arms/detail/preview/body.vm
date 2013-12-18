@@ -93,7 +93,7 @@
 <p class="item_title">#displayMessage("arms.heading.researchdata-access")</p>
 #set($v = $jsonUtil.getEmptyIfNull($item, "level-access"))
 <p>#displayMessage("arms.description.researchdata-access") $v</p>
-#if ($v == "yes")
+#if ($v == "Yes")
 	<p>#displayMessage("arms.description.researchdata-access-date-description") #getValue("futureAccessDate")</p>
 	<p>#displayMessage("arms.description.researchdata-access-description") #getValue("level-access-details")</p>
 #end
@@ -102,7 +102,7 @@
 <p>#displayMessage("arms.field.label.methodmeta") #getValue("methodmeta")</p>
 <p>Format and Location: #getValue("methoddetails")</p>
 
-<p class="item_title">#displayMessage("arms.section.methodmeta")</p>
+<p class="item_title">Support</p>
 <p>Support or Tools: #getValue("support")</p>
 
 <p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionA.title")</p>
