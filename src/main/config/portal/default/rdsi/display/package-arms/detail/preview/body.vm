@@ -277,6 +277,30 @@
 </table>
 #end
 
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphF.title")</p>
+#set($vals = $jsonUtil.getJavaList($item, "storageFileUpload"))
+<table>
+    <thead>
+        <tr>
+                <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphF.statementB")</th>
+                <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphF.statementC")</th>
+                <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphF.statementD")</th>
+                <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphF.statementE")</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($v in $vals)
+        <tr>
+        <td>$StringEscapeUtils.escapeHtml($v.get("dateAdded"))</td>
+        <td>$StringEscapeUtils.escapeHtml($v.get("addedBy"))</td>
+        <td>$StringEscapeUtils.escapeHtml($v.get("filename"))</td>
+        <td>$StringEscapeUtils.escapeHtml($v.get("description"))</td>
+        </tr>
+        #end
+    </tbody>
+</table>
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphG.title")</p>
 <p>Standard interfaces? : #getValue("storage-interfaces-standard")</p>
 #set($v = $jsonUtil.getEmptyIfNull($item, "storage-interfaces-other"))

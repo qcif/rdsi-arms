@@ -23,14 +23,46 @@
 </div>
 
 <script>
-startupCompleteListeners.push("initialise_$modelName");
+startupCompleteListeners.push("initialise_$modelName")
 
 function initialise_$modelName() {
-	var rows = $initialiseFunctionName(); 
-	//put all the row models in the row array
+	var rows = [];
+	var prefix = "$metadataPrefix";
+	for(key in jaffa.serverData) {
+		 if(key.indexOf(prefix+".") == 0) {
+		 	var suffix = key.substring(prefix.length+1, key.length); 
+		 	var index = suffix.substring(0, suffix.indexOf("."));
+		 	var ending = suffix.substring(suffix.indexOf(".")+1,suffix.length);
+		 	
+		 	if(rows[index-1] == null) {
+		 		rows[index-1] = new Object();
+		 		rows[index-1]["modelIdentifier"] = guid();
+		 	}
+		 	rows[index-1][ending] = jaffa.serverData[key];
+		 }
+	}
+	
 	for(var i =0; i<rows.length; i++) {
 		${modelName}.rows.push(rows[i]);
 	}
+	
+	${modelName}.rows.subscribe(function(rowArray) {
+    	//delete all the old values out of serverData as some might have been deleted in the table
+    	for(key in jaffa.serverData) {
+			var prefix = "$metadataPrefix";
+			 if(key.indexOf(prefix+".") == 0) {
+			 	delete jaffa.serverData[key];
+			 }
+	    }
+    		for(var i =1; i<=rowArray.length; i++) {
+    			var row = rowArray[i-1];
+    			for(key in row) {
+    			  if(key != "modelIdentifier") {
+    			  	jaffa.serverData[prefix+"."+i+"."+key] = row[key];
+    			  }
+    			}
+    		}
+		});
 }
 
 function $modelName() {
@@ -40,12 +72,8 @@ function $modelName() {
     self.rows = ko.observableArray([]);
 
     self.remove = function() {
-        $removeFunction(this, self.removeFunc(this));        
+        self.rows.remove(this);
     };
-    
-    self.removeFunc = function(row) { return function() {
-      self.rows.remove(row);  
-    }};
 }
 
 function add${modelName}Row(model) {
@@ -57,12 +85,6 @@ function add${modelName}Row(model) {
     });
 
 }
-
-function set${modelName}Defaults() {
-	${modelName}.dateAdded('');
-	${modelName}.addedBy('');
-}
-
 
 var $modelName = new $modelName();
 ko.applyBindings($modelName, $("[id='$tableName']")[0]);

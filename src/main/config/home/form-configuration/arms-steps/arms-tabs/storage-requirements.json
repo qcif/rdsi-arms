@@ -809,18 +809,19 @@
             },
             {
               "component-type": "file-attachments",
-              "widgetname": "review_attachment",
-              "attachType": "review-attachments",
+              "widgetname": "storage_attachment",
+              "attachType": "storage-attachments",
               "accessRights": "public",
               "enableDescription": "true",
               "addFunction": "addfileUploadModelRow"
             },
             {
               "component-type": "file-upload-table2",
-              "modelName": "fileUploadModel",
-              "tableName": "storage-data-fileUploadTable",
-              "initialiseFunctionName": "review_attachment_getUploadedFiles",
-              "removeFunction": "review_attachment_deleteFile"
+              "metadataPrefix" : "storageFileUpload",
+              "modelName": "storageFileUploadModel",
+              "tableName": "storage-fileUploadTable",
+              "initialiseFunctionName": "storage_attachment_getUploadedFiles",
+              "removeFunction": "storage_attachment_deleteFile"
             }
           ]
         },
