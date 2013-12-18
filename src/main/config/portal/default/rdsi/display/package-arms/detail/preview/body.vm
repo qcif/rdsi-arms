@@ -34,97 +34,6 @@
 <h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
 #displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 
-<h4>#displayMessage("arms.field.label.collection-metadata")</h4>
-#set($repeats = $jsonUtil.getJavaList($item, "dataCollectionLocation"))
-<table>
-    <thead>
-    	<tr>
-    	    <th>URL</th>
-			<th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-	#foreach($v in $repeats)
-	<tr>
-		<td>$StringEscapeUtils.escapeHtml($v.get("url").trim())</td>
-		<td>$StringEscapeUtils.escapeHtml($v.get("description").trim())</td>
-	</tr>
-	#end
-    </tbody>
-</table>
-
-<h4>#displayMessage("arms.field.label.section2-additional-subsectionA.title")</h4>
-<p>#getValue("collection-details-related-collections")</p>
-
-<h4>#displayMessage("arms.field.label.section2-additional-subsectionB.title")</h4>
-<p>Access restrictions: #getValue("ccollection-details-access-level")</p>
-#set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
-#set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
-#set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
-<table>
-    <thead>
-        <tr>
-                        <th>Restriction</th>
-                        <th>Notes</th>
-                        <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        #foreach($restriction in $accessRestrictions)
-                #if ($StringUtils.isNotBlank($restriction))
-                        #set($accessCount = $velocityCount - 1)
-                        <tr>
-                                <td>$StringEscapeUtils.escapeHtml($restriction)</td>
-                                <td>$StringEscapeUtils.escapeHtml($accessNotes.get($accessCount))</td>
-                                <td>$StringEscapeUtils.escapeHtml($accessDates.get($accessCount))</td>
-                        </tr>
-                #end
-        #end
-    </tbody>
-</table>
-
-<h4>#displayMessage("arms.field.label.section2-additional-subsectionC.title")</h4>
-<p>#getValue("collection-details-licence-use")</p>
-
-<h4>#displayMessage("arms.field.label.section2-additional-subsectionD.title")</h4>
-<p>#getValue("collection-details-citations")</p>
-
-<h4>Merit description</h4>
-<p class="item_title">#displayMessage("arms.label.merit-sectionA")</p>
-#set($vals = $jsonUtil.getStringList($item, "merit-sectionA"))
-#displayUL($vals)
-<p class="item_title">#displayMessage("arms.label.merit-sectionB")</p>
-#set($vals = $jsonUtil.getStringList($item, "merit-sectionB"))
-#displayUL($vals)
-<p class="item_title">#displayMessage("arms.label.merit-sectionC")</p>
-#displayUL($vals)
-
-<h4>#displayMessage("arms.heading.funding-information")</h4>
-#set($v = $jsonUtil.getEmptyIfNull($item, "isFunded"))
-#if ($v == "Yes")
-	#set($repeats = $jsonUtil.getJavaList($item, "fundingInfoTable"))
-	<table>
-    <thead>
-    	<tr>
-   	        <th>Funder</th>
-			<th>Grant number</th>
-			<th>Project name</th>
-			<th>Start date</th>
-			<th>End date</th> 
-        </tr>
-    </thead>    
-	#foreach($v in $repeats)
-        <tr>
-		<td>$StringEscapeUtils.escapeHtml($v.get("fundingSource").trim())</td>
-		<td>$StringEscapeUtils.escapeHtml($v.get("grantNumber").trim())</td>
-		<td>$StringEscapeUtils.escapeHtml($v.get("projectName").trim())</td>
-		<td>$v.get("startDate").trim()</td>
-		<td>$v.get("endDate").trim()</td>
-        </tr>
-	#end
-	</table>
-#end
-
 <h4>#displayMessage("arms.heading.contactdetails")</h4>
 <div class="people-container">
 	<div class="people">
@@ -176,69 +85,246 @@
 </div>
 </div>
 
-<h4 style="clear: left">#displayMessage("arms.heading.nodeselection")</h4>
-<dl>
-	<dt>Primary RDSI node:</dt>
-	<dd>#getValue("rdsi-node")</dd>
-	<dt>Other hosting node:</dt>
-	#set($vals = $jsonUtil.getStringList($item, "rdsi-secondary-nodes"))
-	<dd>#displayUL($vals)</dd>
-	<dt>#displayMessage("arms.field.label.multi-nodes-reason")</dt>
-	<dd>#getValue("multi-nodes-reason") #getValue("multi-nodes-reason-other")</dd>
-	<dt>#displayMessage("arms.field.label.storage-class")</dt>
-	<dd>#getValue("storage-class")</dd>
-	<dt>#displayMessage("arms.field.label.data-protection-class")</dt>
-	<dd>#getValue("data-protection-class")</dd>
-	<dt>#displayMessage("arms.field.label.requested-allocation-size")</dt>
-	<dd>#getValue("requested-allocation-size")</dd>
-	<dt>#displayMessage("arms.field.label.data-size")</dt>
-	<dd>#getValue("data-size")</dd>
-	<dt>#displayMessage("arms.field.label.data-growth")</dt>
-	<dd>#getValue("data-growth")</dd>
-	<dt>#displayMessage("arms.field.label.dataset-file-number")</dt>
-	<dd>#getValue("dataset-file-number")</dd>
+<h4>#displayMessage("arms.heading.data-collection")</h4>
 
-	<dt>Data format:</dt>
-	<dd>#getValue("vivo-Dataset.dc.format")</dd>
-</dl>
-<h4>#displayMessage("arms.heading.user-base")</h4>
-<dl>
-	<dt>#displayMessage("arms.field.label.current-user-number")</dt>
-	<dd>#getValue("current-user-number")</dd>
-	<dt>#displayMessage("arms.field.label.user-number")</dt>
-	<dd>#getValue("user-number")</dd>
-	<dt>#displayMessage("arms.field.label.user-access-frequency")</dt>
-	<dd>#getValue("user-access-frequency")</dd>
-</dl>
-<h4>#displayMessage("arms.field.label.ingest")</h4>
-<dl>
-	<dt>#displayMessage("arms.field.label.ingest-1qtr")</dt>
-	<dd>#getValue("ingest-1qtr")</dd>
-	<dt>#displayMessage("arms.field.label.ingest-2qtr")</dt>
-	<dd>#getValue("ingest-2qtr")</dd>
-	<dt>#displayMessage("arms.field.label.ingest-3qtr")</dt>
-	<dd>#getValue("ingest-3qtr")</dd>
-	<dt>#displayMessage("arms.field.label.ingest-4qtr")</dt>
-	<dd>#getValue("ingest-4qtr")</dd>
-</dl>
-<h4>Access and licensing</h4>
-<dl>
-	<dt>#displayMessage("arms.heading.researchdata-access")</dt>
-	<dd>#getValue("accessRestrictions")</dd>
-	<dt>#displayMessage("arms.field.label.dc-rights.skos-note")</dt>
-	<dd>#getValue("dc:rights.skos:note")</dd>
-	<dt>Licence:</dt>
-	<dd>#getValue("dc:license.dc:identifier") #getValue("dc:license.other")</dd>
-	<dt>#displayMessage("arms.field.label.citation")</dt>
-	<dd>#getValue("citation")</dd>
-</dl>
-<h4>#displayMessage("arms.heading.migration")</h4>
-<dl>
-	<dt>Help needed to migrate the data from its current environment to the Node:</dt>
-	<dd>#getValue("data-medium-migration-assistance")</dd>
-	<dt>Data medium and migration:</dt>
-	<dd>#getValue("data-medium-migration")</dd>
-</dl>
+<p class="item_title">#displayMessage("arms.field.label.completeness")</p>
+<p>#getValue("completeness") #getValue("complete_date")</p>
+
+<p class="item_title">#displayMessage("arms.heading.researchdata-access")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "level-access"))
+<p>#displayMessage("arms.description.researchdata-access") $v</p>
+#if ($v == "yes")
+	<p>#displayMessage("arms.description.researchdata-access-date-description") #getValue("futureAccessDate")</p>
+	<p>#displayMessage("arms.description.researchdata-access-description") #getValue("level-access-details")</p>
+#end
+
+<p class="item_title">#displayMessage("arms.section.methodmeta")</p>
+<p>#displayMessage("arms.field.label.methodmeta") #getValue("methodmeta")</p>
+<p>Format and Location: #getValue("methoddetails")</p>
+
+<p class="item_title">#displayMessage("arms.section.methodmeta")</p>
+<p>Support or Tools: #getValue("support")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionA.title")</p>
+<p>#getValue("collection-details-related-collections")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionB.title")</p>
+<p>Access restrictions: #getValue("collection-details-access-level")</p>
+#set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
+#set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
+#set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
+<table>
+    <thead>
+        <tr>
+                        <th>Restriction</th>
+                        <th>Notes</th>
+                        <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($restriction in $accessRestrictions)
+                #if ($StringUtils.isNotBlank($restriction))
+                        #set($accessCount = $velocityCount - 1)
+                        <tr>
+                                <td>$StringEscapeUtils.escapeHtml($restriction)</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessNotes.get($accessCount))</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessDates.get($accessCount))</td>
+                        </tr>
+                #end
+        #end
+    </tbody>
+</table>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionC.title")</p>
+<p>#getValue("collection-details-licence-use")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionD.title")</p>
+<p>#getValue("collection-details-citations")</p>
+
+
+
+<h4>#displayMessage("arms.field.label.section3-title")</h4>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionA.title")</p>
+<p>#getValue("merit-description")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionB.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-origin"))
+#displayUL($vals)
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphA.title")</p>
+<p>#getValue("institutional-support")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphB.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-intent"))
+#displayUL($vals)
+
+
+
+<h4 style="clear: left">#displayMessage("arms.field.label.section4-title")</h4>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "storage-location"))
+#displayUL($vals)
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.paragraphC.description")</p>
+<p>#getValue("storage-purpose")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.title")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphA")</h5>
+<p>#getValue("storage-current-size")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphB")</h5>
+<p>#getValue("storage-expected-size")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
+<p>#getValue("storage-estimated-growth-rate")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphA.title")</p>
+<p>Expectation: #getValue("storage-duration")</p>
+<p>Date : #getValue("storage-duration-date")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphB.title")</p>
+<p>#getValue("storage-data-format")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphC.title")</p>
+<p>Only copy? : #getValue("storage-data-loss-only-copy")</p>
+<p>Regeneration : #getValue("storage-data-loss-regenerate")</p>
+<p>Impact : #getValue("storage-data-loss-management-impact")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphD.title")</p>
+<p>#getValue("storage-data-migration-medium")</p>
+#set($vals = $jsonUtil.getStringList($item, "storage-data-migration-assistance"))
+#displayUL($vals)
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphE.title")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "storage-ingest-milestones-indicator"))
+<p>$v</p>
+#if ($v == "#displayMessage('arms.field.label.section4-subsectionC.paragraphE.statementA.pointB')")
+
+#set($completedStorage = $jsonUtil.getStringList($item, "storage-ingest-completed"))
+#set($ingest25 = $jsonUtil.getStringList($item, "storage-ingest-date-25percent"))
+#set($ingest50 = $jsonUtil.getStringList($item, "storage-ingest-date-50percent"))
+#set($ingest75 = $jsonUtil.getStringList($item, "storage-ingest-date-75percent"))
+#set($ingest100 = $jsonUtil.getStringList($item, "storage-ingest-date-100percent"))
+<table>
+    <thead>
+        <tr>
+			<th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.title")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerA")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerB")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerC")</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA")</td>
+        	#foreach($val in $completedStorage)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>yes</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointB")</td>
+        	#foreach($val in $ingest25)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+       		<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointC")</td>
+        	#foreach($val in $ingest50)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointD")</td>
+        	#foreach($val in $ingest75)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointE")</td>
+        	#foreach($val in $ingest100)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+    </tbody>
+</table>
+#end
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphG.title")</p>
+<p>Standard interfaces? : #getValue("storage-interfaces-standard")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "storage-interfaces-other"))
+<p>Other interfaces? : $v</p>
+#if ($v == "#displayMessage('arms.field.label.section4-subsectionC.paragraphG.statementB.pointA')")
+	<p> Other interface description: #getValue("storage-interfaces-other-description")</p>
+#end
+<p>Tools : #getValue("storage-tools-other")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphH.title")</p>
+<p>Target audience: #getValue("storage-geographic-audience")</p>
+<p>Researcher distribution: #getValue("storage-geographic-distribution-researchers")</p>
+<p>Researcher distribution: #getValue("storage-geographic-distribution-tools")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphI.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "storage-related-infrastructure-services"))
+#displayUL($vals)
+<p>#getValue("storage-related-infrastructure-other")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphJ.title")</p>
+<p>#getValue("storage-other-technical")</p>
+
+<h4>#displayMessage("arms.heading.funding-information")</h4>
+#set($v = $jsonUtil.getEmptyIfNull($item, "isFunded"))
+#if ($v == "Yes")
+	#set($repeats = $jsonUtil.getJavaList($item, "fundingInfoTable"))
+	<table>
+    <thead>
+    	<tr>
+   	        <th>Funder</th>
+			<th>Grant number</th>
+			<th>Project name</th>
+			<th>Start date</th>
+			<th>End date</th> 
+        </tr>
+    </thead>    
+	#foreach($v in $repeats)
+        <tr>
+		<td>$StringEscapeUtils.escapeHtml($v.get("fundingSource").trim())</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("grantNumber").trim())</td>
+		<td>$StringEscapeUtils.escapeHtml($v.get("projectName").trim())</td>
+		<td>$v.get("startDate").trim()</td>
+		<td>$v.get("endDate").trim()</td>
+        </tr>
+	#end
+	</table>
+#end
+
 
 #if($isReviewer)
 	<h4>#displayMessage("arms.heading.review")</h4>

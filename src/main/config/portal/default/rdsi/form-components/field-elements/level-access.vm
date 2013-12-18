@@ -1,13 +1,13 @@
 <label>
-	<input type="radio" name="level-access" id="level-access.yes" value="Yes" class="jaffa-field">
+	<input type="radio" class="jaffa-field" name="level-access" id="level-access.yes" value="Yes">
 		Yes
 </label>
-<div style="margin-left:3em" id="level-access-details">
-    <label>Future date:<input type="text" id="futureAccessDate" class="jaffa-field"></label><br>
-    <label>Details:<textarea id="levelAccessDetails" cols="80" rows="4" class="jaffa-field"></textarea></label>
+<div style="margin-left:3em" id="level-access-details-div">
+    <label>#displayMessage("arms.description.researchdata-access-date-description")<input type="text" id="futureAccessDate" class="jaffa-field"></label><br>
+    <label><span style="vertical-align:top;">#displayMessage("arms.description.researchdata-access-description")</span><textarea id="level-access-details" name="level-access-details" cols="80" rows="4" class="jaffa-field"></textarea></label>
 </div>
 <label>
-      <input type="radio" name="level-access" id="level-access.no" value="No" class="jaffa-field">
+    <input type="radio" class="jaffa-field" name="level-access" id="level-access.no" value="No">
       No
 </label>
 
@@ -21,11 +21,11 @@ $(document).ready(function() {
 
 	function toggleAccessDetails() {
 		if($('input:radio[name=level-access]:checked').val() == "Yes") {
-			$("[id='level-access-details']").show();
+			$("[id='level-access-details-div']").show();
 		} else {
-			$("[id='level-access-details']").hide();
+			$("[id='level-access-details-div']").hide();
 			$("[id='futureAccessDate']").val("");
-			$("[id='levelAccessDetails']").val("");
+			$("[id='level-access-details']").val("");
 		}
 	}
 	toggleAccessDetails();
