@@ -89,6 +89,7 @@ $(document).ready(function() {
         $(".arms-accordion-group").accordion({
                 autoHeight:true,
                 clearStyle:true,
+                active:false,
                 collapsible:true,
                 header:".inline-block-component"
         });
