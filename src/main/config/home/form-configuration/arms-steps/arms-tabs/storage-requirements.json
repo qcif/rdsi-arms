@@ -813,7 +813,7 @@
               "attachType": "storage-attachments",
               "accessRights": "public",
               "enableDescription": "true",
-              "addFunction": "addFileUploadModelRow"
+              "addFunction": "addfileUploadModelRow"
             },
             {
               "component-type": "file-upload-table2",
