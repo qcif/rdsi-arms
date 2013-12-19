@@ -487,3 +487,9 @@ ul.nav.actions li ul {
 #data-source-dropdown-dataprovider\:foaf\:state {
 display: inline;
 }
+
+.newRequestBusy {
+    position: absolute;
+    left: 180px;
+    top: 310px;
+}
