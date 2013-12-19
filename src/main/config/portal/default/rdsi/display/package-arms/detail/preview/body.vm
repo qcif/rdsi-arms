@@ -286,6 +286,10 @@
 </table>
 #end
 
+#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+<p>$responses</p>
+
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphF.title")</p>
 #set($vals = $jsonUtil.getJavaList($item, "storageFileUpload"))
 <table>
@@ -535,62 +539,62 @@
 			</tbody>
 		</table>
 #end
-## end of allocation committee submission
-## Committee response table for reviewer
-#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())
-#if($isReviewer)
-#set($members = $responses.keySet())
-#if(!$members.isEmpty())
-<h4>Committee responses</h4>
-#if($self.version) <p style="color:red; font-weight:bold;">Committee responses is not being versioned </p>#end
-<table>
-<tr>
-        <th>Member</th>
-        <th>Response</th>
-        <th>Comment</th>
-</tr>
-#foreach($key in $members)
-<tr>
-#set($response = $responses.get($key))
-<td>$key</td>
-<td>$StringEscapeUtils.escapeHtml($response.get("approval"))</td>
-<td>$StringEscapeUtils.escapeHtml($response.get("approval_comment"))</td>
-</tr>
-#end
-</table>
-#end
-#end
+#### end of allocation committee submission
+#### Committee response table for reviewer
+###set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())
+###if($isReviewer)
+###set($members = $responses.keySet())
+###if(!$members.isEmpty())
+##<h4>Committee responses</h4>
+###if($self.version) <p style="color:red; font-weight:bold;">Committee responses is not being versioned </p>#end
+##<table>
+##<tr>
+##        <th>Member</th>
+##        <th>Response</th>
+##        <th>Comment</th>
+##</tr>
+###foreach($key in $members)
+##<tr>
+###set($response = $responses.get($key))
+##<td>$key</td>
+##<td>$StringEscapeUtils.escapeHtml($response.get("approval"))</td>
+##<td>$StringEscapeUtils.escapeHtml($response.get("approval_comment"))</td>
+##</tr>
+###end
+##</table>
+###end
+###end
 
 ## This uses $page as an indicator for testing if it is in portal velocity context
 #if($page)
-#if(!$self.version)
-#if($page.authentication.has_role('committee')) ## Actual role has to be used.
-#set($committeeResponse = $responses.get($page.authentication.get_username()))
-<h4>Committee responses</h4>
-<form action="$portalPath/allocation-committee/committee.script" method="POST">
-<input type="hidden" name="oid" value="$oid" />
-#set($approval = $committeeResponse.get("approval"))
-<p>
-        <label>
-                <input name="approval" value="Approved for REDS" type="radio" #if($approval == "Approved for REDS") checked #end>Approved for REDS
-        </label>
-</p>
-<p>
-        <label>
-                <input name="approval" value="Approved for CDS" type="radio" #if($approval == "Approved for CDS") checked #end>Approved for CDS
-        </label>
-</p>
-<p>
-        <label>
-                <input name="approval" value="Not approved" type="radio" #if($approval == "Not approved") checked #end>Not approved</label>
-        </label>
-</p>
-<label for="approval_comment">Comment</label>
-<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$StringEscapeUtils.escapeHtml($committeeResponse.get("approval_comment"))#end</textarea>
-<input type="submit" value="Submit" />
-</form>
-#end
-#end
+###if(!$self.version)
+###if($page.authentication.has_role('committee')) ## Actual role has to be used.
+###set($committeeResponse = $responses.get($page.authentication.get_username()))
+##<h4>Committee responses</h4>
+##<form action="$portalPath/allocation-committee/committee.script" method="POST">
+##<input type="hidden" name="oid" value="$oid" />
+###set($approval = $committeeResponse.get("approval"))
+##<p>
+##        <label>
+##                <input name="approval" value="Approved for REDS" type="radio" #if($approval == "Approved for REDS") checked #end>Approved for REDS
+##        </label>
+##</p>
+##<p>
+##        <label>
+##                <input name="approval" value="Approved for CDS" type="radio" #if($approval == "Approved for CDS") checked #end>Approved for CDS
+##        </label>
+##</p>
+##<p>
+##        <label>
+##                <input name="approval" value="Not approved" type="radio" #if($approval == "Not approved") checked #end>Not approved</label>
+##        </label>
+##</p>
+##<label for="approval_comment">Comment</label>
+##<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$StringEscapeUtils.escapeHtml($committeeResponse.get("approval_comment"))#end</textarea>
+##<input type="submit" value="Submit" />
+##</form>
+###end
+###end
 #else
 ## finish off XHTML for PDF	
 </body>
