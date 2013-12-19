@@ -26,48 +26,15 @@
 startupCompleteListeners.push("initialise_$modelName")
 
 function initialise_$modelName() {
-	var rows = [];
-	var prefix = "$metadataPrefix";
-	for(key in jaffa.serverData) {
-		 if(key.indexOf(prefix+".") == 0) {
-		 	var suffix = key.substring(prefix.length+1, key.length); 
-		 	var index = suffix.substring(0, suffix.indexOf("."));
-		 	var ending = suffix.substring(suffix.indexOf(".")+1,suffix.length);
-		 	
-		 	if(rows[index-1] == null) {
-		 		rows[index-1] = new Object();
-		 		rows[index-1]["modelIdentifier"] = guid();
-		 	}
-		 	rows[index-1][ending] = jaffa.serverData[key];
-		 }
-	}
-	
+	var rows = $initialiseFunctionName(); 
+	//put all the row models in the row array
 	for(var i =0; i<rows.length; i++) {
 		${modelName}.rows.push(rows[i]);
 	}
-	
-	${modelName}.rows.subscribe(function(rowArray) {
-    	//delete all the old values out of serverData as some might have been deleted in the table
-    	for(key in jaffa.serverData) {
-			var prefix = "$metadataPrefix";
-			 if(key.indexOf(prefix+".") == 0) {
-			 	delete jaffa.serverData[key];
-			 }
-	    }
-    		for(var i =1; i<=rowArray.length; i++) {
-    			var row = rowArray[i-1];
-    			for(key in row) {
-    			  if(key != "modelIdentifier") {
-    			  	jaffa.serverData[prefix+"."+i+"."+key] = row[key];
-    			  }
-    			}
-    		}
-		});
 }
 
 function $modelName() {
     var self = this;
-  	self.dateAdded = ko.observable();
     self.addedBy = ko.observable();
     self.rows = ko.observableArray([]);
 
@@ -77,13 +44,7 @@ function $modelName() {
 }
 
 function add${modelName}Row(model) {
-    jQuery.getJSON('$portalPath/servertime.script?format=YYYY-MM-dd', function(data) {
-        model['dateAdded'] = data.date;
-        model['addedBy'] = '$page.authentication.get_name()';
-
-      ${modelName}.rows.push(model);
-    });
-
+    ${modelName}.rows.push(model);
 }
 
 var $modelName = new $modelName();
