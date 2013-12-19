@@ -286,10 +286,6 @@
 </table>
 #end
 
-#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
-<p>$responses</p>
-
-
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphF.title")</p>
 #set($vals = $jsonUtil.getJavaList($item, "storageFileUpload"))
 <table>
