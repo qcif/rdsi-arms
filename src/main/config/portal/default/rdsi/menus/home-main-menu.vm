@@ -14,7 +14,7 @@ $(function() {
     jQ("#new-request").click(function() {
         if (processing) return;
         processing = true;
-        jQ("#new-request").append('<img class="right" src="$portalPath/images/icons/loading.gif" />');
+        $("body").append('<p class="newRequestBusy"><img src="$portalPath/images/icons/loading.gif" /></p>');
         jQ.ajax({
             type: "POST",
             url: "$portalPath/actions/packaging.ajax",
