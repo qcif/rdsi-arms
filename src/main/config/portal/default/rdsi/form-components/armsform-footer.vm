@@ -11,55 +11,13 @@ function toggleFundingInfo() {
 	}
 }
 
-function copyCustodianToManager() {
-	var cb = document.getElementById('useCustodianDetials');
+function copyCustodianToManager(prefix) {
 	var fields =["title","givenName","familyName","organization","email","phone"];
 	var el, i;
-	if (cb.checked) {
-		var custodianModel = {}
-		for (i=0; i<fields.length; i++) {
-			el = document.getElementById("requester:"+fields[i]);
-			document.getElementById("requester:"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
-			el.value = document.getElementById("dataprovider:"+fields[i]).value;
-			el.disabled = true;
-
-			custodianModel[fields[i]] = ko.observable($("[id='dataprovider:"+fields[i]+"']").val());
-			ko.applyBindingsToNode($("[id='dataprovider:"+fields[i]+"']")[0], { value: custodianModel[fields[i]] }, custodianModel );
-		}
-		custodianModel.title.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:title']").val(newValue);
-				}
-		 });
-		custodianModel.givenName.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:givenName']").val(newValue);
-				}
-		 });
-		custodianModel.familyName.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:familyName']").val(newValue);
-				}
-		 });
-		custodianModel.organization.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:organization']").val(newValue);
-				}
-		 });
-		custodianModel.email.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:email']").val(newValue);
-				}
-		 });
-		custodianModel.phone.subscribe(function(newValue) {
-				if(cb.checked) {
-					$("[id='requester:phone']").val(newValue);
-				}
-		 });
-	} else {
-		for (i=0; i<fields.length; i++) {
-			document.getElementById("requester:"+fields[i]).disabled = false;
-		}
+	for (i=0; i<fields.length; i++) {
+		el = document.getElementById(prefix+":"+fields[i]);
+		document.getElementById(prefix+":"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
+		el.value = document.getElementById("dataprovider:"+fields[i]).value;
 	}
 }
 
@@ -77,22 +35,67 @@ var bApplyEventBindings = window.setInterval(function() {
 		toggleFundingInfo();
 		$('input[name=isFunded]:radio').change(toggleFundingInfo);		
 
-		if(document.getElementById('useCustodianDetials') != null) {
-			$("input[id='useCustodianDetials']").change(copyCustodianToManager);
-			copyCustodianToManager();
-		}
 		window.clearInterval(bApplyEventBindings);
 	}
 },500); 
 
+function getUserAttributes(prefix) {
+	var attributes = ['commonName','email'];
+	jQuery.ajax({
+		dataType:"json",
+		url: "$portalPath/userinfo.ajax",
+		success: function(attrbs) {
+			for (var i = 0; i < attributes.length; i++)	{
+				if (attrbs.hasOwnProperty(attributes[i])) {
+					switch (attributes[i])
+					{
+						case "commonName":
+							var val = attrbs[attributes[i]];
+							var re = /\s/;
+							var nameParts = val.split(re);
+							jQuery("[id='"+prefix+":givenName']").val(nameParts[0]);
+							jQuery("[id='"+prefix+":familyName']").val(nameParts[1]);
+							break;
+						case "email":
+							jQuery("[id='"+prefix+":email']").val(attrbs[attributes[i]]);
+							break;
+					}
+				}
+			}
+		},
+		error: function (req ) { alert("Attention is needed:\n" + req.responseText) }
+	});
+}
+
 $(document).ready(function() {
-        $(".arms-accordion-group").accordion({
-                autoHeight:true,
-                clearStyle:true,
-                active:false,
-                collapsible:true,
-                header:".inline-block-component"
-        });
+	$(".arms-accordion-group").accordion({
+	        autoHeight:true,
+	        clearStyle:true,
+	        active:false,
+	        collapsible:true,
+	        header:".inline-block-component"
+	});
+	
+	// Use AAF info
+	jQuery("[id='dataprovider:useAAFDetials']").click(function() {
+		getUserAttributes('dataprovider');
+	});
+	jQuery("[id='requester:useAAFDetials']").click(function() {
+		getUserAttributes('requester');
+	});
+	jQuery("[id='nodecontact:useAAFDetials']").click(function() {
+		getUserAttributes('nodecontact');
+	});
+
+	// Copy Custodian information
+	jQuery("[id='requester:useCustodianDetials']").click(function() {
+		copyCustodianToManager('requester');
+	});
+
+	jQuery("[id='nodecontact:useCustodianDetials']").click(function() {
+		copyCustodianToManager('nodecontact');
+	});
+	
 });
 
 </script>								   	    
