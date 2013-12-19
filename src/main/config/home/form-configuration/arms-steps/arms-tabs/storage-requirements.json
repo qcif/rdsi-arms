@@ -813,13 +813,13 @@
               "attachType": "storage-attachments",
               "accessRights": "public",
               "enableDescription": "true",
-              "addFunction": "addfileUploadModelRow"
+              "addFunction": "addstorageFileUploadModelRow"
             },
             {
               "component-type": "file-upload-table2",
               "metadataPrefix" : "storageFileUpload",
-              "modelName": "fileUploadModel",
-              "tableName": " fileUploadTable",
+              "modelName": "storageFileUploadModel",
+              "tableName": " storageFileUploadTable",
               "initialiseFunctionName": "storage_attachment_getUploadedFiles",
               "removeFunction": "storage_attachment_deleteFile"
             }

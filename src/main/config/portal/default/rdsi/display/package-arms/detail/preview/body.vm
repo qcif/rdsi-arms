@@ -5,19 +5,17 @@
 #set($workflowStage = $self.workflowStage)
 #set($item = $self.item)
 
-	#if($page.authentication.has_role('reviewer$nodeSuffix')) 
+	## The request PDFs view may change. Leaves open the option to add in admin view of everything as well as multiple views for other roles.
+	#if($page.authentication.has_role('reviewer$nodeSuffix') || ($page.authentication.has_role('admin'))) 
 		#set($isReviewer = true)
-	#elseif($page.authentication.has_role('committee$nodeSuffix')) 
-		#set($isCommittee = true)
-	#else 
+	#end
+	#if (!$page.authentication.has_role('reviewer$nodeSuffix'))
 		#set($hasRequestView = true)
 	#end
 	
 	#if(! $self.version)
 		#if ($isReviewer)
 			<p>[Reviewer's version] <a target="_blank" href="$portalPath/download/$oid/reviewer.pdf">Download reviewer request as a PDF</a></p>
-		#end
-		#if ($isCommittee)
 			<p>[Allocation committee's version] <a target="_blank" href="$portalPath/download/$oid/allocation.pdf">Download committee request as a PDF</a></p>
 		#end
 		#if ($hasRequestView)
