@@ -808,7 +808,7 @@
               "content": "arms.heading.review-attachments"
             },
             {
-              "component-type": "file-attachments",
+              "component-type": "file-attachments2",
               "widgetname": "storage_attachment",
               "attachType": "storage-attachments",
               "accessRights": "public",
