@@ -463,6 +463,7 @@
 			</tbody>
 		</table>
 #end
+##23/12/2013: below commented out as may be brought back in.
 #### end of allocation committee submission
 #### Committee response table for reviewer
 ###set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())

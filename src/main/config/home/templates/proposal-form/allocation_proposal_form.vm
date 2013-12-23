@@ -81,10 +81,10 @@ ul {
 			</thead>
 			<tr>
 				<td>Cost/TB ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
-				<td>_____ ($)</td>
+				<td>#getValue("unitcost:standard")</td>
+				<td>#getValue("unitcost:tape")</td>
+				<td>#getValue("unitcost:volume")</td>
+				<td>#getValue("unitcost:highspeed")</td>
 			</tr>
 		</table>
 
@@ -107,43 +107,43 @@ ul {
 			</thead>
 			<tr>
 				<td>100%</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(Date)</td>
+				<td>#getValue("ingest-4qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:indic-date")</td>
 			</tr>
 			<tr>
 				<td>(25%)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(Date)</td>
+				<td>#getValue("ingest-1qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:indic-date")</td>
 			</tr>
 			<tr>
 				<td>(50%)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(Date)</td>
+				<td>#getValue("ingest-2qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:indic-date")</td>
 			</tr>
 			<tr>
 				<td>(75%)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(TB)</td>
-				<td>_____(Date)</td>
+				<td>#getValue("ingest-3qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:indic-date")</td>
 			</tr>
 		</table>
 
@@ -157,13 +157,13 @@ ul {
 			</thead>
 			<tr>
 				<td>Discovery metadata</td>
-				<td>&lt;A specific collection record in Research Data Australia, or other disciplinary portal&gt;</td>
-				<td>_____(Date)</td>
+				<td>#getValue("discover:status")</td>
+				<td>#getValue("discover:date")</td>
 			</tr>
 			<tr>
 				<td>Accessibility</td>
-				<td>&lt;Accessibility meets one of a range of generic statements covering acceptable ReDS use cases&gt;</td>
-				<td>_____(Date)</td>
+				<td>#getValue("accessibility:status")</td>
+				<td>#getValue("accessibility:date")</td>
 			</tr>
 		</table>
 	</div>
