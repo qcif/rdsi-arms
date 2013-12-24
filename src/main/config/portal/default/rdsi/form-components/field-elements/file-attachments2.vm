@@ -119,7 +119,6 @@ var ${widgetname}_getUploadedFiles = function() {
 };
 
 var ${widgetname}_deleteFile = function(file, cb) {
-	alert("deleting. OK?");
     jQ.ajax(${widgetname}_delUrl,
     {
         async:true,
@@ -146,4 +145,3 @@ jQ(function () {
     ${widgetname}_initUploader();
 });
 </script>
-
