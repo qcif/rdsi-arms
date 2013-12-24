@@ -35,36 +35,22 @@ ul {
 
 	<div class="section">
 		<h4>Part A</h4>
-		<table>
-			<tr>
-				<td>Proposed data holding and its source</td>
-				<td>#getValue("reviewer-proposed")</td>
-			</tr>
-			<tr>
-				<td>Assessment against ReDS Guidelines</td>
-				<td>#getValue("reviewer-assessment")</td>
-			</tr>
-			<tr>
-				<td>Rationale for first instance, including a statement of interest by the node</td>
-				<td>#getValue("reviewer-rationale1")</td>
-			</tr>
-			<tr>
-				<td>Rationale for class(es) of storage for first the instance</td>
-				<td>#getValue("reviewer-rationale2")</td>
-			</tr>
-			<tr>
-				<td>Rationale for the second instance (if proposed) including its extent, location and storage class(es)</td>
-				<td>#getValue("reviewer-rationale3")</td>
-			</tr>
-			<tr>
-				<td>Summary of the activities to be undertaken to achieve ingest and meet accessibility requirements</td>
-				<td>#getValue("reviewer-summary")</td>
-			</tr>
-			<tr>
-				<td>Expected completion date (all milestones met)</td>
-				<td>#getValue("completion-date")</td>
-			</tr>
-		</table>
+		
+			<h5>Proposed data holding and its source</h5>
+			<p>#getValue("reviewer-proposed")</p>
+			<h5>Assessment against ReDS Guidelines</h5>
+			<p>#getValue("reviewer-assessment")</p>
+			<h5>Rationale for first instance, including a statement of interest by the node</h5>
+			<p>#getValue("reviewer-rationale1")</p>
+			<h5>Rationale for class(es) of storage for first the instance</h5>
+			<p>#getValue("reviewer-rationale2")</p>
+			<h5>Rationale for the second instance (if proposed) including its extent, location and storage class(es)</h5>
+			<p>#getValue("reviewer-rationale3")</p>
+			<h5>Summary of the activities to be undertaken to achieve ingest and meet accessibility requirements</h5>
+			<p>#getValue("reviewer-summary")</p>
+			<h5>Expected completion date (all milestones met)</h5>
+			<p>#getValue("completion-date")</p>
+	
 	</div>
 
 	<div class="section">
