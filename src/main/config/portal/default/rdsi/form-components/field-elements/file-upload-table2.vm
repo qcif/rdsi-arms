@@ -23,7 +23,7 @@
 </div>
 
 <script>
-startupCompleteListeners.push("initialise_$modelName")
+startupCompleteListeners.push("initialise_$modelName");
 
 function initialise_$modelName() {
 	var rows = $initialiseFunctionName(); 
@@ -35,22 +35,22 @@ function initialise_$modelName() {
 
 function $modelName() {
     var self = this;
-    self.addedBy = ko.observable();
+ 
     self.rows = ko.observableArray([]);
 
     self.remove = function() {
-        self.rows.remove(this);
+        $removeFunction(this, self.removeFunc(this));        
     };
+    
+    self.removeFunc = function(row) { return function() {
+      self.rows.remove(row);  
+    }};
 }
 
 function add${modelName}Row(model) {
-    ${modelName}.rows.push(model);
+    ${modelName}.rows.push(model);    
 }
-
+   
 var $modelName = new $modelName();
 ko.applyBindings($modelName, $("[id='$tableName']")[0]);
-
-ko.applyBindingsToNode($("[id='$tableName']")[0], 
-	{ click: function () { 	add${modelName}Row(); } }, $modelName 
-);
 </script>
