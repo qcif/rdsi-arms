@@ -1,6 +1,7 @@
 {
   "portal" : {
     "name" : "rdsi",
+    "displayName" : "RDSI",
     "description" : "Research Data Storage Initiative",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",
