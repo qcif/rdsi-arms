@@ -1,13 +1,30 @@
 <project name="createPortal" default="create" basedir=".">
 	<description>Build a portal a time with its own name and description</description>
 	<!-- set global properties for this build -->
+	<!-- replace properties to actual values when a new node is added -->
 	<property name="nodeName" value="rdsi" />
 	<property name="nodeDescription" value="Research Data Storage Initiative" />
+	<property name="themeColour" value="#333000" />
+
+	<!--
+	<property name="nodeName" value="nci" />
+	<property name="nodeDisplayName" value="NCI" />
+	<property name="nodeDescription" value="NCI" />
+	<property name="themeColour" value="#41006C" />
+	-->
+	<!--
+	<property name="nodeName" value="tpac" />
+	<property name="nodeDisplayName" value="TPAC" />
+	<property name="nodeDescription" value="TPAC Digital Library" />
+	<property name="themeColour" value="#03487f" />
+	-->
 	<target name="create" description="copy portal directory to new location">
 		<!-- Copy new directories of portal to src/main/config -->
 		<filter token="nodeName" value="${nodeName}" />
+	    <filter token="nodeDisplayName" value="${nodeDisplayName}" />
 	    <filter token="nodeDescription" value="${nodeDescription}" />
-		<copy todir="../../src/main/config/portal/${nodeName}" filtering="true">
+		<filter token="themeColour" value="${themeColour}" />
+		<copy todir="../../src/main/config/portal/${nodeName}" filtering="true" overwrite="true">
 			<fileset dir="templates/portal" />
 		</copy>
 		<!-- Rename to the currect name using property nodeName -->

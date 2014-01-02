@@ -1,8 +1,8 @@
 {
   "portal" : {
-    "name" : "@nodeName@",
-    "displayName" : "@nodeDisplayName@",
-    "description" : "@nodeDescription@",
+    "name" : "tpac",
+    "displayName" : "TPAC",
+    "description" : "TPAC Digital Library",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",
     "facet-count" : "100",
