@@ -33,7 +33,7 @@
 		<smtp.host>localhost</smtp.host>
 		<admin.email>admin@localhost</admin.email>
 		<packaging>pom</packaging>
-		<node.list>rdsi</node.list>
+		<node.list>nci,rdsi,tpac</node.list>
 		<!-- Control scripts try to auto-detect proxy. Use this value if you want 
 			Java to specifically exclude certain hosts from proxying. -->
 		<non.proxy.hosts>localhost</non.proxy.hosts>
@@ -558,13 +558,23 @@
 				<version>1.0</version>
 				<executions>
 					<execution>
-						<id>default</id>
+						<id>processSystemConfig</id>
 						<phase>process-resources</phase>
 						<goals>
 							<goal>execute</goal>
 						</goals>
 						<configuration>
 							<source>${pom.basedir}/support/node-management/setupSystemConfig.groovy</source>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generateNodeJson</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>execute</goal>
+						</goals>
+						<configuration>
+							<source>${pom.basedir}/support/node-management/generateNodeJson.groovy</source>
 						</configuration>
 					</execution>
 					</executions>

@@ -1,5 +1,5 @@
 .menu .selected, .facet-list .selected {
-    background-color: @themeColour@;
+    background-color: #03487f;
 }
 
 ul.menu-btn {
@@ -7,7 +7,7 @@ ul.menu-btn {
 }
 
 .menu-button {
-	background:@themeColour@;
+	background:#03487f;
 	color:#ffffff;
 	font-size: 18px;
 	width:150px;
@@ -17,32 +17,32 @@ ul.menu-btn {
 }
 
 ul.nav, ul.main li a, .box h2 {
-    background: @themeColour@;
+    background: #03487f;
 }
 
 ul.main li:hover a {
-    background-color: @themeColour@;
+    background-color: #03487f;
 }
 
 ul.main li:hover ul li a {
-    background-color: @themeColour@ !important;
+    background-color: #03487f !important;
 }
 
 ul.main li:hover ul li a:hover {
     background-color: white !important;
-    color:@themeColour@ !important;
+    color:#03487f !important;
 }
 
 ul.main li ul li a {
-    background-color: @themeColour@;
+    background-color: #03487f;
 }
 
 .accordion-header {
-    background: @themeColour@;
+    background: #03487f;
 }
 
 .accordion-header.ui-state-active, .accordion-header:hover {
-    background: @themeColour@;
+    background: #03487f;
 }
 
 #content .ui-accordion-content {
@@ -54,44 +54,44 @@ th.header {
 }
 
 .box h2 a, .box h2 a.visible {
-    background-color: @themeColour@;
+    background-color: #03487f;
 }
 
 .box h2 a:hover, .box h2 a.visible:hover {
     background-color: white;
-    color: @themeColour@;
-     border: 1px solid @themeColour@; 
+    color: #03487f;
+     border: 1px solid #03487f; 
 }
 
 .accordion-reset:hover {
-    background-color: @themeColour@;
-    border: 1px solid @themeColour@;    
+    background-color: #03487f;
+    border: 1px solid #03487f;    
 }
 
 ul.main li:hover a {
  background-color: white;
- color: @themeColour@;
- border: 1px solid @themeColour@;   
+ color: #03487f;
+ border: 1px solid #03487f;   
 }
 
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
-    color: @themeColour@;
+    color: #03487f;
     text-decoration: none;
 }
 
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
     color: white;
-    background-color: @themeColour@;
+    background-color: #03487f;
     text-decoration: none;
 }
 
 
 ul.main li:hover ul li a:hover {
-	background: @themeColour@;
+	background: #03487f;
 }
 
 .ui-widget-header {
-	background: @themeColour@ !important;
+	background: #03487f !important;
 }
 
 .ui-tabs-nav.ui-widget-header {
@@ -99,17 +99,17 @@ ul.main li:hover ul li a:hover {
 }
 
 .ui-state-hover a, .ui-state-hover a:hover {
- background-color: @themeColour@;
+ background-color: #03487f;
  color: white;
 }
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    color: @themeColour@;
+    color: #03487f;
     font-weight: bold;
 }
 
 
 .article h4 {
-    background: none repeat scroll 0 0 @themeColour@;
+    background: none repeat scroll 0 0 #03487f;
     color: #FFFFFF;
 }
