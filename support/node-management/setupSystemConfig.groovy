@@ -7,8 +7,8 @@ def systemConfigFile = new File(project.properties["dir.home"]+"/system-config.j
 def systemConfig = new JsonSimple(systemConfigFile)
 def systemConfigObject = systemConfig.getJsonObject()
 def packageTypes = systemConfigObject.get("portal").get("packageTypes")
-def packageType = new JsonObject()
 for(node in nodes) {
+	packageType = new JsonObject()
 	packageType.put("jsonconfig","arms-" +node+".json")
 	packageType.put("packages-in-package",false)
 	packageTypes.put("arms-"+node,packageType)
