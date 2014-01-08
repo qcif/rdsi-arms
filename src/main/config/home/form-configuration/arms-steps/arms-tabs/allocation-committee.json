@@ -85,28 +85,11 @@
       "content": "arms.field.label.instanceB-location"
     },
     {
-      "component-type": "dropdown-fixedvalue",
+      "component-type": "checkbox",
       "field-name": "instanceB-location",
-      "label": "",
-      "multiple": true,
-      "options": [
-        {
-          "label": "QCIF-BNE",
-          "value": "QCIF-BNE"
-        },
-        {
-          "label": "eRSA",
-          "value": "eRSA"
-        },
-        {
-          "label": "Intersect",
-          "value": "Intersect"
-        },
-        {
-          "label": "QCIF-TSV",
-          "value": "QCIF-TSV"
-        }
-      ]
+      "box-for": "",
+      "sourceUrl": "form-components/rdsi-nodes.json",
+      "multiline": true
     },
     {
       "component-type": "cost-table"

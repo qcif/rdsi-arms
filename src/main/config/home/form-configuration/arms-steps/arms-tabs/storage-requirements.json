@@ -22,25 +22,12 @@
       "content": "arms.field.label.section4-subsectionA.paragraphA"
     },
     {
-      "component-type": "checkbox3",
+      "component-type": "checkbox",
       "field-name": "storage-location",
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
+      "sourceUrl": "form-components/rdsi-nodes.json",
       "multiline": true,
-      "additional-class": "ofFormCheckboxes",
-      "boxes": [
-        {
-          "label": "arms.field.label.section4-subsectionA.paragraphB.pointA",
-          "value": "arms.field.label.section4-subsectionA.paragraphB.pointA"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionA.paragraphB.pointB",
-          "value": "arms.field.label.section4-subsectionA.paragraphB.pointB"
-        },
-        {
-          "label": "arms.field.label.section4-subsectionA.paragraphB.pointC",
-          "value": "arms.field.label.section4-subsectionA.paragraphB.pointC"
-        }
-      ]
+      "additional-classes": "ofFormCheckboxes"
     },
     {
       "component-type": "textarea",
@@ -817,7 +804,7 @@
             },
             {
               "component-type": "file-upload-table2",
-              "metadataPrefix" : "storageFileUpload",
+              "metadataPrefix": "storageFileUpload",
               "modelName": "fileUploadModel",
               "tableName": " fileUploadTable",
               "initialiseFunctionName": "storage_attachment_getUploadedFiles",
@@ -1059,4 +1046,3 @@
     }
   ]
 }
-
