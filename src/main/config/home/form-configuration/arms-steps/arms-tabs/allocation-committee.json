@@ -77,6 +77,7 @@
       "field-name": "instanceA-location",
       "label": "",
       "data-id-key": "value",
+      "field-name-label": "instanceA-location:prefLabel",
       "sourceUrl": "form-components/rdsi-nodes.json"
     },
     {
@@ -85,11 +86,12 @@
       "content": "arms.field.label.instanceB-location"
     },
     {
-      "component-type": "checkbox",
+      "component-type": "data-source-dropdown",
       "field-name": "instanceB-location",
-      "box-for": "",
-      "sourceUrl": "form-components/rdsi-nodes.json",
-      "multiline": true
+      "label": "",
+      "data-id-key": "value",
+      "field-name-label": "instanceB-location:prefLabel",
+      "sourceUrl": "form-components/rdsi-nodes.json"
     },
     {
       "component-type": "cost-table"
