@@ -264,9 +264,9 @@
         },
         {
           "component-type": "data-source-dropdown",
-          "field-name": "dataprovider:state",
+          "field-name": "requester:state",
           "label": "",
-          "field-name-label": "dataprovider:state:prefLabel",
+          "field-name-label": "requester:state:prefLabel",
           "sourceUrl": "form-components/states.json",
           "wrapper-class": "inline-component statesField"
         }
