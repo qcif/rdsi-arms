@@ -12,12 +12,15 @@ function toggleFundingInfo() {
 }
 
 function copyCustodianToManager(prefix) {
-	var fields =["title","givenName","familyName","organization","email","phone"];
+	var fields =["title","givenName","familyName","organization","email","phone","role","state"];
 	var el, i;
 	for (i=0; i<fields.length; i++) {
 		el = document.getElementById(prefix+":"+fields[i]);
-		document.getElementById(prefix+":"+fields[i]).value = document.getElementById("dataprovider:"+fields[i]).value;
 		el.value = document.getElementById("dataprovider:"+fields[i]).value;
+	}
+	if (el = document.getElementById(prefix+":state:prefLabel")) {
+		// also copy :state:prefLabel when it exists
+		el.value = document.getElementById("dataprovider:state:prefLabel").value;
 	}
 }
 
