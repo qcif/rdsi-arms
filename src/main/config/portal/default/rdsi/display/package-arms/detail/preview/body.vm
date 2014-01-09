@@ -1,3 +1,23 @@
+## contact display macro
+#macro(displayContact $contactType)
+<dl>
+	<dt>Name:</dt>
+	<dd>#getValue("$contactType:title")
+	#getValue("$contactType:givenName")
+	#getValue("$contactType:familyName")</dd>
+	<dt>Email:</dt>
+	<dd>#getValue("$contactType:email")</dd>
+	<dt>Telephone:</dt>
+	<dd>#getValue("$contactType:phone")</dd>
+	<dt>Organisation:</dt>
+	<dd>#getValue("$contactType:organization")</dd>
+	<dt>Role:</dt>
+	<dd>#getValue("$contactType:role")</dd>
+	<dt>State:</dt>
+	<dd>#getValue("$contactType:state:prefLabel")</dd>
+</dl>
+#end
+
 #if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
 ## When rendering for web pages, it has $self and $page variables - use them as switches 
 #if($self)
@@ -44,51 +64,18 @@
 <div class="people-container">
 	<div class="people">
 		<h5>#displayMessage("arms.field.label.dataprovider")</h5>
-			<dl>
-				<dt>Name:</dt>
-				<dd>#getValue("dataprovider:title")
-					#getValue("dataprovider:givenName")
-					#getValue("dataprovider:familyName")</dd>
-				<dt>Email:</dt>
-				<dd>#getValue("dataprovider:email")</dd>
-				<dt>Telephone:</dt>
-				<dd>#getValue("dataprovider:phone")</dd>
-				<dt>Organisation:</dt>
-				<dd>#getValue("dataprovider:organization")</dd>
-			</dl>
-		</div>
+		#displayContact('dataprovider')
+	</div>
 	<div class="people">
 		<h5>#displayMessage("arms.field.label.requester")</h5>
-			<dl>
-				<dt>Name:</dt>
-				<dd>#getValue("requester:title")
-					#getValue("requester:givenName")
-					#getValue("requester:familyName")</dd>
-				<dt>Email:</dt>
-				<dd>#getValue("requester:email")</dd>
-				<dt>Telephone:</dt>
-				<dd>#getValue("requester:phone")</dd>
-				<dt>Organisation:</dt>
-				<dd>#getValue("requester:organization")</dd>
-			</dl>
+		#displayContact('requester')
 	</div>
 </div>
 <div class="people-container">
-<div class="people">
+	<div class="people">
 		<h5>#displayMessage("arms.field.label.nodecontact")</h5>
-			<dl>
-				<dt>Name:</dt>
-				<dd>#getValue("nodecontact:title")
-					#getValue("nodecontact:givenName")
-					#getValue("nodecontact:familyName")</dd>
-				<dt>Email:</dt>
-				<dd>#getValue("nodecontact:email")</dd>
-				<dt>Telephone:</dt>
-				<dd>#getValue("nodecontact:phone")</dd>
-				<dt>Node:</dt>
-				<dd>#getValue("nodecontact:node")</dd>
-			</dl>
-</div>
+		#displayContact('nodecontact')
+	</div>
 </div>
 
 <h4>#displayMessage("arms.heading.data-collection")</h4>
