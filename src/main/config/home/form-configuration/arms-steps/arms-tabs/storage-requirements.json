@@ -27,6 +27,7 @@
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
       "sourceUrl": "form-components/rdsi-nodes.json",
       "multiline": true,
+      "saveLabel": true,
       "additional-classes": "ofFormCheckboxes"
     },
     {
