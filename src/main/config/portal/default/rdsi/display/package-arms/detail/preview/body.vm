@@ -157,8 +157,7 @@
 <h4 style="clear: left">#displayMessage("arms.field.label.section4-title")</h4>
 
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.title")</p>
-#set($vals = $jsonUtil.getStringList($item, "storage-location"))
-#displayUL($vals)
+#displayULFiltered($jsonUtil.getStringList($item, "storage-location:prefLabel") $jsonUtil.getStringList($item, "storage-location"))
 
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.paragraphC.description")</p>
 <p>#getValue("storage-purpose")</p>
@@ -369,8 +368,8 @@
 			<thead>
 				<tr>
 					<th style="width:8em">&#xA0;</th>
-					<th colspan="3">Instance A (#getValue("instanceA-location"))</th>
-					<th colspan="3">Instance B (#getValue("instanceB-location"))</th>
+					<th colspan="3">Instance A (#getValue("instanceA-location:prefLabel"))</th>
+					<th colspan="3">Instance B (#getValue("instanceB-location:prefLabel"))</th>
 					<th>&#xA0;</th>
 				</tr>
 				<tr>
