@@ -3,11 +3,13 @@ redbox
 This is the redbox module.
 After installing puppet, redbox needs to be copied to the module path on the OS.
 Enter: 
+sudo -s (until we have a dedicated puppet user, run all below as su)
 
 puppet config print modulepath 
 
-to find where to install the redbox module.
+to find where to install the redbox module. Copy redbox to the module path.
 Once redbox is in the module path, to apply it:
+
 puppet apply -e "class {'redbox':}" 
 
 License
