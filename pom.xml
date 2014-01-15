@@ -22,7 +22,7 @@
 		<server.port>9000</server.port>
 		<amq.port>9101</amq.port>
 		<amq.stomp.port>9102</amq.stomp.port>
-		<server.url.base>http://${ip.address}:${server.port}/redbox/</server.url.base>
+		<server.url.base>http://${ip.address}:${server.port}/</server.url.base>
 		<mint.proxy.server>http://localhost:9001</mint.proxy.server>
 		<mint.amq.broker>tcp://localhost:9201</mint.amq.broker>
 		<dir.home>${project.home}/home</dir.home>
@@ -271,7 +271,7 @@
 			<id>prod</id>
 			<properties>
 				<packaging>pom</packaging>
-				<server.url.base>https://arms.qcloud.qcif.edu.au/redbox/</server.url.base>
+				<server.url.base>https://arms.qcloud.qcif.edu.au/</server.url.base>
 				<package.finalname>${project.build.finalName}-prod</package.finalname>
 			</properties>
 		</profile>
