@@ -271,7 +271,7 @@
 			<id>prod</id>
 			<properties>
 				<packaging>pom</packaging>
-				<server.url.base>https://arms.qcloud.qcif.edu.au/</server.url.base>
+				<server.url.base>https://arms.rdsi.edu.au/</server.url.base>
 				<package.finalname>${project.build.finalName}-prod</package.finalname>
 			</properties>
 		</profile>
