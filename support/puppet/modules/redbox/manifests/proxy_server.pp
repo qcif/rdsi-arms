@@ -10,7 +10,7 @@ class redbox::proxy_server {
  
   $redbox_path = "http://${variables::defaults::server_id}:${variables::defaults::port}/${variables::defaults::web_path}"
 
-  apache::vhost { $::ipaddress:
+  apache::vhost { 'redbox':
     docroot    => $variables::apache::docroot,
     port       => $variables::apache::port,
     proxy_pass => $variables::apache::proxy_pass,

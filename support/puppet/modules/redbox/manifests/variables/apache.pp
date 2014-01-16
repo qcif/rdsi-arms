@@ -11,5 +11,4 @@ class redbox::variables::apache {
 
   $docroot = '/var/www/html'
   $port = '80'
-  $ap = 'apache'
 }
