@@ -3,7 +3,9 @@ class redbox::variables::defaults {
   $redbox_user = 'redbox'
 
   $port = '9000'
-
+	
+  $server_id = $::ipaddress
+  
   $web_path = 'redbox/rdsi'
 
   $directories = [ 'redbox', 'mint', 'deploy', ]

@@ -4,9 +4,9 @@ class redbox::variables::apache {
 
   $proxy_pass = [
     { 'path' => '/redbox',
-      'url'  => 'http://localhost:9000/redbox' },
+      'url'  => 'http://${variables::defaults::server_id}:${variables::defaults:port}/redbox' },
     { 'path' => '/mint',
-      'url'  => 'http://localhost:9001/mint' }
+      'url'  => 'http://${variables::defaults::server_id}:9001/mint' }
   ]
 
   $docroot = '/var/www/html'
