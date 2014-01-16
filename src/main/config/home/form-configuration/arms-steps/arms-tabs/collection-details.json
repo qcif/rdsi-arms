@@ -122,11 +122,6 @@
       "content": "Support"
     },
     {
-      "component-type": "text-block",
-      "type": "p",
-      "content": "arms.description.support"
-    },
-    {
       "component-type": "radio-button",
       "field-name": "support",
       "button-for": "arms.field.label.support",
