@@ -53,6 +53,11 @@
       ]
     },
     {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.field.label.section0-subsectionA.paragraphD"
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "additional-classes": "workflow-controls",
