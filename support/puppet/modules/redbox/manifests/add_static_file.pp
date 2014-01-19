@@ -1,5 +1,5 @@
 define redbox::add_static_file($static_file=$title, $owner) {
-  $source = "wget https://raw.github.com/redbox-mint-contrib/config-samples/master/Server/$static_file"
+  $source = "wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/$static_file"
   $destination = "/home/redbox/$static_file"
 
   exec {"$source  -O $destination":}
