@@ -59,6 +59,12 @@
       }
     },
     {
+      "component-type": "text-input",
+      "additional-classes": "longTextInput",
+      "field-name": "collection-details-audience",
+      "label": "arms.field.label.section2-subsectionD.description"
+    },
+    {
       "component-type": "text-block",
       "type": "label",
       "content": "arms.field.label.dc-subject.anzsrc-for"
@@ -114,12 +120,12 @@
       "content": "arms.section.methodmeta"
     },
     {
-    	"component-type": "methodological-details"
+      "component-type": "methodological-details"
     },
     {
       "component-type": "text-block",
       "type": "label",
-      "content": "Support"
+      "content": "arms.title.support"
     },
     {
       "component-type": "radio-button",
@@ -132,7 +138,8 @@
         },
         {
           "label": "No",
-          "value": "No"
+          "value": "No",
+          "checked": true
         }
       ]
     },

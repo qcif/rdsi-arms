@@ -877,12 +877,6 @@
           "template": "group-div",
           "fields": [
             {
-              "component-type": "text-input",
-              "additional-classes": "longTextInput",
-              "field-name": "storage-geographic-audience",
-              "label": "arms.field.label.section4-subsectionC.paragraphH.statementA.description"
-            },
-            {
               "component-type": "radio-button2",
               "field-name": "storage-geographic-distribution-researchers",
               "button-for": "arms.field.label.section4-subsectionC.paragraphH.statementB.description",
@@ -992,7 +986,7 @@
               ]
             },
             {
-              "component-type": "text-input",
+              "component-type": "textarea",
               "label": "",
               "field-name": "storage-related-infrastructure-other"
             }
