@@ -79,7 +79,8 @@
 </div>
 
 <h4>#displayMessage("arms.heading.data-collection")</h4>
-
+<p class="item_title">Target audience:</p>
+<p>#getValue("collection-details-audience")</p>
 <p class="item_title">#displayMessage("arms.field.label.completeness")</p>
 <p>#getValue("completeness") #getValue("complete_date")</p>
 
@@ -305,7 +306,6 @@
 <p>Tools : #getValue("storage-tools-other")</p>
 
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphH.title")</p>
-<p>Target audience: #getValue("storage-geographic-audience")</p>
 <p>Researcher distribution: #getValue("storage-geographic-distribution-researchers")</p>
 <p>Researcher distribution: #getValue("storage-geographic-distribution-tools")</p>
 
