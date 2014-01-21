@@ -1029,12 +1029,23 @@
           "component-type": "transition-control",
           "transitions": [
             {
-              "name": "Next",
+              "name": "Back",
               "form-submit-action": "save",
               "type": "button"
             }
           ],
           "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        }
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
           "wrapper-class": "inline-component"
         }
       ]
