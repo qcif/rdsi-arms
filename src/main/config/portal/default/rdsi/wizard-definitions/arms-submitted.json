@@ -1,22 +1,27 @@
 {
-    "steps": {
-        "Introduction": {
-            "Next": "Contact details"
-        },
-        "Contact details": {
-            "Next": "Collection details"
-        },
-        "Collection details": {
-            "Next": "Research significance"
-        },
-        "Research significance": {
-            "Next": "Storage requirements"
-        },
-        "Storage requirements": {
-            "Next": "Declarations"
-        },
-        "Declarations": {
-        	"Next": "Review"
-        },
+  "steps": {
+    "Introduction": {
+      "Next": "Contact details"
+    },
+    "Contact details": {
+      "Back": "Introduction",
+      "Next": "Collection details"
+    },
+    "Collection details": {
+      "Back": "Contact details",
+      "Next": "Research significance"
+    },
+    "Research significance": {
+      "Back": "Collection details",
+      "Next": "Storage requirements"
+    },
+    "Storage requirements": {
+      "Back": "Research significance",
+      "Next": "Declarations"
+    },
+    "Declarations": {
+      "Back": "Storage requirements",
+      "Next": "Review"
     }
+  }
 }

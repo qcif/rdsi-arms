@@ -4,15 +4,19 @@
             "Next": "Contact details"
         },
         "Contact details": {
+            "Back": "Introduction",
             "Next": "Collection details"
         },
         "Collection details": {
+            "Back": "Contact details",
             "Next": "Research significance"
         },
         "Research significance": {
+            "Back": "Collection details",
             "Next": "Storage requirements"
         },
         "Storage requirements": {
+            "Back": "Research significance",
             "Next": "Declarations"
         }
     }
