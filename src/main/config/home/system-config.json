@@ -214,7 +214,8 @@
             "security": [
                 "librarian",
                 "reviewer",
-                "admin"
+                "admin",
+                "requester"
             ],
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment.json"
@@ -224,7 +225,8 @@
             "security": [
                 "librarian",
                 "reviewer",
-                "admin"
+                "admin",
+                "requester"
             ],
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment-file.json"
