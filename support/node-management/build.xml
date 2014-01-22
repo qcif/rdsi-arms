@@ -3,6 +3,7 @@
 	<!-- set global properties for this build -->
 	<!-- replace properties to actual values when a new node is added -->
 	<property name="nodeName" value="vicnode" />
+	<property name="nodeDisplayName" value="VicNode" />
 	<property name="nodeDescription" value="VicNode Merit Application Form" />
 	<property name="themeColour" value="#104481" />
 

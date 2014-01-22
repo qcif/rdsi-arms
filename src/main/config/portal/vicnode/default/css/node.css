@@ -1,0 +1,115 @@
+.menu .selected, .facet-list .selected {
+    background-color: #104481;
+}
+
+ul.menu-btn {
+	list-style: none;
+}
+
+.menu-button {
+	background:#104481;
+	color:#ffffff;
+	font-size: 18px;
+	width:150px;
+	margin:10px;
+	padding:5px; 
+	overflow:visible;
+}
+
+ul.nav, ul.main li a, .box h2 {
+    background: #104481;
+}
+
+ul.main li:hover a {
+    background-color: #104481;
+}
+
+ul.main li:hover ul li a {
+    background-color: #104481 !important;
+}
+
+ul.main li:hover ul li a:hover {
+    background-color: white !important;
+    color:#104481 !important;
+}
+
+ul.main li ul li a {
+    background-color: #104481;
+}
+
+.accordion-header {
+    background: #104481;
+}
+
+.accordion-header.ui-state-active, .accordion-header:hover {
+    background: #104481;
+}
+
+#content .ui-accordion-content {
+    background: #EEEEEE;
+}
+
+th.header {
+    background: #FFF5D2;
+}
+
+.box h2 a, .box h2 a.visible {
+    background-color: #104481;
+}
+
+.box h2 a:hover, .box h2 a.visible:hover {
+    background-color: white;
+    color: #104481;
+     border: 1px solid #104481; 
+}
+
+.accordion-reset:hover {
+    background-color: #104481;
+    border: 1px solid #104481;    
+}
+
+ul.main li:hover a {
+ background-color: white;
+ color: #104481;
+ border: 1px solid #104481;   
+}
+
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: #104481;
+    text-decoration: none;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: white;
+    background-color: #104481;
+    text-decoration: none;
+}
+
+
+ul.main li:hover ul li a:hover {
+	background: #104481;
+}
+
+.ui-widget-header {
+	background: #104481 !important;
+}
+
+.ui-tabs-nav.ui-widget-header {
+	background: #f4eedc !important;
+}
+
+.ui-state-hover a, .ui-state-hover a:hover {
+ background-color: #104481;
+ color: white;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    color: #104481;
+    font-weight: bold;
+}
+
+
+.article h4 {
+    background: none repeat scroll 0 0 #104481;
+    color: #FFFFFF;
+}

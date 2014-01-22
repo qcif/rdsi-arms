@@ -33,7 +33,7 @@
 		<smtp.host>localhost</smtp.host>
 		<admin.email>admin@localhost</admin.email>
 		<packaging>pom</packaging>
-		<node.list>nci,rdsi,tpac</node.list>
+		<node.list>ersa,intersect,ivec,nci,qcif,rdsi,vicnode,tpac</node.list>
 		<!-- Control scripts try to auto-detect proxy. Use this value if you want 
 			Java to specifically exclude certain hosts from proxying. -->
 		<non.proxy.hosts>localhost</non.proxy.hosts>
