@@ -1,13 +1,5 @@
 [
     {
-        "label": "QCIF-BNE",
-        "value": "QCIF-BNE"
-    },
-    {
-        "label": "QCIF-TSV",
-        "value": "QCIF-TSV"
-    },
-    {
         "label": "eRSA",
         "value": "eRSA"
     },
@@ -18,6 +10,14 @@
     {
         "label": "iVEC",
         "value": "iVEC"
+    },
+    {
+        "label": "QCIF-BNE",
+        "value": "QCIF-BNE"
+    },
+    {
+        "label": "QCIF-TSV",
+        "value": "QCIF-TSV"
     },
     {
         "label": "NCI",
