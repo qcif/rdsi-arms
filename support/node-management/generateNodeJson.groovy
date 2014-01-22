@@ -11,15 +11,16 @@ for(node in nodes) {
 	if(portalJsonFile.exists()){
 		node = loadJsonObject(portalJsonFile)
 		portal = node.get("portal")
-		nodeJson = new JsonObject()
-		nodeJson.put("value", portal.get("name"))
-		nodeJson.put("label", portal.get("displayName"))
-		jsonArray.add(nodeJson)
+// Now 22/01/2014, this has been changed to a manual process as rdsi is not a node for storage services, qcif has qcif-bne and qcif-tsv nodes  		
+//		nodeJson = new JsonObject()
+//		nodeJson.put("value", portal.get("name"))
+//		nodeJson.put("label", portal.get("displayName"))
+//		jsonArray.add(nodeJson)
 	}
 }
 
-def nodesJsonFile = new File(project.properties["dir.portal"]+ "/default/rdsi/form-components/rdsi-nodes.json")
-FileUtils.writeStringToFile(nodesJsonFile,jsonArray.toString())
+//def nodesJsonFile = new File(project.properties["dir.portal"]+ "/default/rdsi/form-components/rdsi-nodes.json")
+//FileUtils.writeStringToFile(nodesJsonFile,jsonArray.toString())
 
 def loadJsonObject(jsonFile) {
 	def nodesJson = new JsonSimple(jsonFile)

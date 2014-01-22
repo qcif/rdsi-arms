@@ -2,9 +2,9 @@
 	<description>Build a portal a time with its own name and description</description>
 	<!-- set global properties for this build -->
 	<!-- replace properties to actual values when a new node is added -->
-	<property name="nodeName" value="rdsi" />
-	<property name="nodeDescription" value="Research Data Storage Initiative" />
-	<property name="themeColour" value="#333000" />
+	<property name="nodeName" value="vicnode" />
+	<property name="nodeDescription" value="VicNode Merit Application Form" />
+	<property name="themeColour" value="#104481" />
 
 	<!--
 	<property name="nodeName" value="nci" />
