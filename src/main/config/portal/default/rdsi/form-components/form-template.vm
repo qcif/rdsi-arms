@@ -147,14 +147,23 @@
 	}
 	
 	function validationFail(fieldId, testsFailed) {
+		window.scrollTo(0, 0); // force page scroll to top as this is the case
     	$(".errorbox").show();
     	var validation = validationFieldMap[fieldId];
     	for(var i =0; i < testsFailed.length; i++) {
     		var message = validation["validationMessages"][testsFailed[i]];
-    		$("#errorbox-list").append('<li>'+message+'</li>');
-    		
+    		$("#errorbox-list").append('<li>'+message+'<button id="'+fieldId+'-errorButton" class="jaffaHelpToggle ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-circle-arrow-e"></span><span class="ui-button-text"></span></button></li>');
+
+    		if (! validation["focus-tab"]) {
+ 				console.warn("Validation component: focus tab is not defined for "+ validation["focusId"] + ". May not correctly set focus on the invalid field.");
+    		}
+        	$("[id='"+fieldId+"-errorButton']").click(function() {
+    		    if (validation["focus-tab"]) {
+    				$($('a:contains('+validation["focus-tab"]+')')[0]).click(); 
+   			    }
+        		$("[id='"+validation["focusId"]+"']").focus();
+        	});
         }
-    	window.location.hash = '#errorbox-list';
 	}
     
     function matchesPrefix(field,prefixes) {
