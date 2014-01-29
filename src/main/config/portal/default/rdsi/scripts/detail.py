@@ -214,7 +214,7 @@ class DetailData:
         req.addParam("fq", 'item_type:"object"')
         userRoles = self.page.authentication.get_roles_list()
         current_roles = " OR ".join(userRoles)
-        req.addParam("fq", "owner:%s OR security_filter:(%s) OR security_exception:(%s)" % (current_user, current_roles, current_user))
+        req.addParam("fq", "owner:\"%s\" OR security_filter:(%s) OR security_exception:(\"%s\")" % (current_user, current_roles, current_user))
         if self.isDetail():
             req.addParam("fq", portal.getQuery())
         out = ByteArrayOutputStream()
