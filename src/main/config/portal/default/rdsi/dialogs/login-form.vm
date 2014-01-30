@@ -8,7 +8,7 @@
     </fieldset>
   </form>
   #end
-  #if($systemConfig.getString("","environment") =="prod")
+  #if($systemConfig.getString("","environment") =="dev")
   <div class="or">OR</div> 
   <form id="login" method="post" action="#">
     <fieldset class="search">
