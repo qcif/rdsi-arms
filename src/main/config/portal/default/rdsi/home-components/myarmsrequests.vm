@@ -40,7 +40,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage("$packageType", 'arms-request'))
+#set($results = $self.getListOfStage("$packageType", 'arms-draft'))
 
 #if ($results && $results.size() > 0)
 <script>
@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage("$packageType", 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
+#set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
 #if ($results && $results.size() > 0)
 	#setMyRelatedTbl('submitted' $results)
 #end

@@ -1,6 +1,17 @@
         #set($rolestring = $page.authentication.get_roles())
         #set($roles = $rolestring.split(","))
-        #if ($roles.size() > 2)
+## May need to squash other type of roles
+## More sophisticated squash fucntion can be created in /redbox-rdsi-demo/src/main/config/home/lib/jython/display/Dashboard.py, can called here 
+        ## are they all reviewer roles? all reviewer roles are equal here: reviewer = reviewer-node1 = reviewer-node2
+        #set($nReviewer = 0)
+        #if($rolestring.indexOf("reviewer") >= 0)
+            #foreach ($r in $roles)
+                #if($r.trim().startsWith("reviewer")) #set($nReviewer = $nReviewer + 1) #end
+            #end
+        #end
+        #set($rolesFiltered = $roles.size())
+        #if($nReviewer > 0) #set($rolesFiltered = $rolesFiltered - $nReviewer + 1) #end
+        #if ($rolesFiltered > 2) ## every user has tow roles: assigned role and guest role
         <div id="role-switch-board-wrapper" class="grid_16">
         <ul class="ui-widget ui-tabs-nav ui-corner-all">
         ## need mapping role with dashboards
@@ -8,13 +19,13 @@
             #set($r = $r.trim())
                 #if($r == "admin") 
                 <li class="ui-state-default ui-corner-top #if($self.selected == "admin") ui-state-active #end"><a href="$portalPath/dashboards/admin">$r</a></li>
-                #elseif($r == "reviewer") 
+                #elseif($r == "reviewer" || $r == "reviewer-$portalId") 
                 <li class="ui-state-default ui-corner-top #if($self.selected == "reviewer") ui-state-active #end"><a href="$portalPath/dashboards/reviewer">$r</a></li>
-                #elseif($r == "committee") 
-                <li class="ui-state-default ui-corner-top #if($self.selected == "committee") ui-state-active #end"><a href="$portalPath/dashboards/committee">$r</a></li>
-                #elseif($r == "requester") 
-                <li class="ui-state-default ui-corner-top #if($self.selected == "requester") ui-state-active #end"><a href="$portalPath/dashboards/requester">$r</a></li>
-                #elseif($r == "provisioner") 
+                #elseif($r == "assessor" || $r == "assessor-$portalId") 
+                <li class="ui-state-default ui-corner-top #if($self.selected == "assessor") ui-state-active #end"><a href="$portalPath/dashboards/assessor">$r</a></li>
+                #elseif($r == "requestor")
+                <li class="ui-state-default ui-corner-top #if($self.selected == "requestor") ui-state-active #end"><a href="$portalPath/dashboards/requestor">$r</a></li>
+                #elseif($r == "provisioner" || $r == "provisioner-$portalId")  
                 <li class="ui-state-default ui-corner-top #if($self.selected == "provisioner") ui-state-active #end"><a href="$portalPath/dashboards/provisioner">$r</a></li>
                 #end 
             #end

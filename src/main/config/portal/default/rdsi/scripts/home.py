@@ -27,15 +27,19 @@ class HomeData(Dashboard):
         pass
 
     def __activate__(self, context):
+        """
+        Two roles are treated equally here: site role and node role. e.g. reviewer == reviewer-rdsi
+        """
         self.activate(context, context["page"].getPortal().recordsPerPage)
         auth = context["page"].authentication
+        portalId = context["portalId"]
         if auth.has_role("admin"):
             self.selected = "admin"
-        elif auth.has_role("committee"):
-            self.selected = "committee"
-        elif auth.has_role("requester"):
-            self.selected = "requester"
-        elif  auth.has_role("reviewer"):
+        elif auth.has_role("assessor") or auth.has_role("assessor-"+portalId):
+            self.selected = "assessor"
+        elif auth.has_role("requestor"):
+            self.selected = "requestor"
+        elif  auth.has_role("reviewer") or auth.has_role("reviewer-"+portalId):
             self.selected = "reviewer"
-        elif auth.has_role("provisioner"):
+        elif auth.has_role("provisioner") or auth.has_role("provisioner-"+portalId):
             self.selected = "provisioner"

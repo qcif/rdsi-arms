@@ -47,7 +47,7 @@
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-request.json"
+    "wizardDefPath": "wizard-definitions/arms-review.json"
   },
   "validation-function": {
     "component-type": "active-tab",

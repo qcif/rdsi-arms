@@ -3,7 +3,7 @@
 
 #set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-allocation-committee'))
+#set($results = $self.getListOfStage("$packageType", 'arms-assessment'))
 #if ($results && $results.size() > 0)
 
 ## load Velocity macro setPagingCtrl
@@ -19,7 +19,7 @@ function initDashboardRows(mod, data) {
 	}
 }
 
-var myRecords = new dataRowsModel('committee');
+var myRecords = new dataRowsModel('assessor');
 jQuery(document).ready(function() { 
 	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
 	setupPagingCtrls('myRecordsPaging', myRecords);

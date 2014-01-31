@@ -4,7 +4,7 @@
 #set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-submitted,arms-allocation-committee'))
+#set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment'))
 #if ($results && $results.size() > 0)
 ## load Velocity macro setPagingCtrl
 #parseTemplate("home-components/pagingControl.vm")

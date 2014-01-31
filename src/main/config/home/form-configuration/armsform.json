@@ -1,16 +1,16 @@
 {
   "stages": {
-    "arms-request": {
-      "config-file": "form-configuration/arms-steps/arms-request.json"
+    "arms-draft": {
+      "config-file": "form-configuration/arms-steps/arms-draft.json"
     },
-    "arms-submitted": {
-      "config-file": "form-configuration/arms-steps/arms-submitted.json"
+    "arms-review": {
+      "config-file": "form-configuration/arms-steps/arms-review.json"
     },
-    "arms-allocation-committee": {
-      "config-file": "form-configuration/arms-steps/arms-allocation-committee"
+    "arms-assessment": {
+      "config-file": "form-configuration/arms-steps/arms-assessment.json"
     },
-    "arms-provisioning": {
-      "config-file": "form-configuration/arms-steps/arms-provisioning.json"
+    "arms-approved": {
+      "config-file": "form-configuration/arms-steps/arms-approved.json"
     }
   }
 }

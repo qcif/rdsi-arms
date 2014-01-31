@@ -29,7 +29,7 @@
             "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
             "outputFilename": "request.pdf",
             "velocityContextParams": {
-            							"workflowStage":"arms-request",
+            							"workflowStage":"arms-draft",
             							"isReviewer": false
             						  }
         },
@@ -38,7 +38,7 @@
             "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
             "outputFilename": "reviewer.pdf",
             "velocityContextParams": {
-            							"workflowStage":"arms-submitted",
+            							"workflowStage":"arms-review",
             							"isReviewer":true
             						  }
         },
@@ -61,66 +61,84 @@
 	"form-configuration": "form-configuration/armsform.json",
     "stages": [
         {
-            "name": "arms-request",
+            "name": "arms-draft",
             "label": "Draft",
-            "description": "Draft request - yet to be submitted",
+            "description": "The requestor is working on the request.",
             "owner_edit_allowed": "true",
-            "security": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
+            "security": ["admin"],
+            "visibility": ["reviewer-@nodeName@","admin"],
             "actions": [ { "action-name" : "next",
-                           "target-step" : "arms-submitted" }]
+                           "target-step" : "arms-review" }]
         },
         {
-            "name": "arms-submitted",
-            "label": "Submitted",
-            "description": "Records under investigation.",
+            "name": "arms-review",
+            "label": "Review",
+            "description": "The reviewer is processing the request.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
-            "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-allocation-committee" }],
+            "security": ["reviewer-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@","admin"],
+            "actions": [
+                {
+                  "action-name": "next",
+                  "target-step": "arms-assessment"
+                },
+                {
+                  "action-name": "reject",
+                  "target-step": "arms-rejected"
+                },
+                {
+                  "action-name": "approve",
+                  "target-step": "arms-approved"
+                }
+            ],
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-allocation-committee",
-            "label": "Allocation committee review",
-            "description": "Records for allocation committee to approve.",
+            "name": "arms-assessment",
+            "label": "Assessment",
+            "description": "Assessors are assessing the request.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer-@nodeName@",  "provisioner-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@", "committee-@nodeName@","provisioner-@nodeName@","admin"],
-            "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-provisioning" }],
+            "security": ["reviewer-@nodeName@", "assessor-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@","assessor-@nodeName@","admin"],
+            "actions": [
+                {
+                  "action-name": "next",
+                  "target-step": "arms-approved"
+                },
+                {
+                  "action-name": "reject",
+                  "target-step": "arms-rejected"
+                }
+            ],
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-provisioning",
-            "label": "Provisioning",
-            "description": "Records approved for provisioning",
+            "name": "arms-approved",
+            "label": "Approved",
+            "description": "The request has been approved and is awaiting provisioning.",
             "owner_edit_allowed": "false",
             "security": ["provisioner-@nodeName@","admin"],
-            "visibility": ["provisioner-@nodeName@","admin"],
+            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
             "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-completed" }],
+                "target-step" : "arms-provisioned" }],
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-completed",
-            "label": "Completed",
-            "description": "Requests have been allocated",
+            "name": "arms-rejected",
+            "label": "Rejected",
+            "description": "The request has not been approved.",
             "owner_edit_allowed": "false",
             "security": ["admin"],
-            "visibility": ["admin"],
-            "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-retired" }],
+            "visibility": ["reviewer-@nodeName@","admin"],
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-retired",
-            "label": "Retired",
-            "description": "Archived records.",
+            "name": "arms-provisioned",
+            "label": "Provisioned",
+            "description": "The request has been provisioned.",
             "owner_edit_allowed": "false",
-            "security": [ "admin"],
-            "visibility": ["admin"],
+            "security": ["admin"],
+            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
             "template": "workflows/simpleworkflow"
         }
     ]

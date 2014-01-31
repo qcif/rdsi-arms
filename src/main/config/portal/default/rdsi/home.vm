@@ -6,10 +6,10 @@
 
 #parseTemplate("home-components/role-switch-board.vm")
 
-## requester and admin can create request
+## requestor and admin can create request
 #if ($page.authentication.has_role("admin"))
   #parseTemplate("menus/home-admin-menu.vm")
-#elseif ($page.authentication.has_role("requester"))
+#elseif ($page.authentication.has_role("requestor"))
   #parseTemplate("menus/home-main-menu.vm")
 #end
 
@@ -17,9 +17,9 @@
 <div class="grid_12">
 #if ($page.authentication.has_role("admin"))
     #parseTemplate("home-components/admin-requests.vm")
-#elseif ($page.authentication.has_role("committee"))
-    #parseTemplate("home-components/committee-requests.vm")
-#elseif ($page.authentication.has_role("requester"))
+#elseif ($page.authentication.has_role("assessor") || $page.authentication.has_role("assessor-$portalId"))
+    #parseTemplate("home-components/assessor-requests.vm")
+#elseif ($page.authentication.has_role("requestor"))
     #parseTemplate("home-components/myarmsrequests.vm")
 #elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
     #parseTemplate("home-components/reviewer-requests.vm")
