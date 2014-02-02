@@ -68,12 +68,17 @@ echo Downloading latest version from Nexus: $DEPLOY_URL
 wget  "$DEPLOY_URL" -O $DEPLOY_ARCHIVE
 tar xzf $DEPLOY_ARCHIVE
 
+case "$RB_SYSTEM" in
+    "mint")
+    	REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/${RB_SYSTEM}\//g"
+        ;;
+    *)
+        REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\//g"
+        ;;
+esac
 
-REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/$RB_SYSTEM\//g"
 echo "Fixing the incorrect url: $REGEX"
-sed $REGEX $RB_SYSTEM/server/tf_env.sh > $RB_SYSTEM/server/tf_env.new
-
-mv $RB_SYSTEM/server/tf_env.new $RB_SYSTEM/server/tf_env.shcd 
+sed -i $REGEX $DEPLOY_DIR/$RB_SYSTEM/server/tf_env.sh
 
 if [ -f $INSTALL_DIR/server/tf.sh ]; then
     echo Stopping $RB_SYSTEM
@@ -91,7 +96,7 @@ if [ -d $INSTALL_DIR/server/plugin ]; then
 fi
 
 echo Copying files across
-cp -rf $RB_SYSTEM/* $INSTALL_DIR/
+cp -rf $DEPLOY_DIR/$RB_SYSTEM/* $INSTALL_DIR/
 
 echo Starting $RB_SYSTEM
 $INSTALL_DIR/server/tf.sh start

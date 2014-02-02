@@ -1,20 +1,27 @@
 <VirtualHost *:80>
-        ServerAdmin webmaster@localhost
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
+       DocumentRoot /var/www/html
+       
+       ErrorLog /var/log/httpd/error_log
 
-        # Possible values include: debug, info, notice, warn, error, crit,
-        # alert, emerg.
-        LogLevel warn
-       ProxyPass               /arms http://localhost:9000/redbox
-       ProxyPassReverse        /arms http://localhost:9000/redbox
-
-       ProxyPass               /redbox http://localhost:9000/redbox
-       ProxyPassReverse        /redbox http://localhost:9000/redbox
+       # Possible values include: debug, info, notice, warn, error, crit,
+       # alert, emerg.
+       LogLevel warn
+       
+       ProxyPassMatch /Shibboleth !
+	   ProxyPass /default/sso/shibbloeth !
+       ProxyPass               / ajp://localhost:8009/
+       ProxyPassReverse        / ajp://localhost:8009/
 
        ProxyPass               /mint http://localhost:9001/mint
        ProxyPassReverse        /mint http://localhost:9001/mint
 
-       ProxyRequests Off
-       ProxyPreserveHost On
+	   ProxyRequests Off
+	   ProxyPreserveHost On
+
+       <Location /default/sso/shibboleth>
+          AuthType shibboleth
+          ShibRequireSession On
+          require valid-user
+       </Location>
 </VirtualHost>
