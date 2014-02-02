@@ -70,15 +70,15 @@ tar xzf $DEPLOY_ARCHIVE
 
 case "$RB_SYSTEM" in
     "mint")
-    	REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/${RB_SYSTEM}/g"
+    	REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/${RB_SYSTEM}\//g"
         ;;
     *)
-        REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP/g"
+        REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\//g"
         ;;
 esac
 
 echo "Fixing the incorrect url: $REGEX"
-sed $REGEX $RB_SYSTEM/server/tf_env.sh
+sed -i $REGEX $DEPLOY_DIR/$RB_SYSTEM/server/tf_env.sh
 
 if [ -f $INSTALL_DIR/server/tf.sh ]; then
     echo Stopping $RB_SYSTEM
@@ -96,7 +96,7 @@ if [ -d $INSTALL_DIR/server/plugin ]; then
 fi
 
 echo Copying files across
-cp -rf $RB_SYSTEM/* $INSTALL_DIR/
+cp -rf $DEPLOY_DIR/$RB_SYSTEM/* $INSTALL_DIR/
 
 echo Starting $RB_SYSTEM
 $INSTALL_DIR/server/tf.sh start
