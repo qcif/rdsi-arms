@@ -1,7 +1,7 @@
 #Development server deployment
 
 * Ensure you add the IP address and hostname to /etc/hosts
-* Change localhost in index.html to your fqdn/ipaddress
+* Once httpd installed, update "ServerName" in httpd/conf/httpd.conf to your fqdn or ip address
 
 Run these:
     sudo adduser --system -m redbox
