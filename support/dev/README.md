@@ -14,7 +14,6 @@ Run these:
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/index.html
     sudo chmod u+x *.sh
     
     sudo chown -R redbox:redbox /home/redbox
@@ -23,12 +22,6 @@ Run these:
  	sudo yum install httpd 
 
 	sudo mv /home/redbox/apache /etc/httpd/conf.d/25-redbox.conf
-	sudo mv /home/redbox/index.html /var/www/html/index.html
-	
-    cd /etc/apache2/mods-enabled
-    sudo ln -s ../mods-available/proxy_http.load
-    sudo ln -s ../mods-available/proxy.conf 
-    sudo ln -s ../mods-available/proxy.load
 
 	service httpd restart
 	
