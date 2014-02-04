@@ -38,6 +38,25 @@
           "action": "next",
           "closeUrl": "detail",
           "appendOID": true
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Approve",
+              "type": "button",
+              "form-submit-action": "approve",
+              "close": true,
+              "closeUrl": "detail"
+            },
+            {
+              "name": "Reject",
+              "type": "button",
+              "form-submit-action": "reject",
+              "close": true,
+              "closeUrl": "detail"
+            }
+          ]
         }
       ]
     }
