@@ -1,0 +1,145 @@
+{
+    "presentation-settings": {
+       
+     },
+    "harvester": {
+        "type": "workflow-harvester",
+        "workflow-harvester": {
+            "force-storage": "true"
+        }
+    },
+    "workflow-id":"arms",
+    "page-title": "RDSI ARMS Request",
+    "default-owner":"admin",
+    "transformer": {
+        "curation": ["local"],
+        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm"]
+    },
+    "curation": {
+        "neverPublish": true,
+        "alreadyCurated": false
+    },
+	"display-type":"package-arms",
+    "transformerOverrides": {
+        "local": {
+            "template": "${server.url.base}published/detail/[[OID]]"
+        },
+        "requestPdf": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "request.pdf",
+            "velocityContextParams": {
+            							"workflowStage":"arms-draft",
+            							"isReviewer": false
+            						  }
+        },
+        "reviewerPdf": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+            "outputFilename": "reviewer.pdf",
+            "velocityContextParams": {
+            							"workflowStage":"arms-review",
+            							"isReviewer":true
+            						  }
+        },
+		"proposalForm": {
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
+            "outputFilename": "allocation.pdf"
+        }         
+    },
+    "indexer": {
+        "script": {
+            "type": "python",
+            "rules": "simpleworkflow-rules.py"
+        },
+        "params": {
+            "repository.name": "ReDBox",
+            "repository.type": "Data Management Portal"
+        }
+    },
+	"form-configuration": "form-configuration/armsform.json",
+    "stages": [
+        {
+            "name": "arms-draft",
+            "label": "Draft",
+            "description": "The requestor is working on the request.",
+            "owner_edit_allowed": "true",
+            "security": ["admin"],
+            "visibility": ["reviewer","admin"],
+            "actions": [ { "action-name" : "next",
+                           "target-step" : "arms-review" }]
+        },
+        {
+            "name": "arms-review",
+            "label": "Review",
+            "description": "The reviewer is processing the request.",
+            "owner_edit_allowed": "false",
+            "security": ["reviewer","admin"],
+            "visibility": ["reviewer","admin"],
+            "actions": [
+                {
+                  "action-name": "next",
+                  "target-step": "arms-assessment"
+                },
+                {
+                  "action-name": "reject",
+                  "target-step": "arms-rejected"
+                },
+                {
+                  "action-name": "approve",
+                  "target-step": "arms-approved"
+                }
+            ],
+            "template": "workflows/simpleworkflow"
+        },
+        {
+            "name": "arms-assessment",
+            "label": "Assessment",
+            "description": "Assessors are assessing the request.",
+            "owner_edit_allowed": "false",
+            "security": ["reviewer", "assessor","admin"],
+            "visibility": ["reviewer","assessor","admin"],
+            "actions": [
+                {
+                  "action-name": "next",
+                  "target-step": "arms-approved"
+                },
+                {
+                  "action-name": "reject",
+                  "target-step": "arms-rejected"
+                }
+            ],
+            "template": "workflows/simpleworkflow"
+        },
+        {
+            "name": "arms-approved",
+            "label": "Approved",
+            "description": "The request has been approved and is awaiting provisioning.",
+            "owner_edit_allowed": "false",
+            "security": ["provisioner","admin"],
+            "visibility": ["reviewer","provisioner","admin"],
+            "actions" :[ { "action-name" : "next",
+                "target-step" : "arms-provisioned" }],
+            "template": "workflows/simpleworkflow"
+        },
+        {
+            "name": "arms-rejected",
+            "label": "Rejected",
+            "description": "The request has not been approved.",
+            "owner_edit_allowed": "false",
+            "security": ["admin"],
+            "visibility": ["reviewer","admin"],
+            "template": "workflows/simpleworkflow"
+        },
+        {
+            "name": "arms-provisioned",
+            "label": "Provisioned",
+            "description": "The request has been provisioned.",
+            "owner_edit_allowed": "false",
+            "security": ["admin"],
+            "visibility": ["reviewer","provisioner","admin"],
+            "template": "workflows/simpleworkflow"
+        }
+    ]
+}

@@ -326,7 +326,11 @@
             "default": {
                 "jsonconfig": "packaging-config.json",
                 "packages-in-package": false
-            }
+            },
+            "arms": {
+                "jsonconfig": "arms.json",
+                "packages-in-package": false
+            }            
         },
         "harvestFiles": "${fascinator.home}/harvest",
         "houseKeeping": {
