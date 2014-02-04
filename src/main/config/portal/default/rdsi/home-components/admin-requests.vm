@@ -5,8 +5,7 @@
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+#parseTemplate( "home-components/package-type.vm" )
 
 #set($results = $self.getListOfStage("$packageType",'arms-review,arms-assessment,arms-approved'))
 #if ($results && $results.size() > 0)

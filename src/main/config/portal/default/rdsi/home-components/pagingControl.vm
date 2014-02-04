@@ -31,8 +31,7 @@ function setupPagingCtrls(ctrlID, modelInst) {
     });
 }
 
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+## $packageType is set in "home-components/package-type.vm" which is called in every request list vm in this directory 
 
 //only has data and reload function
 function dataRowsModel(searchType) {

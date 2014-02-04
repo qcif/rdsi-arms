@@ -5,8 +5,8 @@
         </li>
     </ul>
 </div>
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+## set $packageType
+#parseTemplate( "home-components/package-type.vm" )
 <script type="text/javascript">
 $(function() {
     var jQ = $;
@@ -21,7 +21,7 @@ $(function() {
             data: {
                 ajax: 1,
                 func: "create-new",
-                packageType: "arms$nodeSuffix",
+                packageType: "$packageType",
                 metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
                 sequencesMetaList: [ '{ "sequenceName":"${portalId}Request","metadataName": "requestID","stringFormat":"${portalId}_%04d"}'],
                 title: "[Untitled]",

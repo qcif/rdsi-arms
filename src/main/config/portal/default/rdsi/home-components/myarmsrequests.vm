@@ -1,5 +1,4 @@
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+#parseTemplate( "home-components/package-type.vm" )
 
 ## Load Velocity macro setPagingCtrl
 ## Load necessary javaScript functions for knockout to bind these tables
