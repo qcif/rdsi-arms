@@ -22,10 +22,10 @@ sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display
 
 from Dashboard import Dashboard
 
-class CommitteeData(Dashboard):
+class RequestorData(Dashboard):
     def __init__(self):
         pass
 
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
-        self.selected = "committee"        
+        self.selected = "requestor"        

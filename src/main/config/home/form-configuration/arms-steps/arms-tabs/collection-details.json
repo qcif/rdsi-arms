@@ -52,7 +52,6 @@
           "required"
         ],
         "validation-id": "collection:description",
-        "focus-tab":"Collection details",
         "focus-id": "collection:description",
         "validation-messages": {
           "required": "Description is required"

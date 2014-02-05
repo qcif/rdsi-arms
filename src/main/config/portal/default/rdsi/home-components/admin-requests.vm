@@ -5,10 +5,9 @@
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+#parseTemplate( "home-components/package-type.vm" )
 
-#set($results = $self.getListOfStage("$packageType",'arms-submitted,arms-allocation-committee,arms-provisioning'))
+#set($results = $self.getListOfStage("$packageType",'arms-review,arms-assessment,arms-approved'))
 #if ($results && $results.size() > 0)
 <script>
 function adminProvisionsRowsModel(iniData) {
@@ -64,7 +63,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.holdding.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-completed,arms-retired'))
+#set($results = $self.getListOfStage("$packageType", 'arms-provisioned,arms-rejected'))
 #if ($results && $results.size() > 0)
 <script>
 function adminHoldingsRowsModel(iniData) {

@@ -63,7 +63,8 @@
         functionSaveData: saveData,
         callbackPreSave: preSave,
         callbackStartupComplete: startupComplete,
-        validateOnChange: false
+        validateOnChange: false,
+        validateOnBlur: false
     });
     
    
@@ -146,25 +147,28 @@
 		
 	}
 	
-	function validationFail(fieldId, testsFailed) {
-		window.scrollTo(0, 0); // force page scroll to top as this is the case
-    	$(".errorbox").show();
-    	var validation = validationFieldMap[fieldId];
-    	for(var i =0; i < testsFailed.length; i++) {
-    		var message = validation["validationMessages"][testsFailed[i]];
-    		$("#errorbox-list").append('<li>'+message+'<button id="'+fieldId+'-errorButton" class="jaffaHelpToggle ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-circle-arrow-e"></span><span class="ui-button-text"></span></button></li>');
+    function validationFail(fieldId, testsFailed) {
+        window.scrollTo(0, 0); // force page scroll to top as this is the case
+        $(".errorbox").show();
+        // Find what is the tab identifier by its class
+        var tabHeaderIdentifier = $('body').find("ul[class^='ui-tabs-nav']").attr('id');
+        var validation = validationFieldMap[fieldId];
+        for(var i =0; i < testsFailed.length; i++) {
+            var message = validation["validationMessages"][testsFailed[i]];
+            $("#errorbox-list").append('<li>'+message+'<button id="'+fieldId+'-errorButton" class="jaffaHelpToggle ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-circle-arrow-e"></span><span class="ui-button-text"></span></button></li>');
 
-    		if (! validation["focus-tab"]) {
- 				console.warn("Validation component: focus tab is not defined for "+ validation["focusId"] + ". May not correctly set focus on the invalid field.");
-    		}
-        	$("[id='"+fieldId+"-errorButton']").click(function() {
-    		    if (validation["focus-tab"]) {
-    				$($('a:contains('+validation["focus-tab"]+')')[0]).click(); 
-   			    }
-        		$("[id='"+validation["focusId"]+"']").focus();
-        	});
+            $("[id='"+fieldId+"-errorButton']").click(function() {
+               var activeTabHref = $("[id='"+ tabHeaderIdentifier + "'] > li.ui-state-active > a").attr('href');
+
+               var tabHref = "#" + $('[id=\"'+fieldId+'\"]').parents("div[class^='tab']").attr("id");
+               var focus_tab_name = $('ul[id="' + tabHeaderIdentifier + '"]').find('a[href=\"'+ tabHref +'\"]').children("span").text();
+               if (focus_tab_name && activeTabHref != tabHref) { // if not on current tab, activate it
+                  $($('a:contains('+focus_tab_name+')')[0]).click(); 
+               }
+               $("[id='"+validation["focusId"]+"']").focus();
+            });
         }
-	}
+    }
     
     function matchesPrefix(field,prefixes) {
     	for(var i=0;i<prefixes.length; i++) {

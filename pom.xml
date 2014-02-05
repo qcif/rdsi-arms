@@ -532,32 +532,6 @@
 							<goal>run</goal>
 						</goals>
 					</execution>
-					<execution>
-						<id>copy-armsjson</id>
-						<phase>process-resources</phase>
-						<configuration>
-							<tasks>
-								<taskdef resource="net/sf/antcontrib/antlib.xml"
-									classpathref="maven.plugin.classpath" />
-								<for list="${node.list}" param="node">
-									<sequential>
-										<echo>Processing configuration for node @{node}</echo>
-										<copy file="support/node-management/templates/arms.json"
-											tofile="${dir.home}/harvest/workflows/arms-@{node}.json"
-											filtering="true">
-											<filterset>
-												<filter token="nodeName" value="@{node}" />
-											</filterset>
-										</copy>
-									</sequential>
-								</for>
-
-							</tasks>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -565,16 +539,6 @@
 				<artifactId>gmaven-plugin</artifactId>
 				<version>1.0</version>
 				<executions>
-					<execution>
-						<id>processSystemConfig</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<source>${pom.basedir}/support/node-management/setupSystemConfig.groovy</source>
-						</configuration>
-					</execution>
 					<execution>
 						<id>generateNodeJson</id>
 						<phase>process-resources</phase>

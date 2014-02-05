@@ -1,40 +1,29 @@
 #Development server deployment
 
 * Ensure you add the IP address and hostname to /etc/hosts
+* Once httpd installed, update "ServerName" in httpd/conf/httpd.conf to your fqdn or ip address
 
 Run these:
-
-    sudo ufw allow 80
-    sudo ufw allow 443
-    sudo ufw allow 22
-    sudo ufw enable
+    sudo adduser --system -m redbox
     
-    sudo adduser --system redbox
-    
-    sudo mkdir /opt
-    sudo mkdir /opt/mint /opt/redbox /opt/deploy
-    sudo chown redbox /opt/*
+    sudo mkdir -p /opt/mint /opt/redbox /opt/deploy
+    sudo chown redbox:redbox /opt/*
     cd /home/redbox
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/setup_redbox_cron.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/start_all.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
     sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
     sudo chmod u+x *.sh
     
-    sudo chown -R redbox /home/redbox
+    sudo chown -R redbox:redbox /home/redbox
     
-    sudo apt-get install apache2 openjdk-7-jdk
-    sudo apt-get install denyhosts htop unzip
+    sudo yum install java-1.7.0-openjdk
+ 	sudo yum install httpd 
 
-	sudo mv /home/redbox/apache /etc/apache2/mods-available/redbox.conf
-    cd /etc/apache2/mods-enabled
-    sudo ln -s ../mods-available/proxy_http.load
-    sudo ln -s ../mods-available/proxy.conf 
-    sudo ln -s ../mods-available/proxy.load
-    sudo ln -s ../mods-available/redbox.conf
-    sudo apachectl restart
+	sudo mv /home/redbox/apache /etc/httpd/conf.d/25-redbox.conf
+
+	service httpd restart
 	
     cd /home/redbox
     sudo ./start_all.sh
