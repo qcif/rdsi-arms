@@ -16,7 +16,30 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
+      "heading": "Submit",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "h1",
+          "content": "arms.heading.submission"
+        },
+        {
+          "component-type": "text-block",
+          "type": "div",
+          "content": "arms.field.label.happens-next"
+        },
+        {
+          "component-type": "confirm-and-submit-button",
+          "field-name": "arms.field.label.authoritycheck",
+          "box-label": "arms.field.label.authoritycheck.yes",
+          "box-value": "yes",
+          "button-name": "submit",
+          "label": "Submit",
+          "action": "next",
+          "closeUrl": "detail",
+          "appendOID": true
+        }
+      ]
     }
   ],
   "buttons": [],
@@ -24,7 +47,7 @@
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-submitted.json"
+    "wizardDefPath": "wizard-definitions/arms-review.json"
   },
   "validation-function": {
     "component-type": "active-tab",

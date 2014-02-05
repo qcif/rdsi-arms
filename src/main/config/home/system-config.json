@@ -21,7 +21,7 @@
         "delimiter":";",
         "rolePlugins":["SimpleShibbolethRoleManager"],
         "SimpleShibbolethRoleManager":{
-            "requester":[
+            "requestor":[
                 [
                     ["eduPersonAffiliation", "is", "student"]
                 ],
@@ -64,7 +64,7 @@
         "type": "internal",
         "internal": {
             "path": "${fascinator.home}/security/roles.properties",
-            "defaultRoles":["requester"]
+            "defaultRoles":["requestor"]
         }
     },
     "storage": {
@@ -216,7 +216,7 @@
                 "librarian",
                 "reviewer",
                 "admin",
-                "requester"
+                "requestor"
             ],
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment.json"
@@ -227,7 +227,7 @@
                 "librarian",
                 "reviewer",
                 "admin",
-                "requester"
+                "requestor"
             ],
             "upload-path": "${fascinator.home}/uploads/attachments",
             "json-config": "${fascinator.home}/harvest/workflows/attachment-file.json"
@@ -326,7 +326,11 @@
             "default": {
                 "jsonconfig": "packaging-config.json",
                 "packages-in-package": false
-            }
+            },
+            "arms": {
+                "jsonconfig": "arms.json",
+                "packages-in-package": false
+            }            
         },
         "harvestFiles": "${fascinator.home}/harvest",
         "houseKeeping": {

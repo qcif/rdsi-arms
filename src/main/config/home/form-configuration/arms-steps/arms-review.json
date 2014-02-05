@@ -16,7 +16,10 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
     },
     {
-      "heading": "Submit",
+      "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
+    },
+    {
+      "heading": "Actions",
       "fields": [
         {
           "component-type": "text-block",
@@ -38,6 +41,25 @@
           "action": "next",
           "closeUrl": "detail",
           "appendOID": true
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Approve",
+              "type": "button",
+              "form-submit-action": "approve",
+              "close": true,
+              "closeUrl": "detail"
+            },
+            {
+              "name": "Reject",
+              "type": "button",
+              "form-submit-action": "reject",
+              "close": true,
+              "closeUrl": "detail"
+            }
+          ]
         }
       ]
     }
@@ -47,7 +69,7 @@
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-request.json"
+    "wizardDefPath": "wizard-definitions/arms-review.json"
   },
   "validation-function": {
     "component-type": "active-tab",

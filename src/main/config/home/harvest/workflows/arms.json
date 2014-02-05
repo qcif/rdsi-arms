@@ -8,7 +8,7 @@
             "force-storage": "true"
         }
     },
-    "workflow-id":"arms-@nodeName@",
+    "workflow-id":"arms",
     "page-title": "RDSI ARMS Request",
     "default-owner":"admin",
     "transformer": {
@@ -66,7 +66,7 @@
             "description": "The requestor is working on the request.",
             "owner_edit_allowed": "true",
             "security": ["admin"],
-            "visibility": ["reviewer-@nodeName@","admin"],
+            "visibility": ["reviewer","admin"],
             "actions": [ { "action-name" : "next",
                            "target-step" : "arms-review" }]
         },
@@ -75,8 +75,8 @@
             "label": "Review",
             "description": "The reviewer is processing the request.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@","admin"],
+            "security": ["reviewer","admin"],
+            "visibility": ["reviewer","admin"],
             "actions": [
                 {
                   "action-name": "next",
@@ -98,8 +98,8 @@
             "label": "Assessment",
             "description": "Assessors are assessing the request.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer-@nodeName@", "assessor-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@","assessor-@nodeName@","admin"],
+            "security": ["reviewer", "assessor","admin"],
+            "visibility": ["reviewer","assessor","admin"],
             "actions": [
                 {
                   "action-name": "next",
@@ -117,8 +117,8 @@
             "label": "Approved",
             "description": "The request has been approved and is awaiting provisioning.",
             "owner_edit_allowed": "false",
-            "security": ["provisioner-@nodeName@","admin"],
-            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
+            "security": ["provisioner","admin"],
+            "visibility": ["reviewer","provisioner","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-provisioned" }],
             "template": "workflows/simpleworkflow"
@@ -129,7 +129,7 @@
             "description": "The request has not been approved.",
             "owner_edit_allowed": "false",
             "security": ["admin"],
-            "visibility": ["reviewer-@nodeName@","admin"],
+            "visibility": ["reviewer","admin"],
             "template": "workflows/simpleworkflow"
         },
         {
@@ -138,7 +138,7 @@
             "description": "The request has been provisioned.",
             "owner_edit_allowed": "false",
             "security": ["admin"],
-            "visibility": ["reviewer-@nodeName@","provisioner-@nodeName@","admin"],
+            "visibility": ["reviewer","provisioner","admin"],
             "template": "workflows/simpleworkflow"
         }
     ]

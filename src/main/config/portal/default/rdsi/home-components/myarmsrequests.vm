@@ -1,5 +1,4 @@
-## make pakgeType portalId dependent
-#if ($portalId == "default") #set($packageType = "arms") #else #set($packageType = "arms-$portalId") #end
+#parseTemplate( "home-components/package-type.vm" )
 
 ## Load Velocity macro setPagingCtrl
 ## Load necessary javaScript functions for knockout to bind these tables
@@ -40,7 +39,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage("$packageType", 'arms-request'))
+#set($results = $self.getListOfStage("$packageType", 'arms-draft'))
 
 #if ($results && $results.size() > 0)
 <script>
@@ -73,7 +72,8 @@ jQuery(document).ready(function() {
             <th>#displayMessage('arms.home.requests.table.dataset')</th>
             <th>#displayMessage('arms.home.requests.table.created')</th>
             <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.manage.edit')</th>        
+            <th>#displayMessage('arms.home.requests.manage.edit')</th>
+            <th>#displayMessage('arms.home.requests.manage.delete')</th>        
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
@@ -81,7 +81,8 @@ jQuery(document).ready(function() {
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
 	    <td data-bind="text: create_timestamp"/>
 	    <td data-bind="text: last_modified"/>
-	        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
+        <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
         </tr>
     </tbody>
 </table>
@@ -95,7 +96,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getListOfStage("$packageType", 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed'))
+#set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
 #if ($results && $results.size() > 0)
 	#setMyRelatedTbl('submitted' $results)
 #end
