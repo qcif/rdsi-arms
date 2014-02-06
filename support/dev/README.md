@@ -2,31 +2,35 @@
 
 * Ensure you add the IP address and hostname to /etc/hosts
 * Once httpd installed, update "ServerName" in httpd/conf/httpd.conf to your fqdn or ip address
+* Consider also updating hostname of box (/etc/sysconfig/network and /etc/hosts)
+* currently ipaddress is used for redbox and mint environments. To not show ipaddress (if DNS setup manually) change to dns name
 
 Run these:
-    sudo adduser --system -m redbox
-    
-    sudo mkdir -p /opt/mint /opt/redbox /opt/deploy
-    sudo chown redbox:redbox /opt/*
-    cd /home/redbox
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/start_all.sh
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
-    sudo wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
-    sudo chmod u+x *.sh
-    
-    sudo chown -R redbox:redbox /home/redbox
-    
-    sudo yum install java-1.7.0-openjdk
- 	sudo yum install httpd 
 
-	sudo mv /home/redbox/apache /etc/httpd/conf.d/25-redbox.conf
+    sudo -s
+    adduser --system -m redbox
+    
+    mkdir -p /opt/mint /opt/redbox /opt/deploy
+    chown redbox:redbox /opt/*
+    cd /home/redbox
+    wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
+    wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/start_all.sh
+    wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
+    wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
+    wget https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
+    chmod u+x *.sh
+    
+    chown -R redbox:redbox /home/redbox
+    
+    yum install java-1.7.0-openjdk
+ 	yum install httpd 
+
+	mv /home/redbox/apache /etc/httpd/conf.d/25-redbox.conf
 
 	service httpd restart
 	
     cd /home/redbox
-    sudo ./start_all.sh
+    ./start_all.sh
 
     cd /opt/mint/server
     sudo -u redbox ./tf_harvest.sh ANZSRC_FOR
