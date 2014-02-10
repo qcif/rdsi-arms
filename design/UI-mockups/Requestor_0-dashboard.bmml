@@ -41,9 +41,9 @@
     </control>
     <control controlID="14" controlTypeID="com.balsamiq.mockups::Icon" x="1125" y="164" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Requestor%20-%20delete%20confirm%26bm%3BRequestor%20-%20delete%20confirm.bmml%26bm%3BRequestor%20-%20delete%20confirm.bmml%26bm%3BRequestor%20-%20delete%20confirm.bmml</href>
+        <href>Requestor_delete-confirm%26bm%3BRequestor_delete-confirm.bmml%26bm%3BRequestor_delete-confirm.bmml%26bm%3BRequestor_delete-confirm.bmml</href>
         <icon>Trash2Icon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22966%2C123%2C990%2C147%22%20href%3D%22Requestor%2520-%2520delete%2520confirm.bmml%22%20alt%3D%22Requestor%20-%20delete%20confirm%22%20id%3D%2214%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22966%2C123%2C990%2C147%22%20href%3D%22Requestor_delete-confirm.bmml%22%20alt%3D%22Requestor_delete-confirm%22%20id%3D%2214%22/%3E</map>
       </controlProperties>
     </control>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="1125" y="198" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
