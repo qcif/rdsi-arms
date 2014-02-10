@@ -1,0 +1,25 @@
+<VirtualHost <%= @server_id %>:80>
+
+       DocumentRoot  <%= @docroot %>
+       
+       ErrorLog <%= @log_dir %>/error_log
+
+       # Possible values include: debug, info, notice, warn, error, crit,
+       # alert, emerg.
+       LogLevel warn
+       
+       ProxyPassMatch /Shibboleth !
+       ProxyPass /default/sso/shibbloeth !
+	   
+       ProxyPass               /mint <%= @mint_path %>
+       ProxyPassReverse        /mint <%= @mint_path %>
+	   
+       ProxyPass               / <%= @redbox_path %>
+       ProxyPassReverse        / <%= @redbox_path %>
+
+       <Location /default/sso/shibboleth>
+          AuthType shibboleth
+          ShibRequireSession On
+          require valid-user
+       </Location>
+</VirtualHost>
