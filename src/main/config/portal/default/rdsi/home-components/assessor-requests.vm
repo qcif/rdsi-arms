@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
 	    <td data-bind="text: workflow_step_label"/>
 	    <td data-bind="text: owner"></td>
-	    <td data-bind="text: create_timestamp"></td>
+	    <td data-bind="text: date_object_created"></td>
         </tr>
     </tbody>
 </table>

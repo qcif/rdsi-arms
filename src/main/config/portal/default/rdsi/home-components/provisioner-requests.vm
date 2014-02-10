@@ -44,7 +44,7 @@ jQuery(document).ready(function() {
 	    <td data-bind="text: workflow_step_label"/>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
         <td data-bind="text: owner"></td>
-        <td data-bind="text: create_timestamp"></td>
+        <td data-bind="text: date_object_created"></td>
         </tr>
     </tbody>
 </table>
