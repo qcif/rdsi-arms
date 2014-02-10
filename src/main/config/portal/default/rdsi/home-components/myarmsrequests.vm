@@ -141,8 +141,8 @@ jQuery(document).ready(function() {
 function initDashboardRows(mod, data) {
 	for(var i=0; i < data.length; i++) {
 	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-		data[i]["create_timestamp"] = formatDate(data[i]["create_timestamp"]);
-		data[i]["last_modified"] = formatDate(data[i]["last_modified"]);
+		data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
+		data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
 		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
 		mod.rows.push(data[i]);
 	}
