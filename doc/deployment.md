@@ -1,6 +1,10 @@
 #Deployment
 
-1. Follow README.md under support/dev
+## For puppet : follow support/puppet/README for redbox and shibboleth
+ 
+ OR 
+
+1. Follow README.md under support/dev for redbox install
 
 2. For setting up AAF login:
 
@@ -33,10 +37,10 @@ c.prepare certification:
 	g.submit
 3.when waiting for response from AAF, configure shibboleth:
 	a.download AAF metadata signing certificate: wget wget https://ds.test.aaf.edu.au/distribution/metadata/aaf-metadata-cert.pem -O /etc/shibboleth/aaf-metadata-cert.pem
-	b.copy mapping file into /etc/shibboleth (note location might be wrong (smile) )
+	b.copy mapping file into /etc/shibboleth (support/shibboleth/attribute-map.xml)
 	c.edit /etc/shibboleth/shibboleth2.xml: 
 		i.replace all instances of sp.example.org with IP address or FQDN
-		ii.edit <Session> elsement: set attributes of handlerSSL="false" and cookieProps="http" in <Sessions> element. Of course, if SSL has been configured, do otherwise suggested by AAF
+		ii.edit <Sessions> element: set attributes of handlerSSL="false" and cookieProps="http" in <Sessions> element. Of course, if SSL has been configured, do otherwise suggested by AAF
 		iii.special to ReDBox: add this attributePrefix="AJP_" to  element <ApplicationDefaults>. It should look like this: <ApplicationDefaults entityID="your_entityID" REMOTE_USER="eppn persistent-id targeted-id" attributePrefix="AJP_">
 		iv. edit <MetadataProvider> element to suit test.aaf  
 		<MetadataProvider type="XML" uri="https://ds.test.aaf.edu.au/distribution/metadata/metadata.aaf.signed.complete.xml" backingFilePath="metadata.aaf.xml" reloadInterval="7200">    
@@ -47,7 +51,7 @@ c.prepare certification:
 		  - delete entityID attribute
 		  - set discoveryURL: discoveryURL="https://ds.test.aaf.edu.au/discovery/DS"
 		vi.save
-		vii. restart shibd by running: (sudo) service shibd restart
+	d. restart shibd by running: (sudo) service shibd restart
 		
 3. Set up Apache
 By default, ReDBox's sso Shibboleth uses this location: /default/sso/shibboleth. Mark it to hook up with Shibboleth: 

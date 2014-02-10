@@ -1,20 +1,34 @@
-redbox
+##redbox using puppet : serverless
+__________________________
 
-This is the redbox module.
-After installing puppet, redbox needs to be copied to the module path on the OS.
-Enter: 
-sudo -s (until we have a dedicated puppet user, run all below as su)
+rpm -ivh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
+yum install puppet
 
+##After installing puppet, redbox needs to be copied to the module path on the OS.
+##Enter: 
+sudo -s
 puppet config print modulepath 
 
-to find where to install the redbox module. Copy redbox to the module path.
-Once redbox is in the module path, to apply it:
+##to find where to install the redbox module. Copy redbox to the module path.
+##Once redbox is in the module path, to apply it:
 
-puppet apply -e "class {'redbox':}" 
+puppet module install puppetlabs/concat
+puppet module install puppetlabs/stdlib
+puppet module install puppetlabs/apache
+puppet apply -e "class {'redbox':}"
+
+## for shibboleth:
+__________________________
+cd /home/redbox
+wget --no-check-certificate https://raw.github.com/ausaccessfed/aasc/master/go-redhat
+sh go-redhat
+### sudo copy support/shibboleth/attribute-map.xml to /etc/shibboleth
+### sudo service shibd restart
+
 
 License
 -------
-
+See file, LICENCE
 
 Contact
 -------

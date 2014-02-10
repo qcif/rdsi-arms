@@ -44,9 +44,8 @@ class redbox {
     logoutput => true,
   }
  
-  host { $::hostname:
-      ip => '127.0.0.1',
-      host_aliases => ["localhost.localdomain",  "localhost"], 
+  host { $::fqdn:
+      ip => $::ipaddress,
   }
  
   add_systemuser { $variables::defaults::redbox_user: }
