@@ -42,8 +42,9 @@ var bApplyEventBindings = window.setInterval(function() {
 	}
 },500); 
 
+// Only use givenName, surname and eamil AAF user attributes
 function getUserAttributes(prefix) {
-	var attributes = ['commonName','email'];
+	var attributes = ['givenName','surname','email'];
 	jQuery.ajax({
 		dataType:"json",
 		url: "$portalPath/userinfo.ajax",
@@ -52,16 +53,11 @@ function getUserAttributes(prefix) {
 				if (attrbs.hasOwnProperty(attributes[i])) {
 					switch (attributes[i])
 					{
-						case "commonName":
-							var val = attrbs[attributes[i]];
-							var re = /\s/;
-							var nameParts = val.split(re);
-							jQuery("[id='"+prefix+":givenName']").val(nameParts[0]);
-							jQuery("[id='"+prefix+":familyName']").val(nameParts[1]);
-							break;
-						case "email":
-							jQuery("[id='"+prefix+":email']").val(attrbs[attributes[i]]);
-							break;
+                        case "surname":
+                            jQuery("[id='"+prefix+":familyName']").val(attrbs[attributes[i]]);
+                            break;
+						default:
+							jQuery("[id='"+prefix+":"+attributes[i]+"']").val(attrbs[attributes[i]]);
 					}
 				}
 			}
