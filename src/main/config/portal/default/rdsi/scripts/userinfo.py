@@ -25,13 +25,16 @@ class UserinfoData:
     Get HibernateUser user information (attributes)
     Internal user has only one attribute password which always have NULL in VALSTR
     
-    Attributes: # based on the attributes sets available on 19/12/2013 
+    Shibboleth authentication manager: for all available attributes see attribute-map.xml of the server's shibboleth configuration.
+    Some possible attributes:   
     {
       "commonName": "FirstName LastName", # depends on AAF IdP
       "eduPersonAffiliation": "StaffVisitor - Internal;", # depends on AAF IdP
       "Shib-Session-ID": "token_string",
       "email": "someone@some.edu.au",
-      "Shib-Identity-Provider": "urn:mace:federation.org.au:testfed:au-idp.some.edu.au"
+      "Shib-Identity-Provider": "urn:mace:federation.org.au:testfed:au-idp.some.edu.au",
+      "givenName": "single free string", # Optional attribute
+      "surname": "single free string" # Optional attribute
     }
     """
     def __init__(self):
@@ -47,9 +50,9 @@ class UserinfoData:
         try:
             result = self.__constructInfoJson(username)
         except Exception, e:
-             self.log.error("%s: error occured, detail = %s" % (self.__class__.__name__ , str(e)))
+             self.log.error("%s: cannot get user attributes, detail = %s" % (self.__class__.__name__ , str(e)))
              result = JsonObject()
-             result.put("commonName", auth.get_name()) # default value, user friendly display name
+             result.put("realName", auth.get_name()) # default value: user's realName
              
         self.__respond(context["response"], result)    
 
@@ -57,7 +60,7 @@ class UserinfoData:
         """
             There are users managed by internal auth manager with no attributes
             There are users managed by external auth managers e.g. shibboleth who have attributes
-            Here we assume we are dealing external auth managers providing attribute commonName which is displayed in portal from 
+            We put all available attributes of a user in to return value 
         """
         # print "Query username = %s" % username
         username = username.strip()
@@ -83,7 +86,7 @@ class UserinfoData:
                 self.log.warn("Wrong username? Every user should have a record")
                 userJson.put("userName", username) 
         except Exception, e:
-            self.log.error("%s: error occurred, detail = %s" % (self.__class__.__name__ , str(e)))
+            self.log.error("%s: cannot construct user attribute JSON, detail = %s" % (self.__class__.__name__ , str(e)))
             userJson.put("userName", username)
         return userJson
 
