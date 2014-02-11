@@ -42,30 +42,6 @@ var bApplyEventBindings = window.setInterval(function() {
 	}
 },500); 
 
-// Only use givenName, surname and eamil AAF user attributes
-function getUserAttributes(prefix) {
-	var attributes = ['givenName','surname','email'];
-	jQuery.ajax({
-		dataType:"json",
-		url: "$portalPath/userinfo.ajax",
-		success: function(attrbs) {
-			for (var i = 0; i < attributes.length; i++)	{
-				if (attrbs.hasOwnProperty(attributes[i])) {
-					switch (attributes[i])
-					{
-                        case "surname":
-                            jQuery("[id='"+prefix+":familyName']").val(attrbs[attributes[i]]);
-                            break;
-						default:
-							jQuery("[id='"+prefix+":"+attributes[i]+"']").val(attrbs[attributes[i]]);
-					}
-				}
-			}
-		},
-		error: function (req ) { alert("Attention is needed:\n" + req.responseText) }
-	});
-}
-
 $(document).ready(function() {
 	$(".arms-accordion-group").accordion({
 	        autoHeight:true,
@@ -75,17 +51,6 @@ $(document).ready(function() {
 	        header:".inline-block-component"
 	});
 	
-	// Use AAF info
-	jQuery("[id='dataprovider:useAAFDetials']").click(function() {
-		getUserAttributes('dataprovider');
-	});
-	jQuery("[id='requester:useAAFDetials']").click(function() {
-		getUserAttributes('requester');
-	});
-	jQuery("[id='nodecontact:useAAFDetials']").click(function() {
-		getUserAttributes('nodecontact');
-	});
-
 	// Copy Custodian information
 	jQuery("[id='requester:useCustodianDetials']").click(function() {
 		copyCustodianToManager('requester');

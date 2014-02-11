@@ -17,12 +17,6 @@
           "content": "arms.field.label.dataprovider",
           "additional-class": "section-heading",
           "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "dataprovider:useAAFDetials",
-          "label": "Use my login details",
-          "wrapper-class": "inline-block-component"
         }
       ]
     },
@@ -166,12 +160,6 @@
         },
         {
           "component-type": "standard-button",
-          "button-name": "requester:useAAFDetials",
-          "label": "Use my login details",
-          "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "standard-button",
           "button-name": "requester:useCustodianDetials",
           "label": "Click here to copy the Data custodian details",
           "wrapper-class": "inline-block-component"
@@ -282,12 +270,6 @@
           "type": "h4",
           "content": "arms.field.label.nodecontact",
           "additional-class": "section-heading",
-          "wrapper-class": "inline-block-component"
-        },
-        {
-          "component-type": "standard-button",
-          "button-name": "nodecontact:useAAFDetials",
-          "label": "Use my login details",
           "wrapper-class": "inline-block-component"
         },
         {
