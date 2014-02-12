@@ -25,8 +25,8 @@ from Dashboard import Dashboard
 class RecordsData(Dashboard):
     """
         Used in AJAX call to get paged search results of ARMS records
-        It returns results of three types of search:
-        submitted, shared and default: draft 
+        It returns results of predefined types of search:
+        submitted, shared and etc. Default: draft 
     """
     
     def __init__(self):
@@ -41,6 +41,9 @@ class RecordsData(Dashboard):
         if not packageType:
             packageType = "arms"
         searchType = formData.get("searchType")
+        # Default searchType is for requestor's drafts
+        if searchType not in ["shared","submitted","provisioner","reviewer","assessor","adminProvisions","adminHoldings","requestor"]:
+             searchType = "requestor"
         pageNum = formData.get("pageNum")
         if pageNum:
             pageNum = int(pageNum)
@@ -50,19 +53,19 @@ class RecordsData(Dashboard):
         if searchType == "shared":
             results = self.getShared(pageNum)
         elif searchType == "submitted":
-            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed', pageNum)
+            results = self.getListOfStage(packageType, 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected', pageNum)
         elif searchType == "provisioner":
-            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning,arms-completed', pageNum)
+            results = self.getListOfStage(packageType, 'arms-approved,arms-provisioned', pageNum)
         elif searchType == "reviewer":
-            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee', pageNum)
-        elif searchType == "committee":
-            results = self.getListOfStage(packageType, 'arms-allocation-committee', pageNum)
+            results = self.getListOfStage(packageType, 'arms-review,arms-assessment', pageNum)
+        elif searchType == "assessor":
+            results = self.getListOfStage(packageType, 'arms-assessment', pageNum)
         elif searchType == "adminProvisions":
-            results = self.getListOfStage(packageType, 'arms-submitted,arms-allocation-committee,arms-provisioning', pageNum)
+            results = self.getListOfStage(packageType, 'arms-review,arms-assessment,arms-approved', pageNum)
         elif searchType == "adminHoldings":
-            results = self.getListOfStage(packageType, 'arms-completed,arms-retired', pageNum)
-        else:
-            results = self.getListOfStage(packageType, 'arms-request', pageNum)
+            results = self.getListOfStage(packageType, 'arms-provisioned,arms-rejected', pageNum)
+        elif searchType == "requestor":
+            results = self.getListOfStage(packageType, 'arms-draft', pageNum)
         
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)
