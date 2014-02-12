@@ -1,0 +1,47 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="752" measuredH="294" mockupW="731" mockupH="275">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::StickyNote" x="63" y="84" w="251" h="210" measuredW="109" measuredH="123" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>After%20login%2C%20the%20user%20sees%20different%20dashboards%20depending%20on%20their%20role.%20Possibly%20multiple%20dashboards%20if%20they%20are%20in%20multiple%20roles.%0A%20%0AAlt-Click%20%28option-click%29%20on%20one%20of%20the%20arrows%20on%20the%20right%20to%20see%20that%20particular%20role%27s%20dashboard.%0A%20%0AUse%20the%20%22logout%22%20link%20in%20the%20dashboards%20to%20return%20to%20this%20page.</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="462" y="100" w="-1" h="-1" measuredW="290" measuredH="26" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C81%2C731%2C107%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%221%22/%3E</map>
+        <size>18</size>
+        <text>Requestor/researcher%20dashboard%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="21" y="19" w="-1" h="-1" measuredW="287" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ARMS%20mockups</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="462" y="151" w="-1" h="-1" measuredW="184" measuredH="26" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-reviewer%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C132%2C625%2C158%22%20href%3D%22Dashboard-reviewer.bmml%22%20alt%3D%22Dashboard-reviewer%22%20id%3D%223%22/%3E</map>
+        <size>18</size>
+        <text>Reviewer%20dashboard%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="462" y="202" w="-1" h="-1" measuredW="185" measuredH="26" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-assessor%26bm%3BDashboard-assessor.bmml%26bm%3BDashboard-assessor.bmml%26bm%3BDashboard-assessor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C183%2C626%2C209%22%20href%3D%22Dashboard-assessor.bmml%22%20alt%3D%22Dashboard-assessor%22%20id%3D%224%22/%3E</map>
+        <size>18</size>
+        <text>Assessor%20dashboard%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="462" y="258" w="-1" h="-1" measuredW="199" measuredH="26" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-provisioner%26bm%3BDashboard-provisioner.bmml%26bm%3BDashboard-provisioner.bmml%26bm%3BDashboard-provisioner.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C239%2C640%2C265%22%20href%3D%22Dashboard-provisioner.bmml%22%20alt%3D%22Dashboard-provisioner%22%20id%3D%225%22/%3E</map>
+        <size>18</size>
+        <text>Provisioner%20dashboard%20%20%20</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
