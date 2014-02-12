@@ -12,7 +12,7 @@ Contents
 - ARMS 1b Form requirements.pdf
     - Request form as specified by RDSI.
 
-- UI Mockups v1
+- UI Mockups
     - User interface mockups.
 
 - Assets
