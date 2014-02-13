@@ -5,25 +5,23 @@
 #set($results = $self.getListOfStage("$packageType", 'arms-approved'))
 #if ($results && $results.size() > 0)
 
-## load Velocity macro setPagingCtrl
+## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
 <script>
-// Prepare data from server to be bound to knockout tables
-// Reconstrcut hrefs
-function initDashboardRows(mod, data) {
-	for(var i=0; i < data.length; i++) {
-	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
-		mod.rows.push(data[i]);
-	}
+var myRecords = new DataRowsModel('provisioner');
+myRecords.prepareData = function(data) {
+ for(var i=0; i < data.length; i++) {
+     data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+     data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
+     data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
+     this.rows.push(data[i]);
+ }
 }
 
-var myRecords = new dataRowsModel('provisioner');
 jQuery(document).ready(function() { 
-	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
-	setupPagingCtrls('myRecordsPaging', myRecords);
-	initDashboardRows(myRecords, $results);
+ ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
+ setupPagingCtrls('myRecordsPaging', myRecords, $results);
 });
 </script>
 
