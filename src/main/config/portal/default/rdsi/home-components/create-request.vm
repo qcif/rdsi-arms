@@ -1,10 +1,8 @@
-<div class="grid_3">
-    <ul class="menu-btn">
+    <ul class="menu-btn" style="text-align: right">
         <li>
            <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.home.menu.newarmssubmission")'></input>
         </li>
     </ul>
-</div>
 ## set $packageType
 #parseTemplate( "home-components/package-type.vm" )
 #if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
