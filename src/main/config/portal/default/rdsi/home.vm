@@ -1,7 +1,19 @@
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
-  <span>#displayMessage("arms.home.title", "$portalId")</span>
+  <span>
+#if ($page.authentication.has_role("assessor") || $page.authentication.has_role("assessor-$portalId"))
+    #displayMessage("arms.dashboard.assessor.title", "$portalId")
+#elseif ($page.authentication.has_role("requestor"))
+    #displayMessage("arms.dashboard.requestor.title", "$portalId")
+#elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
+    #displayMessage("arms.dashboard.reviewer.title", "$portalId")
+#elseif ($page.authentication.has_role("provisioner") || $page.authentication.has_role("provisioner-$portalId"))
+    #displayMessage("arms.dashboard.provisioner.title", "$portalId")
+#else
+    #displayMessage("arms.home.title", "$portalId")    
+#end
+  </span>
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")
@@ -10,8 +22,6 @@
 ## assessor does not have privilege to create record but sits above reqestor on the manually set order, so it has to be stopped
 #if ($page.authentication.has_role("admin"))
   #parseTemplate("menus/home-admin-menu.vm")
-#elseif ($page.authentication.has_role("requestor") && !$page.authentication.has_role("assessor"))
-  #parseTemplate("menus/home-main-menu.vm")
 #end
 
 ## reviewer and provisioner have the same home page
@@ -21,7 +31,7 @@
 #elseif ($page.authentication.has_role("assessor") || $page.authentication.has_role("assessor-$portalId"))
     #parseTemplate("home-components/assessor-requests.vm")
 #elseif ($page.authentication.has_role("requestor"))
-    #parseTemplate("home-components/myarmsrequests.vm")
+    #parseTemplate("home-components/requestor-requests.vm")
 #elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
     #parseTemplate("home-components/reviewer-requests.vm")
 #elseif ($page.authentication.has_role("provisioner") || $page.authentication.has_role("provisioner-$portalId"))
