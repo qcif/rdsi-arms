@@ -1,38 +1,25 @@
-## Load Velocity macro setPagingCtrl
-## Load necessary javaScript functions for knockout to bind these tables
+#parseTemplate( "home-components/package-type.vm" )
+
+## load pagination controls lazily
 #parseTemplate("home-components/pagingControl.vm")
 
 #set($menuTitle = "#displayMessage('arms.home.admin-dashboard.pending.title')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#parseTemplate( "home-components/package-type.vm" )
-
 #set($results = $self.getListOfStage("$packageType",'arms-review,arms-assessment,arms-approved'))
 #if ($results && $results.size() > 0)
 <script>
-function adminProvisionsRowsModel(iniData) {
-	var self = this
-	self.rows = ko.observableArray([]);
-	self.loadData = function initHoldingsRows(data) {
-		for(var i=0; i < data.length; i++) {
-		    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-			self.rows.push(data[i]);
-		}
-	};
-	self.loadData(iniData);
-	self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType=adminProvisions&pageNum='+pageN, function(data) {
-			self.loadData(data); 
-		});
-	};
+var adminProvisions = new DataRowsModel('adminProvisions');
+adminProvisions.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
+        this.rows.push(data[i]);
+    }
 }
-
-var adminProvisions = new adminProvisionsRowsModel($results);
 jQuery(document).ready(function() { 
-	ko.applyBindings(adminProvisions, jQuery('#adminProvisionsTbl')[0]);
-	setupPagingCtrls('adminProvisionsPaging', adminProvisions);
+    ko.applyBindings(adminProvisions, jQuery('#adminProvisionsTbl')[0]);
+    setupPagingCtrls('adminProvisionsPaging', adminProvisions, $results);
 });
 </script>
 <div class="block">
@@ -66,31 +53,18 @@ jQuery(document).ready(function() {
 #set($results = $self.getListOfStage("$packageType", 'arms-provisioned,arms-rejected'))
 #if ($results && $results.size() > 0)
 <script>
-function adminHoldingsRowsModel(iniData) {
-	var self = this
-	self.rows = ko.observableArray([]);
-	self.loadData = function initHoldingsRows(data) {
-		for(var i=0; i < data.length; i++) {
-		    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-			self.rows.push(data[i]);
-		}
-	};
-	self.loadData(iniData);
-	self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType=adminHoldings&pageNum='+pageN, function(data) {
-			self.loadData(data); 
-		});
-	};
+var adminHoldings = new DataRowsModel('adminHoldings');
+adminHoldings.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["dataproviderEmail"] = data[i]["dataprovider:email"]
+        this.rows.push(data[i]);
+    }
 }
-
-var adminHoldings = new adminHoldingsRowsModel($results);
 jQuery(document).ready(function() { 
-	ko.applyBindings(adminHoldings, jQuery('#adminHoldingsTbl')[0]);
-	setupPagingCtrls('adminHoldingsPaging', adminHoldings);
+    ko.applyBindings(adminHoldings, jQuery('#adminHoldingsTbl')[0]);
+    setupPagingCtrls('adminHoldingsPaging', adminHoldings, $results);
 });
-	
 </script>
 
 <div class="block">
@@ -104,7 +78,7 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-	    <td data-bind="text: dataprovider:email"/>
+	    <td data-bind="text: dataproviderEmail"/>
         </tr>
     </tbody>
 </table>

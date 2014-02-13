@@ -5,24 +5,22 @@
 #set($results = $self.getListOfStage("$packageType", 'arms-assessment'))
 #if ($results && $results.size() > 0)
 
-## load Velocity macro setPagingCtrl
+## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
 <script>
-// Prepare data from server to be bound to knockout tables
-// Reconstrcut hrefs
-function initDashboardRows(mod, data) {
-	for(var i=0; i < data.length; i++) {
-	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-		mod.rows.push(data[i]);
-	}
+var myRecords = new DataRowsModel('assessor');
+myRecords.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
+        this.rows.push(data[i]);
+    }
 }
 
-var myRecords = new dataRowsModel('assessor');
 jQuery(document).ready(function() { 
 	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
-	setupPagingCtrls('myRecordsPaging', myRecords);
-	initDashboardRows(myRecords, $results);
+	setupPagingCtrls('myRecordsPaging', myRecords, $results);
 });
 </script>
 
@@ -47,7 +45,6 @@ jQuery(document).ready(function() {
 </table>
 #setPagingCtrl("myRecordsPaging")
 </div>
-
 
 #end
 #parseTemplate("wrapping/info-box-close.vm")

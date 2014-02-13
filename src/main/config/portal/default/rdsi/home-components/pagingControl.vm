@@ -1,4 +1,6 @@
-## Set up a pagination control with a given ID when there is a need
+## Set up a pagination control with a given ID when there is a need: there are results to be shown
+## When there are more than one set of results, this is loaded by default no matter the number of results
+
 ## Reference search-paging.vm from fascinator
 ##
 ## $pagingCtrlID : the CSS ID for control's div
@@ -21,30 +23,36 @@
 #end
 
 <script>
-function setupPagingCtrls(ctrlID, modelInst) {
-	$("#"+ ctrlID +" a").click(function() {
-	    $("#"+ ctrlID +" .selected-page").addClass("select-page").removeClass("selected-page").attr("href","#");
-  		$(this).removeClass("select-page").addClass("selected-page").removeAttr("href");
-		var pN = $(this).attr("rel");
-  		modelInst.reloadRecords(pN);
+function setupPagingCtrls(ctrlID, modelInst, initData) {
+    $("#"+ ctrlID +" a").click(function() {
+        $("#"+ ctrlID +" .selected-page").addClass("select-page").removeClass("selected-page").attr("href","#");
+        $(this).removeClass("select-page").addClass("selected-page").removeAttr("href");
+        var pN = $(this).attr("rel");
+        modelInst.reloadRecords(pN);
         return false;
     });
+    if (initData) {    modelInst.prepareData(initData); }
 }
 
-## $packageType is set in "home-components/package-type.vm" which is called in every request list vm in this directory 
-
-//only has data and reload function
-function dataRowsModel(searchType) {
-	var self = this
-	self.rows = ko.observableArray([]);
-
-	self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType='+searchType+'&pageNum='+pageN, function(data) {
-			initDashboardRows(self, data); //It resides each individual vm
-		});
-	};
+## $packageType is set in "home-components/package-type.vm" which is loaded in every request list vm in this directory
+// Model used by knock-out binding
+function DataRowsModel(searchType, preparer) {
+    var self = this
+    self.rows = ko.observableArray([]);
+    //As models are different, here self.prepareData is just a place holder 
+    //It should be passed in as the argument of preparer or directly defined after a model instance is created in a vm
+    self.prepareData = preparer ? preparer : null;
+    self.reloadRecords = function(pageN) {
+        self.rows.removeAll();
+        if (pageN == null) { pageN = 1; }
+        jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType='+searchType+'&pageNum='+pageN, function(data) {
+         if (self.prepareData) {
+             self.prepareData(data); 
+         } else {
+             alert("Bad implementation: Currrent modal does not have function prepareData defined.");
+         }
+        });
+    };
 }
 
 function zeroFill( number, width )

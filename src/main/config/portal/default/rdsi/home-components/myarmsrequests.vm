@@ -1,17 +1,25 @@
 #parseTemplate( "home-components/package-type.vm" )
 
-## Load Velocity macro setPagingCtrl
-## Load necessary javaScript functions for knockout to bind these tables
+## load pagination controls lazily
 #parseTemplate("home-components/pagingControl.vm")
+
 ## Create a macro for creating tables which list recored submitted by user or shared with user
 #macro(setMyRelatedTbl $prefix $results) 
 <script>
-var ${prefix}Results = new dataRowsModel('${prefix}');
+var ${prefix}Results = new DataRowsModel('${prefix}');
+${prefix}Results.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
+        data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
 
 jQuery(document).ready(function() { 
-	ko.applyBindings(${prefix}Results, jQuery('#${prefix}ResultsTbl')[0]);
-	setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results);
-	initDashboardRows(${prefix}Results, $results);
+    ko.applyBindings(${prefix}Results, jQuery('#${prefix}ResultsTbl')[0]);
+    setupPagingCtrls('${prefix}RecordPaging', ${prefix}Results, $results);
 });
 </script>
 
@@ -43,27 +51,24 @@ jQuery(document).ready(function() {
 
 #if ($results && $results.size() > 0)
 <script>
-var myRecords = new myRecordsModel();
-
-function myRecordsModel() {
-    var self = this;
-    self.rows = ko.observableArray([]);
-    self.manageAccess = function(item) { manage_access(item.id); };
-    self.changeOwner = function(item) { change_owner(item.id); };
-    self.reloadRecords = function(pageN) {
-		self.rows.removeAll();
-		if (pageN == null) { pageN = 1; }
-		jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&pageNum='+pageN, function(data) {
-			initDashboardRows(self, data);
-   		});
-    };
+var myRecords = new DataRowsModel("requestor");
+myRecords.manageAccess = function(item) { manage_access(item.id); };
+myRecords.changeOwner = function(item) { change_owner(item.id); };
+myRecords.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
+        data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
 }
 
 jQuery(document).ready(function() { 
-	ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
-	setupPagingCtrls('myRecordsPaging', myRecords);
-	initDashboardRows(myRecords, $results);
+    ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
+    setupPagingCtrls('myRecordsPaging', myRecords, $results);
 });
+
 </script>
 
 <table id="myRecordsTbl" data-bind="stopBindings: true">
@@ -132,20 +137,5 @@ jQuery(document).ready(function() {
  $(document).ready(function() {
 	prepareHelps();
  });
-
-// Prepare data from server to be bound to knockout tables
-// Reconstrcut href for editing editUrl (only used in myRecordsModel)
-// Reformat datestamp
-// Reconstruct the href of detail page
-// Pass on the rest of data untouched.
-function initDashboardRows(mod, data) {
-	for(var i=0; i < data.length; i++) {
-	    data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-		data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
-		data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
-		data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
-		mod.rows.push(data[i]);
-	}
-}
 
 </script>
