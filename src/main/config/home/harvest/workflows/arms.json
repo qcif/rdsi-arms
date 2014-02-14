@@ -72,7 +72,7 @@
         },
         {
             "name": "arms-review",
-            "label": "Review",
+            "label": "Being reviewed",
             "description": "The reviewer is processing the request.",
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
@@ -95,7 +95,7 @@
         },
         {
             "name": "arms-assessment",
-            "label": "Assessment",
+            "label": "Being reviewed",
             "description": "Assessors are assessing the request.",
             "owner_edit_allowed": "false",
             "security": ["reviewer", "assessor","admin"],
@@ -114,7 +114,7 @@
         },
         {
             "name": "arms-approved",
-            "label": "Approved",
+            "label": "Being provisioned",
             "description": "The request has been approved and is awaiting provisioning.",
             "owner_edit_allowed": "false",
             "security": ["provisioner","admin"],
@@ -125,7 +125,7 @@
         },
         {
             "name": "arms-rejected",
-            "label": "Rejected",
+            "label": "Not approved",
             "description": "The request has not been approved.",
             "owner_edit_allowed": "false",
             "security": ["admin"],
@@ -134,7 +134,7 @@
         },
         {
             "name": "arms-provisioned",
-            "label": "Provisioned",
+            "label": "Ready for use",
             "description": "The request has been provisioned.",
             "owner_edit_allowed": "false",
             "security": ["admin"],
