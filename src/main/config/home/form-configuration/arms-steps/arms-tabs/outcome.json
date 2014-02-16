@@ -1,0 +1,102 @@
+{
+  "heading": "Outcome",
+  "fields": [
+     {
+      "component-type": "radio-button2",
+      "field-name": "outcome-decision",
+      "button-for": "arms.outcome.subsectionA.label",
+      "buttons": [
+        {
+          "label": "arms.outcome.subsectionA.listA",
+          "value": "arms.outcome.subsectionA.listA"
+        },
+        {
+          "label": "arms.outcome.subsectionA.listB",
+          "value": "arms.outcome.subsectionA.listB",
+          "checked": true
+        },
+        {
+          "label": "arms.outcome.subsectionA.listC",
+          "value": "arms.outcome.subsectionA.listC"
+        },
+        {
+          "label": "arms.outcome.subsectionA.listD",
+          "value": "arms.outcome.subsectionA.listD"
+        }
+      ]
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "outcome-allocation-id",
+      "label": "arms.outcome.subsectionB.label"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "assessor-comments",
+      "label": "arms.outcome.subsectionC.label"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "assessor-comments",
+      "label": "arms.outcome.subsectionD.label"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close0",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "confirm-and-submit-button",
+          "field-name": "arms.field.label.authoritycheck",
+          "box-label": "arms.field.label.authoritycheck.yes",
+          "box-value": "yes",
+          "button-name": "submit",
+          "label": "Submit",
+          "action": "next",
+          "closeUrl": "detail",
+          "appendOID": true
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Approve",
+              "type": "button",
+              "form-submit-action": "approve",
+              "close": true,
+              "closeUrl": "detail"
+            },
+            {
+              "name": "Reject",
+              "type": "button",
+              "form-submit-action": "reject",
+              "close": true,
+              "closeUrl": "detail"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

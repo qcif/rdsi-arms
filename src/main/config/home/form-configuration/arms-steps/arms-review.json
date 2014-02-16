@@ -16,53 +16,20 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/storage-requirements.json"
     },
     {
+      "config-file": "form-configuration/arms-steps/arms-tabs/declarations.json"
+    },
+    {
       "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
     },
     {
-      "heading": "Actions",
-      "fields": [
-        {
-          "component-type": "text-block",
-          "type": "h1",
-          "content": "arms.heading.submission"
-        },
-        {
-          "component-type": "text-block",
-          "type": "div",
-          "content": "arms.field.label.happens-next"
-        },
-        {
-          "component-type": "confirm-and-submit-button",
-          "field-name": "arms.field.label.authoritycheck",
-          "box-label": "arms.field.label.authoritycheck.yes",
-          "box-value": "yes",
-          "button-name": "submit",
-          "label": "Submit",
-          "action": "next",
-          "closeUrl": "detail",
-          "appendOID": true
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Approve",
-              "type": "button",
-              "form-submit-action": "approve",
-              "close": true,
-              "closeUrl": "detail"
-            },
-            {
-              "name": "Reject",
-              "type": "button",
-              "form-submit-action": "reject",
-              "close": true,
-              "closeUrl": "detail"
-            }
-          ]
-        }
-      ]
-    }
+      "config-file": "form-configuration/arms-steps/arms-tabs/assessment.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
+    },
   ],
   "buttons": [],
   "form-footer": "armsform-footer",

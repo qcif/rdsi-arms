@@ -1,0 +1,71 @@
+# == Class: shibboleth
+#
+# Full description of class shibboleth here.
+#
+# === Parameters
+#
+# Document parameters here.
+#
+# [*sample_parameter*]
+#   Explanation of what this parameter affects and what it defaults to.
+#   e.g. "Specify one or more upstream ntp servers as an array."
+#
+# === Variables
+#
+# Here you should define a list of variables that this module would require.
+#
+# [*sample_variable*]
+#   Explanation of how this variable affects the funtion of this class and if
+#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
+#   External Node Classifier as a comma separated list of hostnames." (Note,
+#   global variables should be avoided in favor of class parameters as
+#   of Puppet 2.6.)
+#
+# === Examples
+#
+#  class { shibboleth:
+#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#  }
+#
+# === Authors
+#
+# Matt Mulholland <matt@redboxresearchdata.com.au>
+#
+# === Copyright
+#
+# Copyright (C) 2011-2012 Queensland Cyber Infrastructure Foundation (http://www.qcif.edu.au/)
+#
+class shibboleth {
+
+  Exec { 
+    path => $variables::defaults::exec_path, 
+    logoutput => true,
+  }
+ 
+  host { $::fqdn:
+      ip => $::ipaddress,
+  }
+ 
+  add_systemuser { $variables::defaults::redbox_user: }
+  -> 
+  add_directory { $variables::defaults::directories: 
+    owner =>  $variables::defaults::redbox_user,
+  } 
+  ->
+  add_static_file { $variables::defaults::static_files:
+    owner  		 => $variables::defaults::redbox_user,
+    source 		 => "https://raw.github.com/qcif/rdsi-arms/master/support/dev",
+  	destination => "/home/redbox",
+  }
+  ->
+  class { 'add_all_packages':
+    package_type => $variables::defaults::package_type 
+  }
+  ->
+  add_static_file { 'go-redhat':
+    owner  		 => 'root',
+    source 		 => "https://raw.github.com/qcif/rdsi-arms/master/support/dev/$static_file",
+  	destination => "/home/redbox/$static_file",
+  }
+}
+
