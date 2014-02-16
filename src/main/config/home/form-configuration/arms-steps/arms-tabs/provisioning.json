@@ -4,17 +4,17 @@
     {
       "component-type": "text-input",
       "field-name": "provisioning-reference",
-      "label": "arms.assessment.subsectionA.label"
+      "label": "arms.provisioning.subsectionA.label"
     },
     {
       "component-type": "text-block",
       "type": "p",
-      "content": "arms.assessment.subsectionB.label"
+      "content": "arms.provisioning.subsectionB.label"
     },
      {
       "component-type": "textarea",
       "field-name": "provisioning-notes",
-      "label": "arms.assessment.subsectionC.label"
+      "label": "arms.provisioning.subsectionC.label"
     },
     {
       "component-type": "group",
