@@ -1,0 +1,34 @@
+{
+  "heading": "Declarations",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.submission"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.declarations"
+    },
+    {
+      "component-type": "request-submit-btn"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+          "button-name": "save-close-request",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        }
+      ]
+    }
+  ]
+}
