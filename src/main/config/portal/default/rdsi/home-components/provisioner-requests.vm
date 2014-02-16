@@ -1,16 +1,15 @@
 #parseTemplate( "home-components/package-type.vm" )
+## load pagination controls lazily
+#parseTemplate("home-components/pagingControl.vm")
 
-#set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
+#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
 #parseTemplate("wrapping/info-box-open.vm")
 #set($results = $self.getListOfStage("$packageType", 'arms-approved'))
 #if ($results && $results.size() > 0)
 
-## load pagination controls
-#parseTemplate("home-components/pagingControl.vm")
-
 <script>
-var myRecords = new DataRowsModel('provisioner');
-myRecords.prepareData = function(data) {
+var approvedRcds = new DataRowsModel('approved');
+approvedRcds.prepareData = function(data) {
  for(var i=0; i < data.length; i++) {
      data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
      data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
@@ -20,33 +19,73 @@ myRecords.prepareData = function(data) {
 }
 
 jQuery(document).ready(function() { 
- ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
- setupPagingCtrls('myRecordsPaging', myRecords, $results);
+ ko.applyBindings(approvedRcds, jQuery('#approvedRcdsTbl')[0]);
+ setupPagingCtrls('approvedRcdsPaging', approvedRcds, $results);
 });
 </script>
 
 <div class="block">
-<table id="myRecordsTbl" data-bind="stopBindings: true">
+<table id="approvedRcdsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
-            <th>#displayMessage('arms.home.requests.table.collection.title')</th>
-            <th>#displayMessage('arms.home.requests.table.status')</th>
-            <th>#displayMessage('arms.home.requests.table.manage')</th>
-             <th>#displayMessage('arms.home.requests.table.owner')</th>
-             <th>#displayMessage('arms.home.requests.table.created')</th>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.approved')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-	    <td data-bind="text: workflow_step_label"/>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
-        <td data-bind="text: owner"></td>
-        <td data-bind="text: date_object_created"></td>
+        <td data-bind="text: 'Approved date:coming'"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("myRecordsPaging")
+#setPagingCtrl("approvedRcdsPaging")
+</div>
+#end
+#parseTemplate("wrapping/info-box-close.vm")
+
+#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
+#parseTemplate("wrapping/info-box-open.vm")
+#set($results = $self.getListOfStage("$packageType", 'arms-provisioned'))
+#if ($results && $results.size() > 0)
+
+<script>
+var provisionedRcds = new DataRowsModel('provisioned');
+provisionedRcds.prepareData = function(data) {
+ for(var i=0; i < data.length; i++) {
+     data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+     data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
+     data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
+     this.rows.push(data[i]);
+ }
+}
+
+jQuery(document).ready(function() { 
+ ko.applyBindings(provisionedRcds, jQuery('#provisionedRcdsTbl')[0]);
+ setupPagingCtrls('provisionedRcdsPaging', provisionedRcds, $results);
+});
+</script>
+
+<div class="block">
+<table id="provisionedRcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.approved')</th>
+            <th>#displayMessage('arms.requests.table.provisioned')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: 'Approved date:coming'"></td>
+        <td data-bind="text: 'Provisioned date:coming'"></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("provisionedRcdsPaging")
 </div>
 #end
 #parseTemplate("wrapping/info-box-close.vm")

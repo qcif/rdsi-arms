@@ -1,6 +1,6 @@
 #parseTemplate( "home-components/package-type.vm" )
 
-#set($menuTitle = "#displayMessage('arms.home.reviewer-dashboard.pending.title')")
+#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
 #set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment'))
@@ -29,18 +29,20 @@ jQuery(document).ready(function() {
 <table id="myRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
-            <th>#displayMessage('arms.home.requests.table.collection.title')</th>
-            <th>#displayMessage('arms.home.requests.table.status')</th>
-            <th>#displayMessage('arms.home.requests.table.manage')</th>
-            <th>#displayMessage('arms.home.requests.table.owner')</th>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.lastaction')</th>
+            <th>#displayMessage('arms.requests.table.lastdate')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-	    <td data-bind="text: workflow_step_label"/>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
-        <td data-bind="text: owner"></td>
+	    <td data-bind="text: 'submitted date: coming'"/>
+        <td data-bind="text: 'translated stage: coming'"></td>
+        <td data-bind="text: 'date: coming'"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
 </table>
@@ -49,3 +51,14 @@ jQuery(document).ready(function() {
 </div>
 #end
 #parseTemplate("wrapping/info-box-close.vm")
+
+#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.assessment')")
+#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.approved')")
+#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
+#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
+#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.rejected') -- advanced workflow")
+#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")

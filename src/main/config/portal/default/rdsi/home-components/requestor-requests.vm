@@ -10,9 +10,6 @@ var ${prefix}Results = new DataRowsModel('${prefix}');
 ${prefix}Results.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
-        data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
         this.rows.push(data[i]);
     }
 }
@@ -26,17 +23,15 @@ jQuery(document).ready(function() {
 <table id="${prefix}ResultsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
-            <th>#displayMessage('arms.home.requests.table.dataset')</th>
-            <th>#displayMessage('arms.home.requests.table.created')</th>
-            <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.table.status')</th>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.date')</th>
+            <th>#displayMessage('arms.requests.table.status')</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
+	    <td data-bind="text: 'Staged date:coming'"/>
 	    <td data-bind="text: workflow_step_label"/>
         </tr>
     </tbody>
@@ -44,7 +39,7 @@ jQuery(document).ready(function() {
 #setPagingCtrl("${prefix}RecordPaging")
 #end
 
-#set($menuTitle = "#displayMessage('arms.home.myarmsrequests.title')")
+#set($menuTitle = "#displayMessage('arms.dashboard.requestor.draft')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
 #set($results = $self.getListOfStage("$packageType", 'arms-draft'))
@@ -57,8 +52,6 @@ myRecords.changeOwner = function(item) { change_owner(item.id); };
 myRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["create_timestamp"] = formatDate(data[i]["date_object_created"]);
-        data[i]["last_modified"] = formatDate(data[i]["date_object_modified"]);
         data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
         this.rows.push(data[i]);
     }
@@ -74,19 +67,15 @@ jQuery(document).ready(function() {
 <table id="myRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
-            <th>#displayMessage('arms.home.requests.table.dataset')</th>
-            <th>#displayMessage('arms.home.requests.table.created')</th>
-            <th>#displayMessage('arms.home.requests.table.modified')</th>
-            <th>#displayMessage('arms.home.requests.manage.edit')</th>
-            <th>#displayMessage('arms.home.requests.manage.delete')</th>        
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.action.edit')</th>
+            <th>#displayMessage('arms.requests.action.delete')</th>        
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
 	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-	    <td data-bind="text: create_timestamp"/>
-	    <td data-bind="text: last_modified"/>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.home.request.manage.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.home.requests.manage.edit')"></a></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
         </tr>
     </tbody>
@@ -94,11 +83,12 @@ jQuery(document).ready(function() {
 #setPagingCtrl("myRecordsPaging")
 #end
 </div>
+#parseTemplate( "home-components/create-request.vm" )
 #parseTemplate("wrapping/info-box-close.vm")
 
 #parseTemplate("form-components/access-control.vm")
 
-#set($menuTitle = "#displayMessage('arms.home.requests.submitted.title')")
+#set($menuTitle = "#displayMessage('arms.dashboard.requestor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
 #set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
@@ -110,7 +100,7 @@ jQuery(document).ready(function() {
 
 #set($results = $self.getShared())
 #if ($results && $results.size() > 0)
-#set($menuTitle = "#displayMessage('arms.home.requests.shared.title')" )
+#set($menuTitle = "#displayMessage('arms.dashboard.requestor.shared')" )
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
 	#setMyRelatedTbl('shared' $results)

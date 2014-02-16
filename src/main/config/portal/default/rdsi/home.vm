@@ -1,43 +1,16 @@
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
-  <span>
-#if ($page.authentication.has_role("assessor") || $page.authentication.has_role("assessor-$portalId"))
-    #displayMessage("arms.dashboard.assessor.title", "$portalId")
-#elseif ($page.authentication.has_role("requestor"))
-    #displayMessage("arms.dashboard.requestor.title", "$portalId")
-#elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
-    #displayMessage("arms.dashboard.reviewer.title", "$portalId")
-#elseif ($page.authentication.has_role("provisioner") || $page.authentication.has_role("provisioner-$portalId"))
-    #displayMessage("arms.dashboard.provisioner.title", "$portalId")
-#else
-    #displayMessage("arms.home.title", "$portalId")    
-#end
-  </span>
+  <span>#displayMessage("arms.dashboard.${self.selected}", "$portalId")</span>
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")
 
-## requestor and admin can create request
-## assessor does not have privilege to create record but sits above reqestor on the manually set order, so it has to be stopped
 #if ($page.authentication.has_role("admin"))
   #parseTemplate("menus/home-admin-menu.vm")
 #end
 
-## reviewer and provisioner have the same home page
 <div class="grid_12">
-#if ($page.authentication.has_role("admin"))
-    #parseTemplate("home-components/admin-requests.vm")
-#elseif ($page.authentication.has_role("assessor") || $page.authentication.has_role("assessor-$portalId"))
-    #parseTemplate("home-components/assessor-requests.vm")
-#elseif ($page.authentication.has_role("requestor"))
-    #parseTemplate("home-components/requestor-requests.vm")
-#elseif ($page.authentication.has_role("reviewer") || $page.authentication.has_role("reviewer-$portalId"))
-    #parseTemplate("home-components/reviewer-requests.vm")
-#elseif ($page.authentication.has_role("provisioner") || $page.authentication.has_role("provisioner-$portalId"))
-    #parseTemplate("home-components/provisioner-requests.vm")
-#else
-	<p>Nothing is configured for your roles: $page.authentication.get_roles()</p>    
-#end
+#parseTemplate("home-components/${self.selected}-requests.vm")
 </div>
 <div class="clear"></div>

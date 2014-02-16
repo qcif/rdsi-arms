@@ -1,6 +1,6 @@
     <ul class="menu-btn" style="text-align: right">
         <li>
-           <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.home.menu.newarmssubmission")'></input>
+           <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.dashboard.requestor.new")'></input>
         </li>
     </ul>
 ## set $packageType
