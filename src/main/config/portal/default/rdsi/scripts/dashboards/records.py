@@ -35,15 +35,16 @@ class RecordsData(Dashboard):
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
 
-        searches = {'submitted': 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected',
-                    'provisioner':'arms-approved,arms-provisioned',
-                    'reviewer':'arms-review,arms-assessment',
+        searches = {'requestor':'arms-draft',
+                    'submitted': 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected',
+                    'reviewer':'arms-review',
                     'assessor':'arms-assessment',
+                    'approved':'arms-approved',
+                    'provisioned':'arms-provisioned',
                     'adminProvisions':'arms-review,arms-assessment,arms-approved',
                     'adminHoldings':'arms-provisioned,arms-rejected',
-                    'requestor':'arms-draft',
-                    'shared':''}    
-
+                    'shared':''}
+        
         formData = context["formData"]
         packageType = formData.get("packageType")
         # Default packageType used in search is arms
@@ -67,3 +68,5 @@ class RecordsData(Dashboard):
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)
         writer.close()        
+
+        
