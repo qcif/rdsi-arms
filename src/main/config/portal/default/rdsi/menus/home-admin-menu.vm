@@ -4,7 +4,7 @@
     #parseTemplate("wrapping/main-menu-open.vm")
     <ul class="menu">
         <li>
-            <a id="new-request" href="#" title="New holding record">#displayMessage("arms.home.admin.menu.newholding")</a>
+            <a id="new-request" href="#" title="New holding record">#displayMessage("arms.dashboard.admin.menu.new")</a>
         </li>
     </ul>
     #parseTemplate("wrapping/main-menu-close.vm")

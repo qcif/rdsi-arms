@@ -1,7 +1,7 @@
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
-  <span>#displayMessage("arms.home.title")</span>
+  <span>#displayMessage("arms.dashboard.admin")</span>
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")

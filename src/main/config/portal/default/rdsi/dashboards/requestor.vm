@@ -1,11 +1,11 @@
 #set($pageTitle = "Home")
 
 <h2 id="page-heading">
-  <span>#displayMessage("arms.dashboard.requestor.title")</span>
+  <span>#displayMessage("arms.dashboard.requestor")</span>
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")
     <div class="grid_12">
-	#parseTemplate("home-components/myarmsrequests.vm")
+	#parseTemplate("home-components/requestor-requests.vm")
     </div>
     <div class="clear"></div>
