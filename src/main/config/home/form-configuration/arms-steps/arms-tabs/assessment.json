@@ -36,7 +36,7 @@
       ]
     },
     {
-      "component-type": "radio-button",
+      "component-type": "radio-button2",
       "field-name": "recommendation-size-agree",
       "button-for": "arms.assessment.subsectionC.label",
       "buttons": [
