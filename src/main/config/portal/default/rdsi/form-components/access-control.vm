@@ -98,27 +98,50 @@
     	}
     }
 
-	function change_owner(oid) {
-    	var r=confirm("Are you sure to delete?");
-		if (r==false) {
-		  return;
-		}
-		var change = "change", new_owner = "admin";
-		jQuery.ajax({
-			url: "$portalPath/grantAccess.ajax",
-			data: { action:"change",
-					oid:oid,
-					source: "hibernateAccessControl",
-					new_owner:"admin"
-				  },
-			dataType:'json',
-			success: function() {
-				setInterval(function() { window.location.reload() }, 1500)
-			},
-			error: function (req ) { alert("Attention is needed:\n" + req.responseText) }
-		});
+    function _chown(oid) {
+        jQuery.ajax({
+            url : "$portalPath/grantAccess.ajax",
+            data : {
+                action : "change",
+                oid : oid,
+                source : "hibernateAccessControl",
+                new_owner : "admin"
+            },
+            dataType : 'json',
+            success : function() {
+                setInterval(function() {
+                    window.location.reload()
+                }, 1500)
+            },
+            error : function(req) {
+                alert("Attention is needed:\n" + req.responseText)
+            }
+        });
+    }
+    
+    function change_owner(oid) {
+        var r=confirm("Are you sure to delete?");
+        if (r!=false) {
+            _chown(oid);
+        }
+    }
+    
+    function delete_record(oid) {
+        $("#delete-record").dialog({
+            resizable : false,
+            modal : true,
+            buttons : {
+                "Delete" : function() {
+                    $(this).dialog("close");
+                    _chown(oid);
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
 
-	}
+    }
 
     function revoke_user(user_name) {
     	var r=confirm("Are you sure to revoke user access?");
@@ -222,4 +245,9 @@
 	<button onclick="add_user()">#displayMessage("researcher-dashboard.home.access-control.userlist.add")</button>
 	<div id="user-list-help" class="pre-help-content">#displayMessage("arms.home.access-control.help")</div>
 	<div id="action-warning-msg" style="display:none" >#displayMessage("arms.home.access-control.action-warning")</div>
+</div>
+
+<div id="delete-record">
+<h3 style="text-align:center">Delete</h3>
+<p>Really delete this draft request?</p>
 </div>
