@@ -1,6 +1,11 @@
 {
   "heading": "Provisioning",
   "fields": [
+  	{
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.provisioning.heading"
+    },
     {
       "component-type": "text-input",
       "field-name": "provisioning-reference",
