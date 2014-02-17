@@ -1,7 +1,12 @@
 {
   "heading": "Outcome",
   "fields": [
-     {
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.outcome.heading"
+    },
+    {
       "component-type": "radio-button2",
       "field-name": "outcome-decision",
       "button-for": "arms.outcome.subsectionA.label",
