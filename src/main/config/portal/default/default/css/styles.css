@@ -117,6 +117,10 @@ ul.menu li ul.more li a {
     float: right;
 }
 
+.right-text {
+	text-align: right;
+}
+
 form .message {
     margin-left: 35%;
 }

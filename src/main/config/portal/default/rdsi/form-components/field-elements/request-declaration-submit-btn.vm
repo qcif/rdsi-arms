@@ -1,0 +1,31 @@
+## The checkboxes are not saved
+#set($oid = $formData.get("oid"))
+
+<button value="next" style="float:right;" id="request-submit">Submit</button>
+
+<script type="text/javascript">
+
+$('#request-submit').click( function () { 
+	closeUrl="$portalPath/detail/$oid"; 
+	action= $(this).val();
+	 if(validateSubmit()) {  jaffa.form.save(true);  }
+});
+
+## allChecked(eid) is defined in arms-footer.vm 
+$(document).ready(function() {
+	var eid="request:declarations";
+	function toggleSubmitButton() {
+		if(allChecked(eid)) {
+			$("[id='request-submit']").show();
+		} else {
+			$("[id='request-submit']").hide();
+		}
+	}
+	toggleSubmitButton();
+	$("[id^='"+eid+"']").change(function() {
+		toggleSubmitButton();	
+	});
+});
+
+</script>
+
