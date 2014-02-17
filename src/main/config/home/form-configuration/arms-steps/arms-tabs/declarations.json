@@ -4,15 +4,51 @@
     {
       "component-type": "text-block",
       "type": "h1",
-      "content": "arms.heading.submission"
+      "content": "arms.declaration.heading"
+    },
+    {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "checkbox3",
+              "field-name": "request:declarations",
+              "box-for": "arms.declaration.description",
+              "multiline": true,
+              "additional-class": "ofFormCheckboxes",
+              "boxes": [
+                {
+                  "label": "arms.declaration.sectionA.pointA",
+                  "value": "arms.declaration.sectionA.pointA.value"
+                },
+                {
+                  "label": "arms.declaration.sectionA.pointB",
+                  "value": "arms.declaration.sectionA.pointB.value"
+                }
+              ]
+            }
+          ]
+        },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": ""
     },
     {
       "component-type": "text-block",
       "type": "p",
-      "content": "arms.description.declarations"
+      "content": ""
     },
     {
-      "component-type": "request-submit-btn"
+      "component-type": "text-block",
+      "additional-class": "right-text",
+      "type": "p",
+      "content": "arms.description.declaration.note"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": ""
     },
     {
       "component-type": "group",
@@ -21,13 +57,42 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close-request",
+          "button-name": "save-close4",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
           "appendOID": true,
           "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Back",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
         }
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "wrapper-class": "inline-component"
+        },
+         {
+          "component-type": "request-declaration-submit-btn",
+          "wrapper-class": "inline-component",
+          "additional-classes": "next-button right"
+        }
+        
       ]
     }
   ]
