@@ -48,7 +48,7 @@ jQuery(document).ready(function() {
 <script>
 var myRecords = new DataRowsModel("requestor");
 myRecords.manageAccess = function(item) { manage_access(item.id); };
-myRecords.changeOwner = function(item) { change_owner(item.id); };
+myRecords.changeOwner = function(item) { delete_record(item.id); };
 myRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
