@@ -3,15 +3,15 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-review,arms-assessment'))
+#set($results = $self.getListOfStage("$packageType", 'arms-review'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
 <script>
-var myRecords = new DataRowsModel('reviewer');
-myRecords.prepareData = function(data) {
+var reviewerRecords = new DataRowsModel('reviewer');
+reviewerRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
         data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
@@ -20,13 +20,13 @@ myRecords.prepareData = function(data) {
 }
 
 jQuery(document).ready(function() { 
-    ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
-    setupPagingCtrls('myRecordsPaging', myRecords, $results);
+    ko.applyBindings(reviewerRecords, jQuery('#reviewerRecordsTbl')[0]);
+    setupPagingCtrls('reviewerRecordsPaging', reviewerRecords, $results);
 });
 </script>
 
 <div class="block">
-<table id="myRecordsTbl" data-bind="stopBindings: true">
+<table id="reviewerRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -46,19 +46,119 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("myRecordsPaging")
+#setPagingCtrl("reviewerRecordsPaging")
 
 </div>
 #end
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.assessment')")
-#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#parseTemplate("wrapping/info-box-open.vm")
+#set($results = $self.getListOfStage("$packageType", 'arms-assessment'))
+#if ($results && $results.size() > 0)
+
+## load pagination controls
+#parseTemplate("home-components/pagingControl.vm")
+
+<script>
+var assessorRecords = new DataRowsModel('assessor');
+assessorRecords.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() { 
+    ko.applyBindings(assessorRecords, jQuery('#assessorRecordsTbl')[0]);
+    setupPagingCtrls('assessorRecordsPaging', assessorRecords, $results);
+});
+</script>
+
+<div class="block">
+<table id="assessorRecordsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.assessmentdate')</th>
+            <th>#displayMessage('arms.requests.table.responses')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: 'submitted date: coming'"/>
+        <td data-bind="text: 'assessment date: coming'"></td>
+        <td data-bind="text: 'responses: coming'"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("assessorRecordsPaging")
+
+</div>
+#end
+#parseTemplate("wrapping/info-box-close.vm")
+
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.approved')")
-#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
-#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
-#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
-#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
-#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
-#set($menuTitle = "#displayMessage('arms.dashboard.reviewer.rejected') -- advanced workflow")
-#parseTemplate("wrapping/info-box-open.vm")#parseTemplate("wrapping/info-box-close.vm")
+#parseTemplate("wrapping/info-box-open.vm")
+#set($results = $self.getListOfStage("$packageType", 'arms-approved'))
+#if ($results && $results.size() > 0)
+
+## load pagination controls
+#parseTemplate("home-components/pagingControl.vm")
+
+<script>
+var approvedRecords = new DataRowsModel('approved');
+approvedRecords.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() { 
+    ko.applyBindings(approvedRecords, jQuery('#approvedRecordsTbl')[0]);
+    setupPagingCtrls('approvedRecordsPaging', approvedRecords, $results);
+});
+</script>
+
+<div class="block">
+<table id="approvedRecordsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.approved')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: 'submitted date: coming'"/>
+        <td data-bind="text: 'approved: coming'"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("approvedRecordsPaging")
+
+</div>
+#end
+#parseTemplate("wrapping/info-box-close.vm")
+
+##set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
+##parseTemplate("wrapping/info-box-open.vm")
+##parseTemplate("wrapping/info-box-close.vm")
+
+##set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
+##parseTemplate("wrapping/info-box-open.vm")
+##parseTemplate("wrapping/info-box-close.vm")
+##set($menuTitle = "#displayMessage('arms.dashboard.reviewer.rejected') -- advanced workflow")
+##parseTemplate("wrapping/info-box-open.vm")
+##parseTemplate("wrapping/info-box-close.vm")
