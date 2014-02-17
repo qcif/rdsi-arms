@@ -1,7 +1,7 @@
 ## The checkboxes are not saved
 #set($oid = $formData.get("oid"))
 
-<button value="next" style="float:right;" id="request-submit">Submit</button>
+<button value="next" id="request-submit" #if($additional-classes)class="$additional-classes"#end">Submit</button>
 
 <script type="text/javascript">
 
