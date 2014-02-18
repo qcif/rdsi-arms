@@ -35,6 +35,16 @@
           "field-name": "dataprovider:title",
           "label": "arms.field.label.optional.title",
           "additional-classes": "titleField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:title",
+            "focus-id": "dataprovider:title",
+            "validation-messages": {
+              "required": "Data custodian: title is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -42,6 +52,16 @@
           "field-name": "dataprovider:givenName",
           "label": "arms.field.label.optional.givenName",
           "additional-classes": "givenNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:givenName",
+            "focus-id": "dataprovider:givenName",
+            "validation-messages": {
+              "required": "Data custodian: given name is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -49,6 +69,16 @@
           "field-name": "dataprovider:familyName",
           "label": "arms.field.label.optional.familyName",
           "additional-classes": "familyNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:familyName",
+            "focus-id": "dataprovider:familyName",
+            "validation-messages": {
+              "required": "Data custodian: family name is required"
+            }
+          },
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -62,6 +92,16 @@
           "field-name": "dataprovider:email",
           "label": "arms.field.label.optional.email",
           "additional-classes": "emailField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:email",
+            "focus-id": "dataprovider:email",
+            "validation-messages": {
+              "required": "Data custodian: email is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -69,6 +109,16 @@
           "field-name": "dataprovider:phone",
           "label": "arms.field.label.optional.phone",
           "additional-classes": "telephoneField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:phone",
+            "focus-id": "dataprovider:phone",
+            "validation-messages": {
+              "required": "Data custodian: telephone is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -81,6 +131,16 @@
           "component-type": "text-input",
           "field-name": "dataprovider:organization",
           "label": "arms.field.label.optional.organization",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:organization",
+            "focus-id": "dataprovider:organization",
+            "validation-messages": {
+              "required": "Data custodian: organisation is required"
+            }
+          },          
           "wrapper-class": "inline-block-component",
           "additional-classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
@@ -89,6 +149,16 @@
           "component-type": "text-input",
           "field-name": "dataprovider:role",
           "label": "arms.field.label.optional.role",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:role",
+            "focus-id": "dataprovider:role",
+            "validation-messages": {
+              "required": "Data custodian: role is required"
+            }
+          },          
           "additional-classes": "roleField",
           "wrapper-class": "inline-block-component"
         }
@@ -110,6 +180,16 @@
           "label": "",
           "field-name-label": "dataprovider:state:prefLabel",
           "sourceUrl": "form-components/states.json",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider:state",
+            "focus-id": "dataprovider:state",
+            "validation-messages": {
+              "required": "Data custodian: state is required"
+            }
+          },          
           "wrapper-class": "inline-component statesField"
         }
       ]
@@ -136,7 +216,8 @@
           "buttons": [
             {
               "label": "No",
-              "value": "No"
+              "value": "No",
+              "checked": true
             },
             {
               "label": "Yes",
@@ -181,6 +262,16 @@
           "field-name": "requester:title",
           "label": "arms.field.label.optional.title",
           "additional-classes": "titleField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:title",
+            "focus-id": "requester:title",
+            "validation-messages": {
+              "required": "Storage requestor: title is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -188,6 +279,16 @@
           "field-name": "requester:givenName",
           "label": "arms.field.label.optional.givenName",
           "additional-classes": "givenNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:givenName",
+            "focus-id": "requester:givenName",
+            "validation-messages": {
+              "required": "Storage requestor: given name is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -195,6 +296,16 @@
           "field-name": "requester:familyName",
           "label": "arms.field.label.optional.familyName",
           "additional-classes": "familyNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:familyName",
+            "focus-id": "requester:familyName",
+            "validation-messages": {
+              "required": "Storage requestor: family name is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -208,6 +319,16 @@
           "field-name": "requester:email",
           "label": "arms.field.label.optional.email",
           "additional-classes": "emailField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:email",
+            "focus-id": "requester:email",
+            "validation-messages": {
+              "required": "Storage requestor: email is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -215,6 +336,16 @@
           "field-name": "requester:phone",
           "label": "arms.field.label.optional.phone",
           "additional-classes": "telephoneField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:phone",
+            "focus-id": "requester:phone",
+            "validation-messages": {
+              "required": "Storage requestor: phone is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -227,6 +358,16 @@
           "component-type": "text-input",
           "field-name": "requester:organization",
           "label": "arms.field.label.optional.organization",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:organization",
+            "focus-id": "requester:organization",
+            "validation-messages": {
+              "required": "Storage requestor: organisation is required"
+            }
+          },          
           "wrapper-class": "inline-block-component",
           "additional-classes": "organizationField",
           "lookupdata": "../process/notification/homes.script"
@@ -235,6 +376,16 @@
           "component-type": "text-input",
           "field-name": "requester:role",
           "label": "arms.field.label.optional.role",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:role",
+            "focus-id": "requester:role",
+            "validation-messages": {
+              "required": "Storage requestor: role is required"
+            }
+          },          
           "additional-classes": "roleField",
           "wrapper-class": "inline-block-component"
         }
@@ -256,6 +407,16 @@
           "label": "",
           "field-name-label": "requester:state:prefLabel",
           "sourceUrl": "form-components/states.json",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "requester:state",
+            "focus-id": "requester:state",
+            "validation-messages": {
+              "required": "Storage requestor: state is required"
+            }
+          },          
           "wrapper-class": "inline-component statesField"
         }
       ]
@@ -295,6 +456,16 @@
           "field-name": "nodecontact:title",
           "label": "arms.field.label.optional.title",
           "additional-classes": "titleField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:title",
+            "focus-id": "nodecontact:title",
+            "validation-messages": {
+              "required": "Technical contact: title is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -302,6 +473,16 @@
           "field-name": "nodecontact:givenName",
           "label": "arms.field.label.optional.givenName",
           "additional-classes": "givenNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:givenName",
+            "focus-id": "nodecontact:givenName",
+            "validation-messages": {
+              "required": "Technical contact: given name is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -309,6 +490,16 @@
           "field-name": "nodecontact:familyName",
           "label": "arms.field.label.optional.familyName",
           "additional-classes": "familyNameField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:familyName",
+            "focus-id": "nodecontact:familyName",
+            "validation-messages": {
+              "required": "Technical contact: family name is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -322,6 +513,16 @@
           "field-name": "nodecontact:email",
           "label": "arms.field.label.optional.email",
           "additional-classes": "emailField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:email",
+            "focus-id": "nodecontact:email",
+            "validation-messages": {
+              "required": "Technical contact: email is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         },
         {
@@ -329,6 +530,16 @@
           "field-name": "nodecontact:phone",
           "label": "arms.field.label.optional.phone",
           "additional-classes": "telephoneField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:phone",
+            "focus-id": "nodecontact:phone",
+            "validation-messages": {
+              "required": "Technical contact: telephone is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -343,6 +554,16 @@
           "label": "arms.field.label.optional.organization",
           "wrapper-class": "inline-block-component",
           "additional-classes": "organizationField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:organization",
+            "focus-id": "nodecontact:organization",
+            "validation-messages": {
+              "required": "Technical contact: organisation is required"
+            }
+          },          
           "lookupdata": "../process/notification/homes.script"
         },
         {
@@ -350,6 +571,16 @@
           "field-name": "nodecontact:role",
           "label": "arms.field.label.optional.role",
           "additional-classes": "roleField",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:role",
+            "focus-id": "nodecontact:role",
+            "validation-messages": {
+              "required": "Technical contact: role is required"
+            }
+          },          
           "wrapper-class": "inline-block-component"
         }
       ]
@@ -370,6 +601,16 @@
           "label": "",
           "field-name-label": "nodecontact:state:prefLabel",
           "sourceUrl": "form-components/states.json",
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "nodecontact:state",
+            "focus-id": "nodecontact:state",
+            "validation-messages": {
+              "required": "Technical contact: state is required"
+            }
+          },          
           "wrapper-class": "inline-component statesField"
         }
       ]
