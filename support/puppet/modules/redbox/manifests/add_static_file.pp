@@ -1,4 +1,4 @@
-define redbox_utilities::add_static_file(
+define redbox::add_static_file(
 	$static_file=$title, 
 	$owner,
 	$options='',

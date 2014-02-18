@@ -40,24 +40,47 @@ class redbox(
 	$redbox_user = 'redbox',
 	$directories = [ 'redbox', 'mint', 'deploy', ],
   	$static_files = [ 'deploy.sh', 'redbox.cron', 'redbox-mint.sh', 'start_all.sh'],
+  	$is_behind_proxy = true,
+  	$shibboleth_env = undef,
+  	$exec_path = [
+      '/usr/local/bin',
+      '/opt/local/bin',
+      '/usr/bin',
+      '/usr/sbin',
+      '/bin',
+      '/sbin'],
 ) {
  
   host { $::fqdn:
       ip => $::ipaddress,
-  }  
+  }
   
-  redbox_utilities::add_systemuser { $redbox_user: }
+  Exec {
+    path => $exec_path,
+    logoutput => false,
+  }
+  
+  redbox::add_systemuser { $redbox_user: }
   -> 
   add_directory { $directories: 
     owner =>  $redbox_user,
   } 
   ->
-  redbox_utilities::add_static_file { $static_files:
+  redbox::add_static_file { $static_files:
   	source 		=> "https://raw.github.com/qcif/rdsi-arms/master/support/dev",
   	destination => "/home/${redbox_user}",
     owner  		=> $redbox_user,
   }
   ->
-  class { 'add_all_packages':}
+  redbox::add_package {'unzip':}
+  ->
+  class {'redbox::java':}
+  
+  if ($is_behind_proxy) {
+  	class {'redbox::proxy_server':
+  		shibboleth_env => $shibboleth_env,
+  		require => Class['Redbox::Java'],
+ 	}
+  }
 
 }
