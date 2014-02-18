@@ -2,10 +2,15 @@ class redbox::shibboleth(
   $static_file = "go-redhat",
   $base_url = "https://raw.github.com/ausaccessfed/aasc/master",
   $working_dir = "/home/redbox",
-  $entity_id = "http://${::fqdn}/shibboleth",
+  $entity_path = "${::fqdn}/shibboleth",
   $shibboleth_env = 'test',  ## test or prod
 ) {
- 
+  
+  case $shibboleth_env {
+    'test': { $entity_id   = "http://${entity_path}"}
+    default: { $entity_id   = "https://${entity_path}"}
+  }
+   
   redbox::add_static_file { $static_file:
     owner  		 => 'root',
     source 		 => $base_url,
