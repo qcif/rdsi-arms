@@ -1,6 +1,6 @@
-define redbox::add_systemuser($username=$title, $shell='/bin/sh') {
+define redbox_utilities::add_systemuser($username=$title, $shell='/bin/sh') {
 
-user { $username:
+  user { $username:
     ensure     => present,
     home       => "/home/$username",
     shell      => $shell,

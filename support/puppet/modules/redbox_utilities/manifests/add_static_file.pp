@@ -1,17 +1,29 @@
-define redbox::add_static_file(
+define redbox_utilities::add_static_file(
 	$static_file=$title, 
 	$owner,
 	$options='',
 	$source,
-	$destination
+	$destination,
+	$exec_path = [
+      '/usr/local/bin',
+      '/opt/local/bin',
+      '/usr/bin',
+      '/usr/sbin',
+      '/bin',
+      '/sbin'],
 ) {
-  exec {"wget $options $source/$static_file  -O $destination/$static_file":}
+  
+  Exec {
+    path => $exec_path,
+    logoutput => false,
+  }
+  
+  exec {"wget $options ${source}/${static_file}  -O ${destination}/${static_file}":}
   ->
-  file { $destination:
+  file { "${destination}/${static_file}":
     ensure  => file,
     owner   => $owner,
     group   => $owner,
     mode    => 744,
-    require => Add_systemuser[$owner],
   }
 }

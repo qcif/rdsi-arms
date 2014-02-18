@@ -1,6 +1,6 @@
-# == Class: shibboleth
+# == Class: redbox_shibboleth
 #
-# Full description of class shibboleth here.
+# Full description of class redbox_shibboleth here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { shibboleth:
+#  class { redbox_shibboleth:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
@@ -35,37 +35,25 @@
 #
 # Copyright (C) 2011-2012 Queensland Cyber Infrastructure Foundation (http://www.qcif.edu.au/)
 #
-class shibboleth {
-
-  Exec { 
-    path => $variables::defaults::exec_path, 
-    logoutput => true,
-  }
+class redbox_shibboleth(
+  $static_file = "go-redhat",
+  $base_url = "https://raw.github.com/ausaccessfed/aasc/master",
+  $working_dir = "/home/redbox",
+) {
  
-  host { $::fqdn:
-      ip => $::ipaddress,
-  }
- 
-  add_systemuser { $variables::defaults::redbox_user: }
-  -> 
-  add_directory { $variables::defaults::directories: 
-    owner =>  $variables::defaults::redbox_user,
-  } 
-  ->
-  add_static_file { $variables::defaults::static_files:
-    owner  		 => $variables::defaults::redbox_user,
-    source 		 => "https://raw.github.com/qcif/rdsi-arms/master/support/dev",
-  	destination => "/home/redbox",
+  class { 'redbox::proxy_server':
+     is_shibboleth_active => true,
   }
   ->
-  class { 'add_all_packages':
-    package_type => $variables::defaults::package_type 
-  }
-  ->
-  add_static_file { 'go-redhat':
+  redbox_utilities::add_static_file { $static_file:
     owner  		 => 'root',
-    source 		 => "https://raw.github.com/qcif/rdsi-arms/master/support/dev/$static_file",
-  	destination => "/home/redbox/$static_file",
+    source 		 => $base_url,
+  	destination => $working_dir,
   }
+  ->
+  class { 'execute_script':
+    path => "${working_dir}/${static_file}",
+  }
+  
 }
 

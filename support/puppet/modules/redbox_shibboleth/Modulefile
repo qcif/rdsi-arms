@@ -1,4 +1,4 @@
-name    'shibd-shibboleth'
+name    'shibd-redbox_shibboleth'
 version '0.1.0'
 source 'UNKNOWN'
 author 'shibd'

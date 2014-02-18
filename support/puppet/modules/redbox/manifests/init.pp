@@ -35,31 +35,29 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class redbox {
-
-  include variables::defaults
-
-  Exec { 
-    path => $variables::defaults::exec_path, 
-    logoutput => true,
-  }
+## TODO : add stages.
+class redbox( 
+	$redbox_user = 'redbox',
+	$directories = [ 'redbox', 'mint', 'deploy', ],
+  	$static_files = [ 'deploy.sh', 'redbox.cron', 'redbox-mint.sh', 'start_all.sh'],
+) {
  
   host { $::fqdn:
       ip => $::ipaddress,
-  }
- 
-  add_systemuser { $variables::defaults::redbox_user: }
+  }  
+  
+  redbox_utilities::add_systemuser { $redbox_user: }
   -> 
-  add_directory { $variables::defaults::directories: 
-    owner =>  $variables::defaults::redbox_user,
+  add_directory { $directories: 
+    owner =>  $redbox_user,
   } 
   ->
-  add_static_file { $variables::defaults::static_files:
-    owner => $variables::defaults::redbox_user,
+  redbox_utilities::add_static_file { $static_files:
+  	source 		=> "https://raw.github.com/qcif/rdsi-arms/master/support/dev",
+  	destination => "/home/${redbox_user}",
+    owner  		=> $redbox_user,
   }
   ->
-  class { 'add_all_packages':
-    package_type => $variables::defaults::package_type 
-  }
+  class { 'add_all_packages':}
 
 }
