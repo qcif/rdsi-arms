@@ -117,7 +117,7 @@
             "label": "Being provisioned",
             "description": "The request has been approved and is awaiting provisioning.",
             "owner_edit_allowed": "false",
-            "security": ["provisioner","admin"],
+            "security": ["reviewer","provisioner","admin"],
             "visibility": ["reviewer","provisioner","admin"],
             "actions" :[ { "action-name" : "next",
                 "target-step" : "arms-provisioned" }],
@@ -128,7 +128,7 @@
             "label": "Not approved",
             "description": "The request has not been approved.",
             "owner_edit_allowed": "false",
-            "security": ["admin"],
+            "security": ["reviewer","admin"],
             "visibility": ["reviewer","admin"],
             "template": "workflows/simpleworkflow"
         },
@@ -137,7 +137,7 @@
             "label": "Ready for use",
             "description": "The request has been provisioned.",
             "owner_edit_allowed": "false",
-            "security": ["admin"],
+            "security": ["reviewer","admin"],
             "visibility": ["reviewer","provisioner","admin"],
             "template": "workflows/simpleworkflow"
         }

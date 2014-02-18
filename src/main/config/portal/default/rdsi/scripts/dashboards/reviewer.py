@@ -28,4 +28,10 @@ class ReviewerData(Dashboard):
 
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
-        self.selected = "reviewer"        
+        self.selected = "reviewer"
+        self.roleBoard = "true"
+        sub_section = context["formData"].get("section")
+        if sub_section:
+            self.section = sub_section
+        else:
+            self.section = "active"
