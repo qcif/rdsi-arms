@@ -1,0 +1,705 @@
+{
+  "heading": "Reviewer Summary",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.allocation-committee"
+    },
+    {
+      "component-type": "knockout-text-block",
+      "field-name": "requestID",
+      "type": "label",
+      "content": "arms.field.label.allocationId"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.review-PartA"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-proposed",
+      "label": "arms.field.label.reviewer-proposed"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-assessment",
+      "label": "arms.field.label.reviewer-assessment"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-rationale1",
+      "label": "arms.field.label.reviewer-rationale1"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-rationale2",
+      "label": "arms.field.label.reviewer-rationale2"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-rationale3",
+      "label": "arms.field.label.reviewer-rationale3"
+    },
+    {
+      "component-type": "textarea",
+      "field-name": "reviewer-summary",
+      "label": "arms.field.label.reviewer-summary"
+    },
+    {
+      "component-type": "date-picker",
+      "field-name": "completion-date",
+      "label": "arms.field.label.completion-date"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.review-PartB"
+    },
+    {
+      "component-type": "costing-table",
+      "type": "costing-table"
+    },
+    {
+      "component-type": "group",
+      "template": "group-table",
+      "fields": [
+        {
+          "component-type": "group",
+          "template": "group-tr",
+          "fields": [
+            {
+              "component-type": "group",
+              "template": "group-td2",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "label",
+                  "content": "arms.field.label.instanceA-location",
+                  "wrapper-class": "inline"
+                },
+                {
+                  "component-type": "data-source-dropdown",
+                  "field-name": "instanceA-location",
+                  "label": "",
+                  "data-id-key": "value",
+                  "field-name-label": "instanceA-location:prefLabel",
+                  "sourceUrl": "form-components/rdsi-nodes.json",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td2",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "label",
+                  "content": "arms.field.label.instanceB-location",
+                  "wrapper-class": "inline"
+                },
+                {
+                  "component-type": "data-source-dropdown",
+                  "field-name": "instanceB-location",
+                  "label": "",
+                  "data-id-key": "value",
+                  "field-name-label": "instanceB-location:prefLabel",
+                  "sourceUrl": "form-components/rdsi-nodes.json",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component-type": "cost-table"
+    },
+    {
+      "component-type": "group",
+      "template": "cost-details",
+      "fields": [
+        {
+          "component-type": "group",
+          "template": "group-tr",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "td",
+              "content": "100%"
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:A:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:A:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:A:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:B:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:B:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-4qtr:B:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "date-picker",
+                  "field-name": "ingest-4qtr:indic-date",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-tr",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "td",
+              "content": "(25%)"
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:A:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:A:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:A:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:B:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:B:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-1qtr:B:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "date-picker",
+                  "field-name": "ingest-1qtr:indic-date",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-tr",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "td",
+              "content": "(50%)"
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:A:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:A:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:A:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:B:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:B:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-2qtr:B:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "date-picker",
+                  "field-name": "ingest-2qtr:indic-date",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-tr",
+          "fields": [
+            {
+              "component-type": "text-block",
+              "type": "td",
+              "content": "(75%)"
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:A:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:A:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:A:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:B:disk",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:B:tape",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "text-input",
+                  "field-name": "ingest-3qtr:B:volume",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-td",
+              "fields": [
+                {
+                  "component-type": "date-picker",
+                  "field-name": "ingest-3qtr:indic-date",
+                  "label": "",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component-type": "group",
+      "template": "group-table",
+      "additional-class": "tableForm",
+      "fields": [
+        {
+          "component-type": "group",
+          "template": "group-thead",
+          "fields": [
+            {
+              "component-type": "group",
+              "template": "group-th",
+              "additional-class": "tableForm",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "span",
+                  "content": "Milestones",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-th",
+              "additional-class": "tableForm",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "span",
+                  "content": "Status",
+                  "wrapper-class": "inline"
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-th",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "span",
+                  "content": "indicative date",
+                  "wrapper-class": "inline"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-tbody",
+          "fields": [
+            {
+              "component-type": "group",
+              "template": "group-tr",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "td",
+                  "content": "Discovery"
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-td",
+                  "fields": [
+                    {
+                      "component-type": "text-input",
+                      "field-name": "discover:status",
+                      "label": "",
+                      "wrapper-class": "inline"
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-td",
+                  "fields": [
+                    {
+                      "component-type": "date-picker",
+                      "field-name": "discover:date",
+                      "label": "",
+                      "wrapper-class": "inline"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "component-type": "group",
+              "template": "group-tr",
+              "fields": [
+                {
+                  "component-type": "text-block",
+                  "type": "td",
+                  "content": "Accessibility"
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-td",
+                  "fields": [
+                    {
+                      "component-type": "text-input",
+                      "field-name": "accessibility:status",
+                      "label": "",
+                      "wrapper-class": "inline"
+                    }
+                  ]
+                },
+                {
+                  "component-type": "group",
+                  "template": "group-td",
+                  "fields": [
+                    {
+                      "component-type": "date-picker",
+                      "field-name": "accessibility:date",
+                      "label": "",
+                      "wrapper-class": "inline"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+     {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "radio-button2",
+              "field-name": "allocation-committee-reviewer-recommends",
+              "button-for": "",
+              "additional-class": "ofFormRadioButtons",
+              "buttons": [
+                {
+                  "label": "arms.allocation.pointA",
+                  "value": "arms.allocation.pointA"
+                },
+                {
+                  "label": "arms.allocation.pointA",
+                  "value": "arms.allocation.pointA"
+                }
+              ]
+            },
+     {
+      "component-type": "text-input",
+      "field-name": "allocation-committee-recommended-storage",
+      "label": "arms.allocation.storage.label"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "workflow-controls",
+      "fields": [
+        {
+          "component-type": "standard-button",
+         "button-name": "save-close-reviewer",
+          "label": "Save and close",
+          "action": "save",
+          "closeUrl": "detail",
+          "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Back",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
+          "wrapper-class": "inline-component"
+        }
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Next",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "wrapper-class": "inline-component"
+        },
+         {
+          "component-type": "request-declaration-submit-btn",
+          "wrapper-class": "inline-component",
+          "additional-classes": "next-button right"
+        }
+        
+      ]
+    }
+  ]
+}
