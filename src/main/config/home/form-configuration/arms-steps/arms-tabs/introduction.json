@@ -21,11 +21,6 @@
       "type": "p",
       "content": "arms.field.label.section0-subsectionA.paragraphC"
     },
-     {
-      "component-type": "text-block",
-      "type": "p",
-      "content": ""
-    },
     {
       "component-type": "text-block",
       "type": "span",
@@ -51,11 +46,6 @@
           "value": "arms.field.label.section0-subsectionB.pointE"
         }
       ]
-    },
-    {
-      "component-type": "text-block",
-      "type": "p",
-      "content": "arms.field.label.section0-subsectionA.paragraphD"
     },
     {
       "component-type": "group",
