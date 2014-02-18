@@ -35,7 +35,6 @@
 #
 # Copyright (C) 2011-2012 Queensland Cyber Infrastructure Foundation (http://www.qcif.edu.au/)
 #
-class utilities {
-
-
+class redbox_utilities {
+ 
 }

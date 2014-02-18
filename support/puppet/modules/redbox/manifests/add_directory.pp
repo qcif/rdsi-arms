@@ -3,7 +3,7 @@ define redbox::add_directory($end_path = $title, $owner) {
       ensure  => directory,
       recurse => true,
       owner   => $owner,
-      require => Add_systemuser[$owner],
+      require => Redbox_utilities::Add_systemuser[$owner],
     }                                    
 }
 

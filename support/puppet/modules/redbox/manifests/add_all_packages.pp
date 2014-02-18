@@ -1,13 +1,7 @@
-class redbox::add_all_packages($package_type = undef) {
-
-  $packages = [ 'unzip',]
+class redbox::add_all_packages {
   
-  ## start with simple package installations
-  package { $packages :
-    ensure   => installed,
-    provider => $package_type,
-  }
-
+  redbox_utilities::add_package {'unzip':}
+  ->
   class {'redbox::java':}
   ->
   class {'redbox::proxy_server':}
