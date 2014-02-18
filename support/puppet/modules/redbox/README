@@ -8,20 +8,26 @@ yum install puppet
 ##Enter: 
 sudo -s
 puppet config print modulepath 
-
 ##to find where to install the redbox module. 
-Copy:
-- redbox 
-- redbox_utilities
-- redbox_apache
-- redbox_shibboleth (only if using AAF authentication)
+##Copy redbox to puppet modulepath.
 
 ##Once redbox is in the module path, to apply it:
 puppet module install puppetlabs/concat
 puppet module install puppetlabs/stdlib
 puppet module install puppetlabs/apache
+
+## Without shibboleth/AAF:
 puppet apply -e "class {'redbox':}"
-puppet apply -e "class {'redbox_apache':}" OR puppet apply -e "class {'redbox_shibboleth':}"
+
+## With shibboleth/AAF 'test':
+puppet apply -e "class {'redbox_apache':
+	shibboleth_env => 'test'
+}"
+
+## With shibboleth/AAF 'prod':
+puppet apply -e "class {'redbox_apache':
+	shibboleth_env => 'prod'
+}"
 
 License
 -------
