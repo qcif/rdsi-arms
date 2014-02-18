@@ -2,7 +2,7 @@ class redbox::shibboleth(
   $static_file = "go-redhat",
   $base_url = "https://raw.github.com/ausaccessfed/aasc/master",
   $working_dir = "/home/redbox",
-  $entity_id = $::fqdn,
+  $entity_id = "http://${::fqdn}/shibboleth",
   $shibboleth_env = 'test',  ## test or prod
 ) {
  
