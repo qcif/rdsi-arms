@@ -7,7 +7,7 @@ class redbox::proxy_server(
   $mint_path = "http://localhost:9001/mint/",
   $shibboleth_env = undef,
   ) {
-    
+  
   case $operatingsystem {
     'centos', 'redhat', 'fedora': { $conf_dir   = '/etc/httpd/conf.d'
                                     $log_dir = '/var/log/httpd'}
@@ -16,10 +16,18 @@ class redbox::proxy_server(
     default:                     { $conf_dir   = '/etc/apache2/sites-enabled'
                                     $log_dir = '/var/log/apache2'}
   }
-
+  
   class { 'apache':
     default_mods        => false,
     default_confd_files => false,
+  }
+    
+  if ($shibboleth_env) {
+    class {'redbox::shibboleth':
+      shibboleth_env => $shibboleth_env,
+      require        => Class['apache'],
+      before         => File['redbox.conf'],
+    }
   }
   
   include apache::mod::proxy
@@ -30,12 +38,8 @@ class redbox::proxy_server(
     path    => "${conf_dir}/${priority}_redbox.conf",
     ensure  => file,
     content => template("redbox/redbox.conf.erb"),
-  }
-
-  if ($shibboleth_env) {
-    class {'redbox::shibboleth':
-      shibboleth_env => $shibboleth_env
-    }
+    require => Class['apache'],
+    notify  => Service['httpd'],
   }
 }
 
