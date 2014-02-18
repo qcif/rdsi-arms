@@ -40,6 +40,7 @@ class RecordsData(Dashboard):
                     'reviewer':'arms-review',
                     'assessor':'arms-assessment',
                     'approved':'arms-approved',
+                    'rejected':'arms-rejected',
                     'provisioned':'arms-provisioned',
                     'adminProvisions':'arms-review,arms-assessment,arms-approved',
                     'adminHoldings':'arms-provisioned,arms-rejected',
