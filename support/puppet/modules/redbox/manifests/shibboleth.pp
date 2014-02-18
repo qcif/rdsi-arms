@@ -18,13 +18,38 @@ class redbox::shibboleth(
 	  match => "^./go.*$",
   }
   ->
-  exec { "sh ${working_dir}/${static_file}" :}
+  exec { 'run-setup-script' :
+    command => "sh ${working_dir}/${static_file}"
+  }
   ->
+  service {'shibd':
+    ensure => running,
+  }
+  
   file { 'attribute-map.xml':
     path    => '/etc/shibboleth/attribute-map.xml',
     ensure  => file,
     source  => "puppet:///modules/redbox/attribute-map.xml",
+    require => Exec['run-setup-script'],
+    notify  => Service['shibd'],
   }
   
+  file_line { 'shibboleth_via_ajp':
+    path    => '/etc/shibboleth/shibboleth2.xml',
+    line    => 'REMOTE_USER="eppn persistent-id targeted-id" attributePrefix="AJP_">',
+    match   => "^[[:blank:]]*REMOTE_USER=.eppn persistent-id targeted-id.*>$",
+    require => Exec['run-setup-script'],
+    notify  => Service['shibd'],
+  }
+  
+  if ($shibboleth_env == 'test') {
+	  file_line { 'shibboleth_no_SSL':
+	    path    => '/etc/shibboleth/shibboleth2.xml',
+	    line    => 'checkAddress="false" handlerSSL="false" cookieProps="http">',
+	    match   => "^[[:space:]]*checkAddress=.*handlerSSL=.*cookieProps=.*>[[:space:]]*$",
+	    require => Exec['run-setup-script'],
+	    notify  => Service['shibd'],
+    }
+  }
 }
 
