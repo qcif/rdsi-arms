@@ -41,5 +41,17 @@ class HomeData(Dashboard):
             self.selected = "requestor"
         elif  auth.has_role("reviewer") or auth.has_role("reviewer-"+portalId):
             self.selected = "reviewer"
+            ##formData = context["formData"]
+            self.section(context["formData"])
         elif auth.has_role("provisioner") or auth.has_role("provisioner-"+portalId):
             self.selected = "provisioner"
+
+
+    def section(self, formData): 
+        sub_section = formData.get("section")
+        if sub_section:
+            print "************************** %s" % sub_section
+            self.section = sub_section
+        else:
+            print "Not get it **************************"
+            self.section = "active"
