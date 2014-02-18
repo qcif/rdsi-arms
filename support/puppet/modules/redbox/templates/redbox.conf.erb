@@ -8,7 +8,7 @@
        # alert, emerg.
        LogLevel warn
        
-     <% if @is_shibboleth_active -%>
+     <% if @shibboleth_env -%>
        ProxyPassMatch /Shibboleth !
 	   ProxyPass /default/sso/shibbloeth !
 	 <% end -%>
@@ -19,7 +19,7 @@
        ProxyPass               / <%= @redbox_path %>
        ProxyPassReverse        / <%= @redbox_path %>
 
-	<% if @is_shibboleth_active -%>
+	<% if @shibboleth_env -%>
        <Location /default/sso/shibboleth>
           AuthType shibboleth
           ShibRequireSession On

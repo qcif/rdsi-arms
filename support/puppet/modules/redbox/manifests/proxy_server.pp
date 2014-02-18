@@ -5,7 +5,7 @@ class redbox::proxy_server(
   $docroot = '/var/www/html',
   $redbox_path = "ajp://localhost:8009/",
   $mint_path = "http://localhost:9001/mint/",
-  $is_shibboleth_active = false,
+  $shibboleth_env = undef,
   ) {
     
   case $operatingsystem {
@@ -32,5 +32,10 @@ class redbox::proxy_server(
     content => template("redbox/redbox.conf.erb"),
   }
 
+  if ($shibboleth_env) {
+    class {'redbox::shibboleth':
+      shibboleth_env => $shibboleth_env
+    }
+  }
 }
 

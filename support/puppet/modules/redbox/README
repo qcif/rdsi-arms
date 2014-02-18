@@ -9,22 +9,19 @@ yum install puppet
 sudo -s
 puppet config print modulepath 
 
-##to find where to install the redbox module. Copy redbox to the module path.
-##Once redbox is in the module path, to apply it:
+##to find where to install the redbox module. 
+Copy:
+- redbox 
+- redbox_utilities
+- redbox_apache
+- redbox_shibboleth (only if using AAF authentication)
 
+##Once redbox is in the module path, to apply it:
 puppet module install puppetlabs/concat
 puppet module install puppetlabs/stdlib
 puppet module install puppetlabs/apache
 puppet apply -e "class {'redbox':}"
-
-## for shibboleth:
-__________________________
-cd /home/redbox
-wget --no-check-certificate https://raw.github.com/ausaccessfed/aasc/master/go-redhat
-sh go-redhat
-### sudo copy support/shibboleth/attribute-map.xml to /etc/shibboleth
-### sudo service shibd restart
-
+puppet apply -e "class {'redbox_apache':}" OR puppet apply -e "class {'redbox_shibboleth':}"
 
 License
 -------
