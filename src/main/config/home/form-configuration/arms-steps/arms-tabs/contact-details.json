@@ -200,7 +200,7 @@
       "fields": [
         {
           "component-type": "text-block",
-          "type": "h5",
+          "type": "h4",
           "content": "arms.heading.dataprovider-authority"
         },
         {

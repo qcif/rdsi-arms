@@ -152,7 +152,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h1",
+      "type": "h2",
       "content": "arms.section.additional"
     },
     {
@@ -167,7 +167,7 @@
       "fields": [
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section2-additional-subsectionA.title",
           "wrapper-class": "inline-block-component"
         },
@@ -184,7 +184,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section2-additional-subsectionB.title",
           "wrapper-class": "inline-block-component"
         },
@@ -568,7 +568,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section2-additional-subsectionC.title",
           "wrapper-class": "inline-block-component"
         },
@@ -590,7 +590,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section2-additional-subsectionD.title",
           "wrapper-class": "inline-block-component"
         },
