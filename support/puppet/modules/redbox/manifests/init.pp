@@ -29,13 +29,12 @@
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Matt Mulholland <matt@redboxresearchdata.com.au>
 #
 # === Copyright
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-## TODO : add stages.
 class redbox( 
 	$redbox_user = 'redbox',
 	$directories = [ 'redbox', 'mint', 'deploy', ],
