@@ -1,28 +1,34 @@
 {
     "steps": {
-        "Data collection details": {
-            "Next": "Merit information"
-        },
-        "Merit information": {
+        "Introduction": {
             "Next": "Contact details"
         },
         "Contact details": {
-            "Next": "Technical details"
+            "Back": "Introduction",
+            "Next": "Allocation details"
         },
-        "Technical details": {
-            "Next": "Data access and re-use"
+        "Allocation details": {
+            "Back": "Contact details",
+            "Next": "Research significance"
         },
-        "Data access and re-use": {
-            "Next": "Data migration"
+        "Research significance": {
+            "Back": "Allocation details",
+            "Next": "Storage requirements"
         },
-        "Data migration": {
-            "Next": "Review"
+        "Storage requirements": {
+            "Back": "Research significance",
+            "Next": "Declarations"
         },
-        "Review": {
-        	"Next": "Allocation committee"
+        "Declarations": {
+            "Back": "Storage requirements",
+            "Next": "Reviewer Summary"
         },
-        "Allocation committee": {
-        	"Next":"Approval"
+        "Reviewer Summary": {
+            "Back": "Declarations",
+        	"Next": "Assessment"
+        },
+        "Assessment": {
+            "Back": "Reviewer Summary"
         }
     }
 }
