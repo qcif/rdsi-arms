@@ -5,14 +5,14 @@
         },
         "Contact details": {
             "Back": "Introduction",
-            "Next": "Collection details"
+            "Next": "Allocation details"
         },
-        "Collection details": {
+        "Allocation details": {
             "Back": "Contact details",
             "Next": "Research significance"
         },
         "Research significance": {
-            "Back": "Collection details",
+            "Back": "Allocation details",
             "Next": "Storage requirements"
         },
         "Storage requirements": {
