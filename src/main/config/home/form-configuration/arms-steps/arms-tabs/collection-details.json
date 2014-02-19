@@ -7,17 +7,6 @@
       "content": "arms.heading.data-collection"
     },
     {
-      "component-type": "knockout-text-block",
-      "field-name": "requestID",
-      "type": "label",
-      "content": "arms.field.label.requestID"
-    },
-    {
-      "component-type": "text-block",
-      "type": "p",
-      "content": "arms.field.help.requestID"
-    },
-    {
       "component-type": "text-block",
       "type": "label",
       "content": "arms.field.label.dc-title"
@@ -31,6 +20,16 @@
       "component-type": "text-input",
       "field-name": "dc:title",
       "label": "",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "dc:title",
+        "focus-id": "dc:title",
+        "validation-messages": {
+          "required": "Title is required"
+        }
+      }
       "additional-classes": "longTextInput"
     },
     {
@@ -59,12 +58,6 @@
       }
     },
     {
-      "component-type": "text-input",
-      "additional-classes": "longTextInput",
-      "field-name": "collection-details-audience",
-      "label": "arms.field.label.section2-subsectionD.description"
-    },
-    {
       "component-type": "text-block",
       "type": "label",
       "content": "arms.field.label.dc-subject.anzsrc-for"
@@ -81,12 +74,21 @@
       "fieldNameLabel": "dc:subject.anzsrc:for.0.skos:prefLabel",
       "sourceUrl": "proxyGet.script?ns=ANZSRC_FOR&qs=count%3D999%26level%3D",
       "dataLevel": "top",
-      "mandatory": "false",
       "idKey": "rdf:about",
       "labelKey": "skos:prefLabel",
       "listKey": "results",
       "defaultValue": "skos:narrower",
-      "anzsrcType": "for"
+      "anzsrcType": "for",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "dc:subject.anzsrc:for.1.skos:prefLabel",
+        "focus-id": "dc:subject.anzsrc:for.1..top.dropdown",
+        "validation-messages": {
+          "required": "At least one ANZSRC FOR code is required"
+        }
+      }      
     },
     {
       "component-type": "text-block",
@@ -103,7 +105,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h1",
+      "type": "label",
       "content": "arms.heading.researchdata-access"
     },
     {
@@ -126,6 +128,11 @@
       "component-type": "text-block",
       "type": "label",
       "content": "arms.title.support"
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": "arms.description.support"
     },
     {
       "component-type": "radio-button",
