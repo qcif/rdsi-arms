@@ -8,7 +8,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h2",
+      "type": "h3",
       "content": "arms.field.label.section4-subsectionA.title"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h2",
+      "type": "h3",
       "content": "arms.field.label.section4-subsectionB.title"
     },
     {
@@ -72,7 +72,7 @@
       "fields": [
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphA.title",
           "wrapper-class": "inline-block-component"
         },
@@ -116,7 +116,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphB.title",
           "wrapper-class": "inline-block-component"
         },
@@ -133,7 +133,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphC.title",
           "wrapper-class": "inline-block-component"
         },
@@ -190,7 +190,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphD.title",
           "wrapper-class": "inline-block-component"
         },
@@ -223,7 +223,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphE.title",
           "wrapper-class": "inline-block-component"
         },
@@ -778,7 +778,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphF.title",
           "wrapper-class": "inline-block-component"
         },
@@ -816,7 +816,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphG.title",
           "wrapper-class": "inline-block-component"
         },
@@ -869,7 +869,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphH.title",
           "wrapper-class": "inline-block-component"
         },
@@ -877,6 +877,12 @@
           "component-type": "group",
           "template": "group-div",
           "fields": [
+            {
+              "component-type": "text-input",
+              "field-name": "storage-geographic-distribution-audience",
+              "size": "90em",
+              "label": "arms.field.label.section4-subsectionC.paragraphH.statementA.description"
+            },
             {
               "component-type": "radio-button2",
               "field-name": "storage-geographic-distribution-researchers",
@@ -937,7 +943,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphI.title",
           "wrapper-class": "inline-block-component"
         },
@@ -995,7 +1001,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section4-subsectionC.paragraphJ.title",
           "wrapper-class": "inline-block-component"
         },

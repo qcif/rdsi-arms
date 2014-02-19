@@ -8,7 +8,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h2",
+      "type": "h4",
       "content": "arms.field.label.section3-subsectionA.title"
     },
     {
@@ -23,7 +23,7 @@
     },
     {
       "component-type": "text-block",
-      "type": "h2",
+      "type": "h4",
       "content": "arms.field.label.section3-subsectionB.title"
     },
     {
@@ -63,7 +63,7 @@
       "fields": [
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section3-subsectionC.paragraphA.title",
           "wrapper-class": "inline-block-component"
         },
@@ -80,7 +80,7 @@
         },
         {
           "component-type": "text-block",
-          "type": "h3",
+          "type": "h4",
           "content": "arms.field.label.section3-subsectionC.paragraphB.title",
           "wrapper-class": "inline-block-component"
         },
