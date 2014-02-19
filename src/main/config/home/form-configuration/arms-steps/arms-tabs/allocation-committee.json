@@ -632,25 +632,27 @@
       ]
     },
      {
-          "component-type": "group",
-          "template": "group-div",
-          "fields": [
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "radio-button2",
+          "field-name": "allocation-committee-reviewer-recommends",
+          "button-for": "",
+          "additional-class": "ofFormRadioButtons",
+          "buttons": [
             {
-              "component-type": "radio-button2",
-              "field-name": "allocation-committee-reviewer-recommends",
-              "button-for": "",
-              "additional-class": "ofFormRadioButtons",
-              "buttons": [
-                {
-                  "label": "arms.allocation.pointA",
-                  "value": "arms.allocation.pointA"
-                },
-                {
-                  "label": "arms.allocation.pointA",
-                  "value": "arms.allocation.pointA"
-                }
-              ]
+              "label": "arms.allocation.pointA",
+              "value": "arms.allocation.pointA"
             },
+            {
+              "label": "arms.allocation.pointA",
+              "value": "arms.allocation.pointA"
+            }
+          ]
+        }
+      ]
+    },
      {
       "component-type": "text-input",
       "field-name": "allocation-committee-recommended-storage",
@@ -663,7 +665,7 @@
       "fields": [
         {
           "component-type": "standard-button",
-         "button-name": "save-close-reviewer",
+          "button-name": "save-close-reviewer",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
@@ -681,7 +683,7 @@
           ],
           "additional-classes": "next-button",
           "wrapper-class": "inline-component"
-        }
+        },
         {
           "component-type": "transition-control",
           "transitions": [
@@ -693,12 +695,11 @@
           ],
           "wrapper-class": "inline-component"
         },
-         {
+        {
           "component-type": "request-declaration-submit-btn",
           "wrapper-class": "inline-component",
           "additional-classes": "next-button right"
         }
-        
       ]
     }
   ]

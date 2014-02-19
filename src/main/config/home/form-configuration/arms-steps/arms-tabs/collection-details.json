@@ -29,7 +29,7 @@
         "validation-messages": {
           "required": "Title is required"
         }
-      }
+      },
       "additional-classes": "longTextInput"
     },
     {
@@ -88,7 +88,7 @@
         "validation-messages": {
           "required": "At least one ANZSRC FOR code is required"
         }
-      }      
+      }
     },
     {
       "component-type": "text-block",
@@ -637,7 +637,7 @@
           ],
           "additional-classes": "next-button",
           "wrapper-class": "inline-component"
-        }
+        },
         {
           "component-type": "transition-control",
           "transitions": [
