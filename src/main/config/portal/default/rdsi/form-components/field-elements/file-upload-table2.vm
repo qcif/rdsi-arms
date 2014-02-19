@@ -2,20 +2,20 @@
 <table>
     <thead>
     	<tr>
-        <th>File name</th>
-        <th>Description</th>
         <th>Date added</th>
         <th>Added by</th>
-        <th>Actions</th>
+        <th>File name</th>
+        <th>Description</th>
+        <th>Delete</th>
         </tr>
         
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-        	<td><a data-bind="text: filename, attr: {href: url} " target="_upload" ></a></td>
+             <td data-bind="text: dateAdded"/>
+             <td data-bind="text: addedBy"/>
+        	 <td><a data-bind="text: filename, attr: {href: url} " target="_upload" ></a></td>
         	 <td data-bind="text: description"/>	
-        	 <td data-bind="text: dateAdded"/>
-	    	 <td data-bind="text: addedBy"/>
             <td><a href="#" data-bind="click: $parent.remove">Remove</a> </td>
         </tr>
     </tbody>
