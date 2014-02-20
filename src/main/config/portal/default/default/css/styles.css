@@ -808,6 +808,10 @@ ul.global-topic {
     display: block;
 }
 
+.block-override {
+	display: block !important;
+}
+
 p.item-description, div.sample-content {
     margin-bottom: 0.75em;
 }

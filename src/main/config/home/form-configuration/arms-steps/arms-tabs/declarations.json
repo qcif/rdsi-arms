@@ -7,28 +7,28 @@
       "content": "arms.declaration.heading"
     },
     {
-          "component-type": "group",
-          "template": "group-div",
-          "fields": [
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "checkbox3",
+          "field-name": "request-declarations",
+          "box-for": "arms.declaration.description",
+          "multiline": true,
+          "additional-class": "ofFormCheckboxes",
+          "boxes": [
             {
-              "component-type": "checkbox3",
-              "field-name": "request:declarations",
-              "box-for": "arms.declaration.description",
-              "multiline": true,
-              "additional-class": "ofFormCheckboxes",
-              "boxes": [
-                {
-                  "label": "arms.declaration.sectionA.pointA",
-                  "value": "arms.declaration.sectionA.pointA.value"
-                },
-                {
-                  "label": "arms.declaration.sectionA.pointB",
-                  "value": "arms.declaration.sectionA.pointB.value"
-                }
-              ]
+              "label": "arms.declaration.sectionA.pointA",
+              "value": "arms.declaration.sectionA.pointA.value"
+            },
+            {
+              "label": "arms.declaration.sectionA.pointB",
+              "value": "arms.declaration.sectionA.pointB.value"
             }
           ]
-        },
+        }
+      ]
+    },
     {
       "component-type": "text-block",
       "type": "p",
@@ -53,46 +53,58 @@
     {
       "component-type": "group",
       "template": "group-div",
-      "additional-classes": "workflow-controls",
+      "additional-classes": "workflow-controls overflow-container",
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close4",
+          "button-name": "save-close-declarations",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
           "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Back",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
-        }
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Next",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "wrapper-class": "inline-component"
-        },
-         {
-          "component-type": "request-declaration-submit-btn",
           "wrapper-class": "inline-component",
-          "additional-classes": "next-button right"
+          "additional-classes": "line-of-components l-align"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components m-align",
+          "fields": [
+            {
+              "component-type": "transition-control",
+              "wrapper-class": "inline-component",
+              "transitions": [
+                {
+                  "name": "Back",
+                  "form-submit-action": "save",
+                  "type": "button"
+                }
+              ]
+            },
+            {
+              "component-type": "transition-control",
+              "wrapper-class": "inline-component",
+              "transitions": [
+                {
+                  "name": "Next",
+                  "form-submit-action": "save",
+                  "type": "button"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components r-align",
+          "fields": [
+            {
+              "component-type": "checkbox-toggle-submit-btn",
+              "coupled-field-name": "request-declarations"
+            }
+          ]
         }
-        
       ]
     }
   ]

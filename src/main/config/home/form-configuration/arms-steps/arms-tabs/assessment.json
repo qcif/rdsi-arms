@@ -63,11 +63,23 @@
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close0",
+          "button-name": "save-close-assessment",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
           "appendOID": true,
+          "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "transition-control",
+          "transitions": [
+            {
+              "name": "Back",
+              "form-submit-action": "save",
+              "type": "button"
+            }
+          ],
+          "additional-classes": "next-button",
           "wrapper-class": "inline-component"
         },
         {
@@ -81,6 +93,17 @@
           ],
           "additional-classes": "next-button",
           "wrapper-class": "inline-component"
+        },
+        {
+          "component-type": "confirm-and-submit-button",
+          "field-name": "arms.field.label.authoritycheck",
+          "box-label": "arms.field.label.authoritycheck.yes",
+          "box-value": "yes",
+          "button-name": "submit",
+          "label": "Submit",
+          "action": "next",
+          "closeUrl": "detail",
+          "appendOID": true
         }
       ]
     }
