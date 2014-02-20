@@ -13,16 +13,16 @@ $('#request-submit').click( function () {
 
 ## allChecked(eid) is defined in arms-footer.vm 
 $(document).ready(function() {
-	var eid="request:declarations";
+	##var eid="request:declarations";
 	function toggleSubmitButton() {
-		if(allChecked(eid)) {
+		if(allChecked('$coupled-field-name')) {
 			$("[id='request-submit']").show();
 		} else {
 			$("[id='request-submit']").hide();
 		}
 	}
 	toggleSubmitButton();
-	$("[id^='"+eid+"']").change(function() {
+	$("[id^='"+'$coupled-field-name'+"']").change(function() {
 		toggleSubmitButton();	
 	});
 });

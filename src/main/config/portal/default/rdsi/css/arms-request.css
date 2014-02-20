@@ -116,6 +116,29 @@
 .next-button {
   margin-left:25.5em;
 }
+
+.overflow-container {
+	overflow: hidden;	
+}
+
+.m-align {
+	text-align: center;
+	width: 50%;
+}
+
+.l-align {
+	float: left;
+}
+
+.r-align {
+	float: right;
+}
+
+.line-of-components {
+  display: inline-block;
+  vertical-align: top;
+}
+
 .notesFields textarea {
   width:40em;	
 }
