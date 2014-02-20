@@ -59,7 +59,7 @@
     {
       "component-type": "group",
       "template": "group-div",
-      "additional-classes": "workflow-controls",
+      "additional-classes": "workflow-controls overflow-container",
       "fields": [
         {
           "component-type": "standard-button",
@@ -68,42 +68,54 @@
           "action": "save",
           "closeUrl": "detail",
           "appendOID": true,
-          "wrapper-class": "inline-component"
+          "wrapper-class": "inline-component",
+          "additional-classes": "line-of-components l-align"
         },
         {
-          "component-type": "transition-control",
-          "transitions": [
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components m-align",
+          "fields": [
             {
-              "name": "Back",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
+              "component-type": "transition-control",
+              "wrapper-class": "inline-component",
+              "transitions": [
+                {
+                  "name": "Back",
+                  "form-submit-action": "save",
+                  "type": "button"
+                }
+              ]
+            },
             {
-              "name": "Next",
-              "form-submit-action": "save",
-              "type": "button"
+              "component-type": "transition-control",
+              "wrapper-class": "inline-component",
+              "transitions": [
+                {
+                  "name": "Next",
+                  "form-submit-action": "save",
+                  "type": "button"
+                }
+              ]
             }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
+          ]
         },
         {
-          "component-type": "confirm-and-submit-button",
-          "field-name": "arms.field.label.authoritycheck",
-          "box-label": "arms.field.label.authoritycheck.yes",
-          "box-value": "yes",
-          "button-name": "submit",
-          "label": "Submit",
-          "action": "next",
-          "closeUrl": "detail",
-          "appendOID": true
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components r-align",
+          "fields": [
+            {
+              "component-type": "standard-button",
+              "button-name": "submit-assessment",
+              "label": "Submit assessment",
+              "action": "save",
+              "closeUrl": "detail",
+              "appendOID": true,
+              "wrapper-class": "inline-component",
+              "additional-classes": "line-of-components l-align"
+            }
+          ]
         }
       ]
     }

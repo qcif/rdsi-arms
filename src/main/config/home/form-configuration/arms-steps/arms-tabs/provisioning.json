@@ -21,31 +21,55 @@
       "field-name": "provisioning-notes",
       "label": "arms.provisioning.subsectionC.label"
     },
-    {
+     {
       "component-type": "group",
       "template": "group-div",
-      "additional-classes": "workflow-controls",
+      "additional-classes": "workflow-controls overflow-container",
       "fields": [
         {
           "component-type": "standard-button",
-          "button-name": "save-close0",
+          "button-name": "save-close-provisioning",
           "label": "Save and close",
           "action": "save",
           "closeUrl": "detail",
           "appendOID": true,
-          "wrapper-class": "inline-component"
+          "wrapper-class": "inline-component",
+          "additional-classes": "line-of-components l-align"
         },
         {
-          "component-type": "transition-control",
-          "transitions": [
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components m-align",
+          "fields": [
             {
-              "name": "Next",
-              "form-submit-action": "save",
-              "type": "button"
+              "component-type": "transition-control",
+              "wrapper-class": "inline-component",
+              "transitions": [
+                {
+                  "name": "Back",
+                  "form-submit-action": "save",
+                  "type": "button"
+                }
+              ]
             }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
+          ]
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "additional-classes": "line-of-components r-align",
+          "fields": [
+            {
+              "component-type": "standard-button",
+              "button-name": "submit-provisioning",
+              "label": "Mark as provisioning completed",
+              "action": "save",
+              "closeUrl": "detail",
+              "appendOID": true,
+              "wrapper-class": "inline-component",
+              "additional-classes": "line-of-components l-align"
+            }
+          ]
         }
       ]
     }
