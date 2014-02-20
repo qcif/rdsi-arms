@@ -101,7 +101,17 @@
           "fields": [
             {
               "component-type": "checkbox-toggle-submit-btn",
-              "coupled-field-name": "request-declarations"
+              "coupled-field-name": "request-declarations",
+              "additional-classes": "block-override"
+            },
+            {
+              "component-type": "standard-button",
+              "button-name": "delete-draft",
+              "label": "Delete draft",
+              "action": "save",
+              "closeUrl": "detail",
+              "appendOID": true,
+              "additional-classes": "block-override"
             }
           ]
         }
