@@ -127,20 +127,7 @@
     }
     
     function delete_record(oid) {
-        $("#delete-record").dialog({
-            resizable : false,
-            modal : true,
-            buttons : {
-                "Delete" : function() {
-                    $(this).dialog("close");
-                    _chown(oid);
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
-
+        $("#delete-record").data('oid', oid).dialog("open");
     }
 
     function revoke_user(user_name) {
@@ -207,6 +194,21 @@
                 "Close": function () {
                     $(this).dialog("close");
                     $("#action-warning-msg").hide();
+                }
+            }
+        });
+        $("#delete-record").dialog({
+            autoOpen: false,
+            resizable : false,
+            modal : true,
+            buttons : {
+                "Delete" : function() {
+                    $(this).dialog("close");
+                    var oid =  $(this).data('oid');
+                    _chown(oid);
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
                 }
             }
         });
