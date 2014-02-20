@@ -10,29 +10,18 @@
     "environment":"${server.environment}",
     "configured": true,       
     "urlBase": "${server.url.base}",
-    "email": "DO_NOT_CHANGE",
-    "Shibboleth":{
-        "use_headers":"false",
-        "username_attribute":"eduPersonTargetedID",
-        "cn_attribute":"displayName",
-        "session_attribute":"Shib-Session-ID",
-        "idp_attribute":"Shib-Identity-Provider",
-        "attributes":["eduPersonAffiliation", "commonName", "email"],
-        "delimiter":";",
-        "rolePlugins":["SimpleShibbolethRoleManager"],
-        "SimpleShibbolethRoleManager":{
-            "requestor":[
-                [
-                    ["eduPersonAffiliation", "is", "student"]
-                ],
-                [
-                    ["eduPersonAffiliation", "is not", "student"]
-                ]
-            ]
-        }
+    "email": "DO_NOT_CHANGE",    
+    "rapidAafSso": {
+    	"url":"",
+    	"sharedKey":"",
+    	"aud":"${server.url.base}",
+    	"iss":"https://rapid.test.aaf.edu.au",
+    	"attrParentField":"https://aaf.edu.au/attributes",
+    	"usernameField":"edupersontargetedid",
+    	"source":"rapidAafSso"    	
     },
     "sso": {
-        "plugins": ["Shibboleth"],
+        "plugins": ["rapidAafSso"],
         "urlExclusions": {
             "startsWith": [
                 "css/",
