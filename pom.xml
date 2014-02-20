@@ -102,6 +102,12 @@
 			<artifactId>fascinator-shibboleth</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!--  Rapid AAF SSO plugin -->
+		<dependency>
+			<groupId>au.com.redboxresearchdata.fascinator</groupId>
+			<artifactId>plugin-sso-rapidaaf</artifactId>
+			<version>1.2-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<profiles>
 		<profile>
@@ -359,7 +365,7 @@
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<includes>home/**,portal/default/**,portal/portal-library.vm,server/**,solr/**</includes>
+							<includes>home/**,portal/default/**,portal/portal-library.vm,server/**,solr/**,portal/rapidaaf/**</includes>
 							<excludes>portal/default/usq/**</excludes>
 							<outputDirectory>${project.home}</outputDirectory>
 							<artifactItems>
@@ -369,6 +375,26 @@
 								</artifactItem>
 							</artifactItems>
 						</configuration>
+					</execution>
+					<!-- RapidAAF Resources -->
+				   <execution>
+				       <id>unpack-rapidaaf-conf</id>
+				       <phase>process-resources</phase>
+				       <goals>
+				           <goal>unpack</goal>
+				       </goals>
+				       <configuration>
+				           <outputDirectory>${project.home}</outputDirectory>
+				           <excludes>portal/rapidaaf/interface.vm</excludes>
+				           <artifactItems>
+				               <artifactItem>
+				                   <groupId>au.com.redboxresearchdata.fascinator</groupId>
+						  			<artifactId>plugin-sso-rapidaaf</artifactId>
+				                   <classifier>rapidaaf-config</classifier>
+				                   <type>zip</type>
+				               </artifactItem>
+				           </artifactItems>
+				       </configuration>
 					</execution>
 				</executions>
 			</plugin>
