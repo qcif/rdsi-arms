@@ -47,7 +47,6 @@ jQuery(document).ready(function() {
 #if ($results && $results.size() > 0)
 <script>
 var myRecords = new DataRowsModel("requestor");
-myRecords.manageAccess = function(item) { manage_access(item.id); };
 myRecords.changeOwner = function(item) { delete_record(item.id); };
 myRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
@@ -86,7 +85,7 @@ jQuery(document).ready(function() {
 #parseTemplate( "home-components/create-request.vm" )
 #parseTemplate("wrapping/info-box-close.vm")
 
-#parseTemplate("form-components/access-control.vm")
+#parseTemplate("form-components/delete-record.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.requestor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
@@ -107,25 +106,3 @@ jQuery(document).ready(function() {
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
 #end
-
-<script>
-    function prepareHelps() {
-    	var help_contents = $('.pre-help-content');
-    	for (var i = 0; i < help_contents.length; i++ ) {
-    		$(help_contents[i]).hide().attr("class","help-content");
-    		var helpToggleHtml = "<button class=\"jaffaHelpToggle\"></button>";
-    	    helpToggle = $(helpToggleHtml);
-    	    helpToggle.button({icons: {primary:'ui-icon-help'}});
-
-    	    // Setup click logic
-    	    helpToggle.click(function(){$(this).next().toggle('fast');});
-
-    	    // And attach to our container
-    	    helpToggle.insertBefore(help_contents[i]);	
-    	}
-    }
- $(document).ready(function() {
-	prepareHelps();
- });
-
-</script>
