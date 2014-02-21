@@ -1,7 +1,7 @@
 ## The checkboxes are not saved
 #set($oid = $formData.get("oid"))
 
-<button value="next" id="request-submit" #if($additional-classes)class="$additional-classes"#end">Submit</button>
+##<button value="next" id="request-submit" #if($additional-classes)class="$additional-classes"#end">Submit</button>
 
 <script type="text/javascript">
 
@@ -16,9 +16,9 @@ $(document).ready(function() {
 	##var eid="request:declarations";
 	function toggleSubmitButton() {
 		if(allChecked('$coupled-field-name')) {
-			$("[id='request-submit']").show();
+			$("[id='draft-submit-btn']").show();
 		} else {
-			$("[id='request-submit']").hide();
+			$("[id='draft-submit-btn']").hide();
 		}
 	}
 	toggleSubmitButton();
