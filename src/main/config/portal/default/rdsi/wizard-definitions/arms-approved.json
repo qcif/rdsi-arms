@@ -32,7 +32,11 @@
       "Next": "Outcome"
     },
     "Outcome": {
-      "Back": "Assessment"
+      "Back": "Assessment",
+      "Next": "Provisioning"
+    },
+    "Provisioning": {
+      "Back": "Outcome"
     }
   }
 }

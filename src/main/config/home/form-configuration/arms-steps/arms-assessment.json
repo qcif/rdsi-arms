@@ -23,6 +23,9 @@
     },
     {
       "config-file": "form-configuration/arms-steps/arms-tabs/assessment.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
     }
   ],
   "buttons": [],
