@@ -1,0 +1,107 @@
+## Prepare Java objects using refactoring to read config from a json file
+##Get Fascinator Home Path
+#set($fascinatorHomePathMethod = $velocityContext.getClass().forName("com.googlecode.fascinator.common.FascinatorHome").getMethod("getPath"))
+#set($fascinatorHome = $fascinatorHomePathMethod.invoke(null))
+
+##Get Class types for relevant constructors
+#set($fileClass = $velocityContext.getClass().forName("java.io.File"))
+#set($stringClass = $velocityContext.getClass().forName("java.lang.String"))
+#set($jsonSimpleClass = $velocityContext.getClass().forName("com.googlecode.fascinator.common.JsonSimple"))
+
+##get Constructors to invoke
+#set($fileClassConstructor = $fileClass.getConstructor($stringClass))
+#set($jsonSimpleClassConstructor = $jsonSimpleClass.getConstructor($fileClass))
+
+##invoke File constructor to create File Object for json file
+#set($jsonFilePath = "${fascinatorHome}/form-configuration/arms-workflow-actions.json")
+#set($fileObject = $fileClassConstructor.newInstance($jsonFilePath))
+
+##invoke JsonSimple constructor to create object
+#set($stage = $velocityContext.get('formData').get('currentStep'))
+#set($actions = $jsonSimpleClassConstructor.newInstance($fileObject).getJsonObject().get("$stage").get("actions"))
+
+#set($oid = $formData.get("oid"))
+#set($roles = $page.authentication.get_roles())
+
+### End of preparation
+<div class="workflow-controls">
+    <div style="float:left;margin-left:16.5em;">
+        <button id="save-close" class="ui-widget">Save and close</button>
+        <script type="text/javascript">
+          $('#save-close').click( function () { 
+              closeUrl="$portalPath/detail/$oid"; 
+              action= "save";
+              skipValidation = false;
+              jaffa.form.save();
+          });
+        </script>
+    </div>
+    <div style="float:left;margin-left:10em;">
+        <button class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
+        <button class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
+    </div>
+     <div style="float:left;margin-left:10em;">
+         #foreach($action in $actions)
+         <div>
+            #set($roleMatched = 1)
+            #if ($action.get('role'))
+               #set($requiredRole = $action.get('role'))
+               #if (!$roles.contains("$requiredRole"))
+                   #set($roleMatched = 0)
+               #end
+            #end
+
+            #if($action.get('action'))
+             #if ($roleMatched == 1)
+                <button id="$action.get('id')" value="$action.get('action')" class="ui-widget" 
+                #if ($action.get('condition-on')) style="display:none" #end 
+                >$action.get('label')</button>
+                <script type="text/javascript">
+                $('[id="$action.get('id')"]').click( function () { 
+                    closeUrl="$portalPath/detail/$oid"; 
+                    action= $(this).val();
+                    if(validateSubmit()) {  jaffa.form.save(true);  }
+                });
+                </script>
+              #end  
+             #else
+                <button id="$action.get('id')" class="ui-widget">$action.get('label')</button>
+                <script type="text/javascript">
+                $('[id="$action.get('id')"]').click( function () { 
+                     delete_record("$oid");
+                });
+                </script>
+            #end
+         </div>
+         #end
+     </div>
+</div>
+
+##<p>This comes from a template</p>
+###set($keys = $velocityContext.getKeys())
+###foreach($key in $keys)
+##    $key
+###end
+##<h1>Users roles</h1>
+##$page.authentication.get_roles()
+##<p>Seems we can use page to get them</p>
+##<h1>workflow stage</h1>
+##$velocityContext.get('formData').get('currentStep')
+##<p>Seems we can use formData to retrieve current stage and oid = $oid</p>
+######################################################################################################################################################
+####Get Fascinator Home Path
+###set($fascinatorHomePathMethod = $velocityContext.getClass().forName("com.googlecode.fascinator.common.FascinatorHome").getMethod("getPath"))
+###set($fascinatorHome = $fascinatorHomePathMethod.invoke(null))
+####Get Class types for relevant constructors
+###set($fileClass = $velocityContext.getClass().forName("java.io.File"))
+###set($stringClass = $velocityContext.getClass().forName("java.lang.String"))
+###set($jsonSimpleClass = $velocityContext.getClass().forName("com.googlecode.fascinator.common.JsonSimple"))
+####get Constructors to invoke
+###set($fileClassConstructor = $fileClass.getConstructor($stringClass))
+###set($jsonSimpleClassConstructor = $jsonSimpleClass.getConstructor($fileClass))
+####invoke File constructor to create File Object for json file
+###set($jsonFilePath = "${fascinatorHome}/form-configuration/arms-actions.json")
+###set($fileObject = $fileClassConstructor.newInstance($jsonFilePath))
+####invoke JsonSimple constructor to create object
+##$jsonSimpleClassConstructor.newInstance($fileObject)
+#########################################################################################################################################################
