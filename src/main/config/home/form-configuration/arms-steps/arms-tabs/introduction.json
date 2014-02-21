@@ -46,34 +46,6 @@
           "value": "arms.field.label.section0-subsectionB.pointE"
         }
       ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "additional-classes": "workflow-controls",
-      "fields": [
-        {
-          "component-type": "standard-button",
-          "button-name": "save-close0",
-          "label": "Save and close",
-          "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Next",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
-        }
-      ]
     }
   ]
 }
