@@ -1,5 +1,13 @@
 <link rel="stylesheet" type="text/css" href="$portalPath/css/arms-request.css" />
 
+## Only needed for requestor
+#set($roles = $page.authentication.get_roles())
+#if ($roles.contains("requestor"))
+#parseTemplate("form-components/delete-record.vm")
+#end
+
+#parseTemplate("form-components/actions-bar.vm")
+
 ## toggle isFunded and fundingInfoTable
 ## The section has label and knockout table, has a special class: .fundinginfoSec but has no ID
 <script type="text/javascript">

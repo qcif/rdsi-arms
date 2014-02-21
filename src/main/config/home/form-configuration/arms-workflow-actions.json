@@ -1,0 +1,120 @@
+{
+  "comment": "Reference arms.json for workflow stages and their action lists. Without action means it is not a workflow transition and a special action is needed",
+  "arms-draft": {
+    "actions": [
+      {
+        "label": "Submit request",
+        "id": "draft-submit-btn",
+        "action": "next",
+        "condition-on": "checkboxes"
+      },
+      {
+        "label": "Delete draft",
+        "id": "delete-btn"
+      }
+    ]
+  },
+  "arms-review": {
+    "actions": [
+      {
+        "label": "Make available for assessment",
+        "id": "review-submit-btn",
+        "action": "next",
+        "condition-on": "radio button still being processed"
+      },
+      {
+        "label": "Remove from assessment",
+        "id": "remove-btn",
+        "action": "remove",
+        "condition-on": "radio button still being processed"
+      },
+      {
+        "label": "Approved and notify provisioning",
+        "id": "approve-btn",
+        "action": "approve",
+        "condition-on": "radio button Approved for ReDS or CDS"
+      },
+      {
+        "label": "Reject and notify requestor",
+        "id": "approve-btn",
+        "action": "reject",
+        "condition-on": "radio button of Reject"
+      },
+      {
+        "label": "Return to requestor to update",
+        "id": "return-btn",
+        "action": "return",
+        "condition-on": "radio button of still being processed"
+      }
+    ]
+  },
+  "arms-assessment": {
+    "actions": [
+      {
+        "label": "Make available for assessment",
+        "id": "review-submit-btn",
+        "action": "next",
+        "condition-on": "radio button still being processed"
+      },
+      {
+        "label": "Remove from assessment",
+        "id": "remove-btn",
+        "action": "remove",
+        "role": "reviewer",
+        "condition-on": "radio button still being processed"
+      },
+      {
+        "label": "Approved and notify provisioning",
+        "id": "approve-btn",
+        "action": "approve",
+        "condition-on": "radio button Approved for ReDS or CDS"
+      },
+      {
+        "label": "Reject and notify requestor",
+        "id": "approve-btn",
+        "action": "reject",
+        "condition-on": "radio button of Reject"
+      },
+      {
+        "label": "Return to requestor to update",
+        "id": "return-btn",
+        "action": "return",
+        "condition-on": "radio button of still being processed"
+      }
+    ]
+  },
+  "arms-approved": {
+    "actions": [
+      {
+        "label": "Mark as provisioning completed",
+        "id": "approved-submit-btn",
+        "action": "next"
+      },
+      {
+        "label": "Reopen",
+        "id": "reopen-btn",
+        "action": "reopen"
+      }
+    ]
+  },
+  "arms-provisioned": {
+    "actions": [
+      {
+        "label": "Reopen",
+        "id": "reopen-btn",
+        "action": "reopen",
+        "role": "reviewer"
+      }
+    ]
+  },
+  "arms-rejected": {
+    "actions": [
+      {
+        "label": "Reopen",
+        "id": "reopen-btn",
+        "action": "reopen",
+        "role": "reviewer"
+      }
+    ]
+  }
+}
