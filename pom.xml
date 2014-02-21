@@ -4,17 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.edu.qcif</groupId>
 	<artifactId>redbox-rdsi-arms</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>${packaging}</packaging>
 	<name>ReDBox - RDSI Arms</name>
 	<parent>
 		<groupId>com.googlecode.redbox-mint</groupId>
 		<artifactId>redbox</artifactId>
-		<version>1.7-SNAPSHOT</version>
+		<version>1.7</version>
 	</parent>
 	<properties>
 		<!-- Used in build -->
-		<redbox.version>1.7-SNAPSHOT</redbox.version>
+		<redbox.version>1.7</redbox.version>
 		<package.finalname>${project.build.finalName}</package.finalname>
 		<!-- Runtime values, will replace placeholders in config and control scripts -->
 		<app.location.windows>${project.home}</app.location.windows>
@@ -46,28 +46,28 @@
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-project</artifactId>
 			<type>pom</type>
-			<version>1.7-SNAPSHOT</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox</artifactId>
 			<type>pom</type>
-			<version>1.7-SNAPSHOT</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-config</artifactId>
-			<version>1.7-SNAPSHOT</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-secure-api</artifactId>
-			<version>1.7-SNAPSHOT</version>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>plugin-transaction-curation-redbox</artifactId>
-			<version>1.7-SNAPSHOT</version>
+			<version>1.7</version>
 		</dependency>
 		<!-- Local Curation Plugin (from Mint) -->
 		<dependency>
@@ -78,29 +78,24 @@
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-transformer-basicVersioning</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0</version>
 		</dependency>
 		<!-- new velocity plugins -->
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-transformer-jsonVelocity</artifactId>
-			<version>1.2-SNAPSHOT</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-transformer-jsonVelocity-pdf</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.0</version>
 		</dependency>
 		<!-- JSON harvester plugin -->
 		<dependency>
 			<groupId>au.com.redboxresearchdata.fascinator</groupId>
 			<artifactId>plugin-harvester-json</artifactId>
-			<version>1.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>au.com.redboxresearchdata</groupId>
-			<artifactId>fascinator-shibboleth</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>1.2</version>
 		</dependency>
 		<!--  Rapid AAF SSO plugin -->
 		<dependency>
