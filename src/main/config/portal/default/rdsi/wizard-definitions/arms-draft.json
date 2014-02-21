@@ -18,6 +18,9 @@
         "Storage requirements": {
             "Back": "Research significance",
             "Next": "Declarations"
+        },
+        "Declarations": {
+            "Back": "Storage requirements"
         }
     }
 }

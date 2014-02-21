@@ -5,19 +5,34 @@
     },
     "Contact details": {
       "Back": "Introduction",
-      "Next": "Collection details"
+      "Next": "Allocation details"
     },
-    "Collection details": {
+    "Allocation details": {
       "Back": "Contact details",
       "Next": "Research significance"
     },
     "Research significance": {
-      "Back": "Collection details",
+      "Back": "Allocation details",
       "Next": "Storage requirements"
     },
     "Storage requirements": {
       "Back": "Research significance",
-      "Next": "Reviewer"
+      "Next": "Declarations"
+    },
+    "Declarations": {
+      "Back": "Storage requirements",
+      "Next": "Reviewer Summary"
+    },
+    "Reviewer Summary": {
+      "Back": "Declarations",
+      "Next": "Assessment"
+    },
+    "Assessment": {
+      "Back": "Reviewer Summary",
+      "Next": "Outcome"
+    },
+    "Outcome": {
+      "Back": "Assessment"
     }
   }
 }
