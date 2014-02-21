@@ -614,45 +614,6 @@
           "wrapper-class": "inline-component statesField"
         }
       ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "additional-classes": "workflow-controls",
-      "fields": [
-        {
-          "component-type": "standard-button",
-          "button-name": "save-close1",
-          "label": "Save and close",
-          "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Back",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "additional-classes": "next-button",
-          "wrapper-class": "inline-component"
-        },
-        {
-          "component-type": "transition-control",
-          "transitions": [
-            {
-              "name": "Next",
-              "form-submit-action": "save",
-              "type": "button"
-            }
-          ],
-          "wrapper-class": "inline-component"
-        }
-      ]
     }
   ]
 }

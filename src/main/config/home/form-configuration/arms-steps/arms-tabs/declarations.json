@@ -51,71 +51,9 @@
       "content": ""
     },
     {
-      "component-type": "group",
-      "template": "group-div",
-      "additional-classes": "workflow-controls overflow-container",
-      "fields": [
-        {
-          "component-type": "standard-button",
-          "button-name": "save-close-declarations",
-          "label": "Save and close",
-          "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component",
-          "additional-classes": "line-of-components l-align"
-        },
-        {
-          "component-type": "group",
-          "template": "group-div",
-          "additional-classes": "line-of-components m-align",
-          "fields": [
-            {
-              "component-type": "transition-control",
-              "wrapper-class": "inline-component",
-              "transitions": [
-                {
-                  "name": "Back",
-                  "form-submit-action": "save",
-                  "type": "button"
-                }
-              ]
-            },
-            {
-              "component-type": "transition-control",
-              "wrapper-class": "inline-component",
-              "transitions": [
-                {
-                  "name": "Next",
-                  "form-submit-action": "save",
-                  "type": "button"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component-type": "group",
-          "template": "group-div",
-          "additional-classes": "line-of-components r-align",
-          "fields": [
-            {
-              "component-type": "checkbox-toggle-submit-btn",
-              "coupled-field-name": "request-declarations",
-              "additional-classes": "block-override"
-            },
-            {
-              "component-type": "standard-button",
-              "button-name": "delete-draft",
-              "label": "Delete draft",
-              "action": "save",
-              "closeUrl": "detail",
-              "appendOID": true,
-              "additional-classes": "block-override"
-            }
-          ]
-        }
-      ]
+      "component-type": "checkbox-toggle-submit-btn",
+      "coupled-field-name": "request-declarations",
+      "additional-classes": "block-override"
     }
   ]
 }
