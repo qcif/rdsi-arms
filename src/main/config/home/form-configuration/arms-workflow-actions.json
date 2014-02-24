@@ -6,7 +6,10 @@
         "label": "Submit request",
         "id": "draft-submit-btn",
         "action": "next",
-        "condition-on": "checkboxes"
+        "condition-on": {
+          "id": "request-declarations",
+          "on": "checkbox"
+        }
       },
       {
         "label": "Delete draft",
@@ -20,31 +23,55 @@
         "label": "Make available for assessment",
         "id": "review-submit-btn",
         "action": "next",
-        "condition-on": "radio button still being processed"
+        "condition-on": {
+          "id": "outcome-decision.1",
+          "on": "radio"
+        }
       },
       {
         "label": "Remove from assessment",
         "id": "remove-btn",
         "action": "remove",
-        "condition-on": "radio button still being processed"
+        "condition-on": {
+          "id": "outcome-decision.1",
+          "on": "radio"
+        }
       },
       {
         "label": "Approved and notify provisioning",
-        "id": "approve-btn",
+        "id": "approve-reds-btn",
         "action": "approve",
-        "condition-on": "radio button Approved for ReDS or CDS"
+        "condition-on": {
+          "id": "outcome-decision.2",
+          "on": "radio"
+        }
+      },
+      {
+        "label": "Approved and notify provisioning",
+        "id": "approve-cds-btn",
+        "action": "approve",
+        "condition-on": {
+          "id": "outcome-decision.3",
+          "on": "radio"
+        }
       },
       {
         "label": "Reject and notify requestor",
         "id": "approve-btn",
         "action": "reject",
-        "condition-on": "radio button of Reject"
+        "condition-on": {
+          "id": "outcome-decision.4",
+          "on": "radio"
+        }
       },
       {
         "label": "Return to requestor to update",
         "id": "return-btn",
         "action": "return",
-        "condition-on": "radio button of still being processed"
+        "condition-on": {
+          "id": "outcome-decision.1",
+          "on": "radio"
+        }
       }
     ]
   },
@@ -93,7 +120,8 @@
       {
         "label": "Reopen",
         "id": "reopen-btn",
-        "action": "reopen"
+        "action": "reopen",
+        "role": "reviewer"
       }
     ]
   },
