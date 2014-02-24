@@ -1,7 +1,7 @@
 {
   "heading": "Provisioning",
   "fields": [
-  	{
+    {
       "component-type": "text-block",
       "type": "h1",
       "content": "arms.provisioning.heading"
@@ -16,62 +16,10 @@
       "type": "p",
       "content": "arms.provisioning.subsectionB.label"
     },
-     {
+    {
       "component-type": "textarea",
       "field-name": "provisioning-notes",
       "label": "arms.provisioning.subsectionC.label"
-    },
-     {
-      "component-type": "group",
-      "template": "group-div",
-      "additional-classes": "workflow-controls overflow-container",
-      "fields": [
-        {
-          "component-type": "standard-button",
-          "button-name": "save-close-provisioning",
-          "label": "Save and close",
-          "action": "save",
-          "closeUrl": "detail",
-          "appendOID": true,
-          "wrapper-class": "inline-component",
-          "additional-classes": "line-of-components l-align"
-        },
-        {
-          "component-type": "group",
-          "template": "group-div",
-          "additional-classes": "line-of-components m-align",
-          "fields": [
-            {
-              "component-type": "transition-control",
-              "wrapper-class": "inline-component",
-              "transitions": [
-                {
-                  "name": "Back",
-                  "form-submit-action": "save",
-                  "type": "button"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "component-type": "group",
-          "template": "group-div",
-          "additional-classes": "line-of-components r-align",
-          "fields": [
-            {
-              "component-type": "standard-button",
-              "button-name": "submit-provisioning",
-              "label": "Mark as provisioning completed",
-              "action": "save",
-              "closeUrl": "detail",
-              "appendOID": true,
-              "wrapper-class": "inline-component",
-              "additional-classes": "line-of-components l-align"
-            }
-          ]
-        }
-      ]
     }
   ]
 }
