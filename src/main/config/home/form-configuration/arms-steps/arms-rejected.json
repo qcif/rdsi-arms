@@ -36,7 +36,7 @@
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-review.json"
+    "wizardDefPath": "wizard-definitions/arms-approved.json"
   },
   "validation-function": {
     "component-type": "active-tab",
