@@ -44,16 +44,6 @@
       "additional-class": "right-text",
       "type": "p",
       "content": "arms.description.declaration.note"
-    },
-    {
-      "component-type": "text-block",
-      "type": "p",
-      "content": ""
-    },
-    {
-      "component-type": "checkbox-toggle-submit-btn",
-      "coupled-field-name": "request-declarations",
-      "additional-classes": "block-override"
     }
   ]
 }
