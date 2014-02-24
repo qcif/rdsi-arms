@@ -1,7 +1,9 @@
 #if($button-for)<div>#displayMessage($button-for)</div>#end
+#set($itemNo = 1)
 #foreach( $button in $buttons )
-    <label #if( $multiline )style="display:block;" #end #if ($additional-class) class="$additional-class" #end><input name="$field-name" class="jaffa-field"
+    <label #if( $multiline )style="display:block;" #end #if ($additional-class) class="$additional-class" #end><input name="$field-name" id="$field-name.$itemNo" class="jaffa-field"
     #if( $button.action ) onclick="$button.action" #end
     #if( $button.checked ) checked="checked" #end 
     type="radio" value="#displayMessage($button.value)">#displayMessage($button.label)</label>
+    #set($itemNo = $itemNo + 1)
 #end
