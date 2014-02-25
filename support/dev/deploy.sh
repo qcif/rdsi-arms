@@ -174,7 +174,6 @@ fi
 if [ ! -d "$TMPDIR" ]; then
     mkdir -p "$TMPDIR" || die
 fi    
-cd "$TMPDIR" || die
 
 #----------------------------------------------------------------
 # Work out if we already have the latest version
@@ -199,17 +198,13 @@ fi
 #----------------------------------------------------------------
 # Obtain install files
 
-# Clean up from any aborted installs
-
-rm -rf $TMPDIR/$RB_SYSTEM || die
-
 # Get latest archive
 
-EXISTING_VERSION=`cat version.txt 2>/dev/null`
+EXISTING_VERSION=`cat "$TMPDIR/version.txt" 2>/dev/null`
 
 if [ -z "$FORCE_DOWNLOAD" -a \
      -f $DEPLOY_ARCHIVE -a \
-     -f version.txt -a \
+     -f "$TMPDIR/version.txt" -a \
      "$EXISTING_VERSION" = "$LATEST_VERSION" ]; then
     # Use previously downloaded archive
 
@@ -219,7 +214,7 @@ if [ -z "$FORCE_DOWNLOAD" -a \
 else
     # Download new archive
 
-    rm -f version.txt || die
+    rm -f "$TMPDIR/version.txt" || die
     rm -f "$DEPLOY_ARCHIVE" || die
 
     echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
@@ -228,7 +223,7 @@ else
     fi
     curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
 
-    echo $LATEST_VERSION > version.txt || die
+    echo $LATEST_VERSION > "$TMPDIR/version.txt" || die
 fi
 
 #----------------------------------------------------------------
@@ -270,11 +265,11 @@ fi
 
 # Fix incorrect URL
 
-sed -i $REGEX $INSTDIR/server/tf_env.sh || die
+sed -i $REGEX "$INSTDIR/server/tf_env.sh" || die
 
 # Record version that has been installed
 
-echo $LATEST_VERSION > $INSTDIR/version.txt || die
+echo $LATEST_VERSION > "$INSTDIR/version.txt" || die
 
 # Start
 
