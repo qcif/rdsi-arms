@@ -127,8 +127,6 @@ case "$RB_SYSTEM" in
         ;;
 esac
 
-DEPLOY_ARCHIVE=$RB_SYSTEM.tar.gz
-
 # Set values if not explicitly provided from the command line
 
 if [ -z "$INSTDIR" ]; then
@@ -137,6 +135,8 @@ fi
 if [ -z "$TMPDIR" ]; then
     TMPDIR="$DEFAULT_TMPDIR" # use default temporary directory
 fi
+
+DEPLOY_ARCHIVE="$TMPDIR/$RB_SYSTEM.tar.gz"
 
 #----------------------------------------------------------------
 # Checks
@@ -214,27 +214,22 @@ if [ -z "$FORCE_DOWNLOAD" -a \
     # Use previously downloaded archive
 
     if [ -n "$VERBOSE" ]; then
-        echo "Installer file for $RB_SYSTEM: reusing $TMPDIR/$DEPLOY_ARCHIVE"
+        echo "Installer file for $RB_SYSTEM: reusing $DEPLOY_ARCHIVE"
     fi
 else
     # Download new archive
 
     rm -f version.txt || die
-    rm -f $DEPLOY_ARCHIVE || die
+    rm -f "$DEPLOY_ARCHIVE" || die
 
     echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
     if [ -n "$VERBOSE" ]; then
 	echo "  $DEPLOY_URL"
     fi
-    curl -# --location -o $DEPLOY_ARCHIVE "$DEPLOY_URL" || die
+    curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
 
     echo $LATEST_VERSION > version.txt || die
 fi
-
-# Extract and fix incorrect URL
-
-tar xzf $DEPLOY_ARCHIVE || die
-sed -i $REGEX $RB_SYSTEM/server/tf_env.sh || die
 
 #----------------------------------------------------------------
 # Uninstall (if necessary)
@@ -258,21 +253,36 @@ fi
 #----------------------------------------------------------------
 # Install new version
 
+# Extract into install directory.
+#
+# The tar has all the files under a directory called "redbox" or "mint",
+# so we need to move the contents out of there up a level and remove
+# that directory.
+
 if [ -n "$VERBOSE" ]; then
-    echo Copying files across
+    echo "Extracting files from $DEPLOY_ARCHIVE into $INSTDIR"
 fi
-cp -rf $TMPDIR/$RB_SYSTEM/* $INSTDIR/ || die
+
+(cd "$INSTDIR" && \
+ tar -x -z -f "$DEPLOY_ARCHIVE" && \
+ mv $RB_SYSTEM/* . && \
+ rmdir $RB_SYSTEM) || die
+
+# Fix incorrect URL
+
+sed -i $REGEX $INSTDIR/server/tf_env.sh || die
+
+# Record version that has been installed
+
+echo $LATEST_VERSION > $INSTDIR/version.txt || die
+
+# Start
 
 echo "Starting $RB_SYSTEM:"
 $INSTDIR/server/tf.sh start || die
 
-echo $LATEST_VERSION > $INSTDIR/version.txt || die
-
 #----------------------------------------------------------------
 # Installing completed successfully
-
-# Remove extracted files
-rm -rf $TMPDIR/$RB_SYSTEM || die
 
 exit 0
 
