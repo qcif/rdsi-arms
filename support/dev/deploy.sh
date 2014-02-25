@@ -50,7 +50,7 @@ done
 if [ -n "$HELP" ]; then
     echo "Usage: $PROG [options] (redbox | mint)"
     echo "Options:"
-    echo "  -i | --installdir dir  installation directory (default: /opt/redbox or /opt/mint)"
+    echo "  -i | --installdir dir  installation directory (Warning: experimental feature: not fully working)"
     echo "  -v | --verbose         verbose output"
     echo "  -r | --reinstall       force reinstall even if installed version is up-to-date"
     echo "  -d | --download        force download from Maven even if latest already downloaded"
@@ -69,7 +69,31 @@ else
 fi
  
 #----------------------------------------------------------------
+# Check dependencies (some minimal installations do not have these commands)
+
+which tar >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "$PROG: error: tar command not found" >&2
+    exit 1
+fi
+
+which ifconfig >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    # TODO: should change to use "ip addr" (which is available on Fedora 20) unlike "ifconfig"
+    echo "$PROG: error: ifconfig command not found" >&2
+    exit 1
+fi
+
+#----------------------------------------------------------------
 # Setup variables
+
+# Determine IP address
+
+SERVER_IP=`ifconfig eth0 | awk -F'[: ]+' '/inet addr:/ {print $4}'`
+
+if [ "$SERVER_IP" = "" ]; then
+    SERVER_IP=127.0.0.1;
+fi
 
 case "$RB_SYSTEM" in
     "redbox")
@@ -97,20 +121,20 @@ esac
 DEPLOY_ARCHIVE=$RB_SYSTEM.tar.gz
 
 #----------------------------------------------------------------
-# Check user
+# Checks
 
 if [ "$USER" != "redbox" ]; then
     echo "$PROG: error: must be run as the 'redbox' user" >&2
     exit 1
 fi
 
-#----------------------------------------------------------------
-# Determine IP address
-
-SERVER_IP=`ifconfig eth0 | awk -F'[: ]+' '/inet addr:/ {print $4}'`
-
-if [ "$SERVER_IP" = "" ]; then
-    SERVER_IP=127.0.0.1;
+if [ ! -d "$INSTALL_DIR" ]; then
+    echo "$PROG: error: installation directory does not exist: $INSTALL_DIR" >&2
+    exit 1
+fi
+if [ ! -w "$INSTALL_DIR" ]; then
+    echo "$PROG: error: cannot write to installation directory: $INSTALL_DIR" >&2
+    exit 1
 fi
 
 #----------------------------------------------------------------
@@ -161,33 +185,33 @@ rm -rf $DEPLOY_DIR/$RB_SYSTEM || die
 
 # Get latest archive
 
-EXISTING_VERSION=`cat $DEPLOY_DIR/version.txt 2>/dev/null`
+EXISTING_VERSION=`cat version.txt 2>/dev/null`
 
 if [ -z "$FORCE_DOWNLOAD" -a \
      -f $DEPLOY_ARCHIVE -a \
-     -f $DEPLOY_DIR/version.txt -a \
+     -f version.txt -a \
      "$EXISTING_VERSION" = "$LATEST_VERSION" ]; then
     # Use previously downloaded archive
 
     if [ -n "$VERBOSE" ]; then
-        echo "Installing from existing archive: $DEPLOY_ARCHIVE"
+        echo "Installing from existing archive: $DEPLOY_DIR/$DEPLOY_ARCHIVE"
     fi
 else
     # Download new archive
 
-    rm -f $DEPLOY_DIR/version.txt || die
+    rm -f version.txt || die
     rm -f $DEPLOY_ARCHIVE || die
 
     echo "Downloading $RB_SYSTEM from Nexus"
     curl -# --location -o $DEPLOY_ARCHIVE "$DEPLOY_URL" || die
 
-    echo $LATEST_VERSION > $DEPLOY_DIR/version.txt || die
+    echo $LATEST_VERSION > version.txt || die
 fi
 
 # Extract and fix incorrect URL
 
 tar xzf $DEPLOY_ARCHIVE || die
-sed -i $REGEX $DEPLOY_DIR/$RB_SYSTEM/server/tf_env.sh || die
+sed -i $REGEX $RB_SYSTEM/server/tf_env.sh || die
 
 #----------------------------------------------------------------
 # Uninstall (if necessary)
