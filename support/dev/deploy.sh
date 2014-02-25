@@ -18,15 +18,16 @@ function die () {
 HELP=
 INSTALL_DIR=
 FORCE_REINSTALL=
+FORCE_DOWNLOAD=
 VERBOSE=
 
 getopt -T > /dev/null
 if [ $? -eq 4 ]; then
   # GNU enhanced getopt is available
-  ARGS=`getopt --name "$PROG" --long help,installdir:,force,verbose --options hi:fv -- "$@"`
+  ARGS=`getopt --name "$PROG" --long help,installdir:,download,reinstall,verbose --options hi:drv -- "$@"`
 else
   # Original getopt is available (no long option names, no whitespace, no sorting)
-  ARGS=`getopt hi:fv "$@"`
+  ARGS=`getopt hi:drv "$@"`
 fi
 if [ $? -ne 0 ]; then
   echo "$PROG: usage error (use -h for help)" >&2
@@ -38,7 +39,8 @@ while [ $# -gt 0 ]; do
     case "$1" in
         -h | --help)         HELP=yes;;
         -i | --installdir)   INSTALL_DIR="$2"; shift;;
-        -f | --force)        FORCE_REINSTALL=yes;;
+        -r | --reinstall)    FORCE_REINSTALL=yes;;
+        -d | --download)     FORCE_DOWNLOAD=yes;;
         -v | --verbose)      VERBOSE=yes;;
         --)                  shift; break;; # end of options
     esac
@@ -50,7 +52,8 @@ if [ -n "$HELP" ]; then
     echo "Options:"
     echo "  -i | --installdir dir  installation directory (default: /opt/redbox or /opt/mint)"
     echo "  -v | --verbose         verbose output"
-    echo "  -f | --force           force reinstall even if up-to-date"
+    echo "  -r | --reinstall       force reinstall even if installed version is up-to-date"
+    echo "  -d | --download        force download from Maven even if latest already downloaded"
     echo "  -h | --help            show this message"
     exit 0
 fi
@@ -160,7 +163,8 @@ rm -rf $DEPLOY_DIR/$RB_SYSTEM || die
 
 EXISTING_VERSION=`cat $DEPLOY_DIR/version.txt 2>/dev/null`
 
-if [ -f $DEPLOY_ARCHIVE -a \
+if [ -z "$FORCE_DOWNLOAD" -a \
+     -f $DEPLOY_ARCHIVE -a \
      -f $DEPLOY_DIR/version.txt -a \
      "$EXISTING_VERSION" = "$LATEST_VERSION" ]; then
     # Use previously downloaded archive
