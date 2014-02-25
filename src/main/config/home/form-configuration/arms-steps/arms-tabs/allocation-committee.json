@@ -646,8 +646,8 @@
               "value": "arms.allocation.pointA"
             },
             {
-              "label": "arms.allocation.pointA",
-              "value": "arms.allocation.pointA"
+              "label": "arms.allocation.pointB",
+              "value": "arms.allocation.pointB"
             }
           ]
         }
