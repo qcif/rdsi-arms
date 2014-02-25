@@ -1,13 +1,12 @@
-# Installing ARMS from Maven manually
+# Installing ARMS manually from the Nexus repository
 
 ## Overview
 
 These instructions describe how to manually install ARMS from the
-pre-compiled releases in Maven.
+pre-compiled releases in the Nexus repository.
 
 There are other ways to install ARMS, such as installing it from the
-sources and using Puppet to install the pre-compiled releases in
-Maven.
+sources or using Puppet to install from the Nexus repository.
 
 ## Requirements
 
@@ -16,24 +15,47 @@ with any RHEL-based distribution.
 
 ## Pre-requsites
 
-* Ensure you add the IP address and hostname to /etc/hosts
-* Consider also updating hostname of box (/etc/sysconfig/network and /etc/hosts)
-* currently ipaddress is used for redbox and mint environments. To not show ipaddress (if DNS setup manually) change to dns name
+* The server's hostname must be configured correctly.
+     - Test: running the `hostname` command should produce the correct result.
+     - In CentOS 6.5, edit the `/etc/sysconfig/network` file and rebooting.
+     - In Fedora 20, edit the `/etc/hostname` file.
+
+* The server's hostname must be resolvable.
+     - Test: running `ping` on the hostname pings the server.
+     - Either add an entry for it in the `/etc/hosts` file or configure DNS.
+
+Note:  currently ipaddress is used for redbox and mint environments. To
+not show ipaddress (if DNS setup manually) change to dns name
 
 ## Instructions
 
-The following instructions should be run with root privileges. This
-can be done from an account with sudo privileges, by either prefacing
-every command with _sudo_ or in a root shell started using `sudo -s`).
+### 1. Obtain installation files
 
-### 1. Install Java and Apache
+Obtain the installation files from GitHub. These commands do not have
+to be run with root privileges: the files can be stored anywhere and
+can be owned by any user.
+
+In this example, they are placed in `/tmp/arms-install`:
+
+    mkdir /tmp/arms-install
+    cd /tmp/arms-install
+
+    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
+    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
+    chmod a+x deploy.sh
+
+   
+### 2. Install Java and Apache
+
+Note: steps 2 and onwards need to be run with root privileges. This
+can be done by either prefacing every command with _sudo_.
 
 For RHEL-based Linux distributions (e.g. CentOS), use _yum_ to install Java and Apache.
 
     yum install java-1.7.0-openjdk
     yum install httpd
 
-### 2. Create the redbox user and group
+### 3. Create the redbox user and group
 
 Create a _redbox_ user account, as a system user (i.e. no aging
 information in /etc/shadow and numeric identifiers are in the system
@@ -41,48 +63,39 @@ user range and no home directory).
 
     adduser --system redbox
 
-### 3. Create directories to install services in
+### 4. Create directories to install services in
     
     mkdir -p /opt/mint /opt/redbox
     chown redbox:redbox /opt/mint /opt/redbox
 
-### 4. Obtain installation files
-
-Obtain the installation files from GitHub. These commands do not have
-to be run with root privileges: the files can be stored anywhere and
-can be owned by any user.
-
-    mkdir /tmp/arms-install
-    cd /tmp/arms-install
-
-    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
-    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
-    #curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/start_all.sh
-    #curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox.cron
-    #curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/redbox-mint.sh
-    chmod a+x *.sh
-    
 
 ### 5. Configure and run Apache
 
-Copy the configuration for ReDBox into Apache's configuration directory.
+a. Copy the configuration for ReDBox into Apache's configuration directory.
 
     cp apache /etc/httpd/conf.d/25-redbox.conf
 
-Set the `ServerName` in the HTTPD configuration file to the host's FQDN or IP address.
+b. Set the _ServerName_ in Apache's configuration file.
+Find the commented entry for _ServerName_ and change it to the fully
+qualified domain name (or IP address) for the server. For example,
+`ServerName arms.example.com:80`.
 
     vi /etc/httpd/conf/httpd.conf
 
-Start Apache.
+
+c. Start Apache.
 
     service httpd start
+
+Test Apache by running `service httpd status`.
 
 ### 6. Install ReDBox and Mint
 
     su redbox -c "./deploy.sh redbox"
     su redbox -c "./deploy.sh mint"
 
-Check the log files to ensure no errors were encountered.
+Check the log files (in _/opt/redbox/home/logs_ and
+_/opt/mint/home/logs_) to ensure no errors were encountered.
 
 ### 7. Build Mint indexes
 
@@ -100,14 +113,13 @@ Check the log files to ensure no errors were encountered.
 
 ### deploy.sh
 
-Installs ReDBox or Mint from the latest version on the Maven Nexus server.
+Installs ReDBox or Mint from the latest version on the Nexus repository.
 
-Checks the Maven Nexus server for the latest pre-compiled release and
+Checks the Nexus repository for the latest pre-compiled release and
 installs it if it hasn't already been installed.
 
-By default, ReDBox will be installed into `/opt/redbox` and Mint will
-be installed into `/opt/mint`. This can be changed with the
-`--installdir` option.
+ReDBox will be installed into `/opt/redbox` and Mint will
+be installed into `/opt/mint`.
 
 It will only be installed (and downloaded if necessary) if there is no
 currently installed version or the installed version is not the
@@ -115,10 +127,10 @@ latest. This can be changed with the `--reinstall` option, which
 forces it to always perform an install.
 
 If the latest installer archive has already been downloaded, it will
-not be downloaded again from Maven Nexus. This can be changed with the
-`--download` option, which forces it to always download a new copy of
-the installation archive. The downloaded installer archives are stored
-in /tmp/redbox-install or /tmp/mint-install.
+not be downloaded again from Nexus repository. This can be changed
+with the `--download` option, which forces it to always download a new
+copy of the installation archive. The downloaded installer archives
+are stored in /tmp/redbox-install or /tmp/mint-install.
 
 Extra output will be printed out if the `--verbose` option is specified.
 
