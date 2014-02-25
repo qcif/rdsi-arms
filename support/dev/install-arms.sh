@@ -92,10 +92,10 @@ function arms_install () {
 	chmod a+x "$TMPDIR/deploy.sh" || die
     fi
 
-    if [ ! -f "$TMPDIR/apache" ]; then
-	echo "Downloading installer file: apache"
-	curl -# --location -o "$TMPDIR/apache" \
-	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache || die
+    if [ ! -f "$TMPDIR/apache-arms.conf" ]; then
+	echo "Downloading installer file: apache-arms.conf"
+	curl -# --location -o "$TMPDIR/apache-arms.conf" \
+	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache-arms.conf || die
     fi
 
     #----------------
@@ -139,7 +139,7 @@ function arms_install () {
 
     chown $INST_USER:$INST_USER "$TMPDIR" || die
     chown $INST_USER:$INST_USER "$TMPDIR/deploy.sh" || die
-    chown $INST_USER:$INST_USER "$TMPDIR/apache" || die
+    chown $INST_USER:$INST_USER "$TMPDIR/apache-arms.conf" || die
 
     #----------------
     # Common argument to deploy.sh
@@ -176,7 +176,7 @@ function arms_install () {
     #----------------
     # Configure Apache
 
-    cp "$TMPDIR/apache" "$APACHE_ARMS_CONFIG" || die
+    cp "$TMPDIR/apache-arms.conf" "$APACHE_ARMS_CONFIG" || die
 
     # Set ServerName in the Apache config file
     sed -i.bak "s/^#ServerName www.example.com:/ServerName $HOSTNAME:/" /etc/httpd/conf/httpd.conf || die
