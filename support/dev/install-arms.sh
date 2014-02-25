@@ -77,7 +77,6 @@ function arms_install () {
     if [ ! -d "$TMPDIR" ]; then
 	echo "Installer files for ARMS: downloading to $TMPDIR"
 	mkdir -p "$TMPDIR" || die
-        chown $INST_USER:$INST_USER "$TMPDIR" || die
     else
 	if [ -n "$VERBOSE" ]; then
 	    echo "Installer files for ARMS: reusing $TMPDIR"
@@ -91,14 +90,12 @@ function arms_install () {
 	curl -# --location -o "$TMPDIR/deploy.sh" \
 	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh || die
 	chmod a+x "$TMPDIR/deploy.sh" || die
-        chown $INST_USER:$INST_USER "$TMPDIR/deploy.sh" || die
     fi
 
     if [ ! -f "$TMPDIR/apache" ]; then
 	echo "Downloading installer file: apache"
 	curl -# --location -o "$TMPDIR/apache" \
 	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache || die
-        chown $INST_USER:$INST_USER "$TMPDIR/apache" || die
     fi
 
     #----------------
@@ -135,6 +132,14 @@ function arms_install () {
 	    echo "User already exists: $INST_USER"
 	fi
     fi
+
+    # Now that the user is definitely available, change the ownerships.
+    # The directory must be writable by the user, since the deploy.sh script
+    # will expect to be able to write to it.
+
+    chown $INST_USER:$INST_USER "$TMPDIR" || die
+    chown $INST_USER:$INST_USER "$TMPDIR/deploy.sh" || die
+    chown $INST_USER:$INST_USER "$TMPDIR/apache" || die
 
     #----------------
     # Common argument to deploy.sh
