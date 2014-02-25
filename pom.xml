@@ -285,6 +285,22 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>ersa</id>
+			<properties>
+				<packaging>pom</packaging>
+				<node.list>ersa,rdsi</node.list>
+				<theme>ersa</theme>
+			</properties>
+		</profile>
+		<profile>
+			<id>rdsi</id>
+			<properties>
+				<packaging>pom</packaging>
+				<node.list>ersa,rdsi</node.list>
+				<theme>rdsi</theme>
+			</properties>
+		</profile>
+		<profile>
 			<id>ide</id>
 			<properties>
 				<packaging>jar</packaging>
@@ -354,6 +370,26 @@
 				<version>2.1</version>
 				<executions>
 					<execution>
+						<id>unpack-portal</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<includes>portal/**,home/**</includes>
+							<excludes>portal/**/usq/**, portal/**/portal.json</excludes>
+							<outputDirectory>${project.home}</outputDirectory>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.googlecode.the-fascinator</groupId>
+									<artifactId>fascinator-portal</artifactId>
+									<type>war</type>
+									<classifier>skinny</classifier>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+					<execution>
 						<id>unpack-home</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -361,7 +397,7 @@
 						</goals>
 						<configuration>
 							<includes>home/**,portal/default/**,portal/portal-library.vm,server/**,solr/**,portal/rapidaaf/**</includes>
-							<excludes>portal/default/usq/**</excludes>
+							<excludes>portal/default/usq/**, portal/**/portal.json</excludes>
 							<outputDirectory>${project.home}</outputDirectory>
 							<artifactItems>
 								<artifactItem>
@@ -448,6 +484,15 @@
 								<resource>
 									<directory>src/main/config/portal</directory>
 									<filtering>false</filtering>
+									<excludes>
+										<exclude>**/portal.json</exclude>
+										<exclude>**/rdsi-nodes.json</exclude>
+									</excludes>
+									<includes>
+										<include>rdsi/**/*</include>
+										<include>default/**/*</include>
+										<include>rapidaaf/**/*</include>
+									</includes>
 								</resource>
 							</resources>
 						</configuration>
@@ -548,6 +593,25 @@
 							<tasks>
 								<chmod file="${dir.server}/*.sh" perm="740" />
 							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>copy-portal-nodes</id>
+						<phase>process-resources</phase>
+						<configuration>
+						<tasks>
+            				<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+              					classpathref="maven.plugin.classpath" />
+              				<property name="nodeList" value="${node.list}"/>
+              				<property name="dirPortal" value="${dir.portal}"/>
+              				<property name="dirProject" value="${pom.basedir}"/>
+            				<ant antfile="${pom.basedir}/support/node-management/build-nodes.xml">
+              					<target name="iterateNodes"/>
+            				</ant>
+        				</tasks>
 						</configuration>
 						<goals>
 							<goal>run</goal>
