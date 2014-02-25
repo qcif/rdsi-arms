@@ -35,7 +35,7 @@ function die () {
 # Installs ARMS
 
 function arms_install () {
-
+    
     #----------------
     # Check hostname is resolvable, since this is critical
     # for configuring ARMS and for it to work.
@@ -171,7 +171,7 @@ function arms_install () {
     chown $INST_USER:$INST_USER "$REDBOX_INSTDIR" || die
 
     # Download from Nexus (if necessary) and deploy
-    su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-redbox\" -i \"$REDBOX_INSTDIR\" redbox" || die
+    su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-redbox\" -i \"$REDBOX_INSTDIR\" redbox \"$CUSTOM_REDBOX_ARCHIVE\"" || die
 
     #----------------
     # Configure Apache
@@ -303,7 +303,7 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -n "$HELP" ]; then
-    echo "Usage: $PROG [options]"
+    echo "Usage: $PROG [options] [redboxInstallArchive]"
     echo "Options:"
     echo "  -i | --install     install ARMS (default action)"
     echo "  -u | --uninstall   uninstall ARMS"
@@ -311,6 +311,7 @@ if [ -n "$HELP" ]; then
     echo "  -t | --tmpdir dir  directory for installer files (default: $DEFAULT_TMPDIR)"
     echo "  -v | --verbose     print extra information during execution"
     echo "  -h | --help        show this message"
+    echo "redboxInstallArchive install this tar.gz file instead of from Nexus"
     exit 0
 fi
 
@@ -319,7 +320,15 @@ if [ -z "$DO_INSTALL" -a -z "$DO_UNINSTALL" -a -z "$DO_CLEANUP" ]; then
     DO_INSTALL=yes
 fi
 
-if [ $# -gt 0 ]; then
+if [ $# -eq 0 ]; then
+    CUSTOM_REDBOX_ARCHIVE=
+elif [ $# -eq 1 ]; then
+    if [ ! -f "$1" ]; then
+	echo "$PROG: error: install archive not found: $1" >&2
+	exit 1
+    fi
+    CUSTOM_REDBOX_ARCHIVE="$1"
+elif [ $# -gt 1 ]; then
     echo "Usage error: too many arguments (\"-h\" for help)" >&2
     exit 2
 fi

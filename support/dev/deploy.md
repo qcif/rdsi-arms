@@ -6,12 +6,11 @@ deploy.sh - installer for ARMS-ReDBox or Mint
 
 ## Synopsis
 
-    deploy.sh [options] (redbox | mint)
+    deploy.sh [options] (redbox | mint) [installArchive]
 
 ## Description
 
-Installs ReDBox or Mint from the latest pre-built releases on the
-Nexus repository.
+Installs ReDBox or Mint.
 
 `--reinstall`
 : forces reinstall, even if installed version is up to date.
@@ -28,6 +27,10 @@ Nexus repository.
 
 `--help`
 : shows a summary of options.
+
+`installArchive`
+: the install archive (tar.gz file) to install. If this is not provided,
+  then the latest install archive from the Nexus repository will be used.
 
 Note: this script **must** be run as the user that will be running the
 ReDBox and Mint processes (i.e. as the "redbox" user).
@@ -67,6 +70,19 @@ Remove temporary installer files:
 
     rm -r /tmp/redbox-install
     rm -r /tmp/mint-install
+
+Installs the supplied install archive. This is useful for testing
+builds without needing to upload them to the Nexus repository.
+
+    ./deploy.sh redbox my-test-redbox.tar.gz
+
+
+## Known bugs
+
+This script must be run as the "redbox" user. So in practice it is
+usually run as:
+
+    sudo su redbox -c "./deploy.sh ..."
 
 
 ## Files and directories

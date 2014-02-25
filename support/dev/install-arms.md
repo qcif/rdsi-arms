@@ -6,11 +6,11 @@ install-arms.sh - installer and uninstaller for ARMS
 
 ## Synopsis
 
-    install-arms.sh [options]
+    install-arms.sh [options] [redboxInstallArchive]
 
 ## Description
 
-Installs and uninstalls ARMS from the pre-built releases in Nexus.
+Installs and uninstalls ARMS.
 
 `--install`
 : install ARMS. Using previously downloaded installer files if
@@ -30,6 +30,13 @@ Installs and uninstalls ARMS from the pre-built releases in Nexus.
 
 `--help`
 : shows a summary of options.
+
+`redboxInstallArchive`
+: the ReDBox install archive (tar.gz file) to install. If this is not
+  provided, then the latest install archive from the Nexus repository
+  will be used. Note: the Mint installer is always obtained from the
+  Nexus repository; there is no way to explicitly specify a Mint
+  install archive.
 
 Note: this script **must** be run with root privileges.
 
@@ -90,6 +97,11 @@ Note: the combination of just `--cleanup` and `--install` is not
 recommended. It will work if ARMS is not installed (performing the
 same action as a cleanup and then install), but it will fail if it is
 already installed.
+
+To install ARMS using a particular ReDBox install archive, instead
+of using a pre-built one from the Nexus repository:
+
+    sudo ./install-arms.sh my-redbox-installer.tar.gz
 
 
 ## Files and directories

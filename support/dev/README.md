@@ -1,4 +1,4 @@
-# Installing ARMS from the Nexus repository
+# Installing ARMS
 
 ## Overview
 
@@ -10,12 +10,13 @@ releases in the Nexus repository.
 
 - A server machine running Linux or Unix.
 
-    These instructions have been tested on CentOS 6.5 and Fedora
-    20. They can be modified to work with other versions, other
+    These instructions have been tested on CentOS 6.5 and Fedora 20.
+    They might need to be modified to work with other versions, other
     distributions of Linux and other operating systems.
 
     These instructions have been designed to install ARMS from scratch
-    on a new server.
+    on a new server, but can also be used to uninstall and reinstall
+    ARMS.
 
 - Root privileges on the server machine. Either an account with _sudo_
   privileges or access to the root account.
@@ -62,8 +63,10 @@ All these steps, including downloading the necessary files, have been
 put into the ARMS install script. Run the install script with root
 privileges:
 
-    $ sudo ./install-arms.sh -v
+    $ sudo ./install-arms.sh --verbose
 
+Note: this can take a few minutes to run, if it needs to download
+files from GitHub and/or the Nexus repository.
 
 ### 3. Testing
 
