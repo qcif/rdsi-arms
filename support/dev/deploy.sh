@@ -24,6 +24,7 @@ TMPDIR=
 INSTDIR=
 FORCE_REINSTALL=
 FORCE_DOWNLOAD=
+CUSTOM_ARCHIVE=
 VERBOSE=
 
 getopt -T > /dev/null
@@ -54,25 +55,29 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -n "$HELP" ]; then
-    echo "Usage: $PROG [options] (redbox | mint)"
+    echo "Usage: $PROG [options] (redbox | mint) [installArchive.tar.gz]"
     echo "Options:"
     #echo "  -i | --installdir dir  install directory (Warning: not fully working)"
     echo "  -t | --tmpdir dir      directory for installer files"
     echo "  -r | --reinstall       force reinstall even if installed version is up-to-date"
-    echo "  -d | --download        force download from Nexus even if latest already downloaded"
+    echo "  -d | --download        force download from Nexus even already downloaded"
     echo "  -v | --verbose         print extra information during execution"
     echo "  -h | --help            show this message"
     exit 0
 fi
  
 if [ $# -eq 0 ]; then
-  echo "Usage error: missing system: please specify redbox or mint" >&2
-  exit 2
-elif [ $# -gt 1 ]; then
-  echo "Usage error: too many arguments" >&2
-  exit 2
+    echo "Usage error: missing system: please specify redbox or mint" >&2
+    exit 2
+elif [ $# -eq 1 ]; then
+    RB_SYSTEM="$1"
+    CUSTOM_ARCHIVE=
+elif [ $# -eq 2 ]; then
+    RB_SYSTEM="$1"
+    CUSTOM_ARCHIVE="$2"
 else
-  RB_SYSTEM="$1"
+    echo "Usage error: too many arguments (\"-h\" for help)$*" >&2
+    exit 2
 fi
  
 #----------------------------------------------------------------
@@ -136,8 +141,6 @@ if [ -z "$TMPDIR" ]; then
     TMPDIR="$DEFAULT_TMPDIR" # use default temporary directory
 fi
 
-DEPLOY_ARCHIVE="$TMPDIR/$RB_SYSTEM.tar.gz"
-
 #----------------------------------------------------------------
 # Checks
 
@@ -169,61 +172,76 @@ if [ -n "$VERBOSE" ]; then
 fi
 
 #----------------------------------------------------------------
-# Create and change into deployment directory
-
-if [ ! -d "$TMPDIR" ]; then
-    mkdir -p "$TMPDIR" || die
-fi    
-
-#----------------------------------------------------------------
-# Work out if we already have the latest version
-
-LATEST_VERSION=`curl -s --location --head --url "$DEPLOY_URL" | \
-                awk -F': ' '/Last-Modified: / {print $2}'`
-
-if [ -f $INSTDIR/version.txt -a -z "$FORCE_REINSTALL" ]; then
-    TS_OLD=`cat $INSTDIR/version.txt`
- 
-    if [ -n "$VERBOSE" ]; then   
-        echo "  Installed version timestamp: $TS_OLD"
-        echo "     Latest version timestamp: $LATEST_VERSION"
-    fi
-    
-    if [ "$TS_OLD" = "$LATEST_VERSION" ]; then
-        echo "Already running latest version"
-        exit 0
-    fi
-fi
-
-#----------------------------------------------------------------
 # Obtain install files
 
-# Get latest archive
+if [ -z "$CUSTOM_ARCHIVE" ]; then
 
-EXISTING_VERSION=`cat "$TMPDIR/version.txt" 2>/dev/null`
+    # Use installer archive obtained from Nexus repository, stored in $TMPDIR
 
-if [ -z "$FORCE_DOWNLOAD" -a \
-     -f $DEPLOY_ARCHIVE -a \
-     -f "$TMPDIR/version.txt" -a \
-     "$EXISTING_VERSION" = "$LATEST_VERSION" ]; then
-    # Use previously downloaded archive
+    DEPLOY_ARCHIVE="$TMPDIR/$RB_SYSTEM.tar.gz"
 
-    if [ -n "$VERBOSE" ]; then
-        echo "Installer file for $RB_SYSTEM: reusing $DEPLOY_ARCHIVE"
+    # Determine if latest version already installed
+
+    LATEST_VERSION=`curl -s --location --head --url "$DEPLOY_URL" | \
+                awk -F': ' '/Last-Modified: / {print $2}'`
+
+    if [ -f $INSTDIR/version.txt -a -z "$FORCE_REINSTALL" ]; then
+	TS_OLD=`cat $INSTDIR/version.txt`
+ 
+	if [ -n "$VERBOSE" ]; then   
+            echo "  Installed version timestamp: $TS_OLD"
+            echo "     Latest version timestamp: $LATEST_VERSION"
+	fi
+    
+	if [ "$TS_OLD" = "$LATEST_VERSION" ]; then
+            echo "Already running latest version of $RB_SYSTEM"
+            exit 0
+	fi
     fi
+
+    # Create deployment directory
+
+    if [ ! -d "$TMPDIR" ]; then
+	mkdir -p "$TMPDIR" || die
+    fi
+
+    # Get latest archive from Nexus repository
+
+    EXISTING_VERSION=`cat "$TMPDIR/version.txt" 2>/dev/null`
+
+    if [ -z "$FORCE_DOWNLOAD" -a \
+	-f "$DEPLOY_ARCHIVE" -a \
+	-f "$TMPDIR/version.txt" -a \
+	"$EXISTING_VERSION" = "$LATEST_VERSION" ]; then
+	# Use previously downloaded archive
+
+	if [ -n "$VERBOSE" ]; then
+            echo "Installer file for $RB_SYSTEM: reusing $DEPLOY_ARCHIVE"
+	fi
+    else
+	# Download new archive
+
+	rm -f "$TMPDIR/version.txt" || die
+	rm -f "$DEPLOY_ARCHIVE" || die
+
+	echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
+	if [ -n "$VERBOSE" ]; then
+	    echo "  $DEPLOY_URL"
+	fi
+	curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
+
+	echo $LATEST_VERSION > "$TMPDIR/version.txt" || die
+    fi
+
 else
-    # Download new archive
+    # Custom installer archive specified on command line
 
-    rm -f "$TMPDIR/version.txt" || die
-    rm -f "$DEPLOY_ARCHIVE" || die
-
-    echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
-    if [ -n "$VERBOSE" ]; then
-	echo "  $DEPLOY_URL"
+    if [ ! -f "$CUSTOM_ARCHIVE" ]; then
+	echo "$PROG: error: installer archive not found: $CUSTOM_ARCHIVE" >&2
+	exit 1
     fi
-    curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
 
-    echo $LATEST_VERSION > "$TMPDIR/version.txt" || die
+    DEPLOY_ARCHIVE="$CUSTOM_ARCHIVE"
 fi
 
 #----------------------------------------------------------------
@@ -235,6 +253,8 @@ if [ -f $INSTDIR/server/tf.sh ]; then
 fi
 
 rm -f $INSTDIR/version.txt || die
+
+# TODO: check this is correct, should delete everything?
 
 if [ -d $INSTDIR/server/lib ]; then
     echo Removing $INSTDIR/server/lib
@@ -258,8 +278,14 @@ if [ -n "$VERBOSE" ]; then
     echo "Extracting files from $DEPLOY_ARCHIVE into $INSTDIR"
 fi
 
+# Convert $DEPLOY_ARCHIVE into a full path name (it can be found
+# after changing the working directory to the install directory).
+
+DIR="$( cd "$( dirname "$DEPLOY_ARCHIVE" )" && pwd )"
+DEPLOY_ARCHIVE_FULL_PATH=$DIR/`basename "$DEPLOY_ARCHIVE"`
+
 (cd "$INSTDIR" && \
- tar -x -z -f "$DEPLOY_ARCHIVE" && \
+ tar -x -z -f "$DEPLOY_ARCHIVE_FULL_PATH" && \
  mv $RB_SYSTEM/* . && \
  rmdir $RB_SYSTEM) || die
 
@@ -269,7 +295,14 @@ sed -i $REGEX "$INSTDIR/server/tf_env.sh" || die
 
 # Record version that has been installed
 
-echo $LATEST_VERSION > "$INSTDIR/version.txt" || die
+if [ -z "$CUSTOM_ARCHIVE" ]; then
+    # Record timestamp from Nexus
+    echo $LATEST_VERSION > "$INSTDIR/version.txt" || die
+else
+    # Custom archive installed: synthesize version information
+    echo "Installed: $DEPLOY_ARCHIVE_FULL_PATH" > "$INSTDIR/version.txt" || die
+    date +%FT%T%z >> "$INSTDIR/version.txt" || die
+fi
 
 # Start
 
