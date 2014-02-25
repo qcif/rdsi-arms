@@ -1,4 +1,4 @@
-#Deployment
+# Deploying ARMS
 
 ## For puppet : follow support/puppet/README for redbox and shibboleth
  
@@ -102,3 +102,85 @@ As describe above but with a few differences.
 6. edit <SSO> element:
 	i. delete entityID attribute
 	ii. set discoveryURL: discoveryURL="https://ds.aaf.edu.au/discovery/DS"
+
+
+
+## Deploying from Nexus
+
+The following describes the steps performed by the _install-arms.sh_ script.
+
+### 1. Obtain installation files
+
+Obtain the installation files from GitHub. These commands do not have
+to be run with root privileges: the files can be stored anywhere and
+can be owned by any user.
+
+In this example, they are placed in `/tmp/install-arms`:
+
+    mkdir /tmp/install-arms
+    cd /tmp/install-arms
+
+    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh
+    curl -O https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache
+    chmod a+x deploy.sh
+
+   
+### 2. Install Java and Apache
+
+Note: steps 2 and onwards need to be run with root privileges. This
+can be done by either prefacing every command with _sudo_.
+
+For RHEL-based Linux distributions (e.g. CentOS), use _yum_ to install Java and Apache.
+
+    yum install java-1.7.0-openjdk
+    yum install httpd
+
+### 3. Create the redbox user and group
+
+Create a _redbox_ user account, as a system user (i.e. no aging
+information in /etc/shadow and numeric identifiers are in the system
+user range and no home directory).
+
+    adduser --system redbox
+
+### 4. Create directories to install services in
+    
+    mkdir -p /opt/mint /opt/redbox
+    chown redbox:redbox /opt/mint /opt/redbox
+
+
+### 5. Configure and run Apache
+
+a. Copy the configuration for ReDBox into Apache's configuration directory.
+
+    cp apache /etc/httpd/conf.d/25-redbox.conf
+
+b. Set the _ServerName_ in Apache's configuration file.
+Find the commented entry for _ServerName_ and change it to the fully
+qualified domain name (or IP address) for the server. For example,
+`ServerName arms.example.com:80`.
+
+    vi /etc/httpd/conf/httpd.conf
+
+
+c. Start Apache.
+
+    service httpd start
+
+Test Apache by running `service httpd status`.
+
+### 6. Install ReDBox and Mint
+
+    su redbox -c "./deploy.sh redbox"
+    su redbox -c "./deploy.sh mint"
+
+Check the log files (in _/opt/redbox/home/logs_ and
+_/opt/mint/home/logs_) to ensure no errors were encountered.
+
+### 7. Build Mint indexes
+
+    cd /opt/mint/server
+    sudo -u redbox ./tf_harvest.sh ANZSRC_FOR
+
+TODO: the order should be changed so that mint is installed first,
+then ReDBox and then Apache. Since that is the dependency order.
