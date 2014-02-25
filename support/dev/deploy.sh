@@ -1,11 +1,15 @@
 #!/bin/sh
-
-# Make sure /etc/sudoers has the following setting:
-# Defaults       always_set_home
-
+#
+# Installer for ARMS-ReDBox or Mint.
+#
+# See "deploy.md" for documentation.
+#
+# Copyright (C) 2014, QCIF Ltd.
 #----------------------------------------------------------------
 
 PROG=`basename $0`
+
+#----------------------------------------------------------------
 
 function die () {
   echo "$PROG: aborted." >&2
@@ -16,7 +20,8 @@ function die () {
 # Parse command line arguments
 
 HELP=
-INSTALL_DIR=
+TMPDIR=
+INSTDIR=
 FORCE_REINSTALL=
 FORCE_DOWNLOAD=
 VERBOSE=
@@ -24,10 +29,10 @@ VERBOSE=
 getopt -T > /dev/null
 if [ $? -eq 4 ]; then
   # GNU enhanced getopt is available
-  ARGS=`getopt --name "$PROG" --long help,installdir:,download,reinstall,verbose --options hi:drv -- "$@"`
+  ARGS=`getopt --name "$PROG" --long help,tmpdir,installdir:,download,reinstall,verbose --options ht:i:drv -- "$@"`
 else
   # Original getopt is available (no long option names, no whitespace, no sorting)
-  ARGS=`getopt hi:drv "$@"`
+  ARGS=`getopt ht:i:drv "$@"`
 fi
 if [ $? -ne 0 ]; then
   echo "$PROG: usage error (use -h for help)" >&2
@@ -38,7 +43,8 @@ eval set -- $ARGS
 while [ $# -gt 0 ]; do
     case "$1" in
         -h | --help)         HELP=yes;;
-        -i | --installdir)   INSTALL_DIR="$2"; shift;;
+        -t | --tmpdir)       TMPDIR="$2"; shift;;
+        -i | --installdir)   INSTDIR="$2"; shift;;
         -r | --reinstall)    FORCE_REINSTALL=yes;;
         -d | --download)     FORCE_DOWNLOAD=yes;;
         -v | --verbose)      VERBOSE=yes;;
@@ -50,10 +56,11 @@ done
 if [ -n "$HELP" ]; then
     echo "Usage: $PROG [options] (redbox | mint)"
     echo "Options:"
-    echo "  -i | --installdir dir  installation directory (Warning: experimental feature: not fully working)"
-    echo "  -v | --verbose         verbose output"
+    #echo "  -i | --installdir dir  install directory (Warning: not fully working)"
+    echo "  -t | --tmpdir dir      directory for installer files"
     echo "  -r | --reinstall       force reinstall even if installed version is up-to-date"
-    echo "  -d | --download        force download from Maven even if latest already downloaded"
+    echo "  -d | --download        force download from Nexus even if latest already downloaded"
+    echo "  -v | --verbose         print extra information during execution"
     echo "  -h | --help            show this message"
     exit 0
 fi
@@ -71,15 +78,20 @@ fi
 #----------------------------------------------------------------
 # Check dependencies (some minimal installations do not have these commands)
 
+# tar
+
 which tar >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "$PROG: error: tar command not found" >&2
     exit 1
 fi
 
+# ifconfig
+# For example, Fedora 20 minimal install does not have it.
+# TODO: change to use "ip addr" instead
+
 which ifconfig >/dev/null 2>&1
 if [ $? -ne 0 ]; then
-    # TODO: should change to use "ip addr" (which is available on Fedora 20) unlike "ifconfig"
     echo "$PROG: error: ifconfig command not found" >&2
     exit 1
 fi
@@ -89,51 +101,63 @@ fi
 
 # Determine IP address
 
+# TODO: remove CR-LF from value
 SERVER_IP=`ifconfig eth0 | awk -F'[: ]+' '/inet addr:/ {print $4}'`
 
 if [ "$SERVER_IP" = "" ]; then
-    SERVER_IP=127.0.0.1;
+    SERVER_IP=127.0.0.1
 fi
 
 case "$RB_SYSTEM" in
     "redbox")
-        if [ -z "$INSTALL_DIR" ]; then
-            INSTALL_DIR=/opt/redbox
-        fi
-        DEPLOY_DIR=/tmp/redbox-install
+        DEFAULT_INSTDIR=/opt/redbox
+        DEFAULT_TMPDIR=/tmp/install-redbox
         DEPLOY_URL="http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=au.edu.qcif&a=redbox-rdsi-arms&v=LATEST&c=build&e=tar.gz"
         REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\//g"
         ;;
     "mint")
-        if [ -z "$INSTALL_DIR" ]; then
-            INSTALL_DIR=/opt/mint
-        fi
-        DEPLOY_DIR=/tmp/mint-install
+        DEFAULT_INSTDIR=/opt/mint
+        DEFAULT_TMPDIR=/tmp/install-mint
         DEPLOY_URL="http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=com.googlecode.redbox-mint&a=mint-local-curation-demo&v=LATEST&c=build&e=tar.gz"
     	REGEX="s/SERVER_URL=.*/SERVER_URL=http:\/\/$SERVER_IP\/${RB_SYSTEM}\//g"
         ;;
     *)
-        echo "$PROG: error: unsupported system (expecting 'redbox' or 'mint'): $RB_SYSTEM" >&2
+        echo "$PROG: error: unsupported (expecting 'redbox' or 'mint'): $RB_SYSTEM" >&2
         exit 1
         ;;
 esac
 
 DEPLOY_ARCHIVE=$RB_SYSTEM.tar.gz
 
+# Set values if not explicitly provided from the command line
+
+if [ -z "$INSTDIR" ]; then
+    INSTDIR="$DEFAULT_INSTDIR"
+fi
+if [ -z "$TMPDIR" ]; then
+    TMPDIR="$DEFAULT_TMPDIR" # use default temporary directory
+fi
+
 #----------------------------------------------------------------
 # Checks
 
-if [ "$USER" != "redbox" ]; then
-    echo "$PROG: error: must be run as the 'redbox' user" >&2
+if [ `id -u` -eq 0 ]; then
+    echo "$PROG: error: do not run as root (run as the intended user)" >&2
     exit 1
 fi
 
-if [ ! -d "$INSTALL_DIR" ]; then
-    echo "$PROG: error: installation directory does not exist: $INSTALL_DIR" >&2
-    exit 1
+if [ ! -d "$INSTDIR" ]; then
+    mkdir -p "$INSTDIR"
+    if [ $? -ne 0 ]; then
+	echo "$PROG: insufficient privileges for user: `id -u -n`" >&2
+	echo "$PROG: could not create install directory: $INSTDIR" >&2
+	echo "$PROG: please fix permissions or create it and try again" >&2
+	exit 1
+    fi
 fi
-if [ ! -w "$INSTALL_DIR" ]; then
-    echo "$PROG: error: cannot write to installation directory: $INSTALL_DIR" >&2
+if [ ! -w "$INSTDIR" ]; then
+    echo "$PROG: error: install directory not writable: $INSTDIR" >&2
+    echo "$PROG: please set permissions for user \"`id -u -n`\" and try again" >&2
     exit 1
 fi
 
@@ -141,20 +165,16 @@ fi
 # Display info
 
 if [ -n "$VERBOSE" ]; then
-    echo "Installing $RB_SYSTEM"
-    echo "  SERVER_IP: $SERVER_IP"
-    echo "  INSTALL_DIR: $INSTALL_DIR"
-    echo "  DEPLOY_DIR: $DEPLOY_DIR"
-    echo "  DEPLOY_URL: $DEPLOY_URL"
+    echo "Installing $RB_SYSTEM (server: $SERVER_IP; directory: $INSTDIR)"
 fi
 
 #----------------------------------------------------------------
 # Create and change into deployment directory
 
-if [ ! -d "$DEPLOY_DIR" ]; then
-    mkdir -p "$DEPLOY_DIR" || die
+if [ ! -d "$TMPDIR" ]; then
+    mkdir -p "$TMPDIR" || die
 fi    
-cd "$DEPLOY_DIR" || die
+cd "$TMPDIR" || die
 
 #----------------------------------------------------------------
 # Work out if we already have the latest version
@@ -162,8 +182,8 @@ cd "$DEPLOY_DIR" || die
 LATEST_VERSION=`curl -s --location --head --url "$DEPLOY_URL" | \
                 awk -F': ' '/Last-Modified: / {print $2}'`
 
-if [ -f $INSTALL_DIR/version.txt -a -z "$FORCE_REINSTALL" ]; then
-    TS_OLD=`cat $INSTALL_DIR/version.txt`
+if [ -f $INSTDIR/version.txt -a -z "$FORCE_REINSTALL" ]; then
+    TS_OLD=`cat $INSTDIR/version.txt`
  
     if [ -n "$VERBOSE" ]; then   
         echo "  Installed version timestamp: $TS_OLD"
@@ -181,7 +201,7 @@ fi
 
 # Clean up from any aborted installs
 
-rm -rf $DEPLOY_DIR/$RB_SYSTEM || die
+rm -rf $TMPDIR/$RB_SYSTEM || die
 
 # Get latest archive
 
@@ -194,7 +214,7 @@ if [ -z "$FORCE_DOWNLOAD" -a \
     # Use previously downloaded archive
 
     if [ -n "$VERBOSE" ]; then
-        echo "Installing from existing archive: $DEPLOY_DIR/$DEPLOY_ARCHIVE"
+        echo "Installer file for $RB_SYSTEM: reusing $TMPDIR/$DEPLOY_ARCHIVE"
     fi
 else
     # Download new archive
@@ -202,7 +222,10 @@ else
     rm -f version.txt || die
     rm -f $DEPLOY_ARCHIVE || die
 
-    echo "Downloading $RB_SYSTEM from Nexus"
+    echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
+    if [ -n "$VERBOSE" ]; then
+	echo "  $DEPLOY_URL"
+    fi
     curl -# --location -o $DEPLOY_ARCHIVE "$DEPLOY_URL" || die
 
     echo $LATEST_VERSION > version.txt || die
@@ -216,38 +239,40 @@ sed -i $REGEX $RB_SYSTEM/server/tf_env.sh || die
 #----------------------------------------------------------------
 # Uninstall (if necessary)
 
-if [ -f $INSTALL_DIR/server/tf.sh ]; then
+if [ -f $INSTDIR/server/tf.sh ]; then
     echo Stopping $RB_SYSTEM
-    $INSTALL_DIR/server/tf.sh stop || die
+    $INSTDIR/server/tf.sh stop || die
 fi
 
-rm -f $INSTALL_DIR/version.txt || die
+rm -f $INSTDIR/version.txt || die
 
-if [ -d $INSTALL_DIR/server/lib ]; then
-    echo Removing $INSTALL_DIR/server/lib
-    rm -rf $INSTALL_DIR/server/lib || die
+if [ -d $INSTDIR/server/lib ]; then
+    echo Removing $INSTDIR/server/lib
+    rm -rf $INSTDIR/server/lib || die
 fi
-if [ -d $INSTALL_DIR/server/plugin ]; then
-    echo Removing $INSTALL_DIR/server/plugin
-    rm -rf $INSTALL_DIR/server/plugin || die
+if [ -d $INSTDIR/server/plugin ]; then
+    echo Removing $INSTDIR/server/plugin
+    rm -rf $INSTDIR/server/plugin || die
 fi
 
 #----------------------------------------------------------------
 # Install new version
 
-echo Copying files across
-cp -rf $DEPLOY_DIR/$RB_SYSTEM/* $INSTALL_DIR/ || die
+if [ -n "$VERBOSE" ]; then
+    echo Copying files across
+fi
+cp -rf $TMPDIR/$RB_SYSTEM/* $INSTDIR/ || die
 
-echo Starting $RB_SYSTEM
-$INSTALL_DIR/server/tf.sh start || die
+echo "Starting $RB_SYSTEM:"
+$INSTDIR/server/tf.sh start || die
 
-echo $LATEST_VERSION > $INSTALL_DIR/version.txt || die
+echo $LATEST_VERSION > $INSTDIR/version.txt || die
 
 #----------------------------------------------------------------
 # Installing completed successfully
 
 # Remove extracted files
-rm -rf $DEPLOY_DIR/$RB_SYSTEM || die
+rm -rf $TMPDIR/$RB_SYSTEM || die
 
 exit 0
 

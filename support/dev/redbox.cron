@@ -1,2 +1,0 @@
-00 04 * * * /home/redbox/deploy.sh mint
-05 04 * * * /home/redbox/deploy.sh redbox
