@@ -11,6 +11,7 @@ set MINT_SERVER=${mint.proxy.server}
 set MINT_AMQ=${mint.amq.broker}
 set NON_PROXY_HOSTS="${non.proxy.hosts}"
 set SERVER_ENVIRONMENT=${environment}
+set NODE_THEME="${theme}"
 
 REM this script sets the environment for the fascinator scripts
 set FASCINATOR_HOME=%PROJECT_HOME%/home
@@ -66,7 +67,7 @@ REM mint integration
 set MINT_OPTS=-Dmint.proxy.server="%MINT_SERVER%" -Dmint.proxy.url="%MINT_SERVER%/mint" -Dmint.amq.broker="%MINT_AMQ%" 
 
 REM additional settings
-set EXTRA_OPTS=-Dserver.url.base="%SERVER_URL%" -Dserver.environment=%SERVER_ENVIRONMENT% -Damq.port=%AMQ_PORT% -Damq.stomp.port=%AMQ_STOMP_PORT% -Dsmtp.host="%SMTP_HOST%" -Dadmin.email="%ADMIN_EMAIL%" -Dredbox.version="%REDBOX_VERSION%"
+set EXTRA_OPTS=-Dserver.url.base="%SERVER_URL%" -Dserver.environment=%SERVER_ENVIRONMENT% -Dnode.theme=%NODE_THEME% -Damq.port=%AMQ_PORT% -Damq.stomp.port=%AMQ_STOMP_PORT% -Dsmtp.host="%SMTP_HOST%" -Dadmin.email="%ADMIN_EMAIL%" -Dredbox.version="%REDBOX_VERSION%"
 
 REM Logging fix. Axis 1.4 (for Fedora) needs to know about the SLF4J Implementation
 set COMMONS_LOGGING=-Dorg.apache.commons.logging.LogFactory=org.apache.commons.logging.impl.SLF4JLogFactory
