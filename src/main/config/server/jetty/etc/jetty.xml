@@ -58,7 +58,7 @@
       </Arg>
     </Call>
 
-    <!-- Use this for Shibboleth with Apache -->
+    <!-- Use this for Shibboleth with Apache 
 	<Call name="addConnector">
 		<Arg>
 			<New class="org.mortbay.jetty.ajp.Ajp13SocketConnector">
@@ -70,7 +70,7 @@
 				<Set name="statsOn">false</Set>
 			</New>
 		</Arg>
-	</Call>
+	</Call>-->
 
     <!-- Use this connector if NIO is not available.
     <Call name="addConnector">
