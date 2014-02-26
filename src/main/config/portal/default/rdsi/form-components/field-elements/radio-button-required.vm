@@ -1,0 +1,15 @@
+<script>
+$(document).ready(function() {
+ var intervalId = window.setInterval(function() {
+  jaffa.valid.setSaveRules("$field-name",  ["required"], null, validationFail);
+  jaffa.valid.setSubmitRules("$field-name",  ["required"], null, validationFail);
+  window.clearInterval(intervalId); 
+ },500)  
+});
+
+var validation = {
+ "validationMessages" : {"required":"$message"},
+ "focusId" : "$focus-id"
+};
+validationFieldMap["$field-name"] = validation;
+</script>  
