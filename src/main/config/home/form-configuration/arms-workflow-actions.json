@@ -29,15 +29,6 @@
         }
       },
       {
-        "label": "Remove from assessment",
-        "id": "remove-btn",
-        "action": "remove",
-        "condition-on": {
-          "id": "outcome-decision.1",
-          "on": "radio"
-        }
-      },
-      {
         "label": "Approved and notify provisioning",
         "id": "approve-reds-btn",
         "action": "approve",
@@ -57,7 +48,7 @@
       },
       {
         "label": "Reject and notify requestor",
-        "id": "approve-btn",
+        "id": "reject-btn",
         "action": "reject",
         "condition-on": {
           "id": "outcome-decision.4",
@@ -78,35 +69,20 @@
   "arms-assessment": {
     "actions": [
       {
-        "label": "Make available for assessment",
-        "id": "review-submit-btn",
+        "label": "Submit assessment",
+        "id": "assessor-submit-btn",
         "action": "next",
-        "condition-on": "radio button still being processed"
+        "role": "assessor"
       },
       {
         "label": "Remove from assessment",
         "id": "remove-btn",
         "action": "remove",
         "role": "reviewer",
-        "condition-on": "radio button still being processed"
-      },
-      {
-        "label": "Approved and notify provisioning",
-        "id": "approve-btn",
-        "action": "approve",
-        "condition-on": "radio button Approved for ReDS or CDS"
-      },
-      {
-        "label": "Reject and notify requestor",
-        "id": "approve-btn",
-        "action": "reject",
-        "condition-on": "radio button of Reject"
-      },
-      {
-        "label": "Return to requestor to update",
-        "id": "return-btn",
-        "action": "return",
-        "condition-on": "radio button of still being processed"
+        "condition-on": {
+          "id": "outcome-decision.1",
+          "on": "radio"
+        }
       }
     ]
   },
