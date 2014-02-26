@@ -7,9 +7,18 @@ import groovy.util.logging.*
 
 
 final String RDSI_NODES_PATH = project.properties["dir.portal"]+ "/default/rdsi/form-components/rdsi-nodes.json"
- 
+
 def jsonArray = new JSONArray()
 def nodes = project.properties["node.list"].split(",")
+
+
+addToNodeArray= {value, label->
+	nodeJson = new JsonObject()
+	nodeJson.put("value", value)
+	nodeJson.put("label", label)
+	jsonArray.add(nodeJson)
+}
+
 for(node in nodes) {
 	def nodeDirectory = new File(project.properties["dir.portal"]+"/"+node)
 	log.debug 'node directory:'+ nodeDirectory;
@@ -18,8 +27,7 @@ for(node in nodes) {
 	if(portalJsonFile.exists()){
 		nodeConfig = loadJsonObject(portalJsonFile)
 		nodePortalConfig = nodeConfig.get("portal") 		
-		nodeJson = createJsonNode(nodePortalConfig, node)
-		jsonArray.add(nodeJson)
+		createJsonNode(nodePortalConfig, node)	
 	}
 }
 
@@ -38,15 +46,11 @@ def loadJsonObject(jsonFile) {
 }
 
 def createJsonNode(nodePortalConfig, node) {
-	nodeJson = new JsonObject()
 	if (StringUtils.equalsIgnoreCase(node, "qcif")) {
-		nodeJson.put("value", "QCIF-BNE")
-		nodeJson.put("label", "QCIF-BNE")
-		nodeJson.put("value", "QCIF-TSV")
-		nodeJson.put("label", "QCIF-TSV")
+		["QCIF-BNE" : "QCIF-BNE", "QCIF-TSV" : "QCIF-TSV"].each(addToNodeArray)
 	} else {
-		nodeJson.put("value", nodePortalConfig.get("name"))
-		nodeJson.put("label", nodePortalConfig.get("displayName"))
+		def name = nodePortalConfig.get("name")
+		def value = nodePortalConfig.get("displayName")
+		addToNodeArray(name, value)
 	}
-	return nodeJson
 }

@@ -3,7 +3,7 @@ class redbox::proxy_server(
   $mint_port = '9001',
   $server_id = $::fqdn,
   $docroot = '/var/www/html',
-  $redbox_path = "ajp://localhost:8009/",
+  $redbox_path = "http://localhost:9000/",
   $mint_path = "http://localhost:9001/mint/",
   $shibboleth_env = undef,
   ) {
@@ -27,7 +27,8 @@ class redbox::proxy_server(
       shibboleth_env => $shibboleth_env,
       require        => Class['apache'],
       before         => File['redbox.conf'],
-    }
+    } 
+    $redbox_path = "ajp://localhost:8009/"
   }
   
   include apache::mod::proxy
