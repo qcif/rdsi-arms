@@ -1,18 +1,18 @@
 <div>#displayMessage("arms.field.label.completeness")</div>    
-<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointA')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointA")</label>
-<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointB')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointB")
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointA')" class="jaffa-field" name="completeness" id="completeness.1">#displayMessage("arms.field.label.completeness.pointA")</label>
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointB')" class="jaffa-field" name="completeness" id="completeness.2">#displayMessage("arms.field.label.completeness.pointB")
 <input style="width:8em;" type="text" name="complete_date" class="jaffa-field" id ="complete_date" value="" />
 <button class="ui-datepicker-clear">Clear</button>
 </label>
 
-<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointC')" class="jaffa-field" name="completeness">#displayMessage("arms.field.label.completeness.pointC")</label>
+<label><input type="radio" value="#displayMessage('arms.field.label.completeness.pointC')" class="jaffa-field" name="completeness" id="completeness.3">#displayMessage("arms.field.label.completeness.pointC")</label>
 
 <script>
  $(function() {
-	 $("[id='complete_date']").datepicker({
-		 dateFormat: 'MM yy',
-		 changeMonth: true,
-		 changeYear: true,
+     $("[id='complete_date']").datepicker({
+         dateFormat: 'MM yy',
+         changeMonth: true,
+         changeYear: true,
          currentText: 'Current month',
          closeText: 'Select',
          onClose: function(dateText, inst) {  
@@ -21,7 +21,7 @@
              var day = inst.selectedDay;
              $(this).val(jQuery.datepicker.formatDate($(this).datepicker( "option", "dateFormat" ), new Date(year, month, day, "00", "00", "00", "00") )); 
          }
-         ,showButtonPanel: true	 });
+         ,showButtonPanel: true  });
     $("[id='complete_date']").focus(function () {
          $(".ui-datepicker-calendar").hide();         $("#ui-datepicker-div").position({
             my: "center top",

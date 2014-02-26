@@ -104,6 +104,12 @@
       "component-type": "completeness-choices"
     },
     {
+        "component-type": "radio-button-required",
+        "field-name": "completeness",
+        "focus-id": "completeness.1",
+        "message": "Completeness of the collection is required"
+    },
+    {
       "component-type": "text-block",
       "type": "label",
       "content": "arms.heading.researchdata-access"

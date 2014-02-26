@@ -210,20 +210,29 @@
           "additional-class": "description"
         },
         {
-          "component-type": "radio-button",
-          "field-name": "dataprovider:authority",
+          "component-type": "radio-button2",
+          "field-name": "dataprovider-authority",
           "additional-class": "yesNoRight",
           "buttons": [
             {
               "label": "No",
-              "value": "No",
-              "checked": true
+              "value": "No"
             },
             {
               "label": "Yes",
               "value": "Yes"
             }
-          ]
+          ],
+          "validation": {
+            "save-rules": [
+              "required"
+            ],
+            "validation-id": "dataprovider-authority.2",
+            "focus-id": "dataprovider-authority.2",
+            "validation-messages": {
+              "required": "Authority has to be asserted as Yes"
+            }
+          }
         }
       ]
     },
