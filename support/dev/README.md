@@ -94,4 +94,4 @@ account will not be removed.
 
 ## See also
 
-- Documentation for the _install-arms.sh_ script.
+- [Documentation for install-arms.sh](install-arms.md).

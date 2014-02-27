@@ -79,11 +79,20 @@ builds without needing to upload them to the Nexus repository.
 
 ## Known bugs
 
-This script must be run as the "redbox" user. So in practice it is
-usually run as:
+### Must be run as the user "redbox"
+
+This script must be run as the "redbox" user, because that value is
+currently hardcoded into ReDBox and Mint. So in practice it is usually
+run as:
 
     sudo su redbox -c "./deploy.sh ..."
 
+### Assumes primary network interface is eth0
+
+It is assumed that the primary network interface is called "eth0",
+which is not necessarily true on some servers. If it cannot determine
+the IP address of _eth0_, it will try to find the lowest number IP
+address before defaulting to 127.0.0.1.
 
 ## Files and directories
 
