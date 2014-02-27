@@ -55,19 +55,20 @@ while [ $# -gt 0 ]; do
 done
 
 if [ -n "$HELP" ]; then
-    echo "Usage: $PROG [options] (redbox | mint) [installArchive.tar.gz]"
+    echo "Usage: $PROG [options] (redbox | mint) [installArchive]"
     echo "Options:"
     #echo "  -i | --installdir dir  install directory (Warning: not fully working)"
-    echo "  -t | --tmpdir dir      directory for installer files"
+    echo "  -t | --tmpdir dir      directory for install files"
     echo "  -r | --reinstall       force reinstall even if installed version is up-to-date"
     echo "  -d | --download        force download from Nexus even already downloaded"
     echo "  -v | --verbose         print extra information during execution"
     echo "  -h | --help            show this message"
+    echo "installArchive           install this tar.gz file instead of from Nexus"
     exit 0
 fi
  
 if [ $# -eq 0 ]; then
-    echo "Usage error: missing system: please specify redbox or mint" >&2
+    echo "Usage error: specify \"redbox\" or \"mint\" (\"-h\" for help)" >&2
     exit 2
 elif [ $# -eq 1 ]; then
     RB_SYSTEM="$1"
@@ -104,14 +105,25 @@ fi
 #----------------------------------------------------------------
 # Setup variables
 
+#----------------
 # Determine IP address
 
-# TODO: remove CR-LF from value
-SERVER_IP=`ifconfig eth0 | awk -F'[: ]+' '/inet addr:/ {print $4}'`
+# Try this interface first
+NET_INTERFACE=eth0
+SERVER_IP=`ifconfig $NET_INTERFACE | awk -F'[: ]+' '/inet addr:/ {print $4}'`
 
-if [ "$SERVER_IP" = "" ]; then
+if [ -z "$SERVER_IP" ]; then
+    # Try to find any IP address, except 127.0.0.1
+    SERVER_IP=`ifconfig | awk -F'[: ]+' '/inet addr:/ {print $4}' | sort -n | head -n 1 || grep -v 127.0.0.1`
+fi
+
+if [ -z "$SERVER_IP" ]; then
+    # Give up: use default
+    echo "$PROG: warning: $NET_INTERFACE: no IP address; using 127.0.0.1" >&2
     SERVER_IP=127.0.0.1
 fi
+
+#----------------
 
 case "$RB_SYSTEM" in
     "redbox")
@@ -180,10 +192,14 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 
     DEPLOY_ARCHIVE="$TMPDIR/$RB_SYSTEM.tar.gz"
 
-    # Determine if latest version already installed
+    # Obtain last modified date from HTTP header
+    # (The gsub substitution is to remove the CR-LF line ending from HTTP.)
+    # Example: Tue, 01 Oct 2013 11:52:35 GMT -- http://dev.redboxresearchdata...
 
-    LATEST_VERSION=`curl -s --location --head --url "$DEPLOY_URL" | \
-                awk -F': ' '/Last-Modified: / {print $2}'`
+    LATEST_VERSION="`curl -s --location --head --url "$DEPLOY_URL" |
+        awk -F': ' '/Last-Modified: / {gsub(/[\x0d\x0a]/, "", $2); print $2}'` -- $DEPLOY_URL"
+
+    # Determine if latest version already installed
 
     if [ -f $INSTDIR/version.txt -a -z "$FORCE_REINSTALL" ]; then
 	TS_OLD=`cat $INSTDIR/version.txt`
@@ -207,6 +223,7 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 
     # Get latest archive from Nexus repository
 
+    # Get tag of cached install (if it exists)
     EXISTING_VERSION=`cat "$TMPDIR/version.txt" 2>/dev/null`
 
     if [ -z "$FORCE_DOWNLOAD" -a \
@@ -216,7 +233,7 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 	# Use previously downloaded archive
 
 	if [ -n "$VERBOSE" ]; then
-            echo "Installer file for $RB_SYSTEM: reusing $DEPLOY_ARCHIVE"
+            echo "Install file: $RB_SYSTEM: reusing $DEPLOY_ARCHIVE"
 	fi
     else
 	# Download new archive
@@ -224,13 +241,11 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 	rm -f "$TMPDIR/version.txt" || die
 	rm -f "$DEPLOY_ARCHIVE" || die
 
-	echo "Installer file for $RB_SYSTEM: downloading from Nexus into $TMPDIR"
-	if [ -n "$VERBOSE" ]; then
-	    echo "  $DEPLOY_URL"
-	fi
-	curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
+	echo "Install file: $RB_SYSTEM: downloading from Nexus into $TMPDIR"
 
-	echo $LATEST_VERSION > "$TMPDIR/version.txt" || die
+	echo $LATEST_VERSION > "$TMPDIR/downloading.txt" || die
+	curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
+	mv "$TMPDIR/downloading.txt" "$TMPDIR/version.txt" || die
     fi
 
 else
@@ -242,6 +257,30 @@ else
     fi
 
     DEPLOY_ARCHIVE="$CUSTOM_ARCHIVE"
+fi
+
+# Convert DEPLOY_ARCHIVE into a full path name (so it can be found
+# after changing the working directory to the install directory).
+# Also, since this script is often run as the user 'redbox' via su, it
+# might not be able to access the custom archive supplied to it (even
+# though the invoker can). So check for that problem too.
+
+DIR="$( cd "$( dirname "$DEPLOY_ARCHIVE" )" && pwd )"
+DEPLOY_ARCHIVE_FULL_PATH="$DIR/`basename "$DEPLOY_ARCHIVE"`"
+
+DIRSTR=`dirname "$DEPLOY_ARCHIVE"`
+if [ -d "$DIRSTR" -a -r "$DIRSTR" -a -x "$DIRSTR" ]; then
+    DIR="$(cd "$DIRSTR" && pwd)"
+else
+    echo "$PROG: running as user: `id -u -n`" >&2
+    echo "$PROG: error: insufficient privileges to access directory: $DIRSTR" >&2
+    exit 1
+fi
+DEPLOY_ARCHIVE_FULL_PATH="$DIR/`basename "$DEPLOY_ARCHIVE"`"
+if [ ! -r "$DEPLOY_ARCHIVE_FULL_PATH" ]; then
+    echo "$PROG: running as user: `id -u -n`" >&2
+    echo "$PROG: error: insufficient privileges to access file: $DEPLOY_ARCHIVE_FULL_PATH" >&2
+    exit 1
 fi
 
 #----------------------------------------------------------------
@@ -275,14 +314,8 @@ fi
 # that directory.
 
 if [ -n "$VERBOSE" ]; then
-    echo "Extracting files from $DEPLOY_ARCHIVE into $INSTDIR"
+    echo "Extracting $DEPLOY_ARCHIVE into $INSTDIR"
 fi
-
-# Convert $DEPLOY_ARCHIVE into a full path name (it can be found
-# after changing the working directory to the install directory).
-
-DIR="$( cd "$( dirname "$DEPLOY_ARCHIVE" )" && pwd )"
-DEPLOY_ARCHIVE_FULL_PATH=$DIR/`basename "$DEPLOY_ARCHIVE"`
 
 (cd "$INSTDIR" && \
  tar -x -z -f "$DEPLOY_ARCHIVE_FULL_PATH" && \
@@ -300,8 +333,10 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
     echo $LATEST_VERSION > "$INSTDIR/version.txt" || die
 else
     # Custom archive installed: synthesize version information
-    echo "Installed: $DEPLOY_ARCHIVE_FULL_PATH" > "$INSTDIR/version.txt" || die
-    date +%FT%T%z >> "$INSTDIR/version.txt" || die
+    # Example: 2014-02-27T10:05:20+1000 -- file:///home/foobar.tar.gz
+    #RB_DATE=`stat -f '%Sm' -t '%FT%T%z' "$DEPLOY_ARCHIVE_FULL_PATH"` #BSD stat
+    RB_DATE=`stat -c '%y' "$DEPLOY_ARCHIVE_FULL_PATH"` #GNU stat
+    echo "$RB_DATE -- file://$DEPLOY_ARCHIVE_FULL_PATH" > "$INSTDIR/version.txt" || die
 fi
 
 # Start

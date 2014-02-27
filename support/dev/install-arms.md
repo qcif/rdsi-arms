@@ -34,11 +34,14 @@ Installs and uninstalls ARMS.
 `redboxInstallArchive`
 : the ReDBox install archive (tar.gz file) to install. If this is not
   provided, then the latest install archive from the Nexus repository
-  will be used. Note: the Mint installer is always obtained from the
-  Nexus repository; there is no way to explicitly specify a Mint
-  install archive.
+  will be used. Note: this file will be accessed by the _deploy.sh_
+  script running as the _redbox_ user, so it (and the directory it is in)
+  must be readable by the _redbox_ user.
 
 Note: this script **must** be run with root privileges.
+
+The Mint installer is always obtained from the Nexus repository; there
+is no way to explicitly specify a Mint install archive.
 
 ### Behaviour
 
@@ -111,5 +114,5 @@ ReDBox is installed to _/opt/redbox_ and Mint is installed to _/opt/mint_.
 
 ## See also
 
-* Documentation for deploy.sh, the ARMS-ReDBox and Mint installer.
+* [Documentation for deploy.sh](deploy.md) the ARMS-ReDBox and Mint installer.
 
