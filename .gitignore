@@ -5,3 +5,4 @@ target/
 /.pydevproject
 
 .DS_Store
+support/harvester-client/data-for-2A-from-1A.xml
