@@ -6,3 +6,4 @@ target/
 
 .DS_Store
 support/harvester-client/data-for-2A-from-1A.xml
+support/harvester-client/data-for-2A.xml
