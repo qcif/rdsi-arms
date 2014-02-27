@@ -2,17 +2,21 @@
     background-color: #41006C;
 }
 
-ul.menu-btn {
+ul.menu-list {
 	list-style: none;
+	margin-bottom:0;
+}
+
+.align-right {
+	text-align:right;
 }
 
 .menu-button {
 	background:#41006C;
 	color:#ffffff;
 	font-size: 18px;
-	width:150px;
 	margin:10px;
-	padding:5px; 
+	padding:5px 1em; 
 	overflow:visible;
 }
 
