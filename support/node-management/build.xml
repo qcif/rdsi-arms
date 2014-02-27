@@ -71,7 +71,6 @@
 		<filter token="nodeDisplayName" value="${nodeDisplayName}" />
 		<filter token="nodeDescription" value="${nodeDescription}" />
 		<filter token="themeColour" value="${themeColour}" />
-		<!-- Next time, we better remove logo.png permanently to avoid overwrite of correct logos before running CSS update to all nodes -->
 		<copy todir="../../src/main/config/portal/${nodeName}" filtering="true" overwrite="true">
 			<fileset dir="templates/portal" />
 		</copy>
