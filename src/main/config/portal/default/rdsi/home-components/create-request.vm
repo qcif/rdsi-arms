@@ -1,4 +1,4 @@
-    <ul class="menu-btn" style="text-align: right">
+    <ul class="menu-list align-right">
         <li>
            <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.dashboard.requestor.new")'></input>
         </li>
@@ -6,6 +6,7 @@
 ## set $packageType
 #parseTemplate( "home-components/package-type.vm" )
 #if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+<script type="text/javascript" src="$portalPath/jaffa/libs/jquery/jquery.blockUI.js"></script>
 <script type="text/javascript">
 $(function() {
     var jQ = $;
@@ -13,7 +14,7 @@ $(function() {
     jQ("#new-request").click(function() {
         if (processing) return;
         processing = true;
-        $("body").append('<p class="newRequestBusy"><img src="$portalPath/images/icons/loading.gif" /></p>');
+        jQ.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait when the request is being created...</h5>'});
         jQ.ajax({
             type: "POST",
             url: "$portalPath/actions/packaging.ajax",
