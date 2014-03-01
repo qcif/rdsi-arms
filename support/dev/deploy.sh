@@ -107,11 +107,12 @@ if which ip >/dev/null 2>&1; then
     SERVER_IP=`ip -o -f inet addr |
                awk -F'[ /]+' '{print $4}' |
                grep -v 127.0.0.1 |
-               sort -n |
+               sort -n -r |
                head -n 1`
 fi
 
-if [ -z "$SERVER_IP" ]; then
+echo "$SERVER_IP" | grep '^\d\d*\.\d\d*\.\d\d*\.\d\d*$' >/dev/null 2>&1
+if [ $? -ne 0 ]; then
     # Give up: use default
     echo "$PROG: warning: could not determine IP address; using 127.0.0.1" >&2
     SERVER_IP=127.0.0.1
