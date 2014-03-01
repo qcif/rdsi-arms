@@ -8,6 +8,7 @@
 #----------------------------------------------------------------
 
 PROG=`basename "$0"`
+PROGDIR="$( cd "$( dirname "$0" )" && pwd )"
 
 #----------------------------------------------------------------
 # Configuration (these can be changed)
@@ -74,7 +75,6 @@ function arms_install () {
     # Get script and Apache config file.
 
     if [ ! -d "$TMPDIR" ]; then
-	echo "Install files for ARMS: downloading to $TMPDIR"
 	mkdir -p "$TMPDIR" || die
     else
 	if [ -n "$VERBOSE" ]; then
@@ -82,32 +82,40 @@ function arms_install () {
 	fi
     fi
 
-    if [ ! -f "$TMPDIR/deploy.sh" ]; then
-	echo "Downloading install file: deploy.sh"
-	curl --silent --location -o "$TMPDIR/deploy.sh" \
-	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/deploy.sh || die
-	chmod a+x "$TMPDIR/deploy.sh" || die
-    fi
+    for FILE in deploy.sh apache-arms.conf; do
 
-    if [ ! -f "$TMPDIR/apache-arms.conf" ]; then
-	echo "Downloading install file: apache-arms.conf"
-	curl --silent --location -o "$TMPDIR/apache-arms.conf" \
-	    https://raw.github.com/qcif/rdsi-arms/master/support/dev/apache-arms.conf || die
-    fi
+	if [ ! -f "$TMPDIR/$FILE" ]; then
+	    # File not found in temporary install directory: get it
+
+	    if [ -f "$PROGDIR/$FILE" ]; then
+		# Local copy exists: use it
+		# This is for when running from the project source directory
+		echo "Copying: $PROGDIR/$FILE -> $TMPDIR/$FILE"
+		cp "$PROGDIR/$FILE" "$TMPDIR/$FILE" || die
+	    else
+		# Download file from GitHub
+		echo "Downloading from GitHub: $TMPDIR/$FILE"
+		curl --silent --location -o "$TMPDIR/$FILE" \
+		    https://raw.github.com/qcif/rdsi-arms/master/support/dev/$FILE || die
+	    fi
+	fi
+    done
+
+    chmod a+x "$TMPDIR/deploy.sh" || die
 
     #----------------
     # Install Java and Apache
 
     YUM_VERBOSE=--quiet # not verbose, so run yum in quiet mode
 
-    for PACKAGE in tar java-1.7.0-openjdk httpd; do
+    for PACKAGE in java-1.7.0-openjdk httpd; do
 	rpm -q $PACKAGE >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
-	    if [ -n "$VERBOSE" ]; then
-		echo "Installing RPM package: $PACKAGE (downloading, please wait)"
-	    fi
+	    # Package not installed: install it
+	    echo "Installing RPM package: $PACKAGE (downloading, please wait)"
 	    yum install -y $YUM_VERBOSE $PACKAGE || die
 	else
+	    # Package already installed
 	    if [ -n "$VERBOSE" ]; then
 		echo "RPM Package already installed: $PACKAGE"
 	    fi
@@ -345,17 +353,19 @@ fi
 #----------------------------------------------------------------
 # Check commands (some minimal installations do not have these installed)
 #
-# Actually ifconfig is used by the deploy script, but it is better to
-# also check for them here and fail-fast instead of waiting until the
-# deploy script is reached.
+# Actually some of these are used by the "deploy.sh" script, but it is
+# better to also check for them here and fail-fast instead of waiting
+# until the deploy script is reached.
 
-# ifconfig
+for COMMAND in tar curl ifconfig yum adduser; do
 
-which ifconfig >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "$PROG: error: ifconfig command not found" >&2
-    exit 1
-fi
+    which $COMMAND >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+	echo "$PROG: error: command not available: $COMMAND" >&2
+	exit 1
+    fi
+
+done
 
 #----------------------------------------------------------------
 # Main

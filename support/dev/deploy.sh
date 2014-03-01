@@ -84,23 +84,15 @@ fi
 #----------------------------------------------------------------
 # Check dependencies (some minimal installations do not have these commands)
 
-# tar
+for COMMAND in tar curl ifconfig; do
 
-which tar >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "$PROG: error: tar command not found" >&2
-    exit 1
-fi
+    which $COMMAND >/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+	echo "$PROG: error: command not available: $COMMAND" >&2
+	exit 1
+    fi
 
-# ifconfig
-# For example, Fedora 20 minimal install does not have it.
-# TODO: change to use "ip addr" instead
-
-which ifconfig >/dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "$PROG: error: ifconfig command not found" >&2
-    exit 1
-fi
+done
 
 #----------------------------------------------------------------
 # Setup variables
@@ -241,11 +233,11 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 	rm -f "$TMPDIR/version.txt" || die
 	rm -f "$DEPLOY_ARCHIVE" || die
 
-	echo "Install file: $RB_SYSTEM: downloading from Nexus into $TMPDIR"
+	echo "Downloading from Nexus: $DEPLOY_ARCHIVE"
 
-	echo $LATEST_VERSION > "$TMPDIR/downloading.txt" || die
+	echo $LATEST_VERSION > "$TMPDIR/download-in-progress.txt" || die
 	curl -# --location -o "$DEPLOY_ARCHIVE" "$DEPLOY_URL" || die
-	mv "$TMPDIR/downloading.txt" "$TMPDIR/version.txt" || die
+	mv "$TMPDIR/download-in-progress.txt" "$TMPDIR/version.txt" || die
     fi
 
 else
