@@ -84,7 +84,7 @@ fi
 #----------------------------------------------------------------
 # Check dependencies (some minimal installations do not have these commands)
 
-for COMMAND in tar curl ifconfig; do
+for COMMAND in tar curl; do
 
     which $COMMAND >/dev/null 2>&1
     if [ $? -ne 0 ]; then
@@ -100,18 +100,20 @@ done
 #----------------
 # Determine IP address
 
-# Try this interface first
-NET_INTERFACE=eth0
-SERVER_IP=`ifconfig $NET_INTERFACE | awk -F'[: ]+' '/inet addr:/ {print $4}'`
+if which ip >/dev/null 2>&1; then
+    # ip command available
 
-if [ -z "$SERVER_IP" ]; then
-    # Try to find any IP address, except 127.0.0.1
-    SERVER_IP=`ifconfig | awk -F'[: ]+' '/inet addr:/ {print $4}' | sort -n | head -n 1 || grep -v 127.0.0.1`
+    # Try to get one IPv4 address that is not 127.0.0.1
+    SERVER_IP=`ip -o -f inet addr |
+               awk -F'[ /]+' '{print $4}' |
+               grep -v 127.0.0.1 |
+               sort -n |
+               head -n 1`
 fi
 
 if [ -z "$SERVER_IP" ]; then
     # Give up: use default
-    echo "$PROG: warning: $NET_INTERFACE: no IP address; using 127.0.0.1" >&2
+    echo "$PROG: warning: could not determine IP address; using 127.0.0.1" >&2
     SERVER_IP=127.0.0.1
 fi
 

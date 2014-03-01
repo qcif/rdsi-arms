@@ -69,6 +69,25 @@ function arms_install () {
 	exit 1
     fi
 
+    #----------------
+    # Check commands (some minimal installations do not have these installed)
+    #
+    # Actually some of these are used by the "deploy.sh" script, but
+    # it is better to also check for them here and fail-fast instead
+    # of waiting until the deploy script is reached.
+
+    for COMMAND in tar curl yum adduser; do
+
+	which $COMMAND >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+	    echo "$PROG: error: command not available: $COMMAND" >&2
+	    exit 1
+	fi
+
+    done
+
+    #----------------
+
     echo "Installing ARMS (hostname: $HOSTNAME)"
 
     #----------------
@@ -349,23 +368,6 @@ elif [ $# -gt 1 ]; then
     echo "Usage error: too many arguments (\"-h\" for help)" >&2
     exit 2
 fi
-
-#----------------------------------------------------------------
-# Check commands (some minimal installations do not have these installed)
-#
-# Actually some of these are used by the "deploy.sh" script, but it is
-# better to also check for them here and fail-fast instead of waiting
-# until the deploy script is reached.
-
-for COMMAND in tar curl ifconfig yum adduser; do
-
-    which $COMMAND >/dev/null 2>&1
-    if [ $? -ne 0 ]; then
-	echo "$PROG: error: command not available: $COMMAND" >&2
-	exit 1
-    fi
-
-done
 
 #----------------------------------------------------------------
 # Main
