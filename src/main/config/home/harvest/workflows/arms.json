@@ -121,8 +121,8 @@
                   "target-step": "arms-approved"
                 },
                 {
-                  "action-name": "reject",
-                  "target-step": "arms-rejected"
+                  "action-name": "remove",
+                  "target-step": "arms-review"
                 }
             ],
             "template": "workflows/simpleworkflow"
@@ -145,6 +145,12 @@
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
             "visibility": ["reviewer","admin"],
+            "actions": [
+                {
+                  "action-name": "reopen",
+                  "target-step": "arms-review"
+                }
+            ],
             "template": "workflows/simpleworkflow"
         },
         {
@@ -154,6 +160,12 @@
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
             "visibility": ["reviewer","provisioner","admin"],
+            "actions": [
+                {
+                  "action-name": "reopen",
+                  "target-step": "arms-review"
+                }
+            ],
             "template": "workflows/simpleworkflow"
         }
     ]
