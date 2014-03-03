@@ -50,8 +50,6 @@ class HomeData(Dashboard):
     def section(self, formData): 
         sub_section = formData.get("section")
         if sub_section:
-            print "************************** %s" % sub_section
             self.section = sub_section
         else:
-            print "Not get it **************************"
             self.section = "active"
