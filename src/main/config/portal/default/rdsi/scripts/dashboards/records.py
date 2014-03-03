@@ -35,7 +35,8 @@ class RecordsData(Dashboard):
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
 
-        searches = {'requestor':'arms-draft',
+        searches = {'requestor':'arms-draft,arms-redraft',
+                    'redraft':'arms-redraft',
                     'submitted': 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected',
                     'reviewer':'arms-review',
                     'assessor':'arms-assessment',
@@ -68,6 +69,5 @@ class RecordsData(Dashboard):
         
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)
-        writer.close()        
-
-        
+        writer.close()       
+ 
