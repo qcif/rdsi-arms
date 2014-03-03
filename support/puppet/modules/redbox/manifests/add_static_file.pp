@@ -4,9 +4,18 @@ define redbox::add_static_file(
 	$options='',
 	$source,
 	$destination,
+	$is_source_complete = false,
 ) {
   
-  exec {"wget $options ${source}/${static_file}  -O ${destination}/${static_file}":}
+  if ($is_source_complete) {
+    $full_source = $source
+  } else {
+    $full_source = "${source}/${static_file}"
+  }
+  
+  exec {"wget $options \"$full_source\"  -O ${destination}/${static_file}":
+    logoutput => true,
+  }
   ->
   file { "${destination}/${static_file}":
     ensure  => file,

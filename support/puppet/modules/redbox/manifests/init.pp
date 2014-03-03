@@ -37,10 +37,23 @@
 #
 class redbox( 
 	$redbox_user = 'redbox',
-	$directories = [ 'redbox', 'mint', 'deploy', ],
-  	$static_files = [ 'deploy.sh', 'redbox.cron', 'redbox-mint.sh', 'start_all.sh'],
+	$directories = [ 'redbox', 'mint', 'deploy', 'deploy/redbox', 'deploy/mint'],
   	$is_behind_proxy = true,
+  	$is_using_dns = true,
   	$shibboleth_env = undef,
+  	$nexus_repo = 'snapshots',
+  	$archives = [
+	    { name     => 'redbox',
+	      group    => 'au.edu.qcif',
+	      artifact => 'redbox-rdsi-arms',
+	      web_context => undef,   
+	    },
+	    { name     => 'mint',
+	      group    => 'com.googlecode.redbox-mint',
+	      artifact => 'mint-local-curation-demo',
+	      web_context => 'mint',
+	    }
+  	],
   	$exec_path = [
       '/usr/local/bin',
       '/opt/local/bin',
@@ -50,7 +63,7 @@ class redbox(
       '/sbin'],
 ) {
  
-  host { $::fqdn:
+  host { [$::fqdn, $::hostname]:
       ip => $::ipaddress,
   }
   
@@ -65,21 +78,23 @@ class redbox(
     owner =>  $redbox_user,
   } 
   ->
-  redbox::add_static_file { $static_files:
-  	source 		=> "https://raw.github.com/qcif/rdsi-arms/master/support/dev",
-  	destination => "/home/${redbox_user}",
-    owner  		=> $redbox_user,
-  }
-  ->
   redbox::add_package {'unzip':}
   ->
-  class {'redbox::java':}
+  class {'redbox::java': }
   
   if ($is_behind_proxy) {
   	class {'redbox::proxy_server':
   		shibboleth_env => $shibboleth_env,
   		require => Class['Redbox::Java'],
+  		before  => Class['Redbox::Add_deploy_script'],
+  		is_using_dns => $is_using_dns,
  	}
   }
-
+  
+  class { 'redbox::add_deploy_script':
+  	owner	 => $redbox_user,
+  	archives => $archives,
+  	is_using_dns => $is_using_dns,
+  }
+  
 }

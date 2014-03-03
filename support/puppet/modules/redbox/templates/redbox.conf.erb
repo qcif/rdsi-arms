@@ -1,4 +1,4 @@
-<VirtualHost <%= @server_id %>:80>
+<VirtualHost *:80>
 
        DocumentRoot  <%= @docroot %>
        
@@ -8,10 +8,10 @@
        # alert, emerg.
        LogLevel warn
        
-     <% if @shibboleth_env -%>
-       ProxyPassMatch /Shibboleth !
+	<% if @shibboleth_env -%>
+	   ProxyPassMatch /Shibboleth !
 	   ProxyPass /default/sso/shibbloeth !
-	 <% end -%>
+	<% end -%>
 	   
        ProxyPass               /mint <%= @mint_path %>
        ProxyPassReverse        /mint <%= @mint_path %>
