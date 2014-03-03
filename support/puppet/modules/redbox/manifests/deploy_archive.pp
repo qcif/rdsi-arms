@@ -1,4 +1,4 @@
-define redbox::add_archive(
+define redbox::deploy_archive(
   $archive=$title,
   $url='http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect',
   $repo='snapshots',

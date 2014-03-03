@@ -39,6 +39,7 @@ class redbox(
 	$redbox_user = 'redbox',
 	$directories = [ 'redbox', 'mint', 'deploy', 'deploy/redbox', 'deploy/mint'],
   	$is_behind_proxy = true,
+  	$is_using_ssl = false,
   	$is_using_dns = true,
   	$shibboleth_env = undef,
   	$nexus_repo = 'snapshots',
@@ -88,10 +89,11 @@ class redbox(
   		require => Class['Redbox::Java'],
   		before  => Class['Redbox::Add_deploy_script'],
   		is_using_dns => $is_using_dns,
+  		is_using_ssl => $is_using_ssl,
  	}
   }
   
-  class { 'redbox::add_deploy_script':
+  class { 'redbox::deploy':
   	owner	 => $redbox_user,
   	archives => $archives,
   	is_using_dns => $is_using_dns,

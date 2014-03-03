@@ -2,6 +2,7 @@ class redbox::proxy_server(
   $priority = '25',
   $mint_port = '9001',
   $is_using_dns = true,
+  $is_using_ssl = false,
   $docroot = '/var/www/html',
   $redbox_path = "http://localhost:9000/",
   $mint_path = "http://localhost:9001/mint/",
