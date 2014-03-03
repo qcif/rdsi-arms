@@ -66,9 +66,20 @@
             "description": "The requestor is working on the request.",
             "owner_edit_allowed": "true",
             "security": ["admin"],
-            "visibility": ["reviewer","admin"],
+            "visibility": ["admin"],
             "actions": [ { "action-name" : "next",
                            "target-step" : "arms-review" }]
+        },
+        {
+            "name": "arms-redraft",
+            "label": "Redraft",
+            "description": "The requestor is working on the request for re-submission.",
+            "owner_edit_allowed": "true",
+            "security": ["admin"],
+            "visibility": ["reviewer","admin"],
+            "actions": [ { "action-name" : "next",
+                           "target-step" : "arms-review" }],
+            "template": "workflows/simpleworkflow"
         },
         {
             "name": "arms-review",
@@ -89,6 +100,10 @@
                 {
                   "action-name": "approve",
                   "target-step": "arms-approved"
+                },
+                {
+                  "action-name": "return",
+                  "target-step": "arms-redraft"
                 }
             ],
             "template": "workflows/simpleworkflow"

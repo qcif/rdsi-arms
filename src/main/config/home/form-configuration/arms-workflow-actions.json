@@ -17,6 +17,19 @@
       }
     ]
   },
+  "arms-redraft": {
+    "actions": [
+      {
+        "label": "Re-submit request",
+        "id": "draft-submit-btn",
+        "action": "next",
+        "condition-on": {
+          "id": "request-declarations",
+          "on": "checkbox"
+        }
+      }
+    ]
+  },
   "arms-review": {
     "actions": [
       {
