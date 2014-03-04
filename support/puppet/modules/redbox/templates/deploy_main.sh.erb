@@ -101,7 +101,6 @@ install_deployed_files() {
 	echo "Cleaning up..."
 	echo "...removing deploy artifacts..."
 	rm -rf <%= @deploy_parent_directory %>/${redbox_system}/*
-	mv -f <%= @working_directory %>/${redbox_system}.<%= @new_extension %> <%= @working_directory %>/${redbox_system}.<%= @old_extension %>
 }
 
 ########################## Main ##########################
@@ -124,6 +123,8 @@ deploy() {
 		install_deployed_files ${redbox_system} || exit_deploy
 		echo "Successfully deployed ${redbox_system}"
 	fi
+	echo "Updating old timestamp..."
+	mv -f <%= @working_directory %>/${redbox_system}.<%= @new_extension %> <%= @working_directory %>/${redbox_system}.<%= @old_extension %>
 	echo "Restarting: <%= @install_parent_directory%>/${redbox_system}/server/tf.sh"
 	<%= @install_parent_directory%>/${redbox_system}/server/tf.sh restart || exit_deploy
 }
