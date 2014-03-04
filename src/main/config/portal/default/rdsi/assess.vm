@@ -1,0 +1,52 @@
+#set($oid = $self.oid)
+#if($oid == "null")
+<p>Wrong request</p>
+#else
+## for styling
+<div style="height:1px;padding:11px;margin-bottom:10px"></div>
+<div class="grid_4">
+    <div id="actions-menu">
+        <div class="box menu">
+          <h2>Actions</h2>
+          <ul class="menu">
+              <li><a href="$portalPath/detail/$oid" title="Details">Show request details</a></li>
+          </ul>
+        </div>
+    </div>
+</div>
+<div class="grid_12">
+ <form action="$portalPath/assess.script" method="POST">
+ <input type="hidden" name="oid" value="$oid" />
+ <div class="tab ui-tabs-panel ui-widget-content ui-corner-bottom">
+    <div class="simple-workflow component-wrapper ">
+        <h4>Assessment</h4>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+    <p>Reviewer recommends: Approve for ReDS</p>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+    #if($self.assessment)
+        #set($recommendation = $self.assessment.get("recommendation"))
+        #set($size-agreement = $self.assessment.get("size-agreement"))
+        #set($comments = $self.assessment.get("comments"))
+    #end
+    <div>Recommendation</div>
+        <label><input type="radio" value="Approve for ReDS" #if($recommendation == "Approve for ReDS") checked="checked" #end id="recommendation.1" name="recommendation" >Approve for ReDS</label>
+        <label><input type="radio" value="Approve for CDS" #if($recommendation == "Approve for CDS") checked="checked" #end id="recommendation.2" name="recommendation" >Approve for CDS</label>
+        <label><input type="radio" value="More information required (specify what is required in the comments section)" #if($recommendation == "More information required (specify what is required in the comments section)") checked="checked" #end id="recommendation.3" name="recommendation">More information required (specify what is required in the comments section)</label>
+        <label><input type="radio" value="Reject" #if($recommendation == "Reject") checked="checked" #end id="recommendation.4" name="recommendation">Reject</label>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+        <div>Reviewer recommends: 10TB  </div>
+        <label><input type="radio" value="Agree with recommended size" #if($size-agreement == "Agree with recommended size") checked="checked" #end id="size-agreement.1" name="size-agreement">Agree with recommended size</label>
+        <label><input type="radio" value="Disagree (specify recommended size in comments section)" #if($size-agreement == "Disagree (specify recommended size in comments section)") checked="checked" #end id="size-agreement.2" name="size-agreement">Disagree (specify recommended size in comments section)</label>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+     <label for="assessor-comments">Assessor's comments:</label>
+     <textarea name="comments" id="comments" rows="4" cols="80">#if($comments)$StringEscapeUtils.escapeHtml($comments)#end</textarea>
+     <div><input type="submit" value="Submit assessment" class="ui-widget" /></div>
+ </div>
+ </div>
+ </form>
+</div>
+#end

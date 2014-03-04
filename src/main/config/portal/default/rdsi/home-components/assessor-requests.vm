@@ -13,7 +13,7 @@ var myRecords = new DataRowsModel('assessor');
 myRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        data[i]["editUrl"] = '$portalPath/assess/' + data[i].id;;
         this.rows.push(data[i]);
     }
 }
