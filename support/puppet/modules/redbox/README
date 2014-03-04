@@ -1,33 +1,18 @@
 ##redbox using puppet : serverless
 __________________________
 
-rpm -ivh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
-yum install puppet
+## use pre-install.sh to setup puppet for redbox use.
 
-##After installing puppet, redbox needs to be copied to the module path on the OS.
-##Enter: 
-sudo -s
-puppet config print modulepath 
-##to find where to install the redbox module. 
-##Copy redbox to puppet modulepath.
-
-##Once redbox is in the module path, to apply it:
-puppet module install puppetlabs/concat
-puppet module install puppetlabs/stdlib
-puppet module install puppetlabs/apache
-
-## Without shibboleth/AAF:
+## With DNS in place:
 puppet apply -e "class {'redbox':}"
 
-## With shibboleth/AAF 'test':
-puppet apply -e "class {'redbox_apache':
-	shibboleth_env => 'test'
+### If DNS is not setup:
+puppet apply -e "class {'redbox':
+	is_using_dns => false,
 }"
 
-## With shibboleth/AAF 'prod':
-puppet apply -e "class {'redbox_apache':
-	shibboleth_env => 'prod'
-}"
+## TODO : SSL setup.
+## TODD : set up using r10k
 
 License
 -------
