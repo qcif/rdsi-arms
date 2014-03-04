@@ -13,12 +13,12 @@
       "buttons": [
         {
           "label": "arms.outcome.subsectionA.listA",
-          "value": "arms.outcome.subsectionA.listA"
+          "value": "arms.outcome.subsectionA.listA",
+          "checked": true
         },
         {
           "label": "arms.outcome.subsectionA.listB",
-          "value": "arms.outcome.subsectionA.listB",
-          "checked": true
+          "value": "arms.outcome.subsectionA.listB"
         },
         {
           "label": "arms.outcome.subsectionA.listC",
