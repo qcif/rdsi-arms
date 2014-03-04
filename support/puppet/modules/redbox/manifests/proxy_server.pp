@@ -37,7 +37,7 @@ class redbox::proxy_server(
   include apache::mod::proxy_ajp
   
   file { 'redbox.conf':
-    path    => "${conf_dir}/${priority}_redbox.conf",
+    path    => "${conf_dir}/${priority}-redbox.conf",
     ensure  => file,
     content => template("redbox/redbox.conf.erb"),
     require => Class['apache'],
