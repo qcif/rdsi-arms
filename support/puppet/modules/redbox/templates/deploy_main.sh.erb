@@ -124,10 +124,10 @@ deploy() {
 		update_server_url_in_startup_script ${redbox_system} ${web_context} || exit_deploy
 		stop_server ${redbox_system} || exit_deploy
 		install_deployed_files ${redbox_system} || exit_deploy
-		echo "Starting: <%= @install_parent_directory%>/${redbox_system}/server/tf.sh"
-		<%= @install_parent_directory%>/${redbox_system}/server/tf.sh start || exit_deploy
 		echo "Successfully deployed ${redbox_system}"
 	fi
+	echo "Restarting: <%= @install_parent_directory%>/${redbox_system}/server/tf.sh"
+	<%= @install_parent_directory%>/${redbox_system}/server/tf.sh restart || exit_deploy
 }
 if [ `whoami` != "<%= @owner %>" ]; then
 	exit_deploy "Usage: sudo -Hu <%= @owner %> <%= @working_directory %>/$(basename $0)"

@@ -87,7 +87,7 @@ class redbox(
   	class {'redbox::proxy_server':
   		shibboleth_env => $shibboleth_env,
   		require => Class['Redbox::Java'],
-  		before  => Class['Redbox::Add_deploy_script'],
+  		before  => Class['Redbox::Deploy'],
   		is_using_dns => $is_using_dns,
   		is_using_ssl => $is_using_ssl,
  	}
