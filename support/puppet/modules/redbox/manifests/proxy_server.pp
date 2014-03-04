@@ -43,5 +43,10 @@ class redbox::proxy_server(
     require => Class['apache'],
     notify  => Service['httpd'],
   }
+  
+  if ($is_using_ssl) {
+  	 include apache::mod::rewrite
+  	 include apache::mod::setenvif
+  }
 }
 

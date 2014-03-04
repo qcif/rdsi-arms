@@ -12,7 +12,7 @@ exit_deploy() {
 }
 
 function is_timestamp_current() {
-	is_current=1
+	is_current=0
 	source=$1
 	redbox_system=$2
 	old_file_timestamp=<%= @working_directory %>/${redbox_system}.<%= @old_extension %>
@@ -31,9 +31,7 @@ function is_timestamp_current() {
 	    
 	    is_current=$([ "$TS_OLD" = "$TS_NEW" ])
 	fi
-	echo "Replacing old_timestamp..."
 	mv -f ${new_file_timestamp} ${old_file_timestamp}
-	
 	return ${is_current}
 }
 
