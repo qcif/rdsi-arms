@@ -181,3 +181,10 @@ p.description {
 div.arms-accordion-group div.ui-accordion-content-active {
         height: auto !important;
 }
+
+/* The bottom-right aligned note on Declarations tab */
+div.declaration-note {
+    position: absolute;
+    bottom: 0px;
+    right: 1%;
+}

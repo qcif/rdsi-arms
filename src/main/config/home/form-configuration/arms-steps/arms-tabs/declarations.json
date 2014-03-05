@@ -40,10 +40,16 @@
       "content": ""
     },
     {
-      "component-type": "text-block",
-      "additional-class": "right-text",
-      "type": "p",
-      "content": "arms.description.declaration.note"
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "declaration-note",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "p",
+          "content": "arms.description.declaration.note"
+        }
+      ]
     }
   ]
 }
