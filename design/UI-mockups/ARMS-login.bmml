@@ -1,46 +1,59 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="752" measuredH="294" mockupW="731" mockupH="275">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="941" measuredH="1143" mockupW="920" mockupH="1124">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::StickyNote" x="63" y="84" w="251" h="210" measuredW="109" measuredH="123" zOrder="0" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>After%20login%2C%20the%20user%20sees%20different%20dashboards%20depending%20on%20their%20role.%20Possibly%20multiple%20dashboards%20if%20they%20are%20in%20multiple%20roles.%0A%20%0AAlt-Click%20%28option-click%29%20on%20one%20of%20the%20arrows%20on%20the%20right%20to%20see%20that%20particular%20role%27s%20dashboard.%0A%20%0AUse%20the%20%22logout%22%20link%20in%20the%20dashboards%20to%20return%20to%20this%20page.</text>
-      </controlProperties>
-    </control>
-    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="462" y="100" w="-1" h="-1" measuredW="290" measuredH="26" zOrder="1" locked="false" isInGroup="-1">
-      <controlProperties>
-        <align>right</align>
-        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C81%2C731%2C107%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%221%22/%3E</map>
-        <size>18</size>
-        <text>Requestor/researcher%20dashboard%20%20%20</text>
-      </controlProperties>
-    </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="21" y="19" w="-1" h="-1" measuredW="287" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="21" y="19" w="-1" h="-1" measuredW="287" measuredH="43" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>ARMS%20mockups</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="462" y="151" w="-1" h="-1" measuredW="184" measuredH="26" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="21" y="77" w="920" h="622" measuredW="450" measuredH="400" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-reviewer%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C132%2C625%2C158%22%20href%3D%22Dashboard-reviewer.bmml%22%20alt%3D%22Dashboard-reviewer%22%20id%3D%223%22/%3E</map>
-        <size>18</size>
-        <text>Reviewer%20dashboard%20%20%20</text>
+        <text>ARMS%0Ahttps%3A//</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="462" y="202" w="-1" h="-1" measuredW="185" measuredH="26" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="613" y="434" w="-1" h="-1" measuredW="54" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22592%2C415%2C646%2C442%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%227%22/%3E</map>
+        <text>Login</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Canvas" x="273" y="331" w="459" h="154" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::SubTitle" x="357" y="370" w="-1" h="-1" measuredW="316" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Australian%20Access%20Federation</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="342" y="887" w="-1" h="-1" measuredW="134" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22321%2C868%2C455%2C895%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2211%22/%3E</map>
+        <text>Login%20as%20requestor</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="500" y="887" w="-1" h="-1" measuredW="126" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22479%2C868%2C605%2C895%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%2212%22/%3E</map>
+        <text>Login%20as%20reviewer</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Button" x="648" y="887" w="-1" h="-1" measuredW="131" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Dashboard-assessor%26bm%3BDashboard-assessor.bmml%26bm%3BDashboard-assessor.bmml%26bm%3BDashboard-assessor.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C183%2C626%2C209%22%20href%3D%22Dashboard-assessor.bmml%22%20alt%3D%22Dashboard-assessor%22%20id%3D%224%22/%3E</map>
-        <size>18</size>
-        <text>Assessor%20dashboard%20%20%20</text>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22627%2C868%2C758%2C895%22%20href%3D%22Dashboard-assessor.bmml%22%20alt%3D%22Dashboard-assessor%22%20id%3D%2213%22/%3E</map>
+        <text>Login%20as%20assessor</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="462" y="258" w="-1" h="-1" measuredW="199" measuredH="26" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Button" x="800" y="887" w="-1" h="-1" measuredW="141" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-provisioner%26bm%3BDashboard-provisioner.bmml%26bm%3BDashboard-provisioner.bmml%26bm%3BDashboard-provisioner.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22441%2C239%2C640%2C265%22%20href%3D%22Dashboard-provisioner.bmml%22%20alt%3D%22Dashboard-provisioner%22%20id%3D%225%22/%3E</map>
-        <size>18</size>
-        <text>Provisioner%20dashboard%20%20%20</text>
+        <href>Dashboard-provisioner-current%26bm%3BDashboard-provisioner-current.bmml%26bm%3BDashboard-provisioner-current.bmml%26bm%3BDashboard-provisioner-current.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22779%2C868%2C920%2C895%22%20href%3D%22Dashboard-provisioner-current.bmml%22%20alt%3D%22Dashboard-provisioner-current%22%20id%3D%2214%22/%3E</map>
+        <text>Login%20as%20provisioner</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::StickyNote" x="21" y="929" w="509" h="214" measuredW="109" measuredH="123" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>In%20all%20the%20dashboards%2C%20the%20user%20can%20click%20on%20the%20title%20of%20the%20request%20to%20view%20a%20read-only%20representation%20of%20the%20request.%20Which%20parts%20of%20the%20request%20are%20seen%20will%20depend%20on%20their%20role.%20Note%3A%20this%20mockup%20does%20not%20show%20these%20read-only%20pages.%0A%20%0AIf%20they%20click%20on%20the%20%22edit%22%20icon%2C%20then%20they%20get%20to%20edit%20the%20request.%20Depending%20on%20their%20role%2C%20they%20will%20see%20some%20parts%20of%20the%20request%20as%20a%20read-only%20representation%2C%20see%20other%20parts%20as%20editiable%20information%2C%20and%20not%20see%20some%20parts.%20For%20example%2C%20the%20reviewer%20will%20be%20able%20to%20edit%20all%20parts.%20Another%20example%20is%20the%20assessor%20will%20see%20read-only%20request%20form%20%28sections%201-5%29%20and%20reviewer%27s%20summary%20%28section%206%29%20and%20be%20able%20to%20edit%20their%20assessment%20%28section%207%29%3B%20but%20won%27t%20be%20able%20to%20see%20the%20outcome%20or%20provisioning%20parts.</text>
       </controlProperties>
     </control>
   </controls>

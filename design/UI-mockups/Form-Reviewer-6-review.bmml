@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="964" measuredH="2508" mockupW="954" mockupH="2496">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1820" measuredH="2508" mockupW="1805" mockupH="2496">
   <controls>
     <control controlID="106" controlTypeID="com.balsamiq.mockups::Label" x="177" y="198" w="-1" h="-1" measuredW="220" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
@@ -141,18 +141,18 @@
     <control controlID="170" controlTypeID="com.balsamiq.mockups::TextInput" x="339" y="1222" w="423" h="-1" measuredW="79" measuredH="26" zOrder="61" locked="false" isInGroup="-1"/>
     <control controlID="172" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="15" y="12" w="940" h="1288" measuredW="200" measuredH="362" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <hrefs>Section%200%20-%20Introduction%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%2CSection%201%20-%20Contact%20details%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%2CSection%202%20-%20Collection%20details%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%2CSection%203%20-%20Research%20significance%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%2CSection%204%20-%20Storage%20requirements%26bm%3BSection%204%20-%20Storage%20requirements.bmml%26bm%3BSection%204%20-%20Storage%20requirements.bmml%26bm%3BSection%204%20-%20Storage%20requirements.bmml%2CSection%205%20-%20Declarations%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%2C%2CSection%207%20-%20Assessment%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml%2CSection%208%20-%20Outcome%26bm%3BSection%208%20-%20Outcome.bmml%26bm%3BSection%208%20-%20Outcome.bmml%26bm%3BSection%208%20-%20Outcome.bmml%2CSection%209%20-%20Provisioning%26bm%3BSection%209%20-%20Provisioning.bmml%26bm%3BSection%209%20-%20Provisioning.bmml%26bm%3BSection%209%20-%20Provisioning.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C20%2C146%2C50%22%20href%3D%22Section%25200%2520-%2520Introduction.bmml%22%20alt%3D%22Section%200%20-%20Introduction%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C48%2C146%2C78%22%20href%3D%22Section%25201%2520-%2520Contact%2520details.bmml%22%20alt%3D%22Section%201%20-%20Contact%20details%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C76%2C146%2C106%22%20href%3D%22Section%25202%2520-%2520Collection%2520details.bmml%22%20alt%3D%22Section%202%20-%20Collection%20details%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C104%2C146%2C134%22%20href%3D%22Section%25203%2520-%2520Research%2520significance.bmml%22%20alt%3D%22Section%203%20-%20Research%20significance%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C132%2C146%2C162%22%20href%3D%22Section%25204%2520-%2520Storage%2520requirements.bmml%22%20alt%3D%22Section%204%20-%20Storage%20requirements%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C160%2C146%2C190%22%20href%3D%22Section%25205%2520-%2520Declarations.bmml%22%20alt%3D%22Section%205%20-%20Declarations%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C216%2C146%2C246%22%20href%3D%22Section%25207%2520-%2520Assessment.bmml%22%20alt%3D%22Section%207%20-%20Assessment%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C244%2C146%2C274%22%20href%3D%22Section%25208%2520-%2520Outcome.bmml%22%20alt%3D%22Section%208%20-%20Outcome%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%225%2C272%2C146%2C302%22%20href%3D%22Section%25209%2520-%2520Provisioning.bmml%22%20alt%3D%22Section%209%20-%20Provisioning%22%20id%3D%22172%22/%3E</map>
+        <hrefs>Form-Requestor-0-introduction%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%2CForm-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%2CForm-Requestor-2-allocation%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%2CForm-Requestor-3-significance%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%2CForm-Requestor-4-storage%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%2CForm-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%2C%2CForm-Reviewer-7-assessments%26bm%3BForm-Reviewer-7-assessments.bmml%26bm%3BForm-Reviewer-7-assessments.bmml%26bm%3BForm-Reviewer-7-assessments.bmml%2CForm-Reviewer-8-outcome%26bm%3BForm-Reviewer-8-outcome.bmml%26bm%3BForm-Reviewer-8-outcome.bmml%26bm%3BForm-Reviewer-8-outcome.bmml%2CForm-Provisioner-9-provisioning%26bm%3BForm-Provisioner-9-provisioning.bmml%26bm%3BForm-Provisioner-9-provisioning.bmml%26bm%3BForm-Provisioner-9-provisioning.bmml%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C20%2C141%2C50%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Form-Requestor-2-allocation.bmml%22%20alt%3D%22Form-Requestor-2-allocation%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C132%2C141%2C162%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C216%2C141%2C246%22%20href%3D%22Form-Reviewer-7-assessments.bmml%22%20alt%3D%22Form-Reviewer-7-assessments%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C244%2C141%2C274%22%20href%3D%22Form-Reviewer-8-outcome.bmml%22%20alt%3D%22Form-Reviewer-8-outcome%22%20id%3D%22172%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C272%2C141%2C302%22%20href%3D%22Form-Provisioner-9-provisioning.bmml%22%20alt%3D%22Form-Provisioner-9-provisioning%22%20id%3D%22172%22/%3E</map>
         <position>left</position>
-        <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations%0AReviewer%20summary%0AAssessment%0AOutcome%0AProvisioning</text>
+        <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations%0AReviewer%20summary%0AAssessments%0AOutcome%0AProvisioning</text>
       </controlProperties>
     </control>
-    <control controlID="173" controlTypeID="com.balsamiq.mockups::StickyNote" x="10" y="334" w="140" h="483" measuredW="109" measuredH="123" zOrder="62" locked="false" isInGroup="-1">
+    <control controlID="173" controlTypeID="com.balsamiq.mockups::StickyNote" x="721" y="2093" w="424" h="208" measuredW="109" measuredH="123" zOrder="62" locked="false" isInGroup="-1">
       <controlProperties>
         <text>The%20reviewer%20fills%20in%20this%20information%20for%20the%20assessors%20to%20see.%0A%20%0ASince%20the%20reviewer%20can%20do%20everything%2C%20all%20the%20pages%20are%20showing%20%28including%20outcome%20and%20provisioning%2C%20even%20though%20the%20assessment%20stage%20might%20not%20have%20been%20even%20started%29.%0A%20%0AInitially%2C%20when%20the%20draft%20request%20is%20submitted%2C%20the%20allocation%20ID%20is%20not%20shown.%20It%20is%20only%20shown%20if/when%20the%20reviewer%20enters%20one%20in%20%28on%20the%20%22outcome%22%20page%29.%20It%20is%20then%20shown%20on%20this%20page%20so%20it%20can%20be%20printed%20out.</text>
       </controlProperties>
     </control>
-    <control controlID="184" controlTypeID="com.balsamiq.mockups::StickyNote" x="163" y="2095" w="584" h="202" measuredW="109" measuredH="123" zOrder="63" locked="false" isInGroup="-1">
+    <control controlID="184" controlTypeID="com.balsamiq.mockups::StickyNote" x="163" y="2095" w="538" h="202" measuredW="109" measuredH="123" zOrder="63" locked="false" isInGroup="-1">
       <controlProperties>
         <text>This%20Web%20page%20should%20also%20have%20CSS%20for%20print%20media.%20This%20will%20avoid%20the%20need%20to%20generate%20a%20PDF%20version%20for%20signing.%0A%20%0AThe%20print%20version%20will%20differ%20from%20the%20Web%20version%20in%20the%20following%20ways%3A%0A-%20include%20a%20signature%20box%20at%20the%20bottom%20of%20the%20page%0A-%20hide%20the%20%22reviewer%27s%20recommendations%20section%0A-%20hide%20the%20action%20buttons%20section%20and%20other%20Web%20navigation%20features%0A-%20format%20the%20page%20for%20printing%2C%20preferably%20onto%20one%20A4%20page%20%28e.g.%20change%20font%20sizes%29.</text>
       </controlProperties>
@@ -196,7 +196,7 @@
     <control controlID="193" controlTypeID="com.balsamiq.mockups::HRule" x="253" y="2466" w="116" h="-1" measuredW="100" measuredH="10" zOrder="72" locked="false" isInGroup="-1"/>
     <control controlID="194" controlTypeID="com.balsamiq.mockups::HRule" x="650" y="2426" w="237" h="-1" measuredW="100" measuredH="10" zOrder="73" locked="false" isInGroup="-1"/>
     <control controlID="195" controlTypeID="com.balsamiq.mockups::HRule" x="650" y="2466" w="121" h="-1" measuredW="100" measuredH="10" zOrder="74" locked="false" isInGroup="-1"/>
-    <control controlID="197" controlTypeID="com.balsamiq.mockups::Paragraph" x="171" y="113" w="200" h="26" measuredW="200" measuredH="80" zOrder="75" locked="false" isInGroup="-1">
+    <control controlID="197" controlTypeID="com.balsamiq.mockups::Paragraph" x="1620" y="108" w="200" h="26" measuredW="200" measuredH="80" zOrder="75" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Allocation%20ID%3A%20Q0042</text>
       </controlProperties>
@@ -213,13 +213,7 @@
     </control>
     <control controlID="212" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="447" y="1363" w="-1" h="-1" measuredW="127" measuredH="39" zOrder="78" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>%28o%29%20Approve%20for%20ReDS%0A%28%20%29%20Approve%20for%20CDS</text>
-      </controlProperties>
-    </control>
-    <control controlID="213" controlTypeID="com.balsamiq.mockups::StickyNote" x="35" y="841" w="115" h="123" measuredW="109" measuredH="123" zOrder="79" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>12554240</color>
-        <text>Belinda%20will%20check%20these%20labels%20are%20correct.</text>
+        <text>%28%20%29%20Approve%20for%20ReDS%0A%28%20%29%20Approve%20for%20CDS</text>
       </controlProperties>
     </control>
     <control controlID="215" controlTypeID="com.balsamiq.mockups::FieldSet" x="158" y="1319" w="806" h="170" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
@@ -227,74 +221,76 @@
         <text>Reviewer%27s%20recommendations%20to%20the%20assessment%20committee</text>
       </controlProperties>
     </control>
-    <control controlID="216" controlTypeID="com.balsamiq.mockups::Canvas" x="160" y="1514" w="800" h="259" measuredW="100" measuredH="70" zOrder="80" locked="false" isInGroup="-1"/>
-    <control controlID="217" controlTypeID="com.balsamiq.mockups::Button" x="176" y="1536" w="142" h="39" measuredW="112" measuredH="27" zOrder="81" locked="false" isInGroup="-1">
+    <control controlID="216" controlTypeID="com.balsamiq.mockups::Canvas" x="160" y="1514" w="800" h="259" measuredW="100" measuredH="70" zOrder="79" locked="false" isInGroup="-1"/>
+    <control controlID="217" controlTypeID="com.balsamiq.mockups::Button" x="176" y="1536" w="142" h="39" measuredW="112" measuredH="27" zOrder="80" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-reviewer%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml%26bm%3BDashboard-reviewer.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22166%2C1524%2C308%2C1563%22%20href%3D%22Dashboard-reviewer.bmml%22%20alt%3D%22Dashboard-reviewer%22%20id%3D%22217%22/%3E</map>
+        <href>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22161%2C1524%2C303%2C1563%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%22217%22/%3E</map>
         <text>Save%20and%20close</text>
       </controlProperties>
     </control>
-    <control controlID="218" controlTypeID="com.balsamiq.mockups::Button" x="574" y="1540" w="93" h="32" measuredW="77" measuredH="27" zOrder="82" locked="false" isInGroup="-1">
+    <control controlID="218" controlTypeID="com.balsamiq.mockups::Button" x="574" y="1540" w="93" h="32" measuredW="77" measuredH="27" zOrder="81" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%207%20-%20Assessment%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml</href>
+        <href>Form-Reviewer-7-assessments%26bm%3BForm-Reviewer-7-assessments.bmml%26bm%3BForm-Reviewer-7-assessments.bmml%26bm%3BForm-Reviewer-7-assessments.bmml</href>
         <icon>RightArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22564%2C1528%2C657%2C1560%22%20href%3D%22Section%25207%2520-%2520Assessment.bmml%22%20alt%3D%22Section%207%20-%20Assessment%22%20id%3D%22218%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22559%2C1528%2C652%2C1560%22%20href%3D%22Form-Reviewer-7-assessments.bmml%22%20alt%3D%22Form-Reviewer-7-assessments%22%20id%3D%22218%22/%3E</map>
         <state>disabled</state>
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="219" controlTypeID="com.balsamiq.mockups::Button" x="453" y="1539" w="101" h="33" measuredW="76" measuredH="27" zOrder="83" locked="false" isInGroup="-1">
+    <control controlID="219" controlTypeID="com.balsamiq.mockups::Button" x="453" y="1539" w="101" h="33" measuredW="76" measuredH="27" zOrder="82" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%205%20-%20Declarations%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml</href>
+        <href>Form-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml</href>
         <icon>LeftArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22443%2C1527%2C544%2C1560%22%20href%3D%22Section%25205%2520-%2520Declarations.bmml%22%20alt%3D%22Section%205%20-%20Declarations%22%20id%3D%22219%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22438%2C1527%2C539%2C1560%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%22219%22/%3E</map>
         <menuIcon>false</menuIcon>
         <text>Prev</text>
       </controlProperties>
     </control>
-    <control controlID="220" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1534" w="-1" h="-1" measuredW="215" measuredH="27" zOrder="84" locked="false" isInGroup="-1">
+    <control controlID="220" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1534" w="-1" h="-1" measuredW="215" measuredH="27" zOrder="83" locked="false" isInGroup="-1">
       <controlProperties>
+        <href>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22710%2C1522%2C925%2C1549%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%22220%22/%3E</map>
         <state>up</state>
         <text>Make%20available%20for%20assessment%20%u2020</text>
       </controlProperties>
     </control>
-    <control controlID="221" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1615" w="-1" h="-1" measuredW="220" measuredH="27" zOrder="85" locked="false" isInGroup="-1">
+    <control controlID="221" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1615" w="-1" h="-1" measuredW="220" measuredH="27" zOrder="84" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Approve%20and%20notify%20provisioning%20%u2021</text>
       </controlProperties>
     </control>
-    <control controlID="222" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1650" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="86" locked="false" isInGroup="-1">
+    <control controlID="222" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1650" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="85" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Reject%20and%20notify%20requestor%20%u2020%u2020</text>
       </controlProperties>
     </control>
-    <control controlID="223" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1573" w="-1" h="-1" measuredW="177" measuredH="27" zOrder="87" locked="false" isInGroup="-1">
+    <control controlID="223" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1573" w="-1" h="-1" measuredW="177" measuredH="27" zOrder="86" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Remove%20from%20assessment</text>
       </controlProperties>
     </control>
-    <control controlID="224" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1726" w="-1" h="-1" measuredW="68" measuredH="27" zOrder="88" locked="false" isInGroup="-1">
+    <control controlID="224" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1726" w="-1" h="-1" measuredW="68" measuredH="27" zOrder="87" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Reopen</text>
       </controlProperties>
     </control>
-    <control controlID="225" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1686" w="-1" h="-1" measuredW="218" measuredH="27" zOrder="89" locked="false" isInGroup="-1">
+    <control controlID="225" controlTypeID="com.balsamiq.mockups::Button" x="725" y="1686" w="-1" h="-1" measuredW="218" measuredH="27" zOrder="88" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Return%20to%20requestor%20to%20update%20%u2020%u2020</text>
       </controlProperties>
     </control>
-    <control controlID="226" controlTypeID="com.balsamiq.mockups::Paragraph" x="176" y="1709" w="309" h="61" measuredW="200" measuredH="80" zOrder="90" locked="false" isInGroup="-1">
+    <control controlID="226" controlTypeID="com.balsamiq.mockups::Paragraph" x="176" y="1709" w="309" h="61" measuredW="200" measuredH="80" zOrder="89" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%u2020%20Emails%20will%20be%20sent%20to%20assessment%20committee%0A%u2021%20Emails%20will%20be%20sent%20to%20%3F%3F%3F%20and%20provisioners%0A%u2020%u2020%20Email%20will%20be%20sent%20to%20%3F%3F%3F</text>
       </controlProperties>
     </control>
-    <control controlID="227" controlTypeID="com.balsamiq.mockups::StickyNote" x="163" y="1801" w="344" h="157" measuredW="109" measuredH="123" zOrder="91" locked="false" isInGroup="-1">
+    <control controlID="227" controlTypeID="com.balsamiq.mockups::StickyNote" x="159" y="1921" w="659" h="157" measuredW="109" measuredH="123" zOrder="90" locked="false" isInGroup="-1">
       <controlProperties>
         <text>The%20action%20buttons%20for%20the%20reviewer%20are%20shown.%20If%20this%20page%20is%20viewed%20as%20an%20assessor%20or%20provisioner%2C%20different%20action%20buttons%20will%20be%20shown.%20Requestors%20do%20not%20have%20access%20to%20this%20page.%0A%20%0ASee%20outcome%20page%20for%20the%20rules%20for%20enabling%20and%20disabling%20the%20action%20buttons.</text>
       </controlProperties>

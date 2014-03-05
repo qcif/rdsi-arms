@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="939" measuredH="4025" mockupW="933" mockupH="4010">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1732" measuredH="4025" mockupW="1726" mockupH="4010">
   <controls>
     <control controlID="86" controlTypeID="com.balsamiq.mockups::TextArea" x="155" y="285" w="759" h="82" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1"/>
     <control controlID="101" controlTypeID="com.balsamiq.mockups::Label" x="155" y="492" w="-1" h="-1" measuredW="159" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
@@ -70,39 +70,39 @@
         <text>%3E%20Duration%0A%3E%20Data%20format%0A%3E%20Data%20loss%20management%0A%3E%20Data%20migration%0A%3E%20Ingest%20milestones%0A%3E%20Data%20Management%0A%3E%20Interfaces%20and%20tools%0A%3E%20Geographic%20distribution%20of%20access%0A%3E%20Related%20infrastructure%20requirements%0A%3E%20Other%20technical%20factors</text>
       </controlProperties>
     </control>
-    <control controlID="159" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="1110" w="738" h="198" measuredW="150" measuredH="105" zOrder="33" locked="false" isInGroup="-1">
+    <control controlID="159" controlTypeID="com.balsamiq.mockups::Accordion" x="992" y="1521" w="738" h="198" measuredW="150" measuredH="105" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>0</selectedIndex>
         <text>V%20Duration</text>
       </controlProperties>
     </control>
-    <control controlID="160" controlTypeID="com.balsamiq.mockups::Paragraph" x="190" y="1158" w="322" h="17" measuredW="200" measuredH="80" zOrder="34" locked="false" isInGroup="-1">
+    <control controlID="160" controlTypeID="com.balsamiq.mockups::Paragraph" x="1002" y="1569" w="322" h="17" measuredW="200" measuredH="80" zOrder="34" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Indicate%20the%20expected%20period%20this%20data%20will%20be%20stored</text>
       </controlProperties>
     </control>
-    <control controlID="161" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="190" y="1175" w="-1" h="-1" measuredW="381" measuredH="61" zOrder="35" locked="false" isInGroup="-1">
+    <control controlID="161" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="1002" y="1586" w="-1" h="-1" measuredW="381" measuredH="61" zOrder="35" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%28%29%20For%20the%20duration%20of%20the%20current%20project%0A%28%29%20For%20the%20minimum%20period%20required%20by%20ethical%20or%20legal%20standards%0A%28%29%20For%20the%20foreseeable%20future</text>
       </controlProperties>
     </control>
-    <control controlID="162" controlTypeID="com.balsamiq.mockups::Paragraph" x="190" y="1248" w="112" h="21" measuredW="200" measuredH="80" zOrder="36" locked="false" isInGroup="-1">
+    <control controlID="162" controlTypeID="com.balsamiq.mockups::Paragraph" x="1002" y="1659" w="112" h="21" measuredW="200" measuredH="80" zOrder="36" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Indicate%20the%20year%3A</text>
       </controlProperties>
     </control>
-    <control controlID="164" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="1338" w="740" h="146" measuredW="150" measuredH="105" zOrder="37" locked="false" isInGroup="-1">
+    <control controlID="164" controlTypeID="com.balsamiq.mockups::Accordion" x="992" y="1749" w="740" h="146" measuredW="150" measuredH="105" zOrder="37" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>0</selectedIndex>
         <text>V%20Data%20format</text>
       </controlProperties>
     </control>
-    <control controlID="165" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="1371" w="268" h="19" measuredW="200" measuredH="80" zOrder="38" locked="false" isInGroup="-1">
+    <control controlID="165" controlTypeID="com.balsamiq.mockups::Paragraph" x="999" y="1782" w="268" h="19" measuredW="200" measuredH="80" zOrder="38" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Identify%20the%20format%28s%29%20of%20the%20data%20to%20be%20stored%20at%20the%20Node%28s%29%3A</text>
       </controlProperties>
     </control>
-    <control controlID="166" controlTypeID="com.balsamiq.mockups::TextArea" x="187" y="1390" w="712" h="71" measuredW="200" measuredH="140" zOrder="39" locked="false" isInGroup="-1"/>
+    <control controlID="166" controlTypeID="com.balsamiq.mockups::TextArea" x="999" y="1801" w="712" h="71" measuredW="200" measuredH="140" zOrder="39" locked="false" isInGroup="-1"/>
     <control controlID="175" controlTypeID="com.balsamiq.mockups::Accordion" x="178" y="1881" w="741" h="236" measuredW="150" measuredH="105" zOrder="47" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>0</selectedIndex>
@@ -125,24 +125,24 @@
       </controlProperties>
     </control>
     <control controlID="179" controlTypeID="com.balsamiq.mockups::TextArea" x="188" y="1940" w="705" h="84" measuredW="200" measuredH="140" zOrder="51" locked="false" isInGroup="-1"/>
-    <control controlID="223" controlTypeID="com.balsamiq.mockups::DateChooser" x="299" y="1245" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="86" locked="false" isInGroup="-1">
+    <control controlID="223" controlTypeID="com.balsamiq.mockups::DateChooser" x="1111" y="1656" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="86" locked="false" isInGroup="-1">
       <controlProperties>
         <text>YEAR</text>
       </controlProperties>
     </control>
     <control controlID="225" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="6" y="15" w="933" h="927" measuredW="200" measuredH="242" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <hrefs>Section%200%20-%20Introduction%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%2CSection%201%20-%20Contact%20details%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%26bm%3BSection%201%20-%20Contact%20details.bmml%2CSection%202%20-%20Collection%20details%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%26bm%3BSection%202%20-%20Collection%20details.bmml%2CSection%203%20-%20Research%20significance%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%2C%2CSection%205%20-%20Declarations%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C20%2C141%2C50%22%20href%3D%22Section%25200%2520-%2520Introduction.bmml%22%20alt%3D%22Section%200%20-%20Introduction%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Section%25201%2520-%2520Contact%2520details.bmml%22%20alt%3D%22Section%201%20-%20Contact%20details%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Section%25202%2520-%2520Collection%2520details.bmml%22%20alt%3D%22Section%202%20-%20Collection%20details%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Section%25203%2520-%2520Research%2520significance.bmml%22%20alt%3D%22Section%203%20-%20Research%20significance%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Section%25205%2520-%2520Declarations.bmml%22%20alt%3D%22Section%205%20-%20Declarations%22%20id%3D%22225%22/%3E</map>
+        <hrefs>Form-Requestor-0-introduction%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%2CForm-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%2CForm-Requestor-2-allocation%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%2CForm-Requestor-3-significance%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%2C%2CForm-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%2C%2C%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C20%2C141%2C50%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Form-Requestor-2-allocation.bmml%22%20alt%3D%22Form-Requestor-2-allocation%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%22225%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%22225%22/%3E</map>
         <position>left</position>
         <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations</text>
       </controlProperties>
     </control>
-    <control controlID="227" controlTypeID="com.balsamiq.mockups::Button" x="556" y="979" w="93" h="32" measuredW="77" measuredH="27" zOrder="89" locked="false" isInGroup="-1">
+    <control controlID="227" controlTypeID="com.balsamiq.mockups::Button" x="540" y="978" w="93" h="32" measuredW="77" measuredH="27" zOrder="89" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%205%20-%20Declarations%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml%26bm%3BSection%205%20-%20Declarations.bmml</href>
+        <href>Form-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml</href>
         <icon>RightArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22550%2C964%2C643%2C996%22%20href%3D%22Section%25205%2520-%2520Declarations.bmml%22%20alt%3D%22Section%205%20-%20Declarations%22%20id%3D%22227%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22534%2C963%2C627%2C995%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%22227%22/%3E</map>
         <text>Next</text>
       </controlProperties>
     </control>
@@ -153,9 +153,9 @@
     </control>
     <control controlID="230" controlTypeID="com.balsamiq.mockups::Button" x="428" y="978" w="101" h="33" measuredW="76" measuredH="27" zOrder="90" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%203%20-%20Research%20significance%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml%26bm%3BSection%203%20-%20Research%20significance.bmml</href>
+        <href>Form-Requestor-3-significance%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml</href>
         <icon>LeftArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22422%2C963%2C523%2C996%22%20href%3D%22Section%25203%2520-%2520Research%2520significance.bmml%22%20alt%3D%22Section%203%20-%20Research%20significance%22%20id%3D%22230%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22422%2C963%2C523%2C996%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%22230%22/%3E</map>
         <menuIcon>false</menuIcon>
         <text>Prev</text>
       </controlProperties>
@@ -421,17 +421,328 @@
       </controlProperties>
     </control>
     <control controlID="287" controlTypeID="com.balsamiq.mockups::TextArea" x="200" y="3903" w="699" h="103" measuredW="200" measuredH="140" zOrder="21" locked="false" isInGroup="-1"/>
-    <control controlID="288" controlTypeID="com.balsamiq.mockups::Button" x="805" y="970" w="120" h="33" measuredW="113" measuredH="27" zOrder="91" locked="false" isInGroup="-1">
+    <control controlID="288" controlTypeID="com.balsamiq.mockups::Button" x="805" y="982" w="120" h="33" measuredW="113" measuredH="27" zOrder="91" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22799%2C955%2C919%2C988%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%22288%22/%3E</map>
         <state>disabled</state>
         <text>Submit%20request</text>
       </controlProperties>
     </control>
-    <control controlID="289" controlTypeID="com.balsamiq.mockups::Button" x="805" y="1007" w="120" h="27" measuredW="93" measuredH="27" zOrder="92" locked="false" isInGroup="-1">
+    <control controlID="289" controlTypeID="com.balsamiq.mockups::Button" x="673" y="985" w="120" h="27" measuredW="93" measuredH="27" zOrder="92" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Delete%20draft</text>
+      </controlProperties>
+    </control>
+    <control controlID="290" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="3851" w="740" h="174" measuredW="159" measuredH="105" zOrder="93" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Other%20technical%20factors</text>
+      </controlProperties>
+    </control>
+    <control controlID="291" controlTypeID="com.balsamiq.mockups::Paragraph" x="200" y="3886" w="699" h="29" measuredW="200" measuredH="80" zOrder="94" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Identify%20other%20technical%20factors%20that%20need%20consideration%20when%20planning%20and%20managing%20storage%20for%20this%20data.</text>
+      </controlProperties>
+    </control>
+    <control controlID="292" controlTypeID="com.balsamiq.mockups::TextArea" x="200" y="3903" w="699" h="103" measuredW="200" measuredH="140" zOrder="95" locked="false" isInGroup="-1"/>
+    <control controlID="293" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="3554" w="739" h="273" measuredW="234" measuredH="105" zOrder="96" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Related%20infrastructure%20requirements</text>
+      </controlProperties>
+    </control>
+    <control controlID="294" controlTypeID="com.balsamiq.mockups::Paragraph" x="200" y="3585" w="699" h="20" measuredW="200" measuredH="80" zOrder="97" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20if%20the%20storage%20needs%20to%20be%20coupled%20with%20other%20services%20it%20should%20be%20coupled.</text>
+      </controlProperties>
+    </control>
+    <control controlID="295" controlTypeID="com.balsamiq.mockups::CheckBoxGroup" x="200" y="3605" w="-1" h="-1" measuredW="174" measuredH="171" zOrder="98" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%5B%20%5D%20HPC%20Edward%0A%5B%20%5D%20HPC%20MSG%0A%5B%20%5D%20MASSIVE%0A%5B%20%5D%20NeCTAR%20NSP%0A%5B%20%5D%20NeCTAR%20Research%20Cloud%0A%5B%20%5D%20VeRA%20%28Monash%20University%29%0A%5B%20%5D%20VLSCI%0A%5B%20%5D%20Other%2C%20please%20specify%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="296" controlTypeID="com.balsamiq.mockups::TextArea" x="224" y="3776" w="496" h="43" measuredW="200" measuredH="140" zOrder="99" locked="false" isInGroup="-1"/>
+    <control controlID="297" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="3141" w="740" h="398" measuredW="220" measuredH="105" zOrder="100" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Geographic%20distribution%20of%20access</text>
+      </controlProperties>
+    </control>
+    <control controlID="298" controlTypeID="com.balsamiq.mockups::Paragraph" x="190" y="3181" w="413" h="25" measuredW="200" measuredH="80" zOrder="101" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Who%20is%20the%20target%20audience%20for%20the%20collection%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="299" controlTypeID="com.balsamiq.mockups::TextInput" x="190" y="3197" w="566" h="-1" measuredW="79" measuredH="26" zOrder="102" locked="false" isInGroup="-1"/>
+    <control controlID="300" controlTypeID="com.balsamiq.mockups::Paragraph" x="190" y="3235" w="566" h="18" measuredW="200" measuredH="80" zOrder="103" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20the%20expected%20distribution%20of%20researcher%20who%20will%20directly%20access%20the%20data%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="301" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="190" y="3253" w="-1" h="-1" measuredW="475" measuredH="105" zOrder="104" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Researchers%20will%20be%20within%20an%20institutional%20campus%0A%28%29%20Researchers%20will%20be%20within%20this%20State%0A%28%29%20Researchers%20will%20access%20from%20across%20Australia%0A%28%29%20Researchers%20will%20access%20data%20within%20Australia%20and%20from%20international%20locations%0A%28%29%20There%20will%20be%20no%20direct%20access%20for%20researchers</text>
+      </controlProperties>
+    </control>
+    <control controlID="302" controlTypeID="com.balsamiq.mockups::Paragraph" x="190" y="3372" w="458" h="23" measuredW="200" measuredH="80" zOrder="105" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20the%20expected%20distribution%20of%20tools%20who%20will%20directly%20access%20the%20data%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="303" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="190" y="3395" w="-1" h="-1" measuredW="387" measuredH="105" zOrder="106" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Tools%20will%20be%20operate%20within%20the%20node%0A%28%29%20Tools%20will%20operate%20from%20sites%20within%20the%20State%0A%28%29%20Tools%20will%20operate%20from%20sites%20across%20Australia%0A%28%29%20Tools%20will%20operate%20within%20Australia%20and%20at%20international%20locations%0A%28%29%20No%20tools%20will%20directly%20access%20the%20data</text>
+      </controlProperties>
+    </control>
+    <control controlID="304" controlTypeID="com.balsamiq.mockups::Accordion" x="992" y="1521" w="738" h="198" measuredW="150" measuredH="105" zOrder="107" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Duration</text>
+      </controlProperties>
+    </control>
+    <control controlID="305" controlTypeID="com.balsamiq.mockups::Paragraph" x="1002" y="1569" w="322" h="17" measuredW="200" measuredH="80" zOrder="108" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20the%20expected%20period%20this%20data%20will%20be%20stored</text>
+      </controlProperties>
+    </control>
+    <control controlID="306" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="1002" y="1586" w="-1" h="-1" measuredW="381" measuredH="61" zOrder="109" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20For%20the%20duration%20of%20the%20current%20project%0A%28%29%20For%20the%20minimum%20period%20required%20by%20ethical%20or%20legal%20standards%0A%28%29%20For%20the%20foreseeable%20future</text>
+      </controlProperties>
+    </control>
+    <control controlID="307" controlTypeID="com.balsamiq.mockups::Paragraph" x="1002" y="1659" w="112" h="21" measuredW="200" measuredH="80" zOrder="110" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20the%20year%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="308" controlTypeID="com.balsamiq.mockups::Accordion" x="992" y="1749" w="740" h="146" measuredW="150" measuredH="105" zOrder="111" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Data%20format</text>
+      </controlProperties>
+    </control>
+    <control controlID="309" controlTypeID="com.balsamiq.mockups::Paragraph" x="999" y="1782" w="268" h="19" measuredW="200" measuredH="80" zOrder="112" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Identify%20the%20format%28s%29%20of%20the%20data%20to%20be%20stored%20at%20the%20Node%28s%29%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="310" controlTypeID="com.balsamiq.mockups::TextArea" x="999" y="1801" w="712" h="71" measuredW="200" measuredH="140" zOrder="113" locked="false" isInGroup="-1"/>
+    <control controlID="311" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="1514" w="740" h="325" measuredW="159" measuredH="105" zOrder="114" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Data%20loss%20management</text>
+      </controlProperties>
+    </control>
+    <control controlID="312" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="1551" w="418" h="23" measuredW="200" measuredH="80" zOrder="115" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Will%20the%20Node%28s%29%20be%20hosting%20the%20only%20copy%20of%20the%20collection%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="313" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="199" y="1574" w="271" h="39" measuredW="42" measuredH="39" zOrder="116" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Yes%0A%28%29%20No</text>
+      </controlProperties>
+    </control>
+    <control controlID="314" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="1622" w="211" h="20" measuredW="200" measuredH="80" zOrder="117" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>If%20yes%2C%20how%20easily%20can%20the%20data%20be%20regenerated%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="315" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="199" y="1642" w="269" h="83" measuredW="205" measuredH="83" zOrder="118" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Fully%20replaceable%0A%28%29%20Replaceable%20by%20equivalent%20data%0A%28%29%20Irreplaceable%0A%28%29%20Uncertain</text>
+      </controlProperties>
+    </control>
+    <control controlID="316" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="1733" w="486" h="20" measuredW="200" measuredH="80" zOrder="119" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>What%20would%20be%20the%20impact%20and/or%20cost%20incurred%20if%20data%20is%20lost%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="317" controlTypeID="com.balsamiq.mockups::TextArea" x="199" y="1753" w="696" h="71" measuredW="200" measuredH="140" zOrder="120" locked="false" isInGroup="-1"/>
+    <control controlID="318" controlTypeID="com.balsamiq.mockups::Accordion" x="178" y="1881" w="741" h="236" measuredW="150" measuredH="105" zOrder="121" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Data%20migration</text>
+      </controlProperties>
+    </control>
+    <control controlID="319" controlTypeID="com.balsamiq.mockups::Paragraph" x="188" y="1920" w="311" h="20" measuredW="200" measuredH="80" zOrder="122" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>What%20medium%20is%20currently%20used%20to%20store%20the%20data%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="320" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="2043" w="338" h="20" measuredW="200" measuredH="80" zOrder="123" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Is%20assistance%20required%20to%20migrate%20the%20data%20to%20this%20node%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="321" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="204" y="2063" w="-1" h="-1" measuredW="42" measuredH="39" zOrder="124" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Yes%0A%28%29%20No</text>
+      </controlProperties>
+    </control>
+    <control controlID="322" controlTypeID="com.balsamiq.mockups::TextArea" x="188" y="1940" w="705" h="84" measuredW="200" measuredH="140" zOrder="125" locked="false" isInGroup="-1"/>
+    <control controlID="323" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="2560" w="740" h="217" measuredW="150" measuredH="105" zOrder="126" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Data%20Management</text>
+      </controlProperties>
+    </control>
+    <control controlID="324" controlTypeID="com.balsamiq.mockups::Paragraph" x="194" y="2600" w="456" h="23" measuredW="200" measuredH="80" zOrder="127" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Please%20attach%20the%20data%20management%20plan%20associated%20with%20this%20data.</text>
+      </controlProperties>
+    </control>
+    <control controlID="325" controlTypeID="com.balsamiq.mockups::DataGrid" x="201" y="2683" w="698" h="63" measuredW="430" measuredH="70" zOrder="128" locked="false" isInGroup="-1">
+      <controlProperties>
+        <rowHeight>49</rowHeight>
+        <text>Date%20added%2C%20Added%20by%2C%20File%20name%2C%20Description%2CDelete%0A2013-12-31%2C%20Jim%2C%20dmp1.doc%2C%20Uni%20of%20example%20data%20plan%2C%0A%7B0%2C%200%2C%200%2C%20100%2C%200C%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="326" controlTypeID="com.balsamiq.mockups::Icon" x="865" y="2714" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="129" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>Trash2Icon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="327" controlTypeID="com.balsamiq.mockups::TextInput" x="402" y="2634" w="422" h="-1" measuredW="79" measuredH="26" zOrder="130" locked="false" isInGroup="-1"/>
+    <control controlID="328" controlTypeID="com.balsamiq.mockups::Button" x="850" y="2634" w="45" h="27" measuredW="45" measuredH="27" zOrder="131" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Add</text>
+      </controlProperties>
+    </control>
+    <control controlID="329" controlTypeID="com.balsamiq.mockups::Button" x="299" y="2634" w="88" h="27" measuredW="88" measuredH="27" zOrder="132" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Choose%20file</text>
+      </controlProperties>
+    </control>
+    <control controlID="330" controlTypeID="com.balsamiq.mockups::TextInput" x="201" y="2634" w="98" h="-1" measuredW="79" measuredH="26" zOrder="133" locked="false" isInGroup="-1"/>
+    <control controlID="331" controlTypeID="com.balsamiq.mockups::Label" x="201" y="2613" w="23" h="-1" measuredW="23" measuredH="21" zOrder="134" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>File%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="332" controlTypeID="com.balsamiq.mockups::Label" x="402" y="2613" w="70" h="-1" measuredW="70" measuredH="21" zOrder="135" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Description%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="333" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="2801" w="740" h="321" measuredW="150" measuredH="105" zOrder="136" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Interfaces%20and%20tools</text>
+      </controlProperties>
+    </control>
+    <control controlID="334" controlTypeID="com.balsamiq.mockups::Paragraph" x="194" y="2837" w="547" h="21" measuredW="200" measuredH="80" zOrder="137" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Will%20end%u2010users%20be%20accessing%20the%20collection%20through%20the%20standard%20storage%20interfaces%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="335" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="211" y="2858" w="42" h="39" measuredW="42" measuredH="39" zOrder="138" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Yes%0A%28%29%20No</text>
+      </controlProperties>
+    </control>
+    <control controlID="336" controlTypeID="com.balsamiq.mockups::Paragraph" x="194" y="2911" w="664" h="15" measuredW="200" measuredH="80" zOrder="139" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Will%20end%u2010users%20be%20accessing%20the%20collection%20through%20an%20interface%20other%20than%20the%20standard%20storage%20interfaces%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="337" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="211" y="2939" w="42" h="39" measuredW="42" measuredH="39" zOrder="140" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28%29%20Yes%0A%28%29%20No</text>
+      </controlProperties>
+    </control>
+    <control controlID="338" controlTypeID="com.balsamiq.mockups::Paragraph" x="194" y="2987" w="562" h="20" measuredW="200" measuredH="80" zOrder="141" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>If%20another%20interface%20will%20be%20used%20than%20the%20standard%20interface%2C%20please%20specify%20what%20it%20will%20be%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="339" controlTypeID="com.balsamiq.mockups::TextInput" x="194" y="3007" w="547" h="-1" measuredW="79" measuredH="26" zOrder="142" locked="false" isInGroup="-1"/>
+    <control controlID="340" controlTypeID="com.balsamiq.mockups::Paragraph" x="194" y="3042" w="578" h="25" measuredW="200" measuredH="80" zOrder="143" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>If%20there%20are%20tools%20or%20software%20packages%20that%20will%20be%20used%20to%20access%20data%2C%20please%20specify%20them%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="341" controlTypeID="com.balsamiq.mockups::TextArea" x="194" y="3061" w="549" h="48" measuredW="200" measuredH="140" zOrder="144" locked="false" isInGroup="-1"/>
+    <control controlID="342" controlTypeID="com.balsamiq.mockups::Accordion" x="180" y="2140" w="740" h="391" measuredW="150" measuredH="105" zOrder="145" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <text>V%20Ingest%20milestones</text>
+      </controlProperties>
+    </control>
+    <control controlID="343" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="190" y="2179" w="424" h="83" measuredW="592" measuredH="83" zOrder="146" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Indicate%20either%3A%0A%28%29%20If%20the%20collection%20is%20complete%20and%20ready%20to%20be%20ingested%20now%2C%20OR%0A%28%29%20If%20the%20collection%20is%20growing%2C%20what%20the%20ingest%20milestone%20dates.%0A%20_*Note*%3A%20All%20ingestion%20activities%20under%20the%20ReDS%20programme%20must%20be%20completed%20by%2031%20December%202014._</text>
+      </controlProperties>
+    </control>
+    <control controlID="344" controlTypeID="com.balsamiq.mockups::DataGrid" x="190" y="2270" w="688" h="249" measuredW="329" measuredH="245" zOrder="147" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hLines>false</hLines>
+        <rowHeight>32</rowHeight>
+        <text>Storage%20Types%0A%2CMarket%2CVault%2CPreservation%0AComplete%20and%20ready%5Cnfor%20ingest%20now%2C%5B%5D%2C%5B%5D%2C%5B%5D%0A%2COR%2C%20OR%2C%20OR%0A25%25%20ingest%20milestone%0A50%25%20ingest%20milestone%0A75%25%20ingest%20milestone%0A100%25%20ingest%20milestone%0A%7B25L%2C25C%2C25C%2C25C%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="345" controlTypeID="com.balsamiq.mockups::DateChooser" x="386" y="2391" w="126" h="-1" measuredW="120" measuredH="25" zOrder="148" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="346" controlTypeID="com.balsamiq.mockups::DateChooser" x="386" y="2422" w="125" h="-1" measuredW="120" measuredH="25" zOrder="149" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="347" controlTypeID="com.balsamiq.mockups::DateChooser" x="386" y="2454" w="126" h="-1" measuredW="120" measuredH="25" zOrder="150" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="348" controlTypeID="com.balsamiq.mockups::DateChooser" x="386" y="2486" w="126" h="-1" measuredW="120" measuredH="25" zOrder="151" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="349" controlTypeID="com.balsamiq.mockups::DateChooser" x="732" y="2391" w="128" h="-1" measuredW="120" measuredH="25" zOrder="152" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="350" controlTypeID="com.balsamiq.mockups::DateChooser" x="732" y="2422" w="128" h="-1" measuredW="120" measuredH="25" zOrder="153" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="351" controlTypeID="com.balsamiq.mockups::DateChooser" x="732" y="2454" w="128" h="-1" measuredW="120" measuredH="25" zOrder="154" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="352" controlTypeID="com.balsamiq.mockups::DateChooser" x="734" y="2486" w="125" h="-1" measuredW="120" measuredH="25" zOrder="155" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="353" controlTypeID="com.balsamiq.mockups::DateChooser" x="553" y="2391" w="120" h="-1" measuredW="120" measuredH="25" zOrder="156" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="354" controlTypeID="com.balsamiq.mockups::DateChooser" x="553" y="2422" w="120" h="-1" measuredW="120" measuredH="25" zOrder="157" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="355" controlTypeID="com.balsamiq.mockups::DateChooser" x="553" y="2454" w="120" h="-1" measuredW="120" measuredH="25" zOrder="158" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="356" controlTypeID="com.balsamiq.mockups::DateChooser" x="553" y="2486" w="120" h="-1" measuredW="120" measuredH="25" zOrder="159" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20Month/Year</text>
+      </controlProperties>
+    </control>
+    <control controlID="357" controlTypeID="com.balsamiq.mockups::DateChooser" x="1111" y="1656" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="160" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>YEAR</text>
       </controlProperties>
     </control>
   </controls>

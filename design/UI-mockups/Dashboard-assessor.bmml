@@ -1,43 +1,41 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="965" measuredH="400" mockupW="806" mockupH="397">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="965" measuredH="276" mockupW="926" mockupH="273">
   <controls>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Title" x="159" y="41" w="-1" h="-1" measuredW="745" measuredH="43" zOrder="0" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Allocation%20committee%20member%20Dashboard</text>
-      </controlProperties>
-    </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="159" y="99" w="802" h="145" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="39" y="131" w="922" h="145" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Requests%20requiring%20assessment</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="174" y="124" w="761" h="105" measuredW="275" measuredH="105" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="65" y="156" w="870" h="105" measuredW="198" measuredH="105" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <rowHeight>42</rowHeight>
-        <text>Title%2CAssessment%20start%20date%2C%20Action%0ARequest%20X%2C01/01/2013%0ARequest%20A%2C%2008/12/2013%0A%7B50L%2CC%2CC%7D</text>
+        <text>Title%2CSubmission%20date%0ARequest%20A%2C01/01/2013%0ARequest%20B%2C%2008/12/2013%0A%7B70L%2C20C%2C10C%7D</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Icon" x="895" y="149" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Icon" x="879" y="181" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%207%20-%20Assessment%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml%26bm%3BSection%207%20-%20Assessment.bmml</href>
+        <href>Form-Assessor-7-assessment%26bm%3BForm-Assessor-7-assessment.bmml%26bm%3BForm-Assessor-7-assessment.bmml%26bm%3BForm-Assessor-7-assessment.bmml</href>
         <icon>PencilIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22736%2C146%2C760%2C170%22%20href%3D%22Section%25207%2520-%2520Assessment.bmml%22%20alt%3D%22Section%207%20-%20Assessment%22%20id%3D%2211%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22840%2C178%2C864%2C202%22%20href%3D%22Form-Assessor-7-assessment.bmml%22%20alt%3D%22Form-Assessor-7-assessment%22%20id%3D%2211%22/%3E</map>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::Icon" x="895" y="188" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Icon" x="879" y="220" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>PencilIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::Link" x="912" y="3" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Link" x="912" y="3" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22753%2C0%2C806%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2213%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22873%2C0%2C926%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2213%22/%3E</map>
         <text>Logout%20%20%20</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::StickyNote" x="161" y="316" w="410" h="84" measuredW="109" measuredH="123" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TabBar" x="41" y="37" w="920" h="43" measuredW="231" measuredH="100" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Optional%3A%20previously%20assessed%20requests%20listed%20in%20a%20separate%20table%20or%20page%20%28read%20only%29.</text>
+        <borderStyle>none</borderStyle>
+        <selectedIndex>0</selectedIndex>
+        <tabHPosition>right</tabHPosition>
+        <text>Assessing%2C%20My%20requests</text>
       </controlProperties>
     </control>
   </controls>

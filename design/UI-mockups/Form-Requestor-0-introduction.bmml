@@ -1,0 +1,99 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="958" measuredH="1785" mockupW="935" mockupH="1745">
+  <controls>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Paragraph" x="189" y="114" w="746" h="256" measuredW="200" measuredH="80" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20following%20is%20an%20application%20form%20for%20submitting%20a%20research%20data%20collection%20for%20consideration%20for%20storage%20on%20a%20Node%28s%29.%20The%20information%20gathered%20in%20this%20form%20is%20used%20to%20determine%20what%20support%20can%20be%20provided%20for%20data%20to%20be%20held%20at%20the%20Node%28s%29.%0A%20%0AIf%20you%20are%20requesting%20a%20substantial%20amount%20of%20storage%20someone%20may%20contact%20you%20to%20gather%20additional%20information%20and%20work%20out%20the%20best%20solution%20for%20you.%0A%20%0ABy%20submitting%20this%20application%2C%20you%20verify%20that%20the%20Node%28s%29%20has%20the%20right%20to%20share%20the%20information%20contained%20in%20this%20form%20with%20any%20people%2C%20institutions%20or%20systems%20involved%20in%20processing%20this%20application%2C%20and%20that%20the%20Node%28s%29%20may%20retain%20this%20application.%0A%20%0AThis%20application%20is%20divided%20into%20five%20sections%3A%0A%20%20Section%201%3A%20Contact%20details%0A%20%20Section%202%3A%20Allocation%20Details%0A%20%20Section%203%3A%20Research%20Significance%20of%20the%20Collection%0A%20%20Section%204%3A%20Storage%20Requirements%0A%20%20Section%205%3A%20Declarations</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Title" x="189" y="62" w="-1" h="-1" measuredW="218" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Introduction</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="23" y="40" w="935" h="345" measuredW="200" measuredH="242" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>%2CForm-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%2CForm-Requestor-2-allocation%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%2CForm-Requestor-3-significance%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%2CForm-Requestor-4-storage%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%2CForm-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%2C%2C%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%2274%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Form-Requestor-2-allocation.bmml%22%20alt%3D%22Form-Requestor-2-allocation%22%20id%3D%2274%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%2274%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C132%2C141%2C162%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%2274%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%2274%22/%3E</map>
+        <position>left</position>
+        <text>Introduction%0AContact%20details%0AAllocation%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations</text>
+      </controlProperties>
+    </control>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::Canvas" x="158" y="404" w="800" h="77" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::Button" x="174" y="426" w="142" h="35" measuredW="112" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22151%2C386%2C293%2C421%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2280%22/%3E</map>
+        <text>Save%20and%20close</text>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::Button" x="580" y="429" w="93" h="32" measuredW="77" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Form-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml</href>
+        <icon>RightArrowIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22557%2C389%2C650%2C421%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%2281%22/%3E</map>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::Button" x="823" y="426" w="120" h="33" measuredW="113" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>Submit%20request</text>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::Button" x="695" y="429" w="120" h="27" measuredW="93" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20draft</text>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::StickyNote" x="616" y="1104" w="342" h="309" measuredW="109" measuredH="123" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>This%20is%20the%20requestor%27s%20action%20buttons%2C%20which%20will%20be%20different%20for%20the%20other%20roles.%0A%20%0ASubmit%20request%20button%20is%20always%20visible%2C%20but%20only%20enabled%20when%20the%20declarations%20have%20been%20made.%0A%20%0ADelete%20draft%20button%20disappears%20after%20the%20request%20has%20been%20submitted.%20This%20includes%20when%20the%20request%20is%20returned%20to%20the%20requestor%20for%20further%20editing%3A%20they%20can%27t%20delete%20it%20after%20it%20has%20been%20submitted.%0A%20%0AIf%20you%20really%20want%20to%20display%20the%20request%20ID%20to%20the%20user%20somewhere%2C%20perhaps%20it%20can%20be%20displayed%20%28in%20light%20gray%29%20where%20the%20delete%20draft%20button%20was.%20Since%2C%20until%20after%20they%20have%20submitted%20the%20draft%2C%20there%20is%20no%20use%20knowing%20the%20request%20ID%20because%20no%20one%20else%20can%20see%20unsubmitted%20drafts.</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Alert" x="159" y="1289" w="276" h="133" measuredW="200" measuredH="133" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22146%2C1332%2C269%2C1372%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2285%22/%3E</map>
+        <text>Delete%0AReally%20delete%20this%20draft%20request%3F%0ACancel%2C%20Delete</text>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::StickyNote" x="161" y="1166" w="396" h="109" measuredW="109" measuredH="123" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Maybe%20the%20submit%20and%20delete%20actions%20goes%20to%20a%20page%20that%20simply%20has%20text%20saying%20the%20operation%20has%20been%20done.%20That%20will%20delay%20the%20user%20in%20an%20attempt%20to%20avoid%20the%20race%20conditon%20that%20can%20cause%20the%20dashboard%20to%20be%20out%20of%20date.</text>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::Canvas" x="158" y="1701" w="800" h="84" measuredW="100" measuredH="70" zOrder="11" locked="false" isInGroup="-1"/>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Button" x="169" y="1744" w="93" h="32" measuredW="77" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Form-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml</href>
+        <icon>DownArrowIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22146%2C1704%2C239%2C1736%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%2289%22/%3E</map>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Button" x="823" y="1708" w="120" h="33" measuredW="113" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22800%2C1668%2C920%2C1701%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2290%22/%3E</map>
+        <state>disabled</state>
+        <text>Submit%20request</text>
+      </controlProperties>
+    </control>
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::Button" x="823" y="1745" w="120" h="27" measuredW="93" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20draft</text>
+      </controlProperties>
+    </control>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::StickyNote" x="160" y="1551" w="393" h="123" measuredW="109" measuredH="123" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Alternative%20layout.%20Perhaps%20the%20%22next%22%20button%20should%20have%20an%20arrow%20pointing%20down%20and%20the%20%22prev%22%20button%20%28on%20subsequent%20pages%29%20placed%20above%20it%20and%20have%20an%20arrow%20pointing%20up%3F%20That%20would%20fit%20better%20with%20the%20vertical%20layout%20of%20the%20tabs.</text>
+      </controlProperties>
+    </control>
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::Button" x="169" y="1708" w="93" h="32" measuredW="76" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>UpArrowIcon%7Csmall</icon>
+        <text>Prev</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

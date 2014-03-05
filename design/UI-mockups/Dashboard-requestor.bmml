@@ -1,87 +1,96 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="965" measuredH="887" mockupW="958" mockupH="884">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="945" measuredH="1790" mockupW="924" mockupH="1787">
   <controls>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="780" y="225" w="158" h="32" measuredW="98" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="735" y="264" w="183" h="32" measuredW="98" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Section%200%20-%20Introduction%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22773%2C222%2C931%2C254%22%20href%3D%22Section%25200%2520-%2520Introduction.bmml%22%20alt%3D%22Section%200%20-%20Introduction%22%20id%3D%222%22/%3E</map>
+        <href>Form-Requestor-0-introduction%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22714%2C261%2C897%2C293%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%222%22/%3E</map>
         <text>New%20request</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Title" x="7" y="22" w="-1" h="-1" measuredW="417" measuredH="43" zOrder="0" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Researcher%20Dashboard</text>
-      </controlProperties>
-    </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="162" y="80" w="802" h="192" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="22" y="119" w="922" h="192" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Draft%20requests</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::DataGrid" x="177" y="105" w="761" h="105" measuredW="169" measuredH="105" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::DataGrid" x="46" y="144" w="872" h="105" measuredW="148" measuredH="105" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <rowHeight>42</rowHeight>
-        <text>Title%2C--------%0AExample%20collection%204%0AExample%20collection%205%0A%7B80%2C20C%7D</text>
+        <text>Title%0AExample%20allocation%204%0AExample%20allocation%205%0A%7B80%2C20C%7D</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="162" y="294" w="802" h="278" measuredW="200" measuredH="170" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="22" y="333" w="922" h="242" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Submitted%20requests</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="177" y="319" w="761" h="193" measuredW="401" measuredH="189" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="48" y="358" w="870" h="193" measuredW="254" measuredH="189" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <rowHeight>42</rowHeight>
-        <text>Title%2CDate%2CStatus%0AExample%20collection%203%2CSubmitted%201/1/2014%2CBeing%20reviewed%0AExample%20collection%202%2CApproved%2012/2/2014%2CBeing%20provisioned%0AExample%20collection%201%2CProvisioned%2012/2/2014%2CReady%20for%20use%0ATest%20data%2CRejected%2013/1/2014%2CNot%20approved%0A%7B60%2C20L%2C20L%7D</text>
+        <text>Title%2CStatus%0AExample%20allocation%203%2CBeing%20reviewed%0AExample%20allocation%202%2CBeing%20provisioned%0AExample%20allocation%201%2CReady%20for%20use%0ATest%20data%2CNot%20approved%0A%7B80%2C20L%7D</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::Icon" x="813" y="136" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Icon" x="819" y="173" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <icon>Trash2Icon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::Icon" x="813" y="170" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>Trash2Icon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Icon" x="888" y="136" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Section%200%20-%20Introduction%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml%26bm%3BSection%200%20-%20Introduction.bmml</href>
+        <href>Form-Requestor-0-introduction%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml</href>
         <icon>PencilIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22881%2C133%2C905%2C157%22%20href%3D%22Section%25200%2520-%2520Introduction.bmml%22%20alt%3D%22Section%200%20-%20Introduction%22%20id%3D%2216%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22798%2C170%2C822%2C194%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%2216%22/%3E</map>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Icon" x="888" y="170" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Icon" x="819" y="212" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>PencilIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::Paragraph" x="475" y="542" w="200" h="23" measuredW="200" measuredH="80" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Link" x="892" y="3" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22871%2C0%2C924%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2219%22/%3E</map>
+        <text>Logout%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::StickyNote" x="595" y="1163" w="303" h="224" measuredW="109" measuredH="123" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Delete%20feature%20is%20optional%20on%20this%20screen.%20Delete%20can%20always%20be%20done%20from%20within%20the%20edit%20view.%20If%20implemented%2C%20ask%20user%20for%20confirmation%20before%20deleting.%0A%20%0AClicking%20on%20a%20request%20%28in%20either%20drafts%20or%20submitted%20sections%29%20brings%20up%20a%20non-editable%20page%20containing%20information%20about%20the%20request.%0A%20%0AIt%20is%20possible%20to%20show%20the%20date%20submitted%20in%20the%20submitted%20requests%20table%3F%0A%20%0ADo%20users%20care%20about%20the%20date%20created%3F%20Remove%20it%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::StickyNote" x="95" y="1165" w="352" h="137" measuredW="109" measuredH="123" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Submitted%20requests%20shows%20all%20requests%20in%20the%20system%20for%20this%20requestor%2C%20except%20for%20those%20in%20the%20draft%20state%20or%20those%20that%20have%20been%20deleted.</text>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::StickyNote" x="96" y="1323" w="351" h="123" measuredW="109" measuredH="123" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Status%20shows%20%22Being%20reviewed%22%20when%20the%20request%20is%20in%20either%20reviewed%20or%20assessment%20states.%20That%20is%2C%20the%20requestor%20does%20not%20know%20who%20is%20to%20blaim%20for%20delays%20in%20the%20approval%20process%3A%20the%20reviewer%20or%20the%20assessment%20committee%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::FieldSet" x="22" y="1512" w="922" h="278" measuredW="200" measuredH="170" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Submitted%20requests</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::DataGrid" x="48" y="1537" w="870" h="193" measuredW="401" measuredH="189" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <rowHeight>42</rowHeight>
+        <text>Title%2CDate%2CStatus%0AExample%20allocation%203%2CSubmitted%201/1/2014%2CBeing%20reviewed%0AExample%20allocation%202%2CApproved%2012/2/2014%2CBeing%20provisioned%0AExample%20allocation%201%2CProvisioned%2012/2/2014%2CReady%20for%20use%0ATest%20data%2CRejected%2013/1/2014%2CNot%20approved%0A%7B60%2C20L%2C20L%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Paragraph" x="380" y="1752" w="200" h="23" measuredW="200" measuredH="80" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <text>4%20of%204%20requests</text>
       </controlProperties>
     </control>
-    <control controlID="19" controlTypeID="com.balsamiq.mockups::Link" x="912" y="3" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Label" x="22" y="1478" w="-1" h="-1" measuredW="260" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22905%2C0%2C958%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2219%22/%3E</map>
-        <text>Logout%20%20%20</text>
+        <text>Advanced%20version%20that%20shows%20date%20of%20events</text>
       </controlProperties>
     </control>
-    <control controlID="20" controlTypeID="com.balsamiq.mockups::StickyNote" x="661" y="604" w="303" h="224" measuredW="109" measuredH="123" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::TabBar" x="21" y="37" w="920" h="43" measuredW="168" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Delete%20feature%20is%20optional%20on%20this%20screen.%20Delete%20can%20always%20be%20done%20from%20within%20the%20edit%20view.%20If%20implemented%2C%20ask%20user%20for%20confirmation%20before%20deleting.%0A%20%0AClicking%20on%20a%20request%20%28in%20either%20drafts%20or%20submitted%20sections%29%20brings%20up%20a%20non-editable%20page%20containing%20information%20about%20the%20request.%0A%20%0AIt%20is%20possible%20to%20show%20the%20date%20submitted%20in%20the%20submitted%20requests%20table%3F%0A%20%0ADo%20users%20care%20about%20the%20date%20created%3F%20Remove%20it%3F</text>
-      </controlProperties>
-    </control>
-    <control controlID="21" controlTypeID="com.balsamiq.mockups::StickyNote" x="161" y="606" w="352" h="137" measuredW="109" measuredH="123" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Submitted%20requests%20shows%20all%20requests%20in%20the%20system%20for%20this%20requestor%2C%20except%20for%20those%20in%20the%20draft%20state%20or%20those%20that%20have%20been%20deleted.</text>
-      </controlProperties>
-    </control>
-    <control controlID="22" controlTypeID="com.balsamiq.mockups::StickyNote" x="162" y="764" w="351" h="123" measuredW="109" measuredH="123" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Status%20shows%20%22Being%20reviewed%22%20when%20the%20request%20is%20in%20either%20reviewed%20or%20assessment%20states.%20That%20is%2C%20the%20requestor%20does%20not%20know%20who%20is%20to%20blaim%20for%20delays%20in%20the%20approval%20process%3A%20the%20reviewer%20or%20the%20assessment%20committee%21</text>
+        <borderStyle>none</borderStyle>
+        <selectedIndex>0</selectedIndex>
+        <tabHPosition>right</tabHPosition>
+        <text>My%20requests</text>
       </controlProperties>
     </control>
   </controls>

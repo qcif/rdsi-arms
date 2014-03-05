@@ -17,18 +17,12 @@ dashboard pages. Each of those four dashboard pages has a _logout_
 link (at the top right) that goes back to the _ARMS-login_ page.
 
 On every dashboard page, the _edit_ icons are linked to one of the
-section pages. On every section page, the _save and close_ button goes
+form pages. On every form page, the _save and close_ button goes
 back to a dashboard. In actual operation it will go to the current
 role's dashboard, but in the mockup it goes to the dashboard of the
 role that is able to edit that particular page (e.g. the outcome page
 goes to the reviewer's dashboard page). The _new request_ button in
-the requestor's dashboard also goes to the first section page.
-
-All of the section pages are linked by prev and next buttons. In
-actual operation, sometimes the next buttons will not be present
-(depending on the current role), but in the mockups they are always
-present to make navigation easier. The other buttons on the section
-pages goes to the dashboards.
+the requestor's dashboard also goes to the first form page.
 
 Tools
 -----
