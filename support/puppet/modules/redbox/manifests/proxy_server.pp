@@ -30,7 +30,8 @@ class redbox::proxy_server (
     path  => "$apache_conf",
     line  => "Listen 80",
     match => ".*Listen[[:space:]]+80[[:space:]]*?$",
-  }
+  } ~>
+  Service['httpd']
 
   include apache::mod::proxy
   include apache::mod::proxy_http
@@ -67,7 +68,7 @@ class redbox::proxy_server (
       servername => $server_url,
       priority   => $priority,
     } ->
-    file_line { 'preseve_proxy_host':
+    file_line { 'preserve_proxy_host':
       path  => "$conf_dir/${priority}-${conf_file_name}.conf",
       line  => "ProxyPreserveHost On",
       match => "^.*ProxyPreserveHost[[:space:]]+..[[:space:]]*$",
@@ -76,6 +77,7 @@ class redbox::proxy_server (
       path  => "$conf_dir/${priority}-${conf_file_name}.conf",
       line  => "SSLProxyEngine On",
       match => "^.*SSLProxyEngine[[:space:]]+..[[:space:]]*$",
-    }
+    } ~>
+    Service['httpd']
   }
 }
