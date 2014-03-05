@@ -30,8 +30,7 @@ class redbox::proxy_server (
     path  => "$apache_conf",
     line  => "Listen 80",
     match => ".*Listen[[:space:]]+80[[:space:]]*?$",
-  } ~>
-  Service['httpd']
+  }
 
   include apache::mod::proxy
   include apache::mod::proxy_http
@@ -51,7 +50,6 @@ class redbox::proxy_server (
     ensure  => file,
     content => template("redbox/redbox.conf.erb"),
     require => Class['apache'],
-    notify  => Service['httpd'],
   }
 
   if ($ssl_files) {
@@ -77,7 +75,6 @@ class redbox::proxy_server (
       path  => "$conf_dir/${priority}-${conf_file_name}.conf",
       line  => "SSLProxyEngine On",
       match => "^.*SSLProxyEngine[[:space:]]+..[[:space:]]*$",
-    } ~>
-    Service['httpd']
+    }
   }
 }

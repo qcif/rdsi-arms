@@ -122,7 +122,7 @@ class redbox (
       server_url     => $server_url,
       ssl_files      => $ssl_files,
       proxy          => $proxy,
-    }
+    } ~> Service['httpd']
   }
 
   class { 'redbox::deploy':
