@@ -33,7 +33,9 @@
     {
       "component-type": "text-input",
       "field-name": "outcome-allocation-id",
-      "label": "arms.outcome.subsectionB.label"
+      "label": "arms.outcome.subsectionB.label",
+      "additional-classes": "",
+      "disabled": true
     },
     {
       "component-type": "textarea",

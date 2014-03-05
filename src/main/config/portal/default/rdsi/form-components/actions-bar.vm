@@ -142,6 +142,17 @@ $(document).ready(function() {
             link2Checkbox(btn);
         }
 	});
+#if ($roles.contains("reviewer"))
+	### Link decision to applicaiton ID input box
+    var rbns = $("input[name='outcome-decision']");
+    rbns.change(function() {
+    	var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
+        if (rid == "outcome-decision.2" || rid == "outcome-decision.3") {
+            disabled = false; 
+        }
+        $("input[id='outcome-allocation-id']").attr("disabled", disabled);
+    }); 
+#end
 });
 
 </script>
