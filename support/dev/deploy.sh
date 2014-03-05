@@ -247,11 +247,6 @@ if [ -z "$CUSTOM_ARCHIVE" ]; then
 else
     # Custom installer archive specified on command line
 
-    if [ ! -f "$CUSTOM_ARCHIVE" ]; then
-	echo "$PROG: error: installer archive not found: $CUSTOM_ARCHIVE" >&2
-	exit 1
-    fi
-
     DEPLOY_ARCHIVE="$CUSTOM_ARCHIVE"
 fi
 
@@ -261,21 +256,24 @@ fi
 # might not be able to access the custom archive supplied to it (even
 # though the invoker can). So check for that problem too.
 
-DIR="$( cd "$( dirname "$DEPLOY_ARCHIVE" )" && pwd )"
-DEPLOY_ARCHIVE_FULL_PATH="$DIR/`basename "$DEPLOY_ARCHIVE"`"
-
 DIRSTR=`dirname "$DEPLOY_ARCHIVE"`
-if [ -d "$DIRSTR" -a -r "$DIRSTR" -a -x "$DIRSTR" ]; then
-    DIR="$(cd "$DIRSTR" && pwd)"
-else
+
+DIR="$(cd "$DIRSTR" && pwd)"
+if [ $? -ne 0 ]; then
+    echo "$PROG: attempting to access installer file: $DEPLOY_ARCHIVE" >&2
     echo "$PROG: running as user: `id -u -n`" >&2
     echo "$PROG: error: insufficient privileges to access directory: $DIRSTR" >&2
     exit 1
 fi
 DEPLOY_ARCHIVE_FULL_PATH="$DIR/`basename "$DEPLOY_ARCHIVE"`"
+if [ ! -f "$DEPLOY_ARCHIVE_FULL_PATH" ]; then
+    echo "$PROG: install file not found: $DEPLOY_ARCHIVE" >&2
+    exit 1
+fi
 if [ ! -r "$DEPLOY_ARCHIVE_FULL_PATH" ]; then
+    echo "$PROG: attempting to access installer file: $DEPLOY_ARCHIVE" >&2
     echo "$PROG: running as user: `id -u -n`" >&2
-    echo "$PROG: error: insufficient privileges to access file: $DEPLOY_ARCHIVE_FULL_PATH" >&2
+    echo "$PROG: error: insufficient privileges to access: $DEPLOY_ARCHIVE_FULL_PATH" >&2
     exit 1
 fi
 

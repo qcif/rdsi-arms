@@ -166,6 +166,25 @@ function arms_install () {
     chown $INST_USER:$INST_USER "$TMPDIR/apache-arms.conf" || die
 
     #----------------
+    # Check custom tar.gz file is accessible (if specified)
+
+    if [ -n "$CUSTOM_REDBOX_ARCHIVE" ]; then
+        # Check it can be accessed when running as the "redbox" user that
+	# the deploy.sh script will be running as. It is better to fail
+	# now, before Mint is installed.
+	# Note: this test must "cd" into the directory, because the permissions
+	# of the ancestor directories could affect access.
+
+        su "$INST_USER" \
+            -c "cd `dirname \"$CUSTOM_REDBOX_ARCHIVE\"` &&
+                test -r `basename \"$CUSTOM_REDBOX_ARCHIVE\"`" >/dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            echo "$PROG: installer file not accessible by \"$INST_USER\" user: $CUSTOM_REDBOX_ARCHIVE" >&2
+            exit 1
+        fi
+    fi
+
+    #----------------
     # Common argument to deploy.sh
 
     if [ -n "$VERBOSE" ]; then
