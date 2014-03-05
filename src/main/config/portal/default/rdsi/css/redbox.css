@@ -467,7 +467,7 @@ ul.nav.actions li ul {
 }
 
 .inline-component {
-  display:inline;
+  display:inline !important;
 }
 
 .inline-block-component {
