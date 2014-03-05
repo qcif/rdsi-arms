@@ -13,8 +13,8 @@
 	   ProxyPass /default/sso/shibbloeth !
 	<%- end -%>
 	
-	<% @proxy_pass.each do |proxy| %>
-		<%- if @is_using_ssl -%>
+	<% @proxy.each do |proxy| %>
+		<%- if @ssl -%>
 			Redirect permanent <%= proxy['path'] %> https://<%= @server_url %><%= proxy['path'] %>
 		<%- else -%>
 	       ProxyPass               <%= proxy['path'] %> <%= proxy['url'] %>

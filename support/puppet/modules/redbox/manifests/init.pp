@@ -35,68 +35,94 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class redbox( 
-	$redbox_user = 'redbox',
-	$directories = [ 'redbox', 'mint', 'deploy', 'deploy/redbox', 'deploy/mint'],
-  	$is_behind_proxy = true,
-  	$is_using_ssl = false,
-  	$is_using_dns = true,
-  	$shibboleth_env = undef,
-  	$nexus_repo = 'snapshots',
-  	$archives = [
-	    { name     => 'redbox',
-	      group    => 'au.edu.qcif',
-	      artifact => 'redbox-rdsi-arms',
-	      web_context => undef,   
-	    },
-	    { name     => 'mint',
-	      group    => 'com.googlecode.redbox-mint',
-	      artifact => 'mint-local-curation-demo',
-	      web_context => 'mint',
-	    }
-  	],
-  	$exec_path = [
-      '/usr/local/bin',
-      '/opt/local/bin',
-      '/usr/bin',
-      '/usr/sbin',
-      '/bin',
-      '/sbin'],
-) {
- 
-  host { [$::fqdn, $::hostname]:
-      ip => $::ipaddress,
+class redbox (
+  $redbox_user    = 'redbox',
+  $directories    = [
+    'redbox',
+    'mint',
+    'deploy',
+    'deploy/redbox',
+    'deploy/mint'],
+  $has_dns        = true,
+  $shibboleth_env = undef,
+  $nexus_repo     = 'snapshots',
+  $archives       = [
+    {
+      name        => 'redbox',
+      group       => 'au.edu.qcif',
+      artifact    => 'redbox-rdsi-arms',
+      web_context => undef,
+    }
+    ,
+    {
+      name        => 'mint',
+      group       => 'com.googlecode.redbox-mint',
+      artifact    => 'mint-local-curation-demo',
+      web_context => 'mint',
+    }
+    ],
+  $proxy          = [
+    {
+      'path' => '/mint',
+      'url'  => 'http://localhost:9001/mint/',
+    }
+    ,
+    {
+      'path' => '/',
+      'url'  => 'http://localhost:9000/',
+    }
+    ],
+  $ssl_files      = {
+    cert  => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
+    key   => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
+    chain => "/etc/ssl/local_certs/SSLCertificateChainFile/${::fqdn}_CA.crt",
   }
-  
+  ,
+  $exec_path      = [
+    '/usr/local/bin',
+    '/opt/local/bin',
+    '/usr/bin',
+    '/usr/sbin',
+    '/bin',
+    '/sbin'],) {
+  if ($has_dns and $::fqdn) {
+    $server_url = $::fqdn
+  } elsif ($::ipaddress) {
+    $server_url = $::ipaddress
+  } else {
+    $server_url = $::ipaddress_lo
+  }
+
+  host { [
+    $::fqdn,
+    $::hostname]:
+    ip => $::ipaddress,
+  }
+
   Exec {
-    path => $exec_path,
+    path      => $exec_path,
     logoutput => false,
   }
-  
-  redbox::add_systemuser { $redbox_user: }
-  -> 
-  add_directory { $directories: 
-    owner =>  $redbox_user,
-  } 
-  ->
-  redbox::add_package {'unzip':}
-  ->
-  class {'redbox::java': }
-  
-  if ($is_behind_proxy) {
-  	class {'redbox::proxy_server':
-  		shibboleth_env => $shibboleth_env,
-  		require => Class['Redbox::Java'],
-  		before  => Class['Redbox::Deploy'],
-  		is_using_dns => $is_using_dns,
-  		is_using_ssl => $is_using_ssl,
- 	}
+
+  redbox::add_systemuser { $redbox_user: } ->
+  add_directory { $directories: owner => $redbox_user, } ->
+  redbox::add_package { 'unzip': } ->
+  class { 'redbox::java': }
+
+  if ($proxy) {
+    class { 'redbox::proxy_server':
+      shibboleth_env => $shibboleth_env,
+      require        => Class['Redbox::Java'],
+      before         => Class['Redbox::Deploy'],
+      server_url     => $server_url,
+      ssl_files      => $ssl_files,
+      proxy          => $proxy,
+    }
   }
-  
+
   class { 'redbox::deploy':
-  	owner	 => $redbox_user,
-  	archives => $archives,
-  	is_using_dns => $is_using_dns,
+    owner      => $redbox_user,
+    archives   => $archives,
+    server_url => $server_url,
   }
-  
 }

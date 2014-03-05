@@ -1,14 +1,11 @@
-define redbox::add_package($package = $title) {
+define redbox::add_package (
+  $package = $title) {
   case $operatingsystem {
-      'centos' : {
-        $package_type = 'yum'
-      }
-      'ubuntu' : {
-        $package_type = 'dpkg'
-      }
+    'centos' : { $package_type = 'yum' }
+    'ubuntu' : { $package_type = 'dpkg' }
   }
-  
-  package { $package :
+
+  package { $package:
     ensure   => installed,
     provider => $package_type,
   }
