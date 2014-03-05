@@ -9,12 +9,19 @@
     {
       "component-type": "text-input",
       "field-name": "provisioning-reference",
-      "label": "arms.provisioning.subsectionA.label"
+      "label": "arms.provisioning.subsectionA.label",
+      "label-classes": "inline-component",
+      "additional-classes": "inline-component"
     },
     {
-      "component-type": "text-block",
-      "type": "p",
-      "content": "arms.provisioning.subsectionB.label"
+      "component-type": "text-input",
+      "field-name": "date-provisioned",
+      "label": "arms.provisioning.subsectionB.label",
+      "label-classes": "inline-component",
+      "placeholder": "Only available after the request has entered the provisioned state.",
+      "size": 50,
+      "additional-classes": "inline-component",
+      "disabled": true
     },
     {
       "component-type": "textarea",
