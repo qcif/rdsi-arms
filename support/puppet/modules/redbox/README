@@ -13,13 +13,21 @@ puppet apply -e "class {'redbox':
 
 ## To install without SSL:
 puppet apply -e "class {'redbox':
-	ssl_files => false
+	has_ssl => false,
 }"
 
-## NB : for default values of ssl_files, presumes that you have the following certificates already installed:
-## ssl_cert   => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
-## ssl_key    => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
-## ssl_chain  => "/etc/ssl/local_certs/SSLCertificateChainFile/${::fqdn}_CA.crt",
+## NB : for default values of ssl_files, ls presumes that you have the following certificates already installed:
+## cert   => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
+## key    => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
+## chain  => "/etc/ssl/local_certs/SSLCertificateChainFile/${::fqdn}_CA.crt",
+## to change the pathnames
+puppet apply -e "class {'redbox':
+	$ssl_files = {
+		cert => "...",
+		key  => "...",
+		chain => "...",
+	},
+}
 
 ## TODD : set up using r10k
 ## TODO : use gpg pattern for handling SSL certs and keys

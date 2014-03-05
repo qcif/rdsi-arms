@@ -72,6 +72,7 @@ class redbox (
       'url'  => 'http://localhost:9000/',
     }
     ],
+  $has_ssl        = true,
   $ssl_files      = {
     cert  => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
     key   => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
@@ -109,6 +110,10 @@ class redbox (
   redbox::add_package { 'unzip': } ->
   class { 'redbox::java': }
 
+  if (!$has_ssl) {
+    $ssl_files = undef
+  }
+
   if ($proxy) {
     class { 'redbox::proxy_server':
       shibboleth_env => $shibboleth_env,
@@ -123,6 +128,7 @@ class redbox (
   class { 'redbox::deploy':
     owner      => $redbox_user,
     archives   => $archives,
+    has_ssl    => $has_ssl,
     server_url => $server_url,
   }
 }

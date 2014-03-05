@@ -7,7 +7,8 @@ class redbox::deploy (
   $install_parent_directory = "/opt",
   $owner                    = "redbox",
   $archives,
-  $server_url               = $::fqdn,) {
+  $server_url               = $::fqdn,
+  $has_ssl                  = false,) {
   $working_directory  = "/home/${owner}"
   $deploy_script_path = "${working_directory}/${script_name}"
 
