@@ -52,11 +52,12 @@ update_server_url_in_startup_script() {
 	
 	echo "Getting correct server url..."
 	
+	server_url=<%= @server_url %>
 	if [ $# -gt 1 ]; then
 		echo "Including relative web context..."
-		server_url="@server_url\/$2"
+		server_url="${server_url}\/$2"
 	fi
-	regex="s/SERVER_URL=.*/SERVER_URL=\"http:\/\/@server_url\/\"/g"
+	regex="s/SERVER_URL=.*/SERVER_URL=\"http:\/\/${server_url}\/\"/g"
 	echo "Fixing the incorrect url: $regex"
 	echo "Applying regex to script: ${server_file_base}.sh"
 	sed "$regex" ${server_file_base}.sh > ${server_file_base}.new

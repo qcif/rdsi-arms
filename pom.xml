@@ -512,7 +512,7 @@
 									<includes>
 										<include>rdsi/**/*</include>
 										<include>default/**/*</include>
-										<include>portal/default/portal.json</include>
+										<include>default/portal.json</include>
 										<include>rapidaaf/**/*</include>
 									</includes>
 								</resource>
