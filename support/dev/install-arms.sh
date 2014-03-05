@@ -173,13 +173,21 @@ function arms_install () {
 	# the deploy.sh script will be running as. It is better to fail
 	# now, before Mint is installed.
 	# Note: this test must "cd" into the directory, because the permissions
-	# of the ancestor directories could affect access.
+	# of the ancestor directories could affect access. The deploy.sh
+        # will need to access the file as an absolute path, since it
+        # will be untaring it from the install directory.
 
-        su "$INST_USER" \
-            -c "cd `dirname \"$CUSTOM_REDBOX_ARCHIVE\"` &&
-                test -r `basename \"$CUSTOM_REDBOX_ARCHIVE\"`" >/dev/null 2>&1
+        ABS_DNAME="$( cd "$( dirname "$CUSTOM_REDBOX_ARCHIVE" )" && pwd )"
+        FNAME=`basename "$CUSTOM_REDBOX_ARCHIVE"`
+
+        su "$INST_USER" -c "cd \"$ABS_DNAME\"" 2>/dev/null
         if [ $? -ne 0 ]; then
-            echo "$PROG: installer file not accessible by \"$INST_USER\" user: $CUSTOM_REDBOX_ARCHIVE" >&2
+            echo "$PROG: installer file's absolute directory not accessible by \"$INST_USER\" user: $ABS_DNAME" >&2
+            exit 1
+        fi
+        su "$INST_USER" -c "cd \"$ABS_DNAME\" && test -r \"$FNAME\"" 2>/dev/null
+        if [ $? -ne 0 ]; then
+            echo "$PROG: installer file not readable by \"$INST_USER\" user: $CUSTOM_REDBOX_ARCHIVE" >&2
             exit 1
         fi
     fi
@@ -204,7 +212,7 @@ function arms_install () {
     su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-mint\" -i \"$MINT_INSTDIR\" mint" || die
 
     # Load ANZSRC FoR codes
-    sudo -u $INST_USER "$MINT_INSTDIR/server/tf_harvest.sh" ANZSRC_FOR || die
+    su $INST_USER -c "\"$MINT_INSTDIR/server/tf_harvest.sh\" ANZSRC_FOR" || die
 
     #----------------
     # Install ReDBox

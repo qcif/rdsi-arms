@@ -258,22 +258,22 @@ fi
 
 DIRSTR=`dirname "$DEPLOY_ARCHIVE"`
 
-DIR="$(cd "$DIRSTR" && pwd)"
+# Get absolute directory
+ABS_DIR="$(cd "$DIRSTR" 2>/dev/null && pwd)"
 if [ $? -ne 0 ]; then
-    echo "$PROG: attempting to access installer file: $DEPLOY_ARCHIVE" >&2
-    echo "$PROG: running as user: `id -u -n`" >&2
-    echo "$PROG: error: insufficient privileges to access directory: $DIRSTR" >&2
+    echo "$PROG: error: insufficient privileges for user \"`id -u -n`\" to obtain installer file's absolute directory: $DIRSTR" >&2
     exit 1
 fi
-DEPLOY_ARCHIVE_FULL_PATH="$DIR/`basename "$DEPLOY_ARCHIVE"`"
+# Derive full path of installer
+DEPLOY_ARCHIVE_FULL_PATH="$ABS_DIR/`basename "$DEPLOY_ARCHIVE"`"
+# Check file exists
 if [ ! -f "$DEPLOY_ARCHIVE_FULL_PATH" ]; then
-    echo "$PROG: install file not found: $DEPLOY_ARCHIVE" >&2
+    echo "$PROG: install file not found: $DEPLOY_ARCHIVE_FULL_PATH" >&2
     exit 1
 fi
+# Check file is readable
 if [ ! -r "$DEPLOY_ARCHIVE_FULL_PATH" ]; then
-    echo "$PROG: attempting to access installer file: $DEPLOY_ARCHIVE" >&2
-    echo "$PROG: running as user: `id -u -n`" >&2
-    echo "$PROG: error: insufficient privileges to access: $DEPLOY_ARCHIVE_FULL_PATH" >&2
+    echo "$PROG: install file not readable: $DEPLOY_ARCHIVE_FULL_PATH" >&2
     exit 1
 fi
 
