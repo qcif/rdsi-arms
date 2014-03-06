@@ -1,5 +1,6 @@
 ##redbox using puppet : serverless
 __________________________
+## The module deploys, installs and runs redbox.
 
 ## use pre-install.sh to setup puppet for redbox use.
 
@@ -31,6 +32,7 @@ puppet apply -e "class {'redbox':
 
 
 ## No support to run without apache proxy server.
+## Tested only on CentOS
 ## TODD : set up using r10k
 ## TODO : use gpg pattern for handling SSL certs and keys
 
