@@ -29,6 +29,8 @@ puppet apply -e "class {'redbox':
 	},
 }
 
+
+## No support to run without apache proxy server.
 ## TODD : set up using r10k
 ## TODO : use gpg pattern for handling SSL certs and keys
 
