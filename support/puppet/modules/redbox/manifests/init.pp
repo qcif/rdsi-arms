@@ -128,6 +128,6 @@ class redbox (
     has_ssl    => $has_ssl,
     server_url => $server_url,
   }
-  Class['redbox::deploy'] ~> Sevice['httpd']
+  Class['redbox::deploy'] ~> Service['httpd']
 
 }
