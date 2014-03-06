@@ -52,7 +52,7 @@ update_server_url_in_startup_script() {
 	
 	echo "Getting correct server url..."
 	
-	<% if @has_ssl -%>
+	<% if @has_ssl-%>
 		protocol=https
 	<%- else -%>
 		protocol=http

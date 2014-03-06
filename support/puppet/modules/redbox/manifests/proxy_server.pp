@@ -5,7 +5,8 @@ class redbox::proxy_server (
   $docroot        = '/var/www/html',
   $proxy          = undef,
   $shibboleth_env = undef,
-  $ssl_files      = undef,) {
+  $ssl_files      = undef,
+  $has_ssl        = false,) {
   case $operatingsystem {
     'centos', 'redhat', 'fedora' : {
       $conf_dir    = '/etc/httpd/conf.d'
@@ -52,13 +53,13 @@ class redbox::proxy_server (
     require => Class['apache'],
   }
 
-  if ($ssl_files) {
+  if ($has_ssl and $ssl_files) {
     $conf_file_name = "redbox-ssl"
     file { [values($ssl_files)]: ensure => file, } ->
     apache::vhost { $conf_file_name:
       port       => '443',
       docroot    => $docroot,
-      ssl        => true,
+      ssl        => $has_ssl,
       ssl_cert   => "${ssl_files[cert]}",
       ssl_key    => "${ssl_files[key]}",
       ssl_chain  => "${ssl_files[chain]}",

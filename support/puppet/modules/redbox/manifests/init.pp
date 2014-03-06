@@ -110,16 +110,13 @@ class redbox (
   redbox::add_package { 'unzip': } ->
   class { 'redbox::java': }
 
-  if (!$has_ssl) {
-    $ssl_files = undef
-  }
-
   if ($proxy) {
     class { 'redbox::proxy_server':
       shibboleth_env => $shibboleth_env,
       require        => Class['Redbox::Java'],
       before         => Class['Redbox::Deploy'],
       server_url     => $server_url,
+      has_ssl        => $has_ssl,
       ssl_files      => $ssl_files,
       proxy          => $proxy,
     } ~> Service['httpd']
@@ -131,4 +128,6 @@ class redbox (
     has_ssl    => $has_ssl,
     server_url => $server_url,
   }
+  Class['redbox::deploy'] ~> Sevice['httpd']
+
 }
