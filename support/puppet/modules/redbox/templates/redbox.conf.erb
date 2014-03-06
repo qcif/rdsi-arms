@@ -16,7 +16,7 @@
 	<%- end -%>
 	
 	<% @proxy.each do |proxy| %>
-		<%- if @ssl_files -%>
+		<%- if @has_ssl and @ssl_files -%>
 			Redirect permanent <%= proxy['path'] %> https://<%= @server_url %><%= proxy['path'] %>
 		<%- else -%>
 	       ProxyPass               <%= proxy['path'] %> <%= proxy['url'] %>
