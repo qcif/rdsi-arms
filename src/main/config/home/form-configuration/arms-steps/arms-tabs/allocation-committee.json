@@ -7,12 +7,6 @@
       "content": "arms.heading.allocation-committee"
     },
     {
-      "component-type": "knockout-text-block",
-      "field-name": "requestID",
-      "type": "label",
-      "content": "arms.field.label.allocationId"
-    },
-    {
       "component-type": "text-block",
       "type": "h1",
       "content": "arms.heading.review-PartA"
@@ -50,7 +44,8 @@
     {
       "component-type": "date-picker",
       "field-name": "completion-date",
-      "label": "arms.field.label.completion-date"
+      "label": "arms.field.label.completion-date",
+      "label-classes": "inline-component"
     },
     {
       "component-type": "text-block",
@@ -60,63 +55,6 @@
     {
       "component-type": "costing-table",
       "type": "costing-table"
-    },
-    {
-      "component-type": "group",
-      "template": "group-table",
-      "fields": [
-        {
-          "component-type": "group",
-          "template": "group-tr",
-          "fields": [
-            {
-              "component-type": "group",
-              "template": "group-td2",
-              "fields": [
-                {
-                  "component-type": "text-block",
-                  "type": "label",
-                  "content": "arms.field.label.instanceA-location",
-                  "wrapper-class": "inline"
-                },
-                {
-                  "component-type": "data-source-dropdown",
-                  "field-name": "instanceA-location",
-                  "label": "",
-                  "data-id-key": "value",
-                  "field-name-label": "instanceA-location:prefLabel",
-                  "sourceUrl": "form-components/rdsi-nodes.json",
-                  "wrapper-class": "inline"
-                }
-              ]
-            },
-            {
-              "component-type": "group",
-              "template": "group-td2",
-              "fields": [
-                {
-                  "component-type": "text-block",
-                  "type": "label",
-                  "content": "arms.field.label.instanceB-location",
-                  "wrapper-class": "inline"
-                },
-                {
-                  "component-type": "data-source-dropdown",
-                  "field-name": "instanceB-location",
-                  "label": "",
-                  "data-id-key": "value",
-                  "field-name-label": "instanceB-location:prefLabel",
-                  "sourceUrl": "form-components/rdsi-nodes.json",
-                  "wrapper-class": "inline"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "component-type": "cost-table"
     },
     {
       "component-type": "group",
@@ -546,7 +484,7 @@
                 {
                   "component-type": "text-block",
                   "type": "span",
-                  "content": "indicative date",
+                  "content": "Indicative date",
                   "wrapper-class": "inline"
                 }
               ]
@@ -564,7 +502,7 @@
                 {
                   "component-type": "text-block",
                   "type": "td",
-                  "content": "Discovery"
+                  "content": "Discovery metadata"
                 },
                 {
                   "component-type": "group",
@@ -631,32 +569,8 @@
         }
       ]
     },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "radio-button2",
-          "field-name": "allocation-committee-reviewer-recommends",
-          "button-for": "",
-          "additional-class": "ofFormRadioButtons",
-          "buttons": [
-            {
-              "label": "arms.allocation.pointA",
-              "value": "arms.allocation.pointA"
-            },
-            {
-              "label": "arms.allocation.pointB",
-              "value": "arms.allocation.pointB"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "component-type": "text-input",
-      "field-name": "allocation-committee-recommended-storage",
-      "label": "arms.allocation.storage.label"
+    { 
+        "component-type": "recommendation"
     }
   ]
 }

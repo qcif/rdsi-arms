@@ -188,3 +188,30 @@ div.declaration-note {
     bottom: 0px;
     right: 1%;
 }
+
+#instanceA-location-label {
+	margin-left:14%;
+}
+
+#instanceB-location-label {
+    margin-left:11%;	
+}
+
+#recommendation-legend {
+    border-width: 0px;
+    background-color: transparent;	
+}
+
+#recommendation-container {
+	margin-left:17em;
+}
+
+#allocation-committee-recommended-storage-label {
+    display:inline-block;
+    width:17em;
+    text-align:right"	
+}
+
+.block {
+    display:block;	
+}

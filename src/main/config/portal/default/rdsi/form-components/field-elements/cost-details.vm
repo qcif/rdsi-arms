@@ -1,10 +1,37 @@
+<div>
+<label id="instanceA-location-label">#displayMessage("arms.field.label.instanceA-location")</label>
+<div id="data-source-dropdown-instanceA-location" class="inline-component"></div>
+<label id="instanceB-location-label">#displayMessage("arms.field.label.instanceB-location")</label>
+<div id="data-source-dropdown-instanceB-location" class="inline-component"></div>
+</div>
+
+<script>
+$(document).ready(function() {
+    var widgetListBranding = {
+        "":"control-group",
+        ".jaffaValidationError":["alert", "alert-error"]
+    };
+    var locations = ["instanceA-location", "instanceB-location"];
+    for (var i = 0; i < 2; i++) {
+        $("[id='data-source-dropdown-"+ locations[i] + "']").jaffaDropDown({
+            "label":"",
+            "field":locations[i],
+            "label-field": locations[i] + ":prefLabel",
+            "json-data-url":"$portalPath/form-components/rdsi-nodes.json",
+            "mandatory":false,
+            "class-list":widgetListBranding
+        });
+    }
+});
+</script>
+
 <table class="tableForm">
     <thead>
         <tr><th>&nbsp;</th>
             <th colspan=3>Instance A</th>
             <th colspan=4>Instance B</th>
         </tr>
-        <tr><th>Ingest milestone (by $ value)</th>
+        <tr><th>Ingest milestone</th>
             <th>Disk</th>
             <th>Tape</th>
             <th>Volume</th>
