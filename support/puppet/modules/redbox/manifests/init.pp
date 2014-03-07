@@ -95,7 +95,7 @@ class redbox (
   }
 
   host { [$::fqdn]: ip => $::ipaddress, }
-  
+
   Exec {
     path      => $exec_path,
     logoutput => false,
@@ -125,4 +125,4 @@ class redbox (
     server_url => $server_url,
   }
   Class['redbox::deploy'] ~> Service['httpd']
-
+}
