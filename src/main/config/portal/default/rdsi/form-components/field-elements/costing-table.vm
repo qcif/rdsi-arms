@@ -5,7 +5,7 @@
 </tr></thead>
 <tbody>
         <tr>
-            <td>Unit cost per TB</td>
+            <td>Unit cost per ($ per TB)</td>
              <td><input type="text"  data-bind="value: standard"/></td>
              <td><input type="text"  data-bind="value: tape" /></td>
              <td><input type="text"  data-bind="value: volume" /></td>

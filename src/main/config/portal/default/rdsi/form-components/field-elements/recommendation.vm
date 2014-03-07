@@ -1,0 +1,15 @@
+<fieldset>
+    <legend id="recommendation-legend">Reviewer's recommendations to the assessment committee</legend>
+    <div id="recommendation-container">
+    <label class="block"> 
+        <input type="radio" value="Approve for ReDS" class="jaffa-field" id="allocation-committee-reviewer-recommends.1" name="allocation-committee-reviewer-recommends">
+        Approve for ReDS
+    </label>
+    <label>
+        <input type="radio" value="Approve for CDS" class="jaffa-field" id="allocation-committee-reviewer-recommends.2" name="allocation-committee-reviewer-recommends">
+        Approve for CDS
+    </label>
+    </div>
+    <label for="allocation-committee-recommended-storage" id="allocation-committee-recommended-storage-label">#displayMessage("arms.allocation.storage.label")</label>
+    <input type="text" id="allocation-committee-recommended-storage" >
+</fieldset>
