@@ -64,7 +64,7 @@ class redbox (
   $proxy          = [
     {
       'path' => '/mint',
-      'url'  => 'http://localhost:9001/mint/',
+      'url'  => 'http://localhost:9001/mint',
     }
     ,
     {
