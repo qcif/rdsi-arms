@@ -297,7 +297,7 @@
 				<packaging>pom</packaging>
 				<node.list>ersa</node.list>
 				<theme>ersa</theme>
-        `		<artifactSuffix>ersa</artifactSuffix>
+        <artifactSuffix>ersa</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
@@ -306,7 +306,7 @@
 				<packaging>pom</packaging>
 				<node.list>rdsi</node.list>
 				<theme>rdsi</theme>
-        		<artifactSuffix>rdsi</artifactSuffix>
+        <artifactSuffix>rdsi</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
@@ -315,7 +315,7 @@
 				<packaging>pom</packaging>
 				<node.list>qcif</node.list>
 				<theme>qcif</theme>
-        		<artifactSuffix>ersa</artifactSuffix>
+        <artifactSuffix>qcif</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
