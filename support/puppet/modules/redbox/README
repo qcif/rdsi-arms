@@ -2,7 +2,7 @@
 __________________________
 ## The module deploys, installs and runs redbox.
 
-## use pre-install.sh to setup puppet for redbox use.
+## use scripts/pre-install.sh to setup puppet for redbox use.
 
 ## With DNS and SSL in place:
 puppet apply -e "class {'redbox':}"
