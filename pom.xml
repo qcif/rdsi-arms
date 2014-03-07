@@ -33,7 +33,9 @@
 		<smtp.host>localhost</smtp.host>
 		<admin.email>admin@localhost</admin.email>
 		<packaging>pom</packaging>
-		<node.list>ersa,intersect,ivec,nci,qcif,rdsi,vicnode,tpac</node.list>
+		<!-- node.list>ersa,intersect,ivec,nci,qcif,rdsi,vicnode,tpac</node.list -->
+		<node.list>qcif</node.list>
+		<theme>qcif</theme>
 		<!-- Control scripts try to auto-detect proxy. Use this value if you want 
 			Java to specifically exclude certain hosts from proxying. -->
 		<non.proxy.hosts>localhost</non.proxy.hosts>
@@ -515,6 +517,24 @@
 										<include>default/portal.json</include>
 										<include>rapidaaf/**/*</include>
 									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-portal-theme</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${dir.portal}/default/local</outputDirectory>
+							<includeEmptyDirs>true</includeEmptyDirs>
+							<overwrite>true</overwrite>
+							<resources>
+								<resource>
+									<directory>src/main/config/portal/${theme}/default</directory>
+									<filtering>false</filtering>
 								</resource>
 							</resources>
 						</configuration>
