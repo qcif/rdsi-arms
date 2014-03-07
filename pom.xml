@@ -91,10 +91,10 @@
 			<artifactId>plugin-transformer-jsonVelocity-pdf</artifactId>
 			<version>1.0</version>
 		</dependency>
-    <dependency>
+        <dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-subscriber-solrEventLog</artifactId>
-			<version>1.2.1</version>
+			<version>1.3-SNAPSHOT</version>
 		</dependency>
 		<!-- JSON harvester plugin -->
 		<dependency>
