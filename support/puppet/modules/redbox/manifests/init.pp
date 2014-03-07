@@ -72,6 +72,7 @@ class redbox (
       'url'  => 'http://localhost:9000/',
     }
     ],
+  $has_ssl        = true,
   $ssl_files      = {
     cert  => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
     key   => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
@@ -115,14 +116,18 @@ class redbox (
       require        => Class['Redbox::Java'],
       before         => Class['Redbox::Deploy'],
       server_url     => $server_url,
+      has_ssl        => $has_ssl,
       ssl_files      => $ssl_files,
       proxy          => $proxy,
-    }
+    } ~> Service['httpd']
   }
 
   class { 'redbox::deploy':
     owner      => $redbox_user,
     archives   => $archives,
+    has_ssl    => $has_ssl,
     server_url => $server_url,
   }
+  Class['redbox::deploy'] ~> Service['httpd']
+
 }
