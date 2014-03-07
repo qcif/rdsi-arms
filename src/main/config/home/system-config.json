@@ -248,7 +248,7 @@
         "sessionTimeout": "60",
         "skins": {
             "default": "default",
-            "order": [  "rdsi", "local", "redbox" ]
+            "order": [  "local", "rdsi", "redbox" ]
         },
         "caching": {
             "caches": {
