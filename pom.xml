@@ -204,9 +204,10 @@
 							</execution>
 						</executions>
 						<configuration>
-							<copyright>GPL</copyright>
-							<distribution>Trash 2005</distribution>
+							<copyright>GPLv2</copyright>
+							<distribution></distribution>
 							<group>Application/Internet</group>
+							<name>redbox-rdsi-arms-${theme}</name>
 							<mappings>
 								<mapping>
 									<directory>/opt/redbox/home</directory>
@@ -249,17 +250,6 @@
 									<sources>
 										<source>
 											<location>${dir.solr}</location>
-										</source>
-									</sources>
-								</mapping>
-								<mapping>
-									<directory>/opt/redbox/storage</directory>
-									<filemode>744</filemode>
-									<username>redbox</username>
-									<groupname>redbox</groupname>
-									<sources>
-										<source>
-											<location>${dir.storage}</location>
 										</source>
 									</sources>
 								</mapping>
