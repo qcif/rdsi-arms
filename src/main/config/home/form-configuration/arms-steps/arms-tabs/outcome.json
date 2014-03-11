@@ -34,7 +34,8 @@
       "component-type": "text-input",
       "field-name": "outcome-allocation-id",
       "label": "arms.outcome.subsectionB.label",
-      "additional-classes": "",
+      "label-classes": "inline-component",
+      "additional-classes": "inline-component",
       "disabled": true
     },
     {
