@@ -85,16 +85,19 @@ function toggleLinkedBtns(radio_btn_name) {
     var rButtons = document.getElementsByName(radio_btn_name);
     var i, j, l = rButtons.length, m;
     for (i = 0; i < l; i++) {
-        var btn_ids = rButtons[i].getAttribute('on_ids').split(',');
-        m = btn_ids.length;
-        if (rButtons[i].checked) {
-            for(j = 0; j < m; j++) {
-                $("[id='"+btn_ids[j]+"']").show();
-            }
-        } else {
-            for(j = 0; j < m; j++) {
-                $("[id='"+btn_ids[j]+"']").hide();
-            }
+        var onIds = rButtons[i].getAttribute('on_ids')
+        if (onIds) {
+         var btn_ids = onIds.split(',');
+         m = btn_ids.length;
+         if (rButtons[i].checked) {
+             for(j = 0; j < m; j++) {
+                 $("[id='"+btn_ids[j]+"']").show();
+             }
+         } else {
+             for(j = 0; j < m; j++) {
+                 $("[id='"+btn_ids[j]+"']").hide();
+             }
+         }
         }
     }
 }
