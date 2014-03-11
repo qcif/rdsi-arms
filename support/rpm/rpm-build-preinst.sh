@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 ## Create redbox user and group if they have not been created
-if ! getent group redbox >/dev/null; then
-	echo "Creating a group called redbox"
-    groupdel redbox
-fi
-
-if ! getent passwd redbox >/dev/null; then
-	echo "Creating a user called redbox"
-    userdel redbox
+if ! type "/etc/init.d/redbox" > /dev/null; then
+  service redbox stop
 fi
 
 ## Remove old library

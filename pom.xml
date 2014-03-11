@@ -253,13 +253,25 @@
 										</source>
 									</sources>
 								</mapping>
+								<mapping>
+									<directory>/etc/init.d/redbox</directory>
+									<filemode>770</filemode>
+									<username>root</username>
+									<groupname>root</groupname>
+									<sources>
+										<source>
+											<location>support/rpm/redbox</location>
+										</source>
+									</sources>
+								</mapping>
 							</mappings>
-							<requires>
-								<require>java</require>
-							</requires>
+							
 							<preinstallScriptlet>
-								<scriptFile>support/dev/rpm-build-preinst.sh</scriptFile>
+								<scriptFile>support/rpm/rpm-build-preinst.sh</scriptFile>
 							</preinstallScriptlet>
+							<postinstallScriptlet>
+								<scriptFile>support/rpm/rpm-build-postinst.sh</scriptFile>
+							</postinstallScriptlet>
 						</configuration>
 					</plugin>
 				</plugins>

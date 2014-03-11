@@ -1,0 +1,8 @@
+#!/bin/bash
+# chkconfig: 45 95 20
+# description: RedBox
+# Start/Stops the Redbox service
+# processname: redbox
+cd /opt/redbox/server
+sudo -u redbox ./tf.sh $1
+cd -
