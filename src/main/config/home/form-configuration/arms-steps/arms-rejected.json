@@ -17,26 +17,14 @@
     },
     {
       "config-file": "form-configuration/arms-steps/arms-tabs/declarations.json"
-    },
-    {
-      "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
-    },
-    {
-      "config-file": "form-configuration/arms-steps/arms-tabs/assessment.json"
-    },
-    {
-      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
-    },
-    {
-      "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
-    },
+    }
   ],
   "buttons": [],
   "form-footer": "armsform-footer",
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-approved.json"
+    "wizardDefPath": "wizard-definitions/arms-draft.json"
   },
   "validation-function": {
     "component-type": "active-tab",
