@@ -6,6 +6,8 @@
 #parseTemplate("form-components/delete-record.vm")
 #end
 
+#set($oid = $formData.get("oid"))
+#set($roles = $page.authentication.get_roles())
 #parseTemplate("form-components/actions-bar.vm")
 
 ## toggle isFunded and fundingInfoTable
@@ -70,4 +72,25 @@ $(document).ready(function() {
 	
 });
 
+
+### Only load data if user has reviewer role
+### This is required to enable the table defined in arms-tabs/assessment-summary.json to get data
+#if ($roles.contains("reviewer"))
+ var assessmentSummary = { rows: ko.observableArray([]) };
+ #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())
+ #set($members = $responses.keySet())
+ #if(!$members.isEmpty())
+ #foreach($key in $members)
+  #set($response = $responses.get($key))
+  assessmentSummary.rows.push(
+          {
+            "assessor": "$key",
+            "recommendation": "$response.get('recommendation')",
+            "sizeAgreement": "$response.get('size-agreement')",
+            "comments": "$response.get('size-agreement')"
+          });
+  #end        
+ #end
+ ko.applyBindings(assessmentSummary, $("#assessment-summary-table")[0]);
+#end
 </script>								   	    

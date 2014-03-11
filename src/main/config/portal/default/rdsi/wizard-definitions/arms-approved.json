@@ -25,14 +25,14 @@
     },
     "Reviewer Summary": {
       "Back": "Declarations",
-      "Next": "Assessment"
+      "Next": "Assessments"
     },
-    "Assessment": {
+    "Assessments": {
       "Back": "Reviewer Summary",
       "Next": "Outcome"
     },
     "Outcome": {
-      "Back": "Assessment",
+      "Back": "Assessments",
       "Next": "Provisioning"
     },
     "Provisioning": {

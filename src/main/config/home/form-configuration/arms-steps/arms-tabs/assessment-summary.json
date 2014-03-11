@@ -1,0 +1,13 @@
+{
+  "heading": "Assessments",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.assessments.heading"
+    },
+    {
+      "component-type": "assessment-summary"
+    }
+  ]
+}

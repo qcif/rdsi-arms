@@ -22,14 +22,14 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/assessment.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/assessment-summary.json"
     },
     {
       "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
     },
     {
       "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
-    },
+    }
   ],
   "buttons": [],
   "form-footer": "armsform-footer",

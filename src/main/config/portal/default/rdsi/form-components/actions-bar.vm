@@ -20,9 +20,6 @@
 #set($stage = $velocityContext.get('formData').get('currentStep'))
 #set($actions = $jsonSimpleClassConstructor.newInstance($fileObject).getJsonObject().get("$stage").get("actions"))
 
-#set($oid = $formData.get("oid"))
-#set($roles = $page.authentication.get_roles())
-
 ### End of preparation
 <div class="workflow-controls">
     <div style="float:left;margin-left:16.5em;">
