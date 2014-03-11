@@ -91,11 +91,11 @@ function toggleLinkedBtns(radio_btn_name) {
          m = btn_ids.length;
          if (rButtons[i].checked) {
              for(j = 0; j < m; j++) {
-                 $("[id='"+btn_ids[j]+"']").show();
+                 $("[id='"+btn_ids[j]+"']").removeAttr('disabled');
              }
          } else {
              for(j = 0; j < m; j++) {
-                 $("[id='"+btn_ids[j]+"']").hide();
+                 $("[id='"+btn_ids[j]+"']").attr('disabled','disabled');
              }
          }
         }
@@ -112,9 +112,9 @@ function link2Radios(btn) {
     if (!s) { s = btn_id } else { s += "," + btn_id } 
     rbtn.attr('on_ids',s);
     if (rbtn.attr('checked')) {
-        btn.show();
+        btn.removeAttr('disabled');
     } else {
-        btn.hide();
+        btn.attr('disabled','disabled');
     }
 }
 ### checkbox has ids in a format of btn_name + '.' + order_number
@@ -122,31 +122,31 @@ function link2Checkbox(btn) {
     var btn_name = btn.attr('conditional_id'), btn_id = btn.attr('id');
     function toggleSubmitButton() {
         if(allChecked(btn_name)) {
-            $("[id='"+btn_id+"']").show();
+            $("[id='"+btn_id+"']").removeAttr('disabled');
         } else {
-            $("[id='"+btn_id+"']").hide();
+            $("[id='"+btn_id+"']").attr('disabled','disabled');
         }
     }
     toggleSubmitButton();
     $("[id^='"+btn_name+"']").change(function() {
-        toggleSubmitButton();	
+        toggleSubmitButton();   
     });
 }
         
 $(document).ready(function() {
-	jQuery(".conditional").each(function() {
+    jQuery(".conditional").each(function() {
         var btn = $( this );
         if (btn.attr('conditional_on') == 'radio') {
             link2Radios(btn);
         } else if (btn.attr('conditional_on') == 'checkbox') {
             link2Checkbox(btn);
         }
-	});
+    });
 #if ($roles.contains("reviewer"))
-	### Link decision to applicaiton ID input box
+    ### Link decision to applicaiton ID input box
     var rbns = $("input[name='outcome-decision']");
     rbns.change(function() {
-    	var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
+        var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
         if (rid == "outcome-decision.2" || rid == "outcome-decision.3") {
             disabled = false; 
         }
