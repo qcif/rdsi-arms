@@ -255,7 +255,7 @@
 								</mapping>
 								<mapping>
 									<directory>/etc/init.d/redbox</directory>
-									<filemode>770</filemode>
+									<filemode>755</filemode>
 									<username>root</username>
 									<groupname>root</groupname>
 									<sources>
