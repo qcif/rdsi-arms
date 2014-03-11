@@ -52,6 +52,8 @@ class redbox (
       group       => 'au.edu.qcif',
       artifact    => 'redbox-rdsi-arms',
       web_context => undef,
+      version     => 'LATEST',
+      classifier  => 'qcif',
     }
     ,
     {
@@ -59,15 +61,11 @@ class redbox (
       group       => 'com.googlecode.redbox-mint',
       artifact    => 'mint-local-curation-demo',
       web_context => 'mint',
+      version     => '1.6.2',
+      classifier  => 'build',
     }
     ],
-  $proxy          = [
-    {
-      'path' => '/mint',
-      'url'  => 'http://localhost:9001/mint',
-    }
-    ,
-    {
+  $proxy          = [{
       'path' => '/',
       'url'  => 'http://localhost:9000/',
     }
