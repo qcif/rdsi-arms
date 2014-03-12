@@ -34,8 +34,8 @@
         </script>
     </div>
     <div style="float:left;margin-left:10em;">
-        <button class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
-        <button class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
+        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
+        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
     </div>
      <div style="float:left;margin-left:10em;">
          #foreach($action in $actions)
@@ -153,6 +153,29 @@ $(document).ready(function() {
         $("input[id='outcome-allocation-id']").attr("disabled", disabled);
     }); 
 #end
+
+### wizardTabIdentifier is defined in wizard.js  
+    var buttons = {"Back":"#back_btn","Next":"#next_btn"};
+    $('[id="'+wizardTabIdentifier+'"] > li').click(
+       function() { 
+         if (wizard_def) {
+        	 try {
+                 var currentTab = $(this).text();
+                 var currentStep = wizard_def["steps"][currentTab];
+                 for (var b in buttons) {
+                     if (currentStep.hasOwnProperty(b)) {
+                         $(buttons[b]).show(); 
+                     } else {
+                         $(buttons[b]).hide();
+                     }
+                 }
+        	 }
+        	 catch (e) {
+        		 console.error("Cannot hide or show trasition button. More: " + e);
+        	 }
+         } 
+    });
+
 });
 
 </script>
