@@ -516,6 +516,27 @@
 						</configuration>
 					</execution>
 					<execution>
+						<id>copy-portal-default</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${dir.portal}/default</outputDirectory>
+							<includeEmptyDirs>true</includeEmptyDirs>
+							<overwrite>true</overwrite>
+							<resources>
+								<resource>
+									<directory>src/main/config/portal/default</directory>
+									<filtering>false</filtering>
+									<excludes>
+										<exclude>**/rdsi-nodes.json</exclude>
+									</excludes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>copy-portal-theme</id>
 						<phase>process-resources</phase>
 						<goals>
