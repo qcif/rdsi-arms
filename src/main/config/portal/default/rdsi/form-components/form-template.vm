@@ -238,4 +238,20 @@ $formFooterHtml
 	});
  	$validatorFunctions
  });
+
+ ### Used by datepicker2.vm to add a Clear button on a datepicker widget itself not another button
+ ### http://stackoverflow.com/questions/4598850/how-do-you-add-buttons-to-a-jquery-datepicker-in-the-button-panel
+ function dpClearButton (input) {
+     setTimeout(function () {
+         var buttonPane = $(input)
+         .datepicker("widget")
+         .find(".ui-datepicker-buttonpane");
+
+         $("<button>", {
+             text: "Clear",
+             click: function () { jQuery.datepicker._clearDate(input); input.value = ""; }
+         }).appendTo(buttonPane).addClass("ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all");
+     }, 1)
+ }
+
 </script>
