@@ -36,48 +36,42 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class redbox (
-  $redbox_user    = 'redbox',
-  $directories    = [
+  $redbox_user              = 'redbox',
+  $directories              = [
     'redbox',
     'mint',
     'deploy',
-    'deploy/redbox',
     'deploy/mint'],
-  $has_dns        = true,
-  $shibboleth_env = undef,
-  $nexus_repo     = 'snapshots',
-  $archives       = [
-    {
-      name        => 'redbox',
-      group       => 'au.edu.qcif',
-      artifact    => 'redbox-rdsi-arms',
-      web_context => undef,
-      version     => 'LATEST',
-      classifier  => 'qcif',
+  $install_parent_directory = '/opt',
+  $has_dns                  = true,
+  $packages                 = [{
+      system  => 'redbox',
+      package => 'redbox-rdsi-arms-qcif',
     }
-    ,
-    {
+    ],
+  $archives                 = [{
       name        => 'mint',
       group       => 'com.googlecode.redbox-mint',
       artifact    => 'mint-local-curation-demo',
       web_context => 'mint',
       version     => '1.6.2',
       classifier  => 'build',
+      repo        => 'releases',
     }
     ],
-  $proxy          = [{
+  $proxy                    = [{
       'path' => '/',
       'url'  => 'http://localhost:9000/',
     }
     ],
-  $has_ssl        = true,
-  $ssl_files      = {
+  $has_ssl                  = true,
+  $ssl_files                = {
     cert  => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
     key   => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
     chain => "/etc/ssl/local_certs/SSLCertificateChainFile/${::fqdn}_CA.crt",
   }
   ,
-  $exec_path      = [
+  $exec_path                = [
     '/usr/local/bin',
     '/opt/local/bin',
     '/usr/bin',
@@ -100,27 +94,25 @@ class redbox (
   }
 
   redbox::add_systemuser { $redbox_user: } ->
-  add_directory { $directories: owner => $redbox_user, } ->
-  redbox::add_package { 'unzip': } ->
+  add_directory { $directories:
+    owner            => $redbox_user,
+    parent_directory => $install_parent_directory,
+  } ->
   class { 'redbox::java': }
 
   if ($proxy) {
     class { 'redbox::proxy_server':
-      shibboleth_env => $shibboleth_env,
-      require        => Class['Redbox::Java'],
-      before         => Class['Redbox::Deploy'],
-      server_url     => $server_url,
-      has_ssl        => $has_ssl,
-      ssl_files      => $ssl_files,
-      proxy          => $proxy,
+      require    => Class['Redbox::Java'],
+      before     => Redbox::Add_redbox_package[$packages],
+      server_url => $server_url,
+      has_ssl    => $has_ssl,
+      ssl_files  => $ssl_files,
+      proxy      => $proxy,
     } ~> Service['httpd']
   }
 
-  class { 'redbox::deploy':
-    owner      => $redbox_user,
-    archives   => $archives,
-    has_ssl    => $has_ssl,
-    server_url => $server_url,
+  redbox::add_redbox_package { $packages:
+    owner                    => $redbox_user,
+    install_parent_directory => $install_parent_directory,
   }
-  Class['redbox::deploy'] ~> Service['httpd']
 }

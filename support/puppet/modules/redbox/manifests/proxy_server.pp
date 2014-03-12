@@ -1,12 +1,10 @@
 class redbox::proxy_server (
-  $priority       = '10',
-  $mint_port      = '9001',
-  $server_url     = $::fqdn,
-  $docroot        = '/var/www/html',
-  $proxy          = undef,
-  $shibboleth_env = undef,
-  $ssl_files      = undef,
-  $has_ssl        = false,) {
+  $priority   = '10',
+  $server_url = $::fqdn,
+  $docroot    = '/var/www/html',
+  $proxy      = undef,
+  $ssl_files  = undef,
+  $has_ssl    = false,) {
   case $operatingsystem {
     'centos', 'redhat', 'fedora' : {
       $conf_dir    = '/etc/httpd/conf.d'
@@ -35,16 +33,6 @@ class redbox::proxy_server (
 
   include apache::mod::proxy
   include apache::mod::proxy_http
-  include apache::mod::proxy_ajp
-
-  if ($shibboleth_env) {
-    class { 'redbox::shibboleth':
-      shibboleth_env => $shibboleth_env,
-      require        => Class['apache'],
-      before         => File['redbox.conf'],
-    }
-    $redbox_path = "ajp://localhost:8009/"
-  }
 
   file { 'redbox.conf':
     path    => "${conf_dir}/${priority}-redbox.conf",
