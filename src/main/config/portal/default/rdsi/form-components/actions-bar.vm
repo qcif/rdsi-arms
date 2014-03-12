@@ -48,9 +48,10 @@
                #end
             #end
 
+            <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
             #if($action.get('action'))
              #if ($roleMatched == 1)
-                <button id="$action.get('id')" value="$action.get('action')" 
+                 value="$action.get('action')" 
                 #if ($action.get('condition-on')) 
                     #set($condition = $action.get('condition-on'))
                     class="ui-widget conditional" conditional_id="$condition.get('id')" conditional_on="$condition.get('on')"
@@ -67,7 +68,7 @@
                 </script>
               #end  
              #else
-                <button id="$action.get('id')" class="ui-widget">$action.get('label')</button>
+                 class="ui-widget">$action.get('label')</button>
                 <script type="text/javascript">
                 $('[id="$action.get('id')"]').click( function () { 
                      delete_record("$oid");

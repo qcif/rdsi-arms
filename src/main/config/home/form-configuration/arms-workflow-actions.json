@@ -6,6 +6,7 @@
         "label": "Submit request",
         "id": "draft-submit-btn",
         "action": "next",
+        "title": "Declarations need to be completed before request can be submitted",
         "condition-on": {
           "id": "request-declarations",
           "on": "checkbox"
