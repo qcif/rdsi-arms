@@ -35,7 +35,7 @@ class RecordsData(Dashboard):
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
 
-        searches = {'requestor':'arms-draft,arms-redraft',
+        searches = {'requestor':'arms-draft',
                     'redraft':'arms-redraft',
                     'submitted': 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected',
                     'reviewer':'arms-review',
