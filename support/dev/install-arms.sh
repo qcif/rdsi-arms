@@ -211,8 +211,14 @@ function arms_install () {
     # Download from Nexus (if necessary) and deploy
     su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-mint\" -i \"$MINT_INSTDIR\" mint" || die
 
+    # Caution: must wait until Mint has fully started up before harvesting.
+    echo "Waiting for Mint to start..."
+    sleep 60 # Try 1 minute (on slow machines, this might need to be increased)
+
     # Load ANZSRC FoR codes
-    su $INST_USER -c "\"$MINT_INSTDIR/server/tf_harvest.sh\" ANZSRC_FOR" || die
+    # Caution: the harvester must be run from in the /opt/mint/server directory.
+    echo "Loading ANZSRC Field of Research codes:"
+    su $INST_USER -c "cd \"$MINT_INSTDIR/server\" && ./tf_harvest.sh ANZSRC_FOR" || die
 
     #----------------
     # Install ReDBox
@@ -309,6 +315,11 @@ function arms_uninstall () {
 # Remove installation files
 
 function arms_cleanup () {
+    if [ ! -w "$TMPDIR" ]; then
+        echo "$PROG: error: insufficient permissions to clean up: $TMPDIR" >&2
+        exit 1
+    fi
+
     # Remove temporary install files
 
     if [ -d "$TMPDIR" ]; then
