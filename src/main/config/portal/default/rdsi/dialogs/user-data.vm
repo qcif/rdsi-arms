@@ -1,5 +1,7 @@
 <script type="text/javascript">
 <!--
+
+
     function userData() {
         $("#user-data").dialog('open');
     }
@@ -9,7 +11,7 @@
             autoOpen: false,
             hide: "blind",
             modal: true,
-            width: "260px"
+            width: "auto"
         }
         $(".user-data").click(function() {
             $("#user-data").dialog(dialogOpts);
@@ -26,7 +28,18 @@
 
 <style type="text/css">
    #user-data-form dt { float: left; width: 5em; }
- </style>
+   #username {
+               border:none;
+               background-color: #e9e9e9;
+               width:100%;
+   } 
+   #hidden-username {
+            color:#e9e9e9;
+            -webkit-user-select: none; /* Chrome/Safari */        
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none;
+   }
+</style>
  
 <div class="box hidden" id="user-data">
   <form id="user-data-form" method="post" action="#">
@@ -34,10 +47,13 @@
       <legend>User Data</legend>
       <dl>
         <dt>User ID:</dt>
-        <dd>$page.escapeHtml($page.authentication.get_username()) </dd>
+        <dd><input id="username" onclick="this.select();" readonly="readonly" value="$page.escapeHtml($page.authentication.get_username())"/> </dd>
+        <dt></dt>
+        <dd id="hidden-username"style="height:0.01%">$page.escapeHtml($page.authentication.get_name())</dd>
        #if ($page.authentication.is_admin())
         <dt>Name:</dt>
         <dd>$page.escapeHtml($page.authentication.get_name())</dd>
+        
         <dt>Origin:</dt>
         <dd>$page.escapeHtml($page.authentication.get_user_source())</dd>
       </dl>
