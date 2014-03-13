@@ -22,7 +22,8 @@
         <h4>Assessment</h4>
     </div>
     <div class="simple-workflow component-wrapper ">
-    <p>Reviewer recommends: Approve for ReDS</p>
+    #set($for = $self.reviewers.get("for"))
+    <p>Reviewer recommends: #if($for) $for #else Not given #end</p>
     </div>
     <div class="simple-workflow component-wrapper ">
     #if($self.assessment)
@@ -33,13 +34,14 @@
     <div>Recommendation</div>
         <label><input type="radio" value="Approve for ReDS" #if($recommendation == "Approve for ReDS") checked="checked" #end id="recommendation.1" name="recommendation" >Approve for ReDS</label>
         <label><input type="radio" value="Approve for CDS" #if($recommendation == "Approve for CDS") checked="checked" #end id="recommendation.2" name="recommendation" >Approve for CDS</label>
-        <label><input type="radio" value="More information required (specify what is required in the comments section)" #if($recommendation == "More information required (specify what is required in the comments section)") checked="checked" #end id="recommendation.3" name="recommendation">More information required (specify what is required in the comments section)</label>
+        <label><input type="radio" value="More information required" #if($recommendation == "More information required (specify what is required in the comments section)") checked="checked" #end id="recommendation.3" name="recommendation">More information required (specify what is required in the comments section)</label>
         <label><input type="radio" value="Reject" #if($recommendation == "Reject") checked="checked" #end id="recommendation.4" name="recommendation">Reject</label>
     </div>
     <div class="simple-workflow component-wrapper ">
-        <div>Reviewer recommends: 10TB  </div>
+        #set($size = $self.reviewers.get("storage"))
+        <div>Reviewer recommends: #if($size && $!size != "") $size #else Not given #end</div>
         <label><input type="radio" value="Agree with recommended size" #if($size-agreement == "Agree with recommended size") checked="checked" #end id="size-agreement.1" name="size-agreement">Agree with recommended size</label>
-        <label><input type="radio" value="Disagree (specify recommended size in comments section)" #if($size-agreement == "Disagree (specify recommended size in comments section)") checked="checked" #end id="size-agreement.2" name="size-agreement">Disagree (specify recommended size in comments section)</label>
+        <label><input type="radio" value="Disagree" #if($size-agreement == "Disagree (specify recommended size in comments section)") checked="checked" #end id="size-agreement.2" name="size-agreement">Disagree (specify recommended size in comments section)</label>
     </div>
     <div class="simple-workflow component-wrapper ">
      <label for="assessor-comments">Assessor's comments:</label>

@@ -56,6 +56,15 @@ class AssessData:
             payloadList = storedObj.getPayloadIdList()
             self.assessment = None
 
+            tfpackage = None
+            for pid in payloadList:
+                if pid.endswith(".tfpackage"):
+                    tfpackage = pid
+                    break
+            if tfpackage:
+                self.reviewers = self._readReviewers(storedObj, tfpackage)
+            else:
+                raise("No tfpakcage has been found.")
             if payloadList.contains(self.PAYLOAD):
                 committeeResponses = self._getResponses(storedObj)
                 self.assessment = committeeResponses.get(self.username) 
@@ -94,3 +103,14 @@ class AssessData:
         committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
         return committeeResponses
 
+    def _readReviewers(self, storedObj, tfpackage):
+        """Read from TFPACKAGE for reviewer's recommendation and map to a json with short keys:
+             reviewer-recommend-for : for
+             reviewer-recommended-storage : storage   
+        """
+        reviewersPayload = storedObj.getPayload(tfpackage)
+        reviewersRecommends = JsonSimple(reviewersPayload.open()).getJsonObject()
+        reviewers = JsonObject()
+        reviewers.put("for", reviewersRecommends.get("reviewer-recommend-for"))
+        reviewers.put("storage", reviewersRecommends.get("reviewer-recommended-storage"))
+        return reviewers
