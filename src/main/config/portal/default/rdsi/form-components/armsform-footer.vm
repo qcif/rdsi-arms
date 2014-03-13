@@ -87,7 +87,7 @@ $(document).ready(function() {
             "assessor": "$key",
             "recommendation": "$response.get('recommendation')",
             "sizeAgreement": "$response.get('size-agreement')",
-            "comments": "$response.get('size-agreement')"
+            "comments": "$response.get('comments')"
           });
   #end        
  #end

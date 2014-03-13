@@ -517,7 +517,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-25percent.1",
                           "label": "",
                           "format": "MM yy",
@@ -525,7 +525,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -534,7 +535,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-25percent.2",
                           "label": "",
                           "format": "MM yy",
@@ -542,7 +543,8 @@
                           "currentText": "Current month",
                           "options": "showButtonPanel: true",
                           "wrapperClass": "inline-component",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -551,7 +553,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-25percent.3",
                           "label": "",
                           "format": "MM yy",
@@ -559,7 +561,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     }
@@ -586,7 +589,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-50percent.1",
                           "label": "",
                           "format": "MM yy",
@@ -594,7 +597,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -603,7 +607,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-50percent.2",
                           "label": "",
                           "format": "MM yy",
@@ -611,7 +615,8 @@
                           "currentText": "Current month",
                           "options": "showButtonPanel: true",
                           "wrapperClass": "inline-component",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -620,7 +625,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-50percent.3",
                           "label": "",
                           "format": "MM yy",
@@ -628,7 +633,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     }
@@ -655,7 +661,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-75percent.1",
                           "label": "",
                           "format": "MM yy",
@@ -663,7 +669,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -672,7 +679,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-75percent.2",
                           "label": "",
                           "format": "MM yy",
@@ -680,7 +687,8 @@
                           "currentText": "Current month",
                           "options": "showButtonPanel: true",
                           "wrapperClass": "inline-component",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -689,7 +697,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-75percent.3",
                           "label": "",
                           "format": "MM yy",
@@ -697,7 +705,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     }
@@ -724,7 +733,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-100percent.1",
                           "label": "",
                           "format": "MM yy",
@@ -732,7 +741,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -741,7 +751,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-100percent.2",
                           "label": "",
                           "format": "MM yy",
@@ -749,7 +759,8 @@
                           "currentText": "Current month",
                           "options": "showButtonPanel: true",
                           "wrapperClass": "inline-component",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     },
@@ -758,7 +769,7 @@
                       "template": "group-td",
                       "fields": [
                         {
-                          "component-type": "date-picker",
+                          "component-type": "date-picker2",
                           "field-name": "storage-ingest-date-100percent.3",
                           "label": "",
                           "format": "MM yy",
@@ -766,7 +777,8 @@
                           "currentText": "Current month",
                           "wrapperClass": "inline-component",
                           "options": "showButtonPanel: true",
-                          "closeText": "Select"
+                          "closeText": "Select",
+                          "clearDateButton": true
                         }
                       ]
                     }

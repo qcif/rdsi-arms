@@ -205,12 +205,12 @@
               "additional-class": "ofFormRadioButtons",
               "buttons": [
                 {
-                  "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA",
-                  "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA"
-                },
-                {
                   "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointB",
                   "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointB"
+                },
+                {
+                  "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA",
+                  "value": "arms.field.label.section2-additional-subsectionB.paragraphA.pointA"
                 },
                 {
                   "label": "arms.field.label.section2-additional-subsectionB.paragraphA.pointC",

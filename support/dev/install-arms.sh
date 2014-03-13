@@ -166,33 +166,6 @@ function arms_install () {
     chown $INST_USER:$INST_USER "$TMPDIR/apache-arms.conf" || die
 
     #----------------
-    # Check custom tar.gz file is accessible (if specified)
-
-    if [ -n "$CUSTOM_REDBOX_ARCHIVE" ]; then
-        # Check it can be accessed when running as the "redbox" user that
-	# the deploy.sh script will be running as. It is better to fail
-	# now, before Mint is installed.
-	# Note: this test must "cd" into the directory, because the permissions
-	# of the ancestor directories could affect access. The deploy.sh
-        # will need to access the file as an absolute path, since it
-        # will be untaring it from the install directory.
-
-        ABS_DNAME="$( cd "$( dirname "$CUSTOM_REDBOX_ARCHIVE" )" && pwd )"
-        FNAME=`basename "$CUSTOM_REDBOX_ARCHIVE"`
-
-        su "$INST_USER" -c "cd \"$ABS_DNAME\"" 2>/dev/null
-        if [ $? -ne 0 ]; then
-            echo "$PROG: installer file's absolute directory not accessible by \"$INST_USER\" user: $ABS_DNAME" >&2
-            exit 1
-        fi
-        su "$INST_USER" -c "cd \"$ABS_DNAME\" && test -r \"$FNAME\"" 2>/dev/null
-        if [ $? -ne 0 ]; then
-            echo "$PROG: installer file not readable by \"$INST_USER\" user: $CUSTOM_REDBOX_ARCHIVE" >&2
-            exit 1
-        fi
-    fi
-
-    #----------------
     # Common argument to deploy.sh
 
     if [ -n "$VERBOSE" ]; then
@@ -211,8 +184,14 @@ function arms_install () {
     # Download from Nexus (if necessary) and deploy
     su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-mint\" -i \"$MINT_INSTDIR\" mint" || die
 
+    # Caution: must wait until Mint has fully started up before harvesting.
+    echo "Waiting for Mint to start..."
+    sleep 60 # Try 1 minute (on slow machines, this might need to be increased)
+
     # Load ANZSRC FoR codes
-    su $INST_USER -c "\"$MINT_INSTDIR/server/tf_harvest.sh\" ANZSRC_FOR" || die
+    # Caution: the harvester must be run from in the /opt/mint/server directory.
+    echo "Loading ANZSRC Field of Research codes:"
+    su $INST_USER -c "cd \"$MINT_INSTDIR/server\" && ./tf_harvest.sh ANZSRC_FOR" || die
 
     #----------------
     # Install ReDBox
@@ -221,8 +200,24 @@ function arms_install () {
     mkdir -p "$REDBOX_INSTDIR" || die
     chown $INST_USER:$INST_USER "$REDBOX_INSTDIR" || die
 
+    if [ -n "$CUSTOM_REDBOX_ARCHIVE" ]; then
+        # Make a copy of it so we can ensure that the deploy.sh (which will be
+        # running as the redbox user and not root) can always read it.
+        CUSTOM_ARCHIVE_TMP="$REDBOX_INSTDIR/redbox-$$.tar.gz"
+        cp "$CUSTOM_REDBOX_ARCHIVE" "$CUSTOM_ARCHIVE_TMP" || die
+        chown $INST_USER:$INST_USER "$CUSTOM_ARCHIVE_TMP" || die
+    else
+        # Deploy will use the cached installer copy or download it
+        CUSTOM_ARCHIVE_TMP=
+    fi
+
     # Download from Nexus (if necessary) and deploy
-    su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-redbox\" -i \"$REDBOX_INSTDIR\" redbox \"$CUSTOM_REDBOX_ARCHIVE\"" || die
+    su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-redbox\" -i \"$REDBOX_INSTDIR\" redbox \"$CUSTOM_ARCHIVE_TMP\"" || die
+
+    if [ -n "$CUSTOM_ARCHIVE_TMP" ]; then
+        # Delete the copy
+        rm "$CUSTOM_ARCHIVE_TMP" || die
+    fi
 
     #----------------
     # Configure Apache
@@ -309,6 +304,11 @@ function arms_uninstall () {
 # Remove installation files
 
 function arms_cleanup () {
+    if [ ! -w "$TMPDIR" ]; then
+        echo "$PROG: error: insufficient permissions to clean up: $TMPDIR" >&2
+        exit 1
+    fi
+
     # Remove temporary install files
 
     if [ -d "$TMPDIR" ]; then

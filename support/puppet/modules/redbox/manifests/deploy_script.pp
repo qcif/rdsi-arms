@@ -1,4 +1,4 @@
-class redbox::deploy (
+class redbox::deploy_script (
   $script_name              = 'deploy.sh',
   $archive_extension        = 'tar.gz',
   $new_extension            = "timestamp.new",

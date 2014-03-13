@@ -45,6 +45,13 @@
              changeYear: $changeYear,
              currentText: '$currentText',
              closeText: '$closeText',
+### dpClearButton is defined in armsform-footer.vm              
+         #if($clearDateButton)
+       	     beforeShow: dpClearButton,
+       	     onChangeMonthYear: function( year, month, instance ) {
+       	        dpClearButton(instance.input);
+       	     },
+       	#end    
              onClose: function(dateText, inst) {
                 var year = inst.selectedYear;
                 var day = inst.selectedDay;

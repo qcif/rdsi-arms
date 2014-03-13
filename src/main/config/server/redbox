@@ -3,6 +3,7 @@
 # description: RedBox
 # Start/Stops the Redbox service
 # processname: redbox
-cd /opt/redbox/server
-sudo -u redbox ./tf.sh $1
-cd -
+# Source function library
+. /etc/rc.d/init.d/functions
+daemon --user=redbox /opt/redbox/server/tf.sh $1
+echo

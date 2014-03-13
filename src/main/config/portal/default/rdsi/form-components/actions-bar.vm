@@ -34,8 +34,8 @@
         </script>
     </div>
     <div style="float:left;margin-left:10em;">
-        <button class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
-        <button class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
+        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
+        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
     </div>
      <div style="float:left;margin-left:10em;">
          #foreach($action in $actions)
@@ -50,7 +50,8 @@
 
             #if($action.get('action'))
              #if ($roleMatched == 1)
-                <button id="$action.get('id')" value="$action.get('action')" 
+             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
+                 value="$action.get('action')" 
                 #if ($action.get('condition-on')) 
                     #set($condition = $action.get('condition-on'))
                     class="ui-widget conditional" conditional_id="$condition.get('id')" conditional_on="$condition.get('on')"
@@ -67,7 +68,8 @@
                 </script>
               #end  
              #else
-                <button id="$action.get('id')" class="ui-widget">$action.get('label')</button>
+             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
+                 class="ui-widget">$action.get('label')</button>
                 <script type="text/javascript">
                 $('[id="$action.get('id')"]').click( function () { 
                      delete_record("$oid");
@@ -147,12 +149,36 @@ $(document).ready(function() {
     var rbns = $("input[name='outcome-decision']");
     rbns.change(function() {
         var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
+        if (typeof rid === 'undefined') return;
         if (rid == "outcome-decision.2" || rid == "outcome-decision.3") {
             disabled = false; 
         }
         $("input[id='outcome-allocation-id']").attr("disabled", disabled);
     }); 
 #end
+
+### wizardTabIdentifier is defined in wizard.js  
+    var buttons = {"Back":"#back_btn","Next":"#next_btn"};
+    $('[id="'+wizardTabIdentifier+'"] > li').click(
+       function() { 
+         if (wizard_def) {
+        	 try {
+                 var currentTab = $(this).text();
+                 var currentStep = wizard_def["steps"][currentTab];
+                 for (var b in buttons) {
+                     if (currentStep.hasOwnProperty(b)) {
+                         $(buttons[b]).show(); 
+                     } else {
+                         $(buttons[b]).hide();
+                     }
+                 }
+        	 }
+        	 catch (e) {
+        		 console.error("Cannot hide or show trasition button. More: " + e);
+        	 }
+         } 
+    });
+
 });
 
 </script>
