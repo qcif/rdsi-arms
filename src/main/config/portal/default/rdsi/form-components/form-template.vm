@@ -15,7 +15,23 @@
             timeEnd : function(){}
         }
     }
-    
+     
+     jQuery.originalAjax = jQuery.ajax;
+     jQuery.ajax = function(url,options) {
+     return jQuery.originalAjax("http://localhost:9000/default/userinfo",{
+                type : "GET", 
+                success: function(data,status,jqXHR) {
+                     if (data.userName == "guest") {
+                           window.location.reload();                     
+                     }
+                      jQuery.originalAjax(url,options);
+                  }});
+                 
+        
+    }
+  
+
+
     function s4() {
  		 return Math.floor((1 + Math.random()) * 0x10000)
              .toString(16)
