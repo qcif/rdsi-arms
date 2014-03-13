@@ -103,7 +103,9 @@ class redbox (
   if ($proxy) {
     class { 'redbox::proxy_server':
       require    => Class['Redbox::Java'],
-      before     => Redbox::Add_redbox_package[$packages],
+      before     => [
+        Redbox::Add_redbox_package[$packages],
+        Class['redbox::deploy_script']],
       server_url => $server_url,
       has_ssl    => $has_ssl,
       ssl_files  => $ssl_files,
@@ -111,8 +113,16 @@ class redbox (
     } ~> Service['httpd']
   }
 
+  class { 'redbox::deploy_script':
+    archives                 => $archives,
+    has_ssl                  => $has_ssl,
+    server_url               => $server_url,
+    install_parent_directory => $install_parent_directory,
+  } ->
   redbox::add_redbox_package { $packages:
     owner                    => $redbox_user,
     install_parent_directory => $install_parent_directory,
+    has_ssl                  => $has_ssl,
+    server_url               => $server_url,
   }
 }

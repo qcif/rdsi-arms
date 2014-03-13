@@ -2,7 +2,9 @@ define redbox::add_redbox_package (
   $packages         = $title,
   $owner            = 'redbox',
   $install_parent_directory,
-  $server_directory = 'server',) {
+  $server_directory = 'server',
+  $has_ssl          = false,
+  $server_url       = $::fqdn,) {
   $redbox_package = $packages[package]
   $redbox_system  = $packages[system]
   $target_path    = "${install_parent_directory}/${redbox_system}/${server_directory}"
