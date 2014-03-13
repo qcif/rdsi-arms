@@ -118,7 +118,9 @@ class redbox (
     has_ssl                  => $has_ssl,
     server_url               => $server_url,
     install_parent_directory => $install_parent_directory,
-  } ->
+    owner => $redbox_user, 
+  }
+
   redbox::add_redbox_package { $packages:
     owner                    => $redbox_user,
     install_parent_directory => $install_parent_directory,

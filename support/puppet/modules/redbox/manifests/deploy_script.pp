@@ -28,8 +28,9 @@ class redbox::deploy_script (
   exec { "$deploy_script_path":
     cwd       => $working_directory,
     user      => $owner,
-    tries     => 4,
+    tries     => 3,
     try_sleep => 2,
     logoutput => true,
+    timeout   => 100,
   }
 }
