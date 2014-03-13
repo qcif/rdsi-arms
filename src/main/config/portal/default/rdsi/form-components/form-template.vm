@@ -160,7 +160,7 @@
             $("[id='"+fieldId+"-errorButton']").click(function() {
                var activeTabHref = $("[id='"+ tabHeaderIdentifier + "'] > li.ui-state-active > a").attr('href');
 
-               var tabHref = "#" + $('[id=\"'+fieldId+'\"]').parents("div[class^='tab']").attr("id");
+               var tabHref = "#" + $('[id=\"'+validation["focusId"]+'\"]').parents("div[class^='tab']").attr("id");
                var focus_tab_name = $('ul[id="' + tabHeaderIdentifier + '"]').find('a[href=\"'+ tabHref +'\"]').children("span").text();
                if (focus_tab_name && activeTabHref != tabHref) { // if not on current tab, activate it
                   $($('a:contains('+focus_tab_name+')')[0]).click(); 
