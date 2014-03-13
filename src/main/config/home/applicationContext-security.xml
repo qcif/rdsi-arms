@@ -11,6 +11,7 @@
 	<http auto-config="false"  disable-url-rewriting="true" access-decision-manager-ref="fascinatorAccessDecisionManagerBean" use-expressions="true" entry-point-ref="authenticationEntryPoint">
 		<intercept-url pattern="/**/login" access="permitAll" />
 		<intercept-url pattern="/**/sso/*" access="permitAll" />
+        <intercept-url pattern="/**/userinfo" access="permitAll" />
 		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('assessor')"/>
 		<intercept-url pattern="/**/accessDenied" access="permitAll" />
 		<intercept-url pattern="/**/dashboards/requestor" access="hasRole('requestor')" />

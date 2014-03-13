@@ -48,9 +48,9 @@
                #end
             #end
 
-            <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
             #if($action.get('action'))
              #if ($roleMatched == 1)
+             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
                  value="$action.get('action')" 
                 #if ($action.get('condition-on')) 
                     #set($condition = $action.get('condition-on'))
@@ -68,6 +68,7 @@
                 </script>
               #end  
              #else
+             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
                  class="ui-widget">$action.get('label')</button>
                 <script type="text/javascript">
                 $('[id="$action.get('id')"]').click( function () { 
@@ -148,6 +149,7 @@ $(document).ready(function() {
     var rbns = $("input[name='outcome-decision']");
     rbns.change(function() {
         var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
+        if (typeof rid === 'undefined') return;
         if (rid == "outcome-decision.2" || rid == "outcome-decision.3") {
             disabled = false; 
         }
