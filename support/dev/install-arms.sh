@@ -388,7 +388,8 @@ function arms_uninstall () {
 # Remove installation files
 
 function arms_cleanup () {
-    if [ ! -w "$TMPDIR" ]; then
+
+    if [ -e "$TMPDIR" -a ! -w "$TMPDIR" ]; then
         echo "$PROG: error: insufficient permissions to clean up: $TMPDIR" >&2
         exit 1
     fi
@@ -397,6 +398,9 @@ function arms_cleanup () {
 
     if [ -d "$TMPDIR" ]; then
 	rm -rf "$TMPDIR" || die
+    elif [ -e "$TMPDIR" ]; then
+	echo "Error: not a directory: please delete it manually: $TMPDIR" >&2
+	exit 1
     fi
 
     if [ -n "$VERBOSE" ]; then
