@@ -82,13 +82,15 @@ $(document).ready(function() {
  #if(!$members.isEmpty())
  #foreach($key in $members)
   #set($response = $responses.get($key))
-  assessmentSummary.rows.push(
+  #if($response.get("status") == "final")
+   assessmentSummary.rows.push(
           {
             "assessor": "$key",
             "recommendation": "$response.get('recommendation')",
             "sizeAgreement": "$response.get('size-agreement')",
             "comments": "$response.get('comments')"
           });
+  #end
   #end        
  #end
  ko.applyBindings(assessmentSummary, $("#assessment-summary-table")[0]);

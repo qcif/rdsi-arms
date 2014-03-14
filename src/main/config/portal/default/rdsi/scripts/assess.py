@@ -73,9 +73,16 @@ class AssessData:
 
     def _saveResopnse(self, context):
         """ Save into object storage key to username
-            It has three keys: recommendation, size-agreement and comments
+            It has four keys: status, recommendation, size-agreement and comments
+            when status == "final", reviewer sees it
         """
         oid = self.request.getParameter("oid")
+        action = self.request.getParameter("action")
+        if action and re.match("submit", action, re.I):
+            status = "final"
+        else:
+            status = "draft"
+        
         recommendation = self.request.getParameter("recommendation")
         sizeAgreement = self.request.getParameter("size-agreement")
         comments = self.request.getParameter("comments")
@@ -88,6 +95,7 @@ class AssessData:
             committeeResponses = JsonObject()
         
         assessorResponse = JsonObject()
+        assessorResponse.put("status", status)
         assessorResponse.put("recommendation",recommendation)
         assessorResponse.put("size-agreement",sizeAgreement)
         assessorResponse.put("comments",comments)
