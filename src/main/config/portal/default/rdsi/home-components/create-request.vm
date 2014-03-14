@@ -14,7 +14,7 @@ $(function() {
     jQ("#new-request").click(function() {
         if (processing) return;
         processing = true;
-        jQ.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait when the request is being created...</h5>'});
+        jQ.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait while the request is being created...</h5>'});
         jQ.ajax({
             type: "POST",
             url: "$portalPath/actions/packaging.ajax",

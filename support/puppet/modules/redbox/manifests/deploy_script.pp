@@ -31,6 +31,5 @@ class redbox::deploy_script (
     tries     => 3,
     try_sleep => 2,
     logoutput => true,
-    timeout   => 100,
   }
 }

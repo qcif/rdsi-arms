@@ -118,9 +118,16 @@ class redbox (
     has_ssl                  => $has_ssl,
     server_url               => $server_url,
     install_parent_directory => $install_parent_directory,
-    owner => $redbox_user, 
+    owner                    => $redbox_user,
   }
 
+  yumrepo { 'redbox':
+    descr    => 'Redbox_repo',
+    baseurl  => 'http://dev.redboxresearchdata.com.au/yum/snapshots',
+    gpgcheck => 0,
+    enabled  => 1,
+  } ->
+  exec { 'yum clean all': } ->
   redbox::add_redbox_package { $packages:
     owner                    => $redbox_user,
     install_parent_directory => $install_parent_directory,

@@ -22,63 +22,71 @@
 
 ### End of preparation
 <div class="workflow-controls">
-    <div style="float:left;margin-left:16.5em;">
-        <button id="save-close" class="ui-widget">Save and close</button>
-        <script type="text/javascript">
-          $('#save-close').click( function () { 
-              closeUrl="$portalPath/detail/$oid"; 
-              action= "save";
-              skipValidation = false;
-              jaffa.form.save();
-          });
-        </script>
-    </div>
-    <div style="float:left;margin-left:10em;">
+	#set($include_delete_draft = 0)
+	<div style="float:right;margin-right:16em;">
+		<div>
+			<button id="save-close" class="ui-widget">Save and close</button>
+			<script type="text/javascript">
+				$('#save-close').click( function () { 
+				closeUrl="$portalPath/detail/$oid"; 
+				      action= "save";
+				      skipValidation = false;
+				      jaffa.form.save();
+				});
+			</script>
+		</div>
+		#foreach($action in $actions)
+			<div>
+				#set($roleMatched = 1)
+				#if ($action.get('role'))
+				   #set($requiredRole = $action.get('role'))
+				   #if (!$roles.contains("$requiredRole"))
+				   #set($roleMatched = 0)
+				   #end
+				#end
+				#if($action.get('action'))
+					#if ($roleMatched == 1)
+						<button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
+							value="$action.get('action')" 
+							#if ($action.get('condition-on')) 
+							    #set($condition = $action.get('condition-on'))
+							    class="ui-widget conditional" conditional_id="$condition.get('id')" conditional_on="$condition.get('on')"
+							#else
+							    class="ui-widget" 
+							#end 
+						>$action.get('label')</button>
+						<script type="text/javascript">
+							$('[id="$action.get('id')"]').click( function () { 
+							closeUrl="$portalPath/detail/$oid"; 
+							action= $(this).val();
+							    if(validateSubmit()) { jQuery.blockUI(); jaffa.form.save(true);  }
+							});
+						</script>
+					#end  
+				#else
+					#set($include_delete_draft = 1)
+					#set($delete_draft_id = "$action.get('id')")
+					#set($delete_draft_label = "$action.get('label')")
+				#end
+			</div>
+		#end
+	</div>
+	 <div style="float:right;margin-right:10em;">
         <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
         <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
     </div>
-     <div style="float:left;margin-left:10em;">
-         #foreach($action in $actions)
-         <div>
-            #set($roleMatched = 1)
-            #if ($action.get('role'))
-               #set($requiredRole = $action.get('role'))
-               #if (!$roles.contains("$requiredRole"))
-                   #set($roleMatched = 0)
-               #end
-            #end
-
-            #if($action.get('action'))
-             #if ($roleMatched == 1)
-             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
-                 value="$action.get('action')" 
-                #if ($action.get('condition-on')) 
-                    #set($condition = $action.get('condition-on'))
-                    class="ui-widget conditional" conditional_id="$condition.get('id')" conditional_on="$condition.get('on')"
-                #else
-                    class="ui-widget" 
-                #end 
-                >$action.get('label')</button>
-                <script type="text/javascript">
-                $('[id="$action.get('id')"]').click( function () { 
-                    closeUrl="$portalPath/detail/$oid"; 
-                    action= $(this).val();
-                    if(validateSubmit()) {  jQuery.blockUI(); jaffa.form.save(true);  }
-                });
-                </script>
-              #end  
-             #else
-             <button id="$action.get('id')" #if($action.get('title')) title="$action.get('title')" #end
-                 class="ui-widget">$action.get('label')</button>
-                <script type="text/javascript">
-                $('[id="$action.get('id')"]').click( function () { 
-                     delete_record("$oid");
-                });
-                </script>
-            #end
-         </div>
-         #end
-     </div>
+	<div style="float:left;margin-left:16.5em;">
+		#if ($include_delete_draft == 1)
+			<button id="$delete_draft_id"
+		    	class="ui-widget">$delete_draft_label
+		    </button>
+			<script type="text/javascript">
+				$('[id="$delete_draft_id"]').click( function () { 
+				     delete_record("$oid");
+				});
+			</script>
+		#end
+    </div>
 </div>
 
 <script>

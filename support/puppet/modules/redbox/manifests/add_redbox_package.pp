@@ -15,21 +15,20 @@ define redbox::add_redbox_package (
     server_url               => $server_url,
     install_parent_directory => $install_parent_directory,
   } ->
+  exec { "service ${redbox_system} restart":
+    tries       => 3,
+    timeout     => 20,
+    try_sleep   => 3,
+    user        => 'root',
+    refreshonly => true,
+    subscribe   => Package[$redbox_package],
+  } ->
   exec { "${target_path}/tf.sh restart":
     tries     => 2,
     timeout   => 2,
     try_sleep => 3,
     user      => $owner,
     creates   => "${target_path}/tf.pid"
-  }
-
-  exec { "service ${redbox_system} restart":
-    tries       => 3,
-    timeout     => 5,
-    try_sleep   => 3,
-    user        => 'root',
-    refreshonly => true,
-    subscribe   => Package[$redbox_package],
   }
 
   # problem possibly with chkconfig not picked up by puppet - so use exec
