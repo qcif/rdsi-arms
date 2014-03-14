@@ -33,6 +33,53 @@ function die () {
 }
 
 #----------------------------------------------------------------
+# Determine if Mint or ReDBox is ready
+# Usage: fascinator_ready {Mint | ReDBox}
+
+function fascinator_ready () {
+    FR_TARGET=$1
+
+    if [ "$FR_TARGET" = 'Mint' ]; then
+        MAIN_LOG_FILE="$MINT_INSTDIR/home/logs/main.log"
+    elif [ "$FR_TARGET" = 'ReDBox' ]; then
+        MAIN_LOG_FILE="$REDBOX_INSTDIR/home/logs/main.log"
+    else
+        echo "$PROG: fascinator_ready: internal error: $FR_TARGET" >&2
+        exit 3
+    fi
+
+    /bin/echo -n "Waiting for $FR_TARGET to be ready..."
+
+    STARTUP_COMPLETED=
+    TIMEOUT=300 # max 5 minutes
+    TIMER=0
+    while [ $TIMER -lt $TIMEOUT ]; do
+
+        if [ -r "$MAIN_LOG_FILE" ]; then
+	    grep 'MessageBroker *All Message Queues started successfully' \
+                "$MAIN_LOG_FILE" >/dev/null
+            if [ $? -eq 0 ]; then
+                # Found the message: assume it has started
+                # Is there might be a better (and accurate) way to do this?
+                STARTUP_COMPLETED=yes
+                break;
+            fi
+        fi
+        sleep 1
+        TIMER=`expr $TIMER + 1`
+    done
+
+    if [ -n "$STARTUP_COMPLETED" ]; then
+        echo " done (${TIMER}s)"
+        return 0
+    else
+        echo
+        echo "Warning: timeout: $FR_TARGET not fully running" >&2
+        return 1
+    fi
+}
+
+#----------------------------------------------------------------
 # Installs ARMS
 
 function arms_install () {
@@ -109,7 +156,9 @@ function arms_install () {
 	    if [ -f "$PROGDIR/$FILE" ]; then
 		# Local copy exists: use it
 		# This is for when running from the project source directory
-		echo "Copying: $PROGDIR/$FILE -> $TMPDIR/$FILE"
+	        if [ -n "$VERBOSE" ]; then
+		    echo "Copying: $PROGDIR/$FILE -> $TMPDIR/$FILE"
+                fi
 		cp "$PROGDIR/$FILE" "$TMPDIR/$FILE" || die
 	    else
 		# Download file from GitHub
@@ -185,12 +234,11 @@ function arms_install () {
     su $INST_USER -c "\"$TMPDIR/deploy.sh\" $VERB -t \"$TMPDIR/install-mint\" -i \"$MINT_INSTDIR\" mint" || die
 
     # Caution: must wait until Mint has fully started up before harvesting.
-    echo "Waiting for Mint to start..."
-    sleep 60 # Try 1 minute (on slow machines, this might need to be increased)
+    fascinator_ready Mint
 
     # Load ANZSRC FoR codes
     # Caution: the harvester must be run from in the /opt/mint/server directory.
-    echo "Loading ANZSRC Field of Research codes:"
+    echo "Loading ANZSRC Field of Research codes into Mint:"
     su $INST_USER -c "cd \"$MINT_INSTDIR/server\" && ./tf_harvest.sh ANZSRC_FOR" || die
 
     #----------------
@@ -204,6 +252,9 @@ function arms_install () {
         # Make a copy of it so we can ensure that the deploy.sh (which will be
         # running as the redbox user and not root) can always read it.
         CUSTOM_ARCHIVE_TMP="$REDBOX_INSTDIR/redbox-$$.tar.gz"
+	if [ -n "$VERBOSE" ]; then
+	    echo "Copying: $CUSTOM_REDBOX_ARCHIVE -> $CUSTOM_ARCHIVE_TMP"
+        fi
         cp "$CUSTOM_REDBOX_ARCHIVE" "$CUSTOM_ARCHIVE_TMP" || die
         chown $INST_USER:$INST_USER "$CUSTOM_ARCHIVE_TMP" || die
     else
@@ -229,6 +280,39 @@ function arms_install () {
 
     # Start Apache
     service httpd start || die
+
+    #----------------
+    # Wait for ReDBox to be ready
+
+    fascinator_ready ReDBox
+
+    #----------------
+    # Priming
+
+    # Priming Mint so it is ready to respond quickly to the first request.
+    # This simply gets Tapistry to initialize.
+    # Note: if this is not done, the first time ReDBox contacts Mint
+    # to get the FoR codes it is very likely to timeout.
+
+    if [ -n "$VERBOSE" ]; then
+        /bin/echo -n "Priming Mint..."
+    fi
+    curl -s -L 'http://localhost:9001/mint/ANZSRC_FOR' >/dev/null || die
+    if [ -n "$VERBOSE" ]; then
+        echo " done"
+    fi
+
+    # Priming ReDBox so it is ready to respond quickly to the first request.
+    # This simply gets Tapistry to initialize.
+    # This makes it respond faster the first time a user accesses ReDBox.
+
+    if [ -n "$VERBOSE" ]; then
+        /bin/echo -n "Priming ReDBox..."
+    fi
+    curl -s -L 'http://localhost:9000/' >/dev/null || die
+    if [ -n "$VERBOSE" ]; then
+        echo " done"
+    fi
 
     #----------------
     # Finish up
