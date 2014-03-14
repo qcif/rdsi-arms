@@ -280,6 +280,7 @@
 				<packaging>pom</packaging>
 				<server.url.base>http://localhost:9000/</server.url.base>
 				<environment>dev</environment>
+				<artifactSuffix>dev</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
@@ -288,16 +289,16 @@
 				<packaging>pom</packaging>
 				<node.list>ersa</node.list>
 				<theme>ersa</theme>
-        <artifactSuffix>ersa</artifactSuffix>
+				<artifactSuffix>ersa</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
-      <id>rdsi</id>
+			<id>rdsi</id>
 			<properties>
 				<packaging>pom</packaging>
 				<node.list>rdsi</node.list>
 				<theme>rdsi</theme>
-        <artifactSuffix>rdsi</artifactSuffix>
+				<artifactSuffix>rdsi</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
@@ -306,7 +307,7 @@
 				<packaging>pom</packaging>
 				<node.list>qcif</node.list>
 				<theme>qcif</theme>
-        <artifactSuffix>qcif</artifactSuffix>
+				<artifactSuffix>qcif</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
