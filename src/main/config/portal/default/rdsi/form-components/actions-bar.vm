@@ -63,7 +63,7 @@
                 $('[id="$action.get('id')"]').click( function () { 
                     closeUrl="$portalPath/detail/$oid"; 
                     action= $(this).val();
-                    if(validateSubmit()) {  jaffa.form.save(true);  }
+                    if(validateSubmit()) {  jQuery.blockUI(); jaffa.form.save(true);  }
                 });
                 </script>
               #end  
