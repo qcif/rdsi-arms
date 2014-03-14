@@ -271,6 +271,11 @@ function arms_install () {
     fi
 
     #----------------
+    # Wait for ReDBox to be ready
+
+    fascinator_ready ReDBox
+
+    #----------------
     # Configure Apache
 
     cp "$TMPDIR/apache-arms.conf" "$APACHE_ARMS_CONFIG" || die
@@ -280,11 +285,6 @@ function arms_install () {
 
     # Start Apache
     service httpd start || die
-
-    #----------------
-    # Wait for ReDBox to be ready
-
-    fascinator_ready ReDBox
 
     #----------------
     # Priming
