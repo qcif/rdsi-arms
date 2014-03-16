@@ -134,4 +134,12 @@ class redbox (
     has_ssl                  => $has_ssl,
     server_url               => $server_url,
   }
+
+  cron { deploy_redbox:
+    command => "puppet apply -e \"class {'redbox':}\"",
+    user    => root,
+    hour    => 2,
+    minute  => 0,
+  }
+
 }
