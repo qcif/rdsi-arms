@@ -83,13 +83,20 @@ $(document).ready(function() {
  #foreach($key in $members)
   #set($response = $responses.get($key))
   #if($response.get("status") == "final")
-   #set($comments =$page.escapeHtml($response.get("comments")).replaceAll("\n","<br/>").replaceAll("\r",""))
+   #set($comments = $response.get("comments"))
+   #if($comments)
+	   #set($comments=$page.escapeHtml($comments).replaceAll("\n","<br/>").replaceAll("\r",""))
+   #else
+	   #set($comments="")
+   #end
+   #set($recommandation = $response.get('recommendation'))
+   #set($sizeAgreement = $response.get('size-agreement'))
    assessmentSummary.rows.push(
           {
             "assessor": "$key",
-            "recommendation": "$response.get('recommendation')",
-            "sizeAgreement": "$response.get('size-agreement')",
-            "comments": "$comments"
+            "recommendation": "$!recommandation",
+            "sizeAgreement": "$!sizeAgreement",
+            "comments": "$!comments"
           });
   #end
   #end        
