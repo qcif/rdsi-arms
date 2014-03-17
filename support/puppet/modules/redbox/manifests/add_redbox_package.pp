@@ -1,10 +1,10 @@
 define redbox::add_redbox_package (
   $packages         = $title,
-  $owner            = 'redbox',
+  $owner            = undef,
   $install_parent_directory,
   $server_directory = 'server',
-  $has_ssl          = false,
-  $server_url       = $::fqdn,) {
+  $has_ssl          = undef,
+  $server_url       = undef,) {
   $redbox_package = $packages[package]
   $redbox_system  = $packages[system]
   $target_path    = "${install_parent_directory}/${redbox_system}/${server_directory}"
@@ -21,14 +21,17 @@ define redbox::add_redbox_package (
     try_sleep   => 3,
     user        => 'root',
     refreshonly => true,
+    cwd         => $target_path,
     subscribe   => Package[$redbox_package],
     logoutput   => true,
-  } ->
+  }
+
   exec { "${target_path}/tf.sh restart":
     tries     => 2,
     timeout   => 20,
     try_sleep => 3,
     user      => $owner,
+    cwd       => $target_path,
     creates   => "${target_path}/tf.pid",
     logoutput => true,
   }
