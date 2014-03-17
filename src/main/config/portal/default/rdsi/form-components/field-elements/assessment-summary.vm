@@ -12,7 +12,7 @@
              <td data-bind="text: assessor"/>
              <td data-bind="text: recommendation"/>
              <td data-bind="text: sizeAgreement" />
-             <td data-bind="text: comments"/>    
+             <td data-bind="html: comments"/>    
         </tr>
     </tbody>
 </table>

@@ -14,6 +14,7 @@
         <intercept-url pattern="/**/userinfo" access="permitAll" />
 		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('assessor')"/>
         <intercept-url pattern="/**/assess/*" access="hasRole('assessor')"/>
+        <intercept-url pattern="/**/assessment.script" access="hasRole('assessor')"/>
 		<intercept-url pattern="/**/accessDenied" access="permitAll" />
 		<intercept-url pattern="/**/dashboards/requestor" access="hasRole('requestor')" />
 		<intercept-url pattern="/**/dashboards/reviewer" access="hasAnyRole('reviewer','provisioner')" />
