@@ -16,48 +16,43 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-from com.googlecode.fascinator.common import JsonSimple, JsonObject
-from com.googlecode.fascinator.common.storage import StorageUtils
+from com.googlecode.fascinator.common import FascinatorHome
+import sys, os
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 
-class AssessmentData:
-    """ Draft, only accessible to assessor themselves, security settings
+from Assessment import Assessment
+
+from com.googlecode.fascinator.common import JsonObject
+
+class AssessmentData(Assessment):
+    """ Used by HTTP client to query status of an assessment
     """
-    PAYLOAD = "committee-responses.metadata"
-    
     def __init__(self):
         pass
 
     def __activate__(self, context):
-        self.request = context["request"]
-        self.storage = context["Services"].getStorage()
-        self.assessor = context["page"].authentication.get_name()
+        self.activate(context)
         self.writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         
         oid = self.request.getParameter("oid")
-        self.queryAssessment(oid)
-     
-    def queryAssessment(self, oid):
+        self._queryAssessment(oid)
+
+    def _queryAssessment(self, oid):
         response = JsonObject()
         response.put("status", "new")
 
         if oid:
-            storedObj = self.storage.getObject(oid)
-            payloadList = storedObj.getPayloadIdList()
             assessment = None ## Not processed yet
-            if payloadList.contains(self.PAYLOAD):
-                committeeResponses = self._getResponses(storedObj)
+            storedObj = self.hasResponses(oid)
+            if storedObj:
+                committeeResponses = self.getResponses(storedObj)
                 assessment = committeeResponses.get(self.assessor)
                 if assessment:
                     status = assessment.get("status")
                     if status:
                         response.put("status", status)
                     else:
-                        response.put("status", "draft") # back compatibility
+                        response.put("status", "draft") # In case not "status" key
 
         self.writer.println(response)
         self.writer.close()       
-
-    def _getResponses(self, storedObj):
-        committeeResponsePayload = storedObj.getPayload(self.PAYLOAD)
-        committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
-        return committeeResponses

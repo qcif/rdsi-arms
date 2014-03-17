@@ -15,31 +15,31 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
+from com.googlecode.fascinator.common import FascinatorHome
+import sys, os
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
+
+from Assessment import Assessment
 
 from com.googlecode.fascinator.common import JsonSimple, JsonObject
-from com.googlecode.fascinator.common.storage import StorageUtils
 from java.net import URLDecoder
-from org.apache.commons.io import IOUtils
 
 import re
 
-class AssessData:
-    """ Save/display stored assessor assessments in committee-responses.metadata within current digital object
+class AssessData(Assessment):
+    """ Processing assessment form
+        Save/display stored assessor assessments in committee-responses.metadata within current digital object
         The structure of committee-responses.metadata has keys of assessor's username. 
     """
-    PAYLOAD = "committee-responses.metadata"
-    
     def __init__(self):
         pass
 
     def __activate__(self, context):
-        self.request = context["request"]
-        self.storage = context["Services"].getStorage()
-        self.username = context["page"].authentication.get_name()
+        self.activate(context)
         
         oid = self.request.getParameter("oid")
         if oid:
-            self._saveResopnse(context)
+            self.saveResopnse(context)
         else:
             self._loadForm()
      
@@ -66,50 +66,10 @@ class AssessData:
             else:
                 raise("No tfpakcage has been found.")
             if payloadList.contains(self.PAYLOAD):
-                committeeResponses = self._getResponses(storedObj)
-                self.assessment = committeeResponses.get(self.username) 
+                committeeResponses = self.getResponses(storedObj)
+                self.assessment = committeeResponses.get(self.assessor) 
         else:
             self.oid = "null"
-
-    def _saveResopnse(self, context):
-        """ Save into object storage key to username
-            It has four keys: status, recommendation, size-agreement and comments
-            when status == "final", reviewer sees it
-        """
-        oid = self.request.getParameter("oid")
-        action = self.request.getParameter("action")
-        if action and re.match("submit", action, re.I):
-            status = "final"
-        else:
-            status = "draft"
-        
-        recommendation = self.request.getParameter("recommendation")
-        sizeAgreement = self.request.getParameter("size-agreement")
-        comments = self.request.getParameter("comments")
-        
-        storedObj = self.storage.getObject(oid)
-        payloadList = storedObj.getPayloadIdList()
-        if payloadList.contains(self.PAYLOAD):
-            committeeResponses = self._getResponses(storedObj)
-        else:
-            committeeResponses = JsonObject()
-        
-        assessorResponse = JsonObject()
-        assessorResponse.put("status", status)
-        assessorResponse.put("recommendation",recommendation)
-        assessorResponse.put("size-agreement",sizeAgreement)
-        assessorResponse.put("comments",comments)
-        
-        committeeResponses.put(self.username,assessorResponse)
-
-        ## print " %s: Committee %s, recommendation = %s, comments = %s"  % ( oid, self.username, recommendation, comments)
-        StorageUtils.createOrUpdatePayload(storedObj,self.PAYLOAD,IOUtils.toInputStream(committeeResponses.toString(), "UTF-8"))
-        context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
-
-    def _getResponses(self, storedObj):
-        committeeResponsePayload = storedObj.getPayload(self.PAYLOAD)
-        committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
-        return committeeResponses
 
     def _readReviewers(self, storedObj, tfpackage):
         """Read from TFPACKAGE for reviewer's recommendation and map to a json with short keys:
