@@ -22,8 +22,12 @@
 
 ### End of preparation
 <div class="workflow-controls">
+	<div class="workflow-control-blocks">
+        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
+        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
+    </div>
 	#set($include_delete_draft = 0)
-	<div style="float:right;margin-right:16em;">
+	<div class="workflow-control-blocks">
 		<div>
 			<button id="save-close" class="ui-widget">Save and close</button>
 			<script type="text/javascript">
@@ -71,11 +75,7 @@
 			</div>
 		#end
 	</div>
-	 <div style="float:right;margin-right:10em;">
-        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
-        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
-    </div>
-	<div style="float:left;margin-left:16.5em;">
+	<div class="workflow-control-block-left">
 		#if ($include_delete_draft == 1)
 			<button id="$delete_draft_id"
 		    	class="ui-widget">$delete_draft_label

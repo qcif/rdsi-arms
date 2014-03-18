@@ -113,31 +113,21 @@
 	padding-top: 0.5em;
 	bottom:0;
 }
-.next-button {
-  margin-left:25.5em;
-}
 
-.overflow-container {
-	overflow: hidden;	
-}
+.workflow-control-blocks {
+	display: inline-block; 
+	margin-left:16.5em; 
+	vertical-align:top;
+} 
 
-.m-align {
-	text-align: center;
-	width: 50%;
-}
-
-.l-align {
+.workflow-control-block-left {
+	display: inline-block; 
+	margin-left:16.5em; 
+	vertical-align:top;
 	float: left;
 }
 
-.r-align {
-	float: right;
-}
 
-.line-of-components {
-  display: inline-block;
-  vertical-align: top;
-}
 
 .notesFields textarea {
   width:40em;	
