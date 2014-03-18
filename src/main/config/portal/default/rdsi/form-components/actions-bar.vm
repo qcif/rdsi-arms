@@ -23,8 +23,8 @@
 ### End of preparation
 <div class="workflow-controls">
 	<div class="workflow-control-blocks">
-        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" form-action="save">Back</button>
-        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" form-action="save">Next</button>
+        <button id="back_btn" class="ui-widget" transition-name="Back" onclick="transition_click(this)" >Back</button>
+        <button id="next_btn" class="ui-widget" transition-name="Next" onclick="transition_click(this)" >Next</button>
     </div>
 	#set($include_delete_draft = 0)
 	<div class="workflow-control-blocks">
@@ -34,8 +34,8 @@
 				$('#save-close').click( function () { 
 				closeUrl="$portalPath/detail/$oid"; 
 				      action= "save";
-				      skipValidation = false;
-				      jaffa.form.save();
+				      skipValidation = true;
+				      jaffa.form.save(true);
 				});
 			</script>
 		</div>
