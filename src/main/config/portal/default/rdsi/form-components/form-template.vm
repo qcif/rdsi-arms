@@ -18,7 +18,7 @@
      
      jQuery.originalAjax = jQuery.ajax;
      jQuery.ajax = function(url,options) {
-     return jQuery.originalAjax("http://localhost:9000/default/userinfo",{
+     return jQuery.originalAjax("${portalPath}/userinfo",{
                 type : "GET", 
                 success: function(data,status,jqXHR) {
                      if (data.userName == "guest") {

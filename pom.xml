@@ -280,7 +280,6 @@
 				<packaging>pom</packaging>
 				<server.url.base>http://localhost:9000/</server.url.base>
 				<environment>dev</environment>
-				<artifactSuffix>dev</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
