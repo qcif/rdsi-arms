@@ -82,7 +82,7 @@ $(document).ready(function() {
  #if(!$members.isEmpty())
  #foreach($key in $members)
   #set($response = $responses.get($key))
-  #if($response.get("status") == "final")
+  #if($response.get("status") == "submitted")
    #set($comments = $response.get("comments"))
    #if($comments)
 	   #set($comments=$page.escapeHtml($comments).replaceAll("\n","<br/>").replaceAll("\r",""))

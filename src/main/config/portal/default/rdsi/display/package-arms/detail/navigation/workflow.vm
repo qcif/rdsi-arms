@@ -2,11 +2,11 @@
 #set($hasWorkflowAccess = $self.hasWorkflowAccess())
 #if($hasWorkflow && $hasWorkflowAccess && !$parent.isPending())
     #set($workflowStep = $self.getWorkflowStep())
-    <li>
     #if($page.authentication.has_role('assessor'))
-        <a href="$portalPath/assess/$oid" title="$workflowStep">Assessment form</a>
+        #renderObject($metadata "detail/navigation/assessoractions")
     #else
+    <li>
         <a href="$portalPath/workflow/$oid" title="$workflowStep">Edit Workflow: $workflowStep</a>
-    #end        
     </li>
+    #end        
 #end

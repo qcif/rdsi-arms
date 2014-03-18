@@ -45,7 +45,9 @@ class RecordsData(Dashboard):
                     'provisioned':'arms-provisioned',
                     'adminProvisions':'arms-review,arms-assessment,arms-approved',
                     'adminHoldings':'arms-provisioned,arms-rejected',
-                    'shared':''}
+                    'shared':'',
+                    'assessment-draft':'',
+                    'assessment-submitted':''}
         
         formData = context["formData"]
         packageType = formData.get("packageType")
@@ -63,7 +65,10 @@ class RecordsData(Dashboard):
             pageNum = 1
             
         if searchType == "shared":
-            results = self.getShared(pageNum)
+            results = self.getShared(packageType, pageNum)
+        if searchType in ['assessment-draft', 'assessment-submitted']:
+            ## used in filtering results
+            results = self.getFiltered(packageType, searchType, pageNum)
         else:
             results = self.getListOfStage(packageType, searches[searchType], pageNum)
         

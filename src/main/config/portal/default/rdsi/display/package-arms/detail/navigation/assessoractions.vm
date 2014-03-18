@@ -1,0 +1,6 @@
+## /redbox-rdsi-arms/src/main/config/portal/default/rdsi/scripts/display/package-arms/detail/navigation/assessoractions.py
+#if($self.editable)
+        <li>
+        <a href="$portalPath/assess/$self.oid" title="Assement">Assessment form</a>
+        </li>
+#end

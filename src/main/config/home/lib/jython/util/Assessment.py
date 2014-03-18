@@ -50,12 +50,12 @@ class Assessment:
     def saveResopnse(self, context):
         """ Save into object storage key to assessor's name
             It has four keys: status, recommendation, size-agreement and comments
-            when status == "final", reviewer sees it
+            when status == "submitted", reviewer sees it
         """
         oid = self.request.getParameter("oid")
         action = self.request.getParameter("action")
         if action and re.match("submit", action, re.I):
-            status = "final"
+            status = "submitted"
         else:
             status = "draft"
         
@@ -80,3 +80,20 @@ class Assessment:
         ## print " %s: Committee %s, recommendation = %s, comments = %s"  % ( oid, self.assessor, recommendation, comments)
         StorageUtils.createOrUpdatePayload(storedObj,self.PAYLOAD,IOUtils.toInputStream(committeeResponses.toString(), "UTF-8"))
         context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
+
+    def queryStatus(self, oid):
+        status = "new"
+
+        if oid:
+            assessment = None ## Not processed yet
+            storedObj = self.hasResponses(oid)
+            if storedObj:
+                committeeResponses = self.getResponses(storedObj)
+                assessment = committeeResponses.get(self.assessor)
+                if assessment:
+                    savedStatus = assessment.get("status")
+                    if savedStatus:
+                        status = savedStatus
+                    else:
+                        status = "draft"
+        return status

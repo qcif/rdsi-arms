@@ -1,47 +1,35 @@
 #parseTemplate( "home-components/package-type.vm" )
 
-#set($menuTitle = "#displayMessage('arms.dashboard.assessor.pending')")
-#parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-assessment'))
-#if ($results && $results.size() > 0)
-
-## load pagination controls
+## load pagination controls lazily
 #parseTemplate("home-components/pagingControl.vm")
 
+#set($menuTitle = "#displayMessage('arms.dashboard.assessor.pending')")
+#parseTemplate("wrapping/info-box-open.vm")
+#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-draft'))
+#if ($results && $results.size() > 0)
 <script>
-var myRecords = new DataRowsModel('assessor');
-myRecords.prepareData = function(data) {
-	var attachto = this.rows;
-	var m = {"new":"New","draft":"Working","final":"Submitted"};
-    function loadStatus(data)  {  
-        data["detailUrl"] = '$portalPath/detail/' + data["id"];
-        data["editUrl"] = '$portalPath/assess/' + data["id"];
-        jQuery.getJSON("$portalPath/assessment.script",{"oid":data["id"]},
-        		function(status){ 
-                   data["status"] = m[status["status"]];
-                   attachto.push(data);
-                }
-        );
-    }
+var assementDrafts = new DataRowsModel('assessment-draft');
+assementDrafts.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
-    	loadStatus(data[i]);
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/assess/' + data[i].id;;
+        this.rows.push(data[i]);
     }
 }
 
 jQuery(document).ready(function() { 
-    ko.applyBindings(myRecords, jQuery('#myRecordsTbl')[0]);
-    setupPagingCtrls('myRecordsPaging', myRecords, $results);
+    ko.applyBindings(assementDrafts, jQuery('#assementDraftsTbl')[0]);
+    setupPagingCtrls('assementDraftsPaging', assementDrafts, $results);
 });
 </script>
 
 <div class="block">
-<table id="myRecordsTbl" data-bind="stopBindings: true">
+<table id="assementDraftsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
             <th>#displayMessage('arms.requests.table.assessmentdate')</th>
             <th>#displayMessage('arms.requests.table.action')</th>
-            <th>Status</th>
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
@@ -49,12 +37,51 @@ jQuery(document).ready(function() {
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
         <td data-bind="text: 'Start date:coming'"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        <td data-bind="text: status"></td>
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("myRecordsPaging")
+#setPagingCtrl("assementDraftsPaging")
 </div>
 
 #end
 #parseTemplate("wrapping/info-box-close.vm")
+
+#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-submitted'))
+#if ($results && $results.size() > 0)
+#set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
+#parseTemplate("wrapping/info-box-open.vm")
+<script>
+var assementFinal = new DataRowsModel('assessment-submitted');
+assementFinal.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() { 
+    ko.applyBindings(assementFinal, jQuery('#assementFinalTbl')[0]);
+    setupPagingCtrls('assementFinalPaging', assementFinal, $results);
+});
+</script>
+
+<div class="block">
+<table id="assementFinalTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.assessmentdate')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: 'Start date:coming'"></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("assementFinalPaging")
+</div>
+
+#parseTemplate("wrapping/info-box-close.vm")
+#end

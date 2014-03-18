@@ -47,7 +47,7 @@
     <div class="simple-workflow component-wrapper ">
      <label for="assessor-comments">Assessor's comments:</label>
      <textarea name="comments" id="comments" rows="4" cols="80">#if($comments)$StringEscapeUtils.escapeHtml($comments)#end</textarea>
-     #if($status != "final")
+     #if($status != "submitted")
      <div><input type="submit" name="action" id="action_save" value="Save and close" class="ui-widget"><input type="submit" name="action" value="Submit assessment" class="ui-widget" style="margin-left:16em"></div>
      #end
  </div>

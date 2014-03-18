@@ -29,7 +29,14 @@ from com.googlecode.fascinator.common.solr import SolrResult
 from java.io import ByteArrayInputStream, ByteArrayOutputStream
 from java.text import SimpleDateFormat
 from java.util import ArrayList
+from org.json.simple import JSONArray
+
 from com.googlecode.fascinator.portal import Pagination
+from com.googlecode.fascinator.common import FascinatorHome
+import sys, os
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
+
+from Assessment import Assessment
 
 class Dashboard:
     def __init__(self):
@@ -102,6 +109,7 @@ class Dashboard:
         return rt.getResults()
 
     # Used by searching shared requests to the current user
+    # TODO: make page control works
     def getShared(self, packageType="arms", startPage=1):
         current_user = self.vc("page").authentication.get_username()
         security_roles = self.vc("page").authentication.get_roles_list()
@@ -120,3 +128,40 @@ class Dashboard:
         # no default value could cause problems
         if numFound is not None:
             self.paging = Pagination(1,numFound, self.recordsPerPage)
+            
+    # A customised query to use filter to get certain assessment with desired status 
+    def getFiltered(self, packageType, stageName, filterType, startPage=1):
+        ## As we do not anticipate the general interface is required, filter is defined here
+        ## Neither packageType nor stageName is used a key of fitlers
+        ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py
+        ## /redbox-rdsi-arms/src/main/config/portal/default/rdsi/scripts/dashboards/records.py
+        filters = {'assessment-draft': ['new','draft'], 'assessment-submitted':['submitted']}
+        statusFilter = filters[filterType]
+  
+        req = SearchRequest("packageType:" + packageType)
+        req.addParam("fq", 'workflow_step:' + stageName)
+        req.setParam("sort", "date_object_modified desc, f_dc_title asc")
+        req.setParam("fl",self.returnFields)
+        out = ByteArrayOutputStream()
+        self.indexer.search(req, out)
+        solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
+        
+        if solrResults:
+            results = solrResults.getResults()
+            returnArray = JSONArray()
+            x = Assessment()
+            x.activate(self.velocityContext)
+            i = 0
+            rows = self.recordsPerPage
+            start = (startPage - 1) * self.recordsPerPage
+            for r in results:
+                status = x.queryStatus(r.get("id"))
+                if status in statusFilter:
+                    if i >= start and i - start < rows:
+                        returnArray.add(r)
+                    i = i + 1
+            
+            self._setPaging(returnArray.size())
+            return returnArray
+        else:
+            return ArrayList()
