@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="965" measuredH="679" mockupW="924" mockupH="676">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="965" measuredH="742" mockupW="944" mockupH="739">
   <controls>
     <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="41" y="99" w="920" h="514" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -14,86 +14,83 @@
     <control controlID="14" controlTypeID="com.balsamiq.mockups::Link" x="912" y="3" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22871%2C0%2C924%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2214%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22891%2C0%2C944%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2214%22/%3E</map>
         <text>Logout%20%20%20</text>
       </controlProperties>
     </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::ButtonBar" x="317" y="652" w="-1" h="-1" measuredW="410" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
-      <controlProperties>
-        <hrefs>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%2CDashboard-reviewer-rejected%26bm%3BDashboard-reviewer-rejected.bmml%26bm%3BDashboard-reviewer-rejected.bmml%26bm%3BDashboard-reviewer-rejected.bmml%2C</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22276%2C649%2C402%2C676%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%2249%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22402%2C649%2C537%2C676%22%20href%3D%22Dashboard-reviewer-rejected.bmml%22%20alt%3D%22Dashboard-reviewer-rejected%22%20id%3D%2249%22/%3E</map>
-        <selectedIndex>2</selectedIndex>
-        <text>Current%20requests%2C%20Rejected%20requests%2C%20Provisioned%20requests</text>
-      </controlProperties>
-    </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="472" y="577" w="-1" h="-1" measuredW="58" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Label" x="472" y="577" w="-1" h="-1" measuredW="58" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1-10%20of%2072</text>
       </controlProperties>
     </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::Link" x="853" y="578" w="-1" h="-1" measuredW="76" measuredH="19" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Link" x="853" y="578" w="-1" h="-1" measuredW="76" measuredH="19" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1%202%203%204%205%206%207</text>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::TabBar" x="41" y="37" w="920" h="43" measuredW="230" measuredH="100" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="151" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="190" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="236" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="275" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="321" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="360" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="405" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="444" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="483" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="524" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::TabBar" x="21" y="12" w="920" h="43" measuredW="502" measuredH="100" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
-        <selectedIndex>0</selectedIndex>
-        <tabHPosition>right</tabHPosition>
-        <text>Reviewing%2C%20My%20requests</text>
+        <hrefs>%2CDashboard-reviewer-active%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml%2C%2CDashboard-reviewer-rejected%26bm%3BDashboard-reviewer-rejected.bmml%26bm%3BDashboard-reviewer-rejected.bmml%26bm%3BDashboard-reviewer-rejected.bmml%2C%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2266%2C9%2C176%2C36%22%20href%3D%22Dashboard-reviewer-active.bmml%22%20alt%3D%22Dashboard-reviewer-active%22%20id%3D%2271%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22256%2C9%2C322%2C36%22%20href%3D%22Dashboard-reviewer-rejected.bmml%22%20alt%3D%22Dashboard-reviewer-rejected%22%20id%3D%2271%22/%3E</map>
+        <selectedIndex>2</selectedIndex>
+        <tabHPosition>left</tabHPosition>
+        <text>Home%2C%20Active%20Requests%2C%20Provisioned%2C%20Rejected%2C%20My%20Requests%2C%20Help%2C%20Contact</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="151" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::StickyNote" x="714" y="658" w="247" h="84" measuredW="109" measuredH="123" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Form-Reviewer-8-outcome%26bm%3BForm-Reviewer-8-outcome.bmml%26bm%3BForm-Reviewer-8-outcome.bmml%26bm%3BForm-Reviewer-8-outcome.bmml</href>
-        <icon>PencilIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22832%2C148%2C856%2C172%22%20href%3D%22Form-Reviewer-8-outcome.bmml%22%20alt%3D%22Form-Reviewer-8-outcome%22%20id%3D%2261%22/%3E</map>
-      </controlProperties>
-    </control>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="190" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="63" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="236" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="64" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="275" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="65" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="321" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="360" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="67" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="405" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="68" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="444" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="69" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="483" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="70" controlTypeID="com.balsamiq.mockups::Icon" x="873" y="524" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
-      <controlProperties>
-        <icon>PencilIcon%7Csmall</icon>
+        <text>If%20edited%2C%20the%20only%20actions%20available%20are%20%22save%20and%20close%22%20and%20%22reopen%22.</text>
       </controlProperties>
     </control>
   </controls>

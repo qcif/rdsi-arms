@@ -1,0 +1,44 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="951" measuredH="229" mockupW="930" mockupH="224">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="29" y="84" w="922" h="145" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Requests%20requiring%20assessment</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::DataGrid" x="55" y="109" w="870" h="105" measuredW="199" measuredH="105" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <rowHeight>42</rowHeight>
+        <text>Title%2CSubmission%20date%0ARequest%20C%2C01/01/2013%0ARequest%20D%2C%2008/12/2013%0A%7B70L%2C20C%2C10C%7D</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Icon" x="869" y="134" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Form-Assessor-7-assessment%26bm%3BForm-Assessor-7-assessment.bmml%26bm%3BForm-Assessor-7-assessment.bmml%26bm%3BForm-Assessor-7-assessment.bmml</href>
+        <icon>PencilIcon%7Csmall</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22848%2C129%2C872%2C153%22%20href%3D%22Form-Assessor-7-assessment.bmml%22%20alt%3D%22Form-Assessor-7-assessment%22%20id%3D%2211%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Icon" x="869" y="173" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>PencilIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Link" x="886" y="5" w="-1" h="-1" measuredW="53" measuredH="19" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22865%2C0%2C918%2C19%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2213%22/%3E</map>
+        <text>Logout%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::TabBar" x="21" y="12" w="920" h="43" measuredW="442" measuredH="100" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>%2C%2CDashboard-assessor-assessed%26bm%3BDashboard-assessor-assessed.bmml%26bm%3BDashboard-assessor-assessed.bmml%26bm%3BDashboard-assessor-assessed.bmml%2C%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22179%2C7%2C250%2C34%22%20href%3D%22Dashboard-assessor-assessed.bmml%22%20alt%3D%22Dashboard-assessor-assessed%22%20id%3D%2215%22/%3E</map>
+        <selectedIndex>1</selectedIndex>
+        <tabHPosition>left</tabHPosition>
+        <text>Home%2C%20My%20assessments%2C%20Assessed%2C%20My%20Requests%2C%20Help%2C%20Contact</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

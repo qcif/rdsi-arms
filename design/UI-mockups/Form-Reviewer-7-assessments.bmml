@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="948" measuredH="622" mockupW="938" mockupH="610">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="948" measuredH="649" mockupW="938" mockupH="637">
   <controls>
     <control controlID="132" controlTypeID="com.balsamiq.mockups::Title" x="189" y="48" w="-1" h="-1" measuredW="406" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
@@ -13,11 +13,11 @@
         <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations%0AReviewer%20summary%0AAssessments%0AOutcome%0AProvisioning</text>
       </controlProperties>
     </control>
-    <control controlID="215" controlTypeID="com.balsamiq.mockups::Canvas" x="148" y="363" w="800" h="259" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
-    <control controlID="216" controlTypeID="com.balsamiq.mockups::Button" x="164" y="385" w="142" h="39" measuredW="112" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="215" controlTypeID="com.balsamiq.mockups::Canvas" x="148" y="363" w="800" h="286" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="216" controlTypeID="com.balsamiq.mockups::Button" x="710" y="376" w="142" h="30" measuredW="112" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22154%2C373%2C296%2C412%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%22216%22/%3E</map>
+        <href>Dashboard-reviewer-active%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22700%2C364%2C842%2C394%22%20href%3D%22Dashboard-reviewer-active.bmml%22%20alt%3D%22Dashboard-reviewer-active%22%20id%3D%22216%22/%3E</map>
         <text>Save%20and%20close</text>
       </controlProperties>
     </control>
@@ -39,39 +39,39 @@
         <text>Prev</text>
       </controlProperties>
     </control>
-    <control controlID="219" controlTypeID="com.balsamiq.mockups::Button" x="713" y="383" w="-1" h="-1" measuredW="215" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="219" controlTypeID="com.balsamiq.mockups::Button" x="710" y="415" w="-1" h="-1" measuredW="215" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Make%20available%20for%20assessment%20%u2020</text>
       </controlProperties>
     </control>
-    <control controlID="220" controlTypeID="com.balsamiq.mockups::Button" x="713" y="464" w="-1" h="-1" measuredW="220" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="220" controlTypeID="com.balsamiq.mockups::Button" x="710" y="496" w="-1" h="-1" measuredW="220" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Approve%20and%20notify%20provisioning%20%u2021</text>
       </controlProperties>
     </control>
-    <control controlID="221" controlTypeID="com.balsamiq.mockups::Button" x="713" y="499" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="221" controlTypeID="com.balsamiq.mockups::Button" x="710" y="531" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Reject%20and%20notify%20requestor%20%u2020%u2020</text>
       </controlProperties>
     </control>
-    <control controlID="222" controlTypeID="com.balsamiq.mockups::Button" x="713" y="422" w="-1" h="-1" measuredW="177" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="222" controlTypeID="com.balsamiq.mockups::Button" x="710" y="454" w="-1" h="-1" measuredW="177" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Dashboard-reviewer-current%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml%26bm%3BDashboard-reviewer-current.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22703%2C410%2C880%2C437%22%20href%3D%22Dashboard-reviewer-current.bmml%22%20alt%3D%22Dashboard-reviewer-current%22%20id%3D%22222%22/%3E</map>
+        <href>Dashboard-reviewer-active%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml%26bm%3BDashboard-reviewer-active.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22700%2C442%2C877%2C469%22%20href%3D%22Dashboard-reviewer-active.bmml%22%20alt%3D%22Dashboard-reviewer-active%22%20id%3D%22222%22/%3E</map>
         <state>up</state>
         <text>Remove%20from%20assessment</text>
       </controlProperties>
     </control>
-    <control controlID="223" controlTypeID="com.balsamiq.mockups::Button" x="713" y="575" w="-1" h="-1" measuredW="68" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="223" controlTypeID="com.balsamiq.mockups::Button" x="710" y="607" w="-1" h="-1" measuredW="68" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Reopen</text>
       </controlProperties>
     </control>
-    <control controlID="224" controlTypeID="com.balsamiq.mockups::Button" x="713" y="535" w="-1" h="-1" measuredW="218" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="224" controlTypeID="com.balsamiq.mockups::Button" x="710" y="567" w="-1" h="-1" measuredW="218" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <state>disabled</state>
         <text>Return%20to%20requestor%20to%20update%20%u2020%u2020</text>

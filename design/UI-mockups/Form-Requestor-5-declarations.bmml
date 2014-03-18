@@ -1,66 +1,66 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="953" measuredH="1124" mockupW="933" mockupH="1109">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="953" measuredH="1124" mockupW="932" mockupH="1112">
   <controls>
-    <control controlID="68" controlTypeID="com.balsamiq.mockups::Title" x="186" y="30" w="-1" h="-1" measuredW="415" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Title" x="187" y="94" w="-1" h="-1" measuredW="415" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Section%205%3A%20Declarations</text>
       </controlProperties>
     </control>
-    <control controlID="69" controlTypeID="com.balsamiq.mockups::Paragraph" x="186" y="96" w="730" h="15" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Paragraph" x="187" y="160" w="730" h="15" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <text>The%20terms%20and%20conditions%20associated%20with%20these%20storage%20services%20are%20published%20at%20http%3A//www.rdsi.edu.au/eula.</text>
       </controlProperties>
     </control>
-    <control controlID="72" controlTypeID="com.balsamiq.mockups::CheckBox" x="186" y="134" w="-1" h="-1" measuredW="570" measuredH="22" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::CheckBox" x="187" y="198" w="-1" h="-1" measuredW="570" measuredH="22" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <state>selected</state>
         <text>I%20understand%20the%20terms%20and%20conditions%20must%20be%20accepted%20prior%20to%20the%20use%20of%20storage%20services</text>
       </controlProperties>
     </control>
-    <control controlID="73" controlTypeID="com.balsamiq.mockups::CheckBox" x="186" y="156" w="730" h="51" measuredW="649" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::CheckBox" x="187" y="220" w="730" h="51" measuredW="649" measuredH="22" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <state>selected</state>
         <text>To%20the%20best%20of%20my%20knowledge%20this%20collection%2C%20nor%20a%20significantly%20similar%20collection%2C%20is%20not%20under%20consideration</text>
       </controlProperties>
     </control>
-    <control controlID="76" controlTypeID="com.balsamiq.mockups::Button" x="803" y="401" w="120" h="33" measuredW="113" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Button" x="804" y="498" w="120" h="33" measuredW="113" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22783%2C386%2C903%2C419%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2276%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22783%2C486%2C903%2C519%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2276%22/%3E</map>
         <state>up</state>
         <text>Submit%20request</text>
       </controlProperties>
     </control>
-    <control controlID="77" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="20" y="15" w="918" h="345" measuredW="200" measuredH="242" zOrder="0" locked="false" isInGroup="-1">
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="21" y="79" w="918" h="345" measuredW="200" measuredH="242" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <hrefs>Form-Requestor-0-introduction%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%26bm%3BForm-Requestor-0-introduction.bmml%2CForm-Requestor-1-contact%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%26bm%3BForm-Requestor-1-contact.bmml%2CForm-Requestor-2-allocation%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%26bm%3BForm-Requestor-2-allocation.bmml%2CForm-Requestor-3-significance%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%26bm%3BForm-Requestor-3-significance.bmml%2CForm-Requestor-4-storage%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%2CForm-Requestor-5-declarations%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%26bm%3BForm-Requestor-5-declarations.bmml%2C%2C%2C%2C%2C%2C</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C20%2C141%2C50%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C48%2C141%2C78%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C76%2C141%2C106%22%20href%3D%22Form-Requestor-2-allocation.bmml%22%20alt%3D%22Form-Requestor-2-allocation%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C104%2C141%2C134%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C132%2C141%2C162%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C160%2C141%2C190%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%2277%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C87%2C141%2C117%22%20href%3D%22Form-Requestor-0-introduction.bmml%22%20alt%3D%22Form-Requestor-0-introduction%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C115%2C141%2C145%22%20href%3D%22Form-Requestor-1-contact.bmml%22%20alt%3D%22Form-Requestor-1-contact%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C143%2C141%2C173%22%20href%3D%22Form-Requestor-2-allocation.bmml%22%20alt%3D%22Form-Requestor-2-allocation%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C171%2C141%2C201%22%20href%3D%22Form-Requestor-3-significance.bmml%22%20alt%3D%22Form-Requestor-3-significance%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C199%2C141%2C229%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%2277%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C227%2C141%2C257%22%20href%3D%22Form-Requestor-5-declarations.bmml%22%20alt%3D%22Form-Requestor-5-declarations%22%20id%3D%2277%22/%3E</map>
         <position>left</position>
         <text>Introduction%0AContact%20details%0ACollection%20details%0AResearch%20significance%0AStorage%20requirements%0ADeclarations</text>
       </controlProperties>
     </control>
-    <control controlID="79" controlTypeID="com.balsamiq.mockups::Button" x="174" y="401" w="142" h="33" measuredW="112" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::Button" x="782" y="455" w="142" h="33" measuredW="112" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Dashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22154%2C386%2C296%2C419%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2279%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22761%2C443%2C903%2C476%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2279%22/%3E</map>
         <text>Save%20and%20close</text>
       </controlProperties>
     </control>
-    <control controlID="81" controlTypeID="com.balsamiq.mockups::Canvas" x="159" y="379" w="779" h="76" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1"/>
-    <control controlID="82" controlTypeID="com.balsamiq.mockups::Paragraph" x="205" y="195" w="348" h="27" measuredW="200" measuredH="80" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::Canvas" x="160" y="443" w="779" h="103" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1"/>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::Paragraph" x="206" y="259" w="348" h="27" measuredW="200" measuredH="80" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>by%20any%20RDSI%20node%20as%20part%20of%20the%20ReDS%20programme</text>
       </controlProperties>
     </control>
-    <control controlID="83" controlTypeID="com.balsamiq.mockups::Paragraph" x="443" y="329" w="495" h="22" measuredW="200" measuredH="80" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::Paragraph" x="444" y="393" w="495" h="22" measuredW="200" measuredH="80" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <text>To%20be%20able%20to%20submit%20this%20request%2C%20the%20above%20two%20declarations%20must%20be%20agreed%20to.</text>
       </controlProperties>
     </control>
-    <control controlID="84" controlTypeID="com.balsamiq.mockups::Button" x="433" y="401" w="101" h="33" measuredW="76" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::Button" x="434" y="465" w="101" h="33" measuredW="76" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Form-Requestor-4-storage%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml%26bm%3BForm-Requestor-4-storage.bmml</href>
         <icon>LeftArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22413%2C386%2C514%2C419%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%2284%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22413%2C453%2C514%2C486%22%20href%3D%22Form-Requestor-4-storage.bmml%22%20alt%3D%22Form-Requestor-4-storage%22%20id%3D%2284%22/%3E</map>
         <menuIcon>false</menuIcon>
         <text>Prev</text>
       </controlProperties>
@@ -74,14 +74,31 @@
       <controlProperties>
         <href>Form-Reviewer-6-review%26bm%3BForm-Reviewer-6-review.bmml%26bm%3BForm-Reviewer-6-review.bmml%26bm%3BForm-Reviewer-6-review.bmml</href>
         <icon>RightArrowIcon%7Csmall</icon>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22840%2C971%2C933%2C1003%22%20href%3D%22Form-Reviewer-6-review.bmml%22%20alt%3D%22Form-Reviewer-6-review%22%20id%3D%2287%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22839%2C974%2C932%2C1006%22%20href%3D%22Form-Reviewer-6-review.bmml%22%20alt%3D%22Form-Reviewer-6-review%22%20id%3D%2287%22/%3E</map>
         <state>disabled</state>
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="88" controlTypeID="com.balsamiq.mockups::Button" x="668" y="404" w="120" h="27" measuredW="93" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::Button" x="175" y="458" w="120" h="27" measuredW="93" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Delete%20draft</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::TabBar" x="21" y="12" w="920" h="43" measuredW="282" measuredH="100" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>%2CDashboard-requestor%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%26bm%3BDashboard-requestor.bmml%2C%2C</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%2266%2C0%2C157%2C27%22%20href%3D%22Dashboard-requestor.bmml%22%20alt%3D%22Dashboard-requestor%22%20id%3D%2289%22/%3E</map>
+        <selectedIndex>-1</selectedIndex>
+        <tabHPosition>left</tabHPosition>
+        <text>Home%2C%20My%20Requests%2C%20Help%2C%20Contact</text>
+      </controlProperties>
+    </control>
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Link" x="886" y="15" w="-1" h="-1" measuredW="57" measuredH="19" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>ARMS-login%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml%26bm%3BARMS-login.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22865%2C3%2C922%2C22%22%20href%3D%22ARMS-login.bmml%22%20alt%3D%22ARMS-login%22%20id%3D%2290%22/%3E</map>
+        <text>Logout%20%20%20%20</text>
       </controlProperties>
     </control>
   </controls>
