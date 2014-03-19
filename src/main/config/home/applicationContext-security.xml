@@ -21,7 +21,7 @@
 		<intercept-url pattern="/**/dashboards/assessor" access="hasAnyRole('reviewer', 'assessor','provisioner')" />
 		<intercept-url pattern="/**/history/*" access="hasRole('admin')" />
 		<intercept-url pattern="/**/dashboards/admin" access="hasRole('admin')" />
-		<intercept-url pattern="/**/export/*" access="hasRole('admin')" />
+		<intercept-url pattern="/**/export/*" access="hasRole('admin') or hasAPIAccess()" />
 		<intercept-url pattern="/**/admin" access="hasRole('admin')" />                                                         
 		<intercept-url pattern="/**/settings" access="hasRole('admin')" />
 		<intercept-url pattern="/**/batchprocesses" access="hasRole('admin')" />
