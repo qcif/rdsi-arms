@@ -47,6 +47,11 @@
       "disabled": true
     },
     {
+      "component-type": "textarea",
+      "field-name": "reviewer-outcome-notes",
+      "label": "arms.outcome.subsectionC.label"
+    },
+    {
       "component-type": "text-input",
       "field-name": "outcome-pri-Institution",
       "label": "arms.outcome.priInstitution.label",
@@ -66,12 +71,7 @@
     },
     {
       "component-type": "textarea",
-      "field-name": "assessor-comments",
-      "label": "arms.outcome.subsectionC.label"
-    },
-    {
-      "component-type": "textarea",
-      "field-name": "assessor-comments",
+      "field-name": "reviewer-outcome-message",
       "label": "arms.outcome.subsectionD.label"
     }
   ]
