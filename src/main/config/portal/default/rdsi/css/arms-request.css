@@ -205,3 +205,8 @@ div.declaration-note {
 .block {
     display:block;	
 }
+
+.outcome-label {
+    width: 125px;
+    display: inline-block !important;
+}

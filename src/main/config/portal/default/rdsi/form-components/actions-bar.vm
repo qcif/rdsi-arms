@@ -153,7 +153,7 @@ $(document).ready(function() {
         }
     });
 #if ($roles.contains("reviewer"))
-    ### Link decision to applicaiton ID input box
+    ### Link decision to applicaiton ID and approved size input boxes
     var rbns = $("input[name='outcome-decision']");
     rbns.change(function() {
         var rid = $( this ).filter("input:checked").attr('id'), disabled = true;
@@ -162,6 +162,7 @@ $(document).ready(function() {
             disabled = false; 
         }
         $("input[id='outcome-allocation-id']").attr("disabled", disabled);
+        $("input[id='outcome-approved-size']").attr("disabled", disabled);
     }); 
 #end
 

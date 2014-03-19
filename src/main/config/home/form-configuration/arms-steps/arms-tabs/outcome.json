@@ -34,9 +34,35 @@
       "component-type": "text-input",
       "field-name": "outcome-allocation-id",
       "label": "arms.outcome.subsectionB.label",
-      "label-classes": "inline-component",
+      "label-classes": "outcome-label",
       "additional-classes": "inline-component",
       "disabled": true
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "outcome-approved-size",
+      "label": "arms.outcome.approvedsize.label",
+      "label-classes": "outcome-label",
+      "additional-classes": "inline-component",
+      "disabled": true
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "outcome-pri-Institution",
+      "label": "arms.outcome.priInstitution.label",
+      "additional-classes": "longTextInput"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "outcome-oth-Institution",
+      "label": "arms.outcome.othInstitution.label",
+      "additional-classes": "longTextInput"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "outcome-ingest-status",
+      "label": "arms.outcome.ingeststatus.label",
+      "additional-classes": "longTextInput"
     },
     {
       "component-type": "textarea",
