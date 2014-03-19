@@ -38,9 +38,9 @@ class Assessment:
         storedObj = self.storage.getObject(oid)
         payloadList = storedObj.getPayloadIdList()
         if payloadList.contains(self.PAYLOAD):
-            return storedObj
+            return (storedObj, True)
         else:
-            return None
+            return (storedObj, False)
 
     def getResponses(self, storedObj):
         committeeResponsePayload = storedObj.getPayload(self.PAYLOAD)
@@ -63,8 +63,8 @@ class Assessment:
         sizeAgreement = self.request.getParameter("size-agreement")
         comments = self.request.getParameter("comments")
         
-        storedObj = self.hasResponses(oid)
-        if storedObj:
+        storedObj, fileExisted = self.hasResponses(oid)
+        if fileExisted:
             committeeResponses = self.getResponses(storedObj)
         else:
             committeeResponses = JsonObject()
@@ -77,7 +77,6 @@ class Assessment:
         
         committeeResponses.put(self.assessor,assessorResponse)
 
-        ## print " %s: Committee %s, recommendation = %s, comments = %s"  % ( oid, self.assessor, recommendation, comments)
         StorageUtils.createOrUpdatePayload(storedObj,self.PAYLOAD,IOUtils.toInputStream(committeeResponses.toString(), "UTF-8"))
         context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
 
@@ -86,8 +85,8 @@ class Assessment:
 
         if oid:
             assessment = None ## Not processed yet
-            storedObj = self.hasResponses(oid)
-            if storedObj:
+            storedObj, fileExisted = self.hasResponses(oid)
+            if fileExisted:
                 committeeResponses = self.getResponses(storedObj)
                 assessment = committeeResponses.get(self.assessor)
                 if assessment:
