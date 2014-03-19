@@ -1,0 +1,137 @@
+[
+    {
+        "id":"SubmissionNotifier",
+        "pre" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/submittedstate.json",
+                "inputKey":"",
+                "outputKey":"newOids"
+            }
+        ],
+        "main" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
+                "config":"${fascinator.home}/process/emailer.json",
+                "inputKey":"newOids",
+                "outputKey":"failedOids"
+            }
+        ],
+        "post" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/submittedstate.json",
+                "inputKey":"failedOids",
+                "outputKey":""
+            }
+        ]
+    },
+    {
+        "id":"AssessmentNotifier",
+        "pre" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/reviewedstate.json",
+                "inputKey":"",
+                "outputKey":"newOids"
+            }
+        ],
+        "main" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
+                "config":"${fascinator.home}/process/emailer.json",
+                "inputKey":"newOids",
+                "outputKey":"failedOids"
+            }
+        ],
+        "post" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/reviewedstate.json",
+                "inputKey":"failedOids",
+                "outputKey":""
+            }
+        ]
+    },
+    {
+        "id":"ApprovalNotifier",
+        "pre" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/approvedstate.json",
+                "inputKey":"",
+                "outputKey":"newOids"
+            }
+        ],
+        "main" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
+                "config":"${fascinator.home}/process/emailer.json",
+                "inputKey":"newOids",
+                "outputKey":"failedOids"
+            }
+        ],
+        "post" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/approvedstate.json",
+                "inputKey":"failedOids",
+                "outputKey":""
+            }
+        ]
+    },
+    {
+        "id":"ProvisionNotifier",
+        "pre" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/provisionedstate.json",
+                "inputKey":"",
+                "outputKey":"newOids"
+            }
+        ],
+        "main" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
+                "config":"${fascinator.home}/process/emailer.json",
+                "inputKey":"newOids",
+                "outputKey":"failedOids"
+            }
+        ],
+        "post" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/provisionedstate.json",
+                "inputKey":"failedOids",
+                "outputKey":""
+            }
+        ]
+    },
+    {
+        "id":"RejectNotifier",
+        "pre" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/rejectedstate.json",
+                "inputKey":"",
+                "outputKey":"newOids"
+            }
+        ],
+        "main" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
+                "config":"${fascinator.home}/process/emailer.json",
+                "inputKey":"newOids",
+                "outputKey":"failedOids"
+            }
+        ],
+        "post" : [
+            {   
+                "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
+                "config":"${fascinator.home}/process/rejectedstate.json",
+                "inputKey":"failedOids",
+                "outputKey":""
+            }
+        ]
+    }    
+]
