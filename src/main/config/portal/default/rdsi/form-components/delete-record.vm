@@ -38,13 +38,13 @@
             resizable : false,
             modal : true,
             buttons : {
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                },
                 "Delete" : function() {
                     $(this).dialog("close");
                     var oid =  $(this).data('oid');
                     _chown(oid);
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
                 }
             }
         });
