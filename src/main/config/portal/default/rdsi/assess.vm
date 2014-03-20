@@ -60,4 +60,30 @@
 $("#show_detail").click(function() {
     $("#action_save").click();
 });
+
+
+function checkAllRadios(element) {
+    ##TODO: unable to get 'not' to work with this selector, so for now, iterate twice.
+    var radioCount = 0;
+    jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio])").each(function() {
+        radioCount = radioCount + 1;
+    });
+    var radioCheckedCount = 0;
+    jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio]:checked)").each(function() {
+        radioCheckedCount = radioCheckedCount + 1;
+    });
+    if (radioCheckedCount > 0 && radioCheckedCount == radioCount) {
+        jQuery(":submit[value~='assessment']").prop("disabled", false);
+    } else {
+        jQuery(":submit[value~='assessment']").prop("disabled", true);
+    }
+}
+
+jQuery(document).ready(function() {
+   checkAllRadios(jQuery("div.simple-workflow.component-wrapper:radio:first"));
+});
+
+jQuery(':radio').click(function() {
+   checkAllRadios(this);
+
 </script>
