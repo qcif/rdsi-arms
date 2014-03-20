@@ -1,0 +1,169 @@
+{
+  "host": "${smtp.host}",
+  "port": "25",
+  "username": "${admin.email}",
+  "password": "",
+  "tls": "true",
+  "ssl": "true",
+  "SubmissionNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "$piEmail",
+      "subject": "[ARMS] Storage request received: '$title'",
+      "body": "Thank you for your request. It will be reviewed and you will be notified of the outcome.\n\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$piEmail": "requester:email"
+      }
+    },
+    {
+      "from": "${admin.email}",
+      "to": "reviewer.email",
+      "subject": "[ARMS] Request to review: '$title'",
+      "body": "Reviewer,\n\nPlease review the following RDSI allocation request: '$title'.\n\nThis request can be accessed from your ARMS dashboard at ${server.url.base}$viewId/home or directly at: ${server.url.base}$viewId/detail/$oid\n\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$viewId"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$viewId": "viewId"
+      }
+    }
+  ],
+  "AssessmentNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "assessor.email,assessor2.email,assessor_mailinglist@node",
+      "subject": "[ARMS] Request to assess: '$title'",
+      "body": "Please assess the following RDSI allocation request: '$title'.\n\nThis request can be accessed from your ARMS dashboard at ${server.url.base}$viewId/home or directly at: ${server.url.base}$viewId/detail/$oid\n\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$viewId"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$viewId": "viewId"
+      }
+    }
+  ],
+  "ApprovalNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "$piEmail",
+      "subject": "[ARMS] Storage request approved: '$title'",
+      "body": "Your request has been approved and is now being provisioned. You will be notified when it can be used.\n$message\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$piEmail",
+        "$message"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$piEmail": "requester:email",
+        "$message": "reviewer-outcome-message"
+      }
+    },
+    {
+      "from": "${admin.email}",
+      "to": "provisioner.email",
+      "subject": "[ARMS] Request to provision: '$title'",
+      "body": "Please provision the following RDSI allocation request: '$title'.\n\nThis request can be accessed from your ARMS dashboard at ${server.url.base}$viewId/home or directly at: ${server.url.base}$viewId/detail/$oid\n\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$viewId"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$viewId": "viewId"
+      }
+    }
+  ],
+  "ProvisionNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "$piEmail",
+      "subject": "[ARMS] Storage available for use: '$title'",
+      "body": "Your storage is now available for use.\n$message\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$piEmail",
+        "$message"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$piEmail": "requester:email",
+        "$message": "provisioning-notes"
+      }
+    },
+    {
+      "from": "${admin.email}",
+      "to": "reviewer.email",
+      "subject": "[ARMS] Request provisioned: '$title'",
+      "body": "Provisioning has been completed for $title\n\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title"
+      }
+    }
+  ],
+  "RejectNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "$piEmail",
+      "subject": "[ARMS] Storage request unsuccessful: '$title'",
+      "body": "We are sorry to inform you that your request for storage has not been approved.\n$message\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$piEmail",
+        "$message"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$piEmail": "requester:email",
+        "$message": "reviewer-outmcome-message"
+      }
+    }
+  ],
+  "RedraftNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "$piEmail",
+      "subject": "[ARMS] Storage request: revision required: '$title'",
+      "body": "Can you please revise and resubmit your request?.\n$message\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$piEmail",
+        "$message"
+      ],
+      "mapping": {
+        "$oid": "id",
+        "$title": "dc_title",
+        "$piEmail": "requester:email",
+        "$message": "reviewer-outmcome-message"
+      }
+    }
+  ]
+}
