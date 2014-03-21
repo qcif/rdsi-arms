@@ -62,8 +62,9 @@ $("#show_detail").click(function() {
 });
 
 
-function checkAllRadios(element) {
+function enableOrDisableAssessment(element) {
     ##TODO: unable to get 'not' to work with this selector, so for now, iterate twice.
+    ##if all radio containers are checked, enable assessment
     var radioCount = 0;
     jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio])").each(function() {
         radioCount = radioCount + 1;
@@ -80,10 +81,11 @@ function checkAllRadios(element) {
 }
 
 jQuery(document).ready(function() {
-   checkAllRadios(jQuery("div.simple-workflow.component-wrapper:radio:first"));
+   enableOrDisableAssessment(jQuery("div.simple-workflow.component-wrapper:radio:first"));
 });
 
 jQuery(':radio').click(function() {
-   checkAllRadios(this);
+   enableOrDisableAssessment(this);
+});
 
 </script>
