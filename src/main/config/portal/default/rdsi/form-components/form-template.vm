@@ -153,7 +153,7 @@
 				
 					var loadingCheckId = window.setInterval(function() {
              		if($('.jaffa2Loading').length == 0) {
-				   		$('#simpleworkflow-form').unblock();
+				   		$('.simpleworkflow-workflow-form').unblock();
 				   		window.clearInterval(loadingCheckId);
 				   }
        		  },500); 
@@ -245,7 +245,7 @@ $formFooterHtml
  $(document).ready(function() {
 	prepareHelps();
  	$('#ui-datepicker-div').hide();
- 	$('#simpleworkflow-form').block();
+ 	$('.simpleworkflow-workflow-form').block();
  // Modified based the code from http://bugs.jqueryui.com/ticket/3999 jQuery datepicker hack
  	$('.ui-datepicker-clear').click(function(){
  		var inst = jQuery(jQuery(this).parent().find("input"));
