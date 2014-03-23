@@ -38,13 +38,20 @@ processes and systems (both manual and automated) external to ARMS.
 
 ## Repository structure
 
-* [doc](doc/README.md) - documentation
-* design - contains the mockups developed for the forms
+* [doc](doc) - documentation
+* [design](design) - contains the mockups developed for the forms
 * src - contains the source code
-* support - provides support scripts for deployment
+* [support](support) - provides support scripts for deployment
 * [test](test) - test plan
 
 ## Licence
 
 All code is licensed under GPLv2 - see the [LICENSE](./LICENSE) file
 for more details.
+
+## Contact
+
+General enquiries about ARMS should be directed to [RDSI](http://www.rdsi.edu.au).
+
+Technical enquiries about ARMS should be directed to [QCIF](http://www.qcif.edu.au).
+

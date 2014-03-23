@@ -9,7 +9,7 @@ There are many methods for deploying ARMS. Here are a few common methods.
   Nexus repository.
   This is useful for quick testing of ARMS.
 
-[Build from source code and then deploy](deploy-source.md)
+- [Build from source code and then deploy](deploy-source.md)
 : Build an ARMS ReDBox installer from the sources. Download Mint as a
   pre-built component from QCIF's Nexus repository.
   This is useful for creating and testing custom builds of ARMS.
