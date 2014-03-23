@@ -38,10 +38,11 @@ processes and systems (both manual and automated) external to ARMS.
 
 ## Repository structure
 
-* [doc](doc/README.md) - provides documentation
-* src - contains the source code
+* [doc](doc/README.md) - documentation
 * design - contains the mockups developed for the forms
+* src - contains the source code
 * support - provides support scripts for deployment
+* [test](test) - test plan
 
 ## Licence
 
