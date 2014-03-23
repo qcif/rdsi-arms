@@ -1,7 +1,7 @@
 ARMS Test Plan
 ==============
 
-Version: 1.0 draft 2014-03-19
+Version: 1.0 draft 2014-03-21
 
 ## Introduction
 
@@ -158,75 +158,80 @@ None.
     13. **Check 4-19**: the only avalable actions are "save and close" and "submit assessment".
     14. Click the "Submit assessment" button.
     15. Click home.
-    16. Logout.
+    16. **Check 4-20**: the request no longer appears in the "requests to assess" table.
+    17. **Check 4-21**: the request appears in the "assessed requests" table.
+    18. Logout.
 8. Requestor
     1. Login as requestor.
-    2. **Check 4-20**: the status is "Being reviewed" (unchanged).
+    2. **Check 4-22**: the status is "Being reviewed" (unchanged).
     3. Logout.
 9. Provisioner    
     1. Login as provisioner.
-    2. **Check 4-21**: request does not appear in any of their tables.
+    2. **Check 4-23**: request does not appear in any of their tables.
     3. Logout.
 10. Finish assessment process and approve
     1. Login as reviewer.
-    2. **Check 4-22**: the request appears in the "Assessment requests" table.
+    2. **Check 4-24**: the request appears in the "Assessment requests" table.
     3. Click the edit icon for the request.
-    4. **Check 4-23**: the only available actions are "Save and close" and "Remove from assessment".
+    4. **Check 4-25**: the only available actions are "Save and close" and "Remove from assessment".
     5. Go to the assessments page.
-    6. **Check 4-24**: the assessment submitted appears as a row in the table.
+    6. **Check 4-26**: the assessment submitted appears as a row in the table.
     7. Click the "Remove from assessment" button.
     8. Click home.
-    9. **Check 4-25**: the request now appears in the "Requests to review" table and does not appear in the "Assessment requests" table.
+    9. **Check 4-27**: the request now appears in the "Requests to review" table and does not appear in the "Assessment requests" table.
     10. Click the edit icon for the request.
-    11. **Check 4-26**: the only available actions are "Save and close", "make available for assessment" and "Return to requestor to update".
+    11. **Check 4-28**: the only available actions are "Save and close", "make available for assessment" and "Return to requestor to update".
     12. Go to the outcome page.
-    13. **Check 4-27**: the decision selected is "Still being processed".
+    13. **Check 4-29**: the decision selected is "Still being processed".
     14. Select "Approve for ReDS" as the decision.
-    15. **Check 4-28**: the only available actions are "Save and close" and "Approve and notify provisioning".
+    15. **Check 4-30**: the only available actions are "Save and close" and "Approve and notify provisioning".
     16. Type in an Allocation ID.
     17. Click "Approve and notify provisioning".
     18. Click home.
-    19. **Check 4-29**: request has moved to the "Approved requests" table.
+    19. **Check 4-31**: request has moved to the "Approved requests" table.
     20. Click on the edit icon for the request.
-    21. **Check 4-30**: the only avalable actions are "Save and close", "Mark as provisioning complete" and "Reopen".
+    21. **Check 4-32**: the only avalable actions are "Save and close", "Mark as provisioning complete" and "Reopen".
     20. Logout.
 11. Requestor    
     1. Login as requestor.
-    2. **Check 4-31**: the status is "Being provisioned".
+    2. **Check 4-33**: the status is "Being provisioned".
     3. Logout.
 12. Assessor
     4. Login as assessor.
-    2. **Check 4-32**: the request no longer appears in any table.
+    2. **Check 4-34**: the request no longer appears in any table.
     3. Logout.
 13. Provisioning
     1. Login as provisioner.
-    2. **Check 4-33**: the request appears in the "Approved requests" table.
+    2. **Check 4-35**: the request appears in the "Approved requests" table.
     3. Click on the edit icon.
-    4. **Check 4-34**: the only available actions are "Save and close" and "Mark as provisioning complete".
+    4. **Check 4-36**: the only available actions are "Save and close" and "Mark as provisioning complete".
     5. Go to the outcome page.
-    6. **Check 4-35**: the "Approved for ReDS", allocation ID and any other
+    6. **Check 4-37**: the "Approved for ReDS", allocation ID and any other
        information matches what the provided had entered.
     7. Go to the provisioning page.
-    8. Type in "123" as the provisioning reference.
-    9. Type in some notes.
-    10. Click "Mark as provisioning complete".
-    11. Click home
-    12. **Check 4-36**: the request appears in the "Provisioned requests" table.
-    13. Logout.
+    8. Type in a number (e.g. "123") as the provisioning reference.
+    9. **Check 4-38**: there is no date for the date provisioned.
+    10. Type in some notes.
+    11. Click "Mark as provisioning complete".
+    12. Click home
+    13. **Check 4-39**: the request appears in the "Provisioned requests" table.
+    14. Logout.
 14. Requestor
     1. Login as the requestor.
-    2. **Check 4-37**: the request appears in the "Submitted requests" table (unchanged)
-    2. **Check 4-38**: the status of the request is "Ready for use".
+    2. **Check 4-40**: the request appears in the "Submitted requests" table (unchanged)
+    2. **Check 4-41**: the status of the request is "Ready for use".
     4. Logout.
 15. Reviewer
     1. Login as a reviewer.
-    2. **Check 4-39**: the request does not appear in any table on the active page.
+    2. **Check 4-42**: the request does not appear in any table on the active page.
     3. Click on the provisioned tab.
-    4. **Check 4-40**: the request appears in the "Provisioned request" table.
+    4. **Check 4-43**: the request appears in the "Provisioned request" table.
     5. Click on the edit icon for the request.
-    6. **Check 4-41**: the only available actions are "Save and close" and "Reopen".
-    7. Click home.
-    8. Logout.
+    6. **Check 4-44**: the only available actions are "Save and close" and "Reopen".
+    7. Go to the provisioning tab.
+    8. **Check 4-45**: there is a date for the value of the data provisioned, and it is correct.
+    9. Click home.
+    10. Logout.
 
 ## **Test 5**: Draft editing
 

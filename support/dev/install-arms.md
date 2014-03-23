@@ -43,26 +43,6 @@ Note: this script **must** be run with root privileges.
 The Mint installer is always obtained from the Nexus repository; there
 is no way to explicitly specify a Mint install archive.
 
-### Behaviour
-
-This script automates the process of installing ARMS. It performs the
-following tasks:
-
-- Installing Java and Apache
-- Creating a user account to run ReDBox and Mint
-- Installing and running Mint
-- Loading Mint with the Australian and New Zealand Standard Research
-  Classification (ANZSRC) Field of Research (FoR) codes
-- Installing and running the ARMS customised version of ReDBox
-- Configuring Apache to work with ReDBox and Mint
-
-This script can also be used to uninstall ARMS.
-
-The installation process can download the necessary installer
-files. These are kept for subsequent reuse, if ARMS is to be
-reinstalled. This script can also clean up by deleting those installer
-files.
-
 
 ## Examples
 
@@ -107,12 +87,93 @@ of using a pre-built one from the Nexus repository:
     sudo ./install-arms.sh my-redbox-installer.tar.gz
 
 
+## Internal behaviour
+
+### Installation
+
+During installation, it performs the following tasks:
+
+- Obtain the two installation files _deploy.sh_ and the
+  _apache-arms.conf_. If available, these are copied from the same
+  directory as the _install-arms.sh_ script; otherwise they are
+  downloaded from GitHub. They are both placed in _/tmp/install-arms_.
+
+- Installing Java (using yum).
+
+- Installing Apache (using yum).
+
+- Create the "redbox" user account and group.
+
+- Create the installation directory for Mint: _/opt/mint_.
+
+- Use the _deploy.sh_ script to install Mint. If the tar.gz has not
+  been cached from a previous install, it will be downloaded from the
+  QCIF Nexus repository and saved to _/tmp/install-arms/install-mint_.
+
+- Wait for Mint to start running.
+
+- Loading Mint with the Australian and New Zealand Standard Research
+  Classification (ANZSRC) Field of Research (FoR) codes
+  Note: the harvester must be run from the _/opt/mint/server_ directory
+  or it will not work properly.
+
+- Create the installation directory for ReDBox: _/opt/redbox_.
+
+- Use the _deploy.sh_ script to install ReDBox. If a
+  redboxInstallArchive has been supplied, it will use a copy of
+  it. Otherwise, if the tar.gz has not been cached from a previous
+  install, it will be downloaded from the QCIF Nexus repository and
+  saved to _/tmp/install-arms/install-redbox_.
+
+- Wait for ReDBox to start running.
+
+- Configuring Apache by copying the _apache-arms.conf_ config file
+  into _/etc/httpd/conf.d_.
+
+- Sets the _ServerName_ in Apache's configuration file.
+  Find the commented entry for _ServerName_ and change it to the fully
+  qualified domain name (or IP address) for the server. For example,
+  `ServerName arms.example.com:80`.
+
+- Start Apache.
+
+- Prime Mint by visiting one of its URLs.
+  This prevents timeout errors when ReDBox first queries Mint (i.e.
+  when it brings up the first form requiring FoR codes).
+
+- Prime ReDBox by visiting one of its URLs.
+  This makes the first request from a user respond more quicker.
+
+### Uninstall
+
+During uninstall, it performs the following tasks:
+
+- Stop Apache.
+- Unconfigure ARMS from Apache by deleting the apache-arms.conf file and undo the edit.
+
+- Stop ReDBox.
+- Uninstall ReDBox by deleting /opt/redbox.
+
+- Stop Mint.
+- Uninstall Mint by deleting /opt/mint.
+
+### Cleanup
+
+During cleanup, it performs the following tasks:
+
+- Deletes /tmp/install-arms.
+
+
 ## Files and directories
 
-ReDBox is installed to _/opt/redbox_ and Mint is installed to _/opt/mint_.
+ReDBox is installed to _/opt/redbox_.
 
+Mint is installed to _/opt/mint_.
+
+Installer files are cached in _/tmp/install-arms_.
 
 ## See also
 
-* [Documentation for deploy.sh](deploy.md) the ARMS-ReDBox and Mint installer.
+* Documentation for [deploy.sh](deploy.md) the ARMS-ReDBox and Mint installer which this script invokes.
 
+* [Deploying ARMS](../../doc/deployment.md)

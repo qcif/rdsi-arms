@@ -87,18 +87,16 @@ run as:
 
     sudo su redbox -c "./deploy.sh ..."
 
-### Assumes primary network interface is eth0
-
-It is assumed that the primary network interface is called "eth0",
-which is not necessarily true on some servers. If it cannot determine
-the IP address of _eth0_, it will try to find the lowest number IP
-address before defaulting to 127.0.0.1.
 
 ## Files and directories
 
-ReDBox is installed to _/opt/redbox_ and Mint is installed to _/opt/mint_.
+ReDBox is installed to _/opt/redbox_.
+
+Mint is installed to _/opt/mint_.
 
 
-## See also
+## Used by
 
-* Documentation for ReDBox.
+This script can be manually invoked.
+
+It is used by [install-arms.sh](install-arms.md).
