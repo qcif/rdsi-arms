@@ -4,6 +4,9 @@
 
 The **Allocation Request Management System** (ARMS) is a software
 system for managing requests for the allocation of RDSI storage.
+It captures the information in a request for storage,
+tracks that request through the process of assessing and (if approved)
+the provisioning storage for it.
 
 The **Research Data Storage Infrastructure** (RDSI) is a project to
 increase the sharing and re-use of research related data in

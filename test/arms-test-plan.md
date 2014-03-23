@@ -1,14 +1,14 @@
 ARMS Test Plan
 ==============
 
-Version: 1.0 draft 2014-03-21
+Version: 1.0 draft 2014-03-24
 
 ## Introduction
 
 ### Background
 
-The Allocation Request Management System (ARMS) system was created to
-help manage parts of the process of providing RDSI storage
+The Allocation Request Management System (ARMS) system 
+helps manage parts of the process of providing RDSI storage
 allocations. It captures the information in a request for storage, and
 tracks that request through the process of assessing and (if approved)
 provisioning the storage for it.
@@ -38,22 +38,7 @@ All of the procedures in the tests can be carried out.
 
 None of the checks shall fail.
 
-## **Test 1**: Login success
-
-### Synopsis
-
-Successful login.
-
-### Procedure
-
-1. Go to the login page.
-2. If using AAF login, click on the AAF icon.
-3. Enter username.
-4. Enter the password corresponding to that username.
-5. Click login.
-6. **Check 1-1**: login was successful.
-
-## **Test 2**: Login failure
+## **Test 1**: Login failure
 
 ### Synopsis
 
@@ -66,7 +51,22 @@ Unsuccessful login.
 3. Enter username.
 4. Enter an incorrect password for that username.
 5. Click login.
-6. **Check 2-1**: login was rejected.
+6. **Check 1-1**: login was rejected.
+
+## **Test 2**: Login success
+
+### Synopsis
+
+Successful login.
+
+### Procedure
+
+1. Go to the login page.
+2. If using AAF login, click on the AAF icon.
+3. Enter username.
+4. Enter the password corresponding to that username.
+5. Click login.
+6. **Check 2-1**: login was successful.
 
 ## **Test 3**: Logout
 
@@ -233,7 +233,7 @@ None.
     9. Click home.
     10. Logout.
 
-## **Test 5**: Draft editing
+## **Test 5**: Draft editing and deleting
 
 ### Synopsis
 
@@ -249,7 +249,7 @@ None.
 1. Create new draft request
     1. Login as a requestor.
     2. Click the "New request" button.
-    3. **Check 5-1**: the only available option is "Delete draft".
+    3. **Check 5-1**: the only available options are "Save and close" and "Delete draft".
     4. Go to the "Allocation details" page.
     5. Fill in an allocation title. This step is optional, but will make
        it easier to identify the request.
@@ -270,7 +270,7 @@ None.
     2. **Check 5-5**: the new draft request does not appear in any table.
     3. Logout.
 5. Continue editing a draft
-    1. Login as a requestor.
+    1. Login as the same requestor.
     2. **Check 5-6**: the new draft appears in the "Draft requests" table.
     3. Click the edit icon of the request.
     4. Go to the "Allocation details" page.
@@ -279,10 +279,11 @@ None.
     7. Click home.
     8. Logout.
 6. Delete draft
-    1. Login as a requestor.
+    1. Login as the same requestor.
     2. **Check 5-7**: the new draft appears in the "Draft requests" table.
     3. Click the edit icon for the request.
-    4. Click the "Delete request" button.
+    4. Click the "Delete draft" button.
+    5. Click the "Delete" button on the Confirmation dialog.
     5. **Check 5-8**: the new draft request does not appear in any table.
     6. Logout.
 
@@ -290,12 +291,11 @@ None.
 
 ### Synopsis
 
-Rejecting a request
+Rejecting a request.
 
 ### Prerequsites
 
-Perform the main workflow up to the point where the reviewer has
-withdrawn the request from assessment.
+A submitted request in the review state.
 
 ### Procedure
 
@@ -306,16 +306,16 @@ withdrawn the request from assessment.
     4. **Check 6-2**: the only available actions are "Save and close", "Make
        available for assessment" and "Return to requestor to update".
     5. Go to the "outcome" page.
-    6. **Check 6-3**: the "still being processed" radio button is selected.
+    6. **Check 6-3**: the "Still being processed" radio button is selected.
     7. Select the "reject" radio button.
     8. **Check 6-4**: the only available actions are "Save and close" and
-       "reject and notify requestor".
-    9. Click the "reject and notify requestor" button.
+       "Reject and notify requestor".
+    9. Click the "Reject and notify requestor" button.
     10. Click home.
-    11. **Check 6-5**: the request does not appear in any of the tables.
-    12. Click on the provisioned tab.
+    11. **Check 6-5**: the request does not appear in any of the tables on the active requests page.
+    12. Click on the "Provisioned" tab.
     13. **Check 6-6**: the request does not appear in the table.
-    14. Click on the rejected tab.
+    14. Click on the "Rejected" tab.
     15. **Check 6-7**: the request appears in the rejected requests table.
     16. Logout.
 2. Requestor gets notified of rejection
@@ -338,34 +338,47 @@ Perform the procedure for "rejecting a request" test.
 
 1. Reviewer reopens the request
     1. Login as a reviewer.
-    2. Click on the rejected tab.
+    2. Click on the "Rejected" tab.
     3. **Check 7-1**: the request appears in the table.
     4. Click the edit icon for the request.
-    5. **Check 7-2**: the only available actions are "save and close" and "reopen".
-    6. Click the "reopen" button".
+    5. **Check 7-2**: the only available actions are "Save and close" and "Reopen".
+    6. Click the "Reopen" button".
     7. Click home.
-    8. **Check 7-3**: the request appears in the "requests to review" table.
+    8. **Check 7-3**: the request appears in the "Requests to review" table.
     9. Logout.
 2. Requestor sees it as being reopened
     1. Login as the requestor.
-    2. **Check 7-4**: the status of the request is "being processed".
+    2. **Check 7-4**: the status of the request is "being reviewed".
     3. Logout.
 3. Reviewer approves the request
     1. Login as a reviewer.
-    2. **Check 7-5**: the request appears in the "requests to review" table.
+    2. **Check 7-5**: the request appears in the "Requests to review" table.
     3. Click the edit icon of the request.
-    4. **Check 7-6**: the only available options are "save and close" and "reject and
-       notify requestor".
+    4. **Check 7-6**: the only available options are "Save and close"
+       and "Reject and notify requestor".
     5. Go to the outcome page.
-    6. **Check 7-7**: the decision of "reject" is selected.
-    7. Select "approved for ReDS" for the decision.
-    8. **Check 7-8**: the only available options are "save and close" and "approve
+    6. **Check 7-7**: the decision of "Reject" is selected.
+    7. Select "Approved for ReDS" for the decision.
+    8. **Check 7-8**: the only available options are "Save and close" and "Approve
        and notify provisioning".
-    9. Click the "approved and notify provisioning" button.
+    9. Click the "Approved and notify provisioning" button.
+    10. Click home.
+    11. **Check 7-9**: the request appears in the "Approved requests" table.
+    12. Logout.
 4. Requestor sees it as being approved
     1. Login as the requestor.
-    2. **Check 7-9**: the status of the request is "being provisioned".
+    2. **Check 7-10**: the status of the request is "Being provisioned".
     3. Logout.
+5. Reviewer marks the request as provisioned (i.e. doing the job of the provisioner)
+    1. Login as a reviewer.
+    2. Click the edit icon of the request.
+    3. **Check 7-11**: the only available options are "Save and close", "Mark as provisioning completed" and "Reopen".
+    4. Click the "Mark as provisioning completed" button.
+    5. Click home.
+    7. **Check 7-12**: the request does not appears in any table on the active requests page.
+    8. Click the "Provisioned" tab.
+    9. **Check 7-13**: the request appears in the table.
+    10. Logout.
 
 ## **Test 8**: Reopening a provisioned request
 
@@ -385,15 +398,15 @@ provisioner has provisioned the request.
     2. Click on the "provisioned" tab.
     3. Click on the edit icon of the request.
     4. **Check 8-1**: the only available actions are "Save and close" and "Reopen".
-    5. Click on the "reopen" button.
+    5. Click on the "Reopen" button.
     6. Click home.
-    7. **Check 8-2**: the request appears in the "Requests to process table."
+    7. **Check 8-2**: the request appears in the "Requests to review."
     8. Click on the edit icon of the request.
-    4. **Check 8-3**: the only available actions are "Save and close" and "Approve and notify provisioning".
-    8. Logout.
+    9. **Check 8-3**: the only available actions are "Save and close" and "Approve and notify provisioning".
+    10. Logout.
 2. Requestor sees reopened request
     1. Login as the requestor.
-    2. **Check 8-4**: the request appears in the "submitted requests" table.
+    2. **Check 8-4**: the request appears in the "Submitted requests" table.
     3. **Check 8-5**: the status is "Being reviewed".
     4. Logout.  
 
@@ -402,7 +415,8 @@ provisioner has provisioned the request.
 ### Synopsis
 
 An approved request is reopened (i.e. brought back into the review
-state before a provisioner has marked it as provisoned).
+state) while it is waiting to be provisioned but before a provisioner
+has marked it as provisoned.
 
 ### Prerequsites
 
@@ -416,15 +430,15 @@ reviewer has approved the request.
     2. **Check 9-1**: the request appears in the "Approved requests" table.
     3. Click on the edit icon of the request.
     4. **Check 9-2**: the only available actions are "Save and close", "Mark as provisioning complete" and "Reopen".
-    5. Click on the "reopen" button.
+    5. Click on the "Reopen" button.
     6. Click home.
-    7. **Check 9-3**: the request appears in the "Requests to process table."
+    7. **Check 9-3**: the request appears in the "Requests to review."
     8. Click on the edit icon of the request.
     4. **Check 9-4**: the only available actions are "Save and close" and "Approve and notify provisioning".
     8. Logout.
 2. Requestor sees reopened request
     1. Login as the requestor.
-    2. **Check 9-5**: the request appears in the "submitted requests" table.
+    2. **Check 9-5**: the request appears in the "Submitted requests" table.
     3. **Check 9-6**: the status is "Being reviewed".
     4. Logout.  
 3. Provisioner no longer sees the request
@@ -443,8 +457,7 @@ requestor to provide more information.
 
 ### Prerequesites
 
-Perform the main workflow up to the point where the requestor has
-submitted the request.
+A request in the review state.
 
 ### Process
 
@@ -452,28 +465,31 @@ submitted the request.
     1. Login as a reviewer.
     2. **Check 10-1**: the request appears in the "Requests to review" table.
     3. Click on the edit icon of the request.
-    4. **Check 10-2**: the only available actions are "Save and close", "Make
+    4. Go to the outcome page.
+    5. Select "Still being processed" as the decision (if it is not already selected).
+    6. **Check 10-2**: the only available actions are "Save and close", "Make
        available for assessment" and "Return to requestor to update".
-    5. Click on the "Return to requestor to update" button.
-    6. Click home.
-    7. **Check 10-3**: the request appears in the "Draft requests" table.
-    8. Logout.
+    7. Click on the "Return to requestor to update" button.
+    8. Click home.
+    9. **Check 10-3**: the request appears in the "Draft requests" table.
+    10. Logout.
 2. Requestor resubmits request
     1. Login as the requestor.
-    2. **Check 10-4**: the request appears in the "Requests to resubmit" table.
+    2. **Check 10-4**: the request appears in the "Returned requests" table.
     3. Click the edit icon of the request.
     4. **Check 10-5**: the only available actions are "Save and close", 
-       and "Resubmit".
-    5. Go to the "allocation" section.
+       and "Resubmit request".
+    5. Go to the "allocation details" page.
     6. Edit the title.
-    7. Click the "Resubmit" button.
+    7. Click the "Resubmit request" button.
     8. Click home.
     9. **Check 10-6**: the request appears in the "Submitted requests" table.
+    9. **Check 10-7**: the status of the request is "Being reviewed".
     10. Logout.
 3. Reviewer sees resubmitted request
     1. Login as a reviewer.
-    2. **Check 10-7**: the request appears in the "Requests to review" table.
-    3. **Check 10-8**: the request shows the new title.
+    2. **Check 10-8**: the request appears in the "Requests to review" table.
+    3. **Check 10-9**: the request shows the new title.
     4. Logout.
 
 ## **Test 11**: Reopening a redraft
