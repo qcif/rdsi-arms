@@ -29,7 +29,9 @@
 	#if(($page.authentication.has_role("reviewer$nodeSuffix")) || ($page.authentication.has_role("reviewer")) || ($page.authentication.has_role('admin'))) 
 		#set($isReviewer = true)
 	#end
-	
+	#if($page.authentication.has_role("assessor"))
+		#set($isAssessor = true)
+	#end	
 	#if(! $self.version)
 		#if ($isReviewer)
 			<p>[Reviewer's version] <a target="_blank" href="$portalPath/download/$oid/reviewer.pdf">Download reviewer request as a PDF</a></p>
@@ -317,7 +319,7 @@
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphJ.title")</p>
 <p>#getValue("storage-other-technical")</p>
 
-#if($isReviewer)
+#if($isReviewer || $isAssessor)
     ## start of allocation committee submission
     <h4>#displayMessage("arms.heading.allocation-committee")</h4>
     <p class="item_title">NODE: #getValue("node")</p>
@@ -507,7 +509,21 @@
 ###end
 ###end
 #else
-## finish off XHTML for PDF	
+## finish off XHTML for PDF
+#if ($isReviewer || $isAssessor)
+<div class="node-approval-container">
+<h4>APPROVALS</h4>
+<div style="display:inline-block; margin-right:9em; vertical-align:top;">
+        <div>#displayMessage("node.title1.person1")</div>
+        <div style="margin-bottom:2em;">#displayMessage("node.title2")</div>
+        <div>#displayMessage("node.title3")</div>
+</div>
+<div style="display:inline-block; vertical-align:top;">
+        <div>#displayMessage("node.title1.person2")</div>
+        <div style="margin-top:1em;margin-bottom:2em;">#displayMessage("node.title2")</div>
+        <div>#displayMessage("node.title3")</div>
+</div>
+#end
 </body>
 </html>
 #end

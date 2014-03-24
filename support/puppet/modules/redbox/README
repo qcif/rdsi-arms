@@ -3,19 +3,9 @@ __________________________
 ## The module deploys, installs and runs redbox.
 
 ## use scripts/pre-install.sh to setup puppet for redbox use.
+## requires public key added to private bitbucket repository for hiera configuration
 
-## With DNS and SSL in place:
 puppet apply -e "class {'redbox':}"
-
-## If DNS is not setup:
-puppet apply -e "class {'redbox':
-	has_dns => false,
-}"
-
-## To install without SSL:
-puppet apply -e "class {'redbox':
-	has_ssl => false,
-}"
 
 ## NB : for default values of ssl_files, ls presumes that you have the following certificates already installed:
 ## cert   => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",

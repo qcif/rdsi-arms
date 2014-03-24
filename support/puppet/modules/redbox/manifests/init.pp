@@ -91,7 +91,7 @@ class redbox (
     owner                    => $redbox_user,
   }
 
-  redbox::add_yum_repo { $yum_repos: } -> exec { 'yum clean all': } ->
+  redbox::add_yum_repo { $yum_repos: } ->
   redbox::add_redbox_package { $packages:
     owner                    => $redbox_user,
     install_parent_directory => $install_parent_directory,
