@@ -33,21 +33,23 @@ class HomeData(Dashboard):
         self.activate(context, context["page"].getPortal().recordsPerPage)
         auth = context["page"].authentication
         portalId = context["portalId"]
+        self.roleBoard = ""
         if auth.has_role("admin"):
             self.selected = "admin"
         elif auth.has_role("assessor") or auth.has_role("assessor-"+portalId):
             self.selected = "assessor"
+            self._setSection(context["formData"])
         elif auth.has_role("requestor"):
             self.selected = "requestor"
         elif  auth.has_role("reviewer") or auth.has_role("reviewer-"+portalId):
             self.selected = "reviewer"
-            ##formData = context["formData"]
-            self.section(context["formData"])
+            self._setSection(context["formData"])
         elif auth.has_role("provisioner") or auth.has_role("provisioner-"+portalId):
             self.selected = "provisioner"
+            self._setSection(context["formData"])
 
 
-    def section(self, formData): 
+    def _setSection(self, formData): 
         sub_section = formData.get("section")
         if sub_section:
             self.section = sub_section

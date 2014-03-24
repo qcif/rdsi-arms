@@ -24,7 +24,7 @@ from java.text import SimpleDateFormat
 from java.util import ArrayList
 
 from com.googlecode.fascinator.api.indexer import SearchRequest
-from com.googlecode.fascinator.common import FascinatorHome, JsonSimple
+from com.googlecode.fascinator.common import FascinatorHome, JsonSimple, JsonObject
 from com.googlecode.fascinator.common.solr import SolrResult
 from java.io import ByteArrayInputStream, ByteArrayOutputStream
 from java.text import SimpleDateFormat
@@ -47,7 +47,7 @@ class Dashboard:
         self.indexer = self.vc('Services').getIndexer()
 
         self.recordsPerPage = recordsPerPage
-        self.returnFields = "id,date_object_created,date_object_modified,dc_title,workflow_step_label,dataprovider:email,owner"
+        self.returnFields = "id,date_object_created,date_object_modified,dc_title,workflow_step,workflow_step_label,dataprovider:email,owner"
 
     # Get from velocity context
     def vc(self, index):
@@ -165,3 +165,154 @@ class Dashboard:
             return returnArray
         else:
             return ArrayList()
+
+    def packageResults(self, req, solrLog=None):
+        out = ByteArrayOutputStream()
+        if solrLog:
+            self.indexer.searchByIndex(req, out, solrLog)
+        else:
+            self.indexer.searchByIndex(req, out)
+        solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
+        if solrResults:
+            return solrResults.getResults()
+        else:
+            return ArrayList()
+
+    def getHistoryQuery(self, oid):
+        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:"' + oid + '"')
+        req.setParam("fl",'eventTime,newStep')
+        req.setParam("sort", "eventTime desc")
+        return req
+
+    def getCurrentState(self, oid):
+        req = self.getHistoryQuery(oid)
+        req.setParam("rows", "1")
+        t = self.packageResults(req, "eventLog")
+        ## Normally every record has entry in eventlog
+        if t.size():
+            return t[0]
+        else:
+            return None
+
+    def getCurrentStates(self, resultList):
+        for result in resultList:
+            state = self.getCurrentState(result.get("id"))
+            if state:
+                jObj = result.getJsonObject();
+                jObj.put("current_state_date",self.formatDate(state.get("eventTime")))
+                jObj.put("current_state",state.get("newStep"))
+        return resultList
+    
+    def getStateDate(self, oid, state):
+        """ get the latest date of a state
+        """
+        req = SearchRequest('context:"Workflow" AND newStep:"' + state + '" AND oid:"' + oid + '"')
+        req.setParam("fl",'eventTime')
+        req.setParam("sort", "eventTime desc")
+        req.setParam("rows", "1")
+        t = self.packageResults(req, "eventLog")
+        if t.size():
+            return t[0]
+        else:
+            return None
+        
+    def getStateDates(self, oids, state):
+        """Query the latest date when records are in the state"""
+        req = SearchRequest('context:"Workflow" AND newStep:' + state + ' AND oid:' + oids + '')
+        req.setParam("fl",'eventTime,oid')
+        req.setParam("sort", "oid asc, eventTime desc")
+
+        events = self.packageResults(req, "eventLog")
+        latest = JsonObject()
+        stateDateKey = state + "_eventTime"
+        for e in events:
+            oid = e.get("oid")
+            if oid not in latest:
+                jObj = JsonObject()
+                jObj.put(stateDateKey, self.formatDate(e.get("eventTime")))
+                latest.put(oid,jObj)
+        return latest
+    
+    def _extractOIDs(self, resultList):
+        idList = []
+        for result in resultList:
+            idList.append('"' + result.get("id") + '"')
+        return '(%s)' % " OR ".join(idList)
+    
+    def getHistory(self, oids):
+        """Query the history and save the latest to the return JsonObject""" 
+        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
+        req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("sort", "oid asc, eventTime desc")
+        
+        events = self.packageResults(req, "eventLog")
+        latest = JsonObject()
+        for e in events:
+            oid = e.get("oid")
+            if oid not in latest:
+                jObj = JsonObject()
+                jObj.put("step", e.get("newStep"))
+                jObj.put("eventTime", self.formatDate(e.get("eventTime")))
+                latest.put(oid,jObj)
+        return latest
+    
+    def mergetList(self, mainList, pending, defaultKeys):
+        for result in mainList:
+            pendingItem = pending.get(result.get("id"))
+            jObj = result.getJsonObject();
+            if pendingItem:
+                for k in pendingItem.keySet():
+                    jObj.put(k.replace('-','_'), pendingItem.get(k))
+            for k in defaultKeys:
+                if not jObj.containsKey(k):
+                    jObj.put(k, "")
+        return mainList
+
+    def getLatestSteps(self, packageType, stageName, startPage=1):
+        results = self.getListOfStage(packageType, stageName, startPage)
+        if results:
+            latestSteps = self.getHistory(self._extractOIDs(results))
+            return self.mergetList(results, latestSteps,["eventTime"])
+        else:
+            return None
+        
+    def prepareReviewTable(self, packageType, stageName, startPage=1):
+        results = self.getListOfStage(packageType, stageName, startPage)
+        if results:
+            oids = self._extractOIDs(results)
+            latestSteps = self.getHistory(oids)
+            results = self.mergetList(results, latestSteps,["eventTime"])
+            state = "arms_review"
+            submittedDates = self.getStateDates(oids, state)
+            return self.mergetList(results, submittedDates,[state+"_eventTime"])
+        else:
+            return None        
+
+    def getFullHistory(self, oids):
+        """Query the history and save the latest to the return JsonObject""" 
+        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
+        req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("sort", "oid asc, eventTime asc")
+        
+        events = self.packageResults(req, "eventLog")
+        latest = JsonObject()
+        for e in events:
+            oid = e.get("oid")
+            if oid not in latest:
+                jObj = JsonObject()
+                latest.put(oid,jObj)
+            else:
+                jObj = latest.get(oid)
+            jObj.put('%s_eventTime' % e.get("newStep"), self.formatDate(e.get("eventTime")))
+        return latest
+
+    def getAllStates(self, packageType, stageName, startPage=1):
+        results = self.getListOfStage(packageType, stageName, startPage)
+        ## Fixme: read from home/harvest/arms.json
+        defaultEvents = ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"] 
+        if results:
+            oids = self._extractOIDs(results)
+            allSteps = self.getFullHistory(oids)
+            return self.mergetList(results, allSteps,['%s_eventTime' % e for e in defaultEvents])
+        else:
+            return None     

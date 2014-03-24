@@ -1,0 +1,5 @@
+#set($pageTitle = "Help")
+<h2 id="page-heading"><span>Help</span></h2>
+<div class="grid_16">
+<p>Coming up</p>
+</div>
