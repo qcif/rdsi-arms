@@ -68,11 +68,6 @@
       "field-name": "outcome-ingest-status",
       "label": "arms.outcome.ingeststatus.label",
       "additional-classes": "longTextInput"
-    },
-    {
-      "component-type": "textarea",
-      "field-name": "reviewer-outcome-message",
-      "label": "arms.outcome.subsectionD.label"
     }
   ]
 }
