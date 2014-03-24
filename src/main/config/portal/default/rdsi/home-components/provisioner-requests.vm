@@ -4,7 +4,7 @@
 
 #set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-approved'))
+#set($results = $self.getAllStates("$packageType", 'arms-approved'))
 #if ($results && $results.size() > 0)
 
 <script>
@@ -13,7 +13,6 @@ approvedRcds.prepareData = function(data) {
  for(var i=0; i < data.length; i++) {
      data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
      data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-     data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
      this.rows.push(data[i]);
  }
 }
@@ -35,8 +34,8 @@ jQuery(document).ready(function() {
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-	    <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Approved date:coming'"></td>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: arms_approved_eventTime"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
@@ -48,7 +47,7 @@ jQuery(document).ready(function() {
 
 #set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-provisioned'))
+#set($results = $self.getAllStates("$packageType", 'arms-provisioned'))
 #if ($results && $results.size() > 0)
 
 <script>
@@ -57,7 +56,6 @@ provisionedRcds.prepareData = function(data) {
  for(var i=0; i < data.length; i++) {
      data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
      data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-     data[i]["date_object_created"] = formatDate(data[i]["date_object_created"]);
      this.rows.push(data[i]);
  }
 }
@@ -80,8 +78,8 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Approved date:coming'"></td>
-        <td data-bind="text: 'Provisioned date:coming'"></td>
+        <td data-bind="text: arms_approved_eventTime"></td>
+        <td data-bind="text: arms_provisioned_eventTime"></td>
         </tr>
     </tbody>
 </table>

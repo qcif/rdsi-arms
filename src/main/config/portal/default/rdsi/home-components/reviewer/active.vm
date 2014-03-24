@@ -1,9 +1,8 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-review'))
+#set($results = $self.getAllStates("$packageType", 'arms-review'))
 #if ($results && $results.size() > 0)
-
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
@@ -12,7 +11,8 @@ var reviewerRecords = new DataRowsModel('reviewer');
 reviewerRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
+        data[i]["eventTime"] = data[i][String(data[i]["workflow_step"]).replace('-','_') + '_eventTime'];
         this.rows.push(data[i]);
     }
 }
@@ -37,9 +37,9 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'submitted date: coming'"/>
-        <td data-bind="text: 'translated stage: coming'"></td>
-        <td data-bind="text: 'date: coming'"></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: workflow_step_label"></td>
+        <td data-bind="text: eventTime"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.assessment')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-assessment'))
+#set($results = $self.getAllStates("$packageType", 'arms-assessment'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
@@ -63,7 +63,7 @@ var assessorRecords = new DataRowsModel('assessor');
 assessorRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
         this.rows.push(data[i]);
     }
 }
@@ -88,8 +88,8 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'submitted date: coming'"/>
-        <td data-bind="text: 'assessment date: coming'"></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: arms_assessment_eventTime"></td>
         <td data-bind="text: 'responses: coming'"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
@@ -103,7 +103,7 @@ jQuery(document).ready(function() {
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.approved')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getListOfStage("$packageType", 'arms-approved'))
+#set($results = $self.getAllStates("$packageType", 'arms-approved'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
@@ -138,8 +138,8 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'submitted date: coming'"/>
-        <td data-bind="text: 'approved: coming'"></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: arms_approved_eventTime"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
@@ -151,7 +151,8 @@ jQuery(document).ready(function() {
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
-#parseTemplate("wrapping/info-box-open.vm")#set($results = $self.getListOfStage("$packageType", 'arms-redraft'))
+#parseTemplate("wrapping/info-box-open.vm")
+#set($results = $self.getAllStates("$packageType", 'arms-redraft'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
@@ -186,8 +187,8 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'submitted date: coming'"/>
-        <td data-bind="text: 'returned coming'"></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: arms_redraft_eventTime"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>

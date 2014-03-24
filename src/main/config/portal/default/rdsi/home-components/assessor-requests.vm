@@ -12,7 +12,9 @@ var assementDrafts = new DataRowsModel('assessment-draft');
 assementDrafts.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/assess/' + data[i].id;;
+        data[i]["editUrl"] = '$portalPath/assess/' + data[i].id;
+        ##Not exactly wanted, place hoder only
+        data[i]["arms_assessment_eventTime"] = formatDate(data[i]["date_object_modified"]);
         this.rows.push(data[i]);
     }
 }
@@ -35,7 +37,7 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Start date:coming'"></td>
+        <td data-bind="text: arms_assessment_eventTime"></td>
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
@@ -55,6 +57,8 @@ var assementFinal = new DataRowsModel('assessment-submitted');
 assementFinal.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        ##Not exactly wanted, place hoder only
+        data[i]["arms_assessment_eventTime"] = formatDate(data[i]["date_object_modified"]);
         this.rows.push(data[i]);
     }
 }
@@ -76,7 +80,7 @@ jQuery(document).ready(function() {
     <tbody data-bind="foreach: rows">
         <tr>
         <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Start date:coming'"></td>
+        <td data-bind="text: arms_assessment_eventTime"></td>
         </tr>
     </tbody>
 </table>
