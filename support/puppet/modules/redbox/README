@@ -7,19 +7,13 @@ __________________________
 
 puppet apply -e "class {'redbox':}"
 
-## NB : for default values of ssl_files, ls presumes that you have the following certificates already installed:
-## cert   => "/etc/ssl/local_certs/SSLCertificateFile/${::fqdn}.crt",
-## key    => "/etc/ssl/local_certs/SSLCertificateKeyFile/${::fqdn}.key",
-## chain  => "/etc/ssl/local_certs/SSLCertificateChainFile/${::fqdn}_CA.crt",
-## to change the pathnames
-puppet apply -e "class {'redbox':
-	$ssl_files = {
-		cert => "...",
-		key  => "...",
-		chain => "...",
-	},
-}
+## atm, there is still work to be done on our rpms and puppet use.
+## For now, after running puppet command,above, run 
+`yum update redbox-rdsi-arms-<<node-name>>`
 
+## Until we have gpg-hiera pattern setup for use with sensitive data, the following needs manual setup:
+## - ssl certificates and keys, including their directories
+## - aaf rapid setup in home/system-config.json
 
 ## No support to run without apache proxy server.
 ## Tested only on CentOS
