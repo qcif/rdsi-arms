@@ -113,7 +113,7 @@
             "label": "Being reviewed",
             "description": "Assessors are assessing the request.",
             "owner_edit_allowed": "false",
-            "security": ["reviewer", "assessor","admin"],
+            "security": ["reviewer", "admin"],
             "visibility": ["reviewer","assessor","admin"],
             "actions": [
                 {
