@@ -47,7 +47,7 @@ class redbox (
   $ssl_files                = hiera(ssl_files),
   $exec_path                = hiera(exec_path),
   $yum_repos                = hiera_array(yum_repos),
-  $crontab                  = hiera(crontab),) {
+  $crontab                  = hiera_array(crontab),) {
   if ($has_dns and $::fqdn) {
     $server_url = $::fqdn
   } elsif ($::ipaddress) {
@@ -98,11 +98,7 @@ class redbox (
     has_ssl                  => $has_ssl,
     server_url               => $server_url,
   }
-
-  cron { deploy_redbox:
-    command => $crontab[command],
-    user    => $crontab[user],
-    hour    => $crontab[hour],
-    minute  => $crontab[minute],
-  }
+  
+  redbox:add_cron { $crontab: }
 }
+

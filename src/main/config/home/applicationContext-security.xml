@@ -12,7 +12,6 @@
 		<intercept-url pattern="/**/login" access="permitAll" />
 		<intercept-url pattern="/**/sso/*" access="permitAll" />
         <intercept-url pattern="/**/userinfo" access="permitAll" />
-		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('assessor')"/>
         <intercept-url pattern="/**/assess/*" access="hasRole('assessor')"/>
 		<intercept-url pattern="/**/accessDenied" access="permitAll" />
 		<intercept-url pattern="/**/dashboards/requestor" access="hasRole('requestor')" />
@@ -34,7 +33,7 @@
 		<intercept-url pattern="/**/download/**/reviewer.pdf" access="hasDownloadAccess() and (hasAnyRole('reviewer','admin'))" />
 		<intercept-url pattern="/**/download/**/request.pdf" access="hasDownloadAccess()" />
 		<intercept-url pattern="/**/download/**/*" access="hasDownloadAccess()" />
-		<intercept-url pattern="/**/detail/*" access="hasViewAccess() or hasRole('assessor')"/>
+		<intercept-url pattern="/**/detail/*" access="hasViewAccess()"/>
 		<intercept-url pattern="/**/*.*" access="permitAll" />
 		<intercept-url pattern="/*/**" access="isAuthenticated()" />
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />

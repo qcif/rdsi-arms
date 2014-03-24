@@ -66,11 +66,13 @@ class RecordsData(Dashboard):
             
         if searchType == "shared":
             results = self.getShared(packageType, pageNum)
-        if searchType in ['assessment-draft', 'assessment-submitted']:
+        elif searchType in ['assessment-draft', 'assessment-submitted']:
             ## used in filtering results
             results = self.getFiltered(packageType, searchType, pageNum)
+        elif searchType == "submitted":
+            results = self.getLatestSteps(packageType, searches[searchType], pageNum)
         else:
-            results = self.getListOfStage(packageType, searches[searchType], pageNum)
+            results = self.getAllStates(packageType, searches[searchType], pageNum)
         
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)

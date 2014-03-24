@@ -43,8 +43,9 @@
         }
       },
       {
-        "label": "Approved and notify provisioning",
+        "label": "Approved ReDS",
         "id": "approve-reds-btn",
+        "title": "Notify requester and provisioning",
         "action": "approve",
         "condition-on": {
           "id": "outcome-decision.2",
@@ -52,7 +53,8 @@
         }
       },
       {
-        "label": "Approved and notify provisioning",
+        "label": "Approved CDS",
+        "title": "Notify requester and provisioning",
         "id": "approve-cds-btn",
         "action": "approve",
         "condition-on": {
@@ -61,7 +63,8 @@
         }
       },
       {
-        "label": "Reject and notify requestor",
+        "label": "Reject",
+        "title": "Notify requester",
         "id": "reject-btn",
         "action": "reject",
         "condition-on": {

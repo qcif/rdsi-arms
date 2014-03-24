@@ -1,87 +1,20 @@
 #parseTemplate( "home-components/package-type.vm" )
 
-## load pagination controls lazily
-#parseTemplate("home-components/pagingControl.vm")
-
-#set($menuTitle = "#displayMessage('arms.dashboard.assessor.pending')")
-#parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-draft'))
-#if ($results && $results.size() > 0)
-<script>
-var assementDrafts = new DataRowsModel('assessment-draft');
-assementDrafts.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/assess/' + data[i].id;;
-        this.rows.push(data[i]);
-    }
-}
-
-jQuery(document).ready(function() { 
-    ko.applyBindings(assementDrafts, jQuery('#assementDraftsTbl')[0]);
-    setupPagingCtrls('assementDraftsPaging', assementDrafts, $results);
-});
-</script>
-
-<div class="block">
-<table id="assementDraftsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.assessmentdate')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Start date:coming'"></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("assementDraftsPaging")
-</div>
-
+#if ($self.roleBoard)
+    #set($path = "$portalPath/dashboards/assessor")
+#else
+    #set($path = "$portalPath/home")    
 #end
-#parseTemplate("wrapping/info-box-close.vm")
 
-#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-submitted'))
-#if ($results && $results.size() > 0)
-#set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
-#parseTemplate("wrapping/info-box-open.vm")
-<script>
-var assementFinal = new DataRowsModel('assessment-submitted');
-assementFinal.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        this.rows.push(data[i]);
-    }
-}
-
-jQuery(document).ready(function() { 
-    ko.applyBindings(assementFinal, jQuery('#assementFinalTbl')[0]);
-    setupPagingCtrls('assementFinalPaging', assementFinal, $results);
-});
-</script>
-
-<div class="block">
-<table id="assementFinalTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.assessmentdate')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: 'Start date:coming'"></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("assementFinalPaging")
-</div>
-
-#parseTemplate("wrapping/info-box-close.vm")
+#if ($self.section)
+    #set($section = "${self.section}.vm")
+#else 
+    #set($section = "active.vm"))    
 #end
+
+<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-corner-all">
+    <li class="ui-state-default ui-corner-top #if($section=='active.vm') ui-state-active #end"><a href="$path">Active</a></li>
+    <li class="ui-state-default ui-corner-top #if($section=='assessed.vm') ui-state-active #end"><a href="$path?section=assessed">Assessed</a></li>
+</ul>
+
+#parseTemplate( "home-components/assessor/$section" )

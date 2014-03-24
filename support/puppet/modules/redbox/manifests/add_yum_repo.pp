@@ -5,6 +5,7 @@ define redbox::add_yum_repo (
     baseurl  => $repo[baseurl],
     gpgcheck => $repo[gpgcheck],
     enabled  => $repo[enabled],
-  }
+  } ~>
+  exec { 'yum clean all': refreshonly => true, }
 
 }
