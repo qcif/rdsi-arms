@@ -8,10 +8,10 @@ For historical reasons, this directory is called "dev".
 
 ## Contents
 
-- [install-arms.sh](install-arms.md)
-- [deploy.sh](deploy.md)
-- apache-arms.conf
-- redbox-mint.sh
+- [arms-deploy.sh](arms-deploy.md) - setup environment, download sources from GitHub, builds and installs ARMS
+- [install-arms.sh](install-arms.md) - installs ARMS
+- [deploy.sh](deploy.md) - deploys either Mint or ARMS-ReDBox
+- apache-arms.conf - Apache configuration file
 
 ## See also
 
