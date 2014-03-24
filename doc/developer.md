@@ -1,4 +1,6 @@
-#Developer
+# Developer notes for ARMS
+
+**Under construction...**
 
 ##Building
 This guide describes how to build a copy of the ARMS codebase. At completion of this guide you will have a packaged version of the system that can then be deployed onto a server.
@@ -80,15 +82,9 @@ A set of default user/passwords have been created in the system:
 * provisioner/provisioner
 
 ###Follow-up
-Once you've got the default system running, you may want to look at 03 - Configuring ARMS.
+
 The system will now be running on a non-standard port for web browsers. If you wish to make the system accessible via the standard Port 80, use of Apache HTTP with mod_proxy (http://httpd.apache.org/docs/2.2/mod/mod_proxy.html) is suggested.
 
-##Configuring ARMS
-The ARMS system is based on ReDBox and a lot of useful documentation for the system can be found at http://www.redboxresearchdata.com.au/documentation. Key documentation items include:
+## See also
 
-* System layout: <http://www.redboxresearchdata.com.au/documentation/system-administration/general-administration/system-layout>
-* Branding: <http://www.redboxresearchdata.com.au/documentation/system-administration/general-administration/branding>
-* The workflow and forms configuration: <http://www.redboxresearchdata.com.au/documentation/how-to/setup-a-new-workflow>
-* In-depth info about the configuration file: <https://sites.google.com/site/fascinatorhome/home/documentation/technical/configuration>
-
-ARMS provides a notifications system that can send emails at various times. This has not yet been configured for QCIF but the documentation should assist those wishing to enable notifications: <http://www.redboxresearchdata.com.au/documentation/how-to/how-to-setup-an-email-trigger>
+- Other [documentation](README.md) for ARMS.
