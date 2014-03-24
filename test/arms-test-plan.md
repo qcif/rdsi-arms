@@ -1,7 +1,7 @@
 ARMS Test Plan
 ==============
 
-Version: 1.0 draft 2014-03-24
+Version: 1.0 draft 2014-03-25
 
 ## Introduction
 
@@ -16,11 +16,6 @@ provisioning the storage for it.
 ### Purpose
 
 This is a test plan for ARMS.
-
-### Status
-
-**This test plan is in the process of being developed. It is currently
-incomplete.**
 
 ### Acceptance criteria
 
@@ -44,6 +39,10 @@ None of the checks shall fail.
 
 Unsuccessful login.
 
+### Prerequisites
+
+- User not logged in.
+
 ### Procedure
 
 1. Go to the login page.
@@ -53,11 +52,19 @@ Unsuccessful login.
 5. Click login.
 6. **Check 1-1**: login was rejected.
 
+### Postconditions
+
+- User not logged in.
+
 ## **Test 2**: Login success
 
 ### Synopsis
 
 Successful login.
+
+### Prerequisites
+
+- User not logged in.
 
 ### Procedure
 
@@ -68,20 +75,28 @@ Successful login.
 5. Click login.
 6. **Check 2-1**: login was successful.
 
+### Postconditions
+
+- User is logged in.
+
 ## **Test 3**: Logout
 
 ### Synopsis
 
 Loging out.
 
-### Prerequsites
+### Prerequisites
 
-Perform the login success test.
+- User is logged in.
 
 ### Procedure
 
 1. Click the logout link.
 2. **Check 3-1**: the login page is showing.
+
+### Postconditions
+
+- User not logged in.
 
 ## **Test 4**: Main Workflow
 
@@ -94,9 +109,9 @@ example, returning a request for resubmission or reopening a rejected
 request is not tested. Those other workflow options should be tested
 in other tests.
 
-### Prerequsites
+### Prerequisites
 
-None.
+- User not logged in.
 
 ### Procedure
 
@@ -233,6 +248,11 @@ None.
     9. Click home.
     10. Logout.
 
+### Postconditions
+
+- Request in the provisioned state.
+- User not logged in.
+
 ## **Test 5**: Draft editing and deleting
 
 ### Synopsis
@@ -240,9 +260,9 @@ None.
 Multiple editing of draft requests and the ability to delete draft
 requests.
 
-### Prerequsites
+### Prerequisites
 
-None.
+- User not logged in.
 
 ### Procedure
 
@@ -259,19 +279,23 @@ None.
     9. Logout.
 2. Drafts are not visible to reviewers
     1. Login as a reviewer.
-    2. **Check 5-3**: the new draft request does not appear in any table.
+    2. **Check 5-3**: the new draft request does not appear in any table on the active requests page.
+    3. Click on the "Provisioned" tab.
+    4. **Check 5-4**: the new draft request does not appear in the table.
+    5. Click on the "Rejected" tab.
+    4. **Check 5-5**: the new draft request does not appear in the table.
     3. Logout.
 3. Drafts are not visible to assessors
     1. Login as an asssessor.
-    2. **Check 5-4**: the new draft request does not appear in any table.
+    2. **Check 5-6**: the new draft request does not appear in any table.
     3. Logout.
 4. Drafts are not visible to provisioners
     1. Login as a provisioner.
-    2. **Check 5-5**: the new draft request does not appear in any table.
+    2. **Check 5-7**: the new draft request does not appear in any table.
     3. Logout.
 5. Continue editing a draft
     1. Login as the same requestor.
-    2. **Check 5-6**: the new draft appears in the "Draft requests" table.
+    2. **Check 5-8**: the new draft appears in the "Draft requests" table.
     3. Click the edit icon of the request.
     4. Go to the "Allocation details" page.
     5. Fill in an allocation description.
@@ -280,12 +304,18 @@ None.
     8. Logout.
 6. Delete draft
     1. Login as the same requestor.
-    2. **Check 5-7**: the new draft appears in the "Draft requests" table.
+    2. **Check 5-9**: the new draft appears in the "Draft requests" table.
     3. Click the edit icon for the request.
-    4. Click the "Delete draft" button.
-    5. Click the "Delete" button on the Confirmation dialog.
-    5. **Check 5-8**: the new draft request does not appear in any table.
-    6. Logout.
+    4. Go to the "Allocation details" page.
+    5. **Check 5-10**: the new value for description appears.
+    6. Click the "Delete draft" button.
+    7. Click the "Delete" button on the Confirmation dialog.
+    8. **Check 5-11**: the new draft request does not appear in any table.
+    9. Logout.
+
+### Postconditions
+
+- User not logged in.
 
 ## **Test 6**: Rejecting a request
 
@@ -293,13 +323,20 @@ None.
 
 Rejecting a request.
 
-### Prerequsites
+### Prerequisites
 
-A submitted request in the review state.
+- User not logged in.
 
 ### Procedure
 
-1. Reviewer rejects the request
+1. Create request
+    1. Login as a requestor.
+    2. Click the "New request" button.
+    3. Fill in the request form. Minimally provide all the mandatory fields
+       and check both declarations.
+    4. Click the "Submit request" button.
+    5. Logout.
+2. Reviewer rejects the request
     1. Login as a reviewer.
     2. **Check 6-1**: the request appears in the "Requests to review" table.
     3. Click on the edit icon for the request.
@@ -318,11 +355,16 @@ A submitted request in the review state.
     14. Click on the "Rejected" tab.
     15. **Check 6-7**: the request appears in the rejected requests table.
     16. Logout.
-2. Requestor gets notified of rejection
+3. Requestor gets notified of rejection
     1. Login as the requestor.
     2. **Check 6-8**: the request appears in the submitted requests table.
     3. **Check 6-9**: the request's status is "not approved".
     4. Logout.
+
+### Postconditions
+
+- Request in the rejected state.
+- User not logged in
 
 ## **Test 7**: Reopening a rejected request and approving it
 
@@ -386,10 +428,10 @@ Perform the procedure for "rejecting a request" test.
 
 A previously provisioned request is reopened.
 
-### Prerequsites
+### Prerequisites
 
-Perform the main workflow at least up to the point where the
-provisioner has provisioned the request.
+- Request in the provisioned state.
+- User not logged in.
 
 ### Procedure
 
@@ -418,10 +460,10 @@ An approved request is reopened (i.e. brought back into the review
 state) while it is waiting to be provisioned but before a provisioner
 has marked it as provisoned.
 
-### Prerequsites
+### Prerequisites
 
-Perform the main workflow up to the point where the
-reviewer has approved the request.
+- Request in the approved state.
+- User not logged in.
 
 ### Procedure
 
@@ -457,7 +499,8 @@ requestor to provide more information.
 
 ### Prerequesites
 
-A request in the review state.
+- Request in the review state.
+- User not logged in.
 
 ### Process
 
@@ -502,8 +545,8 @@ without waiting for the requestor to resubmit it.
 
 ### Prerequesites
 
-Perform the "Redrafting" test up to the step where the reviewer
-returns the request for redrafting.
+- Request in the redraft state.
+- User not logged in.
 
 ### Procedure
 
@@ -527,12 +570,11 @@ returns the request for redrafting.
 
 Multiple assessments are submitted.
 
-### Prerequsites
+### Prerequisites
 
-Perform the main workflow up to the point where the reviewer has
-made the request available for assessment.
-
-There must be at least four assessors in the system.
+- At least four assessors are configured in the system.
+- Request in the assessment state.
+- User not logged in.
 
 ### Procedure
 
@@ -631,6 +673,10 @@ An efficient implement of this test needs to be developed.
 
 Mandatory data fields must be answered before submission is permitted.
 
+### Prerequesites
+
+- User not logged in.
+
 ### Procedure
 
 1. Create request
@@ -648,3 +694,9 @@ Mandatory data fields must be answered before submission is permitted.
     2. Fill in one or more extra mandatory data field.
     3. **Check 14-3**: errors are raised when all the mandatory data fields are not filled in.
     4. **Check 14-4**: submission successful when all mandatory data fields are filled in.
+
+## Appendix: Future work
+
+- Improve testing workflow so all tests can be performed in sequence.
+- Add checks for email notifications.
+- Add additional test cases.
