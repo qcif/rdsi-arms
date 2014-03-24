@@ -1,0 +1,24 @@
+#set($pageTitle = "Contact")
+<h2 id="page-heading"><span>Contact us</span></h2>
+<div class="grid_16">
+    #set($contentTitle = "Description")
+    #parseTemplate("wrapping/content-block-open.vm")
+    <div class="article first">
+        <p>The Allocation Request Management System (ARMS) is a software system for managing requests for the allocation of RDSI storage.</p>
+
+<p>ARMS manages requests for allocations and not requests for collections. It is possible to consider a set of collections as a collection in its own right. So ARMS could be considered as a system that deals with such aggregation-collections, but it does not identify collections that are not aggregation-collections. The identification of non-aggregation collection currently is out of scope.</p>
+
+<p>ARMS manages requests for allocations and not actual allocations. A request for a resource is not the same as the resource itself. For requests being processed or have been rejected, there is no corresponding storage allocation. For approved requests, there will be a corresponding storage allocation (subject to provisioning activities being performed outside of ARMS). ARMS can be used in conjunction with an allocation management solution, but ARMS itself is not an allocation management solution. A request is related to, but not the same thing as a allocation.</p>
+
+<p>ARMS is intended to help nodes manage the recording, assessment, provisioning and reporting processes.</p>
+
+<p>ARMS is a software system that has to be used in conjunction with processes and systems (both manual and automated) external to ARMS.</p>
+    </div>
+    <p/>
+    #parseTemplate("wrapping/content-block-close.vm")
+
+    #set($contentTitle = "Other Enquries?")
+    #parseTemplate("wrapping/content-block-open.vm")
+    <p>Please <a href="mailto:support@arms.rdsi.edu.au">email</a> your enquiries to our support team.</p>
+    #parseTemplate("wrapping/content-block-close.vm")
+</div>

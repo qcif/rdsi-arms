@@ -1,6 +1,8 @@
 <div class="grid_16">
     <ul class="nav main">
         <li><a href="$portalPath/home">Home</a></li>
+        <li><a href="$portalPath/help">Help</a></li>
+        <li><a href="$portalPath/contact">Contact</a></li>
         #if($page.authentication.is_admin())
         <li><a href="$portalPath/search">Browse</a></li>
         <li>
