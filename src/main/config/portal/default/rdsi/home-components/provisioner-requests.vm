@@ -1,89 +1,20 @@
 #parseTemplate( "home-components/package-type.vm" )
-## load pagination controls lazily
-#parseTemplate("home-components/pagingControl.vm")
 
-#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
-#parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getAllStates("$packageType", 'arms-approved'))
-#if ($results && $results.size() > 0)
-
-<script>
-var approvedRcds = new DataRowsModel('approved');
-approvedRcds.prepareData = function(data) {
- for(var i=0; i < data.length; i++) {
-     data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-     data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-     this.rows.push(data[i]);
- }
-}
-
-jQuery(document).ready(function() { 
- ko.applyBindings(approvedRcds, jQuery('#approvedRcdsTbl')[0]);
- setupPagingCtrls('approvedRcdsPaging', approvedRcds, $results);
-});
-</script>
-
-<div class="block">
-<table id="approvedRcdsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.approved')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_approved_eventTime"></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("approvedRcdsPaging")
-</div>
+#if ($self.roleBoard)
+    #set($path = "$portalPath/dashboards/provisioner")
+#else
+    #set($path = "$portalPath/home")    
 #end
-#parseTemplate("wrapping/info-box-close.vm")
 
-#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
-#parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getAllStates("$packageType", 'arms-provisioned'))
-#if ($results && $results.size() > 0)
-
-<script>
-var provisionedRcds = new DataRowsModel('provisioned');
-provisionedRcds.prepareData = function(data) {
- for(var i=0; i < data.length; i++) {
-     data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-     data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-     this.rows.push(data[i]);
- }
-}
-
-jQuery(document).ready(function() { 
- ko.applyBindings(provisionedRcds, jQuery('#provisionedRcdsTbl')[0]);
- setupPagingCtrls('provisionedRcdsPaging', provisionedRcds, $results);
-});
-</script>
-
-<div class="block">
-<table id="provisionedRcdsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.approved')</th>
-            <th>#displayMessage('arms.requests.table.provisioned')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_approved_eventTime"></td>
-        <td data-bind="text: arms_provisioned_eventTime"></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("provisionedRcdsPaging")
-</div>
+#if ($self.section)
+    #set($section = "${self.section}.vm")
+#else 
+    #set($section = "active.vm"))    
 #end
-#parseTemplate("wrapping/info-box-close.vm")
+
+<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-corner-all">
+    <li class="ui-state-default ui-corner-top #if($section=='active.vm') ui-state-active #end"><a href="$path">Active</a></li>
+    <li class="ui-state-default ui-corner-top #if($section=='provisioned.vm') ui-state-active #end"><a href="$path?section=provisioned">Provisioned</a></li>
+</ul>
+
+#parseTemplate( "home-components/provisioner/$section" )
