@@ -198,6 +198,54 @@ As describe above but with a few differences.
      2. Set discoveryURL: `discoveryURL="https://ds.aaf.edu.au/discovery/DS"`
 
 
+## Email notifications
+
+### Configurations
+
+Email notifications can be sent when a request changes state.
+
+Email configurations are found in
+`/opt/redbox/home/process/emailer.json`.  Restart ReDBox after editing
+this configuration file.
+
+The top level fields are:
+
+- host: SMTP server address
+- port: SMTP server port number (usually port 25)
+- username: identity to use for SMTP server
+- password: authentication to use for SMTP server
+- tls: secure SMTP
+- ssl: secure SMTP
+- SubmissionNotifier: email templates
+
+Fields for SubmissionNotifier are:
+
+- from: emails will appear to come from this email address
+- to: comma separated list of destination email addresses
+- subject: subject for the email
+- body: contents for the email
+- vars:
+- mapping:
+
+Note: The requestor's email address is obtained from the value entered
+on the request form.  Email addresses from the user's AAF credentials
+are not used by ARMS.
+
+### Sending frequency
+
+ARMS sends the notification emails at periodic intervals.
+
+The interval is set in `/opt/redbox/home/system-config.json`.
+Restart ReDBox after editing this configuration file.
+
+The interval is set by the `houseKeeping` "process-set-all" job
+`timing`.
+
+For example, the following sets it to once every minute:
+
+    "timing": "1 * * * * ?"
+
+
 ## See also
 
 - Other [documentation](README.md) for ARMS.

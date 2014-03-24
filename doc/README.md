@@ -4,7 +4,10 @@
 : Describes the components that makes up ARMS.
 
 - [Deploying ARMS](deployment.md)
-: How to deploy ARMS.
+: How to install ARMS.
+
+- [Running ARMS](running.md)
+: How to administer/manage/operate ARMS.
 
 - [Using ARMS](using.md)
 : How to use ARMS.
