@@ -429,13 +429,10 @@ thead th {
 	color: white;
 }
 
-
-
 .box h2 {
 	text-transform: none !important;
 	font-size: 20px !important;
 }
-
 
 div.menu h2 {
 	text-transform: none !important;
@@ -492,4 +489,17 @@ display: inline;
     position: absolute;
     left: 180px;
     top: 310px;
+}
+
+.workflow-control-blocks {
+	display: inline-block; 
+	margin-left:16.5em; 
+	vertical-align:top;
+} 
+
+.workflow-control-block-left {
+	display: inline-block; 
+	margin-left:16.5em; 
+	vertical-align:top;
+	float: left;
 }

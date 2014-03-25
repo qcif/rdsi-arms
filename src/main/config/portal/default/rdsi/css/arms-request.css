@@ -114,21 +114,6 @@
 	bottom:0;
 }
 
-.workflow-control-blocks {
-	display: inline-block; 
-	margin-left:16.5em; 
-	vertical-align:top;
-} 
-
-.workflow-control-block-left {
-	display: inline-block; 
-	margin-left:16.5em; 
-	vertical-align:top;
-	float: left;
-}
-
-
-
 .notesFields textarea {
   width:40em;	
 }

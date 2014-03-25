@@ -6,5 +6,5 @@ chmod 755 /etc/init.d/redbox
 
 chkconfig --level 445 redbox on
 
-service redbox start
+service redbox restart
 
