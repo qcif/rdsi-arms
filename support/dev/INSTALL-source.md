@@ -2,6 +2,9 @@
 
 ## Overview
 
+**The officially supported method for deploying ARMS is to use
+Puppet. The method described in this document is not supported.**
+
 This page describes how to build an ARMS ReDBox from the sources. It
 also describes how to install it, Mint obtained from QCIF's Nexus
 repository, and the Apache HTTP server, to produce a running
