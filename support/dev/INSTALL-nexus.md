@@ -2,6 +2,9 @@
 
 ## Overview
 
+**The officially supported method for deploying ARMS is to use
+Puppet. The method described in this document is not supported.**
+
 This page describes how to install ARMS from the pre-built components
 on QCIF's Nexus repository. It downloads ARMS ReDBox and Mint from the
 QCIF Nexus repository and installs them. It installs and configures

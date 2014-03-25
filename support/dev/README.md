@@ -1,10 +1,16 @@
-# Dev files for ARMS
+# Unsupported deployment scripts
 
 ## Overview
 
-This directory contains scripts and files for deploying ARMS.
+This directory contains **unsupported** scripts and files for deploying ARMS.
 
-For historical reasons, this directory is called "dev".
+The officially supported deployment method is to use Puppet. The scripts
+in this directory are used for internal testing and are not supported.
+
+The scripts implement two ways to deploy ARMS:
+
+- [Deploy pre-built components from the  Nexus repository](INSTALL-nexus.md)
+- [Build from source code and then deploy](INSTALL-source.md)
 
 ## Contents
 
