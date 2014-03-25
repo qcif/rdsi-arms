@@ -248,4 +248,5 @@ For example, the following sets it to once every minute:
 
 ## See also
 
+- Set up [email notifications](config-notification.md) for ARMS.
 - Other [documentation](README.md) for ARMS.

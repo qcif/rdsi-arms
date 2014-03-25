@@ -350,9 +350,9 @@
         "frequency": "3600",
         "jobs": [
           {
-            "name": "process-set-all",
+            "name": "email-notification",
             "type": "processingSet",
-            "configFile": "${fascinator.home}/process/processConfig.json",
+            "configFile": "${fascinator.home}/process/email-notification-config.json",
             "setId": "",
             "timing": "0 0/5 * * * ?"
           }
