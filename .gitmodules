@@ -1,0 +1,3 @@
+[submodule "support/puppet-redbox"]
+	path = support/puppet-redbox
+	url = git@bitbucket.org:qcifltd/puppet-redbox.git 
