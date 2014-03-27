@@ -1,6 +1,6 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-draft'))
+#set($results = $self.getFilteredAssessments("$packageType", 'arms-assessment', 'assessment-draft'))
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 <script>

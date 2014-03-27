@@ -67,10 +67,10 @@ class RecordsData(Dashboard):
         if searchType == "shared":
             results = self.getShared(packageType, pageNum)
         elif searchType in ['assessment-draft', 'assessment-submitted']:
-            ## used in filtering results
-            results = self.getFiltered(packageType, searchType, pageNum)
+            ## used in filtering assessments
+            results = self.getFilteredAssessments(packageType, searchType, pageNum)
         elif searchType == "submitted":
-            results = self.getLatestSteps(packageType, searches[searchType], pageNum)
+            results = self.getLatestState(packageType, searches[searchType], pageNum)
         else:
             results = self.getAllStates(packageType, searches[searchType], pageNum)
         

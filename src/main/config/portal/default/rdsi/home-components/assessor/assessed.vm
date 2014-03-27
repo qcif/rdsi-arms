@@ -1,4 +1,4 @@
-#set($results = $self.getFiltered("$packageType", 'arms-assessment', 'assessment-submitted'))
+#set($results = $self.getFilteredAssessments("$packageType", 'arms-assessment', 'assessment-submitted'))
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
