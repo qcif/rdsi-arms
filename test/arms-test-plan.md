@@ -112,7 +112,7 @@ in other tests.
 ### Prerequisites
 
 - User not logged in.
-- Testng roles:
+- Testing roles:
 
 | Role        | Useranme      |   password   | 
 |-------------|:-------------:|-------------:|
