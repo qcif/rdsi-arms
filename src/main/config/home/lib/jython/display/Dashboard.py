@@ -158,6 +158,9 @@ class Dashboard:
                 status = x.queryStatus(r.get("id"))
                 if status in statusFilter:
                     if i >= start and i - start < rows:
+                        assessment_submitted_date = x.queryAttr(r.get("id"), 'date')
+                        if assessment_submitted_date:
+                            r.getJsonObject().put('date', assessment_submitted_date)
                         returnArray.add(r)
                     i = i + 1
             
