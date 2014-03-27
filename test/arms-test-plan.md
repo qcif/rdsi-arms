@@ -112,6 +112,17 @@ in other tests.
 ### Prerequisites
 
 - User not logged in.
+- Testng roles:
+
+| Role        | Useranme      |   password   | 
+|-------------|:-------------:|-------------:|
+| requestor   | user          | user         |
+| reviewer    | reviewer      | reviewer     |
+| assessor    | assessor      | assessor     |
+| assessor    | assessor1     | assessor     |
+| assessor    | assessor2     | assessor     |
+| assessor    | assessor3     | assessor     |
+| provisioner | provisioner   | provisioner  |
 
 ### Procedure
 
@@ -579,7 +590,7 @@ Multiple assessments are submitted.
 ### Procedure
 
 1. First assessor makes an assessment
-    1. Login as the first assessor.
+    1. Login as the first assessor:assessor.
     2. Click on the edit icon of the request.
     3. Select the "Accept for ReDS" radio button for the recommendation.
     4. Select the "Accept recommended size" radio button.
@@ -588,7 +599,7 @@ Multiple assessments are submitted.
     7. Click home.
     8. Logout.
 2. Second assessor makes an assessment
-    1. Login as the second assessor.
+    1. Login as the second assessor1:assessor.
     2. Click on the edit icon of the request.
     3. Select the "Accept for CDS" radio button for the recommendation.
     4. Select the "Accept recommended size" radio button.
@@ -597,7 +608,7 @@ Multiple assessments are submitted.
     7. Click home.
     8. Logout.
 3. Third assessor makes an assessment
-    1. Login as the third assessor.
+    1. Login as the third assessor2:assessor.
     2. Click on the edit icon of the request.
     3. Select the "Reject" radio button for the recommendation.
     4. Select the "Accept recommended size" radio button.
@@ -606,7 +617,7 @@ Multiple assessments are submitted.
     7. Click home.
     8. Logout.
 4. Fourth assessor makes an assessment
-    1. Login as the fourth assessor.
+    1. Login as the fourth assessor3:assessor.
     2. Click on the edit icon of the request.
     3. Select the "Accept for ReDS" radio button for the recommendation.
     4. Select the "Disagree with recommended size" radio button.
