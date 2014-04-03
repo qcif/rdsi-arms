@@ -12,7 +12,7 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://qcif.github.io/rdsi-arms"
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
@@ -137,6 +137,12 @@ docpadConfig = {
 					res.redirect(newUrl+req.url, 301)
 				else
 					next()
+					
+	environments:
+        development:
+            templateData:
+                site:
+                    url: 'http://localhost:9778'
 }
 
 

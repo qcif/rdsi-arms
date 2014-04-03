@@ -22,11 +22,11 @@
 	<meta name="viewport" content="width=device-width" />
 
 	<!-- Icons -->
-		<link rel="shortcut icon" href="images/icons/favicon.ico">
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/icons/apple-touch-icon-144-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/icons/apple-touch-icon-114-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/icons/apple-touch-icon-72-precomposed.png">
-		<link rel="apple-touch-icon-precomposed" href="images/icons/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="<%- @site.url %>images/icons/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%- @site.url %>/images/icons/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%- @site.url %>/images/icons/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%- @site.url %>/images/icons/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="<%- @site.url %>/images/icons/apple-touch-icon-57-precomposed.png">
 
 	<!-- Shims: IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -34,7 +34,14 @@
 	<![endif]-->
 
 	<!-- Styles -->
-	<%- @getBlock('styles').add(@site.styles).toHTML() %>
+	<% for style in @site.styles: %>
+	<% if style.indexOf('http') ==0 || style.indexOf('//')  == 0: %> 
+	<%-  @getBlock('styles').add(style).toHTML() %>	
+	<% else: %>
+		<%-  @getBlock('styles').add(@site.url+style).toHTML() %>
+	
+	<% end %>   
+	<% end %>
 </head>
 <body>
 	<!-- Menu -->
@@ -92,6 +99,14 @@
 	</div><!-- /container -->
 
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
+	<% for script in @site.scripts: %>
+	<% if script.indexOf('http') ==0 || script.indexOf('//')  == 0: %> 
+	<%-  @getBlock('scripts').add(script).toHTML() %>	
+	<% else: %>
+		<%-  @getBlock('scripts').add(@site.url+script).toHTML() %>
+	
+	<% end %>   
+	<% end %>
+	
 </body>
 </html>
