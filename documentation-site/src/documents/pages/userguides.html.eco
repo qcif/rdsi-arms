@@ -1,0 +1,13 @@
+---
+title: User guides
+layout: page
+pageOrder: 2
+--- 
+<p>Here is a list of user guides we have available.</p>
+<nav class="linklist">
+	<% for document in @getCollection('userguides').toJSON(): %>
+		<li>
+		<a href="<%= document.url %>"><%= document.title %></a><span style="margin-left:1em">Last updated: <%= document.date.toDateString() %></span></li>
+	   
+	<% end %>
+</nav>
