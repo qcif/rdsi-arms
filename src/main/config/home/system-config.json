@@ -408,7 +408,7 @@
       "allowOlder": false,
       "failOnMissing": false
     },
-    "migrationScript": "${fascinator.home}/restore/redboxMigration1.5.py"
+    "migrationScript": "${fascinator.home}/restore/redboxMigration1.7.py"
   },
   "services": [
     {
