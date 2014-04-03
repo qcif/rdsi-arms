@@ -53,19 +53,19 @@
 					
 						<li
 							typeof="sioc:Page"
-							about="/pages/installation.html"
-							class="<%= 'active'	if @document.url is '/pages/installation.html' %>"
+							about="pages/installation.html"
+							class="<%= 'active'	if @document.url is '/rdsi-arms/pages/installation.html' %>"
 						>
-							<a href="/pages/installation.html" property="dc:title">
+							<a href="/rdsi-arms/pages/installation.html" property="dc:title">
 								Installation Guide
 							</a>
 						</li>
 						<li
 							typeof="sioc:Page"
-							about="/pages/configurationGuides.html"
-							class="<%= 'active'	if @document.url is '/pages/configurationGuides.html' %>"
+							about="pages/configurationGuides.html"
+							class="<%= 'active'	if @document.url is '/rdsi-arms/pages/configurationGuides.html' %>"
 						>
-							<a href="/pages/configurationGuides.html" property="dc:title">
+							<a href="/rdsi-arms/pages/configurationGuides.html" property="dc:title">
 								Configuration Guides
 							</a>
 						</li>
