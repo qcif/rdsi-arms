@@ -41,8 +41,8 @@ docpadConfig = {
 
 			# Styles
 			styles: [
-				"/rdsi-arms/styles/twitter-bootstrap.css"
-				"/rdsi-armsstyles/style.css"
+				"/styles/twitter-bootstrap.css"
+				"/styles/style.css"
 			]
 
 			# Scripts
@@ -50,7 +50,7 @@ docpadConfig = {
 				"//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"
 				"//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"
 				"/vendor/twitter-bootstrap/dist/js/bootstrap.min.js"
-				"/rdsi-arms/scripts/script.js"
+				"/scripts/script.js"
 			]
 
 
