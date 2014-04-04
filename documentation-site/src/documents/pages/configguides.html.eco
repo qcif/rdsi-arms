@@ -5,12 +5,14 @@ pageOrder: 2
 --- 
 <p>These guides are designed to help you configure the various components of the system.</p>
 
-
-<div class="list-group">
-  
-  <% for document in @getCollection('configguides').toJSON(): %>
-		<a class="list-group-item" href="<%= @site.url %><%= document.url %>"><%= document.title %> <span class="last-updated">Last updated: <%= document.date.toDateString() %></span></a>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Configuration Guides</div>
+  <!-- List group -->
+  <ul class="list-group">
+ 	 <% for document in @getCollection('configguides').toJSON(): %>
+		<li class="list-group-item"><a  href="<%= @site.url %><%= document.url %>"><%= document.title %> </a><span class="last-updated">Last updated: <%= document.date.toDateString() %></span></li>
 	   
-	<% end %>
-  
+	<% end %>   
+  </ul>
 </div>

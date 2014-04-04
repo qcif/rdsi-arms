@@ -1,5 +1,5 @@
 ```
-title: How-to configure email notifications
+title: How to configure email notifications
 layout: page
 tags: ['intro','configGuide']
 pageOrder: 2
