@@ -72,7 +72,7 @@
 							about="/pages/configurationGuides.html"
 							class="<%= 'active'	if @document.url is '/pages/configurationGuides' %>"
 						>
-							<a href="<%= @site.url %>/pages/configurationGuides" property="dc:title">
+							<a href="<%= @site.url %>/pages/configguides" property="dc:title">
 								Configuration Guides
 							</a>
 						</li>

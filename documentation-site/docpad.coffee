@@ -91,6 +91,9 @@ docpadConfig = {
 
 		userguides: (database) ->
 			database.findAllLive({tags:$has:'userGuide'}, [date:-1])
+		
+		configguides: (database) ->
+			database.findAllLive({tags:$has:'configGuide'}, [date:-1])
       
 	# =================================
 	# Plugins
