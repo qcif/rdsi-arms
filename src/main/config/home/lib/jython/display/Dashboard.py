@@ -39,6 +39,8 @@ sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util"))
 from Assessment import Assessment
 
 class Dashboard:
+    # Default number of rows returned in one query without Pagination
+    MAX_ROWS = "1000"
     def __init__(self):
         pass
 
@@ -129,12 +131,9 @@ class Dashboard:
         if numFound is not None:
             self.paging = Pagination(1,numFound, self.recordsPerPage)
             
-    # A customised query to use filter to get certain assessment with desired status 
-    def getFiltered(self, packageType, stageName, filterType, startPage=1):
-        ## As we do not anticipate the general interface is required, filter is defined here
-        ## Neither packageType nor stageName is used a key of fitlers
-        ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py
-        ## /redbox-rdsi-arms/src/main/config/portal/default/rdsi/scripts/dashboards/records.py
+    def getFilteredAssessments(self, packageType, stageName, filterType, startPage=1):
+        """ A customised query to use filter to get certain assessment with desired status """ 
+        ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py for methods
         filters = {'assessment-draft': ['new','draft'], 'assessment-submitted':['submitted']}
         statusFilter = filters[filterType]
   
@@ -158,6 +157,9 @@ class Dashboard:
                 status = x.queryStatus(r.get("id"))
                 if status in statusFilter:
                     if i >= start and i - start < rows:
+                        assessment_submitted_date = x.queryAttr(r.get("id"), 'date')
+                        if assessment_submitted_date:
+                            r.getJsonObject().put('date', assessment_submitted_date)
                         returnArray.add(r)
                     i = i + 1
             
@@ -166,7 +168,7 @@ class Dashboard:
         else:
             return ArrayList()
 
-    def packageResults(self, req, solrLog=None):
+    def _packageResults(self, req, solrLog=None):
         out = ByteArrayOutputStream()
         if solrLog:
             self.indexer.searchByIndex(req, out, solrLog)
@@ -178,85 +180,13 @@ class Dashboard:
         else:
             return ArrayList()
 
-    def getHistoryQuery(self, oid):
-        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:"' + oid + '"')
-        req.setParam("fl",'eventTime,newStep')
-        req.setParam("sort", "eventTime desc")
-        return req
-
-    def getCurrentState(self, oid):
-        req = self.getHistoryQuery(oid)
-        req.setParam("rows", "1")
-        t = self.packageResults(req, "eventLog")
-        ## Normally every record has entry in eventlog
-        if t.size():
-            return t[0]
-        else:
-            return None
-
-    def getCurrentStates(self, resultList):
-        for result in resultList:
-            state = self.getCurrentState(result.get("id"))
-            if state:
-                jObj = result.getJsonObject();
-                jObj.put("current_state_date",self.formatDate(state.get("eventTime")))
-                jObj.put("current_state",state.get("newStep"))
-        return resultList
-    
-    def getStateDate(self, oid, state):
-        """ get the latest date of a state
-        """
-        req = SearchRequest('context:"Workflow" AND newStep:"' + state + '" AND oid:"' + oid + '"')
-        req.setParam("fl",'eventTime')
-        req.setParam("sort", "eventTime desc")
-        req.setParam("rows", "1")
-        t = self.packageResults(req, "eventLog")
-        if t.size():
-            return t[0]
-        else:
-            return None
-        
-    def getStateDates(self, oids, state):
-        """Query the latest date when records are in the state"""
-        req = SearchRequest('context:"Workflow" AND newStep:' + state + ' AND oid:' + oids + '')
-        req.setParam("fl",'eventTime,oid')
-        req.setParam("sort", "oid asc, eventTime desc")
-
-        events = self.packageResults(req, "eventLog")
-        latest = JsonObject()
-        stateDateKey = state + "_eventTime"
-        for e in events:
-            oid = e.get("oid")
-            if oid not in latest:
-                jObj = JsonObject()
-                jObj.put(stateDateKey, self.formatDate(e.get("eventTime")))
-                latest.put(oid,jObj)
-        return latest
-    
     def _extractOIDs(self, resultList):
         idList = []
         for result in resultList:
             idList.append('"' + result.get("id") + '"')
         return '(%s)' % " OR ".join(idList)
     
-    def getHistory(self, oids):
-        """Query the history and save the latest to the return JsonObject""" 
-        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
-        req.setParam("fl",'eventTime,newStep,oid')
-        req.setParam("sort", "oid asc, eventTime desc")
-        
-        events = self.packageResults(req, "eventLog")
-        latest = JsonObject()
-        for e in events:
-            oid = e.get("oid")
-            if oid not in latest:
-                jObj = JsonObject()
-                jObj.put("step", e.get("newStep"))
-                jObj.put("eventTime", self.formatDate(e.get("eventTime")))
-                latest.put(oid,jObj)
-        return latest
-    
-    def mergetList(self, mainList, pending, defaultKeys):
+    def _mergeList(self, mainList, pending, defaultKeys):
         for result in mainList:
             pendingItem = pending.get(result.get("id"))
             jObj = result.getJsonObject();
@@ -268,33 +198,40 @@ class Dashboard:
                     jObj.put(k, "")
         return mainList
 
-    def getLatestSteps(self, packageType, stageName, startPage=1):
-        results = self.getListOfStage(packageType, stageName, startPage)
-        if results:
-            latestSteps = self.getHistory(self._extractOIDs(results))
-            return self.mergetList(results, latestSteps,["eventTime"])
-        else:
-            return None
-        
-    def prepareReviewTable(self, packageType, stageName, startPage=1):
-        results = self.getListOfStage(packageType, stageName, startPage)
-        if results:
-            oids = self._extractOIDs(results)
-            latestSteps = self.getHistory(oids)
-            results = self.mergetList(results, latestSteps,["eventTime"])
-            state = "arms_review"
-            submittedDates = self.getStateDates(oids, state)
-            return self.mergetList(results, submittedDates,[state+"_eventTime"])
-        else:
-            return None        
-
-    def getFullHistory(self, oids):
+    def getLatest(self, oids):
         """Query the history and save the latest to the return JsonObject""" 
         req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
         req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("rows", Dashboard.MAX_ROWS)
+        req.setParam("sort", "oid asc, eventTime desc")
+        
+        events = self._packageResults(req, "eventLog")
+        latest = JsonObject()
+        for e in events:
+            oid = e.get("oid")
+            if oid not in latest:
+                jObj = JsonObject()
+                jObj.put("step", e.get("newStep"))
+                jObj.put("eventTime", self.formatDate(e.get("eventTime")))
+                latest.put(oid,jObj)
+        return latest
+    
+    def getLatestState(self, packageType, stageName, startPage=1):
+        results = self.getListOfStage(packageType, stageName, startPage)
+        if results:
+            latestSteps = self.getLatest(self._extractOIDs(results))
+            return self._mergeList(results, latestSteps,["eventTime"])
+        else:
+            return None
+        
+    def getFullHistory(self, oids):
+        """Query the history and save the latest full set of workflow steps to the return JsonObject""" 
+        req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
+        req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("rows", Dashboard.MAX_ROWS)
         req.setParam("sort", "oid asc, eventTime asc")
         
-        events = self.packageResults(req, "eventLog")
+        events = self._packageResults(req, "eventLog")
         latest = JsonObject()
         for e in events:
             oid = e.get("oid")
@@ -313,6 +250,6 @@ class Dashboard:
         if results:
             oids = self._extractOIDs(results)
             allSteps = self.getFullHistory(oids)
-            return self.mergetList(results, allSteps,['%s_eventTime' % e for e in defaultEvents])
+            return self._mergeList(results, allSteps,['%s_eventTime' % e for e in defaultEvents])
         else:
             return None     

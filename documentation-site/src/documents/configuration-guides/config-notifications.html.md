@@ -1,3 +1,9 @@
+```
+title: How to configure email notifications
+layout: page
+tags: ['intro','configGuide']
+pageOrder: 2
+```
 ##Email notifications
 
 Email notifications can be sent when conditions are met, e.g. a request changes state. The system runs notifications as a scheduled job. The job is configued in a file with conditions and actions. The details of **conditions** and **actions** are defined in different files. The definition of actions including the configuration of connecting STMP server and templates of email.

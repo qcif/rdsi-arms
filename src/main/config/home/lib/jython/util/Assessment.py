@@ -20,6 +20,7 @@ from com.googlecode.fascinator.common.storage import StorageUtils
 from org.apache.commons.io import IOUtils
 
 import re
+from datetime import date
 
 class Assessment:
     """ Base class to read and save response, only accessible to assessor
@@ -71,6 +72,8 @@ class Assessment:
         
         assessorResponse = JsonObject()
         assessorResponse.put("status", status)
+        if status == 'submitted':
+            assessorResponse.put("date",self._getToday())
         assessorResponse.put("recommendation",recommendation)
         assessorResponse.put("size-agreement",sizeAgreement)
         assessorResponse.put("comments",comments)
@@ -81,6 +84,8 @@ class Assessment:
         context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
 
     def queryStatus(self, oid):
+        """ Query status and has to at least to return one of two default values: new or draft 
+         """
         status = "new"
 
         if oid:
@@ -96,3 +101,18 @@ class Assessment:
                     else:
                         status = "draft"
         return status
+
+    def queryAttr(self, oid, attrName):
+        """ Query an attribute value of the given attrName. Default value is None 
+         """
+        storedObj, fileExisted = self.hasResponses(oid)
+        attrValue = None 
+        if fileExisted:
+            committeeResponses = self.getResponses(storedObj)
+            assessment = committeeResponses.get(self.assessor)
+            if assessment:
+                attrValue =  assessment.get(attrName)
+        return attrValue
+        
+    def _getToday(self):
+        return date.today().strftime("%d/%m/%Y")       

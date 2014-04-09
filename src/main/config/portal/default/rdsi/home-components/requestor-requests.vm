@@ -131,7 +131,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.dashboard.requestor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getLatestSteps("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
+#set($results = $self.getLatestState("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
 #if ($results && $results.size() > 0)
     #setMyRelatedTbl('submitted' $results)
 #end

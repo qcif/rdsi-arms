@@ -81,7 +81,7 @@ function enableOrDisableAssessment(element) {
 }
 
 jQuery(document).ready(function() {
-   enableOrDisableAssessment(jQuery("div.simple-workflow.component-wrapper:radio:first"));
+   enableOrDisableAssessment($('input[type=radio]')[0]);
 });
 
 jQuery(':radio').click(function() {

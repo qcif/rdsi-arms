@@ -111,7 +111,7 @@ var ${widgetname}_getUploadedFiles = function() {
             }                            
             for (i in data.files) {
                 data.files[i].url = "$portalPath/detail/"+data.files[i].oid+"/"+data.files[i].filename+"?preview=false";                            
-                ${widgetname}_fileRows.push(data.files[i]);
+                $addFunction(data.files[i]);
             }
         }
     });	
