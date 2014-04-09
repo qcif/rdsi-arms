@@ -1,15 +1,19 @@
 <div class="box hidden" id="login-form">
   #set($providers = $page.getSsoProviders())
-  #foreach($ssoId in $providers.keySet())
-  <form class="ssoLogin" method="post" action="#">
-    <fieldset class="search">
-      <legend>$providers.get($ssoId).get("label")</legend>
-      $providers.get($ssoId).get("interface")
-    </fieldset>
-  </form>
+  #if($systemConfig.getString("","environment") !="proto")
+	  #foreach($ssoId in $providers.keySet())
+	  <form class="ssoLogin" method="post" action="#">
+	    <fieldset class="search">
+	      <legend>$providers.get($ssoId).get("label")</legend>
+	      $providers.get($ssoId).get("interface")
+	    </fieldset>
+	  </form>
+	  #end
   #end
   #if($systemConfig.getString("","environment") =="dev")
-  <div class="or">OR</div> 
+  	<div class="or">OR</div> 
+  #end
+  #if($systemConfig.getString("","environment") =="dev" || $systemConfig.getString("","environment") =="proto" )
   <form id="login" method="post" action="#">
     <fieldset class="search">
       <legend>Login details</legend>
