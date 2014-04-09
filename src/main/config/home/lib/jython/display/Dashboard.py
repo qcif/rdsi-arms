@@ -39,6 +39,8 @@ sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util"))
 from Assessment import Assessment
 
 class Dashboard:
+    # Default number of rows returned in one query without Pagination
+    MAX_ROWS = "1000"
     def __init__(self):
         pass
 
@@ -200,6 +202,7 @@ class Dashboard:
         """Query the history and save the latest to the return JsonObject""" 
         req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
         req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("rows", Dashboard.MAX_ROWS)
         req.setParam("sort", "oid asc, eventTime desc")
         
         events = self._packageResults(req, "eventLog")
@@ -225,6 +228,7 @@ class Dashboard:
         """Query the history and save the latest full set of workflow steps to the return JsonObject""" 
         req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
         req.setParam("fl",'eventTime,newStep,oid')
+        req.setParam("rows", Dashboard.MAX_ROWS)
         req.setParam("sort", "oid asc, eventTime asc")
         
         events = self._packageResults(req, "eventLog")
