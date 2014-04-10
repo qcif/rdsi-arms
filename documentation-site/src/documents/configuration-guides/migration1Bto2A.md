@@ -1,3 +1,9 @@
+```
+title: How to migrate ARMS 1B records into a 2A instance
+layout: page
+tags: ['intro','configGuide']
+pageOrder: 3
+```
 ## Migrate ARMS 1B records into a 2A instance
 The steps to migrate ARMS 1B records into a 2A instance is similar to those to restore in normal ReDBox. Some reference can be found [here on ReDBox site](http://www.redboxresearchdata.com.au/documentation/system-administration/general-administration/system-restore-or-migration).
 
@@ -8,18 +14,14 @@ The steps to migrate ARMS 1B records into a 2A instance is similar to those to r
   *Some notes*:
   * To be safe, it is recommended to remove `solr` and `storage` directories if they exist before extracting.
   * Make sure ARMS is not running. 
-0. Reset sequence seed using following commands:
+0. Run command:
 ```shell
 cd /opt/redbox/
-wget http://mirror.ventraip.net.au/apache//db/derby/db-derby-10.8.3.0/db-derby-10.8.3.0-lib.tar.gz
-tar zxf db-derby-10.8.3.0-lib.tar.gz
-#java org.apache.derby.tools.ij sequence.sql
-java -classpath db-derby-10.8.3.0-lib:db-derby-10.8.3.0-lib/lib/derbytools.jar org.apache.derby.tools.ij sequence.sql
+sh restore_node.sh NODE_NAME
 ```
   *Some notes*:
   * If above command returns error, it might be **org.apache.derby.tools.ij** is not installed. It can be downloaded from [here](http://db.apache.org/derby/derby_downloads.html). The direct link of the [library](http://mirror.ventraip.net.au/apache//db/derby/db-derby-10.8.3.0/db-derby-10.8.3.0-lib.tar.gz). The instructions for installation (e.g. extract and set environment variables) is [here](http://db.apache.org/derby/papers/DerbyTut/install_software.html#derby).
   * ARMS has to be not running.
-  * `sequence.sql` assumed the installation is under `/opt/redbox/'; otherwise, change it accordingly.
 0. Startup ARMS for the first time.
 0. Access ARMS from browser as normal. You will not see any record but you have to do it to ensure the system is fully up.
 0. Go to server directory, e.g. `/opt/redbox/server`, run `./tf_restore.sh`
