@@ -28,7 +28,7 @@ export REDBOX_VERSION="${redbox.version}"
 export CLASSPATH="plugins/*:lib/*"
 
 # jvm memory settings
-JVM_OPTS="-XX:MaxPermSize=512m -Xmx512m -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n"
+JVM_OPTS="-XX:MaxPermSize=512m -Xmx512m"
 
 # logging directories
 export SOLR_LOGS=$TF_HOME/logs/solr
@@ -72,13 +72,13 @@ CONFIG_DIRS="-Dfascinator.home=$TF_HOME -Dportal.home=$PROJECT_HOME/portal -Dsto
 MINT_OPTS="-Dmint.proxy.server=$MINT_SERVER -Dmint.proxy.url=$MINT_SERVER/mint -Dmint.amq.broker=$MINT_AMQ"
 
 # additional settings
-EXTRA_OPTS="-Dserver.url.base=$SERVER_URL -Dserver.environment=$SERVER_ENVIRONMENT -Dnode.theme=$NODE_THEME -Damq.port=$AMQ_PORT -Damq.stomp.port=$AMQ_STOMP_PORT -Dsmtp.host=$SMTP_HOST -Dadmin.email=$ADMIN_EMAIL -Dredbox.version=$REDBOX_VERSION"
+EXTRA_OPTS="-Dserver.url.base=$SERVER_URL -Dserver.environment=$SERVER_ENVIRONMENT -Damq.port=$AMQ_PORT -Damq.stomp.port=$AMQ_STOMP_PORT -Dsmtp.host=$SMTP_HOST -Dadmin.email=$ADMIN_EMAIL -Dredbox.version=$REDBOX_VERSION"
 
 # Logging fix. Axis 1.4 (for Fedora) needs to know about the SLF4J Implementation
 COMMONS_LOGGING="-Dorg.apache.commons.logging.LogFactory=org.apache.commons.logging.impl.SLF4JLogFactory"
 
 #jmx-console
-JMX_OPTS="-Dcom.sun.management.jmxremote.port=9009 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+JMX_OPTS="-Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
 
 # set options for maven to use
 export JAVA_OPTS="$COMMONS_LOGGING $JVM_OPTS $JETTY_OPTS $SOLR_OPTS $PROXY_OPTS $CONFIG_DIRS $EXTRA_OPTS $MINT_OPTS $JMX_OPTS"
