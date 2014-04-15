@@ -512,16 +512,17 @@
 ## finish off XHTML for PDF
 #if ($isReviewer || $isAssessor)
 <div class="node-approval-container">
-<h4>APPROVALS</h4>
-<div style="display:inline-block; margin-right:9em; vertical-align:top;">
+    <h4>APPROVALS</h4>
+    <div style="display:inline-block; margin-right:9em; vertical-align:top;">
         <div>#displayMessage("node.title1.person1")</div>
         <div style="margin-bottom:2em;">#displayMessage("node.title2")</div>
         <div>#displayMessage("node.title3")</div>
-</div>
-<div style="display:inline-block; vertical-align:top;">
+    </div>
+    <div style="display:inline-block; vertical-align:top;">
         <div>#displayMessage("node.title1.person2")</div>
         <div style="margin-top:1em;margin-bottom:2em;">#displayMessage("node.title2")</div>
         <div>#displayMessage("node.title3")</div>
+    </div>
 </div>
 #end
 </body>
