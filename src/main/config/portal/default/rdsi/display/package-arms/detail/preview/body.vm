@@ -55,7 +55,6 @@
 ## version indication
 #if($self && $self.version)<p id="version_string">This version was created at $self.version</p>#end
 ## common part starts from here
-<p>#displayMessage("arms.field.label.requestID") #getValue("requestID")</p>
 
 <h4>Description</h4>
 <p>#getValue("collection:description")</p>
