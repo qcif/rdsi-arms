@@ -1,4 +1,4 @@
-<project name="copyPortalNodes" default="create" basedir=".">
+<project name="copyPortalNodes" basedir=".">
 	<description>copy all listed node directories</description>
 	<target name="iterateNodes" description="copy portal directory to new location">
 		<foreach target="copyNodeDir" list="${nodeList}" param="nodeDir" inheritall="true"/>

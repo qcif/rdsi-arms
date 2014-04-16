@@ -280,6 +280,7 @@
 				<packaging>pom</packaging>
 				<server.url.base>http://localhost:9000/</server.url.base>
 				<environment>dev</environment>
+                <artifactSuffix>dev</artifactSuffix>
 			</properties>
 		</profile>
 		<profile>
@@ -647,9 +648,9 @@
 						<id>set-permissions</id>
 						<phase>process-resources</phase>
 						<configuration>
-							<tasks>
+							<target>
 								<chmod file="${dir.server}/*.sh" perm="740" />
-							</tasks>
+							</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
@@ -659,7 +660,7 @@
 						<id>copy-portal-nodes</id>
 						<phase>process-resources</phase>
 						<configuration>
-						<tasks>
+						<target>
             				<taskdef resource="net/sf/antcontrib/antcontrib.properties"
               					classpathref="maven.plugin.classpath" />
               				<property name="nodeList" value="${node.list}"/>
@@ -668,7 +669,7 @@
             				<ant antfile="${pom.basedir}/support/node-management/build-nodes.xml">
               					<target name="iterateNodes"/>
             				</ant>
-        				</tasks>
+        				</target>
 						</configuration>
 						<goals>
 							<goal>run</goal>
@@ -691,6 +692,16 @@
 							<source>${pom.basedir}/support/node-management/generateNodeJson.groovy</source>
 						</configuration>
 					</execution>
+                    <execution>
+                        <id>setSequenceName</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <source>${pom.basedir}/support/node-management/setSequenceName.groovy</source>
+                        </configuration>
+                    </execution>
 					</executions>
 			</plugin>
 			<plugin>
