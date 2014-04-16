@@ -28,4 +28,4 @@ sh restore_node.sh TAR.GZ.NAME
 cd /opt/redbox/server
 ./tf_restore.sh
 ```
-0. Log in as a user having reviewer role to check if data has been restored successfully.
+0. Once it is done, log in as a user having reviewer role to check if data has been restored successfully.
