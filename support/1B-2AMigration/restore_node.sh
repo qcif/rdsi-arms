@@ -47,3 +47,14 @@ cd -
 
 echo "Cleaning up db-derby"
 rm -rf  db-derby-10.8.3.0-lib*
+
+echo
+echo "Start server, and view it live in browser before run tf_restore.sh to load migrated data"
+
+if [ ! -f change_owner.py ]; then
+	echo
+	echo "1B operator did not include change_owner.py."
+	echo "You can download it from github"
+	echo "wget https://raw.githubusercontent.com/qcif/rdsi-arms/master/support/1B-2AMigration/change_owner.py"
+fi
+
