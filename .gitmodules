@@ -1,3 +1,0 @@
-[submodule "support/puppet-redbox"]
-	path = support/puppet-redbox
-	url = https://github.com/redbox-mint-contrib/puppet-redbox.git 
