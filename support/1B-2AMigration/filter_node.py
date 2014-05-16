@@ -1,12 +1,8 @@
 import os, sys, distutils.core, json
-import solr
+import solr,fnmatch, glob, re
 
 # Top working directory
-workingDir = "where the old records are"
 storageDir = "storage/1793582ab247f6442162a75562dcc548"	
-#nodeName = "ersa"
-#savingDir = os.path.join(workingDir, nodeName)
-savingDir = ""
 
 #def usage():
 	#grep -rl jsonConfigPid=arms- storage/1793582ab247f6442162a75562dcc548/* | python filter_node.py ersa
@@ -108,7 +104,32 @@ def setEnv(argv):
 	savingDir = os.path.join(workingDir, nodeName)
 	print "Filtering %s/%s for %s" % (workingDir, storageDir, nodeName)	
 	print "Copy resulting packages to %s\n" % savingDir	
+
+def getFilesWithFields(path):
+	## fields are only in 'version' and 'tfpackage' files
+	filePatternForFields = '.*version_[\d]+$|.*tfpackage$'
+	## get absolute pathnames for only files under directory
+	absPaths = [os.path.join(path,filename) for filename in next(os.walk(path))[2]]
+	pattern = re.compile(filePatternForFields)
+	fileMatches = [f for f in absPaths if pattern.match(f)]
+	print "Files that contain fields : %s" % fileMatches
+	return fileMatches
+
+def changeFields(fields, files):
+	for nextFile in files:
+		f = open(nextFile)
+		d = json.loads(f.read())
+		f.close()
 	
+		for (original, updated) in fields.iteritems():
+			if (d.has_key(original)):
+				print "updating key %s for %s in file: %s" % (original,updated,nextFile)
+				d[updated] = d.pop(original)
+
+		with open(nextFile, 'w') as outfile:
+			json.dump(d, outfile)
+			outfile.close()
+
 if __name__ == "__main__":
 	setEnv(sys.argv[1:])
 	ensureCreated(savingDir)
@@ -118,7 +139,8 @@ if __name__ == "__main__":
 	# This works for arms-2b-restore
 	tfOBJchanges = {"jsonConfigOid":"80cc5098405912038038ba7d4c746443","jsonConfigPid":"arms.json","rulesOid":"5986552442302d50fc55bb36e72578cf"}
 	workflowchanges = {"id":"arms","step":{"arms-request":"arms-draft","arms-submitted":"arms-review"},"label":{"Submitted":"Being reviewed"}}	
-	
+	fieldChanges = {"dataprovider:authority":"dataprovider-authority","collection-details-audience":"storage-geographic-distribution-audience","request:declarations.1":"request-declarations.1","request:declarations.2":"request-declarations.2","storage-location.4":"storage-location.1","storage-location.5":"storage-location.2","storage-location:prefLabel.4":"storage-location:prefLabel.1","storage-location:prefLabel.5":"storage-location:prefLabel.2" }
+
 	# create a connection to a solr server
 	s = solr.SolrConnection('http://127.0.0.1:9000/solr/eventlog')
 
@@ -130,9 +152,12 @@ if __name__ == "__main__":
 			print "Filter out for %s" % nodeName
 			printline(p)
 			packagePath = copyPackage(p, savingDir)
-			changeTFOBJMETA(os.path.join(packagePath,"TF-OBJ-META"),tfOBJchanges)
 			#print "Working dir is: %s" % packagePath
+
+			changeTFOBJMETA(os.path.join(packagePath,"TF-OBJ-META"),tfOBJchanges)
 			changeWorkflowMeta(os.path.join(packagePath,"workflow.metadata"))
+		
+			changeFields(fieldChanges, getFilesWithFields(packagePath)) 
 		else:
 			print "Related event of %s will be removed because type=%s" % (os.path.basename(filePath), pattern)
 			deleteEvent(s, filePath)
