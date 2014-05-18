@@ -1,5 +1,5 @@
 import os, sys, distutils.core, json
-import solr,fnmatch, glob, re
+import solr, re
 
 # Top working directory
 storageDir = "storage/1793582ab247f6442162a75562dcc548"	
@@ -117,18 +117,17 @@ def getFilesWithFields(path):
 
 def changeFields(fields, files):
 	for nextFile in files:
-		f = open(nextFile)
-		d = json.loads(f.read())
-		f.close()
-	
-		for (original, updated) in fields.iteritems():
-			if (d.has_key(original)):
-				print "updating key %s for %s in file: %s" % (original,updated,nextFile)
-				d[updated] = d.pop(original)
+		f = open(nextFile, 'r+')
+		data = f.read()
 
-		with open(nextFile, 'w') as outfile:
-			json.dump(d, outfile)
-			outfile.close()
+		## data can contain mixed codecs - problematic for json.loads - search/replace instead.
+		for (original, updated) in fields.iteritems():
+			data = data.replace(original,updated)
+			print "replaced %s with %s in %s" % (original, updated, nextFile)
+		f.seek(0)
+        	f.write(data)
+        	f.truncate()
+		f.close()
 
 if __name__ == "__main__":
 	setEnv(sys.argv[1:])
