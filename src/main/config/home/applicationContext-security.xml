@@ -35,7 +35,7 @@
 		<intercept-url pattern="/**/download/**/*" access="hasDownloadAccess()" />
 		<intercept-url pattern="/**/detail/*" access="hasViewAccess()"/>
 		<intercept-url pattern="/**/*.*" access="permitAll" />
-		<intercept-url pattern="/*/**" access="isAuthenticated()" />
+		<intercept-url pattern="/*/**" access="hasAnyRole('admin','reviewer','provisioner','assessor','requestor')" />
 		<custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
 		<custom-filter ref="fascinatorAuthInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
 		<access-denied-handler ref="accessDeniedHandler"/>
@@ -60,3 +60,4 @@
 	<authentication-manager />
   
 </beans:beans>
+

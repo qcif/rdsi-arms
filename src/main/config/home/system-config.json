@@ -69,7 +69,7 @@
     "internal": {
       "path": "${fascinator.home}/security/roles.properties",
       "defaultRoles": [
-        "requestor"
+        "guest"
       ]
     }
   },

@@ -47,6 +47,8 @@ class HomeData(Dashboard):
         elif auth.has_role("provisioner") or auth.has_role("provisioner-"+portalId):
             self.selected = "provisioner"
             self._setSection(context["formData"])
+        else:
+            self.selected = "guest"
 
 
     def _setSection(self, formData): 
