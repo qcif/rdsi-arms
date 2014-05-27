@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.edu.qcif</groupId>
 	<artifactId>redbox-rdsi-arms</artifactId>
-	<version>1.1</version>
+	<version>1.2-SNAPSHOT</version>
 	<packaging>${packaging}</packaging>
 	<name>ReDBox - RDSI Arms</name>
 	<parent>
@@ -85,7 +85,7 @@
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-transformer-jsonVelocity</artifactId>
-			<version>1.2.1</version>
+			<version>1.2.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
@@ -95,7 +95,7 @@
         <dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-subscriber-solrEventLog</artifactId>
-			<version>1.3</version>
+			<version>1.4-SNAPSHOT</version>
 		</dependency>
 		<!-- JSON harvester plugin -->
 		<dependency>
@@ -107,7 +107,7 @@
 		<dependency>
 			<groupId>au.com.redboxresearchdata.fascinator</groupId>
 			<artifactId>plugin-sso-rapidaaf</artifactId>
-			<version>1.0</version>
+			<version>1.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<profiles>
