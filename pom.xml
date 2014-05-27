@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>au.edu.qcif</groupId>
 	<artifactId>redbox-rdsi-arms</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 	<packaging>${packaging}</packaging>
 	<name>ReDBox - RDSI Arms</name>
 	<parent>
@@ -86,7 +85,7 @@
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-transformer-jsonVelocity</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
+			<version>1.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
@@ -96,7 +95,7 @@
         <dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-subscriber-solrEventLog</artifactId>
-			<version>1.3-SNAPSHOT</version>
+			<version>1.3</version>
 		</dependency>
 		<!-- JSON harvester plugin -->
 		<dependency>
@@ -108,7 +107,7 @@
 		<dependency>
 			<groupId>au.com.redboxresearchdata.fascinator</groupId>
 			<artifactId>plugin-sso-rapidaaf</artifactId>
-			<version>1.2-SNAPSHOT</version>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 	<profiles>
@@ -205,7 +204,7 @@
 						</executions>
 						<configuration>
 							<copyright>GPLv2</copyright>
-							<distribution></distribution>
+							<distribution />
 							<group>Application/Internet</group>
 							<name>redbox-rdsi-arms-${theme}</name>
 							<mappings>
@@ -661,13 +660,12 @@
 						<phase>process-resources</phase>
 						<configuration>
 						<target>
-            				<taskdef resource="net/sf/antcontrib/antcontrib.properties"
-              					classpathref="maven.plugin.classpath" />
-              				<property name="nodeList" value="${node.list}"/>
-              				<property name="dirPortal" value="${dir.portal}"/>
-              				<property name="dirProject" value="${pom.basedir}"/>
+            				<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.plugin.classpath" />
+              				<property name="nodeList" value="${node.list}" />
+              				<property name="dirPortal" value="${dir.portal}" />
+              				<property name="dirProject" value="${pom.basedir}" />
             				<ant antfile="${pom.basedir}/support/node-management/build-nodes.xml">
-              					<target name="iterateNodes"/>
+              					<target name="iterateNodes" />
             				</ant>
         				</target>
 						</configuration>
