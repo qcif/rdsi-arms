@@ -9,18 +9,18 @@
 	<parent>
 		<groupId>com.googlecode.redbox-mint</groupId>
 		<artifactId>redbox</artifactId>
-		<version>1.7</version>
+		<version>1.8-SNAPSHOT</version>
 	</parent>
 	<properties>
 		<!-- Used in build -->
-		<redbox.version>1.7</redbox.version>
+		<redbox.version>1.8-SNAPSHOT</redbox.version>
 		<package.finalname>${project.build.finalName}</package.finalname>
 		<!-- Runtime values, will replace placeholders in config and control scripts -->
 		<app.location.windows>${project.home}</app.location.windows>
 		<app.location.linux>${project.home}</app.location.linux>
-		<server.port>9000</server.port>
-		<amq.port>9101</amq.port>
-		<amq.stomp.port>9102</amq.stomp.port>
+		<server.port>9070</server.port>
+		<amq.port>9171</amq.port>
+		<amq.stomp.port>9172</amq.stomp.port>
 		<server.url.base>http://${ip.address}:${server.port}/</server.url.base>
 		<mint.proxy.server>http://localhost:9001</mint.proxy.server>
 		<mint.amq.broker>tcp://localhost:9201</mint.amq.broker>
@@ -35,9 +35,10 @@
 		<!-- node.list>ersa,intersect,ivec,nci,qcif,rdsi,vicnode,tpac</node.list -->
 		<node.list>qcif</node.list>
 		<theme>qcif</theme>
-		<!-- Control scripts try to auto-detect proxy. Use this value if you want 
+		<!-- Control scripts try to auto-detect proxy. Use this value if you want
 			Java to specifically exclude certain hosts from proxying. -->
 		<non.proxy.hosts>localhost</non.proxy.hosts>
+        <groovy.version>2.3.4</groovy.version>
 	</properties>
 	<dependencies>
 		<!-- ReDBox Core - We want to explicitly define versions here because ReDBox 
@@ -47,28 +48,28 @@
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-project</artifactId>
 			<type>pom</type>
-			<version>1.7</version>
+			<version>1.8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox</artifactId>
 			<type>pom</type>
-			<version>1.7</version>
+            <version>1.8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-config</artifactId>
-			<version>1.7</version>
+            <version>1.8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>redbox-secure-api</artifactId>
-			<version>1.7</version>
+            <version>1.8-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.googlecode.redbox-mint</groupId>
 			<artifactId>plugin-transaction-curation-redbox</artifactId>
-			<version>1.7</version>
+            <version>1.8-SNAPSHOT</version>
 		</dependency>
 		<!-- Local Curation Plugin (from Mint) -->
 		<dependency>
@@ -95,7 +96,7 @@
         <dependency>
 			<groupId>com.googlecode.the-fascinator.plugins</groupId>
 			<artifactId>plugin-subscriber-solrEventLog</artifactId>
-			<version>1.4-SNAPSHOT</version>
+			<version>1.3</version>
 		</dependency>
 		<!-- JSON harvester plugin -->
 		<dependency>
@@ -107,7 +108,7 @@
 		<dependency>
 			<groupId>au.com.redboxresearchdata.fascinator</groupId>
 			<artifactId>plugin-sso-rapidaaf</artifactId>
-			<version>1.1-SNAPSHOT</version>
+			<version>1.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<profiles>
@@ -277,7 +278,7 @@
 			<id>dev</id>
 			<properties>
 				<packaging>pom</packaging>
-				<server.url.base>http://localhost:9000/</server.url.base>
+				<server.url.base>http://localhost:${server.port}/</server.url.base>
 				<environment>dev</environment>
                 <artifactSuffix>dev</artifactSuffix>
 			</properties>
@@ -675,33 +676,56 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.groovy.maven</groupId>
-				<artifactId>gmaven-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-					<execution>
-						<id>generateNodeJson</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-						<configuration>
-							<source>${pom.basedir}/support/node-management/generateNodeJson.groovy</source>
-						</configuration>
-					</execution>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
                     <execution>
+                        <id>generateNodeJson</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <property>
+                                    <name>portalDir</name>
+                                    <value>${dir.portal}</value>
+                                </property>
+                            </properties>
+                            <scripts>
+                                <script>file:///${basedir}/support/node-management/generateNodeJson.groovy</script>
+                            </scripts>
+                        </configuration>
+                    </execution>
+                  <execution>
                         <id>setSequenceName</id>
                         <phase>process-resources</phase>
                         <goals>
                             <goal>execute</goal>
                         </goals>
                         <configuration>
-                            <source>${pom.basedir}/support/node-management/setSequenceName.groovy</source>
+                            <properties>
+                                <property>
+                                    <name>portalDir</name>
+                                    <value>${dir.portal}</value>
+                                </property>
+                            </properties>
+                            <scripts>
+                                <script>file:///${basedir}/support/node-management/setSequenceName.groovy</script>
+                            </scripts>
                         </configuration>
                     </execution>
-					</executions>
-			</plugin>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>${groovy.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.4.3</version>

@@ -1,6 +1,6 @@
 // Replacing squence name with node specified
 
-final String VM_PATH = project.properties["dir.portal"]+ "/default/rdsi/home-components/create-request.vm"
+final String VM_PATH = "${portalDir}/default/rdsi/home-components/create-request.vm"
 
 def processFileInplace(file, Closure processText) {
 	def text = file.text

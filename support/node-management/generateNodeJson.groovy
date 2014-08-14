@@ -6,7 +6,7 @@ import org.apache.commons.lang.StringUtils
 import groovy.util.logging.*
 
 
-final String RDSI_NODES_PATH = project.properties["dir.portal"]+ "/default/rdsi/form-components/rdsi-nodes.json"
+final String RDSI_NODES_PATH = "${portalDir}/default/rdsi/form-components/rdsi-nodes.json"
 
 def jsonArray = new JSONArray()
 def nodes = project.properties["node.list"].split(",")
