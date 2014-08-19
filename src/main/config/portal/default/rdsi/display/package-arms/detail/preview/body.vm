@@ -322,7 +322,7 @@
     ## start of allocation committee submission
     <h4>#displayMessage("arms.heading.allocation-committee")</h4>
     <p class="item_title">NODE: #getValue("node")</p>
-    <p class="item_title">Allocation ID: #getValue("requestID")</p>
+    <p class="item_title">Request ID: #getValue("requestID")</p>
     <p>&nbsp;</p>
 		<h5>Part A</h5>
 		<dl>
