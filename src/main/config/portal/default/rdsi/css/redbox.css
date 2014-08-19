@@ -440,6 +440,7 @@ div.menu h2 {
 }
 input#query {
 	vertical-align: bottom;
+	margin-top: 14px;
 }
 ul.nav.main {
 	font-size:20px;

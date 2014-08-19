@@ -51,6 +51,16 @@
             </form>
         </li>
         #end
+        #if($page.authentication.is_logged_in())
+        <li class="secondary">
+            <a class="search" href="#"><img src="$portalPath/images/icons/magnifier.png" alt="Search" /></a>
+        </li>
+        <li class="secondary">
+            <form action="$portalPath/search" class="search" method="get">
+                <input class="text" type="text" id="query" name="query" size="25" value="$page.escapeHtml($page.getQuery())" />
+            </form>
+        </li>
+        #end
         <li class="secondary">
             #if($page.authentication.is_logged_in())
                 <span id="user-info" class="status">Welcome <a class="user-data" href="#">$page.authentication.get_name()</a>, <a href="#" id="logout-now">Logout</a></span>
