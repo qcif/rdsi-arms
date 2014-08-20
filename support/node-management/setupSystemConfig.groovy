@@ -2,8 +2,8 @@ import com.googlecode.fascinator.common.JsonSimple
 import com.googlecode.fascinator.common.JsonObject
 import org.apache.commons.io.FileUtils
 
-def nodes = project.properties["node.list"].split(",")
-def systemConfigFile = new File(project.properties["dir.home"]+"/system-config.json")
+def nodes = "${nodeList}".split(",")
+def systemConfigFile = new File("${homeDir}/system-config.json")
 def systemConfig = new JsonSimple(systemConfigFile)
 def systemConfigObject = systemConfig.getJsonObject()
 def packageTypes = systemConfigObject.get("portal").get("packageTypes")

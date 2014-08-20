@@ -8,8 +8,8 @@ def processFileInplace(file, Closure processText) {
 }
 
 // With a correct profile, node.list is a string with one node name  
-// In case no profile is set, make sure we are not having a list 
-def nodes = project.properties["node.list"].split(",")
+// In case no profile is set, make sure we are not having a list
+def nodes = "${nodeList}".split(",")
 if(nodes.length > 1 ) {
 	throw new Exception("Can only be used for creating one-node package. Check profile or project's node.list.");
 }

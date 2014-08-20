@@ -3,13 +3,11 @@ import com.googlecode.fascinator.common.JsonObject
 import org.json.simple.JSONArray
 import org.apache.commons.io.FileUtils
 import org.apache.commons.lang.StringUtils
-import groovy.util.logging.*
-
 
 final String RDSI_NODES_PATH = "${portalDir}/default/rdsi/form-components/rdsi-nodes.json"
 
 def jsonArray = new JSONArray()
-def nodes = project.properties["node.list"].split(",")
+def nodes = "${nodeList}".split(",")
 
 
 addToNodeArray= {value, label->
@@ -20,7 +18,7 @@ addToNodeArray= {value, label->
 }
 
 for(node in nodes) {
-	def nodeDirectory = new File(project.properties["dir.portal"]+"/"+node)
+	def nodeDirectory = new File("${portalDir}/"+node)
 	log.debug 'node directory:'+ nodeDirectory;
 	portalJsonFile = new File(nodeDirectory.getPath()+"/portal.json")
 	log.debug 'portalJson file:'+ portalJsonFile;
