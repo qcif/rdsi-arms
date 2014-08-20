@@ -267,14 +267,6 @@
 			</build>
 		</profile>
 		<profile>
-			<id>prod</id>
-			<properties>
-				<packaging>pom</packaging>
-				<server.url.base>https://arms.rdsi.edu.au/</server.url.base>
-				<package.finalname>${project.build.finalName}-prod</package.finalname>
-			</properties>
-		</profile>
-		<profile>
 			<id>dev</id>
 			<properties>
 				<packaging>pom</packaging>
@@ -310,14 +302,33 @@
 				<artifactSuffix>qcif</artifactSuffix>
 			</properties>
 		</profile>
-		<profile>
-			<id>qcif-rdsi</id>
-			<properties>
-				<packaging>pom</packaging>
-				<node.list>qcif,rdsi</node.list>
-				<theme>qcif</theme>
-			</properties>
-		</profile>
+        <profile>
+            <id>intersect</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>intersect</node.list>
+                <theme>intersect</theme>
+                <artifactSuffix>intersect</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
+            <id>tpac</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>tpac</node.list>
+                <theme>tpac</theme>
+                <artifactSuffix>tpac</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
+            <id>nci</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>nci</node.list>
+                <theme>nci</theme>
+                <artifactSuffix>nci</artifactSuffix>
+            </properties>
+        </profile>
 		<profile>
 			<id>ide</id>
 			<properties>
