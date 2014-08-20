@@ -18,9 +18,9 @@
 		<!-- Runtime values, will replace placeholders in config and control scripts -->
 		<app.location.windows>${project.home}</app.location.windows>
 		<app.location.linux>${project.home}</app.location.linux>
-		<server.port>9070</server.port>
-		<amq.port>9171</amq.port>
-		<amq.stomp.port>9172</amq.stomp.port>
+		<server.port>9000</server.port>
+		<amq.port>9101</amq.port>
+		<amq.stomp.port>9102</amq.stomp.port>
 		<server.url.base>http://${ip.address}:${server.port}/</server.url.base>
 		<mint.proxy.server>http://localhost:9001</mint.proxy.server>
 		<mint.amq.broker>tcp://localhost:9201</mint.amq.broker>
