@@ -320,6 +320,15 @@
             </properties>
         </profile>
         <profile>
+            <id>bootstrap</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>bootstrap</node.list>
+                <theme>bootstrap</theme>
+                <artifactSuffix>bootstrap</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
             <id>nci</id>
             <properties>
                 <packaging>pom</packaging>

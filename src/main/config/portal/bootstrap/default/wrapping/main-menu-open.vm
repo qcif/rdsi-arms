@@ -1,0 +1,7 @@
+<div class="panel panel-default#if($menuClass) $!menuClass#end" #if($menuId) id="$!menuId"#end>
+#if($menuTitle)<div class="panel-heading"> <h4>$!menuTitle</h4></div>#end
+<div class="panel-body">
+## Reset parameters
+#set($menuId = $NULL)
+#set($menuClass = $NULL)
+#set($menuTitle = $NULL)

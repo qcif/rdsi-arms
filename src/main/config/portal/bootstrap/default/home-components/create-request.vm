@@ -1,0 +1,54 @@
+    <div class="row">
+    	<div class="col-md-8">
+    	</div>
+        <div class="col-md-2">
+           <button id="new-request" class="btn btn-primary">#displayMessage("arms.dashboard.requestor.new")</button>
+        </div>
+    </div>
+## set $packageType
+#parseTemplate( "home-components/package-type.vm" )
+#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+<script type="text/javascript" src="$portalPath/jaffa/libs/jquery/jquery.blockUI.js"></script>
+<script type="text/javascript">
+$(function() {
+    var jQ = $;
+    var processing = false;
+    jQ("#new-request").click(function() {
+        if (processing) return;
+        processing = true;
+        jQ.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait while the request is being created...</h5>'});
+        jQ.ajax({
+            type: "POST",
+            url: "$portalPath/actions/packaging.ajax",
+            data: {
+                ajax: 1,
+                func: "create-new",
+                packageType: "$packageType",
+                metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
+                sequencesMetaList: [ '{ "sequenceName":"@NODESEQUENCE@Request","metadataName": "requestID","stringFormat":"@NODESEQUENCE@_%04d"}'],
+                title: "[Untitled]",
+                node: "RDSI$nodeSuffix",
+                description: "",
+                "redbox:newForm": "true",
+                "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
+            },
+            success: function(data) {
+                if (data.status == "ok") {
+                    function redirect() {
+                        window.location.href = data.url;
+                    }
+                    setTimeout(redirect, 1500);
+                } else {
+                    alert("#displayMessage('error-record-create-failed')");
+                }
+            },
+            error: function(xhr, status, e) {
+                alert("#displayMessage('error-record-create-failed')");
+            },
+            dataType: "json"
+        });
+        return false;
+    });
+});
+
+</script>
