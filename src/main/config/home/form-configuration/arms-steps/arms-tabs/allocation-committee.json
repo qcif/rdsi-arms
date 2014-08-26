@@ -12,6 +12,17 @@
       "content": "arms.heading.review-PartA"
     },
     {
+      "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.applicationID"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "applicationID",
+      "label": "",
+      "additional-classes": "longTextInput"
+    },
+    {
       "component-type": "textarea",
       "field-name": "reviewer-proposed",
       "label": "arms.field.label.reviewer-proposed"
