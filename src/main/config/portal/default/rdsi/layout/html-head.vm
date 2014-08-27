@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="$portalPath/css/ui-lightness-1.10.3/jquery-ui-1.10.3.custom.css"/>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script src="$portalPath/js/jquery-fileupload/vendor/jquery.ui.widget.js"></script>
 <script src="$portalPath/js/jquery-fileupload/jquery.iframe-transport.js"></script>
