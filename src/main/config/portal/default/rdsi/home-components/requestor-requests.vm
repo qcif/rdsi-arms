@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<table id="${prefix}ResultsTbl" data-bind="stopBindings: true">
+<table class="table table-striped" id="${prefix}ResultsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -39,9 +39,9 @@ jQuery(document).ready(function() {
 #setPagingCtrl("${prefix}RecordPaging")
 #end
 
-#set($menuTitle = "#displayMessage('arms.dashboard.requestor.draft')")
-#parseTemplate("wrapping/info-box-open.vm")
-<div class="block">
+<div class="panel panel-default">
+<div class="panel-heading"><h4>#displayMessage('arms.dashboard.requestor.draft')</h4></div>
+<div class="panel-body">
 #set($results = $self.getListOfStage("$packageType", 'arms-draft'))
 
 #if ($results && $results.size() > 0)
@@ -63,7 +63,7 @@ jQuery(document).ready(function() {
 
 </script>
 
-<table id="myRecordsTbl" data-bind="stopBindings: true">
+<table class="table table-striped" id="myRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -81,9 +81,10 @@ jQuery(document).ready(function() {
 </table>
 #setPagingCtrl("myRecordsPaging")
 #end
-</div>
+
 #parseTemplate( "home-components/create-request.vm" )
-#parseTemplate("wrapping/info-box-close.vm")
+</div>
+</div>
 
 #set($results = $self.getListOfStage("$packageType", 'arms-redraft'))
 #if ($results && $results.size() > 0)
@@ -107,7 +108,7 @@ jQuery(document).ready(function() {
 
 </script>
 
-<table id="redraftRecordsTbl" data-bind="stopBindings: true">
+<table class="table table-striped" id="redraftRecordsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>

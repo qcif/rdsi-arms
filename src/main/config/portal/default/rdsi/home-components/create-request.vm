@@ -1,8 +1,10 @@
-    <ul class="menu-list align-right">
-        <li>
-           <input id="new-request" class="menu-button" type="button" value='#displayMessage("arms.dashboard.requestor.new")'></input>
-        </li>
-    </ul>
+    <div class="row">
+    	<div class="col-md-8">
+    	</div>
+        <div class="col-md-2">
+           <button id="new-request" class="btn btn-primary">#displayMessage("arms.dashboard.requestor.new")</button>
+        </div>
+    </div>
 ## set $packageType
 #parseTemplate( "home-components/package-type.vm" )
 #if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end

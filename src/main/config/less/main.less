@@ -1,0 +1,47 @@
+.navbar {
+	background-color: @bar-background-colour;
+}
+
+.btn-primary {
+	background-color: @bar-background-colour;
+	border-color: @bar-background-border-colour;
+}
+
+.ui-widget-header {
+	border:1px solid @bar-background-border-colour;
+ 	background:none;
+ 	background-color: @bar-background-colour;
+}
+
+.navbar-default {
+	.navbar;
+	.navbar-nav {
+		>li{
+			>a{ 
+					color:@label-text-colour;
+			}
+		}
+	}
+}
+
+ul.menu {
+	list-style: none;
+}
+
+.options-column {
+	.make-sm-column(3);
+    .make-md-column(2); 
+    .make-lg-column(2);
+}
+
+.main-column-with-options {
+	.make-sm-column(7);
+    .make-md-column(10);
+    .make-lg-column(10);
+}
+
+.main-column{
+	.make-sm-column(12);
+    .make-md-column(12);
+    .make-lg-column(12);
+}

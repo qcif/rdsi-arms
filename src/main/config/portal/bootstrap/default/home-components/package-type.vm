@@ -1,8 +1,0 @@
-#set($packageTypes = $systemConfig.getObject("portal","packageTypes"))
-#if($packageTypes.get("arms-$portalId"))
-  #set($packageType = "arms-$portalId")
-#elseif($packageTypes.get("arms"))
-  #set($packageType = "arms")
-#else
-  <p>Package is unknown.</p>
-#end

@@ -1,49 +1,50 @@
 .menu .selected, .facet-list .selected {
-    background-color: #0091b6;
+    background-color: #41006C;
 }
 
-ul.menu-btn {
+ul.menu-list {
 	list-style: none;
+	margin-bottom:0;
+}
+
+.align-right {
+	text-align:right;
 }
 
 .menu-button {
-	background:#0091b6;
+	background:#41006C;
 	color:#ffffff;
 	font-size: 18px;
-	width:150px;
 	margin:10px;
-	padding:5px; 
+	padding:5px 1em; 
 	overflow:visible;
 }
 
-ul.nav, ul.main li a, .box h2 {
-    background: #0091b6;
-}
+
 
 ul.main li:hover a {
-    background-color: #007694;
+    background-color: #41006C;
 }
 
 ul.main li:hover ul li a {
-    background-color: #007694 !important;
+    background-color: #41006C !important;
 }
 
 ul.main li:hover ul li a:hover {
-    background-color: #015d75 !important;
+    background-color: white !important;
+    color:#41006C !important;
 }
 
 ul.main li ul li a {
-    background-color: #0091b6;
+    background-color: #41006C;
 }
 
-
-
 .accordion-header {
-    background: #0091b6;
+    background: #41006C;
 }
 
 .accordion-header.ui-state-active, .accordion-header:hover {
-    background: #0091b6;
+    background: #41006C;
 }
 
 #content .ui-accordion-content {
@@ -55,29 +56,44 @@ th.header {
 }
 
 .box h2 a, .box h2 a.visible {
-    background-color: #0091b6;
+    background-color: #41006C;
 }
 
 .box h2 a:hover, .box h2 a.visible:hover {
-    background-color: #007694;
+    background-color: white;
+    color: #41006C;
+     border: 1px solid #41006C; 
 }
 
 .accordion-reset:hover {
-    background-color: #0091b6;
-    border: 1px solid #0091b6;
+    background-color: #41006C;
+    border: 1px solid #41006C;    
 }
 
 ul.main li:hover a {
- background-color: #007694;
- 
+ background-color: white;
+ color: #41006C;
+ border: 1px solid #41006C;   
 }
 
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
+    color: #41006C;
+    text-decoration: none;
+}
+
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+    color: white;
+    background-color: #41006C;
+    text-decoration: none;
+}
+
+
 ul.main li:hover ul li a:hover {
-	background: #015d75;
+	background: #41006C;
 }
 
 .ui-widget-header {
-	background: #8D9CCF !important;
+	background: #41006C !important;
 }
 
 .ui-tabs-nav.ui-widget-header {
@@ -85,6 +101,17 @@ ul.main li:hover ul li a:hover {
 }
 
 .ui-state-hover a, .ui-state-hover a:hover {
- background-color: #007694;
+ background-color: #41006C;
  color: white;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    color: #41006C;
+    font-weight: bold;
+}
+
+
+.article h4 {
+    background: none repeat scroll 0 0 #41006C;
+    color: #FFFFFF;
 }

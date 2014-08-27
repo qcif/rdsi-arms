@@ -9,10 +9,10 @@
     #set($paging = $self.paging)
 	#if($paging.pages.size() > 1)
 <div id="$pagingCtrlID" class="paging">
-  <ul>
+  <ul class="pagination">
     #foreach($pageNum in $paging.pages)
       #if($pageNum.selected)
-        <li><a class="selected-page" rel="$pageNum.value">$pageNum.value</a></li>
+        <li class="active"><a rel="$pageNum.value"  href="#">$pageNum.value</a></li>
       #else
         <li><a class="select-page" rel="$pageNum.value" href="#">$pageNum.value</a></li>
       #end
@@ -25,8 +25,8 @@
 <script>
 function setupPagingCtrls(ctrlID, modelInst, initData) {
     $("#"+ ctrlID +" a").click(function() {
-        $("#"+ ctrlID +" .selected-page").addClass("select-page").removeClass("selected-page").attr("href","#");
-        $(this).removeClass("select-page").addClass("selected-page").removeAttr("href");
+        $("#"+ ctrlID +" li.active").removeClass("active");
+        $(this).parent().addClass("active");
         var pN = $(this).attr("rel");
         modelInst.reloadRecords(pN);
         return false;

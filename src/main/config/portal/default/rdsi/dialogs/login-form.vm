@@ -1,4 +1,4 @@
-<div class="box hidden" id="login-form">
+<div class="box" id="login-form" style="display:none">
   #set($providers = $page.getSsoProviders())
   #if($systemConfig.getString("","environment") !="proto")
 	  #foreach($ssoId in $providers.keySet())

@@ -1,16 +1,23 @@
 #set($pageTitle = "Home")
 
-<h2 id="page-heading">
+<div class="page-header">
+<h1 id="page-heading">
   <span>#displayMessage("arms.dashboard.${self.selected}", "$portalId")</span>
-</h2>
+</h1>
+</div>
 
 #parseTemplate("home-components/role-switch-board.vm")
-
+<div class="row">
 #if ($page.authentication.has_role("admin"))
+  <div class="options-column">
   #parseTemplate("menus/home-admin-menu.vm")
+  </div>
+  <div class="main-column-with-options">
+ #else
+ 	<div class="main-column">
 #end
 
-<div class="grid_12">
 #parseTemplate("home-components/${self.selected}-requests.vm")
+</div>
 </div>
 <div class="clear"></div>

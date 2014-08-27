@@ -1,5 +1,5 @@
 #if($page.authentication.is_logged_in())
-<div class="grid_4">
+
     #set($menuTitle = "Options")
     #parseTemplate("wrapping/main-menu-open.vm")
     <ul class="menu">
@@ -8,7 +8,7 @@
         </li>
     </ul>
     #parseTemplate("wrapping/main-menu-close.vm")
-</div>
+
 <script type="text/javascript">
 $(function() {
     var jQ = $;

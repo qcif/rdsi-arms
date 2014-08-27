@@ -1,7 +1,7 @@
 {
   "version": "1.1.0.1",
-  "redbox.version.string": "${redbox.version}",
-  "version.string": "${redbox.version}",
+  "redbox.version.string": "${node.theme}-${redbox.version}",
+  "version.string": "${node.theme}-${redbox.version}",
   "redbox.identity": {
     "institution": "University of Examples",
     "RIF-CS Group": "The University of Examples, Australia",
