@@ -22,8 +22,7 @@ jQuery(document).ready(function() {
     setupPagingCtrls('adminProvisionsPaging', adminProvisions, $results);
 });
 </script>
-<div class="block">
-<table id="adminProvisionsTbl" data-bind="stopBindings: true">
+<table id="adminProvisionsTbl" data-bind="stopBindings: true" class="table table-striped">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -42,7 +41,6 @@ jQuery(document).ready(function() {
     </tbody>
 </table>
 #setPagingCtrl("adminProvisionsPaging")
-</div>
 #end
 
 #parseTemplate("wrapping/info-box-close.vm")
@@ -67,8 +65,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<div class="block">
-<table id="adminHoldingsTbl">
+<table id="adminHoldingsTbl" class="table table-striped">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -83,7 +80,6 @@ jQuery(document).ready(function() {
     </tbody>
 </table>
 #setPagingCtrl("adminHoldingsPaging")
-</div>
 #end
 
 #parseTemplate("wrapping/info-box-close.vm")

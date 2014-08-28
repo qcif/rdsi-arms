@@ -12,9 +12,11 @@
     #set($section = "active.vm"))    
 #end
 
-<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-corner-all">
-    <li class="ui-state-default ui-corner-top #if($section=='active.vm') ui-state-active #end"><a href="$path">Active</a></li>
-    <li class="ui-state-default ui-corner-top #if($section=='assessed.vm') ui-state-active #end"><a href="$path?section=assessed">Assessed</a></li>
-</ul>
-
+<div class="nav-tabs-panel">
+    <ul class="nav nav-tabs">
+        <li class="#if($section=='active.vm') active #end"><a href="$path">Active</a></li>
+        <li class="#if($section=='assessed.vm') active #end"><a href="$path?section=assessed">Assessed</a></li>
+    </ul>
+</div>
+	
 #parseTemplate( "home-components/assessor/$section" )
