@@ -1,4 +1,3 @@
-<div class="grid_16 branding">
-    <h1 id="branding"><a href="$portalPath/home"><img height="100"  src="$portalPath/images/logo.png" /></a></h1>
+<div class="branding">
+    <h1><a href="$portalPath/home"><img height="100"  src="$portalPath/images/logo.png" /></a></h1>
 </div>
-<div class="clear"></div>

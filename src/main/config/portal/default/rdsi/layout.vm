@@ -3,10 +3,11 @@
 <html lang="en">
     <head>
         #parseTemplate("layout/html-head.vm")
+        #parseTemplate("layout/jquery-settings.vm")
     </head>
     <body>
-        #parseTemplate("layout/jquery-settings.vm")
         #parseTemplate("layout/page-structure.vm")
+		## a hidden form for page related actions 
         #parseTemplate("layout/action-form.vm")
     </body>
 </html>
