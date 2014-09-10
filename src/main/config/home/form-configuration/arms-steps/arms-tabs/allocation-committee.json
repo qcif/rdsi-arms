@@ -20,43 +20,123 @@
       "component-type": "text-input",
       "field-name": "applicationID",
       "label": "",
-      "additional-classes": "longTextInput"
+      "additional-classes": "longTextInput",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "applicationID",
+        "focus-id": "applicationID",
+        "validation-messages": {
+          "required": "Application ID is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-proposed",
-      "label": "arms.field.label.reviewer-proposed"
+      "label": "arms.field.label.reviewer-proposed",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-proposed",
+        "focus-id": "reviewer-proposed",
+        "validation-messages": {
+          "required": "Proposed data holding is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-assessment",
-      "label": "arms.field.label.reviewer-assessment"
+      "label": "arms.field.label.reviewer-assessment",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-assessment",
+        "focus-id": "reviewer-assessment",
+        "validation-messages": {
+          "required": "Assessment against ReDS guidelines is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-rationale1",
-      "label": "arms.field.label.reviewer-rationale1"
+      "label": "arms.field.label.reviewer-rationale1",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-rationale1",
+        "focus-id": "reviewer-rationale1",
+        "validation-messages": {
+          "required": "Rationale for first instance is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-rationale2",
-      "label": "arms.field.label.reviewer-rationale2"
+      "label": "arms.field.label.reviewer-rationale2",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-rationale2",
+        "focus-id": "reviewer-rationale2",
+        "validation-messages": {
+          "required": "Rationale for class(es) of storage is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-rationale3",
-      "label": "arms.field.label.reviewer-rationale3"
+      "label": "arms.field.label.reviewer-rationale3",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-rationale3",
+        "focus-id": "reviewer-rationale3",
+        "validation-messages": {
+          "required": "Rationale for the second instance is required"
+        }
+      }
     },
     {
       "component-type": "textarea",
       "field-name": "reviewer-summary",
-      "label": "arms.field.label.reviewer-summary"
+      "label": "arms.field.label.reviewer-summary",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "reviewer-summary",
+        "focus-id": "reviewer-summary",
+        "validation-messages": {
+          "required": "Summary of activities to achieve ingest ... is required"
+        }
+      }
     },
     {
       "component-type": "date-picker",
       "field-name": "completion-date",
       "label": "arms.field.label.completion-date",
-      "label-classes": "inline-component"
+      "label-classes": "inline-component",
+      "validation": {
+        "save-rules": [
+          "required"
+        ],
+        "validation-id": "completion-date",
+        "focus-id": "completion-date",
+        "validation-messages": {
+          "required": "Expected completion date is required"
+        }
+      }
     },
     {
       "component-type": "text-block",

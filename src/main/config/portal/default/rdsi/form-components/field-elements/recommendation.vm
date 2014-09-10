@@ -1,8 +1,8 @@
 <fieldset>
-    <legend id="recommendation-legend">Reviewer's recommendations to the assessment committee</legend>
+    <legend id="recommendation-legend">Reviewer's recommendations to the assessment committee *</legend>
     <div id="recommendation-container">
     <label class="block"> 
-        <input type="radio" value="Approve for ReDS" class="jaffa-field" id="reviewer-recommend-for.1" name="reviewer-recommend-for">
+        <input type="radio" value="Approve for ReDS" class="jaffa-field required" id="reviewer-recommend-for.1" name="reviewer-recommend-for">
         Approve for ReDS
     </label>
     <label>
@@ -13,3 +13,36 @@
     <label for="reviewer-recommended-storage" id="reviewer-recommended-storage-label">#displayMessage("arms.allocation.storage.label")</label>
     <input type="text" class="jaffa-field" name="reviewer-recommended-storage" id="reviewer-recommended-storage">
 </fieldset>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    var intervalId = window.setInterval(function() {
+        if ($("[name='reviewer-recommend-for']").length > 0) {
+            jaffa.valid.setSaveRules("reviewer-recommend-for",  ["required"], null, validationFail);
+            jaffa.valid.setSubmitRules("reviewer-recommend-for",  ["required"], null, validationFail);
+            window.clearInterval(intervalId);
+        }
+    }, 500);
+    var intervalId2 = window.setInterval(function() {
+        if ($("[id='reviewer-recommended-storage']").length > 0) {
+            jaffa.valid.setSaveRules("reviewer-recommended-storage", ["required"], null, validationFail);
+            jaffa.valid.setSubmitRules("reviewer-recommended-storage", ["required"], null, validationFail);
+            window.clearInterval(intervalId2);
+        }
+    }, 500);
+});
+
+validation = {
+ "validationMessages" : {"required":"Reviewer's recommendation choice is required"},
+ "focusId" : "reviewer-recommend-for.1"
+};
+validationFieldMap["reviewer-recommend-for"] = validation;
+
+validation = {
+ "validationMessages" : {"required":"Recommended amount of storage is required"},
+ "focusId" : "reviewer-recommended-storage"
+};
+
+validationFieldMap["reviewer-recommended-storage"] = validation;
+
+</script>
