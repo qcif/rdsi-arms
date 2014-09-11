@@ -6,29 +6,8 @@
       "type": "h1",
       "content": "arms.outcome.heading"
     },
-    {
-      "component-type": "radio-button2",
-      "field-name": "outcome-decision",
-      "button-for": "arms.outcome.subsectionA.label",
-      "buttons": [
-        {
-          "label": "arms.outcome.subsectionA.listA",
-          "value": "arms.outcome.subsectionA.listA",
-          "checked": true
-        },
-        {
-          "label": "arms.outcome.subsectionA.listB",
-          "value": "arms.outcome.subsectionA.listB"
-        },
-        {
-          "label": "arms.outcome.subsectionA.listC",
-          "value": "arms.outcome.subsectionA.listC"
-        },
-        {
-          "label": "arms.outcome.subsectionA.listD",
-          "value": "arms.outcome.subsectionA.listD"
-        }
-      ]
+    {  
+        "component-type": "outcome-decision"
     },
     {
       "component-type": "text-input",

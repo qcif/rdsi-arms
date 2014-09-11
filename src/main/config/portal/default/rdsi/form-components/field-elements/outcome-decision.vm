@@ -1,0 +1,27 @@
+<div class="simple-workflow component-wrapper ">
+  <div>#displayMessage('arms.outcome.subsectionA.label')</div>
+  <label>
+    <input type="radio" value="#displayMessage('arms.outcome.subsectionA.listA')" checked="checked" class="jaffa-field" id="outcome-decision.1" name="outcome-decision" >
+		#displayMessage('arms.outcome.subsectionA.listA')
+  </label>
+  <label>
+    <input type="radio" value="#displayMessage('arms.outcome.subsectionA.listB')" class="jaffa-field" id="outcome-decision.2" name="outcome-decision" >
+		#displayMessage('arms.outcome.subsectionA.listB')
+  </label>
+  <label>
+    <input type="radio" value="#displayMessage('arms.outcome.subsectionA.listC')" class="jaffa-field" id="outcome-decision.3" name="outcome-decision" >
+		#displayMessage('arms.outcome.subsectionA.listC')
+  </label>
+  <label>
+    <input type="radio" value="#displayMessage('arms.outcome.subsectionA.listD')" class="jaffa-field" id="outcome-decision.4" name="outcome-decision" >
+		#displayMessage('arms.outcome.subsectionA.listD')
+  </label>
+    <select id="approval-for-other-program" class="disabled conditional jaffa-field" conditional_on="radio" conditional_id="outcome-decision.4" style="margin-left: 25px">
+      <option value="proram 1">program 1</option>
+      <option value="proram 2">program 2</option>
+    </select>
+  <label>
+    <input type="radio" value="#displayMessage('arms.outcome.subsectionA.listE')" class="jaffa-field" id="outcome-decision.5" name="outcome-decision" >
+		#displayMessage('arms.outcome.subsectionA.listE')
+  </label>
+</div>
