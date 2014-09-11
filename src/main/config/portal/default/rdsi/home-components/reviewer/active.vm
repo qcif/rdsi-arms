@@ -94,7 +94,6 @@ jQuery(document).ready(function() {
 </table>
 #setPagingCtrl("assessorRecordsPaging")
 
-</div>
 #end
 #parseTemplate("wrapping/info-box-close.vm")
 
@@ -122,7 +121,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<table id="approvedRecordsTbl" data-bind="stopBindings: true">
+<table id="approvedRecordsTbl" data-bind="stopBindings: true" class="table table-striped">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -169,8 +168,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-<div class="block">
-<table id="redraftRecordsTbl" data-bind="stopBindings: true">
+<table id="redraftRecordsTbl" data-bind="stopBindings: true" class="table table-striped">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -189,7 +187,5 @@ jQuery(document).ready(function() {
     </tbody>
 </table>
 #setPagingCtrl("redraftRecordsPaging")
-
-</div>
 #end
 #parseTemplate("wrapping/info-box-close.vm")

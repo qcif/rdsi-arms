@@ -30,7 +30,7 @@
         <li><a href="$portalPath/dashboards/requestor">My requests</a></li>
         #end
         #if($page.authentication.has_role('reviewer'))
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review requests <span class="caret"></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Review requests <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
                 <li><a href="$portalPath/dashboards/reviewer?section=provisioned">Provisioned requests</a></li>
                 <li><a href="$portalPath/dashboards/reviewer?section=rejected">Rejected requests</a></li>
@@ -38,14 +38,14 @@
         </li>
         #end
         #if($page.authentication.has_role('assessor'))
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Assess requests <span class="caret"></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Assess requests <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
                 <li><a href="$portalPath/dashboards/assessor?section=assessed">Assessed requests</a></li>
             </ul>
         </li>
         #end
         #if($page.authentication.has_role('provisioner'))
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Provision requests <span class="caret"></a>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Provision requests <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
                 <li><a href="$portalPath/dashboards/provisioner?section=provisioned">Provisioned requests</a></li>
             </ul>
@@ -54,7 +54,7 @@
         #if($page.authentication.is_admin())
         <li><a href="$portalPath/search">Browse</a></li>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
                 <li><a href="$portalPath/settings">Settings</a></li>
                 <li><a href="$portalPath/admin">Security</a></li>
@@ -66,7 +66,7 @@
         #end
         <li><a href="$portalPath/help">Help</a></li>
         <li><a href="$portalPath/contact">Contact</a></li>
-        
+		</ul>  
       #if($page.authentication.is_admin())  
       <form class="navbar-form navbar-left" role="search" action="$portalPath/search" class="search" method="get">
         <div class="form-group">
@@ -78,7 +78,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-    
+</div>    
 <script type="text/javascript">
 <!--
     $(function() {
