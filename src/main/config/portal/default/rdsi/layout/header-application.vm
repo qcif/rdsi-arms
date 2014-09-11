@@ -66,9 +66,9 @@
         #end
         <li><a href="$portalPath/help">Help</a></li>
         <li><a href="$portalPath/contact">Contact</a></li>
-		</ul>  
-      #if($page.authentication.is_admin())  
-      <form class="navbar-form navbar-left" role="search" action="$portalPath/search" class="search" method="get">
+		</ul>
+      #if($page.authentication.is_logged_in())
+      <form class="navbar-form navbar-right" role="search" action="$portalPath/search" class="search" method="get">
         <div class="form-group">
           <input type="text" class="form-control" id="query" name="query" placeholder="Search">
         </div>
@@ -78,14 +78,4 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</div>    
-<script type="text/javascript">
-<!--
-    $(function() {
-        $("button.search").click(function() {
-            $("form.search").submit();
-            return false;
-        });
-    });
--->
-</script>
+</div>
