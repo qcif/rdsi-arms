@@ -94,12 +94,13 @@
           "additional-classes": "emailField",
           "validation": {
             "save-rules": [
-              "required"
+              "required", "email"
             ],
             "validation-id": "dataprovider:email",
             "focus-id": "dataprovider:email",
             "validation-messages": {
-              "required": "Data custodian: email is required"
+              "required": "Data custodian: email is required",
+              "email": "Data custodian: email should be a valid email address"
             }
           },
           "wrapper-class": "inline-block-component"
@@ -111,12 +112,13 @@
           "additional-classes": "telephoneField",
           "validation": {
             "save-rules": [
-              "required"
+              "required", "numeric"
             ],
             "validation-id": "dataprovider:phone",
             "focus-id": "dataprovider:phone",
             "validation-messages": {
-              "required": "Data custodian: telephone is required"
+              "required": "Data custodian: telephone is required",
+              "numeric": "Data custodian: telephone should only contain numbers"
             }
           },
           "wrapper-class": "inline-block-component"

@@ -25,7 +25,7 @@ $(function() {
                 func: "create-new",
                 packageType: "$packageType",
                 metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
-                sequencesMetaList: [ '{ "sequenceName":"@NODESEQUENCE@Request","metadataName": "requestID","stringFormat":"@NODESEQUENCE@_%04d"}'],
+                sequencesMetaList: [ '{ "sequenceName":"@NODESEQUENCE@Request","metadataName": "requestID","stringFormat":"ARMS_REQUEST_%04d"}'],
                 title: "[Untitled]",
                 node: "RDSI$nodeSuffix",
                 description: "",

@@ -26,7 +26,8 @@
     {
       "component-type": "textarea",
       "field-name": "provisioning-notes",
-      "label": "arms.provisioning.subsectionC.label"
+      "label": "arms.provisioning.subsectionC.label",
+      "rows": "10"
     }
   ]
 }

@@ -63,12 +63,22 @@
         }
       },
       {
+        "label": "Approved for other program",
+        "title": "Notify requester and provisioning and linked other programs (WIP)",
+        "id": "approve-other-btn",
+        "action": "approve",
+        "condition-on": {
+          "id": "outcome-decision.4",
+          "on": "radio"
+        }
+      },
+      {
         "label": "Reject",
         "title": "Notify requester",
         "id": "reject-btn",
         "action": "reject",
         "condition-on": {
-          "id": "outcome-decision.4",
+          "id": "outcome-decision.5",
           "on": "radio"
         }
       },
