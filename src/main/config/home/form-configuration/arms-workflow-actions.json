@@ -43,42 +43,12 @@
         }
       },
       {
-        "label": "Approved ReDS",
-        "id": "approve-reds-btn",
-        "title": "Notify requester and provisioning",
+        "label": "Submit decision",
+        "id": "decide-btn",
+        "title": "Notify all the parties",
         "action": "approve",
         "condition-on": {
-          "id": "outcome-decision.2",
-          "on": "radio"
-        }
-      },
-      {
-        "label": "Approved CDS",
-        "title": "Notify requester and provisioning",
-        "id": "approve-cds-btn",
-        "action": "approve",
-        "condition-on": {
-          "id": "outcome-decision.3",
-          "on": "radio"
-        }
-      },
-      {
-        "label": "Approved for other program",
-        "title": "Notify requester and provisioning and linked other programs (WIP)",
-        "id": "approve-other-btn",
-        "action": "approve",
-        "condition-on": {
-          "id": "outcome-decision.4",
-          "on": "radio"
-        }
-      },
-      {
-        "label": "Reject",
-        "title": "Notify requester",
-        "id": "reject-btn",
-        "action": "reject",
-        "condition-on": {
-          "id": "outcome-decision.5",
+          "id": "outcome-decision.2,outcome-decision.3,outcome-decision.4,outcome-decision.5",
           "on": "radio"
         }
       },
