@@ -660,8 +660,26 @@
         }
       ]
     },
-    { 
-        "component-type": "recommendation"
+    {
+      "component-type": "recommendation"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.review-PartC"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h4",
+      "content": "arms.heading.review-PartC.heading"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h4",
+      "content": "arms.heading.review-PartC.heading2"
+    },
+    {
+      "component-type": "allocation-committee-partc"
     }
   ]
 }

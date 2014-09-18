@@ -1,0 +1,60 @@
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item1')
+    <select id="offer-type" class="jaffa-field">
+      <option value="type1">type1</option>
+      <option value="type2">type2</option>
+    </select>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item2')
+    <select id="storage-offering" class="jaffa-field">
+      <option value="Offering1">Offering</option>
+      <option value="Offering2">Offering2</option>
+    </select>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item3')
+    <input type="text" name="storage-expected-size" disabled></input>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item4')
+    <input type="text" name="storage-current-size" disabled></input>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item5')
+    <input id="data-ingested" type="text" class="jaffa-field"></input>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item6')</label>
+  <textarea class="jaffa-field" rows="4" cols="80" id="techassess-data-access"></textarea>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item7')
+    <select id="migration-by" class="jaffa-field">
+      <option value="by1">by1</option>
+      <option value="by2">by2</option>
+    </select>
+  </label>
+</div>
+<div class="simple-workflow component-wrapper">
+  <label>#displayMessage('arms.heading.review-PartC.item8')</label>
+	<textarea id="est-effort" class="jaffa-field" rows="4" cols="80" id="reviewer-summary"></textarea>
+</div>
+<div class="simple-workflow component-wrapper">
+	<label>#displayMessage('arms.heading.review-PartC.item9')</label>
+	<textarea id="techassess-other" class="jaffa-field" rows="4" cols="80" id="reviewer-summary" ></textarea>
+</div>
+
+<script>
+$(document).ready(
+  function () {
+    $("#storage-expected-size").change(function() { $("input[name='storage-expected-size']").val($(this).val()) });
+    $("#storage-current-size").change(function() { $("input[name='storage-current-size']").val($(this).val()) });
+  }
+);
+</script>

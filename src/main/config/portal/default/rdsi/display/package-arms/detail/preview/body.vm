@@ -480,6 +480,28 @@
 			</tr>
 			</tbody>
 		</table>
+
+		<h5>Part C</h5>
+		<dl>
+				<dt>#displayMessage('arms.heading.review-PartC.item1')</dt>
+				<dd>#getValue("offer-type")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item2')</dt>
+				<dd>#getValue("storage-offering")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item3')</dt>
+				<dd>#getValue("storage-expected-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item4')</dt>
+				<dd>#getValue("storage-current-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item5')</dt>
+				<dd>#getValue("data-ingested")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item6')</dt>
+				<dd>#getValue("techassess-data-access")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item7')</dt>
+				<dd>#getValue("migration-by")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item8')</dt>
+				<dd>#getValue("est-effort")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item9')</dt>
+				<dd>#getValue("techassess-other")</dd>
+		</dl>
 #end
 ##23/12/2013: below commented out as may be brought back in.
 #### end of allocation committee submission
