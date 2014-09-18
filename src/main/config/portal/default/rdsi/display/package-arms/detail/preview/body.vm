@@ -175,6 +175,35 @@
 <h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
 <p>#getValue("storage-estimated-growth-rate")</p>
 
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.paragraphE")</p>
+## Here does not have a owner check: onwer info is in solr? Need to filter attachment_type
+#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+#if ($responses.size() > 0)
+<table>
+    <thead>
+        <tr>
+                <th>Filename</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Added by</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($v in $responses)
+			#if($v.get("attachment_type") == "technical_requirement_attachments")
+		<tr>
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
+			<td>$v.get("description")</td>
+			<td>$v.get("dateAdded")</td>
+			<td>$v.get("addedBy")</td>
+		</tr>
+			#end
+    	#end
+    </tbody>
+</table>
+#end
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphA.title")</p>
 <p>Expectation: #getValue("storage-duration")</p>
 <p>Date : #getValue("storage-duration-date")</p>
@@ -286,12 +315,14 @@
     </thead>
     <tbody>
         #foreach($v in $responses)
+			#if($v.get("attachment_type") == "storage-attachments")
 		<tr>
 			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
 			<td>$v.get("description")</td>
 			<td>$v.get("dateAdded")</td>
 			<td>$v.get("addedBy")</td>
 		</tr>
+			#end
     	#end
     </tbody>
 </table>
