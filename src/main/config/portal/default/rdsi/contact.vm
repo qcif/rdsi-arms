@@ -1,6 +1,6 @@
 #set($pageTitle = "Contact")
 <h2 id="page-heading"><span>Contact us</span></h2>
-<div class="grid_16">
+
     #set($contentTitle = "Description")
     #parseTemplate("wrapping/content-block-open.vm")
     <div class="article first">
@@ -21,4 +21,3 @@
     #parseTemplate("wrapping/content-block-open.vm")
     <p>Please <a href="mailto:support@arms.rdsi.edu.au">email</a> your enquiries to our support team.</p>
     #parseTemplate("wrapping/content-block-close.vm")
-</div>

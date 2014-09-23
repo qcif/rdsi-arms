@@ -2,9 +2,5 @@
 
 #set($pageTitle = "Access Denied")
 <h2 id="page-heading">$pageTitle</h2>
-<div class="grid_16">
-    <div class="box">
-        <p>You don't have access to view this page.</p>
-        <p>Please contact your site administrator if you require access.</p>
-    </div>
-</div>
+<p>You don't have access to view this page.</p>
+<p>Please contact your site administrator if you require access.</p>

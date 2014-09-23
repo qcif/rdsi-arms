@@ -5,9 +5,4 @@
 </h2>
 
 #parseTemplate("home-components/role-switch-board.vm")
-    <div class="row">
-    <div class="col-md-12">
-	#parseTemplate("home-components/requestor-requests.vm")
-	</div>
-    </div>
-    <div class="clear"></div>
+#parseTemplate("home-components/requestor-requests.vm")

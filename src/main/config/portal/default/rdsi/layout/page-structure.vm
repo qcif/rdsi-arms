@@ -1,5 +1,3 @@
-<div class="main-body">
 #parse($page.getTemplate('layout/header-branding.vm'))
 #parse($page.getTemplate('layout/header-application.vm'))
 #parse($page.getTemplate('layout/page-content.vm'))
-</div>

@@ -1,3 +1,4 @@
+#set($pageContentClass = "body-stretch")
 #set($pageTitle = "Detail")
 
 #set($metadata = $self.metadata)
@@ -10,11 +11,11 @@
 #if($self.isIndexed())
 	#if($self.isDetail())
 		#renderObject($metadata "detail/title")
-		<div class="grid_4">
+		<div class="left-col">
 			#renderObject($metadata "detail/navigation")
 		</div>
 
-		<div class="grid_12">
+		<div class="right-col">
 			#renderObject($metadata "detail")
 		</div>
 	#else
