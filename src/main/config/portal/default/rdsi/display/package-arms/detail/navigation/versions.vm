@@ -2,7 +2,7 @@
 #set($menuClass = "versions")
 #set($menuTitle = '<a class="collapsible" href="#">Versions</a>')
 #parseTemplate("wrapping/menu-open.vm")
-<ul class="menu hidden">
+<ul class="menu list-unstyled hidden">
 #set($portalFormPath = $portalPath.replaceAll("verNum[0-9A-Za-z_.\\-]+/",""))
 #foreach($k in $self.versions)
   <li class="payload">

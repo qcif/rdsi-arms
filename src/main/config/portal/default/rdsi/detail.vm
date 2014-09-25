@@ -1,4 +1,5 @@
-#set($pageContentClass = "body-stretch")
+## disable body-stretch until it is not wide enough
+##set($pageContentClass = "section-stretch")
 #set($pageTitle = "Detail")
 
 #set($metadata = $self.metadata)
@@ -11,11 +12,11 @@
 #if($self.isIndexed())
 	#if($self.isDetail())
 		#renderObject($metadata "detail/title")
-		<div class="left-col">
+		<div class="actions">
 			#renderObject($metadata "detail/navigation")
 		</div>
 
-		<div class="right-col">
+		<div class="detail">
 			#renderObject($metadata "detail")
 		</div>
 	#else

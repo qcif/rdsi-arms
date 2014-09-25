@@ -108,7 +108,7 @@
 #set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
 #set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
 #set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
-<table>
+<table class="preview">
     <thead>
         <tr>
                         <th>Restriction</th>
@@ -202,7 +202,7 @@
 #set($ingest50 = $jsonUtil.getStringList($item, "storage-ingest-date-50percent"))
 #set($ingest75 = $jsonUtil.getStringList($item, "storage-ingest-date-75percent"))
 #set($ingest100 = $jsonUtil.getStringList($item, "storage-ingest-date-100percent"))
-<table>
+<table class="preview">
     <thead>
         <tr>
 			<th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.title")</th>
@@ -274,7 +274,7 @@
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphF.title")</p>
 #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
 #if ($responses.size() > 0)
-<table>
+<table class="preview">
     <thead>
         <tr>
                 <th>Filename</th>
@@ -344,7 +344,7 @@
 
 
 		<h5>Part B</h5>
-		<table class="align-centre">
+		<table class="align-centre preview">
 			<thead>
 				<tr>
 					<th>Unit costs</th>
@@ -365,7 +365,7 @@
 			</tbody>
 		</table>
 
-		<table class="align-centre">
+		<table class="align-centre preview">
 			<thead>
 				<tr>
 					<th style="width:8em">&#xA0;</th>
@@ -428,7 +428,7 @@
 			</tbody>
 		</table>
 
-		<table>
+		<table class="preview">
 			<thead>
 				<tr>
 					<th>Milestones</th>
@@ -459,7 +459,7 @@
 ###if(!$members.isEmpty())
 ##<h4>Committee responses</h4>
 ###if($self.version) <p style="color:red; font-weight:bold;">Committee responses is not being versioned </p>#end
-##<table>
+##<table class="preview">
 ##<tr>
 ##        <th>Member</th>
 ##        <th>Response</th>

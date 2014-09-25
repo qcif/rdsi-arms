@@ -2,7 +2,7 @@
 #set($menuClass = "attachments")
 #set($menuTitle = '<a class="collapsible" href="#">Attachments</a>')
 #parseTemplate("wrapping/menu-open.vm")
-<ul class="menu hidden">
+<ul class="menu list-unstyled hidden">
     #set($object = $parent.getObject())
     #set($oid = $object.getId())
     #foreach($pid in $object.getPayloadIdList())

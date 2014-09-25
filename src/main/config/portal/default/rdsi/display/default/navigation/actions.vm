@@ -1,6 +1,6 @@
 <div id="actions-menu">
     #set($menuTitle = "Actions")
-    #parseTemplate("wrapping/menu-open.vm")
+    #parseTemplate("wrapping/main-menu-open.vm")
     <ul class="menu list-unstyled">
         #if($parent.hasLocalFile())
             <li>
@@ -20,6 +20,11 @@
                 </script>
             </li>
         #end
+        <li><a id="fascinator-blog-link" href="$portalPath/blog/$oid">Blog...</a></li>
+        #if($self.hasWorkflowAccess())
+          <li><a href="$portalPath/zippackage/$oid">Zip Package...</a></li>
+        #end
+        #parseDisplayTemplate("detail/navigation/custom-actions.vm")
         #if($page.authentication.is_admin())
             <li><a href="$portalPath/history/$oid/">Object History</a></li>
             #if(!$parent.isPending())
@@ -93,7 +98,7 @@
         #end
         #parseDisplayTemplate("detail/navigation/workflow.vm")
     </ul>
-    #parseTemplate("wrapping/menu-close.vm")
+    #parseTemplate("wrapping/main-menu-close.vm")
 </div>
 
 ## Simple (lazy) fix for empty actions menu

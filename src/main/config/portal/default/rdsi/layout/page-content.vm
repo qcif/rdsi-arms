@@ -1,5 +1,5 @@
 #set($hasRenderMessages = ($renderMessages && !$renderMessages.isEmpty()))
-<div class="#if($pageContentClass)${pageContentClass}#else body-centre #end">
+<div class="#if($pageContentClass)${pageContentClass}#else section-centre #end">
     #parseTemplate("dialogs/notice.vm")
     #parseTemplate("dialogs/login.vm")
     #if($page.authentication.is_logged_in())
