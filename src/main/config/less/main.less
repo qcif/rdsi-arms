@@ -1,4 +1,4 @@
-	/* default values */
+/* default values */
 @label-text-colour: #000;
 @label-link-colour: #fff;
 
@@ -13,6 +13,49 @@
 .section-stretch {
 	min-width: 1200px;
     .container; 
+}
+
+
+/* not defined yet
+.page-header {
+	
+}
+
+*/
+
+.page-content {
+	.container;
+}
+
+.left-col {
+	.make-sm-column(3);
+    .make-md-column(2); 
+    .make-lg-column(2);
+}
+
+.right-col {
+	.make-sm-column(7);
+    .make-md-column(10);
+    .make-lg-column(10);
+}
+
+.full-col{
+	.make-sm-column(12);
+    .make-md-column(12);
+    .make-lg-column(12);
+}
+
+.actions {
+	.make-sm-column(3);
+    .make-md-column(3); 
+    .make-lg-column(3);
+    padding: 0;
+}
+
+.detail {
+	.make-sm-column(9);
+    .make-md-column(9); 
+    .make-lg-column(9);
 }
 
 .branding {
@@ -86,235 +129,6 @@
 	}
 }
 
-.page-content {
-	.container;
-}
-
-/* not defined yet
-.page-header {
-	
-}
-
-*/
-.left-col {
-	.make-sm-column(3);
-    .make-md-column(2); 
-    .make-lg-column(2);
-}
-
-.right-col {
-	.make-sm-column(7);
-    .make-md-column(10);
-    .make-lg-column(10);
-}
-
-.full-col{
-	.make-sm-column(12);
-    .make-md-column(12);
-    .make-lg-column(12);
-}
-
-.actions {
-	.make-sm-column(3);
-    .make-md-column(3); 
-    .make-lg-column(3);
-    padding: 0;
-}
-
-.detail {
-	.make-sm-column(9);
-    .make-md-column(9); 
-    .make-lg-column(9);
-}
-
 .navbar-default {
 	border-top-right-radius:0px;
 }
-
-/* ported from redbox.css */
-
-.errorbox{
-display:none;
-background-color:#FFDDDD;
-padding: 10px;
-}
-
-.workflow-control-blocks {
-display: inline-block;
-margin-left:16.5em;
-vertical-align:top;
-}
-.workflow-control-block-left {
-display: inline-block;
-margin-left:16.5em;
-vertical-align:top;
-float: left;
-}
-
-.newRequestBusy {
-position: absolute;
-left: 180px;
-top: 310px;
-}
-
-.component-wrapper > label {
-	 display:block;
-}
-
-.inline-component {
-display:inline !important;
-}
-.inline-block-component {
-display:inline-block;
-margin-right:1em;
-}
-.simple-workflow.component-wrapper.inline-component > label {
-display:inline;
-font-weight:normal;
-}
-.component-wrapper.inline-component .widgetLabel {
-display:inline;
-}
-#data-source-dropdown-dataprovider\:foaf\:state {
-display: inline;
-}
-
-.inline-component {
-display:inline !important;
-}
-
-.inline-block-component {
-display:inline-block;
-margin-right:1em;
-}
-.simple-workflow.component-wrapper.inline-component > label {
-display:inline;
-font-weight:normal;
-}
-.component-wrapper.inline-component .widgetLabel {
-display:inline;
-}
-#data-source-dropdown-dataprovider\:foaf\:state {
-display: inline;
-}
-
-.simple-workflow.component-wrapper > label {
-font-size: 105%;
-font-weight: bold;
-}
-
-.component-wrapper > hr {
-padding-bottom:0;
-}
-.component-wrapper{
-padding-bottom:0.5em;
-}
-
-.component-wrapper > label {
-display:block;
-}
-.component-wrapper .widgetLabel {
-display:block;
-}
-.component-wrapper .peopleWidgetLabel{
-display:inline;
-padding-right:0.3em;
-padding-left:0.3em;
-}
-.component-wrapper .grant-description{
-width:400px;
-}
-.simple-workflow.component-wrapper > label {
-font-size: 105%;
-font-weight: bold;
-}
-
-.box{
-	background:none repeat scroll 0 0 #e8e8e8;
-	margin-bottom:20px;
-}
-
-.box h2, .box h2 a,.box h2 a.visible, .menu h2{
-	background-color:#0091b6;
-	border:medium none;
-	color:#fff;
-	display:block;
-	margin:-6px -12px;
-	padding:6px 12px
-}
-
-div.menu h2,.box h2{
-	font-size:20px !important;
-	text-transform:none !important;
-	margin: 0px;
-}
-
-ul, ol {
-    padding-top: 0px;
-}
-
-ul.menu {
-    list-style: none outside none;
-    border-top: 1px solid #BBB;
-    padding-left: 0px;
-}
-
-ul.menu li {
-    margin: 0px;
-}
-
-ul.menu li a {
-    display: block;
-    padding: 4px 10px;
-    border-bottom: 1px solid #CCC;
-    color:#000;
-}
-
-/* detail page */
-div.article-heading, #package-content div.title {
-    border-bottom: 1px solid #CCC;
-    font-weight: bold;
-    font-size: 1.6em;
-    margin-bottom: 4px;
-}
-
-p {
-    margin-bottom: 1em;
-}
-
-.article h4 {
-    padding: 0.3em;
-    text-transform: none;
-}
-p.item_title {
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-table.preview {
-    margin-left: 1%;
-    width: 98%;
-    border: 1px solid #BBB;
-    margin-bottom: 10px;
-    border-collapse: collapse;
-	border-spacing: 0px;
-}
-
-th, td {
-    padding: 0.2em 1em;
-    text-align: left;
-}
-
-thead th {
-    color: #FFF;
-    border-bottom: 2px solid #888;
-    background: none repeat scroll 0% 0% #BBB;
-    padding: 0.4em 1em 0.2em;
-}
-
-tbody th, tbody td {
-    border-top: 1px solid #BBB;
-    border-bottom: 1px solid #BBB;
-    background: none repeat scroll 0% 0% #EEE;
-}
-
