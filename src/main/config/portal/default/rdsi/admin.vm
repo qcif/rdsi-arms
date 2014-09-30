@@ -625,32 +625,33 @@
               success:
                   function(data, status) {
                     try {
-                      var jsond = jQuery.parseJSON(data);
-                      var s = $("#user-attributes")[0];
-                      if (jsond && jsond.length > 0) {
-                        for (var val in jsond) {
-                          $('<option />', {value: jsond[val], text: jsond[val]}).appendTo(s);
+                        var s = $("#user-attributes")[0];
+                        if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Array]') {
+                            if (data.length > 0) {
+                              for (var val in data) {
+                                $('<option />', {value: data[val], text: data[val]}).appendTo(s);
+                              }
+                            }
+                            $("#user-add-botton").hide();
+                            $("#user-lookup-botton").show();
+                            $("#user-lookup").show();
+                            var theader = $('#user-lookup table thead');
+                            theader.empty();
+                            var tr = theader.append($('<tr>'));
+                            tr.append($('<th>'));
+                            tr.append($('<th>Username</th>'));
+                            jQuery.each(data, function(i, item) {
+                                if (user_attributes_filter.indexOf(item) == -1) {
+                                   tr.append($('<th>' + item + '</th>'));
+                                }
+                            });
                         }
-                      }
-                      $('<option />', {value: "username", text: "username"}).appendTo(s);
-
-                      if (jsond == null || jsond.length == 0) {
-                        $("#user-lookup-botton").hide();
-                        $("#user-lookup").hide();
-                        $("#user-add-botton").show();
-                      } else {
-                        $("#user-add-botton").hide();
-                        $("#user-lookup-botton").show();
-                        $("#user-lookup").show();
-                        var theader = $('#user-lookup table thead');
-                        theader.empty();
-                        var tr = theader.append($('<tr>'));
-                        tr.append($('<th>'));
-                        tr.append($('<th>Username</th>'));
-                        jQuery.each(jsond, function(i, item) {
-                          tr.append($('<th>' + item + '</th>'));
-                        });
-                      }
+                        else  {
+                           $('<option />', {value: "username", text: "username"}).appendTo(s);
+                           $("#user-lookup-botton").hide();
+                           $("#user-lookup").hide();
+                           $("#user-add-botton").show();
+                        }
                     } catch (err) {
                       //console.error(err);
                     }
