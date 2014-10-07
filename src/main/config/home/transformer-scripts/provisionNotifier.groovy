@@ -9,57 +9,75 @@ import org.slf4j.LoggerFactory;
 import org.apache.activemq.transport.stomp.StompConnection;
 
 // message queue host settings in system-config.json should like this
+// two types are supported: MQ or emailer, it can be either one
 //	"liveArcProvisioningNotice": {
 //	    "id": "scripting",
 //	    "scriptType": "groovy",
 //	    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy",
+//	    "type": "MQ",
 //	    "Host": "xxx.xxx.xxx.xxx",
 //	    "Username": "arms",
 //	    "Passcode": "pass",
 //	    "QueueName": "name"
 //	}
 
-host = config.getString(null, "Host")
-port = config.getInteger(61613, "Port")
-username = config.getString(null, "Username")
-passcode = config.getString(null, "Passcode") 
-QueueName = config.getString(null, "QueueName")
+
 // Which filed to be set as indication
-NotificationState="arms-draft"
+NotificationState="arms-provisioned"
 IndicationField = "livearc-prov-notification"
-emailingId = "LiveArcProvisionNotifier"
+emailingConfId = "LiveArcProvisionNotifier"
 
 log = LoggerFactory.getLogger(ScriptingTransformer.class)
-log.debug("host = ${host}")
-log.debug("port = ${port}")
-log.debug("username = ${username}")
-log.debug("passcode = ${passcode}")
-log.debug("QueueName = ${QueueName}")
 
-if (host == null || username == null || passcode == null || QueueName == null ) {
-	log.error("Message queue error: Host, Username, Passcode and QueueName all has to be set.")
-	log.warn("Email notification is skiped because message cannot be sent to the queue.")
-	return digitalObject
+host = null
+port = 61613
+username = null
+passcode = null
+QueueName = null
+
+notificationType = config.getString("emailer", "type")
+if (notificationType == "MQ") {
+	host = config.getString(host, "Host")
+	port = config.getInteger(port, "Port")
+	username = config.getString(username, "Username")
+	passcode = config.getString(passcode, "Passcode")
+	QueueName = config.getString(QueueName, "QueueName")
+	log.debug("host = ${host}")
+	log.debug("port = ${port}")
+	log.debug("username = ${username}")
+	log.debug("passcode = ${passcode}")
+	log.debug("QueueName = ${QueueName}")
+	if (host == null || username == null || passcode == null || QueueName == null ) {
+		log.error("Message queue error: Host, Username, Passcode and QueueName all has to be set.")
+		return digitalObject
+	}
 }
+
 payloads = digitalObject.getPayloadIdList()
+String oid = digitalObject.getId()
+def tfp = getTfPackage()
 
 if(payloads.contains("workflow.metadata")){
 	def workflowMeta = new JsonSimple(digitalObject.getPayload("workflow.metadata").open());
 	String workflow = workflowMeta.getString(null,"step")
 	if (workflow == NotificationState) {
 		log.debug("Current workflow = ${workflow}, so do something.")
-		def tfPackageMap = getTfPackage()
-		def tfp = tfPackageMap["package"]
-		if (! tfp.getBoolean(false, IndicationField)) {
-//			stomp_send(QueueName, tfp.toString())
-			Class emailerClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File(FascinatorHome.getPath("process/") + "/emailer.groovy"))
-			def emailer = emailerClass.newInstance()
-			
-			String oid = tfp.getString(null, "oid")
-			
-			tfp.getJsonObject().put(IndicationField, "true")
-			saveTfPackage(tfp, tfPackageMap["pid"])
-			emailer.sendNotification(emailingId, oid, tfp)
+		def objMetadata = digitalObject.getMetadata()
+		if (! objMetadata.getProperty(IndicationField)) {
+			if (notificationType == "MQ") {
+				stomp_send(QueueName, tfp.toString())
+			} else {
+				Class emailerClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File(FascinatorHome.getPath("process/") + "/emailer.groovy"))
+				def emailer = emailerClass.newInstance()
+				emailer.sendNotification(emailingConfId, oid, tfp)
+			}
+			objMetadata.setProperty(IndicationField, "true")
+			// Set property in TF-OBJ-META
+			ByteArrayOutputStream metaOut = new ByteArrayOutputStream();
+			objMetadata.store(metaOut, "");
+			InputStream metaIn = new ByteArrayInputStream(metaOut.toByteArray());
+			digitalObject.updatePayload("TF-OBJ-META", metaIn);
+			metaIn.close();
 		} else {
 			log.debug("${IndicationField} has been set, skip")
 		}
@@ -78,20 +96,9 @@ def getTfPackage() {
 		if (pid.endsWith(".tfpackage")){
 			def payload = digitalObject.getPayload(pid);
 			tfPackage = new JsonSimple(payload.open());
-			tfPid = pid
 		}
 	}
-	return ["pid":tfPid, "package":tfPackage]
-}
-
-def saveTfPackage(tfPackage, pid) {
-	try {
-		InputStream metaIn = new ByteArrayInputStream(tfPackage.toString(true).getBytes());
-		digitalObject.updatePayload(pid, metaIn);
-		metaIn.close();
-	} catch (IOException ex) {
-		throw new StorageException(ex);
-	}
+	return tfPackage
 }
 
 // sends message to:
