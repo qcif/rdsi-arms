@@ -6,11 +6,13 @@ pageOrder: 2
 ```
 ##Email notifications
 
-Email notifications can be sent when conditions are met, e.g. a request changes state. The system runs notifications as a scheduled job. The job is configued in a file with conditions and actions. The details of **conditions** and **actions** are defined in different files. The definition of actions including the configuration of connecting STMP server and templates of email.
+Email notifications can be sent when conditions are met, e.g. a request changes state. The system runs some notifications as a scheduled job. The job is configured in a file with conditions and actions. The details of **conditions** and **actions** are defined in different files. The definition of actions including the configuration of connecting STMP server and templates of email.
+
+There is also notifications created as part of transformer process. The configuration of those notifications, mainly mail server and templates are the same as the previous. See related documents about setting up transformer especially using [transformer-scripting engine](https://github.com/the-fascinator-contrib/plugin-transformer-scripting).
 
 ### Job configuration
 
-Email notifications are managed as a house-kepping job defined in the section of `houseKeeping/config/jobs` in system-config.json. In the example below, it is named as `email-notification`: 
+Email notifications are managed as a house-kepping job defined in the section of `houseKeeping/config/jobs` in system-config.json. In the example below, it is named as `email-notification`:
 
 ```javascript
 "houseKeeping": {
@@ -33,7 +35,7 @@ Email notifications are managed as a house-kepping job defined in the section of
 ####Important fields in configuring the email-notificatin job:
 - `name` the name of concerning job
 - `configFile` The actual configuration of notifications, e.g. conditions are defined in a file ant its path is defined by `configFile` which defines what timely processes will be done.
-- `timing`: Sending frequency. ARMS sends the notification emails at periodic intervals. In the example, notification job will run every 5 minutes. References of `timing` format can be found at [ReDBox site](http://www.redboxresearchdata.com.au/documentation/how-to/scheduling-a-harvest) and [Quartz site](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger). 
+- `timing`: Sending frequency. ARMS sends the notification emails at periodic intervals. In the example, notification job will run every 5 minutes. References of `timing` format can be found at [ReDBox site](http://www.redboxresearchdata.com.au/documentation/how-to/scheduling-a-harvest) and [Quartz site](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger).
 
 ###Configure notifications
 
@@ -43,7 +45,7 @@ Above mentioned file `email-notification-config.json` configures notification pr
     {
         "id":"notifyNewSubmission",
         "pre" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
                 "config":"${fascinator.home}/process/newRecords.json",
                 "inputKey":"",
@@ -51,7 +53,7 @@ Above mentioned file `email-notification-config.json` configures notification pr
             }
         ],
         "main" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
                 "config":"${fascinator.home}/process/emailer.json",
                 "inputKey":"newOids",
@@ -59,7 +61,7 @@ Above mentioned file `email-notification-config.json` configures notification pr
             }
         ],
         "post" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
                 "config":"${fascinator.home}/process/newRecords.json",
                 "inputKey":"failedOids",
@@ -70,7 +72,7 @@ Above mentioned file `email-notification-config.json` configures notification pr
     {
         "id":"notifyApproval",
         "pre" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
                 "config":"${fascinator.home}/process/approvedRecords.json",
                 "inputKey":"",
@@ -78,34 +80,34 @@ Above mentioned file `email-notification-config.json` configures notification pr
             }
         ],
         "main" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.EmailNotifier",
                 "config":"${fascinator.home}/process/emailer.json",
                 "inputKey":"newOids",
                 "outputKey":"failedOids"
-            }            
+            }
         ],
         "post" : [
-            {   
+            {
                 "class":"com.googlecode.fascinator.portal.process.RecordProcessor",
                 "config":"${fascinator.home}/process/approvedRecords.json",
                 "inputKey":"failedOids",
                 "outputKey":""
             }
         ]
-    }    
+    }
 ]
 ```
 As you can see, each notification is processed in three steps:
   - `pre`: check if there is anything to process
-  - `main`: notify 
-  - `post`: update status. if there was any failure, it will be recored here and re-try when next time the process is called. 
+  - `main`: notify
+  - `post`: update status. if there was any failure, it will be recored here and re-try when next time the process is called.
 
 ###Steps of configuring a notification
 1. define condition in `"pre": []` by setting a query of workflow step in a json file and reference it. For example, for a notification at <strong>arms-approved</strong> step, put the line below into <strong>home/process/approvedRecords.json</strong>:
 
   ```"query": "workflow_step=\"arms-approved\"",```
-  
+
     Then reference it in `email-notification-config.json`:  
      ```
     "pre" : [  
@@ -126,7 +128,7 @@ As you can see, each notification is processed in three steps:
       "config": "${fascinator.home}/process/emailer.json",
       "inputKey": "newOids",
       "outputKey": "failedOids"
-    }            
+    }
       ```
 3. define where to keep status in `"post": []`. In the below example, it reuses the `pre` condition:
 
@@ -160,7 +162,7 @@ The fields are:
 - password: authentication to use for SMTP server
 - tls: secure SMTP
 - ssl: secure SMTP
- 
+
 ###Email templates
 After that, there are actual notifier configuration JSON objects. The name of the JSON object is an `id` in `email-notification-config.json`. For example, if an `id` is <strong>notifyNewSubmission</strong>, it can be defined as:
 
@@ -187,7 +189,7 @@ After that, there are actual notifier configuration JSON objects. The name of th
 
 In this example, it defines one email will be sent to the email address given by `requester:email` in the processed record. Information from request can be referenced by `mapping` them to variables and used in the email Velocity template.
 
-Recipients can be a list of email addresses. Mutilple emails can be configured in the same way for a notifier. 
+Recipients can be a list of email addresses. Multiple emails can be configured in the same way for a notifier.
 
 ###*Reminder*
-Configure all correctly. Otherwise, `main.log` will be filled with error messages very quickly if the frequency is high. 
+Configure all correctly. Otherwise, `main.log` will be filled with error messages very quickly if the frequency is high.

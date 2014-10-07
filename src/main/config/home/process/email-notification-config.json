@@ -160,5 +160,32 @@
         "outputKey": ""
       }
     ]
+  },
+  {
+    "id": "LiveArcProvisionNotifier",
+    "pre": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/lilvearcprovisionedstate.json",
+        "inputKey": "",
+        "outputKey": "newOids"
+      }
+    ],
+    "main": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.EmailNotifier",
+        "config": "${fascinator.home}/process/emailer.json",
+        "inputKey": "newOids",
+        "outputKey": "failedOids"
+      }
+    ],
+    "post": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/lilvearcprovisionedstate.json",
+        "inputKey": "failedOids",
+        "outputKey": ""
+      }
+    ]
   }
 ]

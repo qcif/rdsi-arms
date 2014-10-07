@@ -165,5 +165,25 @@
         "$message": "reviewer-outmcome-message"
       }
     }
+  ],
+  "LiveArcProvisionNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "livearc@",
+      "subject": "[ARMS] Storage available for use: '$title'",
+      "body": "Your storage is now available for use.\n$message\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+        "$piEmail",
+        "$message"
+      ],
+      "mapping": {
+        "$oid": "oid",
+        "$title": "dc:title",
+        "$piEmail": "requester:email",
+        "$message": "provisioning-notes"
+      }
+    }
   ]
 }

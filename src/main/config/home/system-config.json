@@ -217,11 +217,7 @@
 	"liveArcProvisioningNotice": {
 	    "id": "scripting",
 	    "scriptType": "groovy",
-	    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy",
-	    "Host": "130.220.210.82",
-	    "Username": "arms",
-	    "Passcode": "armsm",
-	    "QueueName": "test"
+	    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy"
 	}
   },
   "uploader": {
