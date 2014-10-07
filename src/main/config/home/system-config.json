@@ -213,7 +213,16 @@
       "sourcePayload": ".tfpackage",
       "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
       "outputFilename": "allocation.pdf"
-    }
+    },
+	"liveArcProvisioningNotice": {
+	    "id": "scripting",
+	    "scriptType": "groovy",
+	    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy",
+	    "Host": "130.220.210.82",
+	    "Username": "arms",
+	    "Passcode": "armsm",
+	    "QueueName": "test"
+	}
   },
   "uploader": {
     "attachment-upload": {
