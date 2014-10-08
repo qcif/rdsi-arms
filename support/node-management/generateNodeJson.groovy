@@ -1,5 +1,8 @@
+import groovy.json.internal.ValueList;
+
 import com.googlecode.fascinator.common.JsonSimple
 import com.googlecode.fascinator.common.JsonObject
+
 import org.json.simple.JSONArray
 import org.apache.commons.io.FileUtils
 import org.apache.commons.lang.StringUtils
@@ -44,11 +47,19 @@ def loadJsonObject(jsonFile) {
 }
 
 def createJsonNode(nodePortalConfig, node) {
+	// rdsi-nodes.json is now built from this list not portal.json.
+	// nodePortalConfig.get("name"), nodePortalConfig.get("displayName") are not used.
+	def valueList = ["eRSA" : "eRSA", "Intersect": "Intersect", "iVec": "iVec", "NCI":"NCI", "QCIF (Brisbane)":"QCIF (Brisbane)", "QCIF (Townsville)":"QCIF (Townsville)", "TPAC":"TPAC", "VicNode":"VicNode"]
+	def mappings = [:] //use all lowcase names as portal names are in lowercase
+	valueList.each { mappings[it.key.toLowerCase()] = it.key }
+
 	if (StringUtils.equalsIgnoreCase(node, "qcif")) {
-		["QCIF-BNE" : "QCIF-BNE", "QCIF-TSV" : "QCIF-TSV"].each(addToNodeArray)
+		["QCIF (Brisbane)" : "QCIF (Brisbane)", "QCIF (Townsville)": "QCIF (Townsville)"].each(addToNodeArray)
+		valueList.remove("QCIF (Brisbane)")
+		valueList.remove("QCIF (Townsville)")
 	} else {
-		def name = nodePortalConfig.get("name")
-		def value = nodePortalConfig.get("displayName")
-		addToNodeArray(name, value)
+		addToNodeArray(mappings[node], valueList[mappings[node]])
+		valueList.remove(mappings[node])
 	}
+	valueList.each(addToNodeArray)
 }
