@@ -29,7 +29,7 @@ class Emailer {
 			procDataMap.put("indexer", dataMap.get("indexer"));
 			if (procId == setId) {
 				stages.each {stage->
-					for (Object stageObj : configJson.getArray(stage)) {
+					for (Object stageObj : pconfig.getArray(stage)) {
 						JsonSimple procJson = new JsonSimple((JsonObject) stageObj);
 						String procClassName = procJson.getString("", "class");
 						String procConfigPath = procJson.getString("", "config");
