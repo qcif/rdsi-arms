@@ -6,24 +6,24 @@ import com.googlecode.fascinator.api.storage.StorageException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.apache.activemq.transport.stomp.StompConnection;
+
 
 // Send notifications to organisations listed in the contact section: 
 //   dataprovider:organization, requester:organization or nodecontact:organization.
 conf = ["dataprovider" : [
 	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]], 
-	"org2":[["type": "emailer", "recipient":"some@org2"]], 
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipient":"some@org2"]]
+	"org2":[["type": "emailer", "recipients":["some@org2"]]], 
+	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2"]]]
 	],
 "requester": [
 	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]],
-	"org2":[["type": "emailer", "recipient":"some@org2"]],
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipient":"some@org2"]]
+	"org2":[["type": "emailer", "recipients":["some@org2"]]],
+	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2","some@org2"]]]
 	],
 "nodecontact": [
 	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]],
-	"org2":[["type": "emailer", "recipient":"some@org2"]],
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipient":"some@org2"]]
+	"org2":[["type": "emailer", "recipients":["some@org2","some@org2"]]],
+	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2"]]]
 	]
 ]
 // message queue host settings should like this
@@ -35,9 +35,12 @@ conf = ["dataprovider" : [
 
 log = LoggerFactory.getLogger(ScriptingTransformer.class)
 
-log.debug(nodecontactNotifierConf.toString())
+log.debug(conf.toString())
 
-def tfp = getTfPackage()
+emailingConfId = "MetafeedNotifier"
+
+oid = digitalObject.getId()
+tfp = getTfPackage()
 dataprovider = tfp.getString(null,"dataprovider:organization")
 requester = tfp.getString(null,"requester:organization")
 nodecontact = tfp.getString(null,"nodecontact:organization")
@@ -46,11 +49,17 @@ log.debug("dataprovider:organization = ${dataprovider}")
 log.debug("requester:organization = ${requester}")
 log.debug("nodecontact:organization = ${nodecontact}")
 
+Class classDef = this.class.classLoader.parseClass(new File(FascinatorHome.getPath("transformer-scripts/") + "/NotificationAgent.groovy"))
+
+agent = classDef.newInstance()
+agent.doatest()
+
 for (c in ["dataprovider", "requester", "nodecontact"]) {
 	org = tfp.getString(null, c+":organization")
 	if (conf[c].containsKey(org)) {
-		log.debug("A ${c} notification for ${dataprovider} has been configured.")
+		log.debug("A ${c} notification for ${org} has been configured.")
 		notifiers = conf[c][org]
+		log.debug(notifiers.toString())
 		for (s in notifiers) {
 			notify(s)
 		}
@@ -74,31 +83,24 @@ def getTfPackage() {
 	return tfPackage
 }
 
-// sends message to:
-// 1. Exchange 	(AMQP default)
-// 2. Routing Key: queueName
-void stomp_send(String queueName, String message) {
-	StompConnection oConnection = new StompConnection();
-	log.debug(this.class.name + ": host = ${host}:${port}.");
-	oConnection.open(host, port);
-	oConnection.connect(username, passcode);
-	
-	log.debug(this.class.name + ": starting message sending.");
-	log.debug(this.class.name + " sending: ${message}")
-	oConnection.send("/queue/" + queueName, message, null, null);
-	log.debug(this.class.name + ": message sending completed.");
-	
-	oConnection.disconnect();
-}
-
 void notify(s) {
 	notifierType = s["type"]
 	switch (notifierType) {
 		case "MQ":
 			log.debug("grab host and other settings for MQ")
+			try {
+				agent.stomp_send(s["host"],s["port"],s["username"],s["passcode"], s["queuename"],"testing")
+			} catch (Exception ex) {
+				log.error("Failed to send messaging notification for oid:" + oid, ex);
+			}
 			break
 		case "emailer":
-			log.debug("grab receipient or other info for emailer")
+			log.debug("grab receipients or other info for emailer")
+			try {
+				agent.sendEmail(emailingConfId, s["recipients"], tfp)
+			} catch (Exception ex) {
+				log.error("Failed to send email notification for oid:" + oid, ex);
+			}
 			break
 		default:
 			log.error("Wrong notifier type")
