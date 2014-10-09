@@ -37,6 +37,6 @@ class NotificationAgent {
 		Class emailerClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File(FascinatorHome.getPath("process/") + "/emailer.groovy"))
 		def emailer = emailerClass.newInstance()
 		def oid = tfp.getString(null, "oid")
-		emailer.sendNotification(emailingConfId, oid, tfp)
+		emailer.sendNotification(emailingConfId, tfp)
 	}
 }

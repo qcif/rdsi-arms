@@ -15,7 +15,8 @@ import org.apache.commons.mail.DefaultAuthenticator
 class Emailer {
 	def log = LoggerFactory.getLogger(ScriptingTransformer.class)
 
-	public void sendNotification(String setId, String oid, JsonSimple tfPackage) {
+	public void sendNotification(String setId, JsonSimple tfPackage, String recipients=null) {
+		String oid = tfPackage.getString(null, "oid")
 		log.debug("Emailer sending: '${setId}' for ${oid}")
 		String configPath = FascinatorHome.getPath("process") + "/email-notification-config.json"
 		def stages = ["pre", "main", "post"]
@@ -46,8 +47,11 @@ class Emailer {
 							def emailConfigs = []
 							if (emailConfigBlocks != null) {
 								for (Object configBlockObj : emailConfigBlocks) {
-									JsonSimple emailConfig = new JsonSimple(
-											(JsonObject) configBlockObj);
+									JsonSimple emailConfig = new JsonSimple((JsonObject) configBlockObj)
+									if (recipients) {
+//										log.debug("Use ${recipients} from caller to replace config setting.")
+										emailConfig.getJsonObject().put("to", recipients)
+									}
 									emailConfigs << emailConfig
 								}
 							} else {
