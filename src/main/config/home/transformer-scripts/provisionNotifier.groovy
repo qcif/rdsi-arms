@@ -1,12 +1,17 @@
 import com.googlecode.fascinator.transformer.ScriptingTransformer
 import com.googlecode.fascinator.common.FascinatorHome;
 import com.googlecode.fascinator.common.JsonSimple;
-import com.googlecode.fascinator.api.storage.StorageException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.apache.activemq.transport.stomp.StompConnection;
+
+/*
+ * TODO
+ * message or emailer sending helper functions can be move to a central place: NotificationAgent.groovy
+ * see orgNotifer.groovy for example
+ */
 
 // message queue host settings in system-config.json should like this
 // two types are supported: MQ or emailer, it can be either one
