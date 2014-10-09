@@ -13,7 +13,7 @@
     "default-owner":"admin",
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm", "liveArcProvisioningNotice"]
+        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm", "liveArcProvisioningNotice", "orgNotice"]
     },
     "curation": {
         "neverPublish": true,
@@ -51,6 +51,11 @@
 		    "id": "scripting",
 		    "scriptType": "groovy",
 		    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy"
+        },
+		"orgNotice": {
+		    "id": "scripting",
+		    "scriptType": "groovy",
+		    "scriptPath": "${fascinator.home}/transformer-scripts/orgNotifier.groovy"
         }         
     },
     "indexer": {

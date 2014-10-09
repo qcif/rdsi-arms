@@ -218,6 +218,11 @@
 	    "id": "scripting",
 	    "scriptType": "groovy",
 	    "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy"
+	},
+	"orgNotice": {
+	    "id": "scripting",
+	    "scriptType": "groovy",
+	    "scriptPath": "${fascinator.home}/transformer-scripts/orgNotifier.groovy"
 	}
   },
   "uploader": {

@@ -185,5 +185,21 @@
         "$message": "provisioning-notes"
       }
     }
+  ],
+  "MetafeedNotifier": [
+    {
+      "from": "${admin.email}",
+      "to": "metafeed@",
+      "subject": "[ARMS] Storage has been provisioned: '$title'",
+      "body": "Storage is now provisioned.\nFYI\n--\nARMS",
+      "vars": [
+        "$oid",
+        "$title",
+      ],
+      "mapping": {
+        "$oid": "oid",
+        "$title": "dc:title",
+      }
+    }
   ]
 }
