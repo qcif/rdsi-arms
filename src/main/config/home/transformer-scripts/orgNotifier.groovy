@@ -11,19 +11,19 @@ import org.slf4j.LoggerFactory;
 // Send notifications to organisations listed in the contact section: 
 //   dataprovider:organization, requester:organization or nodecontact:organization.
 conf = ["dataprovider" : [
-	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]], 
-	"org2":[["type": "emailer", "recipients":["some@org2"]]], 
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2"]]]
+	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
+	"org2":[["type": "emailer"]],
+	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 	],
 "requester": [
-	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]],
-	"org2":[["type": "emailer", "recipients":["some@org2"]]],
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2","some@org2"]]]
+	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
+	"org2":[["type": "emailer"]],
+	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 	],
 "nodecontact": [
-	"org1":[["type": "MQ", "host":"11.xx.ss.xx"]],
-	"org2":[["type": "emailer", "recipients":["some@org2","some@org2"]]],
-	"org":[["type": "MQ", "host":"11.xx.ss.xx"], ["type": "emailer", "recipients":["some@org2"]]]
+	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
+	"org2":[["type": "emailer"]],
+	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 	]
 ]
 // message queue host settings should like this
@@ -97,7 +97,7 @@ void notify(s) {
 		case "emailer":
 			log.debug("grab receipients or other info for emailer")
 			try {
-				agent.sendEmail(emailingConfId, s["recipients"], tfp)
+				agent.sendEmail(emailingConfId, tfp)
 			} catch (Exception ex) {
 				log.error("Failed to send email notification for oid:" + oid, ex);
 			}

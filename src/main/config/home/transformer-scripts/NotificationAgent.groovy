@@ -13,17 +13,6 @@ class NotificationAgent {
 		log.debug("Class " + this.class.name + " has been loaded")
 	}
 	
-	void doatest() {
-		log.debug("now what can I do for you?")
-	}
-	
-//	void setMQServer(String h, Integer p, String u, String pass) {
-//		host = h
-//		port = p
-//		username = u
-//		passcode = pass
-//	}
-	
 	// sends message to:
 	// 1. Exchange 	(AMQP default)
 	// 2. Routing Key: queueName
@@ -32,30 +21,22 @@ class NotificationAgent {
 		port = p
 		username = u
 		passcode = pass
-//		StompConnection oConnection = new StompConnection();
+		StompConnection oConnection = new StompConnection();
 		log.debug(this.class.name + ": host = ${host}:${port} with ${username}:${passcode}.");
-//		oConnection.open(host, port);
-//		oConnection.connect(username, passcode);
+		oConnection.open(host, port);
+		oConnection.connect(username, passcode);
 		
 		log.debug(this.class.name + " sending: ${message}")
-//		oConnection.send("/queue/" + queueName, message, null, null);
+		oConnection.send("/queue/" + queueName, message, null, null);
 		log.debug(this.class.name + ": message sending completed.");
 		
-//		oConnection.disconnect();
+		oConnection.disconnect();
 	}
 	
-	// might take an array
-	// if using emailer.groovy, receipents is redundant
-	void sendEmail(emailingConfId, receipents, tfp) {
-		if(receipents.getClass().toString() != "class java.util.ArrayList") {
-			log.error("receipents has to be in an arryList, " + receipents.getClass().toString() + " has been given.")
-			return
-		}
-		log.debug(receipents.toString())
+	void sendEmail(emailingConfId, tfp) {
 		Class emailerClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File(FascinatorHome.getPath("process/") + "/emailer.groovy"))
 		def emailer = emailerClass.newInstance()
 		def oid = tfp.getString(null, "oid")
 		emailer.sendNotification(emailingConfId, oid, tfp)
-
 	}
 }
