@@ -15,17 +15,17 @@ conf = ["dataprovider":[:],"requester":[:],"nodecontact":[:]]
 //conf = ["dataprovider" : [
 //	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
 //	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
+//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 //	],
 //"requester": [
-//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
+//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"]],
 //	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
+//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 //	],
 //"nodecontact": [
-//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
+//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"]],
 //	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
+//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
 //	]
 //]
 // message queue host settings should like this
@@ -113,7 +113,11 @@ void notify(s) {
 			log.debug("grab host and other settings for MQ")
 			try {
 				def today = new Date()
-				agent.stomp_send(s["host"],s["port"],s["username"],s["passcode"], s["queuename"],"testing: " + today)
+				if (! s.containsKey("port")) {
+					s["port"] = 61613
+					log.debug("${this.class.name} : default port ${s['port']} for STOMP on MQ host is used")
+				}
+				agent.stomp_send(s["host"],s["port"],s["username"],s["passcode"], s["queuename"],"demoing: " + today)
 			} catch (Exception ex) {
 				log.error(this.class.name + ": messaging notification for oid: ${oid} failed.", ex)
 			}
