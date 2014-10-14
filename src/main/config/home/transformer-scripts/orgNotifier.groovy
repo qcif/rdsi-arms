@@ -115,7 +115,7 @@ void notify(s) {
 				def today = new Date()
 				agent.stomp_send(s["host"],s["port"],s["username"],s["passcode"], s["queuename"],"testing: " + today)
 			} catch (Exception ex) {
-				log.error("Failed to send messaging notification for oid:" + oid, ex);
+				log.error(this.class.name + ": messaging notification for oid: ${oid} failed.", ex)
 			}
 			break
 		case "emailer":
@@ -123,7 +123,7 @@ void notify(s) {
 			try {
 				agent.sendEmail(emailingConfId, tfp)
 			} catch (Exception ex) {
-				log.error("Failed to send email notification for oid:" + oid, ex);
+				log.error(this.class.name + ": emailing notification for oid: ${oid} filed.", ex)
 			}
 			break
 		default:
