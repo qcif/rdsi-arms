@@ -1,6 +1,7 @@
 import com.googlecode.fascinator.transformer.ScriptingTransformer
 import com.googlecode.fascinator.common.FascinatorHome
 import com.googlecode.fascinator.common.JsonSimple
+import groovy.json.JsonSlurper
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,34 +9,17 @@ import org.slf4j.LoggerFactory;
 emailingConfId = "MetafeedNotifier"
 NotificationState="arms-provisioned"
 IndicationField = "metadatafeed-notification"
+def contactType = "dataprovider"
 
-// Send notifications to organisations listed in the contact section: 
-//   dataprovider:organization, requester:organization or nodecontact:organization.
-conf = ["dataprovider":[:],"requester":[:],"nodecontact":[:]]
-//conf = ["dataprovider" : [
-//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","port":61613,"username":"user","passcode":"pass","queuename":"q"]],
-//	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
-//	],
-//"requester": [
-//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"]],
-//	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
-//	],
-//"nodecontact": [
-//	"org1":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"]],
-//	"org2":[["type": "emailer"]],
-//	"org":[["type": "MQ", "host":"11.xx.ss.xx","username":"user","passcode":"pass","queuename":"q"], ["type": "emailer"]]
-//	]
-//]
-// message queue host settings should like this
-//	    "type": "MQ",
-//	    "Host": "xxx.xxx.xxx.xxx",
-//	    "Username": "arms",
-//	    "Passcode": "pass",
-//	    "QueueName": "name"
+// Send notifications to organisations listed in the contact section:
+// one type only, currently: dataprovider:organization
 
 log = LoggerFactory.getLogger(ScriptingTransformer.class)
+
+def confJson = new JsonSlurper().parse(new File(FascinatorHome.getPath("organisation-provisioning.json")))
+//log.debug(confJson.getClass().toString())
+conf = [(contactType):confJson]
+//log.debug(conf.toMapString())
 
 oid = digitalObject.getId()
 payloads = digitalObject.getPayloadIdList()
@@ -68,9 +52,7 @@ if(payloads.contains("workflow.metadata")){
 					log.debug(this.class.name + ": A ${c} notification for ${org} has been configured.")
 					notifiers = conf[c][org]
 					log.debug(notifiers.toString())
-					for (s in notifiers) {
-						notify(s)
-					}
+					notify(notifiers)
 				} else {
 					log.debug(this.class.name + ": There is no ${c} type of notification is set for ${org}.")
 				}
@@ -107,25 +89,26 @@ def getTfPackage() {
 }
 
 void notify(s) {
-	notifierType = s["type"]
+	notifierType = s["method"]
+	settings = s["properties"]
 	switch (notifierType) {
-		case "MQ":
+		case "stomp":
 			log.debug("grab host and other settings for MQ")
 			try {
 				def today = new Date()
-				if (! s.containsKey("port")) {
-					s["port"] = 61613
+				if (! settings.containsKey("port")) {
+					settings["port"] = 61613
 					log.debug("${this.class.name} : default port ${s['port']} for STOMP on MQ host is used")
 				}
-				agent.stomp_send(s["host"],s["port"],s["username"],s["passcode"], s["queuename"],"demoing: " + today)
+				agent.stomp_send(settings["host"],settings["port"],settings["username"],settings["passcode"], settings["queuename"],"demoing: " + today)
 			} catch (Exception ex) {
 				log.error(this.class.name + ": messaging notification for oid: ${oid} failed.", ex)
 			}
 			break
-		case "emailer":
+		case "email":
 			log.debug("grab receipients or other info for emailer")
 			try {
-				agent.sendEmail(emailingConfId, tfp)
+				agent.sendEmail(emailingConfId, tfp, settings["emailAddress"])
 			} catch (Exception ex) {
 				log.error(this.class.name + ": emailing notification for oid: ${oid} filed.", ex)
 			}
