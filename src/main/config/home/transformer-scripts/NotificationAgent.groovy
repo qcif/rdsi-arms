@@ -33,10 +33,10 @@ class NotificationAgent {
 		oConnection.disconnect();
 	}
 	
-	void sendEmail(emailingConfId, tfp) {
+	void sendEmail(emailingConfId, tfp, addressess=null) {
 		Class emailerClass = new GroovyClassLoader(getClass().getClassLoader()).parseClass(new File(FascinatorHome.getPath("process/") + "/emailer.groovy"))
 		def emailer = emailerClass.newInstance()
 		def oid = tfp.getString(null, "oid")
-		emailer.sendNotification(emailingConfId, tfp)
+		emailer.sendNotification(emailingConfId, tfp, addressess)
 	}
 }
