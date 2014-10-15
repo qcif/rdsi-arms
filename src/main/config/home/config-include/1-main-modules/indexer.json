@@ -1,0 +1,29 @@
+{
+    "indexer": {
+        "anotar": {
+            "autocommit": true,
+            "coreName": "anotar",
+            "uri": "http://localhost:${jetty.port}/solr/anotar"
+        },
+        "buffer": {
+            "docLimit": "200",
+            "sizeLimit": "204800",
+            "timeLimit": "30"
+        },
+        "eventLog": {
+            "autocommit": false,
+            "coreName": "eventlog",
+            "embedded": false,
+            "uri": "http://localhost:${jetty.port}/solr/eventlog"
+        },
+        "properties": "TF-OBJ-META",
+        "solr": {
+            "autocommit": false,
+            "coreName": "fascinator",
+            "embedded": false,
+            "uri": "http://localhost:${jetty.port}/solr/fascinator"
+        },
+        "type": "solr",
+        "useCache": true
+    }
+}

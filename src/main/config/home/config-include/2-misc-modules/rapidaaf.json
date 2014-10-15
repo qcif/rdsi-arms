@@ -1,0 +1,21 @@
+{
+    "rapidAafSso": {
+        "attrParentField": "https://aaf.edu.au/attributes",
+        "aud": "${server.url.base}",
+        "iss": "https://rapid.test.aaf.edu.au",
+        "sharedKey": "",
+        "source": "rapidAafSso",
+        "url": "",
+        "userFields": [
+            "cn",
+            "mail",
+            "displayname",
+            "givenname",
+            "surname",
+            "edupersontargetedid",
+            "edupersonscopedaffiliation",
+            "edupersonprincipalname"
+        ],
+        "usernameField": "edupersontargetedid"
+    }
+}

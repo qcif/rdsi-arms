@@ -1,0 +1,27 @@
+{
+    "uploader": {
+        "attachment-upload": {
+            "json-config": "${fascinator.home}/harvest/workflows/attachment.json",
+            "screen-label": "Attachment Upload",
+            "security": [
+                "librarian",
+                "reviewer",
+                "admin",
+                "requestor"
+            ],
+            "upload-path": "${fascinator.home}/uploads/attachments"
+        },
+        "notify": {
+            "json-config": "${fascinator.home}/harvest/workflows/dataset.json",
+            "screen-label": "Notify us about a dataset",
+            "security": [
+                "guest",
+                "metadata",
+                "editor",
+                "admin"
+            ],
+            "upload-path": "${fascinator.home}/uploads/submissions",
+            "upload-template": "workflows/submission"
+        }
+    }
+}

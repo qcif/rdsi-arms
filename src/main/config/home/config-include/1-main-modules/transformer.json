@@ -1,0 +1,46 @@
+{
+    "transformerDefaults": {
+        "basicVersioning": {
+            "id": "basicVersioning",
+            "sourcePayload": ".tfpackage"
+        },
+        "jsonVelocity": {
+            "id": "jsonVelocity",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/arms.vm"
+        },
+        "liveArcProvisioningNotice": {
+            "Host": "130.220.210.82",
+            "Passcode": "demo",
+            "QueueName": "livearc-provisioning",
+            "Type": "MQ",
+            "Username": "demo",
+            "id": "scripting",
+            "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy",
+            "scriptType": "groovy"
+        },
+        "orgNotice": {
+            "id": "scripting",
+            "scriptPath": "${fascinator.home}/transformer-scripts/orgNotifier.groovy",
+            "scriptType": "groovy"
+        },
+        "proposalForm": {
+            "id": "jsonVelocityPDF",
+            "outputFilename": "allocation.pdf",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm"
+        },
+        "requestPdf": {
+            "id": "jsonVelocityPDF",
+            "outputFilename": "request.pdf",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm"
+        },
+        "reviewerPdf": {
+            "id": "jsonVelocityPDF",
+            "outputFilename": "reviewer.pdf",
+            "sourcePayload": ".tfpackage",
+            "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm"
+        }
+    }
+}

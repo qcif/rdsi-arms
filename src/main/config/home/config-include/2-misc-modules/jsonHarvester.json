@@ -1,0 +1,63 @@
+{
+    "messaging": {
+        "threads": [
+            {
+                "config": {
+                    "name": "transactionManager",
+                    "transactionManagerPlugin": "curation-redbox"
+                },
+                "description": "Transaction Manager Queue for complicated tool chains.",
+                "id": "transactionManager",
+                "priority": "5"
+            },
+            {
+                "config": {
+                    "name": "subscriber",
+                    "subscribers": [
+                        "solr-event-log"
+                    ]
+                },
+                "description": "Subscriber queue for event log.",
+                "id": "subscriber",
+                "priority": "7"
+            },
+            {
+                "config": {
+                    "name": "solrwrapper"
+                },
+                "description": "Wrapper for ingest into main Solr core.",
+                "id": "solrwrapper",
+                "priority": "5"
+            },
+            {
+                "config": {
+                    "debug": false,
+                    "defaults": {
+                        "body": "Default email message",
+                        "subject": "Notification"
+                    },
+                    "from": {
+                        "email": "${admin.email}",
+                        "name": "ReDBox"
+                    },
+                    "name": "emailnotification",
+                    "smtp": {
+                        "host": "${smtp.host}"
+                    }
+                },
+                "description": "Queue to send email notifications",
+                "id": "emailnotification",
+                "priority": "8"
+            },
+            {
+                "config": {
+                    "name": "jsonHarvester",
+                    "shouldPark": true
+                },
+                "description": "Harvester queue for incoming JSON objects.",
+                "id": "jsonHarvester",
+                "priority": "7"
+            }
+        ]
+    }
+}

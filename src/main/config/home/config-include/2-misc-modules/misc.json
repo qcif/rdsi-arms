@@ -1,0 +1,21 @@
+{
+    "database-service": {
+        "derbyHome": "${fascinator.home}/database"
+    },
+    "mime-types": {
+        "tfpackage": "application/x-fascinator-package"
+    },
+    "subscriber": {
+        "solr-event-log": {
+            "buffer": {
+                "docLimit": "200",
+                "sizeLimit": "204800",
+                "timeLimit": "30"
+            },
+            "uri": "http://localhost:${jetty.port}/solr/eventlog"
+        }
+    },
+    "watcher": {
+        "path": "${watcher.home}"
+    }
+}

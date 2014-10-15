@@ -1,0 +1,8 @@
+{
+    "accesscontrol": {
+        "derby": {
+            
+        },
+        "type": "hibernateAccessControl"
+    }
+}

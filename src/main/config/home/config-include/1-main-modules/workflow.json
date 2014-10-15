@@ -1,0 +1,15 @@
+{
+    "transitionWorkflow": {
+        "transitions": [
+            {
+                "from-workflow-id": "self-submission",
+                "from-workflow-stage": "self-submission-submitted",
+                "name": "Researcher Record",
+                "to-workflow-id": "dataset",
+                "to-workflow-label": "Metadata Review",
+                "to-workflow-page-title": "Metadata Record",
+                "to-workflow-stage": "metadata-review"
+            }
+        ]
+    }
+}
