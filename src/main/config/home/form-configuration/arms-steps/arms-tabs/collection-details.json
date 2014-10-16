@@ -615,7 +615,17 @@
               "label": "arms.field.label.section2-additional-subsectionD.paragraphB.description"
             }
           ]
-        }
+        },
+        {
+            "component-type": "text-block",
+            "type": "h2",
+            "content": "Request a NeCTAR Virtual Machine"
+         },
+         {
+            "component-type": "text-block",
+            "type": "p",
+            "content": "<a href='https://dashboard.rc.nectar.org.au/'>Apply</a>"
+         }
       ]
     }
   ]
