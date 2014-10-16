@@ -109,12 +109,12 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "text-input",
+          "component-type": "data-source-dropdown",
           "field-name": "dataprovider:organization",
           "label": "arms.field.label.optional.organization",
-          "wrapper-class": "inline-block-component",
-          "additional-classes": "organizationField",
-          "lookupdata": "../process/notification/homes.script"
+          "field-name-label": "dataprovider:organization:prefLabel",
+          "sourceUrl": "form-components/organisations.json",
+          "wrapper-class": "inline-block-component orgLabel"
         },
         {
           "component-type": "text-input",
@@ -295,12 +295,12 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "text-input",
+          "component-type": "data-source-dropdown",
           "field-name": "requester:organization",
           "label": "arms.field.label.optional.organization",
-          "wrapper-class": "inline-block-component",
-          "additional-classes": "organizationField",
-          "lookupdata": "../process/notification/homes.script"
+          "field-name-label": "requester:organization:prefLabel",
+          "sourceUrl": "form-components/organisations.json",
+          "wrapper-class": "inline-block-component orgLabel"
         },
         {
           "component-type": "text-input",
@@ -439,12 +439,12 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "text-input",
+          "component-type": "data-source-dropdown",
           "field-name": "nodecontact:organization",
           "label": "arms.field.label.optional.organization",
-          "wrapper-class": "inline-block-component",
-          "additional-classes": "organizationField",
-          "lookupdata": "../process/notification/homes.script"
+          "field-name-label": "nodecontact:organization:prefLabel",
+          "sourceUrl": "form-components/organisations.json",
+          "wrapper-class": "inline-block-component orgLabel"
         },
         {
           "component-type": "text-input",
