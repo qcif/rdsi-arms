@@ -61,6 +61,11 @@
       "label": "arms.field.label.section4-subsectionB.paragraphC"
     },
     {
+      "component-type": "text-input",
+      "field-name": "exp-number-users",
+      "label": "arms.field.label.expected.number.users"
+    },
+    {
       "component-type": "text-block",
       "type": "h3",
       "content": "arms.field.label.section4-subsectionB.paragraphE"

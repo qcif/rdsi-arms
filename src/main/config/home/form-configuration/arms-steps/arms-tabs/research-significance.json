@@ -53,6 +53,16 @@
     },
     {
       "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.discovery-metadata"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "discovery-metadata",
+      "label": ""
+    },
+    {
+      "component-type": "text-block",
       "type": "h2",
       "content": "arms.field.label.section3-subsectionC.title"
     },
