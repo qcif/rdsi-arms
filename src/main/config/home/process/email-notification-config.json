@@ -166,7 +166,7 @@
     "pre": [
       {
         "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
-        "config": "${fascinator.home}/process/lilvearcprovisionedstate.json",
+        "config": "${fascinator.home}/process/livearcprovisionedstate.json",
         "inputKey": "",
         "outputKey": "newOids"
       }
@@ -182,7 +182,7 @@
     "post": [
       {
         "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
-        "config": "${fascinator.home}/process/lilvearcprovisionedstate.json",
+        "config": "${fascinator.home}/process/livearcprovisionedstate.json",
         "inputKey": "failedOids",
         "outputKey": ""
       }
