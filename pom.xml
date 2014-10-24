@@ -342,18 +342,18 @@
             <id>vicnode</id>
             <properties>
                 <packaging>pom</packaging>
-                <node.list>nci</node.list>
-                <theme>nci</theme>
-                <artifactSuffix>nci</artifactSuffix>
+                <node.list>vicnode</node.list>
+                <theme>vicnode</theme>
+                <artifactSuffix>vicnode</artifactSuffix>
             </properties>
         </profile>
         <profile>
             <id>ivec</id>
             <properties>
                 <packaging>pom</packaging>
-                <node.list>nci</node.list>
-                <theme>nci</theme>
-                <artifactSuffix>nci</artifactSuffix>
+                <node.list>ivec</node.list>
+                <theme>ivec</theme>
+                <artifactSuffix>ivec</artifactSuffix>
             </properties>
         </profile>
         <profile>
