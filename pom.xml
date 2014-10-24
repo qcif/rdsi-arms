@@ -339,6 +339,24 @@
             </properties>
         </profile>
         <profile>
+            <id>vicnode</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>nci</node.list>
+                <theme>nci</theme>
+                <artifactSuffix>nci</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
+            <id>ivec</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>nci</node.list>
+                <theme>nci</theme>
+                <artifactSuffix>nci</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
             <id>ide</id>
             <properties>
                 <packaging>jar</packaging>
