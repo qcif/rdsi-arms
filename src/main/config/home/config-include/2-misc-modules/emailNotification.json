@@ -48,15 +48,6 @@
                 "description": "Queue to send email notifications",
                 "id": "emailnotification",
                 "priority": "8"
-            },
-            {
-                "config": {
-                    "name": "jsonHarvester",
-                    "shouldPark": true
-                },
-                "description": "Harvester queue for incoming JSON objects.",
-                "id": "jsonHarvester",
-                "priority": "7"
             }
         ]
     }
