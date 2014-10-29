@@ -3,7 +3,7 @@
 # this script sets the environment for other fascinator scripts
 #
 
-export SERVER_URL="${server.url.base}"
+export SERVER_URL=""
 export LOCAL_PORT="${server.port}"
 export PROJECT_HOME="${app.location.linux}"
 export AMQ_PORT="${amq.port}"
