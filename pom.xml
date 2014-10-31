@@ -87,7 +87,6 @@
                 <app.location.windows>c:/tf2/redbox</app.location.windows>
                 <app.location.linux>/opt/redbox</app.location.linux>
             </properties>
-            <!-- clean up the deploy directory first -->
             <build>
                 <plugins>
                     <plugin>
@@ -314,7 +313,7 @@
                 <executions>
                     <execution>
                         <id>auto-clean</id>
-                        <phase>initialize</phase>
+                        <phase>post-clean</phase>
                         <goals>
                             <goal>clean</goal>
                         </goals>
