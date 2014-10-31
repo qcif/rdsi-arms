@@ -308,7 +308,7 @@
         </resources>
         <plugins>
             <plugin>
-                <!-- always clean out deployment before any other task. -->
+                <!-- always clean out deployment in any clean goal. -->
                 <artifactId>maven-clean-plugin</artifactId>
                 <executions>
                     <execution>
