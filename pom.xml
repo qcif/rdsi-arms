@@ -682,7 +682,7 @@
 				<executions>
 					<execution>
 						<id>injectNodes</id>
-						<phase>process-resources</phase>
+                        <phase>prepare-package</phase>
 						<goals>
 							<goal>execute</goal>
 						</goals>
