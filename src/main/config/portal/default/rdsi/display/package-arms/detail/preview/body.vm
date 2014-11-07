@@ -175,6 +175,35 @@
 <h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
 <p>#getValue("storage-estimated-growth-rate")</p>
 
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.paragraphE")</p>
+## Here does not have a owner check: onwer info is in solr? Need to filter attachment_type
+#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+#if ($responses.size() > 0)
+<table>
+    <thead>
+        <tr>
+                <th>Filename</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Added by</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($v in $responses)
+			#if($v.get("attachment_type") == "technical_requirement_attachments")
+		<tr>
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
+			<td>$v.get("description")</td>
+			<td>$v.get("dateAdded")</td>
+			<td>$v.get("addedBy")</td>
+		</tr>
+			#end
+    	#end
+    </tbody>
+</table>
+#end
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphA.title")</p>
 <p>Expectation: #getValue("storage-duration")</p>
 <p>Date : #getValue("storage-duration-date")</p>
@@ -286,12 +315,14 @@
     </thead>
     <tbody>
         #foreach($v in $responses)
+			#if($v.get("attachment_type") == "storage-attachments")
 		<tr>
 			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
 			<td>$v.get("description")</td>
 			<td>$v.get("dateAdded")</td>
 			<td>$v.get("addedBy")</td>
 		</tr>
+			#end
     	#end
     </tbody>
 </table>
@@ -449,6 +480,28 @@
 			</tr>
 			</tbody>
 		</table>
+
+		<h5>Part C</h5>
+		<dl>
+				<dt>#displayMessage('arms.heading.review-PartC.item1')</dt>
+				<dd>#getValue("offer-type")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item2')</dt>
+				<dd>#getValue("storage-offering")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item3')</dt>
+				<dd>#getValue("storage-expected-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item4')</dt>
+				<dd>#getValue("storage-current-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item5')</dt>
+				<dd>#getValue("data-ingested")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item6')</dt>
+				<dd>#getValue("techassess-data-access")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item7')</dt>
+				<dd>#getValue("migration-by")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item8')</dt>
+				<dd>#getValue("est-effort")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item9')</dt>
+				<dd>#getValue("techassess-other")</dd>
+		</dl>
 #end
 ##23/12/2013: below commented out as may be brought back in.
 #### end of allocation committee submission

@@ -94,6 +94,18 @@
 function toggleLinkedBtns(radio_btn_name) {
     var rButtons = document.getElementsByName(radio_btn_name);
     var i, j, l = rButtons.length, m;
+    ### clear out every button
+    for (i = 0; i < l; i++) {
+        var onIds = rButtons[i].getAttribute('on_ids')
+        if (onIds) {
+         var btn_ids = onIds.split(',');
+         m = btn_ids.length;
+	 for(j = 0; j < m; j++) {
+	     $("[id='"+btn_ids[j]+"']").attr('disabled','disabled');
+	 }
+        }
+    }
+	### go through all buttons to find a checked
     for (i = 0; i < l; i++) {
         var onIds = rButtons[i].getAttribute('on_ids')
         if (onIds) {
@@ -103,17 +115,14 @@ function toggleLinkedBtns(radio_btn_name) {
              for(j = 0; j < m; j++) {
                  $("[id='"+btn_ids[j]+"']").removeAttr('disabled');
              }
-         } else {
-             for(j = 0; j < m; j++) {
-                 $("[id='"+btn_ids[j]+"']").attr('disabled','disabled');
-             }
+             return;
          }
         }
     }
 }
 
-function link2Radios(btn) {
-    var conditional_id = btn.attr('conditional_id'), btn_id = btn.attr('id');
+function setUpButtonLinks(conditional_id, btn) {
+	var btn_id = btn.attr('id');
     var rbtn = $("[id='"+conditional_id+"']");
     rbtn.change(function() {
         toggleLinkedBtns(this.name);
@@ -125,6 +134,15 @@ function link2Radios(btn) {
         btn.removeAttr('disabled');
     } else {
         btn.attr('disabled','disabled');
+    }
+}
+function link2Radios(btn) {
+    var conditional_id = btn.attr('conditional_id'), btn_id = btn.attr('id');
+    ### conditional_id might be comma separated string
+    allIds = conditional_id.split(",");
+    var allIds = conditional_id.split(",");
+    for (var i = 0; i < allIds.length; i++) {
+	setUpButtonLinks(allIds[i], btn);
     }
 }
 ### checkbox has ids in a format of btn_name + '.' + order_number

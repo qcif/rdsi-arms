@@ -1,0 +1,66 @@
+{
+    "messaging": {
+        "home": "${fascinator.home}/activemq-data",
+        "startup": {
+            "delay": "5000",
+            "timer": "15000"
+        },
+        "statistics": {
+            "destination": "houseKeeping",
+            "enabled": true
+        },
+        "stompUrl": "stomp://localhost:${amq.stomp.port}",
+        "threads": [
+            {
+                "config": {
+                    "name": "transactionManager",
+                    "transactionManagerPlugin": "curation-redbox"
+                },
+                "description": "Transaction Manager Queue for complicated tool chains.",
+                "id": "transactionManager",
+                "priority": "5"
+            },
+            {
+                "config": {
+                    "name": "subscriber",
+                    "subscribers": [
+                        "solr-event-log"
+                    ]
+                },
+                "description": "Subscriber queue for event log.",
+                "id": "subscriber",
+                "priority": "7"
+            },
+            {
+                "config": {
+                    "name": "solrwrapper"
+                },
+                "description": "Wrapper for ingest into main Solr core.",
+                "id": "solrwrapper",
+                "priority": "5"
+            },
+            {
+                "config": {
+                    "debug": false,
+                    "defaults": {
+                        "body": "Default email message",
+                        "subject": "Notification"
+                    },
+                    "from": {
+                        "email": "${admin.email}",
+                        "name": "ReDBox"
+                    },
+                    "name": "emailnotification",
+                    "smtp": {
+                        "host": "${smtp.host}"
+                    }
+                },
+                "description": "Queue to send email notifications",
+                "id": "emailnotification",
+                "priority": "8"
+            }
+        ],
+        "toolChainQueue": "transactionManager",
+        "url": "tcp://localhost:${amq.port}"
+    }
+}

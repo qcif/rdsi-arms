@@ -37,7 +37,7 @@ if [ ! -f sequence.sql ]; then
 fi
 
 if [ ! -f db-derby-10.8.3.0-lib.tar.gz ]; then
-	wget http://mirror.ventraip.net.au/apache//db/derby/db-derby-10.8.3.0/db-derby-10.8.3.0-lib.tar.gz
+	wget http://archive.apache.org/dist/db/derby/db-derby-10.8.3.0/db-derby-10.8.3.0-lib.tar.gz
 	tar zxf db-derby-10.8.3.0-lib.tar.gz
 fi
 

@@ -53,6 +53,16 @@
     },
     {
       "component-type": "text-block",
+      "type": "label",
+      "content": "arms.field.label.discovery-metadata"
+    },
+    {
+      "component-type": "text-input",
+      "field-name": "discovery-metadata",
+      "label": ""
+    },
+    {
+      "component-type": "text-block",
       "type": "h2",
       "content": "arms.field.label.section3-subsectionC.title"
     },
@@ -116,6 +126,23 @@
                   "value": "arms.field.label.section3-subsectionC.paragraphB.pointE"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "component-type": "text-block",
+          "type": "h4",
+          "content": "arms.field.label.section3-subsectionC.paragraphC.title",
+          "wrapper-class": "inline-block-component"
+        },
+        {
+          "component-type": "group",
+          "template": "group-div",
+          "fields": [
+            {
+              "component-type": "textarea",
+              "field-name": "related-publications",
+              "label": "arms.field.label.section3-subsectionC.paragraphC.description"
             }
           ]
         }

@@ -66,18 +66,22 @@ function enableOrDisableAssessment(element) {
     ##TODO: unable to get 'not' to work with this selector, so for now, iterate twice.
     ##if all radio containers are checked, enable assessment
     var radioCount = 0;
-    jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio])").each(function() {
-        radioCount = radioCount + 1;
-    });
-    var radioCheckedCount = 0;
-    jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio]:checked)").each(function() {
-        radioCheckedCount = radioCheckedCount + 1;
-    });
-    if (radioCheckedCount > 0 && radioCheckedCount == radioCount) {
-        jQuery(":submit[value~='assessment']").prop("disabled", false);
-    } else {
-        jQuery(":submit[value~='assessment']").prop("disabled", true);
-    }
+	jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio])").each(function() {
+	    radioCount = radioCount + 1;
+	});
+	var radioCheckedCount = 0;
+	jQuery(element).closest("form").find("div.simple-workflow.component-wrapper:has(input[type=radio]:checked)").each(function() {
+	    radioCheckedCount = radioCheckedCount + 1;
+	});
+	if ($('input[name=recommendation]:radio:checked').val() == "Reject") {
+		// reject ignore other choices
+		jQuery(":submit[value~='assessment']").prop("disabled", false);
+		jQuery('input[name=size-agreement]:radio').prop('checked', false);
+	} else if (radioCheckedCount > 0 && radioCheckedCount == radioCount) {
+		jQuery(":submit[value~='assessment']").prop("disabled", false);
+	} else {
+			jQuery(":submit[value~='assessment']").prop("disabled", true);
+	}
 }
 
 jQuery(document).ready(function() {

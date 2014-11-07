@@ -1,0 +1,12 @@
+{
+    "authserver": {
+        "redboxAdmin": {
+            "aud": "http://127.0.0.1:1337/redbox-admin/security/login",
+            "expiry": 60,
+            "iss": "htp://127.0.0.1:9000/redbox",
+            "logoutUrl": "http://127.0.0.1:1337/redbox-admin",
+            "name": "ReDBox PaaS Admin",
+            "sharedKey": "Please Change Key - This is very insecure."
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "andsDoi": {
+        "apiBaseUrl": "https://services.ands.org.au/doi/1.1/",
+        "apiKey": "TESTd652186962d02890e3a6f0caa3b19e177dd29ccc",
+        "doiProperty": "andsDoi",
+        "security": {
+            "roles": [
+                "admin"
+            ],
+            "users": [
+                
+            ]
+        }
+    }
+}

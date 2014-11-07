@@ -3,6 +3,8 @@
 		Yes
 </label>
 <div style="margin-left:3em" id="level-access-details-div">
+    <!--label>#displayMessage("arms.description.researchdata-access-currentdate-description")<input type="text" id="currentAccessDate" class="jaffa-field"></label><br-->
+    <label><input type="checkbox" name="currentAccessDate" value="now">Now</label> or <br>
     <label>#displayMessage("arms.description.researchdata-access-date-description")<input type="text" id="futureAccessDate" class="jaffa-field"></label><br>
     <label><span style="vertical-align:top;">#displayMessage("arms.description.researchdata-access-description")</span><textarea id="level-access-details" name="level-access-details" cols="80" rows="4" class="jaffa-field"></textarea></label>
 </div>
@@ -19,6 +21,20 @@ $(document).ready(function() {
 		 changeYear: true
          ,showButtonPanel: true	 });
 
+	function toggleFutureAccessDate() {
+		if($('[name=currentAccessDate]:checked').val() == "now") {
+			$("[id='futureAccessDate']").prop('disabled', false);
+			
+		} else {
+			$("[id='futureAccessDate']").prop('disabled', true);
+		}
+	}
+	
+	toggleFutureAccessDate();
+	$("[name=currentAccessDate]").change(function() {
+		toggleFutureAccessDate();	
+	});		
+	
 	function toggleAccessDetails() {
 		if($('input:radio[name=level-access]:checked').val() == "Yes") {
 			$("[id='level-access-details-div']").show();

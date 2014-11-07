@@ -195,3 +195,6 @@ div.declaration-note {
     width: 125px;
     display: inline-block !important;
 }
+
+.orgLabel label { font-weight: bold; }
+.orgLabel select { width: 310px; }

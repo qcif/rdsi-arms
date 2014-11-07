@@ -23,9 +23,11 @@ sh restore_node.sh TAR.GZ.NAME
   * TAR.GZ.NAME is the part of the backup package before .tar.gz, e.g. for 20140419.tar.gz, it should be 20140419.
 0. Now, start up ARMS for the first time.
 0. Access ARMS from browser as usual. You will not see any record but you have to do it to ensure the system is fully up.
+0. In system-config.json, turn off email notification.
 0. Go to server directory, e.g.:
 ```shell
 cd /opt/redbox/server
 ./tf_restore.sh
 ```
+0. In system-config.json, turn back on email notification.
 0. Once it is done, log in as a user having reviewer role to check if data has been restored successfully.

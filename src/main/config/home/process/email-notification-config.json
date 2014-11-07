@@ -160,5 +160,59 @@
         "outputKey": ""
       }
     ]
+  },
+  {
+    "id": "LiveArcProvisionNotifier",
+    "pre": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/livearcprovisionedstate.json",
+        "inputKey": "",
+        "outputKey": "newOids"
+      }
+    ],
+    "main": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.EmailNotifier",
+        "config": "${fascinator.home}/process/emailer.json",
+        "inputKey": "newOids",
+        "outputKey": "failedOids"
+      }
+    ],
+    "post": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/livearcprovisionedstate.json",
+        "inputKey": "failedOids",
+        "outputKey": ""
+      }
+    ]
+  },
+  {
+    "id": "MetafeedNotifier",
+    "pre": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/metafeedstate.json",
+        "inputKey": "",
+        "outputKey": "newOids"
+      }
+    ],
+    "main": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.EmailNotifier",
+        "config": "${fascinator.home}/process/emailer.json",
+        "inputKey": "newOids",
+        "outputKey": "failedOids"
+      }
+    ],
+    "post": [
+      {
+        "class": "com.googlecode.fascinator.portal.process.RecordProcessor",
+        "config": "${fascinator.home}/process/metafeedstate.json",
+        "inputKey": "failedOids",
+        "outputKey": ""
+      }
+    ]
   }
 ]

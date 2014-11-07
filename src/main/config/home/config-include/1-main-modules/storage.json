@@ -1,0 +1,14 @@
+{
+    "storage": {
+        "fedora3": {
+            "namespace": "uuid",
+            "password": "fedoraAdmin",
+            "url": "http://localhost:8080/fedora",
+            "username": "fedoraAdmin"
+        },
+        "file-system": {
+            "home": "${storage.home}"
+        },
+        "type": "file-system"
+    }
+}

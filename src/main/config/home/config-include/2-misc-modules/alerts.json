@@ -1,0 +1,14 @@
+{
+    "alerts": {
+        "path": "${fascinator.home}/alerts",
+        "xmlMaps": {
+            "rif": "${fascinator.home}/alerts/config/rifXmlMap.json",
+            "xml": "${fascinator.home}/alerts/config/basicXmlMap.json"
+        }
+    },
+    "new-alerts": {
+        "alertSet": [
+            
+        ]
+    }
+}

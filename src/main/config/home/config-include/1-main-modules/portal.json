@@ -1,0 +1,143 @@
+{
+    "portal": {
+        "caching": {
+            "caches": {
+                "pathLookup": {
+                    "label": "Cache for path lookups",
+                    "profile": "full"
+                },
+                "scriptObjects": {
+                    "label": "Cache for Jython scripts",
+                    "lastModifiedCheck": true,
+                    "profile": "dynamic"
+                }
+            },
+            "profiles": {
+                "default": {
+                    "diskPersistent": false,
+                    "eternal": false,
+                    "label": "Factory defaults",
+                    "maxElementsInMemory": 10000,
+                    "maxElementsOnDisk": 10000,
+                    "memoryStoreEvictionPolicy": "LRU",
+                    "overflowToDisk": false,
+                    "refreshIntervalSeconds": 30,
+                    "timeToIdleSeconds": 120,
+                    "timeToLiveSeconds": 120
+                },
+                "dynamic": {
+                    "diskPersistent": false,
+                    "eternal": false,
+                    "label": "Dynamic - Caches are refreshed periodically",
+                    "maxElementsInMemory": 25000,
+                    "maxElementsOnDisk": 25000,
+                    "memoryStoreEvictionPolicy": "LRU",
+                    "overflowToDisk": false,
+                    "timeToIdleSeconds": 120,
+                    "timeToLiveSeconds": 300
+                },
+                "full": {
+                    "diskPersistent": false,
+                    "eternal": true,
+                    "label": "Full - Caches never expire",
+                    "maxElementsInMemory": 100000,
+                    "maxElementsOnDisk": 100000,
+                    "memoryStoreEvictionPolicy": "LRU",
+                    "overflowToDisk": true,
+                    "timeToIdleSeconds": 0,
+                    "timeToLiveSeconds": 0
+                },
+                "off": {
+                    "diskPersistent": false,
+                    "eternal": false,
+                    "label": "Disabled",
+                    "maxElementsInMemory": 10000,
+                    "maxElementsOnDisk": 1,
+                    "memoryStoreEvictionPolicy": "LRU",
+                    "overflowToDisk": false,
+                    "timeToIdleSeconds": 1,
+                    "timeToLiveSeconds": 1
+                }
+            }
+        },
+        "contentDir": "${fascinator.home}/content",
+        "defaultView": "default",
+        "displayPrintLinks": "true",
+        "harvestFiles": "${fascinator.home}/harvest",
+        "home": "${portal.home}",
+        "houseKeeping": {
+            "config": {
+                "desktop": true,
+                "frequency": "3600",
+                "jobs": [
+                    {
+                        "configFile": "${fascinator.home}/process/email-notification-config.json",
+                        "name": "email-notification",
+                        "setId": "",
+                        "timing": "0 0/5 * * * ?",
+                        "type": "processingSet"
+                    }
+                ],
+                "quartzConfig": "${fascinator.home}/quartz.properties"
+            }
+        },
+        "layout": "layout",
+        "nativeJython": true,
+        "oai-pmh": {
+            "metadataFormats": {
+                "eac_cpf": {
+                    "enabledInAllViews": false,
+                    "enabledViews": [
+                        "published"
+                    ],
+                    "metadataNamespace": "urn:isbn:1-931666-33-4",
+                    "schema": "urn:isbn:1-931666-33-4 http://eac.staatsbibliothek-berlin.de/schema/cpf.xsd"
+                },
+                "marc": {
+                    "enabledInAllViews": false,
+                    "enabledViews": [
+                        "published"
+                    ],
+                    "metadataNamespace": "http://www.loc.gov/MARC21/slim",
+                    "schema": "http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd"
+                },
+                "oai_dc": {
+                    "enabledInAllViews": false,
+                    "enabledViews": [
+                        "published"
+                    ],
+                    "metadataNamespace": "http://www.openarchives.org/OAI/2.0/oai_dc/",
+                    "schema": "http://www.openarchives.org/OAI/2.0/oai_dc.xsd"
+                },
+                "rif": {
+                    "enabledInAllViews": false,
+                    "enabledViews": [
+                        "published"
+                    ],
+                    "metadataNamespace": "http://ands.org.au/standards/rif-cs/registryObjects",
+                    "schema": "http://ands.org.au/standards/rif-cs/registryObjects http://services.ands.org.au/home/orca/schemata/registryObjects.xsd"
+                }
+            },
+            "sessionExpiry": "300000"
+        },
+        "packageTypes": {
+            "arms": {
+                "jsonconfig": "arms.json",
+                "packages-in-package": false
+            },
+            "default": {
+                "jsonconfig": "packaging-config.json",
+                "packages-in-package": false
+            }
+        },
+        "sessionTimeout": "60",
+        "skins": {
+            "default": "default",
+            "order": [
+                "local",
+                "rdsi",
+                "redbox"
+            ]
+        }
+    }
+}

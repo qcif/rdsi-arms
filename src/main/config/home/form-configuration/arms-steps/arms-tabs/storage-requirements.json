@@ -61,6 +61,48 @@
       "label": "arms.field.label.section4-subsectionB.paragraphC"
     },
     {
+      "component-type": "text-input",
+      "field-name": "exp-number-users",
+      "label": "arms.field.label.expected.number.users"
+    },
+    {
+      "component-type": "text-block",
+      "type": "h3",
+      "content": "arms.field.label.section4-subsectionB.paragraphE"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "span",
+          "content": "Please attach the data management plan associated with this data."
+        },
+        {
+          "component-type": "text-block",
+          "type": "label",
+          "content": "arms.heading.review-attachments"
+        },
+        {
+          "component-type": "file-attachments2",
+          "widgetname": "techReqAttch",
+          "attachType": "technical_requirement_attachments",
+          "accessRights": "public",
+          "enableDescription": "true",
+          "addFunction": "addtechReqAttchModelRow"
+        },
+        {
+          "component-type": "file-upload-table2",
+          "metadataPrefix": "techReqAttchFileUpload",
+          "modelName": "techReqAttchModel",
+          "tableName": " techReqAttchTable",
+          "initialiseFunctionName": "techReqAttch_getUploadedFiles",
+          "removeFunction": "techReqAttch_deleteFile"
+        }
+      ]
+    },
+    {
       "component-type": "text-block",
       "type": "h2",
       "content": "arms.field.label.section4-subsectionC.title"
@@ -243,7 +285,7 @@
                 },
                 {
                   "label": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB",
-                  "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB"
+                  "value": "arms.field.label.section4-subsectionC.paragraphE.statementA.pointB",
                   "checked": true
                 }
               ]

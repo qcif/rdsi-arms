@@ -1,0 +1,10 @@
+{
+    "authentication": {
+        "internal": {
+            "path": "${fascinator.home}/security/users.properties"
+        },
+        "plugins": [
+            "internal"
+        ]
+    }
+}

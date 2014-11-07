@@ -1,0 +1,18 @@
+{
+  "University A": {
+    "method": "email",
+    "properties": {
+      "emailAddress": "some@unia.edu.au"
+    }
+  },
+  "University A": {
+    "method": "stomp",
+    "properties": {
+      "host": "x.x.x.x",
+      "port":61613,
+      "queuename": "demo",
+      "username": "demo",
+      "passcode": "demo"
+    }
+  }
+}

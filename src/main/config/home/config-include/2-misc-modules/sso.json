@@ -1,0 +1,25 @@
+{
+    "sso": {
+        "plugins": [
+            "rapidAafSso"
+        ],
+        "trustTokens": {
+            
+        },
+        "urlExclusions": {
+            "endsWith": [
+                ".ico"
+            ],
+            "equals": [
+                "css"
+            ],
+            "startsWith": [
+                "css/",
+                "feed/",
+                "images/",
+                "js/",
+                "flowplayer/"
+            ]
+        }
+    }
+}

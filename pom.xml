@@ -7,12 +7,8 @@
 	<version>1.2-SNAPSHOT</version>
 	<packaging>${packaging}</packaging>
 	<name>ReDBox - RDSI Arms</name>
-	<parent>
-		<groupId>com.googlecode.redbox-mint</groupId>
-		<artifactId>redbox</artifactId>
-		<version>1.8-SNAPSHOT</version>
-	</parent>
 	<properties>
+        <project.basedir>..</project.basedir>
 		<!-- Used in build -->
 		<redbox.version>1.8-SNAPSHOT</redbox.version>
 		<package.finalname>${project.build.finalName}</package.finalname>
@@ -42,74 +38,11 @@
 		<groovy.version>2.3.4</groovy.version>
 	</properties>
 	<dependencies>
-		<!-- ReDBox Core - We want to explicitly define versions here because ReDBox 
-			is listed as both a dependency and a parent. Some odd consequences of using 
-			${project.version} can result -->
 		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>redbox-project</artifactId>
-			<type>pom</type>
-			<version>1.8-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>redbox</artifactId>
-			<type>pom</type>
-			<version>1.8-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>redbox-config</artifactId>
-			<version>1.8-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>redbox-secure-api</artifactId>
-			<version>1.8-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>plugin-transaction-curation-redbox</artifactId>
-			<version>1.8-SNAPSHOT</version>
-		</dependency>
-		<!-- Local Curation Plugin (from Mint) -->
-		<dependency>
-			<groupId>com.googlecode.redbox-mint</groupId>
-			<artifactId>plugin-transformer-local</artifactId>
-			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.the-fascinator.plugins</groupId>
-			<artifactId>plugin-transformer-basicVersioning</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<!-- new velocity plugins -->
-		<dependency>
-			<groupId>com.googlecode.the-fascinator.plugins</groupId>
-			<artifactId>plugin-transformer-jsonVelocity</artifactId>
-			<version>1.2.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.the-fascinator.plugins</groupId>
-			<artifactId>plugin-transformer-jsonVelocity-pdf</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.the-fascinator.plugins</groupId>
-			<artifactId>plugin-subscriber-solrEventLog</artifactId>
-			<version>1.3</version>
-		</dependency>
-		<!-- JSON harvester plugin -->
-		<dependency>
-			<groupId>au.com.redboxresearchdata.fascinator</groupId>
-			<artifactId>plugin-harvester-json</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<!-- Rapid AAF SSO plugin -->
-		<dependency>
-			<groupId>au.com.redboxresearchdata.fascinator</groupId>
-			<artifactId>plugin-sso-rapidaaf</artifactId>
-			<version>1.2-SNAPSHOT</version>
+            <groupId>com.googlecode.the-fascinator</groupId>
+            <artifactId>fascinator-common</artifactId>
+            <version>1.3-SNAPSHOT</version>
+            <scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<profiles>
@@ -120,45 +53,8 @@
 				<app.location.windows>c:/tf2/redbox</app.location.windows>
 				<app.location.linux>/opt/redbox</app.location.linux>
 			</properties>
-			<!-- clean up the deploy directory first -->
 			<build>
 				<plugins>
-
-					<plugin>
-						<artifactId>maven-clean-plugin</artifactId>
-						<configuration>
-							<filesets>
-								<fileset>
-									<directory>../home</directory>
-									<includes>
-										<include>**/*</include>
-									</includes>
-									<followSymlinks>false</followSymlinks>
-								</fileset>
-								<fileset>
-									<directory>../portal</directory>
-									<includes>
-										<include>**/*</include>
-									</includes>
-									<followSymlinks>false</followSymlinks>
-								</fileset>
-								<fileset>
-									<directory>../server</directory>
-									<includes>
-										<include>**/*</include>
-									</includes>
-									<followSymlinks>false</followSymlinks>
-								</fileset>
-								<fileset>
-									<directory>../solr</directory>
-									<includes>
-										<include>**/*</include>
-									</includes>
-									<followSymlinks>false</followSymlinks>
-								</fileset>
-							</filesets>
-						</configuration>
-					</plugin>
 					<!-- Used for creating an install - omits local build system settings -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -190,7 +86,6 @@
 				<app.location.windows>c:/tf2/redbox</app.location.windows>
 				<app.location.linux>/opt/redbox</app.location.linux>
 			</properties>
-			<!-- clean up the deploy directory first -->
 			<build>
 				<plugins>
 					<plugin>
@@ -267,6 +162,15 @@
 				</plugins>
 			</build>
 		</profile>
+        <profile>
+            <id>bootstrap</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>bootstrap</node.list>
+                <theme>bootstrap</theme>
+                <artifactSuffix>bootstrap</artifactSuffix>
+            </properties>
+        </profile>
 		<profile>
 			<id>dev</id>
 			<properties>
@@ -321,15 +225,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>bootstrap</id>
-			<properties>
-				<packaging>pom</packaging>
-				<node.list>bootstrap</node.list>
-				<theme>bootstrap</theme>
-				<artifactSuffix>bootstrap</artifactSuffix>
-			</properties>
-		</profile>
-		<profile>
 			<id>nci</id>
 			<properties>
 				<packaging>pom</packaging>
@@ -339,6 +234,24 @@
 			</properties>
 		</profile>
 		<profile>
+            <id>vicnode</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>vicnode</node.list>
+                <theme>vicnode</theme>
+                <artifactSuffix>vicnode</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
+            <id>ivec</id>
+            <properties>
+                <packaging>pom</packaging>
+                <node.list>ivec</node.list>
+                <theme>ivec</theme>
+                <artifactSuffix>ivec</artifactSuffix>
+            </properties>
+        </profile>
+        <profile>
 			<id>ide</id>
 			<properties>
 				<packaging>jar</packaging>
@@ -402,67 +315,108 @@
 			</resource>
 		</resources>
 		<plugins>
-			<!-- 1st - Unpack Generic Mint setup -->
 			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.1</version>
+                <!-- always clean out deployment in any clean goal. -->
+                <artifactId>maven-clean-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>unpack-portal</id>
-						<phase>generate-resources</phase>
+                        <id>auto-clean</id>
+                        <phase>post-clean</phase>
 						<goals>
-							<goal>unpack</goal>
+                            <goal>clean</goal>
 						</goals>
+                    </execution>
+                </executions>
 						<configuration>
-							<includes>portal/**,home/**</includes>
-							<excludes>portal/**/usq/**</excludes>
-							<outputDirectory>${project.home}</outputDirectory>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.googlecode.the-fascinator</groupId>
-									<artifactId>fascinator-portal</artifactId>
-									<type>war</type>
-									<classifier>skinny</classifier>
-								</artifactItem>
-							</artifactItems>
+                    <filesets>
+                        <fileset>
+                            <directory>${dir.home}</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>${dir.portal}</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>${dir.server}</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                        <fileset>
+                            <directory>${dir.solr}</directory>
+                            <includes>
+                                <include>**/*</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
 						</configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <scripts>
+                                <script>file:///${project.basedir}/setup.groovy</script>
+                            </scripts>
+                        </configuration>
 					</execution>
 					<execution>
-						<id>unpack-home</id>
-						<phase>generate-resources</phase>
+                        <id>clean</id>
+                        <phase>pre-clean</phase>
 						<goals>
-							<goal>unpack</goal>
+                            <goal>execute</goal>
 						</goals>
 						<configuration>
-							<includes>
-								home/**,portal/default/**,portal/portal-library.vm,server/**,solr/**,portal/rapidaaf/**
-							</includes>
-							<excludes>portal/default/usq/**</excludes>
-							<outputDirectory>${project.home}</outputDirectory>
-							<artifactItems>
-								<artifactItem>
-									<groupId>com.googlecode.redbox-mint</groupId>
-									<artifactId>redbox-config</artifactId>
-								</artifactItem>
-							</artifactItems>
+                            <scripts>
+                                <script>file:///${project.basedir}/setup.groovy</script>
+                            </scripts>
 						</configuration>
 					</execution>
-					<!-- RapidAAF Resources -->
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>${groovy.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.5.1</version>
+                <executions>
 					<execution>
-						<id>unpack-rapidaaf-conf</id>
-						<phase>process-resources</phase>
+                        <phase>validate</phase>
 						<goals>
 							<goal>unpack</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.home}</outputDirectory>
-							<excludes>portal/rapidaaf/interface.vm</excludes>
 							<artifactItems>
 								<artifactItem>
-									<groupId>au.com.redboxresearchdata.fascinator</groupId>
-									<artifactId>plugin-sso-rapidaaf</artifactId>
-									<classifier>rapidaaf-config</classifier>
-									<type>zip</type>
+                                    <groupId>com.googlecode.redbox-mint</groupId>
+                                    <artifactId>redbox-distro</artifactId>
+                                    <version>1.8-SNAPSHOT</version>
+                                    <classifier>build</classifier>
+                                    <type>tar.gz</type>
+                                    <outputDirectory>${project.home}</outputDirectory>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
@@ -685,11 +639,15 @@
 				</dependencies>
 				<executions>
 					<execution>
-						<id>set-permissions</id>
-						<phase>process-resources</phase>
+                        <id>move-distro-contents</id>
+                        <phase>validate</phase>
 						<configuration>
 							<tasks>
-								<chmod file="${dir.server}/*.sh" perm="740" />
+                                <move todir="${project.home}" includeEmptyDirs="yes" verbose="true">
+                                    <fileset dir="${project.home}/redbox">
+                                        <include name="**/*"/>
+                                    </fileset>
+                                </move>
 							</tasks>
 						</configuration>
 						<goals>

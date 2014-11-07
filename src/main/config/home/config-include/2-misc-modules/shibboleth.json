@@ -1,0 +1,34 @@
+{
+    "Shibboleth": {
+        "SimpleShibbolethRoleManager": {
+            "admin": [
+                
+            ],
+            "guest": [
+                
+            ],
+            "librarian": [
+                
+            ],
+            "reviewer": [
+                
+            ],
+            "system": [
+                
+            ]
+        },
+        "attributes": [
+            "sharedtoken",
+            "displayname"
+        ],
+        "cn_attribute": "displayname",
+        "delimiter": ";",
+        "idp_attribute": "Shib-Identity-Provider",
+        "rolePlugins": [
+            "SimpleShibbolethRoleManager"
+        ],
+        "session_attribute": "Shib-Session-ID",
+        "use_headers": "true",
+        "username_attribute": "displayname"
+    }
+}

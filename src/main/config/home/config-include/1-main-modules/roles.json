@@ -1,0 +1,13 @@
+{
+    "roles": {
+        "internal": {
+            "defaultRoles": [
+                "guest"
+            ],
+            "path": "${fascinator.home}/security/roles.properties"
+        },
+        "plugins": [
+            "internal"
+        ]
+    }
+}
