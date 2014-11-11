@@ -9,12 +9,15 @@
 	<dd>#getValue("$contactType:email")</dd>
 	<dt>Telephone:</dt>
 	<dd>#getValue("$contactType:phone")</dd>
-	<dt>Organisation:</dt>
-	<dd>#getValue("$contactType:organization")</dd>
-	<dt>Role:</dt>
-	<dd>#getValue("$contactType:role")</dd>
 	<dt>State:</dt>
 	<dd>#getValue("$contactType:state:prefLabel")</dd>
+	<dt>Role:</dt>
+	<dd>#getValue("$contactType:role")</dd>
+	<dt>Organisation:</dt>
+	#set($f = "$contactType:organization:other")
+	#set($v = "#getValue($f)")
+	#set($v = $v.trim())
+	<dd> #if($v && $!v != '') $v #else #getValue("$contactType:organization") #end </dd>
 </dl>
 #end
 
