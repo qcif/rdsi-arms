@@ -40,10 +40,10 @@ function allChecked(eid) {
 	return jQuery("input[id^='"+eid+"']:checked").length == jQuery("input[id^='"+eid+"']").length
 }
 
-// This happens after jaffa binding data and triggering changes. If binding applies at that time,
-// dropdown-list is not ready, we have a problem.
-// This binding only when there is the checkbox useCustodianDetials
-// Or simply missed change event
+## This happens after jaffa binds data and triggers changes. If binding applies at that time,
+## dropdown-list is not ready, we have a problem.
+## This binds only when there is the checkbox useCustodianDetials
+## Or simply missed change event
 var bApplyEventBindings = window.setInterval(function() {
 	if($('.jaffa2Loading').length == 0) {
 		toggleFundingInfo();
@@ -117,7 +117,7 @@ $(document).ready(function() {
 			}
 		}
 	}
-	// See above why .jaffa2Loading is used
+	## See above why .jaffa2Loading is used
 	var contact_types = ['dataprovider','requester','nodecontact'];
 	for (var i=0; i<contact_types.length; i++) {
 		(function(contact_type) {
