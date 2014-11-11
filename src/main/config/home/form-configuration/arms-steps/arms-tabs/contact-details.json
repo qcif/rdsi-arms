@@ -105,6 +105,27 @@
       ]
     },
     {
+        "component-type": "group",
+        "template": "group-div",
+        "fields": [
+           {
+               "component-type": "data-source-dropdown",
+               "field-name": "dataprovider:state",
+               "label": "arms.field.label.optional.state",
+               "field-name-label": "dataprovider:state:prefLabel",
+               "sourceUrl": "form-components/states.json",
+               "wrapper-class": "inline-block-component orgLabel"
+          },
+          {
+              "component-type": "text-input",
+              "field-name": "dataprovider:role",
+              "label": "arms.field.label.optional.role",
+              "additional-classes": "telephoneField",
+              "wrapper-class": "inline-block-component"
+          }
+        ]
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "fields": [
@@ -118,30 +139,10 @@
         },
         {
           "component-type": "text-input",
-          "field-name": "dataprovider:role",
-          "label": "arms.field.label.optional.role",
-          "additional-classes": "roleField",
+          "field-name": "dataprovider:organization:other",
+          "label": "arms.field.label.optional.organization-other",
+          "additional-classes": "telephoneField",
           "wrapper-class": "inline-block-component"
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "text-block",
-          "type": "label",
-          "content": "arms.field.label.optional.state",
-          "wrapper-class": "inline-block-component statesLabel"
-        },
-        {
-          "component-type": "data-source-dropdown",
-          "field-name": "dataprovider:state",
-          "label": "",
-          "field-name-label": "dataprovider:state:prefLabel",
-          "sourceUrl": "form-components/states.json",
-          "wrapper-class": "inline-component statesField"
         }
       ]
     },
@@ -291,6 +292,27 @@
       ]
     },
     {
+        "component-type": "group",
+        "template": "group-div",
+        "fields": [
+           {
+               "component-type": "data-source-dropdown",
+               "field-name": "requester:state",
+               "label": "arms.field.label.optional.state",
+               "field-name-label": "requester:state:prefLabel",
+               "sourceUrl": "form-components/states.json",
+               "wrapper-class": "inline-block-component orgLabel"
+          },
+          {
+              "component-type": "text-input",
+              "field-name": "requester:role",
+              "label": "arms.field.label.optional.role",
+              "additional-classes": "telephoneField",
+              "wrapper-class": "inline-block-component"
+          }
+        ]
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "fields": [
@@ -304,30 +326,10 @@
         },
         {
           "component-type": "text-input",
-          "field-name": "requester:role",
-          "label": "arms.field.label.optional.role",
-          "additional-classes": "roleField",
+          "field-name": "requester:organization:other",
+          "label": "arms.field.label.optional.organization-other",
+          "additional-classes": "telephoneField",
           "wrapper-class": "inline-block-component"
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "text-block",
-          "type": "label",
-          "content": "arms.field.label.optional.state",
-          "wrapper-class": "inline-block-component statesLabel"
-        },
-        {
-          "component-type": "data-source-dropdown",
-          "field-name": "requester:state",
-          "label": "",
-          "field-name-label": "requester:state:prefLabel",
-          "sourceUrl": "form-components/states.json",
-          "wrapper-class": "inline-component statesField"
         }
       ]
     },
@@ -435,6 +437,27 @@
       ]
     },
     {
+        "component-type": "group",
+        "template": "group-div",
+        "fields": [
+           {
+               "component-type": "data-source-dropdown",
+               "field-name": "nodecontact:state",
+               "label": "arms.field.label.optional.state",
+               "field-name-label": "nodecontact:state:prefLabel",
+               "sourceUrl": "form-components/states.json",
+               "wrapper-class": "inline-block-component orgLabel"
+          },
+          {
+              "component-type": "text-input",
+              "field-name": "nodecontact:role",
+              "label": "arms.field.label.optional.role",
+              "additional-classes": "telephoneField",
+              "wrapper-class": "inline-block-component"
+          }
+        ]
+    },
+    {
       "component-type": "group",
       "template": "group-div",
       "fields": [
@@ -448,30 +471,10 @@
         },
         {
           "component-type": "text-input",
-          "field-name": "nodecontact:role",
-          "label": "arms.field.label.optional.role",
-          "additional-classes": "roleField",
+          "field-name": "nodecontact:organization:other",
+          "label": "arms.field.label.optional.organization-other",
+          "additional-classes": "telephoneField",
           "wrapper-class": "inline-block-component"
-        }
-      ]
-    },
-    {
-      "component-type": "group",
-      "template": "group-div",
-      "fields": [
-        {
-          "component-type": "text-block",
-          "type": "label",
-          "content": "arms.field.label.optional.state",
-          "wrapper-class": "inline-block-component statesLabel"
-        },
-        {
-          "component-type": "data-source-dropdown",
-          "field-name": "nodecontact:state",
-          "label": "",
-          "field-name-label": "nodecontact:state:prefLabel",
-          "sourceUrl": "form-components/states.json",
-          "wrapper-class": "inline-component statesField"
         }
       ]
     }
