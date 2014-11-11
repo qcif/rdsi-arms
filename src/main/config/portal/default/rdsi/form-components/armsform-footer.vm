@@ -22,7 +22,7 @@ function toggleFundingInfo() {
 }
 
 function copyCustodianToManager(prefix) {
-	var fields =["title","givenName","familyName","organization","email","phone","role","state"];
+	var fields =["title","givenName","familyName","organization","organization:other","email","phone","role","state"];
 	var el, i;
 	for (i=0; i<fields.length; i++) {
 		el = document.getElementById(prefix+":"+fields[i]);
@@ -103,4 +103,32 @@ $(document).ready(function() {
  #end
  ko.applyBindings(assessmentSummary, $("#assessment-summary-table")[0]);
 #end
+
+$(document).ready(function() {
+
+	function toggleOrganisationOther() {
+		var fieldId = 'dataprovider:organization';
+		if (typeof $("[id='" + fieldId + "']")[0] !== 'undefined') {
+			if ($("[id='" + fieldId + "']")[0].selectedIndex == $("[id='" + fieldId + "']")[0].length - 1) {
+				$("[id='dataprovider:organization:other']").parent().show()
+			} else {
+				$("[id='dataprovider:organization:other']").val("").parent().hide();
+			}
+		}
+	}
+	// See above why .jaffa2Loading is used
+	var orgOtherEventBindings = window.setInterval(function() {
+		if($('.jaffa2Loading').length == 0) {
+			if (jQuery.trim($("[id='dataprovider:organization:other']").val()).length > 0) {
+				var fieldId = 'dataprovider:organization';
+				$("[id='" + fieldId + "']")[0].selectedIndex = $("[id='" + fieldId + "']")[0].length - 1;
+			}
+			toggleOrganisationOther();
+			$("[id='dataprovider:organization']").change(function() {
+				toggleOrganisationOther();
+			});
+			window.clearInterval(orgOtherEventBindings);
+		}
+	},500);
+});
 </script>								   	    
