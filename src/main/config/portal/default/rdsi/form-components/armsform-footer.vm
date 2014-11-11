@@ -32,6 +32,7 @@ function copyCustodianToManager(prefix) {
 		// also copy :state:prefLabel when it exists
 		el.value = document.getElementById("dataprovider:state:prefLabel").value;
 	}
+	$("[id='"+ prefix +":organization']").change();
 }
 
 // Check if all checkbox are checked
@@ -106,29 +107,35 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-	function toggleOrganisationOther() {
-		var fieldId = 'dataprovider:organization';
+	function toggleOrganisationOther(contact_type) {
+		var fieldId = contact_type + ':organization';
 		if (typeof $("[id='" + fieldId + "']")[0] !== 'undefined') {
 			if ($("[id='" + fieldId + "']")[0].selectedIndex == $("[id='" + fieldId + "']")[0].length - 1) {
-				$("[id='dataprovider:organization:other']").parent().show()
+				$("[id='" + contact_type + ":organization:other']").parent().show()
 			} else {
-				$("[id='dataprovider:organization:other']").val("").parent().hide();
+				$("[id='" + contact_type + ":organization:other']").val("").parent().hide();
 			}
 		}
 	}
 	// See above why .jaffa2Loading is used
-	var orgOtherEventBindings = window.setInterval(function() {
-		if($('.jaffa2Loading').length == 0) {
-			if (jQuery.trim($("[id='dataprovider:organization:other']").val()).length > 0) {
-				var fieldId = 'dataprovider:organization';
-				$("[id='" + fieldId + "']")[0].selectedIndex = $("[id='" + fieldId + "']")[0].length - 1;
-			}
-			toggleOrganisationOther();
-			$("[id='dataprovider:organization']").change(function() {
-				toggleOrganisationOther();
-			});
-			window.clearInterval(orgOtherEventBindings);
-		}
-	},500);
+	var contact_types = ['dataprovider','requester','nodecontact'];
+	for (var i=0; i<contact_types.length; i++) {
+		(function(contact_type) {
+			var interval_bind = window.setInterval(function() {
+				if($('.jaffa2Loading').length == 0) {
+					if (jQuery.trim($("[id='" + contact_type + ":organization:other']").val()).length > 0) {
+						var fieldId = contact_type + ':organization';
+						$("[id='" + fieldId + "']")[0].selectedIndex = $("[id='" + fieldId + "']")[0].length - 1;
+					}
+					toggleOrganisationOther(contact_type);
+					if ($("[id='"+ contact_type +":organization']").length != 0 ) {
+						$("[id='"+ contact_type +":organization']").change(function() {
+							toggleOrganisationOther(contact_type);
+						});
+						window.clearInterval(interval_bind);
+					}
+				}
+			},500);})(contact_types[i]);
+	}
 });
 </script>								   	    
