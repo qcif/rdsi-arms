@@ -33,3 +33,15 @@ sh restore_node.sh NODE_NAME
      * `cd /opt/redbox/storage/1793582ab247f6442162a75562dcc548`
      * `rgrep owner= * | python change_owner.py`
      * repeat when another user's token needs to be mapped
+
+### Notes
+During the migration, Solr indexes need to be filtered for different nodes as all nodes were hosted on the same server when running ARMS 1A. Later versions of ARMS for each node run on dedicated servers. Care has been taken but there might be some records in Solr were not processed completely. When this is the case, run python script `sweep_solr.py` to remove indexes of other node on the hosting server as part of post migration process.
+
+The script takes one and only one argument: the name of the node. If it finds records to be removed, it will ask for confirmation before deleting records from Solr. This is the last chance to stop before records are removed -- type anything other than `y` to stop. *__Warning:__* The script has limited error hadling. __It is recommended to create a backup of Solr records__.
+
+```shell
+# These are the steps to run - remember to repalce NODE_NAME with actual value:
+#ssh into server as usual
+wget https://raw.githubusercontent.com/qcif/rdsi-arms/master/support/1B-2AMigration/sweep_solr.py
+python sweep_solr.py NODE_NAME
+```
