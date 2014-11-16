@@ -4,12 +4,13 @@
 }
 
 .box h2, .box h2 a,.box h2 a.visible, .menu h2{
-	background-color:#0091b6;
+	background-color: @bar-background-colour;
 	border:medium none;
 	color:#fff;
 	display:block;
 	margin:-6px -12px;
-	padding:6px 12px
+	padding:6px 12px;
+	.border-top-radius(@border-radius);
 }
 
 div.menu h2,.box h2{

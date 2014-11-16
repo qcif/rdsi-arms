@@ -33,10 +33,20 @@
     .make-lg-column(2);
 }
 
-.right-col {
-	.make-sm-column(7);
-    .make-md-column(10);
-    .make-lg-column(10);
+#result-list.right-col {
+   .make-xs-column(9);
+   .make-sm-column(9);
+   .make-md-column(9);
+   .make-lg-column(9);
+   .pull-right();
+   padding-right: 0px;
+}
+
+.results-total.right {
+   padding-top: 6px;
+   padding-bottom: 6px;
+   padding-left:12px;
+   padding-right:12px;
 }
 
 .full-col{
@@ -45,11 +55,63 @@
     .make-lg-column(12);
 }
 
-.actions {
-	.make-sm-column(3);
-    .make-md-column(3); 
+ul.nav.actions.main {
+    .make-sm-column(12);
+    .make-md-column(12);
+    .make-lg-column(12);
+    float: none !important;
+    padding-left:0px;
+    padding-right:0px;
+    background-color: @bar-background-colour;
+    >li{
+        >a{
+            background-color: @bar-background-colour;
+    		color:@label-link-colour;
+    	}
+    	>a:hover {
+            background-color: @bar-background-colour;
+            color:inherit;
+    	}
+    }
+}
+
+ul.nav.actions.main li {
+    display: inline-block;
+}
+
+.actions, #action-list.actions {
+    .make-sm-column(3);
+    .make-md-column(3);
     .make-lg-column(3);
     padding: 0;
+    .pull-left();
+}
+
+div.box div.article {
+    margin-left: 0;
+    margin-right:0;
+    padding-bottom: 15px;
+    padding-left:15px;
+    padding-right:15px;
+    background: inherit;
+    overflow: auto;
+    border-bottom: 1px solid #bbb;
+}
+
+div.box div.article:nth-of-type(2n), div.box ul.menu li:nth-of-type(2n) {
+    background: none repeat scroll 0 0 #f9f9f9;
+}
+
+div.box ul.menu li {
+    background: inherit;
+}
+
+#result-list.right-col, #result-list.right, #result-list.right box {
+    overflow: auto;
+}
+
+.admin-link-holder.float-right {
+    margin-top: 20px;
 }
 
 .detail {
@@ -60,6 +122,43 @@
 
 .branding {
 	.container;
+}
+
+.page-heading {
+    .make-row() {
+    .make-sm-column(1);
+    .make-md-column(3);
+    .make-lg-column(3);
+    }
+}
+
+.page-heading h2#page-heading {
+    padding: 0.2em;
+    display: inline;
+
+}
+
+.right {
+    .pull-right();
+
+}
+
+.page-heading > .paging {
+    padding-right:12px;
+    text-align: right;
+    .pull-right();
+}
+
+.paging li{
+    display: inline-block;
+}
+
+.paging.right {
+    padding-right:12px;
+}
+
+#sort-field, #sort-order {
+    display: inline-block;
 }
 
 .login-info {
@@ -75,7 +174,7 @@
     	padding-top:4px;
     	background-color: @bar-background-colour;
     	color:@label-text-colour;
-		.border-top-radius(4px); 
+		.border-top-radius(@border-radius);
 		a{
 			color:@label-link-colour;
 		}	
@@ -91,10 +190,14 @@
 	background-color: @bar-background-colour;
 }
 
+.body-stretch {
+    margin-left: 0px;
+}
+
 .nav-tabs-panel {
     background-color: #fff;
     border-color: #ddd;
-    border-radius: 4px 4px 0 0;
+    border-radius: @border-radius @border-radius 0 0;
     border-width: 1px;
     box-shadow: none;
     margin-left: 0;
@@ -104,7 +207,6 @@
 .nav-tabs {
 	margin-bottom: 10px;
 }
-
 
 .btn-primary {
 	background-color: @bar-background-colour;
@@ -123,7 +225,7 @@
 	
 		>li{
 			>a{ 
-					color:@label-link-colour;
+			    color:@label-link-colour;
 			}
 		}
 	}
@@ -131,4 +233,55 @@
 
 .navbar-default {
 	border-top-right-radius:0px;
+}
+
+.package-icons {
+    padding-left: 25px;
+    background-repeat: no-repeat;
+    background-position: 3px 50%;
+}
+
+#package-create-selected {
+    .package-icons;
+    background-image: url('../images/icons/package_go.png');
+}
+#package-create-new {
+    .package-icons;
+    background-image: url('../images/icons/package_add.png');
+}
+#package-select-page {
+    .package-icons;
+    background-image: url('../images/icons/select_all.png');
+}
+#package-deselect-page {
+    .package-icons;
+    background-image: url('../images/icons/remove_all.png');
+}
+#package-clear-all {
+    .package-icons;
+    background-image: url('../images/icons/package_delete.png');
+}
+#deselect-package {
+    .package-icons;
+    background-image: url('../images/icons/cancel.png');
+}
+
+.admin-security-link {
+    background-image: url('../images/icons/application_key.png');
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding: 0.5em 0.5em 0.5em 20px;
+}
+.admin-delete-link {
+    background-image: url('../images/icons/cross.png');
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding: 0.5em 0.5em 0.5em 20px;
+}
+
+.admin-link-holder .locked {
+    background-image: url('../images/icons/lock.png');
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding: 0.5em 0.5em 0 20px;
 }
