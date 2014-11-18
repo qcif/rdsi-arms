@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "rdsi",
+    "name" : "default",
     "displayName" : "RDSI",
     "description" : "Research Data Storage Initiative",
     "query" : "-display_type:attachment",

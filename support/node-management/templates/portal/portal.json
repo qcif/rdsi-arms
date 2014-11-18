@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "@nodeName@",
+    "name" : "default",
     "displayName" : "@nodeDisplayName@",
     "description" : "@nodeDescription@",
     "query" : "-display_type:attachment",

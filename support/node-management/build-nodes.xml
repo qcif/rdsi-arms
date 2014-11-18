@@ -3,9 +3,9 @@
     <target name="iterateNodes" description="copy portal directory to new location">
         <foreach target="copyNodeDir" list="${nodeList}" param="nodeDir" inheritall="true"/>
     </target>
-    <target name="update ${portalFileName}" description="copy over default ${portalFileName}">
-        <copy file="/${dirProject}/src/main/config/portal/${nodeDir}/${portalFileName}"
-              tofile="${dirPortal}/default/${portalFileName}" filtering="true" overwrite="true"/>
+    <target name="update portal.json" description="copy over default portal.json">
+        <copy file="/${dirProject}/src/main/config/portal/${node}/portal.json"
+              tofile="/${dirPortal}/default/portal.json" filtering="true" overwrite="true"/>
     </target>
     <target name="copyNodeDir">
         <echo message="output dir: ${nodeDir}"/>

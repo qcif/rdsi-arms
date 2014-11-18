@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "jcu",
+    "name" : "default",
     "description" : "James Cook University",
     "query" : "-display_type:attachment",
     "records-per-page" : "25",

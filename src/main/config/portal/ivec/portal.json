@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "ivec",
+    "name" : "default",
     "displayName" : "iVec",
     "description" : "iVeC",
     "query" : "-display_type:attachment",

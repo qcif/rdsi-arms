@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "ersa",
+    "name" : "default",
     "displayName" : "eRSA",
     "description" : "eRSA",
     "query" : "-display_type:attachment",

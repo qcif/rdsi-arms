@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "vicnode",
+    "name" : "default",
     "displayName" : "VicNode",
     "description" : "VicNode Merit Application Form",
     "query" : "-display_type:attachment",

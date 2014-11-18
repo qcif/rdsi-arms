@@ -664,8 +664,10 @@
 								<property name="nodeList" value="${node.list}" />
 								<property name="dirPortal" value="${dir.portal}" />
 								<property name="dirProject" value="${pom.basedir}" />
+                                <property name="node" value="${theme}" />
 								<ant antfile="${pom.basedir}/support/node-management/build-nodes.xml">
 									<target name="iterateNodes" />
+                                    <target name="update portal.json" />
 								</ant>
 							</tasks>
 						</configuration>

@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "intersect",
+    "name" : "default",
     "displayName" : "Intersect",
     "description" : "NSW Intersect Node",
     "query" : "-display_type:attachment",

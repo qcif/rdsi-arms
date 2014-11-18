@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "qcif",
+    "name" : "default",
     "displayName" : "QCIF",
     "description" : "QCIF",
     "query" : "-display_type:attachment",

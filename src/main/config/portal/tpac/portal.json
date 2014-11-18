@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "tpac",
+    "name" : "default",
     "displayName" : "TPAC",
     "description" : "TPAC Digital Library",
     "query" : "-display_type:attachment",

@@ -1,6 +1,6 @@
 {
   "portal" : {
-    "name" : "nci",
+    "name" : "default",
     "displayName" : "NCI",
     "description" : "NCI",
     "query" : "-display_type:attachment",

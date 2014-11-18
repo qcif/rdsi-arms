@@ -1,11 +1,12 @@
-import groovy.json.internal.ValueList;
-
-import com.googlecode.fascinator.common.JsonSimple
 import com.googlecode.fascinator.common.JsonObject
-
-import org.json.simple.JSONArray
+import com.googlecode.fascinator.common.JsonSimple
 import org.apache.commons.io.FileUtils
 import org.apache.commons.lang.StringUtils
+import org.json.simple.JSONArray
+
+/*
+Build node value and labels into rdsi-nodes.json. The local node should be at the top.
+ */
 
 final String RDSI_NODES_PATH = "${portalDir}/default/rdsi/form-components/rdsi-nodes.json"
 
