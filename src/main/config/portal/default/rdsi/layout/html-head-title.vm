@@ -1,1 +1,1 @@
-<title>#if($pageTitle)$pageTitle#end - $page.portalName - QCIF</title>
+<title>#if($pageTitle)$pageTitle#end - $page.portalName - $page.portalName</title>

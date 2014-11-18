@@ -1,12 +1,16 @@
 <project name="copyPortalNodes" basedir=".">
-	<description>copy all listed node directories</description>
-	<target name="iterateNodes" description="copy portal directory to new location">
-		<foreach target="copyNodeDir" list="${nodeList}" param="nodeDir" inheritall="true"/>
-	</target> 
-	<target name="copyNodeDir">
-		<echo message="output dir: ${nodeDir}"/>
-		<copy todir="${dirPortal}/${nodeDir}" filtering="true" overwrite="true">
-			<fileset dir="/${dirProject}/src/main/config/portal/${nodeDir}" />
-		</copy>
-	</target>
+    <description>copy all listed node directories</description>
+    <target name="iterateNodes" description="copy portal directory to new location">
+        <foreach target="copyNodeDir" list="${nodeList}" param="nodeDir" inheritall="true"/>
+    </target>
+    <target name="update ${portalFileName}" description="copy over default ${portalFileName}">
+        <copy file="/${dirProject}/src/main/config/portal/${nodeDir}/${portalFileName}"
+              tofile="${dirPortal}/default/${portalFileName}" filtering="true" overwrite="true"/>
+    </target>
+    <target name="copyNodeDir">
+        <echo message="output dir: ${nodeDir}"/>
+        <copy todir="${dirPortal}/${nodeDir}" filtering="true" overwrite="true">
+            <fileset dir="/${dirProject}/src/main/config/portal/${nodeDir}"/>
+        </copy>
+    </target>
 </project>
