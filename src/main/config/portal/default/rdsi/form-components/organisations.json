@@ -6,5 +6,9 @@
 	{
 		"value":"University of B",
 		"label":"University of B"
+	},
+	{
+		"value":"Other",
+		"label":"Other"
 	}
 ]
