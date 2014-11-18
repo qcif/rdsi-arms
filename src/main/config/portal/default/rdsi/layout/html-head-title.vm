@@ -1,1 +1,1 @@
-<title>#if($pageTitle)$pageTitle#end - $page.portalName - $page.portalName</title>
+<title>#if($pageTitle)$pageTitle#end - $page.portalName</title>

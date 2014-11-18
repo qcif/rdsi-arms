@@ -1,0 +1,34 @@
+0    [Worker-0] WARN  org.eclipse.xtext.ui.shared.internal.Activator  - Disabling JDT use. : org/eclipse/jdt/core/JavaCore
+8    [Worker-0] WARN  org.eclipse.xtext.ui.shared.internal.Activator  - Disabling JDT use. : org/eclipse/jdt/core/JavaCore
+Nov 19, 2014 7:22:18 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:21:55 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:21:55 GMT"
+Nov 19, 2014 7:22:18 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:21:55 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:21:55 GMT"
+Nov 19, 2014 7:22:18 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:21:55 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:21:55 GMT"
+Nov 19, 2014 7:22:18 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:21:55 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:21:55 GMT"
+Nov 19, 2014 7:22:18 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb87391aa9155d6c1c117; expires="Fri, 15-Nov-2024 21:21:55 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:21:55 GMT"
+Nov 19, 2014 7:22:19 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb8745228cb6b59262a8e; expires="Fri, 15-Nov-2024 21:21:56 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:21:56 GMT"
+Nov 19, 2014 7:22:19 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb8745228cb6b59262a8e; expires="Fri, 15-Nov-2024 21:21:56 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:21:56 GMT"
+Nov 19, 2014 7:22:20 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: sf_mirror_attempt="shelled:liquidtelecom:shelled/update/content.jar"; expires=120; Path=/". Unable to parse expires attribute: 120
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:22:38 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:22:38 GMT"
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:22:38 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:22:38 GMT"
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:22:38 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:22:38 GMT"
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: webflash=; expires="Thu, 13-Nov-2014 21:22:38 GMT"; Max-Age=0; Path=/". Unable to parse expires attribute: "Thu, 13-Nov-2014 21:22:38 GMT"
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb89eebbb9269f58934e2; expires="Fri, 15-Nov-2024 21:22:38 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:22:38 GMT"
+Nov 19, 2014 7:23:01 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb89efbd78947485cbe6f; expires="Fri, 15-Nov-2024 21:22:38 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:22:38 GMT"
+Nov 19, 2014 7:23:02 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: VISITOR=546bb89efbd78947485cbe6f; expires="Fri, 15-Nov-2024 21:22:39 GMT"; httponly; Max-Age=315360000; Path=/". Unable to parse expires attribute: "Fri, 15-Nov-2024 21:22:39 GMT"
+Nov 19, 2014 7:23:02 AM org.apache.http.client.protocol.ResponseProcessCookies processCookies
+WARNING: Invalid cookie header: "Set-Cookie: sf_mirror_attempt="shelled:liquidtelecom:shelled/update/artifacts.jar"; expires=120; Path=/". Unable to parse expires attribute: 120
