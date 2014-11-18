@@ -2,6 +2,7 @@ import sys, urllib2
 
 # This script removes Solr indexes of tfpackages and attachments NOT belong to the current
 # node but have not been filtered during the 1A migration.
+# New records have node=RDSI, old ones have node=RDSI-NODE, e.g. node=RDSI-ersa
 # It does: 
 #   1. gets a list of storage_id which do not belong to the node
 #   2. runs a delete on fascinator through Solr API
@@ -30,8 +31,8 @@ if len(sys.argv) != 2:
     
 working_node = sys.argv[1]
 # Replace this solr query by urllib2
-# wget  "http://localhost:9000/solr/fascinator/select/?q=-node%3ARDSI-ersa+AND+node%3A[*+TO+*]&version=2.2&start=0&rows=10000&indent=on&fl=storage_id&wt=csv" -O records.txt
-response = urllib2.urlopen('http://localhost:9000/solr/fascinator/select/?q=-node%3ARDSI-' + working_node + '+AND+node%3A[*+TO+*]&version=2.2&start=0&rows=10000&indent=on&fl=storage_id&wt=csv')
+# wget  "http://localhost:9000/solr/fascinator/select/?q=-node%3A(RDSI-ersa+OR+RDSI)+AND+node%3A[*+TO+*]&version=2.2&start=0&rows=10000&indent=on&fl=storage_id&wt=csv" -O records.txt
+response = urllib2.urlopen('http://localhost:9000/solr/fascinator/select/?q=-node%3A(RDSI-' + working_node + '+OR+RDSI)+AND+node%3A[*+TO+*]&version=2.2&start=0&rows=10000&indent=on&fl=storage_id&wt=csv')
 records = response.read().split()
 
 if records.pop(0) == 'storage_id':
