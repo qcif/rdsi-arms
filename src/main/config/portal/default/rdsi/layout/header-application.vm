@@ -1,13 +1,27 @@
 ## login section: user profile if logged in
 ## for admin, there are more
-<div class="login-info">
-	<div>
-		#if($page.authentication.is_logged_in())
-			<span id="user-info" class="status">Welcome $page.authentication.get_name(), <a href="#" id="logout-now">Logout</a></span>
-		#else
-			<span id="user-info" class="status"><a class="login-now" href="#">Login</a></span>
-		#end
-	</div>
+<div class="login search">
+    <div>
+        #if($page.authentication.is_logged_in())
+            <div class="login-info">
+                <span id="user-info" class="status">Welcome $page.authentication.get_name(), <a href="#" id="logout-now">Logout</a>
+                </span>
+            </div>
+            <div class="search-bar">
+                <form class="navbar-form" role="search" action="$portalPath/search" class="search" method="get">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="query" name="query" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default search">Search</button>
+                </form>
+            </div>
+        #else
+            <div class="login-info>
+                <span id="user-info" class="status"><a class="login-now" href="#">Login</a>
+                </span>
+            </div>
+        #end
+    </div>
 </div>
 <div class="main-menus">
 	<nav class="navbar navbar-default" role="navigation">
@@ -67,14 +81,6 @@
         <li><a href="$portalPath/help">Help</a></li>
         <li><a href="$portalPath/contact">Contact</a></li>
 		</ul>
-      #if($page.authentication.is_logged_in())
-      <form class="navbar-form navbar-right" role="search" action="$portalPath/search" class="search" method="get">
-        <div class="form-group">
-          <input type="text" class="form-control" id="query" name="query" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default search">Search</button>
-      </form>
-      #end
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
