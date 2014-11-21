@@ -1,0 +1,11 @@
+<div class="admin-link-holder panel panel-default">
+        <a class="panel-heading admin-security-link" rel="$id" href="#">Manage Access</a>
+    <div class="admin-roles">
+        #foreach($role in $item.getList("security_filter"))
+            <div class="panel-heading locked">$role</div>
+        #end
+        #foreach($user in $item.getList("security_exception"))
+            <div class="owner panel-heading">$user</div>
+        #end
+    </div>
+</div>

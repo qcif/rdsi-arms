@@ -114,8 +114,8 @@ div.box.attachments ul.menu li:nth-of-type(3n){
     overflow: auto;
 }
 
-.admin-link-holder.float-right {
-    margin-top: 20px;
+.float-right {
+    .right;
 }
 
 .detail {
@@ -143,7 +143,7 @@ div.box.attachments ul.menu li:nth-of-type(3n){
 }
 
 .right {
-    .pull-right();
+    .pull-right;
 }
 
 .page-heading > .paging {
@@ -294,22 +294,33 @@ div.login.search {
     background-image: url('../images/icons/cancel.png');
 }
 
+.admin-link-holder {
+    .pull-right;
+    margin-top: 20px;
+}
+
 .admin-security-link {
     background-image: url('../images/icons/application_key.png');
     background-position: 0 50%;
     background-repeat: no-repeat;
     padding: 0.5em 0.5em 0.5em 20px;
-}
-.admin-delete-link {
-    background-image: url('../images/icons/cross.png');
-    background-position: 0 50%;
-    background-repeat: no-repeat;
-    padding: 0.5em 0.5em 0.5em 20px;
+    color: @label-link-colour !important;
 }
 
 .admin-link-holder .locked {
     background-image: url('../images/icons/lock.png');
     background-position: 0 50%;
     background-repeat: no-repeat;
-    padding: 0.5em 0.5em 0 20px;
+    padding: 0.5em 0.5em 0.5em 20px;
+}
+
+.admin-delete-link {
+    background-image: url('../images/icons/cross.png') !important;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding: 0.5em 0.5em 0.5em 20px;
+}
+
+.admin-delete-link-holder {
+    .pull-right;
 }

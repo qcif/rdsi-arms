@@ -3,3 +3,6 @@
 #end
 #set($description = $self.metadata.get("collection:description")) 
 <p class="item-description condense">$page.escapeHtml($!description)&nbsp;</p>
+<div class="admin-delete-link-holder">
+    <a class="admin-delete-link btn btn-default active" rel="$id" title="$page.escapeHtml($title)" href="#">Delete Object</a>
+</div>
