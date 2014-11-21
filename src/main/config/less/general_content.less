@@ -6,15 +6,22 @@
 .box h2, .box h2 a,.box h2 a.visible, .menu h2{
 	background-color: @bar-background-colour;
 	border:medium none;
-	color:#fff;
 	display:block;
 	margin:-6px -12px;
 	padding:6px 12px;
 	.border-top-radius(@border-radius);
 }
 
-div.menu h2,.box h2{
-    .h4;
+.box h2 a,.box h2 a.visible {
+    color: @label-link-colour;
+}
+
+h4 {
+  font-size: @font-size-large;
+}
+
+div.menu h2, .box h2 {
+    font-size: @font-size-large;
 	text-transform:none !important;
 	margin: 0px;
 }
@@ -37,7 +44,7 @@ ul.menu li a {
     display: block;
     padding: 4px 10px;
     border-bottom: 1px solid #CCC;
-    color:#000;
+    color: @label-text-colour;
 }
 
 /* detail page */
@@ -52,10 +59,16 @@ p {
     margin-bottom: 1em;
 }
 
-.article h4 {
+.detail .article h4 {
     padding: 0.3em;
     text-transform: none;
+    background-color: @bar-background-colour;
 }
+
+.detail h5 {
+    font-size: @font-size-large;
+}
+
 p.item_title {
     font-weight: bold;
     margin-bottom: 0px;
