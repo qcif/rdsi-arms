@@ -128,40 +128,45 @@ div.box.attachments ul.menu li:nth-of-type(3n){
 	.container;
 }
 
-.page-heading {
-    .make-row() {
-    .make-sm-column(1);
-    .make-md-column(3);
-    .make-lg-column(3);
-    }
-}
-
 .page-heading h2#page-heading {
     padding: 0.2em;
     display: inline-block;
+}
 
+.page-heading {
+    background-color: #fff;
+    border-color: none !important;
+    .make-row !important;
+    .container;
+}
+
+div.search.sort {
+    display: inline-block !important;
+    margin-top: 10px;
+    nav.search.sort {
+        background-color: inherit !important;
+        border: none !important;
+        margin: 0px !important;
+    }
+    .navbar-collapse {
+        border: none !important;
+    }
+}
+
+.paging ul {
+    .pagination;
+    margin: 0;
+}
+
+.page-heading div {
+    .pull-right;
+    .sorting {
+        padding-right: 20px;
+    }
 }
 
 .right {
     .pull-right;
-}
-
-.page-heading > .paging {
-    padding-right:12px;
-    text-align: right;
-    .pull-right();
-}
-
-.paging li{
-    display: inline-block;
-}
-
-.paging.right {
-    padding-right:12px;
-}
-
-#sort-field, #sort-order {
-    display: inline-block;
 }
 
 div.login.search {
@@ -186,7 +191,7 @@ div.login.search {
             display: block;
         }
         @media (min-width: @screen-sm-min) {
-             display: table-cell;
+            display: table-cell;
         }
     }
     div.search-bar {
@@ -214,7 +219,7 @@ div.login.search {
 	.container;
 }
 
-.navbar, .panel-default > .panel-heading, menu {
+.main-menus .navbar, .panel-default > .panel-heading, menu {
 	background-color: @bar-background-colour;
 }
 
@@ -250,7 +255,6 @@ div.login.search {
 .navbar-default {
 	.navbar;
 	.navbar-nav {
-	
 		>li{
 			>a{ 
 			    color:@label-link-colour;
@@ -303,7 +307,7 @@ div.login.search {
     background-image: url('../images/icons/application_key.png');
     background-position: 0 50%;
     background-repeat: no-repeat;
-    padding: 0.5em 0.5em 0.5em 20px;
+    padding: 0.5em 0.5em 0.5em 25px;
     color: @label-link-colour !important;
 }
 
@@ -311,14 +315,14 @@ div.login.search {
     background-image: url('../images/icons/lock.png');
     background-position: 0 50%;
     background-repeat: no-repeat;
-    padding: 0.5em 0.5em 0.5em 20px;
+    padding: 0.5em 0.5em 0.5em 25px;
 }
 
 .admin-delete-link {
     background-image: url('../images/icons/cross.png') !important;
     background-position: 0 50%;
     background-repeat: no-repeat;
-    padding: 0.5em 0.5em 0.5em 20px;
+    padding: 0.5em 0.5em 0.5em 25px;
 }
 
 .admin-delete-link-holder {

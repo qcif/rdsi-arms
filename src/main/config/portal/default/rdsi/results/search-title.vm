@@ -2,8 +2,25 @@
     <h2 id="page-heading">
         <span id="search-title">Everything</span>
     </h2>
-    <div class="paging">#parseTemplate("results/search-paging.vm")</div>
-    <div class="right">#parseTemplate("results/sorting.vm")</div>
+    <div class="search sort">
+        <nav class="navbar navbar-default search sort" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                #parseTemplate("results/search-paging.vm")
+                #parseTemplate("results/sorting.vm")
+            </div>
+        </nav>
+    </div>
 </div>
 <div class="clear"></div>
 <script type="text/javascript">
