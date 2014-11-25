@@ -8,9 +8,8 @@
 
 .section-stretch {
 	min-width: 1200px;
-    .container; 
+    .container;
 }
-
 
 /* not defined yet
 .page-header {
@@ -171,11 +170,16 @@ div.search.sort {
 
 div.login.search {
     .container;
+    color : @banner-color;
     > div {
         background-color: @bar-background-colour;
-        color:@label-text-colour;
         a{
             color:@label-link-colour;
+            &:hover,
+            &:focus {
+                color: @navbar-default-link-hover-color;
+                text-decoration: none;
+            }
         }
         .border-top-radius(@border-radius);
         padding-left: 15px;
