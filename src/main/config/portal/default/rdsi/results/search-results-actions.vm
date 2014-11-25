@@ -12,24 +12,38 @@
 #end
 
 #if($showPackageMenu || $showActionsMenu)
-<ul class="nav navbar-nav actions main">
-    <li><a class="inactive">Actions:</a></li>
-    #if($showActionsMenu)
-        #if($createViewEnabled)
-            <li><a href="#" id="create-view">Create view...</a></li>
-        #end
-        #if ($self.hasSelectedFacets())
-            <li><a href="#" id="clear-facets">Clear selection</a></li>
-        #end
-        #if("$!query" != "")
-            <li><a href="$portalPath/search">Clear search query</a></li>
-        #end
-    #end
+    <nav class="navbar navbar-default result-list" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
+            <ul class="nav navbar-nav actions main">
+                <li><a class="inactive">Actions:</a></li>
+                #if($showActionsMenu)
+                    #if($createViewEnabled)
+                        <li><a href="#" id="create-view">Create view...</a></li>
+                    #end
+                    #if ($self.hasSelectedFacets())
+                        <li><a href="#" id="clear-facets">Clear selection</a></li>
+                    #end
+                    #if("$!query" != "")
+                        <li><a href="$portalPath/search">Clear search query</a></li>
+                    #end
+                #end
 
-    #if($showPackageMenu)
-        #parse($page.getTemplate('results/packaging-menu.vm'))
-    #end
-</ul>
+                #if($showPackageMenu)
+                    #parse($page.getTemplate('results/packaging-menu.vm'))
+                #end
+            </ul>
+        </div>
+    </nav>
 #end
 
 ## Put the scripts outside the UL element

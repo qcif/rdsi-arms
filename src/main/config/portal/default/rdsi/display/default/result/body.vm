@@ -1,8 +1,13 @@
 #if($wfStep && $wfStep != "" && $wfStep != "live")
      <div class="tags">Workflow stage: <span>$self.metadata.get("workflow_step_label")</span></div>
 #end
-#set($description = $self.metadata.get("collection:description")) 
-<p class="item-description condense">$page.escapeHtml($!description)&nbsp;</p>
+#set($description = $self.metadata.get("collection:description"))
+<p class="item-description condense">
+#if($description && $description != "")
+    $page.escapeHtml($!description)
+#end
+&nbsp;
+</p>
 <div class="admin-delete-link-holder">
     <a class="admin-delete-link btn btn-default active" rel="$id" title="$page.escapeHtml($title)" href="#">Delete Object</a>
 </div>

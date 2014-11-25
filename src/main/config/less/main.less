@@ -35,6 +35,14 @@
    .make-lg-column(9);
    .pull-right();
    padding-right: 0px;
+   nav, navbar, navbar-header {
+       background-color: @bar-background-colour !important;
+       margin: 0px !important;
+       .border-top-radius(0);
+   }
+   .navbar-collapse {
+       margin: 0px !important;
+   }
 }
 
 .results-total.right {
@@ -72,7 +80,12 @@ ul.nav.actions.main {
 }
 
 ul.nav.actions.main li {
-    display: inline-block;
+    @media (min-width: 0) {
+        display: block;
+    }
+    @media (min-width: @screen-sm-min) {
+        display: inline-block;
+    }
 }
 
 .actions, #action-list.actions {
@@ -142,15 +155,7 @@ div.box.attachments ul.menu li:nth-of-type(3n){
 
 div.search.sort {
     display: inline-block !important;
-    margin-top: 10px;
-    nav.search.sort {
-        background-color: inherit !important;
-        border: none !important;
-        margin: 0px !important;
-    }
-    .navbar-collapse {
-        border: none !important;
-    }
+    margin-top: 25px;
 }
 
 .paging ul {
