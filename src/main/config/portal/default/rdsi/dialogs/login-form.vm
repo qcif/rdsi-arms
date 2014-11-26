@@ -10,10 +10,7 @@
 	  </form>
 	  #end
   #end
-  #if($systemConfig.getString("","environment") =="dev")
-  	<div class="or">OR</div> 
-  #end
-  #if($systemConfig.getString("","environment") =="dev" || $systemConfig.getString("","environment") =="proto" )
+  <div class="or">OR</div>
   <form id="login" method="post" action="#">
     <fieldset class="search">
       <legend>Login details</legend>
@@ -33,6 +30,5 @@
       <input id="login-cancel" type="button" value="Close" />
     </fieldset>
   </form>
-  #end
 </div>
   
