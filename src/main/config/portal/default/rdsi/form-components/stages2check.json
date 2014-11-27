@@ -1,0 +1,14 @@
+[
+	{
+		"value":"allocation-committee-notified",
+		"label":"Made available for assessment"
+	},
+	{
+		"value":"allocation-committee-assessed",
+		"label":"Allocation committee assessment completed"
+	},
+	{
+		"value":"provisioned",
+		"label":"Provisioned"
+	}
+]

@@ -100,52 +100,18 @@
             "visibility": ["reviewer","admin"],
             "actions": [
                 {
-                  "action-name": "next",
-                  "target-step": "arms-assessment"
+                  "action-name": "approve",
+                  "target-step": "arms-provisioned"
                 },
                 {
                   "action-name": "reject",
                   "target-step": "arms-rejected"
                 },
                 {
-                  "action-name": "approve",
-                  "target-step": "arms-approved"
-                },
-                {
                   "action-name": "return",
                   "target-step": "arms-redraft"
                 }
             ],
-            "template": "workflows/simpleworkflow"
-        },
-        {
-            "name": "arms-assessment",
-            "label": "Being reviewed",
-            "description": "Assessors are assessing the request.",
-            "owner_edit_allowed": "false",
-            "security": ["reviewer", "admin"],
-            "visibility": ["reviewer","assessor","admin"],
-            "actions": [
-                {
-                  "action-name": "next",
-                  "target-step": "arms-approved"
-                },
-                {
-                  "action-name": "remove",
-                  "target-step": "arms-review"
-                }
-            ],
-            "template": "workflows/simpleworkflow"
-        },
-        {
-            "name": "arms-approved",
-            "label": "Being provisioned",
-            "description": "The request has been approved and is awaiting provisioning.",
-            "owner_edit_allowed": "false",
-            "security": ["reviewer","provisioner","admin"],
-            "visibility": ["reviewer","provisioner","admin"],
-            "actions" :[ { "action-name" : "next",
-                "target-step" : "arms-provisioned" }],
             "template": "workflows/simpleworkflow"
         },
         {
@@ -169,7 +135,7 @@
             "description": "The request has been provisioned.",
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
-            "visibility": ["reviewer","provisioner","admin"],
+            "visibility": ["reviewer","admin"],
             "actions": [
                 {
                   "action-name": "reopen",

@@ -34,15 +34,6 @@
   "arms-review": {
     "actions": [
       {
-        "label": "Make available for assessment",
-        "id": "review-submit-btn",
-        "action": "next",
-        "condition-on": {
-          "id": "outcome-decision.1",
-          "on": "radio"
-        }
-      },
-      {
         "label": "Submit decision",
         "id": "decide-btn",
         "title": "Notify all the parties",
@@ -60,41 +51,6 @@
           "id": "outcome-decision.1",
           "on": "radio"
         }
-      }
-    ]
-  },
-  "arms-assessment": {
-    "actions": [
-      {
-        "label": "Submit assessment",
-        "id": "assessor-submit-btn",
-        "action": "next",
-        "role": "assessor"
-      },
-      {
-        "label": "Remove from assessment",
-        "id": "remove-btn",
-        "action": "remove",
-        "role": "reviewer",
-        "condition-on": {
-          "id": "outcome-decision.1",
-          "on": "radio"
-        }
-      }
-    ]
-  },
-  "arms-approved": {
-    "actions": [
-      {
-        "label": "Mark as provisioning completed",
-        "id": "approved-submit-btn",
-        "action": "next"
-      },
-      {
-        "label": "Reopen",
-        "id": "reopen-btn",
-        "action": "reopen",
-        "role": "reviewer"
       }
     ]
   },

@@ -1,0 +1,18 @@
+{
+  "heading": "Checklist",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "Provisioning checklist"
+    },
+    {
+      "component-type": "checkbox",
+      "field-name": "provisioning_checklist",
+      "sourceUrl": "form-components/stages2check.json",
+      "multiline": true,
+      "saveLabel": true,
+      "additional-classes": "ofFormCheckboxes"
+    }
+  ]
+}
