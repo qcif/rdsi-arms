@@ -251,13 +251,12 @@
     #user-lookup div {
         overflow-x: auto;
     }
-    #user-lookup table {table-layout:fixed}
   </style>
   <div id="user-lookup">
   <table>
     <thead><tr><th></th><th>Username</th><th>Email</th></tr></thead>
     <tbody>
-    <tr><td><input type="checkbox"></input></td><td>not that long</td><td>email</td></tr>
+    <tr><td><input type="checkbox"></input></td><td>&nbsp;</td><td>&nbsp;</td></tr>
     </tbody>
     </table>
     </div>
@@ -626,11 +625,10 @@
                   function(data, status) {
                     try {
                         var s = $("#user-attributes")[0];
-                        if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Array]') {
-                            if (data.length > 0) {
-                              for (var val in data) {
+                        //Ensure that data is not null or empty
+                        if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Array]' && data.length > 0) {
+                            for (var val in data) {
                                 $('<option />', {value: data[val], text: data[val]}).appendTo(s);
-                              }
                             }
                             $("#user-add-botton").hide();
                             $("#user-lookup-botton").show();
@@ -645,8 +643,7 @@
                                    tr.append($('<th>' + item + '</th>'));
                                 }
                             });
-                        }
-                        else  {
+                        } else {
                            $('<option />', {value: "username", text: "username"}).appendTo(s);
                            $("#user-lookup-botton").hide();
                            $("#user-lookup").hide();
