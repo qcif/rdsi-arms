@@ -7,8 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 emailingConfId = "MetafeedNotifier"
-NotificationState="arms-provisioned"
-IndicationField = "metadatafeed-notification"
+tfKey = "provisioning_checklist.3"
+notificationState = "provisioned"
+indicationField = "metadatafeed-notification"
 def contactType = "dataprovider"
 
 // Send notifications to organisations listed in the contact section:
@@ -22,16 +23,14 @@ conf = [(contactType):confJson]
 //log.debug(conf.toMapString())
 
 oid = digitalObject.getId()
-payloads = digitalObject.getPayloadIdList()
+JsonSimple tfp = getTfPackage()
+tfKeyValue = tfp.getString(null, tfKey)
 
-if(payloads.contains("workflow.metadata")){
-	def workflowMeta = new JsonSimple(digitalObject.getPayload("workflow.metadata").open());
-	String workflow = workflowMeta.getString(null,"step")
-	if (workflow == NotificationState) {
-		log.debug(this.class.name + ": A transformer is set for current workflow - ${workflow}, actions may be taken.")
+if (tfKeyValue == notificationState) {
+    log.debug(this.class.name + ": A transformer is set for - ${tfKey}, actions may be taken.")
 		def objMetadata = digitalObject.getMetadata()
 
-		if (! objMetadata.getProperty(IndicationField)) {
+		if (! objMetadata.getProperty(indicationField)) {
 
 			tfp = getTfPackage()
 			dataprovider = tfp.getString(null,"dataprovider:organization")
@@ -58,7 +57,7 @@ if(payloads.contains("workflow.metadata")){
 				}
 			}
 
-			objMetadata.setProperty(IndicationField, "true")
+			objMetadata.setProperty(indicationField, "true")
 			// Set property in TF-OBJ-META
 			ByteArrayOutputStream metaOut = new ByteArrayOutputStream();
 			objMetadata.store(metaOut, "");
@@ -66,10 +65,10 @@ if(payloads.contains("workflow.metadata")){
 			digitalObject.updatePayload("TF-OBJ-META", metaIn);
 			metaIn.close();
 		} else {
-			log.debug(this.class.name + ": ${IndicationField} has been set, skip")
+			log.debug(this.class.name + ": ${indicationField} has been set, skip")
 		}
 	} else {
-		log.debug(this.class.name + ": No transfomer is set for current workflow - ${workflow}, so do nothing.")
+    log.debug(this.class.name + ": No transfomer is set for - ${tfKey}, so do nothing.")
 	}
 }
 
