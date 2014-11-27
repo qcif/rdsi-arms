@@ -596,7 +596,6 @@
                       success:
                           function(data, status) {
                             try {
-                                console.error("error");
                                 var s = $("#user-attributes")[0];
                                 //Ensure that data is not null or empty
                                 if (typeof data === 'object' && Object.prototype.toString.call(data) === '[object Array]' && data.length > 0) {
