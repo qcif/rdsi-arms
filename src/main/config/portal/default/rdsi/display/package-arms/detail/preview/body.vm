@@ -506,6 +506,11 @@
 				<dd>#getValue("techassess-other")</dd>
 		</dl>
 #end
+#if ($isReviewer)
+    ## start of allocation committee submission
+    <h4>Provisioning checklist:</h4>
+    #displayUL($jsonUtil.getStringList($item, "provisioning_checklist"))
+#end
 ##23/12/2013: below commented out as may be brought back in.
 #### end of allocation committee submission
 #### Committee response table for reviewer
