@@ -1,6 +1,6 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getAllStates("$packageType", 'arms-approved'))
+#set($results = $self.checkRequests(['1','2']))
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 

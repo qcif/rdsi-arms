@@ -1,7 +1,7 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getAllStates("$packageType", 'arms-review'))
+#set($results = $self.checkRequests([],'reviewer'))
 #if ($results && $results.size() > 0)
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
@@ -52,14 +52,14 @@ jQuery(document).ready(function() {
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.assessment')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getAllStates("$packageType", 'arms-assessment'))
+#set($results = $self.checkRequests(['1'],'reviewer'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
 <script>
-var assessorRecords = new DataRowsModel('assessor');
+var assessorRecords = new DataRowsModel('reviewer-assessor');
 assessorRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
@@ -103,14 +103,14 @@ jQuery(document).ready(function() {
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.approved')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.getAllStates("$packageType", 'arms-approved'))
+#set($results = $self.checkRequests(['1','2'],'reviewer'))
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
 <script>
-var approvedRecords = new DataRowsModel('approved');
+var approvedRecords = new DataRowsModel('reviewer-approved');
 approvedRecords.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;

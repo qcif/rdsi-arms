@@ -97,7 +97,7 @@
             "description": "The reviewer is processing the request.",
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
-            "visibility": ["reviewer","admin"],
+            "visibility": ["reviewer","admin","assessor"],
             "actions": [
                 {
                   "action-name": "approve",

@@ -17,22 +17,17 @@
 #
 
 from com.googlecode.fascinator.api.indexer import SearchRequest
-from com.googlecode.fascinator.common import FascinatorHome, JsonSimple
-from com.googlecode.fascinator.common.solr import SolrResult
-from java.io import ByteArrayInputStream, ByteArrayOutputStream
-from java.text import SimpleDateFormat
-from java.util import ArrayList
 
-from com.googlecode.fascinator.api.indexer import SearchRequest
-from com.googlecode.fascinator.common import FascinatorHome, JsonSimple, JsonObject
 from com.googlecode.fascinator.common.solr import SolrResult
 from java.io import ByteArrayInputStream, ByteArrayOutputStream
 from java.text import SimpleDateFormat
+from com.googlecode.fascinator.common import FascinatorHome, JsonSimple, JsonObject
+
 from java.util import ArrayList
 from org.json.simple import JSONArray
 
 from com.googlecode.fascinator.portal import Pagination
-from com.googlecode.fascinator.common import FascinatorHome
+
 import sys, os
 sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
 
@@ -168,6 +163,58 @@ class Dashboard:
         else:
             return ArrayList()
 
+    def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', startPage=1):
+        """ A customised query for arms at arms-review
+            Get a list of requests filtered by provisioning_checklist
+        """ 
+  
+        req = SearchRequest("packageType:arms")
+        req.addParam("fq", 'workflow_step:arms-review')
+        for item in ['1','2','3']:
+            if item in checklist_filter:
+                req.addParam("fq", '-provisioning_checklist.' + item + ':null')
+            else:
+                req.addParam("fq", 'provisioning_checklist.' + item + ':null')
+#         for item in checklist_filter:
+#             req.addParam("fq", '-provisioning_checklist.' + item + ':null')
+        #~ req.addParam("fq", 'provisioning_checklist.2:null')
+        #~ req.addParam("fq", 'provisioning_checklist.3:null')
+        req.setParam("sort", "date_object_modified desc, f_dc_title asc")
+        req.setParam("fl",self.returnFields)
+        out = ByteArrayOutputStream()
+        self.indexer.search(req, out)
+        solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
+        
+        if solrResults:
+            results = solrResults.getResults()
+            returnArray = JSONArray()
+            if role_filter == 'assessor':
+                x = Assessment()
+                x.activate(self.velocityContext)
+                i = 0
+                rows = self.recordsPerPage
+    #             print self.recordsPerPage
+    #             print type(startPage)
+    #             print type(self.recordsPerPage)
+    #             # this has to be fixed: defaut argument is string for some reason
+    #             startPage=1
+                start = (startPage - 1) * self.recordsPerPage
+                for r in results:
+                    status = x.queryStatus(r.get("id"))
+                    if i >= start and i - start < rows:
+                        assessment_submitted_date = x.queryAttr(r.get("id"), 'date')
+                        if assessment_submitted_date:
+                            r.getJsonObject().put('date', assessment_submitted_date)
+                        returnArray.add(r)
+                    i = i + 1
+            else:
+                returnArray = results
+            
+            self._setPaging(returnArray.size())
+            return returnArray
+        else:
+            return ArrayList()
+        
     def _packageResults(self, req, solrLog=None):
         out = ByteArrayOutputStream()
         if solrLog:
