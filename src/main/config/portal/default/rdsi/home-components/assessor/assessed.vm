@@ -1,11 +1,15 @@
-#set($results = $self.getFilteredAssessments("$packageType", 'arms-assessment', 'assessment-submitted'))
+#set($results = $self.checkRequests(['1','2'], 'assessor'))
+#set($results2 = $self.getAllStates("$packageType", 'arms-assessment'))
+
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
+<div>results</div>
+<div>$results</div>
 <script>
-var assementFinal = new DataRowsModel('assessment-submitted');
-assementFinal.prepareData = function(data) {
+var assessmentFinal = new DataRowsModel('assessment-submitted');
+assessmentFinal.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
         if (data[i].hasOwnProperty("date")) {
@@ -18,13 +22,13 @@ assementFinal.prepareData = function(data) {
 }
 
 jQuery(document).ready(function() { 
-    ko.applyBindings(assementFinal, jQuery('#assementFinalTbl')[0]);
-    setupPagingCtrls('assementFinalPaging', assementFinal, $results);
+    ko.applyBindings(assessmentFinal, jQuery('#assessmentFinalTbl')[0]);
+    setupPagingCtrls('assessmentFinalPaging', assessmentFinal, $results);
 });
 </script>
 
 <div class="block">
-<table id="assementFinalTbl" data-bind="stopBindings: true">
+<table id="assessmentFinalTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -38,7 +42,7 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("assementFinalPaging")
+#setPagingCtrl("assessmentFinalPaging")
 </div>
 
 #parseTemplate("wrapping/info-box-close.vm")

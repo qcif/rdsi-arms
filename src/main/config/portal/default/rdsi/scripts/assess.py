@@ -39,7 +39,7 @@ class AssessData(Assessment):
         
         oid = self.request.getParameter("oid")
         if oid:
-            self.saveResopnse(context)
+            self.saveResponse(context)
         else:
             self._loadForm()
      

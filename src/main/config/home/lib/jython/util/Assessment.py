@@ -48,7 +48,7 @@ class Assessment:
         committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
         return committeeResponses
 
-    def saveResopnse(self, context):
+    def saveResponse(self, context):
         """ Save into object storage key to assessor's name
             It has four keys: status, recommendation, size-agreement and comments
             when status == "submitted", reviewer sees it

@@ -186,18 +186,18 @@ class Dashboard:
             results = solrResults.getResults()
             if results:
                 packageResults = results
-                results = self.mergeEvents(packageResults, workflowStep.replace('-','_'))
+                results = self.mergeEvents(packageResults, ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"])
             returnArray = JSONArray()
             if role_filter == 'assessor':
                 x = Assessment()
                 x.activate(self.velocityContext)
                 i = 0
                 rows = self.recordsPerPage
-    #             print self.recordsPerPage
-    #             print type(startPage)
-    #             print type(self.recordsPerPage)
-    #             # this has to be fixed: defaut argument is string for some reason
-    #             startPage=1
+                # print self.recordsPerPage
+                # print type(startPage)
+                # print type(self.recordsPerPage
+                # this has to be fixed: defaut argument is string for some reason
+                #  startPage=1
                 start = (startPage - 1) * self.recordsPerPage
                 for r in results:
                     status = x.queryStatus(r.get("id"))
