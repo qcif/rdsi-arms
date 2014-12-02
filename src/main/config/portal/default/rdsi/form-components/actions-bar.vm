@@ -205,7 +205,11 @@ $(document).ready(function() {
         	 }
          } 
     });
-
+    #if($stage == 'arms-approved')
+	$("input[id='date-provisioned']").change(function() {
+	    $(this).attr("disabled", false).off('change');
+	});
+    #end
 });
 
 </script>
