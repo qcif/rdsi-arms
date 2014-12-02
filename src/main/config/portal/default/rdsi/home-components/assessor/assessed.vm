@@ -1,12 +1,9 @@
 #set($results = $self.checkRequests(['1','2'], 'assessor'))
 #set($results2 = $self.getAllStates("$packageType", 'arms-assessment'))
-
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
-<div>results</div>
-<div>$results</div>
 <script>
 var assessmentFinal = new DataRowsModel('assessment-submitted');
 assessmentFinal.prepareData = function(data) {
