@@ -1,9 +1,8 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-provisioned'))
+#set($results = $self.checkRequests(['3'],'reviewer'))
 #if ($results && $results.size() > 0)
-
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 

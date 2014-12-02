@@ -172,13 +172,10 @@ class Dashboard:
         req.addParam("fq", 'workflow_step:arms-review')
         for item in ['1','2','3']:
             if item in checklist_filter:
-                req.addParam("fq", '-provisioning_checklist.' + item + ':null')
+                req.addParam("fq", '-provisioning_checklist.' + item + ':null' + ' AND provisioning_checklist.' + item + ':[* TO *]')
             else:
-                req.addParam("fq", 'provisioning_checklist.' + item + ':null')
-#         for item in checklist_filter:
-#             req.addParam("fq", '-provisioning_checklist.' + item + ':null')
-        #~ req.addParam("fq", 'provisioning_checklist.2:null')
-        #~ req.addParam("fq", 'provisioning_checklist.3:null')
+                # ensure that brand new submissions (not yet saved by reviewer) are also returned
+                req.addParam("fq", 'provisioning_checklist.' + item + ':null' + ' OR (*:* -provisioning_checklist.' + item + ':[* TO *])')
         req.setParam("sort", "date_object_modified desc, f_dc_title asc")
         req.setParam("fl",self.returnFields)
         out = ByteArrayOutputStream()
