@@ -29,7 +29,7 @@ from org.json.simple import JSONArray
 from com.googlecode.fascinator.portal import Pagination
 
 import sys, os
-sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util")) 
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util"))
 
 from Assessment import Assessment
 
@@ -53,12 +53,12 @@ class Dashboard:
         else:
             self.velocityContext["log"].error("ERROR: Requested context entry '{}' doesn't exist", index)
             return None
-        
-    def formatDate(self, date):    
+
+    def formatDate(self, date):
         dfSource = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
         dfTarget = SimpleDateFormat("dd/MM/yyyy")
         return dfTarget.format(dfSource.parse(date))
-    
+
     def _searchStage(self, packageType, stage, startPage=1):
         req = SearchRequest("packageType:"+packageType)
         req.setParam("rows", str(self.recordsPerPage))
@@ -99,7 +99,7 @@ class Dashboard:
     def getUser(self):
         current_user = self.vc("page").authentication.get_username()
         return current_user
-    
+
     def getListOfStage(self, packageType, stageName, startPage=1):
         rt = self._searchStage(packageType, stageName, startPage)
         self._setPaging(rt.getNumFound())
@@ -125,13 +125,13 @@ class Dashboard:
         # no default value could cause problems
         if numFound is not None:
             self.paging = Pagination(1,numFound, self.recordsPerPage)
-            
+
     def getFilteredAssessments(self, packageType, stageName, filterType, startPage=1):
-        """ A customised query to use filter to get certain assessment with desired status """ 
+        """ A customised query to use filter to get certain assessment with desired status """
         ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py for methods
         filters = {'assessment-draft': ['new','draft'], 'assessment-submitted':['submitted']}
         statusFilter = filters[filterType]
-  
+
         req = SearchRequest("packageType:" + packageType)
         req.addParam("fq", 'workflow_step:' + stageName)
         req.setParam("sort", "date_object_modified desc, f_dc_title asc")
@@ -139,7 +139,7 @@ class Dashboard:
         out = ByteArrayOutputStream()
         self.indexer.search(req, out)
         solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
-        
+
         if solrResults:
             results = solrResults.getResults()
             returnArray = JSONArray()
@@ -157,7 +157,7 @@ class Dashboard:
                             r.getJsonObject().put('date', assessment_submitted_date)
                         returnArray.add(r)
                     i = i + 1
-            
+
             self._setPaging(returnArray.size())
             return returnArray
         else:
@@ -166,10 +166,10 @@ class Dashboard:
     def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', startPage=1):
         """ A customised query for arms at arms-review
             Get a list of requests filtered by provisioning_checklist
-        """ 
-  
+        """
+        workflowStep = "arms-review"
         req = SearchRequest("packageType:arms")
-        req.addParam("fq", 'workflow_step:arms-review')
+        req.addParam("fq", 'workflow_step:' + workflowStep)
         for item in ['1','2','3']:
             if item in checklist_filter:
                 req.addParam("fq", '-provisioning_checklist.' + item + ':null' + ' AND provisioning_checklist.' + item + ':[* TO *]')
@@ -181,9 +181,12 @@ class Dashboard:
         out = ByteArrayOutputStream()
         self.indexer.search(req, out)
         solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
-        
+
         if solrResults:
             results = solrResults.getResults()
+            if results:
+                packageResults = results
+                results = self.mergeEvents(packageResults, workflowStep.replace('-','_'))
             returnArray = JSONArray()
             if role_filter == 'assessor':
                 x = Assessment()
@@ -206,12 +209,12 @@ class Dashboard:
                     i = i + 1
             else:
                 returnArray = results
-            
+
             self._setPaging(returnArray.size())
             return returnArray
         else:
             return ArrayList()
-        
+
     def _packageResults(self, req, solrLog=None):
         out = ByteArrayOutputStream()
         if solrLog:
@@ -229,7 +232,7 @@ class Dashboard:
         for result in resultList:
             idList.append('"' + result.get("id") + '"')
         return '(%s)' % " OR ".join(idList)
-    
+
     def _mergeList(self, mainList, pending, defaultKeys):
         for result in mainList:
             pendingItem = pending.get(result.get("id"))
@@ -243,12 +246,12 @@ class Dashboard:
         return mainList
 
     def getLatest(self, oids):
-        """Query the history and save the latest to the return JsonObject""" 
+        """Query the history and save the latest to the return JsonObject"""
         req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
         req.setParam("fl",'eventTime,newStep,oid')
         req.setParam("rows", Dashboard.MAX_ROWS)
         req.setParam("sort", "oid asc, eventTime desc")
-        
+
         events = self._packageResults(req, "eventLog")
         latest = JsonObject()
         for e in events:
@@ -259,7 +262,7 @@ class Dashboard:
                 jObj.put("eventTime", self.formatDate(e.get("eventTime")))
                 latest.put(oid,jObj)
         return latest
-    
+
     def getLatestState(self, packageType, stageName, startPage=1):
         results = self.getListOfStage(packageType, stageName, startPage)
         if results:
@@ -267,14 +270,14 @@ class Dashboard:
             return self._mergeList(results, latestSteps,["eventTime"])
         else:
             return None
-        
+
     def getFullHistory(self, oids):
-        """Query the history and save the latest full set of workflow steps to the return JsonObject""" 
+        """Query the history and save the latest full set of workflow steps to the return JsonObject"""
         req = SearchRequest('context:"Workflow" AND newStep:[* TO *] AND oid:' + oids + '')
         req.setParam("fl",'eventTime,newStep,oid')
         req.setParam("rows", Dashboard.MAX_ROWS)
         req.setParam("sort", "oid asc, eventTime asc")
-        
+
         events = self._packageResults(req, "eventLog")
         latest = JsonObject()
         for e in events:
@@ -290,10 +293,13 @@ class Dashboard:
     def getAllStates(self, packageType, stageName, startPage=1):
         results = self.getListOfStage(packageType, stageName, startPage)
         ## Fixme: read from home/harvest/arms.json
-        defaultEvents = ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"] 
+        defaultEvents = ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"]
+        return self.mergeEvents(results, defaultEvents)
+
+    def mergeEvents(self, results, eventList):
         if results:
             oids = self._extractOIDs(results)
             allSteps = self.getFullHistory(oids)
-            return self._mergeList(results, allSteps,['%s_eventTime' % e for e in defaultEvents])
+            return self._mergeList(results, allSteps,['%s_eventTime' % e for e in eventList])
         else:
-            return None     
+            return None
