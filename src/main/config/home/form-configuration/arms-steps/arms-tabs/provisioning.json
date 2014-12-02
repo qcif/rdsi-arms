@@ -18,10 +18,9 @@
       "field-name": "date-provisioned",
       "label": "arms.provisioning.subsectionB.label",
       "label-classes": "inline-component",
-      "placeholder": "Only available after the request has entered the provisioned state.",
-      "size": 50,
-      "additional-classes": "inline-component",
-      "disabled": true
+      "placeholder": "Date of allocation was provisioned",
+      "size": 25,
+      "additional-classes": "inline-component"
     },
     {
       "component-type": "textarea",
