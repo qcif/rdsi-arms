@@ -225,21 +225,22 @@
   </div>
 
   <!-- Dialog: Add a user to a role-->
+  ## Use prefix "as-" to distinguish elements in this dialog to those in the long existing above simple-form
+  ## form id and others which are not referenced are not changed
   <div class="box hidden" id="add-user-role-dialog">
     <form id="simple-form" method="post" action="">
       <fieldset class="search">
         <legend id="adduser-dialog-legend">Add a user to a role</legend>
-        <img alt="Loading" src="$portalPath/images/icons/loading.gif" id="simple-form-loading" class="hidden">
-        <div id="simple-form-error" class="stop-error hidden" style="display: none;">
-          <span id="simple-form-message"></span>
+        <img class="hidden" id="as-simple-form-loading" src="$portalPath/images/icons/loading.gif" alt="Loading">
+        <div id="as-simple-form-error" class="stop-error hidden" style="display: none;">
+          <span id="as-simple-form-message"></span>
         </div>
         <p>
-        <select id="user-attributes">
-      </select>
-
-          <input type="text" name="user-attrib-value" id="user-attrib-value">
-          <button id="user-lookup-botton">Lookup</button>
-          <button id="user-add-botton" class="hidden">Add user</button>
+			<select id="user-attributes">
+			</select>
+              <input type="text" name="user-attrib-value" id="user-attrib-value">
+              <button id="user-lookup-botton">Lookup</button>
+              <button id="user-add-botton" class="hidden">Add user</button>
         </p>
   <style>
     #user-lookup {
@@ -251,26 +252,27 @@
     #user-lookup div {
         overflow-x: auto;
     }
+    #user-lookup table {table-layout:fixed}
   </style>
-  <div id="user-lookup">
-  <table>
-    <thead><tr><th></th><th>Username</th><th>Email</th></tr></thead>
-    <tbody>
-    <tr><td><input type="checkbox"></input></td><td>&nbsp;</td><td>&nbsp;</td></tr>
-    </tbody>
-    </table>
-    </div>
-        <p></p>
-        <input id="simple-form-hidden" type="hidden" value="" />
-        <input id="simple-form-source" type="hidden" value="" />
-        <input id="simple-form-action" type="hidden" value="" />
-        <input id="simple-form-followup" type="hidden" value="" />
-        <input id="add-user-role-dialog-cancel" type="button" value="Close" />
+          <div id="user-lookup">
+          <table>
+            <thead><tr><th></th><th>Username</th><th>Email</th></tr></thead>
+            <tbody>
+            <tr><td><input type="checkbox"></input></td><td>not that long</td><td>email</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p></p>
+          <input id="as-simple-form-hidden" type="hidden" value="" />
+          <input id="as-simple-form-source" type="hidden" value="" />
+          <input id="as-simple-form-action" type="hidden" value="" />
+          <input id="as-simple-form-followup" type="hidden" value="" />
+          <input id="add-user-role-dialog-cancel" type="button" value="Close" />
       </fieldset>
     </form>
   </div>
-
 </div>
+
 <script type="text/javascript" src="$portalPath/js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript">
 <!--
@@ -614,8 +616,8 @@
             $("#roles-" + plugin + "-message").empty();
             $("#roles-" + plugin + "-error").hide();
             $("#roles-" + plugin + "-alert").hide();
-            $("#simple-form-message").empty();
-            $("#simple-form-error").hide();
+            $("#as-simple-form-message").empty();
+            $("#as-simple-form-error").hide();
             $("#adduser-dialog-legend").html("Find a user to add to role '" + current_role + "'");
             clean_add_user_dialog();
             jQuery.ajax({
@@ -654,11 +656,11 @@
                     }
                 }
             });
-            $("#simple-form-hidden").val(current_role);
-            $("#simple-form-source").val(plugin);
-            $("#simple-form-action").val("add-user");
-            $("#simple-form-submit").val("Add User");
-            $("#simple-form-followup").val("add_user");
+            $("#as-simple-form-hidden").val(current_role);
+            $("#as-simple-form-source").val(plugin);
+            $("#as-simple-form-action").val("add-user");
+            $("#as-simple-form-submit").val("Add User");
+            $("#as-simple-form-followup").val("add_user");
             var dialogOpts = {
               autoOpen: false,
               hide: "blind",
@@ -673,7 +675,7 @@
             return false;
         });
         window['add_user'] = function(data) {
-            var source = $("#simple-form-source").val();
+            var source = $("#as-simple-form-source").val();
             $("<option>" + data + "</option>").appendTo("#roles-" + source + "-edit");
             $("#roles-" + source + "-alert").show();
             $("#roles-" + source + "-message").html("User '" + data.escapeHTML() + "' successfully add to role '" + current_role + "'");
@@ -703,7 +705,7 @@
         });
 
         $("#user-add-botton").click(function() {
-          submit_form($("#user-attrib-value").val());
+          submit_form($("#user-attrib-value").val(),'as-');
           $("#add-user-role-dialog-cancel").click();
           return false;
         });
@@ -809,33 +811,39 @@
 
   function add_complex_user(caller) {
       var username = $(caller).data("username");
-      submit_form(username);
+      submit_form(username, 'as-');
       $("#add-user-role-dialog-cancel").click();
   }
 
-  function submit_form(filedval) {
-      $("#simple-form-message").empty();
-      $("#simple-form-loading").show();
+  function submit_form(filedval, form_prefix) {
+	  if (typeof form_prefix === "undefined") {
+		  form_prefix = "";
+	  }
+	  var loading_el = "#" + form_prefix + "simple-form-loading";
+	  var message_el = "#" + form_prefix + "simple-form-message";
+	  var error_el = "#" + form_prefix + "simple-form-error";
+      $(message_el).empty();
+      $(loading_el).show();
       jQuery.ajax({
           type : "POST",
           url : "$portalPath/actions/admin.ajax",
           success:
               function(data, status) {
-                  $("#simple-form-loading").hide();
+                  $(loading_el).hide();
                   $("#simple-dialog").dialog('close');
-                  window[$("#simple-form-followup").val()](jQuery.trim(data.escapeHTML()));
+                  window[$("#" + form_prefix + "simple-form-followup").val()](jQuery.trim(data.escapeHTML()));
               },
           error:
               function (req, status, e) {
-                  $("#simple-form-loading").hide();
-                  $("#simple-form-error").show();
-                  $("#simple-form-message").html(req.responseText);
+                  $(loading_el).hide();
+                  $(error_el).show();
+                  $(message_el).html(req.responseText);
               },
           data: {
               field:  filedval,
-              hidden: $("#simple-form-hidden").val(),
-              source: $("#simple-form-source").val(),
-              verb:   $("#simple-form-action").val()
+              hidden: $("#" + form_prefix + "simple-form-hidden").val(),
+              source: $("#" + form_prefix + "simple-form-source").val(),
+              verb:   $("#" + form_prefix + "simple-form-action").val()
           }
       });
   }
