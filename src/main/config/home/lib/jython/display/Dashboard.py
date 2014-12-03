@@ -126,46 +126,6 @@ class Dashboard:
         if numFound is not None:
             self.paging = Pagination(1,numFound, self.recordsPerPage)
 
-    def getFilteredRejectedAssessments(self, packageType='arms', filterType='assessment-submitted', startPage=1):
-        """ A customised query to use filter to get certain assessment with desired status """
-        ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py for methods
-        filters = {'assessment-draft': ['new','draft'], 'assessment-submitted':['submitted']}
-        statusFilter = filters[filterType]
-
-        req = SearchRequest("packageType:" + packageType)
-
-        req.addParam("fq", 'outcome-decision:Reject')
-
-        req.setParam("sort", "date_object_modified desc, f_dc_title asc")
-        req.setParam("fl",self.returnFields)
-        out = ByteArrayOutputStream()
-        self.indexer.search(req, out)
-        solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
-
-        if solrResults:
-            results = solrResults.getResults()
-            returnArray = JSONArray()
-            x = Assessment()
-            x.activate(self.velocityContext)
-            i = 0
-            rows = self.recordsPerPage
-            start = (startPage - 1) * self.recordsPerPage
-            for r in results:
-                status = x.queryStatus(r.get("id"))
-                if status in statusFilter:
-                    if i >= start and i - start < rows:
-                        assessment_submitted_date = x.queryAttr(r.get("id"), 'date')
-                        if assessment_submitted_date:
-                            r.getJsonObject().put('date', assessment_submitted_date)
-                        returnArray.add(r)
-                    i = i + 1
-
-            self._setPaging(returnArray.size())
-            return returnArray
-        else:
-            return ArrayList()
-
-
     def getFilteredAssessments(self, packageType, stageName, filterType, startPage=1):
         """ A customised query to use filter to get certain assessment with desired status """
         ## reference /redbox-rdsi-arms/src/main/config/home/lib/jython/util/Assessment.py for methods
@@ -203,7 +163,7 @@ class Dashboard:
         else:
             return ArrayList()
 
-    def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', startPage=1):
+    def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', exclusive=True, startPage=1):
         """ A customised query for arms at arms-review
             Get a list of requests filtered by provisioning_checklist
         """
@@ -212,10 +172,11 @@ class Dashboard:
         req.addParam("fq", 'workflow_step:' + workflowStep)
         for item in ['1','2','3']:
             if item in checklist_filter:
-                req.addParam("fq", '(-provisioning_checklist.' + item + ':null' + ' AND provisioning_checklist.' + item + ':[* TO *]) NOT outcome-decision:Reject')
+                req.addParam("fq", '-provisioning_checklist.' + item + ':null' + ' AND provisioning_checklist.' + item + ':[* TO *]')
             else:
-                # ensure that brand new submissions (not yet saved by reviewer) are also returned
-                req.addParam("fq", '(provisioning_checklist.' + item + ':null' + ' OR (*:* -provisioning_checklist.' + item + ':[* TO *])) NOT outcome-decision:Reject')
+                if exclusive:
+                    # ensure that brand new submissions (not yet saved by reviewer) are also returned
+                    req.addParam("fq", 'provisioning_checklist.' + item + ':null' + ' OR (*:* -provisioning_checklist.' + item + ':[* TO *])')
         req.setParam("sort", "date_object_modified desc, f_dc_title asc")
         req.setParam("fl",self.returnFields)
         out = ByteArrayOutputStream()
