@@ -1,5 +1,6 @@
 #set($results = $self.checkRequests(['1','2'], 'assessor'))
-#set($results2 = $self.getAllStates("$packageType", 'arms-assessment'))
+##logic is unclear whether this should be using workflow of arms-assessment or checklist.
+##set($results2 = $self.getAllStates("$packageType", 'arms-assessment'))
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
