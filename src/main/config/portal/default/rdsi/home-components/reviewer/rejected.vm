@@ -1,7 +1,7 @@
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.rejected')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.getListOfStage("$packageType", 'arms-rejected'))
+#set($results = $self.getFilteredRejectedAssessments())
 #if ($results && $results.size() > 0)
 
 ## load pagination controls
