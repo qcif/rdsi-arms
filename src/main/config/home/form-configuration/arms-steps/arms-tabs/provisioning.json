@@ -14,7 +14,7 @@
       "additional-classes": "inline-component"
     },
     {
-      "component-type": "text-input",
+      "component-type": "date-picker",
       "field-name": "date-provisioned",
       "label": "arms.provisioning.subsectionB.label",
       "label-classes": "inline-component",
