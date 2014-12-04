@@ -187,7 +187,7 @@ class Dashboard:
             results = solrResults.getResults()
             if results:
                 packageResults = results
-                results = self.mergeEvents(packageResults, ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"])
+                results = self.mergeEvents(packageResults, ["arms_draft","arms_redraft","arms_review","arms_approved","arms_rejected"])
             returnArray = JSONArray()
             if role_filter == 'assessor':
                 x = Assessment()
@@ -213,6 +213,33 @@ class Dashboard:
 
             self._setPaging(returnArray.size())
             return returnArray
+        else:
+            return ArrayList()
+
+    def checkAprovedRequests(self, provisioned=0, startPage=1):
+        """ A customised query for package type of arms at workflow_step of arms-approved
+            Get a list of requests filtered by provisioning_checklist
+        """
+        workflowStep = "arms-approved"
+        req = SearchRequest("packageType:arms")
+        req.addParam("fq", 'workflow_step:' + workflowStep)
+        if provisioned:
+            req.addParam("fq", '-provisioning_checklist.3:null')
+        else:
+            req.addParam("fq", 'provisioning_checklist.3:null')
+        req.setParam("sort", "date_object_modified desc, f_dc_title asc")
+        req.setParam("fl","id,dc_title,date-provisioned")
+        out = ByteArrayOutputStream()
+        self.indexer.search(req, out)
+        solrResults = SolrResult(ByteArrayInputStream(out.toByteArray()))
+
+        if solrResults:
+            results = solrResults.getResults()
+            print results.size()
+            if results:
+                results = self.mergeEvents(results, ["arms_draft","arms_redraft","arms_review","arms_approved","arms_rejected"])
+            self._setPaging(results.size())
+            return results
         else:
             return ArrayList()
 
@@ -294,7 +321,7 @@ class Dashboard:
     def getAllStates(self, packageType, stageName, startPage=1):
         results = self.getListOfStage(packageType, stageName, startPage)
         ## Fixme: read from home/harvest/arms.json
-        defaultEvents = ["arms_draft","arms_redraft","arms_review","arms_assessment","arms_approved","arms_rejected","arms_provisioned"]
+        defaultEvents = ["arms_draft","arms_redraft","arms_review","arms_approved","arms_rejected"]
         return self.mergeEvents(results, defaultEvents)
 
     def mergeEvents(self, results, eventList):

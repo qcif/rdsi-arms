@@ -14,7 +14,7 @@
 
 <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-corner-all">
     <li class="ui-state-default ui-corner-top #if($section=='active.vm') ui-state-active #end"><a href="$path">Active</a></li>
-    <li class="ui-state-default ui-corner-top #if($section=='provisioned.vm') ui-state-active #end"><a href="$path?section=provisioned">Provisioned</a></li>
+    <li class="ui-state-default ui-corner-top #if($section=='approved.vm') ui-state-active #end"><a href="$path?section=approved">Approved</a></li>
     <li class="ui-state-default ui-corner-top #if($section=='rejected.vm') ui-state-active #end"><a href="$path?section=rejected">Rejected</a></li>
 </ul>
 

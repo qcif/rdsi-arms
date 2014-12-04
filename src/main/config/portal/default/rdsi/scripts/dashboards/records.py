@@ -71,6 +71,10 @@ class RecordsData(Dashboard):
             results = self.getFilteredAssessments(packageType, searchType, pageNum)
         elif searchType == "submitted":
             results = self.getLatestState(packageType, searches[searchType], pageNum)
+        elif searchType == "approved":
+            results = self.checkAprovedRequests(packageType, 0, pageNum)
+        elif searchType == "approved-provisioned":
+            results = self.checkAprovedRequests(packageType, 1, pageNum)
         else:
             results = self.getAllStates(packageType, searches[searchType], pageNum)
         
