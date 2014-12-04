@@ -60,7 +60,7 @@
       }
     ]
   },
-  "arms-provisioned": {
+  "arms-approved": {
     "actions": [
       {
         "label": "Reopen",

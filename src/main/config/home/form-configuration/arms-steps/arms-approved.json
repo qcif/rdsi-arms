@@ -25,10 +25,13 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/assessment-summary.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
     },
     {
-      "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
+        "config-file": "form-configuration/arms-steps/arms-tabs/checklist.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
     }
   ],
   "buttons": [],

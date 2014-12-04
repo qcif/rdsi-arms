@@ -1,6 +1,6 @@
 {
     "presentation-settings": {
-       
+
      },
     "harvester": {
         "type": "workflow-harvester",
@@ -56,7 +56,7 @@
 		    "id": "scripting",
 		    "scriptType": "groovy",
 		    "scriptPath": "${fascinator.home}/transformer-scripts/orgNotifier.groovy"
-        }         
+        }
     },
     "indexer": {
         "script": {
@@ -101,7 +101,7 @@
             "actions": [
                 {
                   "action-name": "approve",
-                  "target-step": "arms-provisioned"
+                  "target-step": "arms-approved"
                 },
                 {
                   "action-name": "reject",
@@ -130,9 +130,9 @@
             "template": "workflows/simpleworkflow"
         },
         {
-            "name": "arms-provisioned",
-            "label": "Ready for use",
-            "description": "The request has been provisioned.",
+            "name": "arms-approved",
+            "label": "Approved",
+            "description": "The request has been approved.",
             "owner_edit_allowed": "false",
             "security": ["reviewer","admin"],
             "visibility": ["reviewer","admin"],
