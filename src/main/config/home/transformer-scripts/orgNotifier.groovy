@@ -5,7 +5,7 @@ import groovy.json.JsonSlurper
 import org.slf4j.LoggerFactory
 
 emailingConfId = "MetafeedNotifier"
-tfKey = "provisioning_checklist.3"
+tfKey = "provisioning_checklist.4"
 notificationState = "provisioned"
 indicationField = "metadatafeed-notification"
 def contactType = "dataprovider"

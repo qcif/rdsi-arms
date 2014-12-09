@@ -8,6 +8,10 @@
 		"label":"Allocation committee assessment completed"
 	},
 	{
+		"value":"provisioning-in-progress",
+		"label":"Provisioning in progress"
+	},
+	{
 		"value":"provisioned",
 		"label":"Provisioned"
 	}

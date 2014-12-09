@@ -224,9 +224,9 @@ class Dashboard:
         req = SearchRequest("packageType:arms")
         req.addParam("fq", 'workflow_step:' + workflowStep)
         if provisioned:
-            req.addParam("fq", '-provisioning_checklist.3:null')
+            req.addParam("fq", '-provisioning_checklist.4:null')
         else:
-            req.addParam("fq", 'provisioning_checklist.3:null')
+            req.addParam("fq", 'provisioning_checklist.4:null')
         req.setParam("sort", "date_object_modified desc, f_dc_title asc")
         req.setParam("fl","id,dc_title,date-provisioned")
         out = ByteArrayOutputStream()

@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory
 //	    "QueueName": "name"
 //	}
 
-tfKey = "provisioning_checklist.3"
+tfKey = "provisioning_checklist.4"
 notificationState = "provisioned"
 indicationField = "livearc-prov-notification"
 emailingConfId = "LiveArcProvisionNotifier"
