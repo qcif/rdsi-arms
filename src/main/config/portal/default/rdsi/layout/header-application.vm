@@ -7,7 +7,7 @@
         #if($page.authentication.has_role('reviewer'))
         <li><a href="$portalPath/dashboards/reviewer">Review requests</a>
         <ul class="dropdown">
-                <li><a href="$portalPath/dashboards/reviewer?section=provisioned">Provisioned requests</a></li>
+                <li><a href="$portalPath/dashboards/reviewer?section=approved">Approved requests</a></li>
                 <li><a href="$portalPath/dashboards/reviewer?section=rejected">Rejected requests</a></li>
             </ul>
         </li>
@@ -16,13 +16,6 @@
         <li><a href="$portalPath/dashboards/assessor">Assess requests</a>
         <ul class="dropdown">
                 <li><a href="$portalPath/dashboards/assessor?section=assessed">Assessed requests</a></li>
-            </ul>
-        </li>
-        #end
-        #if($page.authentication.has_role('provisioner'))
-        <li><a href="$portalPath/dashboards/provisioner">Provision requests</a>
-        <ul class="dropdown">
-                <li><a href="$portalPath/dashboards/provisioner?section=provisioned">Provisioned requests</a></li>
             </ul>
         </li>
         #end
