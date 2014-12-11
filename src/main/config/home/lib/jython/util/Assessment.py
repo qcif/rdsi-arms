@@ -26,7 +26,7 @@ class Assessment:
     """ Base class to read and save response, only accessible to assessor
     """
     PAYLOAD = "committee-responses.metadata"
-    
+
     def __init__(self):
         pass
 
@@ -34,7 +34,8 @@ class Assessment:
         self.request = context["request"]
         self.storage = context["Services"].getStorage()
         self.assessor = context["page"].authentication.get_name()
-     
+        self.myResponse = None
+
     def hasResponses(self, oid):
         storedObj = self.storage.getObject(oid)
         payloadList = storedObj.getPayloadIdList()
@@ -46,6 +47,8 @@ class Assessment:
     def getResponses(self, storedObj):
         committeeResponsePayload = storedObj.getPayload(self.PAYLOAD)
         committeeResponses = JsonSimple(committeeResponsePayload.open()).getJsonObject()
+        # get current assessor's assessment
+        self.myResponse = committeeResponses.get(self.assessor)
         return committeeResponses
 
     def saveResponse(self, context):
@@ -59,17 +62,17 @@ class Assessment:
             status = "submitted"
         else:
             status = "draft"
-        
+
         recommendation = self.request.getParameter("recommendation")
         sizeAgreement = self.request.getParameter("size-agreement")
         comments = self.request.getParameter("comments")
-        
+
         storedObj, fileExisted = self.hasResponses(oid)
         if fileExisted:
             committeeResponses = self.getResponses(storedObj)
         else:
             committeeResponses = JsonObject()
-        
+
         assessorResponse = JsonObject()
         assessorResponse.put("status", status)
         if status == 'submitted':
@@ -77,14 +80,14 @@ class Assessment:
         assessorResponse.put("recommendation",recommendation)
         assessorResponse.put("size-agreement",sizeAgreement)
         assessorResponse.put("comments",comments)
-        
+
         committeeResponses.put(self.assessor,assessorResponse)
 
         StorageUtils.createOrUpdatePayload(storedObj,self.PAYLOAD,IOUtils.toInputStream(committeeResponses.toString(), "UTF-8"))
         context["response"].sendRedirect(context["portalPath"] +"/detail/"+oid)
 
     def queryStatus(self, oid):
-        """ Query status and has to at least to return one of two default values: new or draft 
+        """ Query status and has to at least to return one of two default values: new or draft
          """
         status = "new"
 
@@ -103,16 +106,29 @@ class Assessment:
         return status
 
     def queryAttr(self, oid, attrName):
-        """ Query an attribute value of the given attrName. Default value is None 
+        """ Query an attribute value of the given attrName. Default value is None
          """
         storedObj, fileExisted = self.hasResponses(oid)
-        attrValue = None 
+        attrValue = None
         if fileExisted:
             committeeResponses = self.getResponses(storedObj)
             assessment = committeeResponses.get(self.assessor)
             if assessment:
                 attrValue =  assessment.get(attrName)
         return attrValue
-        
+
+    def queryMyAttr(self, attrName):
+        """ Query an attribute value in current assessor's assessment. Default value is None
+            It requires any above query has been called before
+        """
+        attrValue = None
+        try:
+            if self.myResponse:
+                attrValue = self.myResponse.get(attrName)
+        except Exception, err:
+            pass
+
+        return attrValue
+
     def _getToday(self):
-        return date.today().strftime("%d/%m/%Y")       
+        return date.today().strftime("%d/%m/%Y")
