@@ -4,7 +4,7 @@
 #if ($results && $results.size() > 0)
 #parseTemplate("home-components/pagingControl.vm")
 <script>
-var assessmentDrafts = new DataRowsModel('assessment-draft');
+var assessmentDrafts = new DataRowsModel('assessor');
 assessmentDrafts.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;

@@ -34,20 +34,23 @@ class RecordsData(Dashboard):
 
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
-
+        # variables associate with searches. 
+        # If there is no map found, it will be default to "requestor" which is possibly not wanted
         searches = {'requestor':'arms-draft',
                     'redraft':'arms-redraft',
-                    'submitted': 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected',
-                    'reviewer':'arms-review',
-                    'assessor':'arms-assessment',
-                    'approved':'arms-approved',
+                    'submitted': 'arms-review,arms-approved,arms-rejected',
+                    'reviewer':[],
+                    'reviewer-assessing':['1'],
+                    'reviewer-assessed':['1','2'],
+                    'reviewer-provisioned':['4'],
+                    'assessor':'assessor',
+                    'assessor-assessed':'assessor-assessed',
+                    'approved':0,
+                    'approved-provisioned':1,
                     'rejected':'arms-rejected',
-                    'provisioned':'arms-provisioned',
-                    'adminProvisions':'arms-review,arms-assessment,arms-approved',
-                    'adminHoldings':'arms-provisioned,arms-rejected',
-                    'shared':'',
-                    'assessment-draft':'',
-                    'assessment-submitted':''}
+                    'adminProvisions':'arms-review,arms-approved',
+                    'adminHoldings':'arms-approved,arms-rejected',
+                    'shared':''}
         
         formData = context["formData"]
         packageType = formData.get("packageType")
@@ -66,19 +69,18 @@ class RecordsData(Dashboard):
             
         if searchType == "shared":
             results = self.getShared(packageType, pageNum)
-        elif searchType in ['assessment-draft', 'assessment-submitted']:
-            ## used in filtering assessments
-            results = self.getFilteredAssessments(packageType, searchType, pageNum)
         elif searchType == "submitted":
             results = self.getLatestState(packageType, searches[searchType], pageNum)
-        elif searchType == "approved":
-            results = self.checkAprovedRequests(packageType, 0, pageNum)
-        elif searchType == "approved-provisioned":
-            results = self.checkAprovedRequests(packageType, 1, pageNum)
+        elif searchType.startswith("reviewer"):
+            results = self.checkRequests(searches[searchType],'reviewer',True, pageNum)
+        elif searchType.startswith("assessor"):
+            results = self.checkRequests(['1'], searches[searchType], False, pageNum)
+        elif searchType.startswith('approved'):
+            results = self.checkAprovedRequests(packageType, searches[searchType], pageNum)
         else:
             results = self.getAllStates(packageType, searches[searchType], pageNum)
         
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)
-        writer.close()       
- 
+        writer.close()
+    

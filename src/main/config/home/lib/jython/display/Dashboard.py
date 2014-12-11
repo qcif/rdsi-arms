@@ -166,11 +166,13 @@ class Dashboard:
     def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', exclusive=True, startPage=1):
         """ A customised query for arms at arms-review
             Get a list of requests filtered by provisioning_checklist
+
+            For assessor, it is user based and queries against committee-responses.metadata
         """
         workflowStep = "arms-review"
         req = SearchRequest("packageType:arms")
         req.addParam("fq", 'workflow_step:' + workflowStep)
-        for item in ['1','2','3']:
+        for item in ['1','2','3','4']:
             if item in checklist_filter:
                 req.addParam("fq", '-provisioning_checklist.' + item + ':null' + ' AND provisioning_checklist.' + item + ':[* TO *]')
             else:
@@ -189,25 +191,26 @@ class Dashboard:
                 packageResults = results
                 results = self.mergeEvents(packageResults, ["arms_draft","arms_redraft","arms_review","arms_approved","arms_rejected"])
             returnArray = JSONArray()
-            if role_filter == 'assessor':
+            if role_filter.startswith('assessor'):
+                if role_filter == 'assessor':
+                    query_status = ['new', 'draft']
+                elif role_filter == 'assessor-assessed':
+                    query_status = ['submitted']
                 x = Assessment()
                 x.activate(self.velocityContext)
                 i = 0
                 rows = self.recordsPerPage
-                # print self.recordsPerPage
-                # print type(startPage)
-                # print type(self.recordsPerPage
-                # this has to be fixed: defaut argument is string for some reason
-                #  startPage=1
                 start = (startPage - 1) * self.recordsPerPage
                 for r in results:
                     status = x.queryStatus(r.get("id"))
-                    if i >= start and i - start < rows:
-                        assessment_submitted_date = x.queryAttr(r.get("id"), 'date')
-                        if assessment_submitted_date:
-                            r.getJsonObject().put('date', assessment_submitted_date)
-                        returnArray.add(r)
-                    i = i + 1
+                    if status in query_status:
+                        if i >= start and i - start < rows:
+                            if status == 'submitted':
+                                assessment_submitted_date = x.queryMyAttr('date')
+                                if assessment_submitted_date:
+                                    r.getJsonObject().put('date', assessment_submitted_date)
+                            returnArray.add(r)
+                        i = i + 1
             else:
                 returnArray = results
 
