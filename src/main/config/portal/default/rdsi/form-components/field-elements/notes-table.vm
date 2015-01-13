@@ -5,36 +5,41 @@
 .NoteViewCtrl { margin-left: 2px}
 </style>
 
+#if ($textAreaRows) #set($textarearows = $textAreaRows)
+#else
+    #set($textarearows = 4)
+#end
+
 <script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
 <div id="$tableName" data-bind="stopBindings: true">
-<textarea data-bind="value: note" rows="4" cols="80"></textarea>
+<textarea data-bind="value: note" rows="$textarearows" cols="80"></textarea>
 #if ($visibleNoteLength) #set($lengthLimit = $visibleNoteLength)
 #else
-    #set($lengthLimit = 3) 
+    #set($lengthLimit = 3)
 #end
 <button class="addNoteButton">Add</button>
 <table>
     <thead>
-    	<tr>
-    	#foreach( $column in $columns )
+        <tr>
+        #foreach( $column in $columns )
         <th>#displayMessage($column.get("columnHeader"))</th>#end
-        
+
         </tr>
     </thead>
     <tbody data-bind="foreach: rows">
         <tr>
-	    <td data-bind="text: dateAdded"/>
-	    <td data-bind="text: addedBy"/>
-	    <td>
-		<span class="shortenedNote">
-		    <span data-bind="text: noteShortened"></span>
-		    <span class="NoteViewCtrl" data-bind="html: showMoreLink"></span>
-		</span>
-		<span class="expandedNote">
-		<div data-bind="text: note"></div>
-		<span class="NoteViewCtrl" data-bind="html: showLessLink"></span>
-	    </td>
-	    
+        <td data-bind="text: dateAdded"/>
+        <td data-bind="text: addedBy"/>
+        <td>
+        <span class="shortenedNote">
+            <span data-bind="text: noteShortened"></span>
+            <span class="NoteViewCtrl" data-bind="html: showMoreLink"></span>
+        </span>
+        <span class="expandedNote">
+        <div data-bind="text: note"></div>
+        <span class="NoteViewCtrl" data-bind="html: showLessLink"></span>
+        </td>
+
         </tr>
     </tbody>
 </table>
@@ -44,47 +49,47 @@
 startupCompleteListeners.push("initialiseNotesTable");
 
 function initialiseNotesTable() {
-	var rows = [];
-	for(key in jaffa.serverData) {
-		var prefix = "$metadataPrefix";
-		 if(key.indexOf(prefix+".") == 0) {
-		 	var suffix = key.substring(prefix.length+1, key.length); 
-		 	var index = suffix.substring(0, suffix.indexOf("."));
-		 	var ending = suffix.substring(suffix.indexOf(".")+1,suffix.length);
-		 	
-		 	if(rows[index-1] == null) {
-		 		rows[index-1] = new Object();
-		 		rows[index-1]["modelIdentifier"] = guid();
-		 	}
-		 	rows[index-1][ending] = jaffa.serverData[key];
-			
-			if(ending == "note") { 
-			    setNoteValues(rows[index-1],false);
-			}
-		 }
-	}
-	
-	for(var i =0; i<rows.length; i++) {
-		${modelName}.rows.push(rows[i]);
-	}
-	var UIelements = ["modelIdentifier", "showMoreLink", "noteShortened", "showLessLink"];
-	${modelName}.rows.subscribe(function(rowArray) {
-    	//delete all the old values out of serverData as some might have been deleted in the table
-    	for(key in jaffa.serverData) {
-			 var prefix = "$metadataPrefix";
-			 if(key.indexOf(prefix+".") == 0) {
-			 	delete jaffa.serverData[key];
-			 }
-	    }
-   		for(var i =1; i<=rowArray.length; i++) {
-   			var row = rowArray[i-1];
-   			for(key in row) {
-			  if (jQuery.inArray(key, UIelements) == -1) {    
-   			  	jaffa.serverData["$metadataPrefix."+i+"."+key] = row[key];
-   			  }
-   			}
-   		}
-	});
+    var rows = [];
+    for(key in jaffa.serverData) {
+        var prefix = "$metadataPrefix";
+         if(key.indexOf(prefix+".") == 0) {
+             var suffix = key.substring(prefix.length+1, key.length);
+             var index = suffix.substring(0, suffix.indexOf("."));
+             var ending = suffix.substring(suffix.indexOf(".")+1,suffix.length);
+
+             if(rows[index-1] == null) {
+                 rows[index-1] = new Object();
+                 rows[index-1]["modelIdentifier"] = guid();
+             }
+             rows[index-1][ending] = jaffa.serverData[key];
+
+            if(ending == "note") {
+                setNoteValues(rows[index-1],false);
+            }
+         }
+    }
+
+    for(var i =0; i<rows.length; i++) {
+        ${modelName}.rows.push(rows[i]);
+    }
+    var UIelements = ["modelIdentifier", "showMoreLink", "noteShortened", "showLessLink"];
+    ${modelName}.rows.subscribe(function(rowArray) {
+        //delete all the old values out of serverData as some might have been deleted in the table
+        for(key in jaffa.serverData) {
+             var prefix = "$metadataPrefix";
+             if(key.indexOf(prefix+".") == 0) {
+                 delete jaffa.serverData[key];
+             }
+        }
+           for(var i =1; i<=rowArray.length; i++) {
+               var row = rowArray[i-1];
+               for(key in row) {
+              if (jQuery.inArray(key, UIelements) == -1) {
+                     jaffa.serverData["$metadataPrefix."+i+"."+key] = row[key];
+                 }
+               }
+           }
+    });
 }
 
 function $modelName() {
@@ -103,62 +108,60 @@ function $modelName() {
 function add${modelName}Row() {
     var model = {};
     jQuery.getJSON('$portalPath/servertime.script?format=YYYY-MM-dd', function(data) {
-    	model['dateAdded'] = data.date;
+        model['dateAdded'] = data.date;
         model['addedBy'] = '$page.authentication.get_name()';
-	
-	setNoteValues(model,true);
-	
+
+    setNoteValues(model,true);
+
         ${modelName}.rows.unshift(model);
         set${modelName}Defaults();
-   	});
+       });
 }
 
 function setNoteValues(model , isObservable) {
     var str = model["note"];
     if(isObservable) {
-	str = ${modelName}.note()
-    } 
-    
+    str = ${modelName}.note()
+    }
+
     if (str.length > $lengthLimit) {
-	model["note"] = str;
-	model["noteShortened"] = str.substring(0, $lengthLimit)+" ... ";
-	model["showMoreLink"] = "<a href='#' onclick='showFullNote(this); return false;'>Show more</a>";
-	model["showLessLink"] = "<a href='#' onclick='showShortNote(this); return false;'>Show less</a>";
+    model["note"] = str;
+    model["noteShortened"] = str.substring(0, $lengthLimit)+" ... ";
+    model["showMoreLink"] = "<a href='#' onclick='showFullNote(this); return false;'>Show more</a>";
+    model["showLessLink"] = "<a href='#' onclick='showShortNote(this); return false;'>Show less</a>";
     } else {
-	model["note"] = str;
-	model["noteShortened"] = str;
-	model["showMoreLink"] = "";
-	model["showLessLink"] = "";
+    model["note"] = str;
+    model["noteShortened"] = str;
+    model["showMoreLink"] = "";
+    model["showLessLink"] = "";
     }
 }
 
 function set${modelName}Defaults() {
-	${modelName}.dateAdded('');
-	${modelName}.addedBy('');
-	${modelName}.note('');
-	${modelName}.noteShortened('');
-	${modelName}.showMoreLink('');
+    ${modelName}.dateAdded('');
+    ${modelName}.addedBy('');
+    ${modelName}.note('');
+    ${modelName}.noteShortened('');
+    ${modelName}.showMoreLink('');
 }
 
 var $modelName = new $modelName();
 ko.applyBindings($modelName, $("[id='$tableName']")[0]);
 
-ko.applyBindingsToNode($("[id='$tableName']").find($("[class='addNoteButton']"))[0], 
-	{ click: function () { 	add${modelName}Row(); } }, $modelName 
+ko.applyBindingsToNode($("[id='$tableName']").find($("[class='addNoteButton']"))[0],
+    { click: function () {     add${modelName}Row(); } }, $modelName
 );
 
 function showFullNote(me) {
-    console.debug("showFullNote has been callled");
     tdElement = jQuery(me).parent().parent().parent();
     tdElement.find('.expandedNote').show();
     tdElement.find('.shortenedNote').hide();
 }
 
 function showShortNote(me) {
-    console.debug("showFullNote has been callled");
     tdElement = jQuery(me).parent().parent().parent();
     tdElement.find('.expandedNote').hide();
     tdElement.find('.shortenedNote').show();
 }
-   	
+
 </script>
