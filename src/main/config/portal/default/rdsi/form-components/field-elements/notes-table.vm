@@ -46,9 +46,9 @@
 </div>
 
 <script>
-startupCompleteListeners.push("initialiseNotesTable");
+startupCompleteListeners.push("initialise${modelName}NotesTable");
 
-function initialiseNotesTable() {
+function initialise${modelName}NotesTable() {
     var rows = [];
     for(key in jaffa.serverData) {
         var prefix = "$metadataPrefix";
@@ -64,7 +64,7 @@ function initialiseNotesTable() {
              rows[index-1][ending] = jaffa.serverData[key];
 
             if(ending == "note") {
-                setNoteValues(rows[index-1],false);
+                set${modelName}NoteValues(rows[index-1],false);
             }
          }
     }
@@ -111,14 +111,14 @@ function add${modelName}Row() {
         model['dateAdded'] = data.date;
         model['addedBy'] = '$page.authentication.get_name()';
 
-    setNoteValues(model,true);
+    set${modelName}NoteValues(model,true);
 
         ${modelName}.rows.unshift(model);
         set${modelName}Defaults();
        });
 }
 
-function setNoteValues(model , isObservable) {
+function set${modelName}NoteValues(model , isObservable) {
     var str = model["note"];
     if(isObservable) {
     str = ${modelName}.note()
