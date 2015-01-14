@@ -31,7 +31,10 @@
       "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
     },
     {
-        "config-file": "form-configuration/arms-steps/arms-tabs/checklist.json"
+      "config-file": "form-configuration/arms-steps/arms-tabs/checklist.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/node-communications.json"
     }
   ],
   "buttons": [],
@@ -39,7 +42,7 @@
   "form-layout": {
     "component-type": "tabbed-wizard",
     "tabHeaderIdentifier": "armsTabHeader",
-    "wizardDefPath": "wizard-definitions/arms-approved.json"
+    "wizardDefPath": "wizard-definitions/arms-review.json"
   },
   "validation-function": {
     "component-type": "active-tab",

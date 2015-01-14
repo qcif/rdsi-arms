@@ -29,10 +29,22 @@
     },
     "Assessments": {
       "Back": "Reviewer Summary",
+      "Next": "Provisioning"
+    },
+    "Provisioning": {
+      "Back": "Assessments",
       "Next": "Outcome"
     },
     "Outcome": {
-      "Back": "Assessments"
+      "Back": "Provisioning",
+      "Next": "Reviewer's Checklist"
+    },
+    "Reviewer's Checklist": {
+      "Back": "Outcome",
+      "Next": "Cross-node"
+    },
+    "Cross-node": {
+      "Back": "Reviewer's Checklist"
     }
   }
 }

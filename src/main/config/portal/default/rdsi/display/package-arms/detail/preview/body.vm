@@ -21,20 +21,43 @@
 </dl>
 #end
 
+## notes-table display macro
+#macro(displayNotesTable $title $nlist $noteName)
+    #if($nlist.size() > 0)
+    <h5>#displayMessage($title):</h5>
+    <table>
+    <thead>
+        <tr>
+             <th>Date added</th> <th>Added by</th> <th>$noteName</th>
+        </tr>
+    </thead>
+    <tbody>
+      #foreach($v in $nlist)
+        <tr>
+        <td>$v.get("dateAdded")</td>
+        <td>$v.get("addedBy")</td>
+        <td>$v.get("note")</td>
+        </tr>
+      #end
+    </tbody>
+    </table>
+    #end
+#end
+
 #if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
-## When rendering for web pages, it has $self and $page variables - use them as switches 
+## When rendering for web pages, it has $self and $page variables - use them as switches
 #if($self)
 <link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen"/>
 #set($workflowStage = $self.workflowStage)
 #set($item = $self.item)
 
 	## The request PDFs view may change. Leaves open the option to add in admin view of everything as well as multiple views for other roles.
-	#if(($page.authentication.has_role("reviewer$nodeSuffix")) || ($page.authentication.has_role("reviewer")) || ($page.authentication.has_role('admin'))) 
+	#if(($page.authentication.has_role("reviewer$nodeSuffix")) || ($page.authentication.has_role("reviewer")) || ($page.authentication.has_role('admin')))
 		#set($isReviewer = true)
 	#end
 	#if($page.authentication.has_role("assessor"))
 		#set($isAssessor = true)
-	#end	
+	#end
 	#if(! $self.version)
 		#if ($isReviewer)
 			<p>[Reviewer's version] <a target="_blank" href="$portalPath/download/$oid/reviewer.pdf">Download reviewer request as a PDF</a></p>
@@ -196,7 +219,7 @@
         #foreach($v in $responses)
 			#if($v.get("attachment_type") == "technical_requirement_attachments")
 		<tr>
-			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td>
 			<td>$v.get("description")</td>
 			<td>$v.get("dateAdded")</td>
 			<td>$v.get("addedBy")</td>
@@ -320,7 +343,7 @@
         #foreach($v in $responses)
 			#if($v.get("attachment_type") == "storage-attachments")
 		<tr>
-			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td> 
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td>
 			<td>$v.get("description")</td>
 			<td>$v.get("dateAdded")</td>
 			<td>$v.get("addedBy")</td>
@@ -510,6 +533,14 @@
     ## start of allocation committee submission
     <h4>Provisioning checklist:</h4>
     #displayUL($jsonUtil.getStringList($item, "provisioning_checklist"))
+  ##Cross-node section
+  #set($vals = $jsonUtil.getList($item, "nodeCommunications"))
+    #set($nlist = $jsonUtil.getList($item, "nodeCommunicationList"))
+    #if($vals.size() > 0 || $nlist.size() > 0)
+    <h4>Cross-node:</h4>
+    #displayNotesTable("arms.heading.cross-node.sec1", $vals, "Note")
+    #displayNotesTable("arms.heading.cross-node.sec2", $nlist, "Node")
+  #end ##end of cross-node
 #end
 ##23/12/2013: below commented out as may be brought back in.
 #### end of allocation committee submission

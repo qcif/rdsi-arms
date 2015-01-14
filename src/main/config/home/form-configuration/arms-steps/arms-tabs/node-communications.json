@@ -1,0 +1,52 @@
+{
+  "heading": "Cross-node",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.cross-node.sec1"
+    },
+    {
+      "component-type": "notes-table",
+      "metadataPrefix": "nodeCommunications",
+      "modelName": "nodeCommunicationsModel",
+      "tableName": "NodeCommunicationsTable",
+      "visibleNoteLength": 60,
+      "columns": [
+        {
+          "columnHeader": "Date added"
+        },
+        {
+          "columnHeader": "Added by"
+        },
+        {
+          "columnHeader": "Note"
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.heading.cross-node.sec2"
+    },
+    {
+      "component-type": "notes-table",
+      "metadataPrefix": "nodeCommunicationList",
+      "modelName": "nodeCommunicationListModel",
+      "tableName": "NodeCommunicationListTable",
+      "visibleNoteLength": 60,
+      "textAreaRows": 1,
+      "columns": [
+        {
+          "columnHeader": "Date added"
+        },
+        {
+          "columnHeader": "Added by"
+        },
+        {
+          "columnHeader": "Node"
+        }
+      ]
+    }
+  ]
+}
