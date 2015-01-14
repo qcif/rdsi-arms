@@ -29,14 +29,18 @@
     },
     "Assessments": {
       "Back": "Reviewer Summary",
-      "Next": "Outcome"
-    },
-    "Outcome": {
-      "Back": "Assessments",
       "Next": "Provisioning"
     },
     "Provisioning": {
+      "Back": "Assessments",
+      "Next": "Outcome"
+    },
+    "Outcome": {
+      "Back": "Provisioning",
+      "Next": "Reviewer's Checklist"
+    },
+    "Reviewer's Checklist": {
       "Back": "Outcome"
     }
-  }
+   }
 }
