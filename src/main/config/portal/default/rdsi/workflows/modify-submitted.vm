@@ -1,0 +1,68 @@
+#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+function(item) {
+        jQuery.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait while the request is being created...</h5>'});
+		jQuery.ajax({
+			type: "POST",
+			url: "$portalPath/actions/packaging.ajax",
+			data: {
+				ajax: 1,
+				func: "create-new",
+				packageType: "$packageType",
+                metaList: ["redbox:newForm", "redbox:formVersion","node"],
+                sequencesMetaList: [ '{ "sequenceName":"qcifRequest","metadataName": "requestID","stringFormat":"ARMS_REQUEST_%04d"}'],
+                node: "RDSI$nodeSuffix",
+                "redbox:newForm": "true",
+                "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
+			},
+			success: function(data) {
+			  if (data.status == "ok") {
+				function copyMetadata() {
+					//var oid = item.id;
+					jQuery.ajax({
+						type: "POST",
+						url: "$portalPath/copyTfPackage.ajax",
+						data: {
+							ajax: 1,
+							fromOid: item.id,
+							toOid: data.oid,
+							tfMetaPropertyValue: "requestMore"
+						},
+						success: function(data) {
+							if (data && data.status == "ok") {
+								function redirect() {
+									window.location.href = data.url;
+								}
+								setTimeout(redirect, 1500);
+							} else {
+								jQuery.unblockUI();
+								if (data) {
+									alert("Failed to transfer record! " + data.message);
+								} else {
+									alert("Failed to transfer record! Server did not respond info. Check log.");
+								}
+								location.reload();
+							}
+						},
+						error:  function(xhr, status, e) {
+							jQuery.unblockUI();
+							alert("Failed to complete transferring record!");
+							location.reload();
+						 },
+						dataType: "json"
+						});
+				}
+				setTimeout(copyMetadata, 1500);
+			} else {
+				jQuery.unblockUI();
+				alert("#displayMessage('error-record-create-failed')");
+				location.reload();
+			}
+		},
+		error: function(xhr, status, e) {
+			jQuery.unblockUI();
+			alert("#displayMessage('error-record-create-failed')");
+			location.reload();
+		},
+		dataType: "json"
+	});
+}

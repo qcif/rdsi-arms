@@ -13,7 +13,7 @@
     "default-owner":"admin",
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm", "liveArcProvisioningNotice", "orgNotice"]
+        "metadata": ["jsonVelocity", "requestPdf", "reviewerPdf", "basicVersioning", "proposalForm", "liveArcProvisioningNotice", "orgNotice", "requestMore"]
     },
     "curation": {
         "neverPublish": true,

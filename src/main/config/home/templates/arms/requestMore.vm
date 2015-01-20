@@ -1,0 +1,3 @@
+##reference "${fascinator.home}/templates/self-submission/selfSub.vm"
+#set($s = $item.getJsonObject().put("newoid",$oid))
+$item
