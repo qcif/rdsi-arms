@@ -98,26 +98,6 @@
       ]
     },
     {
-      "name": "arms-redraft",
-      "label": "Redraft",
-      "description": "The requestor is working on the request for re-submission.",
-      "owner_edit_allowed": "true",
-      "security": [
-        "admin"
-      ],
-      "visibility": [
-        "reviewer",
-        "admin"
-      ],
-      "actions": [
-        {
-          "action-name": "next",
-          "target-step": "arms-review"
-        }
-      ],
-      "template": "workflows/simpleworkflow"
-    },
-    {
       "name": "arms-review",
       "label": "Being reviewed",
       "description": "The reviewer is processing the request.",
@@ -139,10 +119,6 @@
         {
           "action-name": "reject",
           "target-step": "arms-rejected"
-        },
-        {
-          "action-name": "return",
-          "target-step": "arms-redraft"
         }
       ],
       "template": "workflows/simpleworkflow"
