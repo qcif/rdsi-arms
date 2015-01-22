@@ -1,0 +1,36 @@
+<div id="originalReqestSum" data-bind="stopBindings: true">
+    <div class="simple-workflow component-wrapper ">
+    <label>Allocation title</label>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+	<p data-bind="text: title"></p>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+    <label>Allocation description</label>
+    </div>
+    <div class="simple-workflow component-wrapper ">
+	<p data-bind="text: description" /></p>
+	<p>See detail of <a data-bind="attr: { href: url }">this request</a>.</p>
+    </div>
+    <hr/>
+</div>
+
+<script>
+
+var requestSum = {
+    title: ko.observable(""),
+    description: ko.observable(""),
+    url: ko.observable("")
+};
+
+startupCompleteListeners.push("initialiseRequestSum");
+
+function initialiseRequestSum() {
+    requestSum.title(jaffa.serverData['dc:title']);
+    requestSum.description(jaffa.serverData['collection:description']);
+    requestSum.url("$portalPath/detail/" + jaffa.serverData['parent-oid']);
+}
+
+ko.applyBindings(requestSum, $("[id='originalReqestSum']")[0]);
+
+</script>

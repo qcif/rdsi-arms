@@ -1,0 +1,141 @@
+<link rel="stylesheet" type="text/css" href="$portalPath/css/arms-request.css" />
+
+## Only needed for requestor
+#set($roles = $page.authentication.get_roles())
+#if ($roles.contains("requestor"))
+#parseTemplate("form-components/delete-record.vm")
+#end
+
+#set($oid = $formData.get("oid"))
+#set($roles = $page.authentication.get_roles())
+#parseTemplate("form-components/actions-bar.vm")
+
+## toggle isFunded and fundingInfoTable
+## The section has label and knockout table, has a special class: .fundinginfoSec but has no ID
+<script type="text/javascript">
+function toggleFundingInfo() {
+	if($('input[name=isFunded]:radio:checked').val() == "Yes" ) {
+		$(".fundinginfoSec").show();
+	} else {
+		$(".fundinginfoSec").hide();
+	}
+}
+
+function copyCustodianToManager(prefix) {
+	var fields =["title","givenName","familyName","organization","organization:other","email","phone","role","state"];
+	var el, i;
+	for (i=0; i<fields.length; i++) {
+		el = document.getElementById(prefix+":"+fields[i]);
+		el.value = document.getElementById("dataprovider:"+fields[i]).value;
+	}
+	if (el = document.getElementById(prefix+":state:prefLabel")) {
+		// also copy :state:prefLabel when it exists
+		el.value = document.getElementById("dataprovider:state:prefLabel").value;
+	}
+	$("[id='"+ prefix +":organization']").change();
+}
+
+// Check if all checkbox are checked
+function allChecked(eid) {
+	return jQuery("input[id^='"+eid+"']:checked").length == jQuery("input[id^='"+eid+"']").length
+}
+
+## This happens after jaffa binds data and triggers changes. If binding applies at that time,
+## dropdown-list is not ready, we have a problem.
+## This binds only when there is the checkbox useCustodianDetials
+## Or simply missed change event
+var bApplyEventBindings = window.setInterval(function() {
+	if($('.jaffa2Loading').length == 0) {
+		toggleFundingInfo();
+		$('input[name=isFunded]:radio').change(toggleFundingInfo);
+
+		window.clearInterval(bApplyEventBindings);
+	}
+},500);
+
+$(document).ready(function() {
+	$(".arms-accordion-group").accordion({
+	        autoHeight:true,
+	        clearStyle:true,
+	        active:false,
+	        collapsible:true,
+	        header:".inline-block-component"
+	});
+
+	// Copy Custodian information
+	jQuery("[id='requester:useCustodianDetials']").click(function() {
+		copyCustodianToManager('requester');
+	});
+
+	jQuery("[id='nodecontact:useCustodianDetials']").click(function() {
+		copyCustodianToManager('nodecontact');
+	});
+
+});
+
+
+### Only load data if user has reviewer role
+### This is required to enable the table defined in arms-tabs/assessment-summary.json to get data
+#if ($roles.contains("reviewer"))
+ var assessmentSummary = { rows: ko.observableArray([]) };
+ #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())
+ #set($members = $responses.keySet())
+ #if(!$members.isEmpty())
+ #foreach($key in $members)
+  #set($response = $responses.get($key))
+  #if($response.get("status") == "submitted")
+   #set($comments = $response.get("comments"))
+   #if($comments)
+	   #set($comments=$page.escapeHtml($comments).replaceAll("\n","<br/>").replaceAll("\r",""))
+   #else
+	   #set($comments="")
+   #end
+   #set($recommandation = $response.get('recommendation'))
+   #set($sizeAgreement = $response.get('size-agreement'))
+   assessmentSummary.rows.push(
+          {
+            "assessor": "$key",
+            "recommendation": "$!recommandation",
+            "sizeAgreement": "$!sizeAgreement",
+            "comments": "$!comments"
+          });
+  #end
+  #end
+ #end
+ ko.applyBindings(assessmentSummary, $("#assessment-summary-table")[0]);
+#end
+
+$(document).ready(function() {
+
+	function toggleOrganisationOther(contact_type) {
+		var fieldId = contact_type + ':organization';
+		if (typeof $("[id='" + fieldId + "']")[0] !== 'undefined') {
+			if ($("[id='" + fieldId + "']")[0].selectedIndex == $("[id='" + fieldId + "']")[0].length - 1) {
+				$("[id='" + contact_type + ":organization:other']").parent().show()
+			} else {
+				$("[id='" + contact_type + ":organization:other']").val("").parent().hide();
+			}
+		}
+	}
+	## See above why .jaffa2Loading is used
+	var contact_types = ['dataprovider','requester','nodecontact'];
+	for (var i=0; i<contact_types.length; i++) {
+		(function(contact_type) {
+			var interval_bind = window.setInterval(function() {
+				if($('.jaffa2Loading').length == 0) {
+					if (jQuery.trim($("[id='" + contact_type + ":organization:other']").val()).length > 0) {
+						var fieldId = contact_type + ':organization';
+						$("[id='" + fieldId + "']")[0].selectedIndex = $("[id='" + fieldId + "']")[0].length - 1;
+					}
+					toggleOrganisationOther(contact_type);
+					if ($("[id='"+ contact_type +":organization']").length != 0 ) {
+						$("[id='"+ contact_type +":organization']").change(function() {
+							toggleOrganisationOther(contact_type);
+						});
+						window.clearInterval(interval_bind);
+					}
+				}
+			},500);})(contact_types[i]);
+	}
+});
+</script>

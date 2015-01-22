@@ -1,7 +1,7 @@
 {
   "stages": {
     "arms-draft": {
-      "config-file": "form-configuration/arms-steps/arms-draft.json"
+      "config-file": "form-configuration/arms-steps/arms-storage-draft.json"
     },
     "arms-review": {
       "config-file": "form-configuration/arms-steps/arms-review.json"

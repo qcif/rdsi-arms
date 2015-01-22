@@ -1,0 +1,10 @@
+{
+    "steps": {
+        "Storage requirements": {
+            "Next": "Declarations"
+        },
+        "Declarations": {
+            "Back": "Storage requirements"
+        }
+    }
+}
