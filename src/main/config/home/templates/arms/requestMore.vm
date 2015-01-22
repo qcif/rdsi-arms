@@ -1,3 +1,7 @@
 ##reference "${fascinator.home}/templates/self-submission/selfSub.vm"
-#set($s = $item.getJsonObject().put("newoid",$oid))
+#set($jObj = $item.getJsonObject())
+#set($oldOid = $util.get($item, "oid"))
+#set($s = $jObj.put("parent-oid",$oldOid))
+#set($s = $jObj.put("packageType","arms-storage"))
+#set($s = $jObj.remove("related.datasets"))
 $item

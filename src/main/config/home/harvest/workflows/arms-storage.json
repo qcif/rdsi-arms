@@ -1,0 +1,193 @@
+{
+  "presentation-settings": {},
+  "harvester": {
+    "type": "workflow-harvester",
+    "workflow-harvester": {
+      "force-storage": "true"
+    }
+  },
+  "workflow-id": "arms-storage",
+  "page-title": "RDSI ARMS Storage Increasing Request",
+  "default-owner": "admin",
+  "transformer": {
+    "curation": [
+      "local"
+    ],
+    "metadata": [
+      "jsonVelocity",
+      "requestPdf",
+      "reviewerPdf",
+      "basicVersioning",
+      "proposalForm",
+      "liveArcProvisioningNotice",
+      "orgNotice",
+      "requestMore"
+    ]
+  },
+  "curation": {
+    "neverPublish": true,
+    "alreadyCurated": false
+  },
+  "display-type": "package-arms",
+  "transformerOverrides": {
+    "local": {
+      "template": "${server.url.base}published/detail/[[OID]]"
+    },
+    "requestPdf": {
+      "sourcePayload": ".tfpackage",
+      "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+      "outputFilename": "request.pdf",
+      "velocityContextParams": {
+        "workflowStage": "arms-draft",
+        "isReviewer": false
+      }
+    },
+    "reviewerPdf": {
+      "sourcePayload": ".tfpackage",
+      "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+      "outputFilename": "reviewer.pdf",
+      "velocityContextParams": {
+        "workflowStage": "arms-review",
+        "isReviewer": true
+      }
+    },
+    "proposalForm": {
+      "sourcePayload": ".tfpackage",
+      "templatesPath": "${fascinator.home}/templates/proposal-form/allocation_proposal_form.vm",
+      "outputFilename": "allocation.pdf"
+    },
+    "liveArcProvisioningNotice": {
+      "id": "scripting",
+      "scriptType": "groovy",
+      "scriptPath": "${fascinator.home}/transformer-scripts/provisionNotifier.groovy"
+    },
+    "orgNotice": {
+      "id": "scripting",
+      "scriptType": "groovy",
+      "scriptPath": "${fascinator.home}/transformer-scripts/orgNotifier.groovy"
+    }
+  },
+  "indexer": {
+    "script": {
+      "type": "python",
+      "rules": "simpleworkflow-rules.py"
+    },
+    "params": {
+      "repository.name": "ReDBox",
+      "repository.type": "Data Management Portal"
+    }
+  },
+  "form-configuration": "form-configuration/armsform-storage.json",
+  "stages": [
+    {
+      "name": "arms-draft",
+      "label": "Draft",
+      "description": "The requestor is working on the request.",
+      "owner_edit_allowed": "true",
+      "security": [
+        "admin"
+      ],
+      "visibility": [
+        "admin"
+      ],
+      "actions": [
+        {
+          "action-name": "next",
+          "target-step": "arms-review"
+        }
+      ]
+    },
+    {
+      "name": "arms-redraft",
+      "label": "Redraft",
+      "description": "The requestor is working on the request for re-submission.",
+      "owner_edit_allowed": "true",
+      "security": [
+        "admin"
+      ],
+      "visibility": [
+        "reviewer",
+        "admin"
+      ],
+      "actions": [
+        {
+          "action-name": "next",
+          "target-step": "arms-review"
+        }
+      ],
+      "template": "workflows/simpleworkflow"
+    },
+    {
+      "name": "arms-review",
+      "label": "Being reviewed",
+      "description": "The reviewer is processing the request.",
+      "owner_edit_allowed": "false",
+      "security": [
+        "reviewer",
+        "admin"
+      ],
+      "visibility": [
+        "reviewer",
+        "admin",
+        "assessor"
+      ],
+      "actions": [
+        {
+          "action-name": "approve",
+          "target-step": "arms-approved"
+        },
+        {
+          "action-name": "reject",
+          "target-step": "arms-rejected"
+        },
+        {
+          "action-name": "return",
+          "target-step": "arms-redraft"
+        }
+      ],
+      "template": "workflows/simpleworkflow"
+    },
+    {
+      "name": "arms-rejected",
+      "label": "Not approved",
+      "description": "The request has not been approved.",
+      "owner_edit_allowed": "false",
+      "security": [
+        "reviewer",
+        "admin"
+      ],
+      "visibility": [
+        "reviewer",
+        "admin"
+      ],
+      "actions": [
+        {
+          "action-name": "reopen",
+          "target-step": "arms-review"
+        }
+      ],
+      "template": "workflows/simpleworkflow"
+    },
+    {
+      "name": "arms-approved",
+      "label": "Approved",
+      "description": "The request has been approved.",
+      "owner_edit_allowed": "false",
+      "security": [
+        "reviewer",
+        "admin"
+      ],
+      "visibility": [
+        "reviewer",
+        "admin"
+      ],
+      "actions": [
+        {
+          "action-name": "reopen",
+          "target-step": "arms-review"
+        }
+      ],
+      "template": "workflows/simpleworkflow"
+    }
+  ]
+}

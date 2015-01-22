@@ -1,0 +1,25 @@
+{
+  "stages": {
+    "arms-draft": {
+      "config-file": "form-configuration/arms-steps/arms-draft.json"
+    },
+    "arms-redraft": {
+      "config-file": "form-configuration/arms-steps/arms-draft.json"
+    },
+    "arms-review": {
+      "config-file": "form-configuration/arms-steps/arms-review.json"
+    },
+    "arms-assessment": {
+      "config-file": "form-configuration/arms-steps/arms-assessment.json"
+    },
+    "arms-approved": {
+      "config-file": "form-configuration/arms-steps/arms-approved.json"
+    },
+    "arms-provisioned": {
+      "config-file": "form-configuration/arms-steps/arms-provisioned.json"
+    },
+    "arms-rejected": {
+      "config-file": "form-configuration/arms-steps/arms-rejected.json"
+    }
+  }
+}

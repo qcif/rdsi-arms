@@ -7,7 +7,7 @@ function(item) {
 			data: {
 				ajax: 1,
 				func: "create-new",
-				packageType: "$packageType",
+				packageType: "arms-storage",
                 metaList: ["redbox:newForm", "redbox:formVersion","node"],
                 sequencesMetaList: [ '{ "sequenceName":"qcifRequest","metadataName": "requestID","stringFormat":"ARMS_REQUEST_%04d"}'],
                 node: "RDSI$nodeSuffix",

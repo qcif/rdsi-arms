@@ -126,6 +126,52 @@ jQuery(document).ready(function() {
 #parseTemplate( "home-components/create-request.vm" )
 #parseTemplate("wrapping/info-box-close.vm")
 
+## arms-storage - arms-draft
+#set($menuTitle = "#displayMessage('Draft of storage augment request')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+#set($results = $self.getListOfStage("arms-storage", 'arms-draft'))
+#if ($results && $results.size() > 0)
+<script>
+var myAugRcds = new DataRowsModel("requestor", null, "arms-storage");
+myAugRcds.changeOwner = function(item) { delete_record(item.id); };
+myAugRcds.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(myAugRcds, jQuery('#myAugRcdsTbl')[0]);
+    setupPagingCtrls('myAugRcdsPaging', myAugRcds, $results);
+});
+
+</script>
+
+<table id="myAugRcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.action.edit')</th>
+            <th>#displayMessage('arms.requests.action.delete')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        <td><a href="#" data-bind="click: $parent.changeOwner" title="Delete request"><img alt="Delete request" src="$portalPath/images/icons/delete.png"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("myAugRcdsPaging")
+#end
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+## end of arms-storage - arms-draft
+
 #set($results = $self.getListOfStage("$packageType", 'arms-redraft'))
 #if ($results && $results.size() > 0)
 #set($menuTitle = "#displayMessage('arms.dashboard.requestor.resubmission')")
@@ -172,7 +218,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.dashboard.requestor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
-#set($results = $self.getLatestState("$packageType", 'arms-review,arms-assessment,arms-approved,arms-provisioned,arms-rejected'))
+#set($results = $self.getLatestState("$packageType", 'arms-review,arms-approved,arms-rejected'))
 #if ($results && $results.size() > 0)
     #setSubmittedTbl('submitted' $results)
 #end
@@ -188,3 +234,47 @@ jQuery(document).ready(function() {
 </div>
 #parseTemplate("wrapping/info-box-close.vm")
 #end
+
+## arms-storage - arms-submitted
+#set($results = $self.getLatestState("arms-storage", 'arms-review,arms-approved,arms-rejected'))
+#if ($results && $results.size() > 0)
+#set($menuTitle = "Storage augment:" + "#displayMessage('arms.dashboard.requestor.submitted')")
+#parseTemplate("wrapping/info-box-open.vm")
+<div class="block">
+<script>
+var storageSubmittedResults = new DataRowsModel("submitted", null, "arms-storage");
+storageSubmittedResults.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(storageSubmittedResults, jQuery('#storageSubmittedResultsTbl')[0]);
+    setupPagingCtrls('storageSubmittedPaging', storageSubmittedResults, $results);
+});
+</script>
+
+<table id="storageSubmittedResultsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.date')</th>
+            <th>#displayMessage('arms.requests.table.status')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a>
+        </td>
+        <td data-bind="text: eventTime"/>
+        <td data-bind="text: workflow_step_label"/>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("storageSubmittedPaging")
+#end
+</div>
+#parseTemplate("wrapping/info-box-close.vm")
+## end of arms-storage - arms-submitted

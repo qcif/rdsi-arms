@@ -1,0 +1,621 @@
+## contact display macro
+#macro(displayContact $contactType)
+<dl>
+	<dt>Name:</dt>
+	<dd>#getValue("$contactType:title")
+	#getValue("$contactType:givenName")
+	#getValue("$contactType:familyName")</dd>
+	<dt>Email:</dt>
+	<dd>#getValue("$contactType:email")</dd>
+	<dt>Telephone:</dt>
+	<dd>#getValue("$contactType:phone")</dd>
+	<dt>State:</dt>
+	<dd>#getValue("$contactType:state:prefLabel")</dd>
+	<dt>Role:</dt>
+	<dd>#getValue("$contactType:role")</dd>
+	<dt>Organisation:</dt>
+	#set($f = "$contactType:organization:other")
+	#set($v = "#getValue($f)")
+	#set($v = $v.trim())
+	<dd> #if($v && $!v != '') $v #else #getValue("$contactType:organization") #end </dd>
+</dl>
+#end
+
+## notes-table display macro
+#macro(displayNotesTable $title $nlist $noteName)
+    #if($nlist.size() > 0)
+    <h5>#displayMessage($title):</h5>
+    <table>
+    <thead>
+        <tr>
+             <th>Date added</th> <th>Added by</th> <th>$noteName</th>
+        </tr>
+    </thead>
+    <tbody>
+      #foreach($v in $nlist)
+        <tr>
+        <td>$v.get("dateAdded")</td>
+        <td>$v.get("addedBy")</td>
+        <td>$v.get("note")</td>
+        </tr>
+      #end
+    </tbody>
+    </table>
+    #end
+#end
+
+#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+## When rendering for web pages, it has $self and $page variables - use them as switches
+#if($self)
+<link href="$portalPath/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="screen"/>
+#set($workflowStage = $self.workflowStage)
+#set($item = $self.item)
+
+	## The request PDFs view may change. Leaves open the option to add in admin view of everything as well as multiple views for other roles.
+	#if(($page.authentication.has_role("reviewer$nodeSuffix")) || ($page.authentication.has_role("reviewer")) || ($page.authentication.has_role('admin')))
+		#set($isReviewer = true)
+	#end
+	#if($page.authentication.has_role("assessor"))
+		#set($isAssessor = true)
+	#end
+	#if(! $self.version)
+		#if ($isReviewer)
+			<p>[Reviewer's version] <a target="_blank" href="$portalPath/download/$oid/reviewer.pdf">Download reviewer request as a PDF</a></p>
+			<p>[Allocation committee's version] <a target="_blank" href="$portalPath/download/$oid/allocation.pdf">Download committee request as a PDF</a></p>
+		#end
+		#if (!$isReviewer || $page.authentication.has_role('admin'))
+			<p><a target="_blank" href="$portalPath/download/$oid/request.pdf">Download request as a PDF</a></p>
+		#end
+	#end
+#else
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href="default/rdsi/css/package-arms/screen.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="default/rdsi/css/package-arms/print.css" rel="stylesheet" type="text/css" media="print"/>
+</head>
+<body>
+<h1>#getValue("dc:title")</h1>
+#end
+## version indication
+#if($self && $self.version)<p id="version_string">This version was created at $self.version</p>#end
+## common part starts from here
+
+<h4>Description</h4>
+<p>#getValue("collection:description")</p>
+<h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
+#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
+
+<h4>#displayMessage("arms.heading.contactdetails")</h4>
+<div class="people-container">
+	<div class="people">
+		<h5>#displayMessage("arms.field.label.dataprovider")</h5>
+		#displayContact('dataprovider')
+	</div>
+	<div class="people">
+		<h5>#displayMessage("arms.field.label.requester")</h5>
+		#displayContact('requester')
+	</div>
+</div>
+<div class="people-container">
+	<div class="people">
+		<h5>#displayMessage("arms.field.label.nodecontact")</h5>
+		#displayContact('nodecontact')
+	</div>
+</div>
+
+<h4>#displayMessage("arms.heading.data-collection")</h4>
+<p class="item_title">Target audience:</p>
+<p>#getValue("collection-details-audience")</p>
+<p class="item_title">#displayMessage("arms.field.label.completeness")</p>
+<p>#getValue("completeness") #getValue("complete_date")</p>
+
+<p class="item_title">#displayMessage("arms.heading.researchdata-access")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "level-access"))
+<p>#displayMessage("arms.description.researchdata-access") $v</p>
+#if ($v == "Yes")
+	<p>#displayMessage("arms.description.researchdata-access-date-description") #getValue("futureAccessDate")</p>
+	<p>#displayMessage("arms.description.researchdata-access-description") #getValue("level-access-details")</p>
+#end
+
+<p class="item_title">#displayMessage("arms.section.methodmeta")</p>
+<p>#displayMessage("arms.field.label.methodmeta") #getValue("methodmeta")</p>
+<p>Format and Location: #getValue("methoddetails")</p>
+
+<p class="item_title">Support</p>
+<p>Support or Tools: #getValue("support")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionA.title")</p>
+<p>#getValue("collection-details-related-collections")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionB.title")</p>
+<p>Access restrictions: #getValue("collection-details-access-level")</p>
+#set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
+#set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
+#set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
+<table>
+    <thead>
+        <tr>
+                        <th>Restriction</th>
+                        <th>Notes</th>
+                        <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($restriction in $accessRestrictions)
+                #if ($StringUtils.isNotBlank($restriction))
+                        #set($accessCount = $velocityCount - 1)
+                        <tr>
+                                <td>$StringEscapeUtils.escapeHtml($restriction)</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessNotes.get($accessCount))</td>
+                                <td>$StringEscapeUtils.escapeHtml($accessDates.get($accessCount))</td>
+                        </tr>
+                #end
+        #end
+    </tbody>
+</table>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionC.title")</p>
+<p>#getValue("collection-details-licence-use")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionD.title")</p>
+<p>#getValue("collection-details-citations")</p>
+
+
+
+<h4>#displayMessage("arms.field.label.section3-title")</h4>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionA.title")</p>
+<p>#getValue("merit-description")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionB.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-origin"))
+#displayUL($vals)
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphA.title")</p>
+<p>#getValue("institutional-support")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphB.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "merit-intent"))
+#displayUL($vals)
+
+
+
+<h4 style="clear: left">#displayMessage("arms.field.label.section4-title")</h4>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.title")</p>
+#displayULFiltered($jsonUtil.getStringList($item, "storage-location:prefLabel") $jsonUtil.getStringList($item, "storage-location"))
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.paragraphC.description")</p>
+<p>#getValue("storage-purpose")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.title")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphA")</h5>
+<p>#getValue("storage-current-size")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphB")</h5>
+<p>#getValue("storage-expected-size")</p>
+
+<h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
+<p>#getValue("storage-estimated-growth-rate")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.paragraphE")</p>
+## Here does not have a owner check: onwer info is in solr? Need to filter attachment_type
+#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+#if ($responses.size() > 0)
+<table>
+    <thead>
+        <tr>
+                <th>Filename</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Added by</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($v in $responses)
+			#if($v.get("attachment_type") == "technical_requirement_attachments")
+		<tr>
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td>
+			<td>$v.get("description")</td>
+			<td>$v.get("dateAdded")</td>
+			<td>$v.get("addedBy")</td>
+		</tr>
+			#end
+    	#end
+    </tbody>
+</table>
+#end
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphA.title")</p>
+<p>Expectation: #getValue("storage-duration")</p>
+<p>Date : #getValue("storage-duration-date")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphB.title")</p>
+<p>#getValue("storage-data-format")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphC.title")</p>
+<p>Only copy? : #getValue("storage-data-loss-only-copy")</p>
+<p>Regeneration : #getValue("storage-data-loss-regenerate")</p>
+<p>Impact : #getValue("storage-data-loss-management-impact")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphD.title")</p>
+<p>#getValue("storage-data-migration-medium")</p>
+#set($vals = $jsonUtil.getStringList($item, "storage-data-migration-assistance"))
+#displayUL($vals)
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphE.title")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "storage-ingest-milestones-indicator"))
+<p>$v</p>
+#if ($v == "#displayMessage('arms.field.label.section4-subsectionC.paragraphE.statementA.pointB')")
+
+#set($completedStorage = $jsonUtil.getStringList($item, "storage-ingest-completed"))
+#set($ingest25 = $jsonUtil.getStringList($item, "storage-ingest-date-25percent"))
+#set($ingest50 = $jsonUtil.getStringList($item, "storage-ingest-date-50percent"))
+#set($ingest75 = $jsonUtil.getStringList($item, "storage-ingest-date-75percent"))
+#set($ingest100 = $jsonUtil.getStringList($item, "storage-ingest-date-100percent"))
+<table>
+    <thead>
+        <tr>
+			<th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.title")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerA")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerB")</th>
+	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerC")</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA")</td>
+        	#foreach($val in $completedStorage)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>yes</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointB")</td>
+        	#foreach($val in $ingest25)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+       		<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointC")</td>
+        	#foreach($val in $ingest50)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointD")</td>
+        	#foreach($val in $ingest75)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+        <tr>
+        	<td>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointE")</td>
+        	#foreach($val in $ingest100)
+        		#set($accessCount = $velocityCount - 1)
+                #if ($StringUtils.isNotBlank($val))
+                	<td>$StringEscapeUtils.escapeHtml($val)</td>
+                #else
+                	<td>&nbsp;</td>
+                #end
+        	#end
+        </tr>
+    </tbody>
+</table>
+#end
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphF.title")</p>
+#set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
+#if ($responses.size() > 0)
+<table>
+    <thead>
+        <tr>
+                <th>Filename</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Added by</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        #foreach($v in $responses)
+			#if($v.get("attachment_type") == "storage-attachments")
+		<tr>
+			<td><a href="$portalPath/detail/$v.get("oid")/$v.get("filename")" target="_blank">$v.get("filename")</a></td>
+			<td>$v.get("description")</td>
+			<td>$v.get("dateAdded")</td>
+			<td>$v.get("addedBy")</td>
+		</tr>
+			#end
+    	#end
+    </tbody>
+</table>
+#end
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphG.title")</p>
+<p>Standard interfaces? : #getValue("storage-interfaces-standard")</p>
+#set($v = $jsonUtil.getEmptyIfNull($item, "storage-interfaces-other"))
+<p>Other interfaces? : $v</p>
+#if ($v == "#displayMessage('arms.field.label.section4-subsectionC.paragraphG.statementB.pointA')")
+	<p> Other interface description: #getValue("storage-interfaces-other-description")</p>
+#end
+<p>Tools : #getValue("storage-tools-other")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphH.title")</p>
+<p>Researcher distribution: #getValue("storage-geographic-distribution-researchers")</p>
+<p>Researcher distribution: #getValue("storage-geographic-distribution-tools")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphI.title")</p>
+#set($vals = $jsonUtil.getStringList($item, "storage-related-infrastructure-services"))
+#displayUL($vals)
+<p>#getValue("storage-related-infrastructure-other")</p>
+
+<p class="item_title">#displayMessage("arms.field.label.section4-subsectionC.paragraphJ.title")</p>
+<p>#getValue("storage-other-technical")</p>
+
+#if($isReviewer || $isAssessor)
+    ## start of allocation committee submission
+    <h4>#displayMessage("arms.heading.allocation-committee")</h4>
+    <p class="item_title">NODE: #getValue("node")</p>
+    <p class="item_title">Request ID: #getValue("requestID")</p>
+    <p>&nbsp;</p>
+		<h5>Part A</h5>
+		<dl>
+				<dt>Proposed data holding and its source</dt>
+				<dd>#getValue("reviewer-proposed")</dd>
+				<dt>Assessment against ReDS Guidelines</dt>
+				<dd>#getValue("reviewer-assessment")</dd>
+				<dt>Rationale for first instance, including a statement of interest by the node</dt>
+				<dd>#getValue("reviewer-rationale1")</dd>
+				<dt>Rationale for class(es) of storage for first the instance</dt>
+				<dd>#getValue("reviewer-rationale2")</dd>
+				<dt>Rationale for the second instance (if proposed) including its extent, location and storage class(es)</dt>
+				<dd>#getValue("reviewer-rationale3")</dd>
+				<dt>Summary of the activities to be undertaken to achieve ingest and meet accessibility requirements</dt>
+				<dd>#getValue("reviewer-summary")</dd>
+				<dt>Expected completion date (all milestones met)</dt>
+				<dd>#getValue("completion-date")</dd>
+		</dl>
+
+
+		<h5>Part B</h5>
+		<table class="align-centre">
+			<thead>
+				<tr>
+					<th>Unit costs</th>
+					<th>Standard Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>High speed disk</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Cost/TB ($)</td>
+				<td>#getValue("unitcost:standard")</td>
+				<td>#getValue("unitcost:tape")</td>
+				<td>#getValue("unitcost:volume")</td>
+				<td>#getValue("unitcost:highspeed")</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table class="align-centre">
+			<thead>
+				<tr>
+					<th style="width:8em">&#xA0;</th>
+					<th colspan="3">Instance A (#getValue("instanceA-location:prefLabel"))</th>
+					<th colspan="3">Instance B (#getValue("instanceB-location:prefLabel"))</th>
+					<th>&#xA0;</th>
+				</tr>
+				<tr>
+					<th>Ingest milestone (by $ value)</th>
+					<th>Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>Disk</th>
+					<th>Tape</th>
+					<th>Volume</th>
+					<th>Indicative Date</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>100%</td>
+				<td>#getValue("ingest-4qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-4qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-4qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(25%)</td>
+				<td>#getValue("ingest-1qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-1qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-1qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(50%)</td>
+				<td>#getValue("ingest-2qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-2qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-2qtr:indic-date")</td>
+			</tr>
+			<tr>
+				<td>(75%)</td>
+				<td>#getValue("ingest-3qtr:A:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:A:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:disk")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:tape")(TB)</td>
+				<td>#getValue("ingest-3qtr:B:volume")(TB)</td>
+				<td>#getValue("ingest-3qtr:indic-date")</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Milestones</th>
+					<th>Status</th>
+					<th>Indicative Date</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>Discovery metadata</td>
+				<td>#getValue("discover:status")</td>
+				<td>#getValue("discover:date")</td>
+			</tr>
+			<tr>
+				<td>Accessibility</td>
+				<td>#getValue("accessibility:status")</td>
+				<td>#getValue("accessibility:date")</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<h5>Part C</h5>
+		<dl>
+				<dt>#displayMessage('arms.heading.review-PartC.item1')</dt>
+				<dd>#getValue("offer-type")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item2')</dt>
+				<dd>#getValue("storage-offering")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item3')</dt>
+				<dd>#getValue("storage-expected-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item4')</dt>
+				<dd>#getValue("storage-current-size")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item5')</dt>
+				<dd>#getValue("data-ingested")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item6')</dt>
+				<dd>#getValue("techassess-data-access")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item7')</dt>
+				<dd>#getValue("migration-by")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item8')</dt>
+				<dd>#getValue("est-effort")</dd>
+				<dt>#displayMessage('arms.heading.review-PartC.item9')</dt>
+				<dd>#getValue("techassess-other")</dd>
+		</dl>
+#end
+#if ($isReviewer)
+    ## start of allocation committee submission
+    <h4>Provisioning checklist:</h4>
+    #displayUL($jsonUtil.getStringList($item, "provisioning_checklist"))
+  ##Cross-node section
+  #set($vals = $jsonUtil.getList($item, "nodeCommunications"))
+    #set($nlist = $jsonUtil.getList($item, "nodeCommunicationList"))
+    #if($vals.size() > 0 || $nlist.size() > 0)
+    <h4>Cross-node:</h4>
+    #displayNotesTable("arms.heading.cross-node.sec1", $vals, "Note")
+    #displayNotesTable("arms.heading.cross-node.sec2", $nlist, "Node")
+  #end ##end of cross-node
+#end
+##23/12/2013: below commented out as may be brought back in.
+#### end of allocation committee submission
+#### Committee response table for reviewer
+###set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'committee-responses.metadata').getJsonObject())
+###if($isReviewer)
+###set($members = $responses.keySet())
+###if(!$members.isEmpty())
+##<h4>Committee responses</h4>
+###if($self.version) <p style="color:red; font-weight:bold;">Committee responses is not being versioned </p>#end
+##<table>
+##<tr>
+##        <th>Member</th>
+##        <th>Response</th>
+##        <th>Comment</th>
+##</tr>
+###foreach($key in $members)
+##<tr>
+###set($response = $responses.get($key))
+##<td>$key</td>
+##<td>$StringEscapeUtils.escapeHtml($response.get("approval"))</td>
+##<td>$StringEscapeUtils.escapeHtml($response.get("approval_comment"))</td>
+##</tr>
+###end
+##</table>
+###end
+###end
+
+## This uses $page as an indicator for testing if it is in portal velocity context
+#if($page)
+###if(!$self.version)
+###if($page.authentication.has_role('committee')) ## Actual role has to be used.
+###set($committeeResponse = $responses.get($page.authentication.get_username()))
+##<h4>Committee responses</h4>
+##<form action="$portalPath/allocation-committee/committee.script" method="POST">
+##<input type="hidden" name="oid" value="$oid" />
+###set($approval = $committeeResponse.get("approval"))
+##<p>
+##        <label>
+##                <input name="approval" value="Approved for REDS" type="radio" #if($approval == "Approved for REDS") checked #end>Approved for REDS
+##        </label>
+##</p>
+##<p>
+##        <label>
+##                <input name="approval" value="Approved for CDS" type="radio" #if($approval == "Approved for CDS") checked #end>Approved for CDS
+##        </label>
+##</p>
+##<p>
+##        <label>
+##                <input name="approval" value="Not approved" type="radio" #if($approval == "Not approved") checked #end>Not approved</label>
+##        </label>
+##</p>
+##<label for="approval_comment">Comment</label>
+##<textarea name="approval_comment" id="approval_comment">#if($committeeResponse.get("approval_comment"))$StringEscapeUtils.escapeHtml($committeeResponse.get("approval_comment"))#end</textarea>
+##<input type="submit" value="Submit" />
+##</form>
+###end
+###end
+#else
+## finish off XHTML for PDF
+#if ($isReviewer || $isAssessor)
+<div class="node-approval-container">
+    <h4>APPROVALS</h4>
+    <div style="display:inline-block; margin-right:9em; vertical-align:top;">
+        <div>#displayMessage("node.title1.person1")</div>
+        <div style="margin-bottom:2em;">#displayMessage("node.title2")</div>
+        <div>#displayMessage("node.title3")</div>
+    </div>
+    <div style="display:inline-block; vertical-align:top;">
+        <div>#displayMessage("node.title1.person2")</div>
+        <div style="margin-top:1em;margin-bottom:2em;">#displayMessage("node.title2")</div>
+        <div>#displayMessage("node.title3")</div>
+    </div>
+</div>
+#end
+</body>
+</html>
+#end
