@@ -3,5 +3,18 @@
 #set($oldOid = $util.get($item, "oid"))
 #set($s = $jObj.put("parent-oid",$oldOid))
 #set($s = $jObj.put("packageType","arms-storage"))
+## reset these values
+#set($s = $jObj.put("request-declarations.1","null"))
+#set($s = $jObj.put("request-declarations.2","null"))
+#set($s = $jObj.put("outcome-decision",""))
+#set($s = $jObj.put("outcome-allocation-id",""))
+#set($s = $jObj.put("outcome-approved-size",""))
+#set($s = $jObj.put("provisioning_checklist.1", "null"))
+#set($s = $jObj.put("provisioning_checklist.2", "null"))
+#set($s = $jObj.put("provisioning_checklist.3", "null"))
+#set($s = $jObj.put("provisioning_checklist.4", "null"))
 #set($s = $jObj.remove("related.datasets"))
+#set($s = $jObj.put("provisioning-reference",""))
+#set($s = $jObj.put("date-provisioned",""))
+#set($s = $jObj.put("provisioning-notes",""))
 $item
