@@ -1,17 +1,23 @@
+## load pagination controls
+#parseTemplate("home-components/pagingControl.vm")
+
+## To display a table of requests which assessor has finished
+#macro(AccessorAssessed $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+
 #set($results = $self.checkRequests(['1'], 'assessor-assessed'))
 ##logic is unclear whether this should be using workflow of arms-assessment or checklist.
 ##set($results2 = $self.getAllStates("$packageType", 'arms-assessment'))
+
 #if ($results && $results.size() > 0)
-#parseTemplate("home-components/pagingControl.vm")
-#set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
-#parseTemplate("wrapping/info-box-open.vm")
 <script>
-var assessmentFinal = new DataRowsModel('assessor-assessed');
-assessmentFinal.prepareData = function(data) {
+var AFinal${packageTypeNorm} = new DataRowsModel('assessor-assessed', null, '$packageType');
+AFinal${packageTypeNorm}.prepareData = function(data) {
     for(var i=0; i < data.length; i++) {
         data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
         if (data[i].hasOwnProperty("date")) {
-            data[i]["assessment_submitted_date"] = data[i]["date"]; 
+            data[i]["assessment_submitted_date"] = data[i]["date"];
         } else {
             data[i]["assessment_submitted_date"] = "";
         }
@@ -20,13 +26,14 @@ assessmentFinal.prepareData = function(data) {
 }
 
 jQuery(document).ready(function() {
-    ko.applyBindings(assessmentFinal, jQuery('#assessmentFinalTbl')[0]);
-    setupPagingCtrls('assessmentFinalPaging', assessmentFinal, $results);
+    ko.applyBindings(AFinal${packageTypeNorm}, jQuery('#AFinal${packageTypeNorm}Tbl')[0]);
+    setupPagingCtrls('AFinal${packageTypeNorm}Paging', AFinal${packageTypeNorm}, $results);
 });
 </script>
 
 <div class="block">
-<table id="assessmentFinalTbl" data-bind="stopBindings: true">
+<h4>#displayMessage($title)</h4>
+<table id="AFinal${packageTypeNorm}Tbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -40,8 +47,22 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("assessmentFinalPaging")
+#setPagingCtrl("AFinal${packageTypeNorm}Paging")
 </div>
+#end
+
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+## end of macro
+
+
+
+#set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
+#parseTemplate("wrapping/info-box-open.vm")
+
+#AccessorAssessed('arms', 'arms.dashboard.assessor.assessed.h4.origin')
+#AccessorAssessed('arms-storage', 'arms.dashboard.assessor.assessed.h4.storage')
 
 #parseTemplate("wrapping/info-box-close.vm")
-#end
+
