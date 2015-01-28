@@ -1,237 +1,42 @@
 ## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
+#parseTemplate("home-components/reviewer/tables.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
-#set($results = $self.checkRequests([],'reviewer'))
-#if ($results && $results.size() > 0)
-
-<script>
-var reviewerRecords = new DataRowsModel('reviewer');
-reviewerRecords.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-        data[i]["eventTime"] = data[i][String(data[i]["workflow_step"]).replace('-','_') + '_eventTime'];
-        this.rows.push(data[i]);
-    }
-}
-
-jQuery(document).ready(function() {
-    ko.applyBindings(reviewerRecords, jQuery('#reviewerRecordsTbl')[0]);
-    setupPagingCtrls('reviewerRecordsPaging', reviewerRecords, $results);
-});
-</script>
-
-<div class="block">
-<h4>#displayMessage('arms.dashboard.reviewer.review.h4.origin')</h4>
-<table id="reviewerRecordsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.submitted')</th>
-            <th>#displayMessage('arms.requests.table.lastaction')</th>
-            <th>#displayMessage('arms.requests.table.lastdate')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_review_eventTime"/>
-        <td data-bind="text: workflow_step_label"></td>
-        <td data-bind="text: eventTime"></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("reviewerRecordsPaging")
-</div>
-#end
+##arms
+#ReviewerSubmitted('arms','arms.dashboard.reviewer.review.h4.origin')
 
 ##arms-storage
-#set($results = $self.setPackageType("packageType:arms-storage"))
-#set($results = $self.checkRequests([],'reviewer'))
-#if ($results && $results.size() > 0)
+#ReviewerSubmitted('arms-storage','arms.dashboard.reviewer.review.h4.storage')
 
-<script>
-var reviewerStorageRecords = new DataRowsModel('reviewer', null, 'arms-storage');
-reviewerStorageRecords.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-        data[i]["eventTime"] = data[i][String(data[i]["workflow_step"]).replace('-','_') + '_eventTime'];
-        this.rows.push(data[i]);
-    }
-}
-
-jQuery(document).ready(function() {
-    ko.applyBindings(reviewerStorageRecords, jQuery('#reviewerStorageRecordsTbl')[0]);
-    setupPagingCtrls('reviewerStorageRecordsPaging', reviewerStorageRecords, $results);
-});
-</script>
-
-<div class="block">
-<h4>#displayMessage('arms.dashboard.reviewer.review.h4.storage')</h4>
-<table id="reviewerStorageRecordsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.submitted')</th>
-            <th>#displayMessage('arms.requests.table.lastaction')</th>
-            <th>#displayMessage('arms.requests.table.lastdate')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_review_eventTime"/>
-        <td data-bind="text: workflow_step_label"></td>
-        <td data-bind="text: eventTime"></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("reviewerStorageRecordsPaging")
-</div>
-#end
-##end of arms-storage
-#set($results = $self.setPackageType("packageType:arms"))
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.assessment')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.checkRequests(['1'],'reviewer'))
-#if ($results && $results.size() > 0)
 
-<script>
-var assessorRecords = new DataRowsModel('reviewer-assessing');
-assessorRecords.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
-        this.rows.push(data[i]);
-    }
-}
+#ReviewerAssessing('arms','arms.dashboard.reviewer.assessing.h4.origin')
+#ReviewerAssessing('arms-storage','arms.dashboard.reviewer.assessing.h4.storage')
 
-jQuery(document).ready(function() {
-    ko.applyBindings(assessorRecords, jQuery('#assessorRecordsTbl')[0]);
-    setupPagingCtrls('assessorRecordsPaging', assessorRecords, $results);
-});
-</script>
-
-<div class="block">
-<table id="assessorRecordsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.submitted')</th>
-            <th>#displayMessage('arms.requests.table.responses')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_review_eventTime"/>
-        <td data-bind="text: 'responses: coming'"></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("assessorRecordsPaging")
-
-</div>
-#end
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.assessor.submitted')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.checkRequests(['1','2'],'reviewer'))
-#if ($results && $results.size() > 0)
 
-<script>
-var assessedRecords = new DataRowsModel('reviewer-assessed');
-assessedRecords.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
-        this.rows.push(data[i]);
-    }
-}
+#ReviewerAssessed('arms','arms.dashboard.reviewer.assessed.h4.origin')
+#ReviewerAssessed('arms-storage','arms.dashboard.reviewer.assessed.h4.storage')
 
-jQuery(document).ready(function() {
-    ko.applyBindings(assessedRecords, jQuery('#approvedRecordsTbl')[0]);
-    setupPagingCtrls('approvedRecordsPaging', assessedRecords, $results);
-});
-</script>
-
-<div class="block">
-<table id="approvedRecordsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.submitted')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td data-bind="text: arms_review_eventTime"/>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("approvedRecordsPaging")
-
-</div>
-#end
 #parseTemplate("wrapping/info-box-close.vm")
 
 #set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
 #parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.checkRequests(['4'],'reviewer', 0))
-#if ($results && $results.size() > 0)
 
-<script>
-var provisionedRecords = new DataRowsModel('reviewer-provisioned');
-provisionedRecords.prepareData = function(data) {
-    for(var i=0; i < data.length; i++) {
-        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
-        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
-        this.rows.push(data[i]);
-    }
-}
-
-jQuery(document).ready(function() {
-    ko.applyBindings(provisionedRecords, jQuery('#provisionedRecordsTbl')[0]);
-    setupPagingCtrls('provisionedRecordsPaging', provisionedRecords, $results);
-});
-</script>
-
-<div class="block">
-<table id="provisionedRecordsTbl" data-bind="stopBindings: true">
-    <thead>
-        <tr>
-            <th>#displayMessage('arms.requests.table.title')</th>
-            <th>#displayMessage('arms.requests.table.action')</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: rows">
-        <tr>
-        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
-        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
-        </tr>
-    </tbody>
-</table>
-#setPagingCtrl("provisionedRecordsPaging")
-</div>
-#end
+#ReviewerProvisioned('arms','arms.dashboard.reviewer.provisioned.h4.origin')
+#ReviewerProvisioned('arms-storage','arms.dashboard.reviewer.provisioned.h4.storage')
 
 #parseTemplate("wrapping/info-box-close.vm")
+
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
 #parseTemplate("wrapping/info-box-open.vm")
 #set($results = $self.getAllStates("$packageType", 'arms-redraft'))
@@ -276,4 +81,3 @@ jQuery(document).ready(function() {
 
 </div>
 #end
-#parseTemplate("wrapping/info-box-close.vm")

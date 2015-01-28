@@ -1,13 +1,19 @@
-##On 20141204, provisoner and arms-provisioned stage is removed, move these tables to reviewers board
-#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
-#parseTemplate("wrapping/info-box-open.vm")
-#set($results = $self.checkAprovedRequests())
-#if ($results && $results.size() > 0)
+##On 20141204, provisoner and arms-provisioned stage have merged
+## load pagination controls
 #parseTemplate("home-components/pagingControl.vm")
 
+## marcros for creating tables on this page
+
+## To display a table of requests which have been approved
+#macro(ReviewerApproved $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+#set($results = $self.checkAprovedRequests())
+#if ($results && $results.size() > 0)
+
 <script>
-var approvedRcds = new DataRowsModel('approved');
-approvedRcds.prepareData = function(data) {
+var approveded${packageTypeNorm}Rcds = new DataRowsModel('approved', null, '$packageType');
+approveded${packageTypeNorm}Rcds.prepareData = function(data) {
  for(var i=0; i < data.length; i++) {
      data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
      data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
@@ -16,13 +22,14 @@ approvedRcds.prepareData = function(data) {
 }
 
 jQuery(document).ready(function() {
- ko.applyBindings(approvedRcds, jQuery('#approvedRcdsTbl')[0]);
- setupPagingCtrls('approvedRcdsPaging', approvedRcds, $results);
+ ko.applyBindings(approveded${packageTypeNorm}Rcds, jQuery('#approveded${packageTypeNorm}RcdsTbl')[0]);
+ setupPagingCtrls('approveded${packageTypeNorm}RcdsPaging', approveded${packageTypeNorm}Rcds, $results);
 });
 </script>
 
 <div class="block">
-<table id="approvedRcdsTbl" data-bind="stopBindings: true">
+<h4>#displayMessage($title)</h4>
+<table id="approveded${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -38,37 +45,46 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("approvedRcdsPaging")
+#setPagingCtrl("approveded${packageTypeNorm}RcdsPaging")
 </div>
 #end
-#parseTemplate("wrapping/info-box-close.vm")
 
-#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
-#parseTemplate("wrapping/info-box-open.vm")
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+## end of macro
+
+## To display a table of requests which have been approved - provsioned
+#macro(ReviewerApprovedProvisioned $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
 #set($results = $self.checkAprovedRequests(1))
 #if ($results && $results.size() > 0)
-#parseTemplate("home-components/pagingControl.vm")
+
 <script>
-var provisionedRcds = new DataRowsModel('approved-provisioned');
-provisionedRcds.prepareData = function(data) {
+var AProvisioned${packageTypeNorm}Rcds = new DataRowsModel('approved-provisioned', null, '$packageType');
+AProvisioned${packageTypeNorm}Rcds.prepareData = function(data) {
  for(var i=0; i < data.length; i++) {
      data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
      data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
      if ("date-provisioned" in data[i]) {
          data[i]["date_provisioned"] = data[i]["date-provisioned"];
-     }
+     } else {
+         data[i]["date_provisioned"] = "";
+    }
      this.rows.push(data[i]);
  }
 }
 
 jQuery(document).ready(function() {
- ko.applyBindings(provisionedRcds, jQuery('#provisionedRcdsTbl')[0]);
- setupPagingCtrls('provisionedRcdsPaging', provisionedRcds, $results);
+ ko.applyBindings(AProvisioned${packageTypeNorm}Rcds, jQuery('#AProvisioned${packageTypeNorm}RcdsTbl')[0]);
+ setupPagingCtrls('AProvisioned${packageTypeNorm}RcdsPaging', AProvisioned${packageTypeNorm}Rcds, $results);
 });
 </script>
 
 <div class="block">
-<table id="provisionedRcdsTbl" data-bind="stopBindings: true">
+<h4>#displayMessage($title)</h4>
+<table id="AProvisioned${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
     <thead>
         <tr>
             <th>#displayMessage('arms.requests.table.title')</th>
@@ -84,7 +100,29 @@ jQuery(document).ready(function() {
         </tr>
     </tbody>
 </table>
-#setPagingCtrl("provisionedRcdsPaging")
+#setPagingCtrl("AProvisioned${packageTypeNorm}RcdsPaging")
 </div>
 #end
+
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+## end of macro
+
+## end of macros
+
+#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.approved')")
+#parseTemplate("wrapping/info-box-open.vm")
+
+#ReviewerApproved('arms','arms.dashboard.reviewer.approved.h4.origin')
+#ReviewerApproved('arms-storage','arms.dashboard.reviewer.approved.h4.storage')
+
+#parseTemplate("wrapping/info-box-close.vm")
+
+#set($menuTitle = "#displayMessage('arms.dashboard.provisioner.provisioned')")
+#parseTemplate("wrapping/info-box-open.vm")
+
+#ReviewerApprovedProvisioned('arms','arms.dashboard.reviewer.aprovisioned.h4.origin')
+#ReviewerApprovedProvisioned('arms-storage','arms.dashboard.reviewer.aprovisioned.h4.storage')
+
 #parseTemplate("wrapping/info-box-close.vm")
