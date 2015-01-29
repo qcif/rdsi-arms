@@ -28,14 +28,14 @@
     "neverPublish": true,
     "alreadyCurated": false
   },
-  "display-type": "package-arms",
+  "display-type": "package-arms-storage",
   "transformerOverrides": {
     "local": {
       "template": "${server.url.base}published/detail/[[OID]]"
     },
     "requestPdf": {
       "sourcePayload": ".tfpackage",
-      "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+      "templatesPath": "${portal.home}/default/rdsi/display/package-arms-storage/detail/preview/body.vm",
       "outputFilename": "request.pdf",
       "velocityContextParams": {
         "workflowStage": "arms-draft",
@@ -44,7 +44,7 @@
     },
     "reviewerPdf": {
       "sourcePayload": ".tfpackage",
-      "templatesPath": "${portal.home}/default/rdsi/display/package-arms/detail/preview/body.vm",
+      "templatesPath": "${portal.home}/default/rdsi/display/package-arms-storage/detail/preview/body.vm",
       "outputFilename": "reviewer.pdf",
       "velocityContextParams": {
         "workflowStage": "arms-review",
