@@ -201,6 +201,9 @@
 <h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
 <p>#getValue("storage-estimated-growth-rate")</p>
 
+<h5>#displayMessage("arms.field.label.expected.number.users")</h5>
+<p>#getValue("exp-number-users")</p>
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.paragraphE")</p>
 ## Here does not have a owner check: onwer info is in solr? Need to filter attachment_type
 #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
