@@ -1,0 +1,204 @@
+## To display a table of submitted records of a packageType
+#macro(ReviewerSubmitted $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+#set($results = $self.checkRequests([],'reviewer'))
+#if ($results && $results.size() > 0)
+
+<script>
+var reviewer${packageTypeNorm}Rcds = new DataRowsModel('reviewer', null, '$packageType');
+reviewer${packageTypeNorm}Rcds.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
+        data[i]["eventTime"] = data[i][String(data[i]["workflow_step"]).replace('-','_') + '_eventTime'];
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(reviewer${packageTypeNorm}Rcds, jQuery('#reviewer${packageTypeNorm}RcdsTbl')[0]);
+    setupPagingCtrls('reviewer${packageTypeNorm}RcdsPaging', reviewer${packageTypeNorm}Rcds, $results);
+});
+</script>
+
+<div class="block">
+<h4>#displayMessage($title)</h4>
+<table id="reviewer${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.lastaction')</th>
+            <th>#displayMessage('arms.requests.table.lastdate')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: workflow_step_label"></td>
+        <td data-bind="text: eventTime"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("reviewer${packageTypeNorm}RcdsPaging")
+</div>
+#end
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+
+## To display a table of requests under assessing
+#macro(ReviewerAssessing $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+#set($results = $self.checkRequests(['1'],'reviewer'))
+#if ($results && $results.size() > 0)
+
+<script>
+var assessor${packageTypeNorm}Rcds = new DataRowsModel('reviewer-assessing', null, '$packageType');
+assessor${packageTypeNorm}Rcds.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(assessor${packageTypeNorm}Rcds, jQuery('#assessor${packageTypeNorm}RcdsTbl')[0]);
+    setupPagingCtrls('assessor${packageTypeNorm}RcdsPaging', assessor${packageTypeNorm}Rcds, $results);
+});
+</script>
+
+<div class="block">
+<h4>#displayMessage($title)</h4>
+<table id="assessor${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.responses')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td data-bind="text: 'responses: coming'"></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("assessor${packageTypeNorm}RcdsPaging")
+
+</div>
+#end
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end ## end of macro
+
+
+## To display a table of requests which have been assessed
+#macro(ReviewerAssessed $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+#set($results = $self.checkRequests(['1','2'],'reviewer'))
+#if ($results && $results.size() > 0)
+
+<script>
+var assessed${packageTypeNorm}Rcds = new DataRowsModel('reviewer-assessed', null, '$packageType');
+assessed${packageTypeNorm}Rcds.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(assessed${packageTypeNorm}Rcds, jQuery('#assessed${packageTypeNorm}RcdsTbl')[0]);
+    setupPagingCtrls('assessed${packageTypeNorm}RcdsPaging', assessed${packageTypeNorm}Rcds, $results);
+});
+</script>
+
+<div class="block">
+<h4>#displayMessage($title)</h4>
+<table id="assessed${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.submitted')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td data-bind="text: arms_review_eventTime"/>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("assessed${packageTypeNorm}RcdsPaging")
+
+</div>
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+## end of macro
+
+## To display a table of requests which have been provisioned
+#macro(ReviewerProvisioned $packageType $title)
+#set($packageTypeNorm = $packageType.replace("-","")) ## turn arms-storage into armsstorage as js models, id's
+#set($results = $self.setPackageType("packageType:$packageType"))
+#set($results = $self.checkRequests(['4'],'reviewer', 0))
+#if ($results && $results.size() > 0)
+
+<script>
+var provisioned${packageTypeNorm}Rcds = new DataRowsModel('reviewer-provisioned', null, '$packageType');
+provisioned${packageTypeNorm}Rcds.prepareData = function(data) {
+    for(var i=0; i < data.length; i++) {
+        data[i]["detailUrl"] = '$portalPath/detail/' + data[i].id;
+        data[i]["editUrl"] = '$portalPath/workflow/' + data[i].id;;
+        this.rows.push(data[i]);
+    }
+}
+
+jQuery(document).ready(function() {
+    ko.applyBindings(provisioned${packageTypeNorm}Rcds, jQuery('#provisioned${packageTypeNorm}RcdsTbl')[0]);
+    setupPagingCtrls('provisioned${packageTypeNorm}RcdsPaging', provisioned${packageTypeNorm}Rcds, $results);
+});
+</script>
+
+<div class="block">
+<h4>#displayMessage($title)</h4>
+<table id="provisioned${packageTypeNorm}RcdsTbl" data-bind="stopBindings: true">
+    <thead>
+        <tr>
+            <th>#displayMessage('arms.requests.table.title')</th>
+            <th>#displayMessage('arms.requests.table.action')</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: rows">
+        <tr>
+        <td><a data-bind="attr: {href: detailUrl}, text: dc_title"></a></td>
+        <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
+        </tr>
+    </tbody>
+</table>
+#setPagingCtrl("provisioned${packageTypeNorm}RcdsPaging")
+</div>
+#end
+
+##end of this type and restore to arms
+#set($results = $self.setPackageType("packageType:arms"))
+#end
+## end of macro

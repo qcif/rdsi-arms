@@ -125,6 +125,10 @@
                 "jsonconfig": "arms.json",
                 "packages-in-package": false
             },
+            "arms-storage": {
+                "jsonconfig": "arms-storage.json",
+                "packages-in-package": false
+            },
             "default": {
                 "jsonconfig": "packaging-config.json",
                 "packages-in-package": false

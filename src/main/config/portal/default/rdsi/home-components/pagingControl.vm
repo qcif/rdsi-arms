@@ -36,18 +36,20 @@ function setupPagingCtrls(ctrlID, modelInst, initData) {
 
 ## $packageType is set in "home-components/package-type.vm" which is loaded in every request list vm in this directory
 // Model used by knock-out binding
-function DataRowsModel(searchType, preparer) {
-    var self = this
+function DataRowsModel(searchType, preparer, package_type) {
+    var self = this;
+    var pt = "$packageType";
+    if (package_type && package_type.length > 3) { pt = package_type; }
     self.rows = ko.observableArray([]);
-    //As models are different, here self.prepareData is just a place holder 
+    //As models are different, here self.prepareData is just a place holder
     //It should be passed in as the argument of preparer or directly defined after a model instance is created in a vm
     self.prepareData = preparer ? preparer : null;
     self.reloadRecords = function(pageN) {
         self.rows.removeAll();
         if (pageN == null) { pageN = 1; }
-        jQuery.getJSON('$portalPath/dashboards/records.script?packageType=$packageType&searchType='+searchType+'&pageNum='+pageN, function(data) {
+        jQuery.getJSON('$portalPath/dashboards/records.script?packageType=pt&searchType='+searchType+'&pageNum='+pageN, function(data) {
          if (self.prepareData) {
-             self.prepareData(data); 
+             self.prepareData(data);
          } else {
              alert("Bad implementation: Currrent modal does not have function prepareData defined.");
          }

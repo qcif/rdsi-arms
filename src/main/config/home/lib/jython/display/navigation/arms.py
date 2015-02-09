@@ -16,11 +16,24 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-from com.googlecode.fascinator.common import FascinatorHome
+from java.io import File
+from com.googlecode.fascinator.common import FascinatorHome, JsonSimple
 import sys, os
-sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display", "navigation"))
-from versions import Versions
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display"))
+from Navigation import Navigation
 
-class VersionsData(Versions):
-    def __activate__(self, context):
+class ARMSNavigation(Navigation):
+    """
+        Extends base Navigation class to read workflow_step label from workflow.meta
+        used as the base class for arms and arms-storage types
+    """
+
+    def setup(self, context):
         self.activate(context)
+        storage = context["Services"].getStorage()
+        self.storedObj = storage.getObject(context["metadata"].getFirst("storage_id"))
+
+    def getWorkflowStep(self):
+        workflow = JsonSimple(File(os.path.join(self.storedObj.getPath(),"workflow.metadata")))
+        # it always should have label field
+        return workflow.getString("Check Code Please","label")

@@ -18,7 +18,7 @@
 
 from com.googlecode.fascinator.common import FascinatorHome
 import sys, os
-sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display")) 
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display"))
 
 from Dashboard import Dashboard
 
@@ -26,15 +26,15 @@ class RecordsData(Dashboard):
     """
         Used in AJAX call to get paged search results of ARMS records
         It returns results of predefined types of search:
-        submitted, shared and etc. Default: requestor 
+        submitted, shared and etc. Default: requestor
     """
-    
+
     def __init__(self):
         pass
 
     def __activate__(self, context):
         self.activate(context, context["page"].getPortal().recordsPerPage)
-        # variables associate with searches. 
+        # variables associate with searches.
         # If there is no map found, it will be default to "requestor" which is possibly not wanted
         searches = {'requestor':'arms-draft',
                     'redraft':'arms-redraft',
@@ -51,12 +51,13 @@ class RecordsData(Dashboard):
                     'adminProvisions':'arms-review,arms-approved',
                     'adminHoldings':'arms-approved,arms-rejected',
                     'shared':''}
-        
+
         formData = context["formData"]
         packageType = formData.get("packageType")
         # Default packageType used in search is arms
         if not packageType:
             packageType = "arms"
+        self.setPackageType(packageType)
         searchType = formData.get("searchType")
         # Default searchType is for requestor's drafts
         if searchType not in searches.keys():
@@ -66,7 +67,7 @@ class RecordsData(Dashboard):
             pageNum = int(pageNum)
         else:
             pageNum = 1
-            
+
         if searchType == "shared":
             results = self.getShared(packageType, pageNum)
         elif searchType == "submitted":
@@ -79,8 +80,7 @@ class RecordsData(Dashboard):
             results = self.checkAprovedRequests(packageType, searches[searchType], pageNum)
         else:
             results = self.getAllStates(packageType, searches[searchType], pageNum)
-        
+
         writer = context["response"].getPrintWriter("application/json; charset=UTF-8")
         writer.println(results)
         writer.close()
-    

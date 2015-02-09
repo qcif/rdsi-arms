@@ -43,6 +43,7 @@ class Dashboard:
         self.velocityContext = context
         self.indexer = self.vc('Services').getIndexer()
 
+        self.packageType = "packageType:arms"
         self.recordsPerPage = recordsPerPage
         self.returnFields = "id,date_object_created,date_object_modified,dc_title,workflow_step,workflow_step_label,dataprovider:email,owner"
 
@@ -106,7 +107,6 @@ class Dashboard:
         return rt.getResults()
 
     # Used by searching shared requests to the current user
-    # TODO: make page control works
     def getShared(self, packageType="arms", startPage=1):
         current_user = self.vc("page").authentication.get_username()
         security_roles = self.vc("page").authentication.get_roles_list()
@@ -163,6 +163,11 @@ class Dashboard:
         else:
             return ArrayList()
 
+    def setPackageType(self, new_type):
+        """ A helper function to allow checkRequests to accept type without change existing code
+        """
+        self.packageType = new_type
+
     def checkRequests(self, checklist_filter=['1'], role_filter='reviewer', exclusive=True, startPage=1):
         """ A customised query for arms at arms-review
             Get a list of requests filtered by provisioning_checklist
@@ -170,7 +175,10 @@ class Dashboard:
             For assessor, it is user based and queries against committee-responses.metadata
         """
         workflowStep = "arms-review"
-        req = SearchRequest("packageType:arms")
+        if self.packageType:
+            req = SearchRequest(self.packageType)
+        else:
+            req = SearchRequest("packageType:arms")
         req.addParam("fq", 'workflow_step:' + workflowStep)
         for item in ['1','2','3','4']:
             if item in checklist_filter:
@@ -224,7 +232,10 @@ class Dashboard:
             Get a list of requests filtered by provisioning_checklist
         """
         workflowStep = "arms-approved"
-        req = SearchRequest("packageType:arms")
+        if self.packageType:
+            req = SearchRequest(self.packageType)
+        else:
+            req = SearchRequest("packageType:arms")
         req.addParam("fq", 'workflow_step:' + workflowStep)
         if provisioned:
             req.addParam("fq", '-provisioning_checklist.4:null')
@@ -238,7 +249,6 @@ class Dashboard:
 
         if solrResults:
             results = solrResults.getResults()
-            print results.size()
             if results:
                 results = self.mergeEvents(results, ["arms_draft","arms_redraft","arms_review","arms_approved","arms_rejected"])
             self._setPaging(results.size())

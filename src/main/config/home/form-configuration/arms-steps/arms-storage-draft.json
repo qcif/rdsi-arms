@@ -1,0 +1,21 @@
+{
+  "divs": [
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/more-storage-requirements.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/more-storage-declarations.json"
+    }
+  ],
+  "buttons": [],
+  "form-footer": "arms-storage-form-footer",
+  "form-layout": {
+    "component-type": "tabbed-wizard",
+    "tabHeaderIdentifier": "armsTabHeader",
+    "wizardDefPath": "wizard-definitions/arms-storage-draft.json"
+  },
+  "validation-function": {
+    "component-type": "active-tab",
+    "tabHeaderIdentifier": "armsTabHeader"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "steps": {
+    "Storage requirements": {
+      "Next": "Declarations"
+    },
+    "Declarations": {
+      "Back": "Storage requirements",
+      "Next": "Reviewer Summary"
+    },
+    "Reviewer Summary": {
+      "Back": "Declarations",
+      "Next": "Assessments"
+    },
+    "Assessments": {
+      "Back": "Reviewer Summary",
+      "Next": "Provisioning"
+    },
+    "Provisioning": {
+      "Back": "Assessments",
+      "Next": "Outcome"
+    },
+    "Outcome": {
+      "Back": "Provisioning",
+      "Next": "Reviewer's Checklist"
+    },
+    "Reviewer's Checklist": {
+      "Back": "Outcome"
+    }
+   }
+}

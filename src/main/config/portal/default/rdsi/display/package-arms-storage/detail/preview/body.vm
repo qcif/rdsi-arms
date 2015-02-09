@@ -84,105 +84,10 @@
 
 <h4>Description</h4>
 <p>#getValue("collection:description")</p>
-<h4>#displayMessage("arms.field.label.dc-subject.anzsrc-for")</h4>
-#displayRepeatablesUL("dc:subject.anzsrc:for","skos:prefLabel")
 
-<h4>#displayMessage("arms.heading.contactdetails")</h4>
-<div class="people-container">
-	<div class="people">
-		<h5>#displayMessage("arms.field.label.dataprovider")</h5>
-		#displayContact('dataprovider')
-	</div>
-	<div class="people">
-		<h5>#displayMessage("arms.field.label.requester")</h5>
-		#displayContact('requester')
-	</div>
-</div>
-<div class="people-container">
-	<div class="people">
-		<h5>#displayMessage("arms.field.label.nodecontact")</h5>
-		#displayContact('nodecontact')
-	</div>
-</div>
+<p>See detail of <a target="_blank" href="$portalPath/detail/#getValue("dc:title")">this request based on</a>.</p>
 
-<h4>#displayMessage("arms.heading.data-collection")</h4>
-<p class="item_title">Target audience:</p>
-<p>#getValue("collection-details-audience")</p>
-<p class="item_title">#displayMessage("arms.field.label.completeness")</p>
-<p>#getValue("completeness") #getValue("complete_date")</p>
-
-<p class="item_title">#displayMessage("arms.heading.researchdata-access")</p>
-#set($v = $jsonUtil.getEmptyIfNull($item, "level-access"))
-<p>#displayMessage("arms.description.researchdata-access") $v</p>
-#if ($v == "Yes")
-	<p>#displayMessage("arms.description.researchdata-access-date-description") #getValue("futureAccessDate")</p>
-	<p>#displayMessage("arms.description.researchdata-access-description") #getValue("level-access-details")</p>
-#end
-
-<p class="item_title">#displayMessage("arms.section.methodmeta")</p>
-<p>#displayMessage("arms.field.label.methodmeta") #getValue("methodmeta")</p>
-<p>Format and Location: #getValue("methoddetails")</p>
-
-<p class="item_title">Support</p>
-<p>Support or Tools: #getValue("support")</p>
-
-<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionA.title")</p>
-<p>#getValue("collection-details-related-collections")</p>
-
-<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionB.title")</p>
-<p>Access restrictions: #getValue("collection-details-access-level")</p>
-#set($accessRestrictions = $jsonUtil.getStringList($item, "collection-details-access-restriction"))
-#set($accessNotes = $jsonUtil.getStringList($item, "collection-details-access-restriction-notes"))
-#set($accessDates = $jsonUtil.getStringList($item, "collection-details-access-restriction-date"))
-<table>
-    <thead>
-        <tr>
-                        <th>Restriction</th>
-                        <th>Notes</th>
-                        <th>Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        #foreach($restriction in $accessRestrictions)
-                #if ($StringUtils.isNotBlank($restriction))
-                        #set($accessCount = $velocityCount - 1)
-                        <tr>
-                                <td>$StringEscapeUtils.escapeHtml($restriction)</td>
-                                <td>$StringEscapeUtils.escapeHtml($accessNotes.get($accessCount))</td>
-                                <td>$StringEscapeUtils.escapeHtml($accessDates.get($accessCount))</td>
-                        </tr>
-                #end
-        #end
-    </tbody>
-</table>
-
-<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionC.title")</p>
-<p>#getValue("collection-details-licence-use")</p>
-
-<p class="item_title">#displayMessage("arms.field.label.section2-additional-subsectionD.title")</p>
-<p>#getValue("collection-details-citations")</p>
-
-
-
-<h4>#displayMessage("arms.field.label.section3-title")</h4>
-
-<p class="item_title">#displayMessage("arms.field.label.section3-subsectionA.title")</p>
-<p>#getValue("merit-description")</p>
-
-<p class="item_title">#displayMessage("arms.field.label.section3-subsectionB.title")</p>
-#set($vals = $jsonUtil.getStringList($item, "merit-origin"))
-#displayUL($vals)
-
-<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphA.title")</p>
-<p>#getValue("institutional-support")</p>
-
-<p class="item_title">#displayMessage("arms.field.label.section3-subsectionC.paragraphB.title")</p>
-#set($vals = $jsonUtil.getStringList($item, "merit-intent"))
-#displayUL($vals)
-
-
-
-<h4 style="clear: left">#displayMessage("arms.field.label.section4-title")</h4>
+<h4 style="clear: left">#displayMessage("arms.field.label.section4-title.nonum")</h4>
 
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionA.title")</p>
 #displayULFiltered($jsonUtil.getStringList($item, "storage-location:prefLabel") $jsonUtil.getStringList($item, "storage-location"))
@@ -263,7 +168,7 @@
 <table>
     <thead>
         <tr>
-			<th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.title")</th>
+		<th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.title")</th>
 	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerA")</th>
 	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerB")</th>
 	        <th>#displayMessage("arms.field.label.section4-subsectionC.paragraphE.statementB.pointA.answerC")</th>
@@ -381,11 +286,11 @@
 #if($isReviewer || $isAssessor)
     ## start of allocation committee submission
     <h4>#displayMessage("arms.heading.allocation-committee")</h4>
-    <p class="item_title">NODE: #getValue("node")</p>
-    <p class="item_title">Request ID: #getValue("requestID")</p>
     <p>&nbsp;</p>
 		<h5>Part A</h5>
 		<dl>
+				<dt>Application ID</dt>
+				<dd>#getValue("applicationID")</dd>
 				<dt>Proposed data holding and its source</dt>
 				<dd>#getValue("reviewer-proposed")</dd>
 				<dt>Assessment against ReDS Guidelines</dt>

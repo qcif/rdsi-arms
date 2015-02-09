@@ -18,9 +18,27 @@
 
 from com.googlecode.fascinator.common import FascinatorHome
 import sys, os
-sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "display", "navigation"))
-from versions import Versions
+sys.path.append(os.path.join(FascinatorHome.getPath(), "lib", "jython", "util"))
+from Assessment import Assessment
 
-class VersionsData(Versions):
-    def __activate__(self, context):
-        self.activate(context)
+class Assessoractions:
+    """ Base class for providing functions to assessoractions.vm
+        of arms and arms-storage
+    """
+    def __init__(self):
+        pass
+
+    def activate(self, context):
+        storage = context["Services"].getStorage()
+        storedObj = storage.getObject(context["metadata"].getFirst("storage_id"))
+        self.oid = storedObj.getId()
+
+        assessment = Assessment()
+        assessment.activate(context)
+        self.status = assessment.queryStatus(self.oid)
+
+    def getEditable(self):
+        if self.status == "submitted":
+            return False
+        else:
+            return True

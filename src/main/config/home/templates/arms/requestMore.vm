@@ -1,0 +1,12 @@
+##reference "${fascinator.home}/templates/self-submission/selfSub.vm"
+{
+   "viewId": "default",
+   "redbox:newForm": "$util.get($item, 'redbox:newForm')",
+   "redbox:formVersion": "$util.get($item, 'redbox:formVersion')",
+   "packageType": "arms-storage",
+#foreach( $key in ["dc:title","collection:description"])
+  #set($v = $util.get($item, $key))
+  "$key": "$v",
+#end
+  "parent-oid": "$util.get($item, 'oid')"
+}

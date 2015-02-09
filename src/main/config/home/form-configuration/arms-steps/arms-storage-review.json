@@ -1,0 +1,39 @@
+{
+  "divs": [
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/more-storage-requirements.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/more-storage-declarations.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/allocation-committee.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/assessment-summary.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/provisioning.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/outcome.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/checklist.json"
+    },
+    {
+      "config-file": "form-configuration/arms-steps/arms-tabs/node-communications.json"
+    }
+  ],
+  "buttons": [],
+  "form-footer": "armsform-footer",
+  "form-layout": {
+    "component-type": "tabbed-wizard",
+    "tabHeaderIdentifier": "armsTabHeader",
+    "wizardDefPath": "wizard-definitions/arms-storage-review.json"
+  },
+  "validation-function": {
+    "component-type": "active-tab",
+    "tabHeaderIdentifier": "armsTabHeader"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "heading": "Declarations",
+  "fields": [
+    {
+      "component-type": "text-block",
+      "type": "h1",
+      "content": "arms.declaration.heading.nonum"
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "fields": [
+        {
+          "component-type": "checkbox3",
+          "field-name": "request-declarations",
+          "box-for": "arms.declaration.description",
+          "multiline": true,
+          "additional-class": "ofFormCheckboxes",
+          "boxes": [
+            {
+              "label": "arms.declaration.sectionA.pointA",
+              "value": "arms.declaration.sectionA.pointA.value"
+            },
+            {
+              "label": "arms.declaration.sectionA.pointB",
+              "value": "arms.declaration.sectionA.pointB.value"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": ""
+    },
+    {
+      "component-type": "text-block",
+      "type": "p",
+      "content": ""
+    },
+    {
+      "component-type": "group",
+      "template": "group-div",
+      "additional-classes": "declaration-note",
+      "fields": [
+        {
+          "component-type": "text-block",
+          "type": "p",
+          "content": "arms.description.declaration.note"
+        }
+      ]
+    }
+  ]
+}
