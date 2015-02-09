@@ -106,6 +106,9 @@
 <h5>#displayMessage("arms.field.label.section4-subsectionB.paragraphC")</h5>
 <p>#getValue("storage-estimated-growth-rate")</p>
 
+<h5>#displayMessage("arms.field.label.expected.number.users")</h5>
+<p>#getValue("exp-number-users")</p>
+
 <p class="item_title">#displayMessage("arms.field.label.section4-subsectionB.paragraphE")</p>
 ## Here does not have a owner check: onwer info is in solr? Need to filter attachment_type
 #set($responses = $jsonUtil.getPayloadJsonSimple($Services.getStorage(), $oid, 'attachments.metadata').getJsonArray())
@@ -283,11 +286,11 @@
 #if($isReviewer || $isAssessor)
     ## start of allocation committee submission
     <h4>#displayMessage("arms.heading.allocation-committee")</h4>
-    <p class="item_title">NODE: #getValue("node")</p>
-    <p class="item_title">Request ID: #getValue("requestID")</p>
     <p>&nbsp;</p>
 		<h5>Part A</h5>
 		<dl>
+				<dt>Application ID</dt>
+				<dd>#getValue("applicationID")</dd>
 				<dt>Proposed data holding and its source</dt>
 				<dd>#getValue("reviewer-proposed")</dd>
 				<dt>Assessment against ReDS Guidelines</dt>
