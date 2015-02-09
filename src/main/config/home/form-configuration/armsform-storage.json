@@ -4,13 +4,13 @@
       "config-file": "form-configuration/arms-steps/arms-storage-draft.json"
     },
     "arms-review": {
-      "config-file": "form-configuration/arms-steps/arms-review.json"
+      "config-file": "form-configuration/arms-steps/arms-storage-review.json"
     },
     "arms-approved": {
-      "config-file": "form-configuration/arms-steps/arms-approved.json"
+      "config-file": "form-configuration/arms-steps/arms-storage-approved.json"
     },
     "arms-rejected": {
-      "config-file": "form-configuration/arms-steps/arms-rejected.json"
+      "config-file": "form-configuration/arms-steps/arms-storage-rejected.json"
     }
   }
 }
