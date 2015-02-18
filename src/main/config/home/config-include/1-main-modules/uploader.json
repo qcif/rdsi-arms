@@ -22,6 +22,15 @@
             ],
             "upload-path": "${fascinator.home}/uploads/submissions",
             "upload-template": "workflows/submission"
+        },
+        "word-upload": {
+            "screen-label": "Word Upload",
+            "security": [
+                "reviewer",
+                "admin",
+                "requestor"
+            ],
+            "upload-path": "${fascinator.home}/uploads/tmp/"
         }
     }
 }

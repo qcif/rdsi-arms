@@ -1,0 +1,115 @@
+## To makge ajax call work as it is in form
+## extracted from portal/default/rdsi/form-components/form-template.vm
+<script type="text/javascript">
+     jQuery.originalAjax = jQuery.ajax;
+     jQuery.ajax = function(url,options) {
+     return jQuery.originalAjax("http://localhost:9000/verNum1.8-SNAPSHOT/default/userinfo",{
+                type : "GET",
+                success: function(data,status,jqXHR) {
+                     if (data.userName == "guest") {
+                           window.location.reload();
+                     }
+                      jQuery.originalAjax(url,options);
+                  }});
+
+
+    }
+</script>
+
+<button class="menu-button" onclick="$('#jq_wordform').toggle(); return false;" href="#">Create a request by uploading a Word form</button>
+
+#parseTemplate( "home-components/package-type.vm" )
+#if ($portalId == "default") #set($nodeSuffix = "") #else #set($nodeSuffix = "-$portalId") #end
+
+<div id="jq_wordform" class="ui-helper-hidden">
+<span id="wordform_filename" class="filename"></span>
+<span class="btn btn-success fileinput-button">
+    <span>Select file...</span>
+    <!-- The file input field used as target for the file upload widget -->
+    <input id="wordform_fileupload" type="file" name="files" >
+</span>
+<input type="button" id="wordform_startupload" value="Start upload" />
+<hr>
+</div>
+
+<script>
+var jQ = $;
+
+var wordform_uploadData = {};
+
+var wordform_clearUploader = function() {
+    jQ("#wordform_filedesc").val("");
+    jQ('#wordform_startupload').attr("disabled", true);
+    jQ('#wordform_filename').text('No file selected.');
+};
+
+jQ(function () {
+    jQ('#wordform_startupload').click(function() {
+        jQ.blockUI({message:"<div style='font-size:16px;'>Uploading file...<img src='http://localhost:9000/verNum1.8-SNAPSHOT/default/images/ajax-loader.gif'/></div><div class='fileupload-progressbar'></div>"});
+        wordform_uploadData.submit();
+    });
+    jQ('#wordform_fileupload').fileupload({
+        url : "$portalPath/docxexporter.ajax",
+        dataType: 'json',
+        autoUpload: false,
+        done: function (e, data) {
+            jQ.unblockUI();
+            if (data.result.error != null) {
+                alert(data.result.error);
+                return;
+            }
+            wordform_clearUploader();
+            var inidata = {
+                    ajax: 1,
+                    func: "create-new",
+                    packageType: "$packageType",
+                    metaList: ["title", "description", "redbox:newForm", "redbox:formVersion","node"],
+                    sequencesMetaList: [ '{ "sequenceName":"qcifRequest","metadataName": "requestID","stringFormat":"ARMS_REQUEST_%04d"}'],
+                    title: "[Untitled]",
+                    node: "RDSI$nodeSuffix",
+                    description: "",
+                    "redbox:newForm": "true",
+                    "redbox:formVersion": "$systemConfig.getString("", "redbox.version.string")"
+                };
+            // console.log(data.result);
+            for (var d in data.result.inid) {
+                inidata['metaList'].push(d);
+                inidata[d] = data.result.inid[d];
+            }
+            //console.log(inidata);
+            //return;
+            jQ.blockUI({ css: { border: 'none', padding: '15px' }, message: '<h5>Please wait while the request is being created...</h5>'});
+            jQ.ajax({
+                type: "POST",
+                url: "$portalPath/actions/packaging.ajax",
+                data: inidata,
+                success: function(data) {
+                    if (data.status == "ok") {
+                        function redirect() {
+                            window.location.href = data.url;
+                        }
+                        setTimeout(redirect, 1500);
+                    } else {
+                        alert("#displayMessage('error-record-create-failed')");
+                    }
+                },
+                error: function(xhr, status, e) {
+                    alert("#displayMessage('error-record-create-failed')");
+                },
+                dataType: "json"
+            });
+        },
+        add: function (e, data) {
+            data.formData = { ajax:"1", "upload-file-workflow":"word-upload"};
+            data.formData.uploadFile = data.files[0].name;
+            wordform_uploadData = data;
+            jQ('#wordform_startupload').attr("disabled", false);
+            jQ('#wordform_filename').text(data.formData.uploadFile);
+        },
+        progress: function(e, data) {
+            var uploaded = parseInt(data.loaded / data.total * 100, 10);
+            jQ(".fileupload-progressbar div").width(uploaded + "%");
+        }
+    });
+});
+</script>

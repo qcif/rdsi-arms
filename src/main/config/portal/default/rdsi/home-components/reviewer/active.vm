@@ -81,3 +81,5 @@ jQuery(document).ready(function() {
 
 </div>
 #end
+
+#parseTemplate("form-components/wordform.vm")
