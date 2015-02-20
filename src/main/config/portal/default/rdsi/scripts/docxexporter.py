@@ -1,3 +1,5 @@
+# This Python file uses the following encoding: utf-8
+
 # The RDSI - ALLOCATION REQUEST MANAGEMENT SYSTEM
 # Copyright (C) 2015 Queensland Cyber Infrastructure Foundation (http://www.qcif.edu.au/)
 #
@@ -32,6 +34,15 @@ from javax.xml.transform.stream import StreamSource, StreamResult
 
 from HTMLParser import HTMLParser
 
+# https://wiki.python.org/moin/EscapingHtml
+def unescape(s):
+    s = s.replace("&lt;", "<")
+    s = s.replace("&gt;", ">")
+    # this has to be last:
+    s = s.replace("&amp;", "&")
+    return s
+
+
 class DocxHtmlParser(HTMLParser):
     """ Assume spans appear in pairs no matter how far they are separted:
         <p><span>Name: </span></p>
@@ -49,23 +60,39 @@ class DocxHtmlParser(HTMLParser):
         #~ for attr in attrs:
             #~ print("     attr:", attr)
         if tag == "span":
-            #~ print "Encountered the beginning of a %s tag" % tag
+            print "Encountered the beginning of a tag: %s tag" % tag
             self.current_tag = tag
             self.leading = not self.leading
-        #~ else:
-            #~ print "Encountered the not important beginning of a %s tag" % tag
+        else:
+            print "Encountered the not important beginning of a tag: %s" % tag
 
     def handle_data(self, data):
         #~ print("Data     :", data)
-        if data.strip():
+        d = data.strip()
+        if d:
+            print ("This is real: ", d)
             if self.current_tag == 'span':
+                c = self.map2(d)
+                if c in ["checked", "unchecked"]:
+                    print "Do yes/no, radio buttons, checkboxes stuff, how many spans?"
                 if self.leading:
-                    self.current_key = data.strip()
+                    self.current_key = d
                     #~ print "create key %s" % self.current_key
                     self.jobj[self.current_key] = ""
                 else:
                     #~ print "save value [ %s ] to %s" % (data, self.current_key)
-                    self.jobj[self.current_key] = data
+                    self.jobj[self.current_key] = d
+
+    def map2(self, s):
+        if s == "☐":
+            print "mapped to unchecked, first"
+            return "unchecked"
+        elif s == "☒":
+            print "mapped to checked, second"
+            return "checked"
+        else:
+            return s
+
 
 class DocxexporterData:
     def __init__(self):
@@ -90,6 +117,7 @@ class DocxexporterData:
             print "let's try to dump"
             processed = self.processdocx(uf)
             print processed
+            return
 
             #~ writer = self.response.getPrintWriter("text/html; charset=UTF-8")
             #~ result = self.dump2HTML(writer) #not working, why? not be used anyway
@@ -128,8 +156,9 @@ class DocxexporterData:
         parser = DocxHtmlParser()
         parser.init()
         f = open(tf, 'r')
-        parser.feed(f.read())
+        parser.feed(unescape(f.read()))
         f.close()
+        return parser.jobj
         try:
             remove(tf)
         except Exception, e:
