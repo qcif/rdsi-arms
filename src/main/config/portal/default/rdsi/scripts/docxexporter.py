@@ -30,8 +30,6 @@ from java.util.zip import ZipFile
 from net.sf.saxon import TransformerFactoryImpl
 from javax.xml.transform.stream import StreamSource, StreamResult
 
-#~ INPUTFILE = '/home/li/Downloads/list_form.docx'
-
 from HTMLParser import HTMLParser
 
 # https://wiki.python.org/moin/EscapingHtml
@@ -50,45 +48,130 @@ class DocxHtmlParser(HTMLParser):
         <p><span>Unit: </span></p>
         <p><span>some dep</span></p>
     """
+
     def init(self):
         self.jobj = {}
         self.current_tag = None
         self.current_key = None
         self.leading = False
+        self.tags = ("table", "tr", "td", "p")
+        self.units = {}
+        self.stacks = []
+        self.nexts = {"tr": False, "td": False, "p": False}
+        self.td_count = 0
+        self.start_push = False
+
+        self.contacts = {"Data Provider":"dataprovider","Data Storage Applicant":"requester"}
+        self.extracted = {}
+        self.current_contact = ""
+
+        # 'organization', 'state' not used
+        self.contact_fields = {'Title:':'title', 'Given Name:':'givenName', \
+            'Family Name:':'familyName', 'Email:':'email', 'Telephone:':'phone', \
+            'Role:':'role', 'Organisation:':'organization:prefLabel', 'State:':'state:prefLabel'}
 
     def handle_starttag(self, tag, attrs):
-        #~ for attr in attrs:
-            #~ print("     attr:", attr)
         if tag == "span":
-            print "Encountered the beginning of a tag: %s tag" % tag
+            #~ print "Encountered the beginning of a tag: %s tag" % tag
             self.current_tag = tag
             self.leading = not self.leading
-        else:
-            print "Encountered the not important beginning of a tag: %s" % tag
+        elif tag in self.tags:
+            #~ print "%s opened" % tag
+            self.units[tag] = True
+        #~ else:
+            #~ print "Encountered the not important beginning of a tag: %s" % tag
+
+        if tag == "tr":
+            self.td_count = 0
+            if self.nexts["tr"]:
+                self.nexts["td"] = True
+                self.nexts["tr"] = False
+            return
+        if tag == "td" and self.nexts["td"]:
+            self.nexts["p"] = True
+            self.nexts["td"] = False
+            return
+        if tag == "p" and self.nexts["p"]:
+            self.start_push = True
 
     def handle_data(self, data):
         #~ print("Data     :", data)
         d = data.strip()
         if d:
-            print ("This is real: ", d)
+            #~ print ("This is real: ", d)
             if self.current_tag == 'span':
-                c = self.map2(d)
-                if c in ["checked", "unchecked"]:
-                    print "Do yes/no, radio buttons, checkboxes stuff, how many spans?"
-                if self.leading:
-                    self.current_key = d
-                    #~ print "create key %s" % self.current_key
-                    self.jobj[self.current_key] = ""
-                else:
-                    #~ print "save value [ %s ] to %s" % (data, self.current_key)
-                    self.jobj[self.current_key] = d
+                d = self.map2(d)
+                #~ if d in ["checked", "unchecked"]:
+                    #~ print "Do yes/no, radio buttons, checkboxes stuff, how many spans?"
+                if d in self.contacts:
+                    #~ print "We need to process %s " % self.contacts[d]
+                    # if span has interesting string, trigger recording next tr
+                    self.nexts["td"] = True
+                    self.current_contact = self.contacts[d]
+                if d in "Select the appropriate re-use condition for this research data":
+                    print "Hit: collection-details-access-level but different, skip for now"
+                if d in "Indicate an anticipated number of users of this data":
+                    print "Hit: exp-number-users,skip for now"
+                ## the if-else block is not useful if field names and values are in different cells
+                ## it is useful when one next to each other
+                #if self.leading:
+                #    self.current_key = d
+                #    #~ print "create key %s" % self.current_key
+                #    self.jobj[self.current_key] = ""
+                #else:
+                #    #~ print "save value [ %s ] to %s" % (data, self.current_key)
+                #    self.jobj[self.current_key] = d
+                if self.nexts["p"] and self.start_push:
+                    self.stacks.append(d)
+
+    def handle_endtag(self, tag):
+        if tag in self.tags:
+            #~ print "%s closed" % tag
+            self.units[tag] = False
+            if tag == "td":
+                self.td_count = self.td_count + 1
+                #~ print "Current td count %d" % self.td_count
+                if self.start_push:
+                    self.start_push = False
+                    #~ if self.td_count == 1:
+                        #~ print "this could be field name"
+                    #~ print self.stacks
+                    if len(self.current_contact) > 4:
+                        #~ print "Save stacks to %s" % self.current_contact
+                        if self.td_count == 2:
+                            # field names
+                            self.extracted[self.current_contact] = self.stacks # need to map
+                        elif self.td_count == 3:
+                            # values:
+                            if len(self.stacks) > 0:
+                                # this is in proper dict, but jaffa needs to be in flat
+                                fields = []
+                                for f in self.extracted[self.current_contact]:
+                                    fields.append(self.contact_fields[f])
+                                contact = dict(zip(fields, self.stacks))
+                                print contact
+                                for f, v in contact.iteritems():
+                                    self.extracted["%s:%s" % (self.current_contact, f)] = v
+                            del self.extracted[self.current_contact]
+                            # we done with this contact
+                            self.current_contact = ""
+                    #~ print "Clean out stacks\n\n"
+                    self.stacks = []
+                    self.nexts["p"] = False # Done with this cell, How to get to another cell?
+                    self.nexts["td"] = True
+                if self.td_count >= 3:
+                    #~ print "td = %d, more tds are ignored from now on: no push" % self.td_count
+                    self.nexts["td"] = False
+                    self.start_push = False
+                    self.nexts["tr"] = True
+
 
     def map2(self, s):
         if s == "☐":
-            print "mapped to unchecked, first"
+            #~ print "mapped to unchecked, first"
             return "unchecked"
         elif s == "☒":
-            print "mapped to checked, second"
+            #~ print "mapped to checked, second"
             return "checked"
         else:
             return s
@@ -116,8 +199,8 @@ class DocxexporterData:
         if r:
             print "let's try to dump"
             processed = self.processdocx(uf)
-            print processed
-            return
+            #~ print processed
+            #~ return
 
             #~ writer = self.response.getPrintWriter("text/html; charset=UTF-8")
             #~ result = self.dump2HTML(writer) #not working, why? not be used anyway
@@ -158,13 +241,13 @@ class DocxexporterData:
         f = open(tf, 'r')
         parser.feed(unescape(f.read()))
         f.close()
-        return parser.jobj
+        #~ return parser.extracted
         try:
             remove(tf)
         except Exception, e:
             self.log.error("Failed to remove uploaded word file: %s." % tf)
             self.log.error(str(e))
-        return parser.jobj
+        return parser.extracted
 
     def __check(self, path):
         # Has it been saved correctly and is docx?"
