@@ -29,6 +29,7 @@ from java.io import File
 from java.util.zip import ZipFile
 from net.sf.saxon import TransformerFactoryImpl
 from javax.xml.transform.stream import StreamSource, StreamResult
+from org.apache.commons.lang import StringEscapeUtils
 
 from HTMLParser import HTMLParser
 
@@ -40,14 +41,33 @@ def unescape(s):
     s = s.replace("&amp;", "&")
     return s
 
+def map2(s):
+    """Map symbols to strings"""
+    if s == "☐":
+        #~ print "mapped to unchecked"
+        return "unchecked"
+    elif s == "☒":
+        #~ print "mapped to checked"
+        return "checked"
+    else:
+        return s
 
 class DocxHtmlParser(HTMLParser):
-    """ Assume spans appear in pairs no matter how far they are separted:
+    """ Parse an HTMEL transformed from a Word Docx file
+    Assumptions:
+     Interesting fields with their names are in table rows
+     Each table row is one targeted item
+     First columns have questions (filed names) individually or in a group:
         <p><span>Name: </span></p>
         <p><span>some one</span></p>
         <p><span>Unit: </span></p>
         <p><span>some dep</span></p>
-    """
+        The next column has value(s)
+        Depends on table, columns after either 2 or 3 contains explanations, so they are ignored
+     There is no multi-choice question: ☒ means selected/checked, ☐ means not
+     Only above symbols are recognised and processed. Others will be treated as string
+     A map between fields and questions is known, unkowns are ignored
+"""
 
     def init(self):
         self.jobj = {}
@@ -69,6 +89,9 @@ class DocxHtmlParser(HTMLParser):
         self.contact_fields = {'Title:':'title', 'Given Name:':'givenName', \
             'Family Name:':'familyName', 'Email:':'email', 'Telephone:':'phone', \
             'Role:':'role', 'Organisation:':'organization:prefLabel', 'State:':'state:prefLabel'}
+
+        self.simple_fields = {'Collection Name':'dc:title', 'Description': 'collection:description'}
+        self.current_field = {'name': '', 'type': ''} #type: simple
 
     def handle_starttag(self, tag, attrs):
         if tag == "span":
@@ -96,11 +119,11 @@ class DocxHtmlParser(HTMLParser):
 
     def handle_data(self, data):
         #~ print("Data     :", data)
-        d = data.strip()
+        d = ' '.join(data.split())
         if d:
             #~ print ("This is real: ", d)
             if self.current_tag == 'span':
-                d = self.map2(d)
+                d = map2(d)
                 #~ if d in ["checked", "unchecked"]:
                     #~ print "Do yes/no, radio buttons, checkboxes stuff, how many spans?"
                 if d in self.contacts:
@@ -112,6 +135,11 @@ class DocxHtmlParser(HTMLParser):
                     print "Hit: collection-details-access-level but different, skip for now"
                 if d in "Indicate an anticipated number of users of this data":
                     print "Hit: exp-number-users,skip for now"
+                if d in self.simple_fields:
+                    #~ print "Simle field, the content of the next cell need to be packed"
+                    self.current_field['name'] = self.simple_fields[d]
+                    self.current_field['type'] = 'simple'
+                    self.nexts["td"] = True
                 ## the if-else block is not useful if field names and values are in different cells
                 ## it is useful when one next to each other
                 #if self.leading:
@@ -122,7 +150,7 @@ class DocxHtmlParser(HTMLParser):
                 #    #~ print "save value [ %s ] to %s" % (data, self.current_key)
                 #    self.jobj[self.current_key] = d
                 if self.nexts["p"] and self.start_push:
-                    self.stacks.append(d)
+                    self.stacks.append(StringEscapeUtils.escapeHtml(d))
 
     def handle_endtag(self, tag):
         if tag in self.tags:
@@ -136,6 +164,16 @@ class DocxHtmlParser(HTMLParser):
                     #~ if self.td_count == 1:
                         #~ print "this could be field name"
                     #~ print self.stacks
+                    if self.current_field['type'] == "simple":
+                        #~ print self.stacks
+                        if self.current_field['name'] in self.extracted:
+                            #~ print "collect every thing from stacks and save to %s" % self.current_field['name']
+                            self.extracted[self.current_field['name']] = "".join(self.stacks)
+                            self.current_field['name'] = ''
+                            self.current_field['type'] = ''
+                        else:
+                            #~ print "This is the closing tag of the field name"
+                            self.extracted[self.current_field['name']] = ""
                     if len(self.current_contact) > 4:
                         #~ print "Save stacks to %s" % self.current_contact
                         if self.td_count == 2:
@@ -164,18 +202,6 @@ class DocxHtmlParser(HTMLParser):
                     self.nexts["td"] = False
                     self.start_push = False
                     self.nexts["tr"] = True
-
-
-    def map2(self, s):
-        if s == "☐":
-            #~ print "mapped to unchecked, first"
-            return "unchecked"
-        elif s == "☒":
-            #~ print "mapped to checked, second"
-            return "checked"
-        else:
-            return s
-
 
 class DocxexporterData:
     def __init__(self):
@@ -211,7 +237,7 @@ class DocxexporterData:
                 self.log.error("Failed to remove uploaded word file: %s." % uf)
                 self.log.error(str(e))
             writer = self.response.getPrintWriter("text/plain; charset=UTF-8")
-            result = self.__toJson({"ok": "Completed OK","inid":processed})
+            result = self.__toJson({"ok": "Completed OK", "inid": processed})
             writer.println(result)
             writer.close()
         else:
@@ -225,7 +251,6 @@ class DocxexporterData:
         Convert a docx to html format, and calling
         """
 
-        #~ inputfilepath = INPUTFILE
         zipFile = ZipFile(inputfilepath)
         entry = zipFile.getEntry("word/document.xml")
         stream = zipFile.getInputStream(entry)
@@ -241,7 +266,6 @@ class DocxexporterData:
         f = open(tf, 'r')
         parser.feed(unescape(f.read()))
         f.close()
-        #~ return parser.extracted
         try:
             remove(tf)
         except Exception, e:
@@ -263,24 +287,3 @@ class DocxexporterData:
 
     def __toJson(self, dataDict):
         return JsonSimple(JsonObject(dataDict))
-
-    def dump2HTML(self, w):
-        """
-        Convert a docx to html and dump through writer, cannot dump, to be removed
-        """
-        try:
-            inputfilepath = INPUTFILE
-            zipFile = ZipFile(inputfilepath)
-            entry = zipFile.getEntry("word/document.xml")
-            stream = zipFile.getInputStream(entry)
-            text = StreamSource(stream)
-
-            factory = TransformerFactoryImpl()
-            xslt = StreamSource(File(join(FascinatorHome.getPath(), "lib", "xslt", "docx2html.xsl")))
-            transformer = factory.newTransformer(xslt)
-            transformer.transform(text, StreamResult(w))
-            print w.toString()
-            return "OK"
-        except Exception, e:
-            self.log.error("Dump failed: %s" % str(e))
-            return str(e)
