@@ -1,7 +1,8 @@
 #set($pageTitle = 'Message Queue Information')
 <ul class="breadcrumb grid_16">
-    <li><a href="$portalPath/home">> Home</a></li>
-    <li>> Admin > Queues</li>
+    <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+     <span>></span><li>Admin </li>
+     <span>></span><li>Queues</li>
 </ul>
 <h2 id="page-heading">
   <span>$pageTitle</span>

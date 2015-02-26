@@ -63,8 +63,9 @@
 #end
 
 <ul class="breadcrumb grid_16">
-    <li><a href="$portalPath/home">> Home</a></li>
-    <li>> Admin > Settings</li>
+    <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+   <span>></span><li>Admin</li>
+   <span>></span><li>Settings</li>
 </ul>
 #set($pageTitle = "Settings")
 <h2 id="page-heading"><span>Settings</span></h2>

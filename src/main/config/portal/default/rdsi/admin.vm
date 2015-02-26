@@ -118,8 +118,9 @@
 
 #set($pageTitle = "Administration")
 <ul class="breadcrumb grid_16">
-    <li><a href="$portalPath/home">> Home</a></li>
-    <li>> Admin > Security</li>
+     <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+    <span>></span><li>Admin</li>
+    <span>></span><li>Security</li>
 </ul>
 <h2 id="page-heading">Administration</h2>
 <div class="grid_4">

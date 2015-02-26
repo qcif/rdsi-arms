@@ -49,8 +49,9 @@
   <li><a id="${id}-category" class="category" href="#" rel="$id">$label</a></li>
 #end
 <ul class="breadcrumb grid_16">
-    <li><a href="$portalPath/home">> Home</a></li>
-    <li>> Admin > Batch Process</li>
+    <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+    <span>></span><li>Admin</li>
+    <span>></span><li>Batch Process</li>
 </ul>
 #set($pageTitle = "Batch Process")
 <h2 id="page-heading">Batch Process</h2>

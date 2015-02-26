@@ -1,7 +1,7 @@
 #set($pageTitle = 'Search')
 <ul class="breadcrumb grid_16">
-    <li><a href="$portalPath/home">> Home</a></li>
-    <li>> Browse</li>
+    <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+    <span>></span><li>Browse</li>
 </ul>
 #set($paging = $self.paging)
 #set($hasResult = ($self.result and $paging.totalFound > 0))

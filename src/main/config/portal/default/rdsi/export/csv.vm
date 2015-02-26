@@ -21,8 +21,9 @@
 	</form>
 #else
     <ul class="breadcrumb grid_16">
-        <li><a href="$portalPath/home">> Home</a></li>
-        <li>> Admin > Export</li>
+        <li class="breadcrumb-link ui-corner-top"><a href="$portalPath/home">Home</a></li>
+        <span>></span><li>Admin</li>
+        <span>></span><li>Export</li>
     </ul>
 	<span>$self.getErrorMsg()</span>
 #end

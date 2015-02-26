@@ -1,6 +1,6 @@
 #set($pageTitle = "Home")
 <ul class="breadcrumb grid_16">
-    <li>> Home</li>
+    <li>Home</li>
 </ul>
 
 <h2 id="page-heading">
