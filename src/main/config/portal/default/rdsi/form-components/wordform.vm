@@ -1,3 +1,4 @@
+<script type="text/javascript" src="$portalPath/jaffa/libs/jquery/jquery.blockUI.js"></script>
 ## To makge ajax call work as it is in form
 ## extracted from portal/default/rdsi/form-components/form-template.vm
 <script type="text/javascript">
