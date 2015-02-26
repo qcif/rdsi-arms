@@ -85,6 +85,7 @@ jQuery(document).ready(function() {
 #set($menuTitle = "#displayMessage('arms.dashboard.requestor.draft')")
 #parseTemplate("wrapping/info-box-open.vm")
 <div class="block">
+<h4>#displayMessage('arms.dashboard.requestor.draft.h4.origin')</h4>
 #set($results = $self.getListOfStage("$packageType", 'arms-draft'))
 
 #if ($results && $results.size() > 0)
