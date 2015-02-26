@@ -2,6 +2,8 @@
 #parseTemplate("home-components/pagingControl.vm")
 #parseTemplate("home-components/reviewer/tables.vm")
 
+
+
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.pending')")
 #parseTemplate("wrapping/info-box-open.vm")
 
@@ -36,6 +38,7 @@
 #ReviewerProvisioned('arms-storage','arms.dashboard.reviewer.provisioned.h4.storage')
 
 #parseTemplate("wrapping/info-box-close.vm")
+
 
 #set($menuTitle = "#displayMessage('arms.dashboard.reviewer.resubmission')")
 #parseTemplate("wrapping/info-box-open.vm")
@@ -76,10 +79,14 @@ jQuery(document).ready(function() {
         <td><a data-bind="attr: {href: editUrl}"><img alt="#displayMessage('arms.requests.action.edit')" src="$portalPath/images/icons/workflow_edit.png" title="#displayMessage('arms.requests.action.edit')"></a></td>
         </tr>
     </tbody>
-</table>
+</table>                                                              
 #setPagingCtrl("redraftRecordsPaging")
 
 </div>
 #end
-
+#parseTemplate("wrapping/info-box-close.vm")
+#set($menuTitle = "Import an offline form")
+#parseTemplate("wrapping/info-box-open.vm")
 #parseTemplate("form-components/wordform.vm")
+#parseTemplate("wrapping/info-box-close.vm")
+
