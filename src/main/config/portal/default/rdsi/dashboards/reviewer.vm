@@ -1,5 +1,16 @@
 #set($pageTitle = "Home")
-
+<ul class="breadcrumb grid_16">
+    <li><a href="$portalPath/home">> Home</a></li>
+    #if($self.section=='approved')
+        <li>><a href="$portalPath/dashboards/reviewer"> Review requests</a></li>
+        <li>> Approved requests</li>
+    #elseif($self.section=='rejected')
+        <li>><a href="$portalPath/dashboards/reviewer"> Review requests</a></li>
+        <li>> Rejected requests</li>
+    #else
+        <li>> Review requests</li>
+    #end
+</ul>
 <h2 id="page-heading">
   <span>#displayMessage("arms.dashboard.reviewer")</span>
 </h2>

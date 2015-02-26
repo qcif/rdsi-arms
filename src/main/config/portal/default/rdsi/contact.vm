@@ -1,4 +1,8 @@
 #set($pageTitle = "Contact")
+<ul class="breadcrumb grid_16">
+    <li><a href="$portalPath/home">> Home</a></li>
+    <li>> Contact</li>
+</ul>
 <h2 id="page-heading"><span>Contact us</span></h2>
 <div class="grid_16">
     #set($contentTitle = "Description")

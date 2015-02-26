@@ -1,4 +1,8 @@
 #set($pageTitle = "Help")
+<ul class="breadcrumb grid_16">
+    <li><a href="$portalPath/home">> Home</a></li>
+    <li>> Help/li>
+</ul>
 <h2 id="page-heading"><span>Help</span></h2>
 <div class="grid_16">
 <p>Coming up</p>

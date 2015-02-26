@@ -61,6 +61,9 @@
                 <span id="user-info" class="status"><a class="login-now" href="#">Login</a></span>
             #end
         </li>
+         <li class="secondary">
+         <span>test</span>
+         </li>
         $!navContent
     </ul>
 </div>

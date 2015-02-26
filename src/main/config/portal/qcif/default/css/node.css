@@ -72,6 +72,20 @@ th.header {
     border: 1px solid #0091b6;    
 }
 
+ul.breadcrumb li {
+  list-style-type: none;
+  display: inline;
+  margin: 2px
+}
+
+ul.breadcrumb li a{
+  color: #0091b6;
+}
+
+ul.breadcrumb li:hover a{
+  color: #000;
+}
+
 ul.main li:hover a {
  background-color: white;
  color: #0091b6;

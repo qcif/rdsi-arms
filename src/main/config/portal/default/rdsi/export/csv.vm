@@ -1,0 +1,28 @@
+#if($self.getErrorMsg()=="")
+	<form method="POST" action="csv">
+    	<div>
+    	    <ul class="breadcrumb grid_16">
+                <li><a href="$portalPath/home">> Home</a></li>
+                <li>> Admin > Export</li>
+            </ul>
+    	</div>
+    	<div>
+    		<span>Export Type:
+				<select id="facetval" name="facetval">
+					#foreach ($facet in $self.facetFields.keySet()):
+						<option value="$facet">$facet</option>
+                    #end
+				</select>
+			</span>
+			<span>
+				<input type="submit" value="Export CSV" />
+			</span>
+    	</div>
+	</form>
+#else
+    <ul class="breadcrumb grid_16">
+        <li><a href="$portalPath/home">> Home</a></li>
+        <li>> Admin > Export</li>
+    </ul>
+	<span>$self.getErrorMsg()</span>
+#end
