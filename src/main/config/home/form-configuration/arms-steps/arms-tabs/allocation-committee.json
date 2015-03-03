@@ -95,17 +95,7 @@
     {
       "component-type": "textarea",
       "field-name": "reviewer-rationale3",
-      "label": "arms.field.label.reviewer-rationale3",
-      "validation": {
-        "save-rules": [
-          "required"
-        ],
-        "validation-id": "reviewer-rationale3",
-        "focus-id": "reviewer-rationale3",
-        "validation-messages": {
-          "required": "Rationale for the second instance is required"
-        }
-      }
+      "label": "arms.field.label.reviewer-rationale3"
     },
     {
       "component-type": "textarea",
