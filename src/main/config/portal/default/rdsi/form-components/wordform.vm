@@ -4,7 +4,7 @@
 <script type="text/javascript">
      jQuery.originalAjax = jQuery.ajax;
      jQuery.ajax = function(url,options) {
-     return jQuery.originalAjax("http://localhost:9000/verNum1.8-SNAPSHOT/default/userinfo",{
+     return jQuery.originalAjax("$portalPath/userinfo",{
                 type : "GET",
                 success: function(data,status,jqXHR) {
                      if (data.userName == "guest") {
@@ -46,7 +46,7 @@ var wordform_clearUploader = function() {
 
 jQ(function () {
     jQ('#wordform_startupload').click(function() {
-        jQ.blockUI({message:"<div style='font-size:16px;'>Uploading file...<img src='http://localhost:9000/verNum1.8-SNAPSHOT/default/images/ajax-loader.gif'/></div><div class='fileupload-progressbar'></div>"});
+        jQ.blockUI({message:"<div style='font-size:16px;'>Uploading file...<img src='$portalPath/images/ajax-loader.gif'/></div><div class='fileupload-progressbar'></div>"});
         wordform_uploadData.submit();
     });
     jQ('#wordform_fileupload').fileupload({
