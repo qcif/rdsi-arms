@@ -49,7 +49,7 @@ class RecordsData(Dashboard):
                     'approved-provisioned':1,
                     'rejected':'arms-rejected',
                     'adminProvisions':'arms-review,arms-approved',
-                    'adminHoldings':'arms-approved,arms-rejected',
+                    'adminHoldings':'arms-provisioning,arms-rejected',
                     'shared':''}
 
         formData = context["formData"]

@@ -7,9 +7,9 @@
       "content": "Provisioning checklist"
     },
     {
-      "component-type": "checkbox",
+      "component-type": "local-data-source-checkbox",
       "field-name": "provisioning_checklist",
-      "sourceUrl": "form-components/stages2check.json",
+      "option-data": "../portal/default/rdsi/form-components/stages2check.json",
       "multiline": true,
       "saveLabel": true,
       "additional-classes": "ofFormCheckboxes"

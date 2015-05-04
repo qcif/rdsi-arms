@@ -1,14 +1,46 @@
 [
-	{
-		"value":"University of A",
-		"label":"University of A"
-	},
-	{
-		"value":"University of B",
-		"label":"University of B"
-	},
-	{
-		"value":"Other",
-		"label":"Other"
-	}
+  {
+    "value": "Australian Catholic University",
+    "label": "Australian Catholic University"
+  },
+  {
+    "value": "Bond University",
+    "label": "Bond University"
+  },
+  {
+    "value": "Central Queensland University",
+    "label": "Central Queensland University"
+  },
+  {
+    "value": "Griffith University",
+    "label": "Griffith University"
+  },
+  {
+    "value": "James Cook University",
+    "label": "James Cook University"
+  },
+  {
+    "value": "Queensland University of Technology",
+    "label": "Queensland University of Technology"
+  },
+  {
+    "value": "Southern Cross University",
+    "label": "Southern Cross University"
+  },
+  {
+    "value": "University of Queensland",
+    "label": "University of Queensland"
+  },
+  {
+    "value": "University of Southern Queensland",
+    "label": "University of Southern Queensland"
+  },
+  {
+    "value": "University of the Sunshine Coast",
+    "label": "University of the Sunshine Coast"
+  },
+  {
+    "value": "Other",
+    "label": "Other"
+  }
 ]

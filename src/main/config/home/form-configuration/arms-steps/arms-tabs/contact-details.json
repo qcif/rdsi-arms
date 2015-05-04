@@ -109,11 +109,11 @@
         "template": "group-div",
         "fields": [
            {
-               "component-type": "data-source-dropdown",
+               "component-type": "local-data-source-dropdown",
                "field-name": "dataprovider:state",
                "label": "arms.field.label.optional.state",
                "field-name-label": "dataprovider:state:prefLabel",
-               "sourceUrl": "form-components/states.json",
+               "option-data": "../portal/default/rdsi/form-components/states.json",
                "wrapper-class": "inline-block-component orgLabel"
           },
           {
@@ -130,11 +130,11 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "data-source-dropdown",
+          "component-type": "local-data-source-dropdown",
           "field-name": "dataprovider:organization",
           "label": "arms.field.label.optional.organization",
           "field-name-label": "dataprovider:organization:prefLabel",
-          "sourceUrl": "form-components/organisations.json",
+          "option-data": "../portal/default/rdsi/form-components/organisations.json",
           "wrapper-class": "inline-block-component orgLabel"
         },
         {
@@ -296,11 +296,11 @@
         "template": "group-div",
         "fields": [
            {
-               "component-type": "data-source-dropdown",
+               "component-type": "local-data-source-dropdown",
                "field-name": "requester:state",
                "label": "arms.field.label.optional.state",
                "field-name-label": "requester:state:prefLabel",
-               "sourceUrl": "form-components/states.json",
+               "option-data": "../portal/default/rdsi/form-components/states.json",
                "wrapper-class": "inline-block-component orgLabel"
           },
           {
@@ -317,11 +317,11 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "data-source-dropdown",
+          "component-type": "local-data-source-dropdown",
           "field-name": "requester:organization",
           "label": "arms.field.label.optional.organization",
           "field-name-label": "requester:organization:prefLabel",
-          "sourceUrl": "form-components/organisations.json",
+          "option-data": "../portal/default/rdsi/form-components/organisations.json",
           "wrapper-class": "inline-block-component orgLabel"
         },
         {
@@ -441,11 +441,11 @@
         "template": "group-div",
         "fields": [
            {
-               "component-type": "data-source-dropdown",
+               "component-type": "local-data-source-dropdown",
                "field-name": "nodecontact:state",
                "label": "arms.field.label.optional.state",
                "field-name-label": "nodecontact:state:prefLabel",
-               "sourceUrl": "form-components/states.json",
+               "option-data": "../portal/default/rdsi/form-components/states.json",
                "wrapper-class": "inline-block-component orgLabel"
           },
           {
@@ -462,11 +462,11 @@
       "template": "group-div",
       "fields": [
         {
-          "component-type": "data-source-dropdown",
+          "component-type": "local-data-source-dropdown",
           "field-name": "nodecontact:organization",
           "label": "arms.field.label.optional.organization",
           "field-name-label": "nodecontact:organization:prefLabel",
-          "sourceUrl": "form-components/organisations.json",
+          "option-data": "../portal/default/rdsi/form-components/organisations.json",
           "wrapper-class": "inline-block-component orgLabel"
         },
         {

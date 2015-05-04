@@ -22,10 +22,10 @@
       "content": "arms.field.label.section4-subsectionA.paragraphA"
     },
     {
-      "component-type": "checkbox",
+      "component-type": "local-data-source-checkbox",
       "field-name": "storage-location",
       "box-for": "arms.field.label.section4-subsectionA.paragraphB",
-      "sourceUrl": "form-components/rdsi-nodes.json",
+      "option-data": "../portal/default/rdsi/form-components/rdsi-nodes.json",
       "multiline": true,
       "saveLabel": true,
       "additional-classes": "ofFormCheckboxes"

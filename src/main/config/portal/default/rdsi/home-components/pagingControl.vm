@@ -47,7 +47,7 @@ function DataRowsModel(searchType, preparer, package_type) {
     self.reloadRecords = function(pageN) {
         self.rows.removeAll();
         if (pageN == null) { pageN = 1; }
-        jQuery.getJSON('$portalPath/dashboards/records.script?packageType=pt&searchType='+searchType+'&pageNum='+pageN, function(data) {
+        jQuery.getJSON('$portalPath/dashboards/records.script?packageType=arms&searchType='+searchType+'&pageNum='+pageN, function(data) {
          if (self.prepareData) {
              self.prepareData(data);
          } else {
